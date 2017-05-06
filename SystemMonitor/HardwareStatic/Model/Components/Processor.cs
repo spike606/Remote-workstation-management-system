@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SystemMonitor
+namespace SystemMonitor.HardwareStatic.Model.Components
 {
-    public class Class1
+    public class Processor
     {
+        public string Name { get; set; }
     }
 }
