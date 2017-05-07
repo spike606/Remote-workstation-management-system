@@ -62,6 +62,8 @@
     <Compile Include="DataBuilder\ISystemMonitorDataBuilder.cs" />
     <Compile Include="HardwareStatic\Builder\HardwareStaticBuilder.cs" />
     <Compile Include="HardwareStatic\Builder\IHardwareStaticBuilder.cs" />
+    <Compile Include="HardwareStatic\Model\CustomProperties\Unit.cs" />
+    <Compile Include="HardwareStatic\Model\CustomProperties\UnitValue.cs" />
     <Compile Include="HardwareStatic\Model\HardwareStaticData.cs" />
     <Compile Include="HardwareStatic\WMI\IWMIClient.cs" />
     <Compile Include="HardwareStatic\WMI\IWMIDataExtractor.cs" />
@@ -85,7 +87,9 @@
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="HardwareStatic\Model\CustomProperties\Enum\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

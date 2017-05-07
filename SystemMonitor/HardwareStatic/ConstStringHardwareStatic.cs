@@ -10,5 +10,6 @@ namespace SystemMonitor.HardwareStatic
     {
         internal const string WMI_QUERY_PROCESSOR = "select * from Win32_Processor";
         internal const string PROCESSOR_NAME = "name";
+        internal const string PROCESSOR_ADDRESS_WIDTH = "AddressWidth";
     }
 }

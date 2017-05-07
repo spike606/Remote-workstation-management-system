@@ -16,7 +16,9 @@ namespace SystemMonitorLibTest
 
             HardwareStaticData data = monitor.GetHardwareStaticData();
 
-            Console.WriteLine(data.Processor.Name);
+            Console.WriteLine(data.Processor.AddressWidth.Unit);
+            Console.WriteLine(data.Processor.AddressWidth.Value);
+
             Console.ReadLine();
         }
     }
