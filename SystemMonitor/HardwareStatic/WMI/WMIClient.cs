@@ -4,13 +4,20 @@ using System.Linq;
 using System.Management;
 using System.Text;
 using System.Threading.Tasks;
+using SystemMonitor.NLogger;
 
 namespace SystemMonitor.HardwareStatic.WMI
 {
-    internal class WMIClient
+    internal class WMIClient : IWMIClient
     {
-        // TODO: IoC, nlog
-        internal ManagementObject RetriveObjectByExecutingWMIQuery(string wmiQuery)
+        public WMIClient(INLogger logger)
+        {
+            this.Logger = logger;
+        }
+
+        public INLogger Logger { get; set; }
+
+        public ManagementObject RetriveObjectByExecutingWMIQuery(string wmiQuery)
         {
             ManagementObject managementObject = null;
             try
@@ -19,7 +26,7 @@ namespace SystemMonitor.HardwareStatic.WMI
             }
             catch (ManagementException exc)
             {
-                Console.WriteLine(exc.ToString());
+                this.Logger.LogDebug(exc.ToString());
             }
 
             return managementObject;

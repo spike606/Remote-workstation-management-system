@@ -36,6 +36,18 @@
     </CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.3.3.0\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=3.4.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Windsor.3.4.0\lib\net45\Castle.Windsor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.4.9\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
@@ -47,9 +59,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataBuilder\ISystemMonitorDataBuilder.cs" />
     <Compile Include="HardwareStatic\Builder\HardwareStaticBuilder.cs" />
+    <Compile Include="HardwareStatic\Builder\IHardwareStaticBuilder.cs" />
     <Compile Include="HardwareStatic\Model\HardwareStaticData.cs" />
+    <Compile Include="HardwareStatic\WMI\IWMIClient.cs" />
+    <Compile Include="HardwareStatic\WMI\IWMIDataExtractor.cs" />
     <Compile Include="HardwareStatic\WMI\WMIDataExtractor.cs" />
+    <Compile Include="Logger\INLogger.cs" />
+    <Compile Include="Logger\NLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="HardwareStatic\Model\Components\Processor.cs" />
     <Compile Include="HardwareStatic\WMI\WMIClient.cs" />
@@ -58,6 +76,7 @@
     <Compile Include="WorkstationMonitor.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="NLog.config" />
     <None Include="packages.config" />
     <None Include="RWMSSolutionRuleSet.ruleset" />
   </ItemGroup>

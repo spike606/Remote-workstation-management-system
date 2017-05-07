@@ -8,13 +8,13 @@ using SystemMonitor.HardwareStatic.Model.Components;
 
 namespace SystemMonitor.HardwareStatic.WMI
 {
-    internal class WMIDataExtractor
+    internal class WMIDataExtractor : IWMIDataExtractor
     {
-        internal Processor ExtractDataProcessor(ManagementObject managementObject)
+        public Processor ExtractDataProcessor(ManagementObject managementObject)
         {
-            Processor proc = new Processor();
-            proc.Name = (string)managementObject[ConstStringHardwareStatic.PROCESSOR_NAME];
-            return proc;
+            Processor processor = new Processor();
+            processor.Name = (string)managementObject[ConstStringHardwareStatic.PROCESSOR_NAME];
+            return processor;
         }
     }
 }

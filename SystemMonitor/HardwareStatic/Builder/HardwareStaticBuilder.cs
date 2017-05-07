@@ -9,17 +9,22 @@ using SystemMonitor.HardwareStatic.WMI;
 
 namespace SystemMonitor.HardwareStatic.Builder
 {
-    internal class HardwareStaticBuilder
+    internal class HardwareStaticBuilder : IHardwareStaticBuilder
     {
-        // IoC
-        internal Processor GetProcessorStaticData()
+        public HardwareStaticBuilder(IWMIClient wmiClient, IWMIDataExtractor wmiDataExtractor)
         {
-            Processor processor = new Processor();
-            WMIDataExtractor extractor = new WMIDataExtractor();
-            WMIClient client = new WMIClient();
-            ManagementObject obj = client.RetriveObjectByExecutingWMIQuery(ConstStringHardwareStatic.WMI_QUERY_PROCESSOR);
-            processor = extractor.ExtractDataProcessor(obj);
-            return processor;
+            this.WMIClient = wmiClient;
+            this.WMIDataExtractor = wmiDataExtractor;
+        }
+
+        private IWMIClient WMIClient { get; set; }
+
+        private IWMIDataExtractor WMIDataExtractor { get; set; }
+
+        public Processor GetProcessorStaticData()
+        {
+            ManagementObject managementObject = this.WMIClient.RetriveObjectByExecutingWMIQuery(ConstStringHardwareStatic.WMI_QUERY_PROCESSOR);
+            return this.WMIDataExtractor.ExtractDataProcessor(managementObject);
         }
     }
 }
