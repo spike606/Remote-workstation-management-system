@@ -12,7 +12,7 @@ namespace SystemMonitor.HardwareStatic.Model.CustomProperties
 
         public string Value;
 
-        public UnitValue(string unit, string value)
+        public UnitValue(string unit, string value = "")
         {
             this.Unit = unit;
             this.Value = value;

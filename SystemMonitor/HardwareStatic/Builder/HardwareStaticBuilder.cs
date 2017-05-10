@@ -23,8 +23,10 @@ namespace SystemMonitor.HardwareStatic.Builder
 
         public Processor GetProcessorStaticData()
         {
-            ManagementObject managementObject = this.WMIClient.RetriveObjectByExecutingWMIQuery(ConstStringHardwareStatic.WMI_QUERY_PROCESSOR);
-            return this.WMIDataExtractor.ExtractDataProcessor(managementObject);
+            ManagementObject managementObjectWin32_Processor = this.WMIClient.RetriveObjectByExecutingWMIQuery(ConstStringHardwareStatic.WMI_QUERY_PROCESSOR);
+            ManagementObject managementObjectWin32_CacheMemory = this.WMIClient.RetriveObjectByExecutingWMIQuery(ConstStringHardwareStatic.WMI_QUERY_CACHE_MEMORY);
+
+            return this.WMIDataExtractor.ExtractDataProcessor(managementObjectWin32_Processor, managementObjectWin32_CacheMemory);
         }
     }
 }
