@@ -10,5 +10,7 @@ namespace SystemMonitor.HardwareStatic.Builder
     public interface IHardwareStaticBuilder
     {
         Processor GetProcessorStaticData();
+
+        List<Memory> GetMemoryStaticData();
     }
 }

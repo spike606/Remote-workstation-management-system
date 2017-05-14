@@ -10,5 +10,7 @@ namespace SystemMonitor.HardwareStatic.WMI
     public interface IWMIClient
     {
         ManagementObject RetriveObjectByExecutingWMIQuery(string wmiQuery);
+
+        List<ManagementObject> RetriveListOfObjectsByExecutingWMIQuery(string wmiQuery);
     }
 }

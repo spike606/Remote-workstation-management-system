@@ -61,6 +61,8 @@
     <Compile Include="DataBuilder\ISystemMonitorDataBuilder.cs" />
     <Compile Include="HardwareStatic\Builder\HardwareStaticBuilder.cs" />
     <Compile Include="HardwareStatic\Builder\IHardwareStaticBuilder.cs" />
+    <Compile Include="HardwareStatic\Model\Components\Memory.cs" />
+    <Compile Include="HardwareStatic\Model\CustomProperties\Enum\MemoryEnum.cs" />
     <Compile Include="HardwareStatic\Model\CustomProperties\Enum\ProcessorEnum.cs" />
     <Compile Include="HardwareStatic\Model\CustomProperties\Unit.cs" />
     <Compile Include="HardwareStatic\Model\CustomProperties\UnitValue.cs" />

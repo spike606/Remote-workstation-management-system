@@ -21,6 +21,20 @@ namespace SystemMonitor.HardwareStatic.Builder
 
         private IWMIDataExtractor WMIDataExtractor { get; set; }
 
+        public List<Memory> GetMemoryStaticData()
+        {
+            List<ManagementObject> managementObjectWin32_PhysicalMemory = this.WMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_QUERY_MEMORY);
+
+            List<Memory> memoryStaticData = new List<Memory>();
+
+            foreach (var memoryObject in managementObjectWin32_PhysicalMemory)
+            {
+                memoryStaticData.Add(this.WMIDataExtractor.ExtractDataMemory(memoryObject));
+            }
+
+            return memoryStaticData;
+        }
+
         public Processor GetProcessorStaticData()
         {
             ManagementObject managementObjectWin32_Processor = this.WMIClient.RetriveObjectByExecutingWMIQuery(ConstStringHardwareStatic.WMI_QUERY_PROCESSOR);

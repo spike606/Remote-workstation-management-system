@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemMonitorLib", "SystemM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemMonitorLibTest", "SystemMonitorLibTest\SystemMonitorLibTest.csproj", "{CF9FE383-D54D-4BCE-91F7-E3A0B7E21D0F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemMonitorLibUnitTest", "SystemMonitorLibUnitTest\SystemMonitorLibUnitTest.csproj", "{6F1E2895-2CCD-4F97-A587-0F8D3533BB6B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{CF9FE383-D54D-4BCE-91F7-E3A0B7E21D0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF9FE383-D54D-4BCE-91F7-E3A0B7E21D0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF9FE383-D54D-4BCE-91F7-E3A0B7E21D0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F1E2895-2CCD-4F97-A587-0F8D3533BB6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F1E2895-2CCD-4F97-A587-0F8D3533BB6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F1E2895-2CCD-4F97-A587-0F8D3533BB6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F1E2895-2CCD-4F97-A587-0F8D3533BB6B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

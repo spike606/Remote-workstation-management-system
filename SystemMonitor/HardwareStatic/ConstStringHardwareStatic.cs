@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
+[assembly: InternalsVisibleTo("SystemMonitorLibUnitTest")]
 namespace SystemMonitor.HardwareStatic
 {
     internal class ConstStringHardwareStatic
@@ -33,5 +35,23 @@ namespace SystemMonitor.HardwareStatic
         internal const string PROCESSOR_STEPPING = "Stepping";
         internal const string PROCESSOR_THREAD_COUNT = "ThreadCount";
         internal const string PROCESSOR_UNIQUE_ID = "UniqueId";
+        internal const string WMI_QUERY_MEMORY = "select * from Win32_PhysicalMemory";
+
+        internal const string MEMORY_BANK_LABEL = "BankLabel";
+        internal const string MEMORY_CAPACITY = "Capacity";
+        internal const string MEMORY_CAPTION = "Caption";
+        internal const string MEMORY_CONFIGURED_CLOCK_SPEED = "ConfiguredClockSpeed";
+        internal const string MEMORY_CONFIGURED_VOLTAGE = "ConfiguredVoltage";
+        internal const string MEMORY_DATA_WIDTH = "DataWidth";
+        internal const string MEMORY_DESCRIPTION = "Description";
+        internal const string MEMORY_DEVICE_LOCATOR = "DeviceLocator";
+        internal const string MEMORY_MANUFACTURER = "Manufacturer";
+        internal const string MEMORY_MAX_VOLTAGE = "MaxVoltage";
+        internal const string MEMORY_MEMORY_TYPE = "MemoryType";
+        internal const string MEMORY_MIN_VOLTAGE = "MinVoltage";
+        internal const string MEMORY_NAME = "Name";
+        internal const string MEMORY_PART_NUMBER = "PartNumber";
+        internal const string MEMORY_SERIAL_NUMBER = "SerialNumber";
+        internal const string MEMORY_TOTAL_WIDTH = "TotalWidth";
     }
 }

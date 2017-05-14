@@ -11,5 +11,7 @@ namespace SystemMonitor.HardwareStatic.WMI
     public interface IWMIDataExtractor
     {
         Processor ExtractDataProcessor(ManagementObject managementObjectWin32_Processor, ManagementObject managementObjectWin32_CacheMemory);
+
+        Memory ExtractDataMemory(ManagementObject managementObjectWin32_PhysicalMemory);
     }
 }

@@ -10,5 +10,7 @@ namespace SystemMonitor.HardwareStatic.Model
     public class HardwareStaticData
     {
         public Processor Processor { get; set; }
+
+        public List<Memory> Memory { get; set; }
     }
 }
