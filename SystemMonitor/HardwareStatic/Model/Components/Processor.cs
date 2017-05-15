@@ -21,17 +21,7 @@ namespace SystemMonitor.HardwareStatic.Model.Components
 
         public UnitValue BusSpeed { get; set; }
 
-        public UnitValue L1CacheSize { get; set; }
-
-        public UnitValue L1CacheSpeed { get; set; }
-
-        public UnitValue L2CacheSize { get; set; }
-
-        public UnitValue L2CacheSpeed { get; set; }
-
-        public UnitValue L3CacheSize { get; set; }
-
-        public UnitValue L3CacheSpeed { get; set; }
+        public List<CpuCacheMemory> Cache { get; set; } = new List<CpuCacheMemory>();
 
         public string Manufacturer { get; set; }
 

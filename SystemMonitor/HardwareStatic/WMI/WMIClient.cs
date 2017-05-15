@@ -39,9 +39,11 @@ namespace SystemMonitor.HardwareStatic.WMI
 
         public ManagementObject RetriveObjectByExecutingWMIQuery(string wmiQuery)
         {
-            ManagementObject managementObject = null;
+            ManagementObject managementObject = new ManagementObject();
             try
             {
+                ManagementObjectSearcher searcher = new ManagementObjectSearcher(wmiQuery);
+
                 managementObject = new ManagementObjectSearcher(wmiQuery).Get().Cast<ManagementObject>().First();
             }
             catch (ManagementException exc)

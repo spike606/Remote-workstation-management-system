@@ -10,25 +10,47 @@ namespace SystemMonitorLibUnitTest.HardwareStatic.Builder
     public class ManagamentObjectBuilder
     {
         private ManagementObject managementObject;
+        private ManagementClass managementClass;
+        private ManagementPath managementPath;
 
         public ManagamentObjectBuilder()
         {
-            ManagementClass managementClass = new ManagementClass("root\\CIMV2");
-            ManagementObject managementObject = managementClass.CreateInstance();
+            this.managementPath = new ManagementPath();
         }
 
-        public ManagementObject Build()
+        public static implicit operator ManagementObject(ManagamentObjectBuilder managamentObjectBuilder)
         {
-            //PutOptions options = new PutOptions();
-            //options.Type = PutType.CreateOnly;
-            //this.managementObject.Put(options);
-            return this.managementObject;
+            return managamentObjectBuilder.Build();
+        }
+
+        public ManagamentObjectBuilder WithPathClassName(string className)
+        {
+            this.managementPath.ClassName = className;
+            return this;
+        }
+
+        public ManagamentObjectBuilder WithPathNamespace(string pathNamespace)
+        {
+            this.managementPath.NamespacePath = pathNamespace;
+            return this;
+        }
+
+        public ManagamentObjectBuilder PrepareManagamentObject()
+        {
+            this.managementClass = new ManagementClass(this.managementPath);
+            this.managementObject = this.managementClass.CreateInstance();
+            return this;
         }
 
         public ManagamentObjectBuilder WithProperty(string propertyName, object propertyValue)
         {
             this.managementObject[propertyName] = propertyValue;
             return this;
+        }
+
+        public ManagementObject Build()
+        {
+            return this.managementObject;
         }
     }
 }

@@ -37,8 +37,9 @@ namespace SystemMonitor.HardwareStatic.Builder
 
         public Processor GetProcessorStaticData()
         {
+            // In case of multiprocessor computer many instances of Win32_Processor classes exists - do not covered
             ManagementObject managementObjectWin32_Processor = this.WMIClient.RetriveObjectByExecutingWMIQuery(ConstStringHardwareStatic.WMI_QUERY_PROCESSOR);
-            ManagementObject managementObjectWin32_CacheMemory = this.WMIClient.RetriveObjectByExecutingWMIQuery(ConstStringHardwareStatic.WMI_QUERY_CACHE_MEMORY);
+            List<ManagementObject> managementObjectWin32_CacheMemory = this.WMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_QUERY_CACHE_MEMORY);
 
             return this.WMIDataExtractor.ExtractDataProcessor(managementObjectWin32_Processor, managementObjectWin32_CacheMemory);
         }

@@ -8,6 +8,7 @@ namespace SystemMonitor.HardwareStatic.Model.CustomProperties.Enum
 {
     internal enum MemoryTypeEnum
     {
+        // Based on documentation: https://msdn.microsoft.com/en-us/library/aa394080(v=vs.85).aspx
         Unknown,
         Other,
         DRAM,
