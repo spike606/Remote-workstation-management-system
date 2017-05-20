@@ -86,5 +86,30 @@ namespace SystemMonitor.HardwareStatic.WMI
 
             return memory;
         }
+
+        public DiskDrive ExtractDataDiskDrive(ManagementObject managementObjectWin32_DiskDrive)
+        {
+            DiskDrive diskDrive = new DiskDrive();
+            diskDrive.BytesPerSector = new UnitValue(Unit.B, managementObjectWin32_DiskDrive[ConstStringHardwareStatic.DISK_DRIVE_BYTES_PER_SECTOR]?.ToString() ?? string.Empty);
+            diskDrive.Caption = managementObjectWin32_DiskDrive[ConstStringHardwareStatic.DISK_DRIVE_CAPTION]?.ToString() ?? string.Empty;
+            diskDrive.Description = managementObjectWin32_DiskDrive[ConstStringHardwareStatic.DISK_DRIVE_DESCRIPTION]?.ToString() ?? string.Empty;
+            diskDrive.DeviceID = managementObjectWin32_DiskDrive[ConstStringHardwareStatic.DISK_DRIVE_DEVICE_ID]?.ToString() ?? string.Empty;
+            diskDrive.FirmwareRevision = managementObjectWin32_DiskDrive[ConstStringHardwareStatic.DISK_DRIVE_FIRMWARE_REVISION]?.ToString() ?? string.Empty;
+            diskDrive.InterfaceType = managementObjectWin32_DiskDrive[ConstStringHardwareStatic.DISK_DRIVE_INTERFACE_TYPE]?.ToString() ?? string.Empty;
+            diskDrive.MediaType = managementObjectWin32_DiskDrive[ConstStringHardwareStatic.DISK_DRIVE_MEDIA_TYPE]?.ToString() ?? string.Empty;
+            diskDrive.Model = managementObjectWin32_DiskDrive[ConstStringHardwareStatic.DISK_DRIVE_MODEL]?.ToString() ?? string.Empty;
+            diskDrive.Name = managementObjectWin32_DiskDrive[ConstStringHardwareStatic.DISK_DRIVE_NAME]?.ToString() ?? string.Empty;
+            diskDrive.Partitions = managementObjectWin32_DiskDrive[ConstStringHardwareStatic.DISK_DRIVE_PARTITIONS]?.ToString() ?? string.Empty;
+            diskDrive.SerialNumber = managementObjectWin32_DiskDrive[ConstStringHardwareStatic.DISK_DRIVE_SERIAL_NUMBER]?.ToString() ?? string.Empty;
+            diskDrive.Signature = managementObjectWin32_DiskDrive[ConstStringHardwareStatic.DISK_DRIVE_SIGNATURE]?.ToString() ?? string.Empty;
+            diskDrive.Size = new UnitValue(Unit.B, managementObjectWin32_DiskDrive[ConstStringHardwareStatic.DISK_DRIVE_SIZE]?.ToString() ?? string.Empty);
+            diskDrive.TotalCylinders = managementObjectWin32_DiskDrive[ConstStringHardwareStatic.DISK_DRIVE_TOTAL_CYLINDERS]?.ToString() ?? string.Empty;
+            diskDrive.TotalHeads = managementObjectWin32_DiskDrive[ConstStringHardwareStatic.DISK_DRIVE_TOTAL_HEADS]?.ToString() ?? string.Empty;
+            diskDrive.TotalSectors = managementObjectWin32_DiskDrive[ConstStringHardwareStatic.DISK_DRIVE_TOTAL_SECTORS]?.ToString() ?? string.Empty;
+            diskDrive.TotalTracks = managementObjectWin32_DiskDrive[ConstStringHardwareStatic.DISK_DRIVE_TOTAL_TRACKS]?.ToString() ?? string.Empty;
+            diskDrive.TracksPerCylinder = managementObjectWin32_DiskDrive[ConstStringHardwareStatic.DISK_DRIVE_TRACKS_PER_CYLINDER]?.ToString() ?? string.Empty;
+
+            return diskDrive;
+        }
     }
 }

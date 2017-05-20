@@ -12,5 +12,7 @@ namespace SystemMonitor.HardwareStatic.Model
         public Processor Processor { get; set; }
 
         public List<Memory> Memory { get; set; }
+
+        public List<DiskDrive> DiskDrive { get; set; }
     }
 }

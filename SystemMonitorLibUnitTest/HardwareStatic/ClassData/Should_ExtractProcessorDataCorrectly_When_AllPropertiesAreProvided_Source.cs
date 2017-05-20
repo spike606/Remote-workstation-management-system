@@ -39,7 +39,8 @@ namespace SystemMonitorLibUnitTest.HardwareStatic.ClassData
                                 //.WithProperty(ConstStringHardwareStatic.PROCESSOR_THREAD_COUNT, uint.Parse("4"))
                                 .WithProperty(ConstStringHardwareStatic.PROCESSOR_UNIQUE_ID, "BFEBFBF")
                                 .Build(),
-                           new List<ManagementObject>() {
+                           new List<ManagementObject>()
+                            {
                                new ManagamentObjectBuilder()
                                 .WithPathNamespace(@"\\.\root\cimv2")
                                 .WithPathClassName("Win32_CacheMemory")

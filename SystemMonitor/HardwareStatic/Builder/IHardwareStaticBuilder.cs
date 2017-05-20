@@ -12,5 +12,7 @@ namespace SystemMonitor.HardwareStatic.Builder
         Processor GetProcessorStaticData();
 
         List<Memory> GetMemoryStaticData();
+
+        List<DiskDrive> GetDiskDriveStaticData();
     }
 }

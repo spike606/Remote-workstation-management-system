@@ -61,6 +61,7 @@
     <Compile Include="DataBuilder\ISystemMonitorDataBuilder.cs" />
     <Compile Include="HardwareStatic\Builder\HardwareStaticBuilder.cs" />
     <Compile Include="HardwareStatic\Builder\IHardwareStaticBuilder.cs" />
+    <Compile Include="HardwareStatic\Model\Components\DiskDrive.cs" />
     <Compile Include="HardwareStatic\Model\Components\Memory.cs" />
     <Compile Include="HardwareStatic\Model\CustomProperties\CpuCacheMemory.cs" />
     <Compile Include="HardwareStatic\Model\CustomProperties\Enum\MemoryEnum.cs" />

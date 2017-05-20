@@ -13,5 +13,7 @@ namespace SystemMonitor.HardwareStatic.WMI
         Processor ExtractDataProcessor(ManagementObject managementObjectWin32_Processor, List<ManagementObject> managementObjectWin32_CacheMemory);
 
         Memory ExtractDataMemory(ManagementObject managementObjectWin32_PhysicalMemory);
+
+        DiskDrive ExtractDataDiskDrive(ManagementObject managementObjectWin32_DiskDrive);
     }
 }
