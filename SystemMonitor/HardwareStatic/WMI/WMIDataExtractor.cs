@@ -142,5 +142,21 @@ namespace SystemMonitor.HardwareStatic.WMI
 
             return cdROMDrive;
         }
+
+        public BaseBoard ExtractDataBaseBoard(ManagementObject managementObjectWin32_BaseBoard)
+        {
+            BaseBoard baseBoard = new BaseBoard();
+            baseBoard.Caption = managementObjectWin32_BaseBoard[ConstStringHardwareStatic.BASE_BOARD_CAPTION]?.ToString() ?? string.Empty;
+            baseBoard.Description = managementObjectWin32_BaseBoard[ConstStringHardwareStatic.BASE_BOARD_DESCRIPTION]?.ToString() ?? string.Empty;
+            baseBoard.Manufacturer = managementObjectWin32_BaseBoard[ConstStringHardwareStatic.BASE_BOARD_MANUFACTURER]?.ToString() ?? string.Empty;
+            baseBoard.Model = managementObjectWin32_BaseBoard[ConstStringHardwareStatic.BASE_BOARD_MODEL]?.ToString() ?? string.Empty;
+            baseBoard.Name = managementObjectWin32_BaseBoard[ConstStringHardwareStatic.BASE_BOARD_NAME]?.ToString() ?? string.Empty;
+            baseBoard.PartNumber = managementObjectWin32_BaseBoard[ConstStringHardwareStatic.BASE_BOARD_PART_NUMBER]?.ToString() ?? string.Empty;
+            baseBoard.Product = managementObjectWin32_BaseBoard[ConstStringHardwareStatic.BASE_BOARD_PRODUCT]?.ToString() ?? string.Empty;
+            baseBoard.SerialNumber = managementObjectWin32_BaseBoard[ConstStringHardwareStatic.BASE_BOARD_SERIAL_NUMBER]?.ToString() ?? string.Empty;
+            baseBoard.Version = managementObjectWin32_BaseBoard[ConstStringHardwareStatic.BASE_BOARD_VERSION]?.ToString() ?? string.Empty;
+
+            return baseBoard;
+        }
     }
 }

@@ -92,5 +92,18 @@ namespace SystemMonitor.HardwareStatic
         internal const string CDROM_DRIVE_MEDIA_TYPE = "MediaType";
         internal const string CDROM_DRIVE_NAME = "Name";
 
+        internal const string WMI_QUERY_BASE_BOARD = "select * from Win32_BaseBoard";
+        internal const string BASE_BOARD_CAPTION = "Caption";
+        internal const string BASE_BOARD_DESCRIPTION = "Description";
+        internal const string BASE_BOARD_MANUFACTURER = "Manufacturer";
+        internal const string BASE_BOARD_MODEL = "Model";
+        internal const string BASE_BOARD_NAME = "Name";
+        internal const string BASE_BOARD_PART_NUMBER = "PartNumber";
+        internal const string BASE_BOARD_PRODUCT = "Product";
+        internal const string BASE_BOARD_SERIAL_NUMBER = "SerialNumber";
+        internal const string BASE_BOARD_VERSION = "Version";
+
+        internal const string WMI_QUERY_PLUG_AND_PLAY = "select * from Win32_PnPEntity";
+
     }
 }

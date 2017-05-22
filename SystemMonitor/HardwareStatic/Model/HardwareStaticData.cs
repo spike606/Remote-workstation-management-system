@@ -18,5 +18,8 @@ namespace SystemMonitor.HardwareStatic.Model
         public List<LogicalDisk> LogicalDisk { get; set; }
 
         public List<CDROMDrive> CDROMDrive { get; set; }
+
+        public List<BaseBoard> BaseBoard { get; set; }
+
     }
 }

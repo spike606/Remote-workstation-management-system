@@ -18,5 +18,8 @@ namespace SystemMonitor.HardwareStatic.Builder
         List<LogicalDisk> GetLogicalDiskStaticData();
 
         List<CDROMDrive> GetCDROMDriveStaticData();
+
+        List<BaseBoard> GetBaseBoardStaticData();
+
     }
 }

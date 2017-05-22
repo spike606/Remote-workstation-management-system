@@ -85,5 +85,19 @@ namespace SystemMonitor.HardwareStatic.Builder
 
             return cdROMDriveStaticData;
         }
+
+        public List<BaseBoard> GetBaseBoardStaticData()
+        {
+            List<ManagementObject> managementObjectWin32_BaseBoard = this.WMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_QUERY_BASE_BOARD);
+
+            List<BaseBoard> baseBoardStaticData = new List<BaseBoard>();
+
+            foreach (var baseBoardObject in managementObjectWin32_BaseBoard)
+            {
+                baseBoardStaticData.Add(this.WMIDataExtractor.ExtractDataBaseBoard(baseBoardObject));
+            }
+
+            return baseBoardStaticData;
+        }
     }
 }

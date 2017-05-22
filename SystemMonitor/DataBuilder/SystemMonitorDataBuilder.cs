@@ -30,6 +30,8 @@ namespace SystemMonitor.DataBuilder
             data.DiskDrive = this.HardwareStaticBuilder.GetDiskDriveStaticData();
             data.LogicalDisk = this.HardwareStaticBuilder.GetLogicalDiskStaticData();
             data.CDROMDrive = this.HardwareStaticBuilder.GetCDROMDriveStaticData();
+            data.BaseBoard = this.HardwareStaticBuilder.GetBaseBoardStaticData();
+
             return data;
         }
     }
