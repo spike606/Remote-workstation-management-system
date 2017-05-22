@@ -22,7 +22,7 @@ namespace SystemMonitor.HardwareStatic.WMI
             List<ManagementObject> managementObjects = new List<ManagementObject>();
             try
             {
-                ManagementObjectSearcher searcher = new ManagementObjectSearcher(wmiQuery);
+                ManagementObjectSearcher searcher = new ManagementObjectSearcher("root\\cimv2", wmiQuery);
 
                 foreach (ManagementObject queryObj in searcher.Get())
                 {

@@ -57,5 +57,33 @@ namespace SystemMonitor.HardwareStatic.Builder
 
             return diskDriveStaticData;
         }
+
+        public List<LogicalDisk> GetLogicalDiskStaticData()
+        {
+            List<ManagementObject> managementObjectWin32_LogialDisk = this.WMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_QUERY_LOGICAL_DISK);
+
+            List<LogicalDisk> logicalDiskStaticData = new List<LogicalDisk>();
+
+            foreach (var logicalDiskObject in managementObjectWin32_LogialDisk)
+            {
+                logicalDiskStaticData.Add(this.WMIDataExtractor.ExtractDataLogicalDisk(logicalDiskObject));
+            }
+
+            return logicalDiskStaticData;
+        }
+
+        public List<CDROMDrive> GetCDROMDriveStaticData()
+        {
+            List<ManagementObject> managementObjectWin32_CDROMDrive = this.WMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_QUERY_CDROM_DRIVE);
+
+            List<CDROMDrive> cdROMDriveStaticData = new List<CDROMDrive>();
+
+            foreach (var cdROMDriveObject in managementObjectWin32_CDROMDrive)
+            {
+                cdROMDriveStaticData.Add(this.WMIDataExtractor.ExtractDataCDROMDriveDisk(cdROMDriveObject));
+            }
+
+            return cdROMDriveStaticData;
+        }
     }
 }

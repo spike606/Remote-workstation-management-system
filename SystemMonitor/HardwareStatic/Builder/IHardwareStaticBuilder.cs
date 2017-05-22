@@ -14,5 +14,9 @@ namespace SystemMonitor.HardwareStatic.Builder
         List<Memory> GetMemoryStaticData();
 
         List<DiskDrive> GetDiskDriveStaticData();
+
+        List<LogicalDisk> GetLogicalDiskStaticData();
+
+        List<CDROMDrive> GetCDROMDriveStaticData();
     }
 }

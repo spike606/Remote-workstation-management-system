@@ -28,6 +28,8 @@ namespace SystemMonitor.DataBuilder
             data.Processor = this.HardwareStaticBuilder.GetProcessorStaticData();
             data.Memory = this.HardwareStaticBuilder.GetMemoryStaticData();
             data.DiskDrive = this.HardwareStaticBuilder.GetDiskDriveStaticData();
+            data.LogicalDisk = this.HardwareStaticBuilder.GetLogicalDiskStaticData();
+            data.CDROMDrive = this.HardwareStaticBuilder.GetCDROMDriveStaticData();
             return data;
         }
     }

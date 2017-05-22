@@ -61,13 +61,13 @@ namespace SystemMonitor.HardwareStatic.WMI
             memory.BankLabel = managementObjectWin32_PhysicalMemory[ConstStringHardwareStatic.MEMORY_BANK_LABEL]?.ToString() ?? string.Empty;
             memory.Capacity = new UnitValue(Unit.B, managementObjectWin32_PhysicalMemory[ConstStringHardwareStatic.MEMORY_CAPACITY]?.ToString() ?? string.Empty);
             memory.Caption = managementObjectWin32_PhysicalMemory[ConstStringHardwareStatic.MEMORY_CAPTION]?.ToString() ?? string.Empty;
-            memory.ConfiguredClockSpeed = new UnitValue(Unit.MHZ, managementObjectWin32_PhysicalMemory[ConstStringHardwareStatic.MEMORY_CONFIGURED_CLOCK_SPEED]?.ToString() ?? string.Empty);
-            memory.ConfiguredVoltage = new UnitValue(Unit.MV, managementObjectWin32_PhysicalMemory[ConstStringHardwareStatic.MEMORY_CONFIGURED_VOLTAGE]?.ToString() ?? string.Empty);
+            //memory.ConfiguredClockSpeed = new UnitValue(Unit.MHZ, managementObjectWin32_PhysicalMemory[ConstStringHardwareStatic.MEMORY_CONFIGURED_CLOCK_SPEED]?.ToString() ?? string.Empty);
+            //memory.ConfiguredVoltage = new UnitValue(Unit.MV, managementObjectWin32_PhysicalMemory[ConstStringHardwareStatic.MEMORY_CONFIGURED_VOLTAGE]?.ToString() ?? string.Empty);
             memory.DataWidth = new UnitValue(Unit.BIT, managementObjectWin32_PhysicalMemory[ConstStringHardwareStatic.MEMORY_DATA_WIDTH]?.ToString() ?? string.Empty);
             memory.Description = managementObjectWin32_PhysicalMemory[ConstStringHardwareStatic.MEMORY_DESCRIPTION]?.ToString() ?? string.Empty;
             memory.DeviceLocator = managementObjectWin32_PhysicalMemory[ConstStringHardwareStatic.MEMORY_DEVICE_LOCATOR]?.ToString() ?? string.Empty;
             memory.Manufacturer = managementObjectWin32_PhysicalMemory[ConstStringHardwareStatic.MEMORY_MANUFACTURER]?.ToString() ?? string.Empty;
-            memory.MaxVoltage = new UnitValue(Unit.MV, managementObjectWin32_PhysicalMemory[ConstStringHardwareStatic.MEMORY_MAX_VOLTAGE]?.ToString() ?? string.Empty);
+            //memory.MaxVoltage = new UnitValue(Unit.MV, managementObjectWin32_PhysicalMemory[ConstStringHardwareStatic.MEMORY_MAX_VOLTAGE]?.ToString() ?? string.Empty);
 
             if (managementObjectWin32_PhysicalMemory[ConstStringHardwareStatic.MEMORY_MEMORY_TYPE] != null)
             {
@@ -78,7 +78,7 @@ namespace SystemMonitor.HardwareStatic.WMI
                 memory.MemoryType = string.Empty;
             }
 
-            memory.MinVoltage = new UnitValue(Unit.MV, managementObjectWin32_PhysicalMemory[ConstStringHardwareStatic.MEMORY_MIN_VOLTAGE]?.ToString() ?? string.Empty);
+            //memory.MinVoltage = new UnitValue(Unit.MV, managementObjectWin32_PhysicalMemory[ConstStringHardwareStatic.MEMORY_MIN_VOLTAGE]?.ToString() ?? string.Empty);
             memory.Name = managementObjectWin32_PhysicalMemory[ConstStringHardwareStatic.MEMORY_NAME]?.ToString() ?? string.Empty;
             memory.PartNumber = managementObjectWin32_PhysicalMemory[ConstStringHardwareStatic.MEMORY_PART_NUMBER]?.ToString() ?? string.Empty;
             memory.SerialNumber = managementObjectWin32_PhysicalMemory[ConstStringHardwareStatic.MEMORY_SERIAL_NUMBER]?.ToString() ?? string.Empty;
@@ -110,6 +110,37 @@ namespace SystemMonitor.HardwareStatic.WMI
             diskDrive.TracksPerCylinder = managementObjectWin32_DiskDrive[ConstStringHardwareStatic.DISK_DRIVE_TRACKS_PER_CYLINDER]?.ToString() ?? string.Empty;
 
             return diskDrive;
+        }
+
+        public LogicalDisk ExtractDataLogicalDisk(ManagementObject managementObjectWin32_LogicalDisk)
+        {
+            LogicalDisk logicalDisk = new LogicalDisk();
+            logicalDisk.BlockSize = new UnitValue(Unit.B, managementObjectWin32_LogicalDisk[ConstStringHardwareStatic.LOGICAL_DISK_BLOCK_SIZE]?.ToString() ?? string.Empty);
+            logicalDisk.Caption = managementObjectWin32_LogicalDisk[ConstStringHardwareStatic.LOGICAL_DISK_CAPTION]?.ToString() ?? string.Empty;
+            logicalDisk.Description = managementObjectWin32_LogicalDisk[ConstStringHardwareStatic.LOGICAL_DISK_DESCRIPTION]?.ToString() ?? string.Empty;
+            logicalDisk.DeviceID = managementObjectWin32_LogicalDisk[ConstStringHardwareStatic.LOGICAL_DISK_DEVICE_ID]?.ToString() ?? string.Empty;
+            logicalDisk.FileSystem = managementObjectWin32_LogicalDisk[ConstStringHardwareStatic.LOGICAL_DISK_FILE_SYSTEM]?.ToString() ?? string.Empty;
+            logicalDisk.FreeSpace = new UnitValue(Unit.B, managementObjectWin32_LogicalDisk[ConstStringHardwareStatic.LOGICAL_DISK_BLOCK_SIZE]?.ToString() ?? string.Empty);
+            logicalDisk.Name = managementObjectWin32_LogicalDisk[ConstStringHardwareStatic.LOGICAL_DISK_NAME]?.ToString() ?? string.Empty;
+            logicalDisk.ProviderName = managementObjectWin32_LogicalDisk[ConstStringHardwareStatic.LOGICAL_DISK_PROVIDER_NAME]?.ToString() ?? string.Empty;
+            logicalDisk.Size = new UnitValue(Unit.B, managementObjectWin32_LogicalDisk[ConstStringHardwareStatic.LOGICAL_DISK_SIZE]?.ToString() ?? string.Empty);
+            logicalDisk.VolumeName = managementObjectWin32_LogicalDisk[ConstStringHardwareStatic.LOGICAL_DISK_VOLUME_NAME]?.ToString() ?? string.Empty;
+            logicalDisk.VolumeSerialNumber = managementObjectWin32_LogicalDisk[ConstStringHardwareStatic.LOGICAL_DISK_VOLUME_SERIAL_NUMBER]?.ToString() ?? string.Empty;
+
+            return logicalDisk;
+        }
+
+        public CDROMDrive ExtractDataCDROMDriveDisk(ManagementObject managementObjectWin32_CDROMDrive)
+        {
+            CDROMDrive cdROMDrive = new CDROMDrive();
+            cdROMDrive.Caption = managementObjectWin32_CDROMDrive[ConstStringHardwareStatic.CDROM_DRIVE_CAPTION]?.ToString() ?? string.Empty;
+            cdROMDrive.Description = managementObjectWin32_CDROMDrive[ConstStringHardwareStatic.CDROM_DRIVE_DESCRIPTION]?.ToString() ?? string.Empty;
+            cdROMDrive.DeviceID = managementObjectWin32_CDROMDrive[ConstStringHardwareStatic.CDROM_DRIVE_DEVICE_ID]?.ToString() ?? string.Empty;
+            cdROMDrive.Drive = managementObjectWin32_CDROMDrive[ConstStringHardwareStatic.CDROM_DRIVE_DRIVE]?.ToString() ?? string.Empty;
+            cdROMDrive.MediaType = managementObjectWin32_CDROMDrive[ConstStringHardwareStatic.CDROM_DRIVE_MEDIA_TYPE]?.ToString() ?? string.Empty;
+            cdROMDrive.Name = managementObjectWin32_CDROMDrive[ConstStringHardwareStatic.CDROM_DRIVE_NAME]?.ToString() ?? string.Empty;
+
+            return cdROMDrive;
         }
     }
 }

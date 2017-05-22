@@ -15,5 +15,9 @@ namespace SystemMonitor.HardwareStatic.WMI
         Memory ExtractDataMemory(ManagementObject managementObjectWin32_PhysicalMemory);
 
         DiskDrive ExtractDataDiskDrive(ManagementObject managementObjectWin32_DiskDrive);
+
+        LogicalDisk ExtractDataLogicalDisk(ManagementObject managementObjectWin32_LogicalDisk);
+
+        CDROMDrive ExtractDataCDROMDriveDisk(ManagementObject managementObjectWin32_LogicalDisk);
     }
 }
