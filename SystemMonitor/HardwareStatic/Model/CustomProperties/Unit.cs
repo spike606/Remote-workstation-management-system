@@ -14,5 +14,6 @@ namespace SystemMonitor.HardwareStatic.Model.CustomProperties
         internal const string MB = "MB";
         internal const string MHZ = "MHz";
         internal const string MV = "mV";
+        internal const string MWH = "mWh";
     }
 }

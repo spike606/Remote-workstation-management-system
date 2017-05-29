@@ -158,5 +158,38 @@ namespace SystemMonitor.HardwareStatic.WMI
 
             return baseBoard;
         }
+
+        public Fan ExtractDataFan(ManagementObject managementObjectWin32_Fan)
+        {
+            Fan fan = new Fan();
+            fan.Caption = managementObjectWin32_Fan[ConstStringHardwareStatic.FAN_CAPTION]?.ToString() ?? string.Empty;
+            fan.Description = managementObjectWin32_Fan[ConstStringHardwareStatic.FAN_DESCRIPTION]?.ToString() ?? string.Empty;
+            fan.Name = managementObjectWin32_Fan[ConstStringHardwareStatic.FAN_NAME]?.ToString() ?? string.Empty;
+
+            return fan;
+        }
+
+        public Battery ExtractDataBattery(ManagementObject managementObjectWin32_Battery)
+        {
+            Battery battery = new Battery();
+
+            if (managementObjectWin32_Battery[ConstStringHardwareStatic.BATTERY_BATTERY_STATUS] != null)
+            {
+                battery.BatteryStatus = ((BatteryStatus)((ushort)managementObjectWin32_Battery[ConstStringHardwareStatic.BATTERY_BATTERY_STATUS])).ToString();
+            }
+            else
+            {
+                battery.BatteryStatus = string.Empty;
+            }
+
+            battery.Caption = managementObjectWin32_Battery[ConstStringHardwareStatic.BATTERY_CAPTION]?.ToString() ?? string.Empty;
+            battery.Description = managementObjectWin32_Battery[ConstStringHardwareStatic.BATTERY_DESCRIPTION]?.ToString() ?? string.Empty;
+            battery.DesignCapacity = new UnitValue(Unit.MWH, managementObjectWin32_Battery[ConstStringHardwareStatic.BATTERY_DESIGN_CAPACITY]?.ToString() ?? string.Empty);
+            battery.DeviceID = managementObjectWin32_Battery[ConstStringHardwareStatic.BATTERY_DEVICE_ID]?.ToString() ?? string.Empty;
+            battery.FullChargeCapacity = new UnitValue(Unit.MWH, managementObjectWin32_Battery[ConstStringHardwareStatic.BATTERY_FULLY_CHARGE_CAPACITY]?.ToString() ?? string.Empty);
+            battery.Name = managementObjectWin32_Battery[ConstStringHardwareStatic.BATTERY_NAME]?.ToString() ?? string.Empty;
+
+            return battery;
+        }
     }
 }

@@ -99,5 +99,33 @@ namespace SystemMonitor.HardwareStatic.Builder
 
             return baseBoardStaticData;
         }
+
+        public List<Fan> GetFanData()
+        {
+            List<ManagementObject> managementObjectWin32_Fan = this.WMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_QUERY_FAN);
+
+            List<Fan> fanStaticData = new List<Fan>();
+
+            foreach (var fanObject in managementObjectWin32_Fan)
+            {
+                fanStaticData.Add(this.WMIDataExtractor.ExtractDataFan(fanObject));
+            }
+
+            return fanStaticData;
+        }
+
+        public List<Battery> GetBatteryData()
+        {
+            List<ManagementObject> managementObjectWin32_Battery = this.WMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_QUERY_BATTERY);
+
+            List<Battery> batteryStaticData = new List<Battery>();
+
+            foreach (var batteryObject in managementObjectWin32_Battery)
+            {
+                batteryStaticData.Add(this.WMIDataExtractor.ExtractDataBattery(batteryObject));
+            }
+
+            return batteryStaticData;
+        }
     }
 }

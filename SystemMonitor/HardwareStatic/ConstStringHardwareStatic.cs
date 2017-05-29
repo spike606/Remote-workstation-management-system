@@ -103,6 +103,20 @@ namespace SystemMonitor.HardwareStatic
         internal const string BASE_BOARD_SERIAL_NUMBER = "SerialNumber";
         internal const string BASE_BOARD_VERSION = "Version";
 
+        internal const string WMI_QUERY_FAN = "select * from Win32_Fan";
+        internal const string FAN_CAPTION = "Caption";
+        internal const string FAN_DESCRIPTION = "Description";
+        internal const string FAN_NAME = "Name";
+
+        internal const string WMI_QUERY_BATTERY = "select * from Win32_Battery";
+        internal const string BATTERY_BATTERY_STATUS = "BatteryStatus";
+        internal const string BATTERY_CAPTION = "Caption";
+        internal const string BATTERY_DESCRIPTION = "Description";
+        internal const string BATTERY_DESIGN_CAPACITY = "DesignCapacity";
+        internal const string BATTERY_DEVICE_ID = "DeviceID";
+        internal const string BATTERY_FULLY_CHARGE_CAPACITY = "FullChargeCapacity";
+        internal const string BATTERY_NAME = "Name";
+
         internal const string WMI_QUERY_PLUG_AND_PLAY = "select * from Win32_PnPEntity";
 
     }

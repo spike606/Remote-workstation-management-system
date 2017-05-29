@@ -21,5 +21,8 @@ namespace SystemMonitor.HardwareStatic.Builder
 
         List<BaseBoard> GetBaseBoardStaticData();
 
+        List<Fan> GetFanData();
+
+        List<Battery> GetBatteryData();
     }
 }

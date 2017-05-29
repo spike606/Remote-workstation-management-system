@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SystemMonitor.HardwareStatic.Model.CustomProperties.Enum
 {
-    public enum DriveTypeEnum
+    internal enum DriveTypeEnum
     {
         // Based on documentation: https://msdn.microsoft.com/en-us/library/aa394173(v=vs.85).aspx
         Unknown,

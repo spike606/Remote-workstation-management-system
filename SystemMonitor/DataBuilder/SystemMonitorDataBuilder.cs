@@ -31,6 +31,8 @@ namespace SystemMonitor.DataBuilder
             data.LogicalDisk = this.HardwareStaticBuilder.GetLogicalDiskStaticData();
             data.CDROMDrive = this.HardwareStaticBuilder.GetCDROMDriveStaticData();
             data.BaseBoard = this.HardwareStaticBuilder.GetBaseBoardStaticData();
+            data.Fan = this.HardwareStaticBuilder.GetFanData();
+            data.Battery = this.HardwareStaticBuilder.GetBatteryData();
 
             return data;
         }

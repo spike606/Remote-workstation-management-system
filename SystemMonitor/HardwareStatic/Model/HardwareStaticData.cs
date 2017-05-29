@@ -21,5 +21,8 @@ namespace SystemMonitor.HardwareStatic.Model
 
         public List<BaseBoard> BaseBoard { get; set; }
 
+        public List<Fan> Fan { get; set; }
+
+        public List<Battery> Battery { get; set; }
     }
 }

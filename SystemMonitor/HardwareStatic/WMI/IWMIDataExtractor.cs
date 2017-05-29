@@ -19,6 +19,11 @@ namespace SystemMonitor.HardwareStatic.WMI
         LogicalDisk ExtractDataLogicalDisk(ManagementObject managementObjectWin32_LogicalDisk);
 
         CDROMDrive ExtractDataCDROMDriveDisk(ManagementObject managementObjectWin32_LogicalDisk);
+
         BaseBoard ExtractDataBaseBoard(ManagementObject managementObjectWin32_BaseBoard);
+
+        Fan ExtractDataFan(ManagementObject managementObjectWin32_Fan);
+
+        Battery ExtractDataBattery(ManagementObject managementObjectWin32_Battery);
     }
 }
