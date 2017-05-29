@@ -25,14 +25,14 @@ namespace SystemMonitor.HardwareStatic.Builder
         {
             // In case of multiprocessor computer many instances of Win32_Processor classes exists - do not covered
             ManagementObject managementObjectWin32_Processor = this.WMIClient.RetriveObjectByExecutingWMIQuery(ConstStringHardwareStatic.WMI_QUERY_PROCESSOR);
-            List<ManagementObject> managementObjectWin32_CacheMemory = this.WMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_QUERY_CACHE_MEMORY);
+            List<ManagementObject> managementObjectWin32_CacheMemory = this.WMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_NAMESPACE_ROOT_CIMV2, ConstStringHardwareStatic.WMI_QUERY_CACHE_MEMORY);
 
             return this.WMIDataExtractor.ExtractDataProcessor(managementObjectWin32_Processor, managementObjectWin32_CacheMemory);
         }
 
         public List<Memory> GetMemoryStaticData()
         {
-            List<ManagementObject> managementObjectWin32_PhysicalMemory = this.WMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_QUERY_MEMORY);
+            List<ManagementObject> managementObjectWin32_PhysicalMemory = this.WMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_NAMESPACE_ROOT_CIMV2, ConstStringHardwareStatic.WMI_QUERY_MEMORY);
 
             List<Memory> memoryStaticData = new List<Memory>();
 
@@ -46,7 +46,7 @@ namespace SystemMonitor.HardwareStatic.Builder
 
         public List<DiskDrive> GetDiskDriveStaticData()
         {
-            List<ManagementObject> managementObjectWin32_DiskDrive = this.WMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_QUERY_DISK_DRIVE);
+            List<ManagementObject> managementObjectWin32_DiskDrive = this.WMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_NAMESPACE_ROOT_CIMV2, ConstStringHardwareStatic.WMI_QUERY_DISK_DRIVE);
 
             List<DiskDrive> diskDriveStaticData = new List<DiskDrive>();
 
@@ -60,7 +60,7 @@ namespace SystemMonitor.HardwareStatic.Builder
 
         public List<LogicalDisk> GetLogicalDiskStaticData()
         {
-            List<ManagementObject> managementObjectWin32_LogialDisk = this.WMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_QUERY_LOGICAL_DISK);
+            List<ManagementObject> managementObjectWin32_LogialDisk = this.WMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_NAMESPACE_ROOT_CIMV2, ConstStringHardwareStatic.WMI_QUERY_LOGICAL_DISK);
 
             List<LogicalDisk> logicalDiskStaticData = new List<LogicalDisk>();
 
@@ -74,7 +74,7 @@ namespace SystemMonitor.HardwareStatic.Builder
 
         public List<CDROMDrive> GetCDROMDriveStaticData()
         {
-            List<ManagementObject> managementObjectWin32_CDROMDrive = this.WMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_QUERY_CDROM_DRIVE);
+            List<ManagementObject> managementObjectWin32_CDROMDrive = this.WMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_NAMESPACE_ROOT_CIMV2, ConstStringHardwareStatic.WMI_QUERY_CDROM_DRIVE);
 
             List<CDROMDrive> cdROMDriveStaticData = new List<CDROMDrive>();
 
@@ -88,7 +88,7 @@ namespace SystemMonitor.HardwareStatic.Builder
 
         public List<BaseBoard> GetBaseBoardStaticData()
         {
-            List<ManagementObject> managementObjectWin32_BaseBoard = this.WMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_QUERY_BASE_BOARD);
+            List<ManagementObject> managementObjectWin32_BaseBoard = this.WMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_NAMESPACE_ROOT_CIMV2, ConstStringHardwareStatic.WMI_QUERY_BASE_BOARD);
 
             List<BaseBoard> baseBoardStaticData = new List<BaseBoard>();
 
@@ -102,7 +102,7 @@ namespace SystemMonitor.HardwareStatic.Builder
 
         public List<Fan> GetFanData()
         {
-            List<ManagementObject> managementObjectWin32_Fan = this.WMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_QUERY_FAN);
+            List<ManagementObject> managementObjectWin32_Fan = this.WMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_NAMESPACE_ROOT_CIMV2, ConstStringHardwareStatic.WMI_QUERY_FAN);
 
             List<Fan> fanStaticData = new List<Fan>();
 
@@ -116,7 +116,7 @@ namespace SystemMonitor.HardwareStatic.Builder
 
         public List<Battery> GetBatteryData()
         {
-            List<ManagementObject> managementObjectWin32_Battery = this.WMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_QUERY_BATTERY);
+            List<ManagementObject> managementObjectWin32_Battery = this.WMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_NAMESPACE_ROOT_CIMV2, ConstStringHardwareStatic.WMI_QUERY_BATTERY);
 
             List<Battery> batteryStaticData = new List<Battery>();
 
@@ -126,6 +126,48 @@ namespace SystemMonitor.HardwareStatic.Builder
             }
 
             return batteryStaticData;
+        }
+
+        public List<NetworkAdapter> GetNetworkAdapterData()
+        {
+            List<ManagementObject> managementObjectMSFT_NetAdapter = this.WMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_NAMESPACE_ROOT_STANDARD_CIMV2, ConstStringHardwareStatic.WMI_QUERY_NETWORK_ADAPTER);
+
+            List<NetworkAdapter> networkAdapterStaticData = new List<NetworkAdapter>();
+
+            foreach (var networkAdapterObject in managementObjectMSFT_NetAdapter)
+            {
+                networkAdapterStaticData.Add(this.WMIDataExtractor.ExtractDataNetworkAdapter(networkAdapterObject));
+            }
+
+            return networkAdapterStaticData;
+        }
+
+        public List<Printer> GetPrinterData()
+        {
+            List<ManagementObject> managementObjectWin32_Printer = this.WMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_NAMESPACE_ROOT_CIMV2, ConstStringHardwareStatic.WMI_QUERY_PRINTER);
+
+            List<Printer> printerStaticData = new List<Printer>();
+
+            foreach (var printerObject in managementObjectWin32_Printer)
+            {
+                printerStaticData.Add(this.WMIDataExtractor.ExtractDataPrinter(printerObject));
+            }
+
+            return printerStaticData;
+        }
+
+        public List<VideoController> GetVideoControllerData()
+        {
+            List<ManagementObject> managementObjectWin32_VideoController = this.WMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_NAMESPACE_ROOT_CIMV2, ConstStringHardwareStatic.WMI_QUERY_VIDEO_CONTROLLER);
+
+            List<VideoController> videoControllerStaticData = new List<VideoController>();
+
+            foreach (var videoControllerObject in managementObjectWin32_VideoController)
+            {
+                videoControllerStaticData.Add(this.WMIDataExtractor.ExtractDataVideoController(videoControllerObject));
+            }
+
+            return videoControllerStaticData;
         }
     }
 }

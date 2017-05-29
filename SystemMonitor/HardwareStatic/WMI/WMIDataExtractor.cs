@@ -191,5 +191,85 @@ namespace SystemMonitor.HardwareStatic.WMI
 
             return battery;
         }
+
+        public NetworkAdapter ExtractDataNetworkAdapter(ManagementObject managementObjectMSFT_NetAdapter)
+        {
+            NetworkAdapter networkAdapter = new NetworkAdapter();
+            networkAdapter.ActiveMaximumTransmissionUnit = new UnitValue(Unit.B, managementObjectMSFT_NetAdapter[ConstStringHardwareStatic.NETWORK_ADAPTER_MAXIMUM_MTU]?.ToString() ?? string.Empty);
+            networkAdapter.Caption = managementObjectMSFT_NetAdapter[ConstStringHardwareStatic.NETWORK_ADAPTER_CAPTION]?.ToString() ?? string.Empty;
+            networkAdapter.ComponentID = managementObjectMSFT_NetAdapter[ConstStringHardwareStatic.NETWORK_ADAPTER_COMPONENT_ID]?.ToString() ?? string.Empty;
+            networkAdapter.ConnectorPresent = managementObjectMSFT_NetAdapter[ConstStringHardwareStatic.NETWORK_ADAPTER_CONNECTOR_PRESENT]?.ToString() ?? string.Empty;
+            networkAdapter.Description = managementObjectMSFT_NetAdapter[ConstStringHardwareStatic.NETWORK_ADAPTER_DESCRIPTION]?.ToString() ?? string.Empty;
+            networkAdapter.DeviceID = managementObjectMSFT_NetAdapter[ConstStringHardwareStatic.NETWORK_ADAPTER_DEVICE_ID]?.ToString() ?? string.Empty;
+            networkAdapter.DeviceName = managementObjectMSFT_NetAdapter[ConstStringHardwareStatic.NETWORK_ADAPTER_DRIVER_NAME]?.ToString() ?? string.Empty;
+            networkAdapter.DriverDate = managementObjectMSFT_NetAdapter[ConstStringHardwareStatic.NETWORK_ADAPTER_DRIVER_DATE]?.ToString() ?? string.Empty;
+            networkAdapter.DriverDescription = managementObjectMSFT_NetAdapter[ConstStringHardwareStatic.NETWORK_ADAPTER_DRIVER_DESCRIPTION]?.ToString() ?? string.Empty;
+            networkAdapter.DriverName = managementObjectMSFT_NetAdapter[ConstStringHardwareStatic.NETWORK_ADAPTER_DRIVER_NAME]?.ToString() ?? string.Empty;
+            networkAdapter.DriverProvider = managementObjectMSFT_NetAdapter[ConstStringHardwareStatic.NETWORK_ADAPTER_DRIVER_PROVIDER]?.ToString() ?? string.Empty;
+            networkAdapter.DriverVersionString = managementObjectMSFT_NetAdapter[ConstStringHardwareStatic.NETWORK_ADAPTER_DRIVER_VERSION_STRING]?.ToString() ?? string.Empty;
+            networkAdapter.InterfaceDescription = managementObjectMSFT_NetAdapter[ConstStringHardwareStatic.NETWORK_ADAPTER_INTERFACE_DESCRIPTION]?.ToString() ?? string.Empty;
+            networkAdapter.InterfaceName = managementObjectMSFT_NetAdapter[ConstStringHardwareStatic.NETWORK_ADAPTER_INTERFACE_NAME]?.ToString() ?? string.Empty;
+            networkAdapter.Name = managementObjectMSFT_NetAdapter[ConstStringHardwareStatic.NETWORK_ADAPTER_NAME]?.ToString() ?? string.Empty;
+
+            if (managementObjectMSFT_NetAdapter[ConstStringHardwareStatic.NETWORK_ADAPTER_NDIS_MEDIUM] != null)
+            {
+                networkAdapter.NdisMedium = ((NdisMediumEnum)((uint)managementObjectMSFT_NetAdapter[ConstStringHardwareStatic.NETWORK_ADAPTER_NDIS_MEDIUM])).ToString();
+            }
+            else
+            {
+                networkAdapter.NdisMedium = string.Empty;
+            }
+
+            if (managementObjectMSFT_NetAdapter[ConstStringHardwareStatic.NETWORK_ADAPTER_NDIS_PHYSICAL_MEDIUM] != null)
+            {
+                networkAdapter.NdisPhysicalMedium = ((NdisPhysicalMediumEnum)((uint)managementObjectMSFT_NetAdapter[ConstStringHardwareStatic.NETWORK_ADAPTER_NDIS_PHYSICAL_MEDIUM])).ToString();
+            }
+            else
+            {
+                networkAdapter.NdisPhysicalMedium = string.Empty;
+            }
+
+            networkAdapter.PermanentAddress = managementObjectMSFT_NetAdapter[ConstStringHardwareStatic.NETWORK_ADAPTER_PERMANENT_ADDRESS]?.ToString() ?? string.Empty;
+            networkAdapter.Virtual = managementObjectMSFT_NetAdapter[ConstStringHardwareStatic.NETWORK_ADAPTER_VIRTUAL]?.ToString() ?? string.Empty;
+
+            return networkAdapter;
+        }
+
+        public Printer ExtractDataPrinter(ManagementObject managementObjectWin32_Printer)
+        {
+            Printer printer = new Printer();
+            printer.AveragePagesPerMinute = managementObjectWin32_Printer[ConstStringHardwareStatic.PRINTER_AVG_PAGES_PER_MINUTE]?.ToString() ?? string.Empty;
+            printer.Caption = managementObjectWin32_Printer[ConstStringHardwareStatic.PRINTER_CAPTION]?.ToString() ?? string.Empty;
+            printer.Default = managementObjectWin32_Printer[ConstStringHardwareStatic.PRINTER_DEFAULT]?.ToString() ?? string.Empty;
+            printer.Description = managementObjectWin32_Printer[ConstStringHardwareStatic.PRINTER_DESCRIPTION]?.ToString() ?? string.Empty;
+            printer.DeviceID = managementObjectWin32_Printer[ConstStringHardwareStatic.PRINTER_DEVICE_ID]?.ToString() ?? string.Empty;
+            printer.Name = managementObjectWin32_Printer[ConstStringHardwareStatic.PRINTER_NAME]?.ToString() ?? string.Empty;
+            printer.PortName = managementObjectWin32_Printer[ConstStringHardwareStatic.PRINTER_PORT_NAME]?.ToString() ?? string.Empty;
+            printer.PrintProcessor = managementObjectWin32_Printer[ConstStringHardwareStatic.PRINTER_PRINT_PROCESSOR]?.ToString() ?? string.Empty;
+
+            return printer;
+        }
+
+        public VideoController ExtractDataVideoController(ManagementObject managementObjectWin32_VideoController)
+        {
+            VideoController videoController = new VideoController();
+            videoController.AdapterCompatibility = managementObjectWin32_VideoController[ConstStringHardwareStatic.VIDEO_CONTROLLER_ADAPTER_COMPATIBILITY]?.ToString() ?? string.Empty;
+            videoController.AdapterDACType = managementObjectWin32_VideoController[ConstStringHardwareStatic.VIDEO_CONTROLLER_ADAPTER_DAC_TYPE]?.ToString() ?? string.Empty;
+            videoController.AdapterRAM = new UnitValue(Unit.B, managementObjectWin32_VideoController[ConstStringHardwareStatic.VIDEO_CONTROLLER_ADAPTER_RAM]?.ToString() ?? string.Empty);
+            videoController.Caption = managementObjectWin32_VideoController[ConstStringHardwareStatic.VIDEO_CONTROLLER_CAPTION]?.ToString() ?? string.Empty;
+            videoController.CurrentBitsPerPixel = new UnitValue(Unit.BIT, managementObjectWin32_VideoController[ConstStringHardwareStatic.VIDEO_CONTROLLER_CURRENT_BITS_PER_PIXEL]?.ToString() ?? string.Empty);
+            videoController.CurrentHorizontalResolution = new UnitValue(Unit.PX, managementObjectWin32_VideoController[ConstStringHardwareStatic.VIDEO_CONTROLLER_CURRENT_HORIZONTAL_RESOLUTION]?.ToString() ?? string.Empty);
+            videoController.CurrentNumberOfColors = managementObjectWin32_VideoController[ConstStringHardwareStatic.VIDEO_CONTROLLER_CURRENT_NUMBER_OF_COLORS]?.ToString() ?? string.Empty;
+            videoController.CurrentRefreshRate = new UnitValue(Unit.HZ, managementObjectWin32_VideoController[ConstStringHardwareStatic.VIDEO_CONTROLLER_CURRENT_REFRESH_RATE]?.ToString() ?? string.Empty);
+            videoController.CurrentVerticalResolution = new UnitValue(Unit.PX, managementObjectWin32_VideoController[ConstStringHardwareStatic.VIDEO_CONTROLLER_CURRENT_VERTICAL_RESOLUTION]?.ToString() ?? string.Empty);
+            videoController.Description = managementObjectWin32_VideoController[ConstStringHardwareStatic.VIDEO_CONTROLLER_DESCRIPTION]?.ToString() ?? string.Empty;
+            videoController.DeviceID = managementObjectWin32_VideoController[ConstStringHardwareStatic.VIDEO_CONTROLLER_DEVICE_ID]?.ToString() ?? string.Empty;
+            videoController.DriverVersion = managementObjectWin32_VideoController[ConstStringHardwareStatic.VIDEO_CONTROLLER_DRIVER_VERSION]?.ToString() ?? string.Empty;
+            videoController.Name = managementObjectWin32_VideoController[ConstStringHardwareStatic.VIDEO_CONTROLLER_NAME]?.ToString() ?? string.Empty;
+            videoController.VideoModeDescription = managementObjectWin32_VideoController[ConstStringHardwareStatic.VIDEO_CONTROLLER_VIDEO_MODE_DESCRIPTION]?.ToString() ?? string.Empty;
+            videoController.VideoProcessor = managementObjectWin32_VideoController[ConstStringHardwareStatic.VIDEO_CONTROLLER_VIDEO_PROCESSOR]?.ToString() ?? string.Empty;
+
+            return videoController;
+        }
     }
 }

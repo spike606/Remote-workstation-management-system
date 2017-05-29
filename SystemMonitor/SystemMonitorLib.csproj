@@ -68,10 +68,14 @@
     <Compile Include="HardwareStatic\Model\Components\Fan.cs" />
     <Compile Include="HardwareStatic\Model\Components\LogicalDisk.cs" />
     <Compile Include="HardwareStatic\Model\Components\Memory.cs" />
+    <Compile Include="HardwareStatic\Model\Components\NetworkAdapter.cs" />
+    <Compile Include="HardwareStatic\Model\Components\Printer.cs" />
+    <Compile Include="HardwareStatic\Model\Components\VideoController.cs" />
     <Compile Include="HardwareStatic\Model\CustomProperties\CpuCacheMemory.cs" />
     <Compile Include="HardwareStatic\Model\CustomProperties\Enum\BatteryEnum.cs" />
     <Compile Include="HardwareStatic\Model\CustomProperties\Enum\LogicalDiskEnum.cs" />
     <Compile Include="HardwareStatic\Model\CustomProperties\Enum\MemoryEnum.cs" />
+    <Compile Include="HardwareStatic\Model\CustomProperties\Enum\NetworkAdapterEnum.cs" />
     <Compile Include="HardwareStatic\Model\CustomProperties\Enum\ProcessorEnum.cs" />
     <Compile Include="HardwareStatic\Model\CustomProperties\Unit.cs" />
     <Compile Include="HardwareStatic\Model\CustomProperties\UnitValue.cs" />

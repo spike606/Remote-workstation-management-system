@@ -12,8 +12,10 @@ namespace SystemMonitor.HardwareStatic.Model.CustomProperties
         internal const string B = "Byte";
         internal const string KB = "kB";
         internal const string MB = "MB";
+        internal const string HZ = "Hz";
         internal const string MHZ = "MHz";
         internal const string MV = "mV";
         internal const string MWH = "mWh";
+        internal const string PX = "pixel";
     }
 }

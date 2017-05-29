@@ -10,6 +10,9 @@ namespace SystemMonitor.HardwareStatic
 {
     internal class ConstStringHardwareStatic
     {
+        internal const string WMI_NAMESPACE_ROOT_CIMV2 = "root\\CIMV2";
+        internal const string WMI_NAMESPACE_ROOT_STANDARD_CIMV2 = "root\\StandardCimv2";
+
         internal const string WMI_QUERY_PROCESSOR = "select * from Win32_Processor";
         internal const string WMI_QUERY_CACHE_MEMORY = "select CacheSpeed, MaxCacheSize, Level from Win32_CacheMemory";
         internal const string PROCESSOR_ADDRESS_WIDTH = "AddressWidth";
@@ -117,7 +120,54 @@ namespace SystemMonitor.HardwareStatic
         internal const string BATTERY_FULLY_CHARGE_CAPACITY = "FullChargeCapacity";
         internal const string BATTERY_NAME = "Name";
 
-        internal const string WMI_QUERY_PLUG_AND_PLAY = "select * from Win32_PnPEntity";
+        internal const string WMI_QUERY_NETWORK_ADAPTER = "select * from MSFT_NetAdapter";
+        internal const string NETWORK_ADAPTER_MAXIMUM_MTU = "ActiveMaximumTransmissionUnit";
+        internal const string NETWORK_ADAPTER_CAPTION = "Caption";
+        internal const string NETWORK_ADAPTER_DESCRIPTION = "Description";
+        internal const string NETWORK_ADAPTER_COMPONENT_ID = "ComponentID";
+        internal const string NETWORK_ADAPTER_CONNECTOR_PRESENT = "ConnectorPresent";
+        internal const string NETWORK_ADAPTER_DEVICE_ID = "DeviceID";
+        internal const string NETWORK_ADAPTER_DEVICE_NAME = "DeviceName";
+        internal const string NETWORK_ADAPTER_DRIVER_DATE = "DriverDate";
+        internal const string NETWORK_ADAPTER_DRIVER_DESCRIPTION = "DriverDescription";
+        internal const string NETWORK_ADAPTER_DRIVER_NAME = "DriverName";
+        internal const string NETWORK_ADAPTER_DRIVER_PROVIDER = "DriverProvider";
+        internal const string NETWORK_ADAPTER_DRIVER_VERSION_STRING = "DriverVersionString";
+        internal const string NETWORK_ADAPTER_INTERFACE_DESCRIPTION = "InterfaceDescription";
+        internal const string NETWORK_ADAPTER_INTERFACE_NAME = "InterfaceName";
+        internal const string NETWORK_ADAPTER_NAME = "Name";
+        internal const string NETWORK_ADAPTER_NDIS_MEDIUM = "NdisMedium";
+        internal const string NETWORK_ADAPTER_NDIS_PHYSICAL_MEDIUM = "NdisPhysicalMedium";
+        internal const string NETWORK_ADAPTER_PERMANENT_ADDRESS = "PermanentAddress";
+        internal const string NETWORK_ADAPTER_VIRTUAL = "Virtual";
 
+        internal const string WMI_QUERY_PRINTER = "select * from Win32_Printer";
+        internal const string PRINTER_AVG_PAGES_PER_MINUTE = "AveragePagesPerMinute";
+        internal const string PRINTER_CAPTION = "Caption";
+        internal const string PRINTER_DEFAULT = "Default";
+        internal const string PRINTER_DESCRIPTION = "Description";
+        internal const string PRINTER_DEVICE_ID = "DeviceID";
+        internal const string PRINTER_NAME = "Name";
+        internal const string PRINTER_PORT_NAME = "PortName";
+        internal const string PRINTER_PRINT_PROCESSOR = "PrintProcessor";
+
+        internal const string WMI_QUERY_VIDEO_CONTROLLER = "select * from Win32_VideoController";
+        internal const string VIDEO_CONTROLLER_ADAPTER_COMPATIBILITY = "AdapterCompatibility";
+        internal const string VIDEO_CONTROLLER_ADAPTER_DAC_TYPE = "AdapterDACType";
+        internal const string VIDEO_CONTROLLER_ADAPTER_RAM = "AdapterRAM";
+        internal const string VIDEO_CONTROLLER_CAPTION = "Caption";
+        internal const string VIDEO_CONTROLLER_CURRENT_BITS_PER_PIXEL = "CurrentBitsPerPixel";
+        internal const string VIDEO_CONTROLLER_CURRENT_HORIZONTAL_RESOLUTION = "CurrentHorizontalResolution";
+        internal const string VIDEO_CONTROLLER_CURRENT_NUMBER_OF_COLORS = "CurrentNumberOfColors";
+        internal const string VIDEO_CONTROLLER_CURRENT_REFRESH_RATE = "CurrentRefreshRate";
+        internal const string VIDEO_CONTROLLER_CURRENT_VERTICAL_RESOLUTION = "CurrentVerticalResolution";
+        internal const string VIDEO_CONTROLLER_DESCRIPTION = "Description";
+        internal const string VIDEO_CONTROLLER_DEVICE_ID = "DeviceID";
+        internal const string VIDEO_CONTROLLER_DRIVER_VERSION = "DriverVersion";
+        internal const string VIDEO_CONTROLLER_NAME = "Name";
+        internal const string VIDEO_CONTROLLER_VIDEO_MODE_DESCRIPTION = "VideoModeDescription";
+        internal const string VIDEO_CONTROLLER_VIDEO_PROCESSOR = "VideoProcessor";
+
+        internal const string WMI_QUERY_PLUG_AND_PLAY = "select * from Win32_PnPEntity";
     }
 }

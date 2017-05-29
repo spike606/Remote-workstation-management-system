@@ -17,12 +17,12 @@ namespace SystemMonitor.HardwareStatic.WMI
 
         public INLogger Logger { get; set; }
 
-        public List<ManagementObject> RetriveListOfObjectsByExecutingWMIQuery(string wmiQuery)
+        public List<ManagementObject> RetriveListOfObjectsByExecutingWMIQuery(string wmiNamespace, string wmiQuery)
         {
             List<ManagementObject> managementObjects = new List<ManagementObject>();
             try
             {
-                ManagementObjectSearcher searcher = new ManagementObjectSearcher("root\\cimv2", wmiQuery);
+                ManagementObjectSearcher searcher = new ManagementObjectSearcher(wmiNamespace, wmiQuery);
 
                 foreach (ManagementObject queryObj in searcher.Get())
                 {

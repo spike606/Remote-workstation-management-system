@@ -24,5 +24,11 @@ namespace SystemMonitor.HardwareStatic.Model
         public List<Fan> Fan { get; set; }
 
         public List<Battery> Battery { get; set; }
+
+        public List<NetworkAdapter> NetworkAdapter { get; set; }
+
+        public List<Printer> Printer { get; set; }
+
+        public List<VideoController> VideoController { get; set; }
     }
 }

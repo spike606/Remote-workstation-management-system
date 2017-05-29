@@ -24,5 +24,11 @@ namespace SystemMonitor.HardwareStatic.Builder
         List<Fan> GetFanData();
 
         List<Battery> GetBatteryData();
+
+        List<NetworkAdapter> GetNetworkAdapterData();
+
+        List<Printer> GetPrinterData();
+
+        List<VideoController> GetVideoControllerData();
     }
 }

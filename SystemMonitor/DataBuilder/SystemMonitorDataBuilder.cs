@@ -33,7 +33,9 @@ namespace SystemMonitor.DataBuilder
             data.BaseBoard = this.HardwareStaticBuilder.GetBaseBoardStaticData();
             data.Fan = this.HardwareStaticBuilder.GetFanData();
             data.Battery = this.HardwareStaticBuilder.GetBatteryData();
-
+            data.NetworkAdapter = this.HardwareStaticBuilder.GetNetworkAdapterData();
+            data.Printer = this.HardwareStaticBuilder.GetPrinterData();
+            data.VideoController = this.HardwareStaticBuilder.GetVideoControllerData();
             return data;
         }
     }

@@ -25,5 +25,11 @@ namespace SystemMonitor.HardwareStatic.WMI
         Fan ExtractDataFan(ManagementObject managementObjectWin32_Fan);
 
         Battery ExtractDataBattery(ManagementObject managementObjectWin32_Battery);
+
+        NetworkAdapter ExtractDataNetworkAdapter(ManagementObject managementObjectMSFT_NetAdapter);
+
+        Printer ExtractDataPrinter(ManagementObject managementObjectWin32_Printer);
+
+        VideoController ExtractDataVideoController(ManagementObject managementObjectWin32_VideoController);
     }
 }
