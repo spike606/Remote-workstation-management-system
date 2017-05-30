@@ -283,5 +283,36 @@ namespace SystemMonitor.HardwareStatic.WMI
 
             return pnPEntity;
         }
+
+        public Volume ExtractDataVolume(ManagementObject managementObjectWin32_Volume)
+        {
+            Volume volume = new Volume();
+            volume.BlockSize = new UnitValue(Unit.B, managementObjectWin32_Volume[ConstStringHardwareStatic.VOLUME_BLOCK_SIZE]?.ToString() ?? string.Empty);
+            volume.BootVolume = managementObjectWin32_Volume[ConstStringHardwareStatic.VOLUME_BOOT_VOLUME]?.ToString() ?? string.Empty;
+            volume.Capacity = new UnitValue(Unit.B, managementObjectWin32_Volume[ConstStringHardwareStatic.VOLUME_CAPACITY]?.ToString() ?? string.Empty);
+            volume.Caption = managementObjectWin32_Volume[ConstStringHardwareStatic.VOLUME_CAPTION]?.ToString() ?? string.Empty;
+            volume.Description = managementObjectWin32_Volume[ConstStringHardwareStatic.VOLUME_DESCRIPTION]?.ToString() ?? string.Empty;
+            volume.DeviceID = managementObjectWin32_Volume[ConstStringHardwareStatic.VOLUME_DEVICE_ID]?.ToString() ?? string.Empty;
+            volume.DriveLetter = managementObjectWin32_Volume[ConstStringHardwareStatic.VOLUME_DRIVE_LETTER]?.ToString() ?? string.Empty;
+
+            if (managementObjectWin32_Volume[ConstStringHardwareStatic.VOLUME_DRIVE_TYPE] != null)
+            {
+                volume.DriveType = ((DriveTypeEnum)((uint)managementObjectWin32_Volume[ConstStringHardwareStatic.VOLUME_DRIVE_TYPE])).ToString();
+            }
+            else
+            {
+                volume.DriveType = string.Empty;
+            }
+
+            volume.FileSystem = managementObjectWin32_Volume[ConstStringHardwareStatic.VOLUME_FILE_SYSTEM]?.ToString() ?? string.Empty;
+            volume.FreeSpace = new UnitValue(Unit.B, managementObjectWin32_Volume[ConstStringHardwareStatic.VOLUME_FREE_SPACE]?.ToString() ?? string.Empty);
+            volume.Label = managementObjectWin32_Volume[ConstStringHardwareStatic.VOLUME_LABEL]?.ToString() ?? string.Empty;
+            volume.Name = managementObjectWin32_Volume[ConstStringHardwareStatic.VOLUME_NAME]?.ToString() ?? string.Empty;
+            volume.SerialNumber = managementObjectWin32_Volume[ConstStringHardwareStatic.VOLUME_SERIAL_NUMBER]?.ToString() ?? string.Empty;
+            volume.Status = managementObjectWin32_Volume[ConstStringHardwareStatic.VOLUME_STATUS]?.ToString() ?? string.Empty;
+            volume.SystemVolume = managementObjectWin32_Volume[ConstStringHardwareStatic.VOLUME_SYSTEM_VOLUME]?.ToString() ?? string.Empty;
+
+            return volume;
+        }
     }
 }

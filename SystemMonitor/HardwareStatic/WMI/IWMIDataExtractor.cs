@@ -33,5 +33,7 @@ namespace SystemMonitor.HardwareStatic.WMI
         VideoController ExtractDataVideoController(ManagementObject managementObjectWin32_VideoController);
 
         PnPEntity ExtractDataPnPEntity(ManagementObject managementObjectWin32_PnPEntity);
+
+        Volume ExtractDataVolume(ManagementObject managementObjectWin32_Volume);
     }
 }

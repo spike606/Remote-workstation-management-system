@@ -183,5 +183,19 @@ namespace SystemMonitor.HardwareStatic.Builder
 
             return pnPEntityStaticData;
         }
+
+        public List<Volume> GetVolumeData()
+        {
+            List<ManagementObject> managementObjectWin32_Volume = this.WMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_NAMESPACE_ROOT_CIMV2, ConstStringHardwareStatic.WMI_QUERY_VOLUME);
+
+            List<Volume> volumeStaticData = new List<Volume>();
+
+            foreach (var volumeObject in managementObjectWin32_Volume)
+            {
+                volumeStaticData.Add(this.WMIDataExtractor.ExtractDataVolume(volumeObject));
+            }
+
+            return volumeStaticData;
+        }
     }
 }

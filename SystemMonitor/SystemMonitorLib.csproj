@@ -72,6 +72,7 @@
     <Compile Include="HardwareStatic\Model\Components\PnPEntity.cs" />
     <Compile Include="HardwareStatic\Model\Components\Printer.cs" />
     <Compile Include="HardwareStatic\Model\Components\VideoController.cs" />
+    <Compile Include="HardwareStatic\Model\Components\Volume.cs" />
     <Compile Include="HardwareStatic\Model\CustomProperties\CpuCacheMemory.cs" />
     <Compile Include="HardwareStatic\Model\CustomProperties\Enum\BatteryEnum.cs" />
     <Compile Include="HardwareStatic\Model\CustomProperties\Enum\LogicalDiskEnum.cs" />

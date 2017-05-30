@@ -37,6 +37,7 @@ namespace SystemMonitor.DataBuilder
             data.Printer = this.HardwareStaticBuilder.GetPrinterData();
             data.VideoController = this.HardwareStaticBuilder.GetVideoControllerData();
             data.PnPEntity = this.HardwareStaticBuilder.GetPnPEntityData();
+            data.Volume = this.HardwareStaticBuilder.GetVolumeData();
             return data;
         }
     }

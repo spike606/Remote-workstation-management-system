@@ -32,5 +32,7 @@ namespace SystemMonitor.HardwareStatic.Builder
         List<VideoController> GetVideoControllerData();
 
         List<PnPEntity> GetPnPEntityData();
+
+        List<Volume> GetVolumeData();
     }
 }

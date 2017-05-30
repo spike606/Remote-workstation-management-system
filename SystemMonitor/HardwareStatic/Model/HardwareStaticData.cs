@@ -32,5 +32,7 @@ namespace SystemMonitor.HardwareStatic.Model
         public List<VideoController> VideoController { get; set; }
 
         public List<PnPEntity> PnPEntity { get; set; }
+
+        public List<Volume> Volume { get; set; }
     }
 }

@@ -175,5 +175,22 @@ namespace SystemMonitor.HardwareStatic
         internal const string PNP_ENTITY_MANUFACTURER = "Manufacturer";
         internal const string PNP_ENTITY_NAME = "Name";
 
+        internal const string WMI_QUERY_VOLUME = "select * from Win32_Volume";
+        internal const string VOLUME_BLOCK_SIZE = "BlockSize";
+        internal const string VOLUME_BOOT_VOLUME = "BootVolume";
+        internal const string VOLUME_CAPACITY = "Capacity";
+        internal const string VOLUME_CAPTION = "Caption";
+        internal const string VOLUME_DESCRIPTION = "Description";
+        internal const string VOLUME_DEVICE_ID = "DeviceID";
+        internal const string VOLUME_DRIVE_LETTER = "DriveLetter";
+        internal const string VOLUME_DRIVE_TYPE = "DriveType";
+        internal const string VOLUME_FILE_SYSTEM = "FileSystem";
+        internal const string VOLUME_FREE_SPACE = "FreeSpace";
+        internal const string VOLUME_LABEL = "Label";
+        internal const string VOLUME_NAME = "Name";
+        internal const string VOLUME_SERIAL_NUMBER = "SerialNumber";
+        internal const string VOLUME_STATUS = "Status";
+        internal const string VOLUME_SYSTEM_VOLUME = "SystemVolume";
+
     }
 }
