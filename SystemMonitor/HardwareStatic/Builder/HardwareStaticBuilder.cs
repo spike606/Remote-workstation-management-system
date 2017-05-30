@@ -169,5 +169,19 @@ namespace SystemMonitor.HardwareStatic.Builder
 
             return videoControllerStaticData;
         }
+
+        public List<PnPEntity> GetPnPEntityData()
+        {
+            List<ManagementObject> managementObjectWin32_PnPEntity = this.WMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_NAMESPACE_ROOT_CIMV2, ConstStringHardwareStatic.WMI_QUERY_PNP_ENTITY);
+
+            List<PnPEntity> pnPEntityStaticData = new List<PnPEntity>();
+
+            foreach (var pnPEntityObject in managementObjectWin32_PnPEntity)
+            {
+                pnPEntityStaticData.Add(this.WMIDataExtractor.ExtractDataPnPEntity(pnPEntityObject));
+            }
+
+            return pnPEntityStaticData;
+        }
     }
 }

@@ -31,5 +31,7 @@ namespace SystemMonitor.HardwareStatic.WMI
         Printer ExtractDataPrinter(ManagementObject managementObjectWin32_Printer);
 
         VideoController ExtractDataVideoController(ManagementObject managementObjectWin32_VideoController);
+
+        PnPEntity ExtractDataPnPEntity(ManagementObject managementObjectWin32_PnPEntity);
     }
 }

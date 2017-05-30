@@ -168,6 +168,12 @@ namespace SystemMonitor.HardwareStatic
         internal const string VIDEO_CONTROLLER_VIDEO_MODE_DESCRIPTION = "VideoModeDescription";
         internal const string VIDEO_CONTROLLER_VIDEO_PROCESSOR = "VideoProcessor";
 
-        internal const string WMI_QUERY_PLUG_AND_PLAY = "select * from Win32_PnPEntity";
+        internal const string WMI_QUERY_PNP_ENTITY = "select * from Win32_PnPEntity";
+        internal const string PNP_ENTITY_CAPTION = "Caption";
+        internal const string PNP_ENTITY_DESCRIPTION = "Description";
+        internal const string PNP_ENTITY_DEVICE_ID = "DeviceID";
+        internal const string PNP_ENTITY_MANUFACTURER = "Manufacturer";
+        internal const string PNP_ENTITY_NAME = "Name";
+
     }
 }

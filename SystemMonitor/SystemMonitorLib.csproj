@@ -69,6 +69,7 @@
     <Compile Include="HardwareStatic\Model\Components\LogicalDisk.cs" />
     <Compile Include="HardwareStatic\Model\Components\Memory.cs" />
     <Compile Include="HardwareStatic\Model\Components\NetworkAdapter.cs" />
+    <Compile Include="HardwareStatic\Model\Components\PnPEntity.cs" />
     <Compile Include="HardwareStatic\Model\Components\Printer.cs" />
     <Compile Include="HardwareStatic\Model\Components\VideoController.cs" />
     <Compile Include="HardwareStatic\Model\CustomProperties\CpuCacheMemory.cs" />

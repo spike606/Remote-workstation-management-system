@@ -30,5 +30,7 @@ namespace SystemMonitor.HardwareStatic.Model
         public List<Printer> Printer { get; set; }
 
         public List<VideoController> VideoController { get; set; }
+
+        public List<PnPEntity> PnPEntity { get; set; }
     }
 }

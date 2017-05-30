@@ -271,5 +271,17 @@ namespace SystemMonitor.HardwareStatic.WMI
 
             return videoController;
         }
+
+        public PnPEntity ExtractDataPnPEntity(ManagementObject managementObjectWin32_PnPEntity)
+        {
+            PnPEntity pnPEntity = new PnPEntity();
+            pnPEntity.Caption = managementObjectWin32_PnPEntity[ConstStringHardwareStatic.PNP_ENTITY_CAPTION]?.ToString() ?? string.Empty;
+            pnPEntity.Description = managementObjectWin32_PnPEntity[ConstStringHardwareStatic.PNP_ENTITY_DESCRIPTION]?.ToString() ?? string.Empty;
+            pnPEntity.DeviceID = managementObjectWin32_PnPEntity[ConstStringHardwareStatic.PNP_ENTITY_DEVICE_ID]?.ToString() ?? string.Empty;
+            pnPEntity.Manufacturer = managementObjectWin32_PnPEntity[ConstStringHardwareStatic.PNP_ENTITY_MANUFACTURER]?.ToString() ?? string.Empty;
+            pnPEntity.Name = managementObjectWin32_PnPEntity[ConstStringHardwareStatic.PNP_ENTITY_NAME]?.ToString() ?? string.Empty;
+
+            return pnPEntity;
+        }
     }
 }

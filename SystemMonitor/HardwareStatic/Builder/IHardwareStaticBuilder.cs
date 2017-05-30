@@ -30,5 +30,7 @@ namespace SystemMonitor.HardwareStatic.Builder
         List<Printer> GetPrinterData();
 
         List<VideoController> GetVideoControllerData();
+
+        List<PnPEntity> GetPnPEntityData();
     }
 }
