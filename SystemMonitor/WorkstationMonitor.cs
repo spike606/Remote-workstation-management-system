@@ -30,11 +30,11 @@ namespace HardwareMonitor
         private void InitializeIoCContainer()
         {
             var container = new WindsorContainer();
-            container.Register(Component.For<INLogger>().ImplementedBy<NLogger>().LifeStyle.Singleton);
-            container.Register(Component.For<ISystemMonitorDataBuilder>().ImplementedBy<SystemMonitorDataBuilder>().LifeStyle.Singleton);
-            container.Register(Component.For<IHardwareStaticBuilder>().ImplementedBy<HardwareStaticBuilder>().LifeStyle.Singleton);
-            container.Register(Component.For<IWMIClient>().ImplementedBy<WMIClient>().LifeStyle.Singleton);
-            container.Register(Component.For<IWMIDataExtractor>().ImplementedBy<WMIDataExtractor>().LifeStyle.Singleton);
+            container.Register(Castle.MicroKernel.Registration.Component.For<INLogger>().ImplementedBy<NLogger>().LifeStyle.Singleton);
+            container.Register(Castle.MicroKernel.Registration.Component.For<ISystemMonitorDataBuilder>().ImplementedBy<SystemMonitorDataBuilder>().LifeStyle.Singleton);
+            container.Register(Castle.MicroKernel.Registration.Component.For<IHardwareStaticBuilder>().ImplementedBy<HardwareStaticBuilder>().LifeStyle.Singleton);
+            container.Register(Castle.MicroKernel.Registration.Component.For<IWMIClient>().ImplementedBy<WMIClient>().LifeStyle.Singleton);
+            container.Register(Castle.MicroKernel.Registration.Component.For<IWMIDataExtractor>().ImplementedBy<WMIDataExtractor>().LifeStyle.Singleton);
 
             this.SystemMonitorDataBuilder = container.Resolve<ISystemMonitorDataBuilder>();
         }

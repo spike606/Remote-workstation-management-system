@@ -11,28 +11,28 @@ namespace SystemMonitor.HardwareStatic.Model
     {
         public Processor Processor { get; set; }
 
-        public List<Memory> Memory { get; set; }
+        public List<IHardwareComponent> Memory { get; set; }
 
-        public List<DiskDrive> DiskDrive { get; set; }
+        public List<IHardwareComponent> DiskDrive { get; set; }
 
-        public List<LogicalDisk> LogicalDisk { get; set; }
+        public List<IHardwareComponent> LogicalDisk { get; set; }
 
-        public List<CDROMDrive> CDROMDrive { get; set; }
+        public List<IHardwareComponent> CDROMDrive { get; set; }
 
-        public List<BaseBoard> BaseBoard { get; set; }
+        public List<IHardwareComponent> BaseBoard { get; set; }
 
-        public List<Fan> Fan { get; set; }
+        public List<IHardwareComponent> Fan { get; set; }
 
-        public List<Battery> Battery { get; set; }
+        public List<IHardwareComponent> Battery { get; set; }
 
-        public List<NetworkAdapter> NetworkAdapter { get; set; }
+        public List<IHardwareComponent> NetworkAdapter { get; set; }
 
-        public List<Printer> Printer { get; set; }
+        public List<IHardwareComponent> Printer { get; set; }
 
-        public List<VideoController> VideoController { get; set; }
+        public List<IHardwareComponent> VideoController { get; set; }
 
-        public List<PnPEntity> PnPEntity { get; set; }
+        public List<IHardwareComponent> PnPEntity { get; set; }
 
-        public List<Volume> Volume { get; set; }
+        public List<IHardwareComponent> Volume { get; set; }
     }
 }

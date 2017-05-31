@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using NLog;
 using SystemMonitor.HardwareStatic.Builder;
 using SystemMonitor.HardwareStatic.Model;
+using SystemMonitor.HardwareStatic.Model.Components;
 using SystemMonitor.NLogger;
 
 namespace SystemMonitor.DataBuilder
@@ -26,18 +27,18 @@ namespace SystemMonitor.DataBuilder
         {
             HardwareStaticData data = new HardwareStaticData();
             data.Processor = this.HardwareStaticBuilder.GetProcessorStaticData();
-            data.Memory = this.HardwareStaticBuilder.GetMemoryStaticData();
-            data.DiskDrive = this.HardwareStaticBuilder.GetDiskDriveStaticData();
-            data.LogicalDisk = this.HardwareStaticBuilder.GetLogicalDiskStaticData();
-            data.CDROMDrive = this.HardwareStaticBuilder.GetCDROMDriveStaticData();
-            data.BaseBoard = this.HardwareStaticBuilder.GetBaseBoardStaticData();
-            data.Fan = this.HardwareStaticBuilder.GetFanData();
-            data.Battery = this.HardwareStaticBuilder.GetBatteryData();
-            data.NetworkAdapter = this.HardwareStaticBuilder.GetNetworkAdapterData();
-            data.Printer = this.HardwareStaticBuilder.GetPrinterData();
-            data.VideoController = this.HardwareStaticBuilder.GetVideoControllerData();
-            data.PnPEntity = this.HardwareStaticBuilder.GetPnPEntityData();
-            data.Volume = this.HardwareStaticBuilder.GetVolumeData();
+            data.Memory = this.HardwareStaticBuilder.GetStaticData(new Memory());
+            data.DiskDrive = this.HardwareStaticBuilder.GetStaticData(new DiskDrive());
+            data.LogicalDisk = this.HardwareStaticBuilder.GetStaticData(new LogicalDisk());
+            data.CDROMDrive = this.HardwareStaticBuilder.GetStaticData(new CDROMDrive());
+            data.BaseBoard = this.HardwareStaticBuilder.GetStaticData(new BaseBoard());
+            data.Fan = this.HardwareStaticBuilder.GetStaticData(new Fan());
+            data.Battery = this.HardwareStaticBuilder.GetStaticData(new Battery());
+            data.NetworkAdapter = this.HardwareStaticBuilder.GetStaticData(new NetworkAdapter());
+            data.Printer = this.HardwareStaticBuilder.GetStaticData(new Printer());
+            data.VideoController = this.HardwareStaticBuilder.GetStaticData(new VideoController());
+            data.PnPEntity = this.HardwareStaticBuilder.GetStaticData(new PnPEntity());
+            data.Volume = this.HardwareStaticBuilder.GetStaticData(new Volume());
             return data;
         }
     }

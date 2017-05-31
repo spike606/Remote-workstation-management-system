@@ -82,6 +82,7 @@
     <Compile Include="HardwareStatic\Model\CustomProperties\Unit.cs" />
     <Compile Include="HardwareStatic\Model\CustomProperties\UnitValue.cs" />
     <Compile Include="HardwareStatic\Model\HardwareStaticData.cs" />
+    <Compile Include="HardwareStatic\Model\IHardwareComponent.cs" />
     <Compile Include="HardwareStatic\WMI\IWMIClient.cs" />
     <Compile Include="HardwareStatic\WMI\IWMIDataExtractor.cs" />
     <Compile Include="HardwareStatic\WMI\WMIDataExtractor.cs" />
