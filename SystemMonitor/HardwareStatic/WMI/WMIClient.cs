@@ -15,7 +15,7 @@ namespace SystemMonitor.HardwareStatic.WMI
             this.Logger = logger;
         }
 
-        public INLogger Logger { get; set; }
+        public INLogger Logger { get; private set; }
 
         public List<ManagementObject> RetriveListOfObjectsByExecutingWMIQuery(string wmiNamespace, string wmiQuery)
         {
@@ -35,23 +35,6 @@ namespace SystemMonitor.HardwareStatic.WMI
             }
 
             return managementObjects;
-        }
-
-        public ManagementObject RetriveObjectByExecutingWMIQuery(string wmiQuery)
-        {
-            ManagementObject managementObject = new ManagementObject();
-            try
-            {
-                ManagementObjectSearcher searcher = new ManagementObjectSearcher(wmiQuery);
-
-                managementObject = new ManagementObjectSearcher(wmiQuery).Get().Cast<ManagementObject>().First();
-            }
-            catch (ManagementException exc)
-            {
-                this.Logger.LogDebug(exc.ToString());
-            }
-
-            return managementObject;
         }
     }
 }

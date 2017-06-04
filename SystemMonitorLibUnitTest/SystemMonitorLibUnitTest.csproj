@@ -84,7 +84,7 @@
     <Compile Include="HardwareStatic\ClassData\Should_ExtractPhysicalMemoryDataCorrectly_When_AllPropertiesAreProvided_Source.cs" />
     <Compile Include="HardwareStatic\ClassData\Should_ExtractProcessorDataCorrectly_When_AllPropertiesAreNull_Source.cs" />
     <Compile Include="HardwareStatic\ClassData\Should_ExtractProcessorDataCorrectly_When_AllPropertiesAreProvided_Source.cs" />
-    <Compile Include="HardwareStatic\WMIDataExtractorTest.cs" />
+    <Compile Include="HardwareStatic\HardwareStaticBuilderTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

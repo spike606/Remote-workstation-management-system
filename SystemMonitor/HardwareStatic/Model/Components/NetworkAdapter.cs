@@ -4,65 +4,60 @@ using System.Linq;
 using System.Management;
 using System.Text;
 using System.Threading.Tasks;
+using SystemMonitor.HardwareStatic.Model.Components.Abstract;
 using SystemMonitor.HardwareStatic.Model.CustomProperties;
 using SystemMonitor.HardwareStatic.Model.CustomProperties.Enum;
 using SystemMonitor.HardwareStatic.WMI;
 
 namespace SystemMonitor.HardwareStatic.Model.Components
 {
-    public class NetworkAdapter : IHardwareComponent
+    public class NetworkAdapter : HardwareComponent
     {
-        public UnitValue ActiveMaximumTransmissionUnit { get; set; }
+        public UnitValue ActiveMaximumTransmissionUnit { get; private set; }
 
-        public string Caption { get; set; }
+        public string ComponentID { get; private set; }
 
-        public string Description { get; set; }
+        public string ConnectorPresent { get; private set; }
 
-        public string ComponentID { get; set; }
+        public string DeviceID { get; private set; }
 
-        public string ConnectorPresent { get; set; }
+        public string DeviceName { get; private set; }
 
-        public string DeviceID { get; set; }
+        public string DriverDate { get; private set; }
 
-        public string DeviceName { get; set; }
+        public string DriverDescription { get; private set; }
 
-        public string DriverDate { get; set; }
+        public string DriverName { get; private set; }
 
-        public string DriverDescription { get; set; }
+        public string DriverProvider { get; private set; }
 
-        public string DriverName { get; set; }
+        public string DriverVersionString { get; private set; }
 
-        public string DriverProvider { get; set; }
+        public string InterfaceDescription { get; private set; }
 
-        public string DriverVersionString { get; set; }
+        public string InterfaceName { get; private set; }
 
-        public string InterfaceDescription { get; set; }
+        public string NdisMedium { get; private set; }
 
-        public string InterfaceName { get; set; }
+        public string NdisPhysicalMedium { get; private set; }
 
-        public string Name { get; set; }
+        public string PermanentAddress { get; private set; }
 
-        public string NdisMedium { get; set; }
+        public string Virtual { get; private set; }
 
-        public string NdisPhysicalMedium { get; set; }
-
-        public string PermanentAddress { get; set; }
-
-        public string Virtual { get; set; }
-
-        public List<ManagementObject> GetManagementObjectsForHardwareComponent(IWMIClient wMIClient)
+        public override List<ManagementObject> GetManagementObjectsForHardwareComponent(IWMIClient wMIClient)
         {
             return wMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_NAMESPACE_ROOT_STANDARD_CIMV2, ConstStringHardwareStatic.WMI_QUERY_NETWORK_ADAPTER);
         }
 
-        public IHardwareComponent ExtractData(ManagementObject managementObject)
+        public override HardwareComponent ExtractData(ManagementObject managementObject)
         {
             NetworkAdapter networkAdapter = new NetworkAdapter();
             networkAdapter.ActiveMaximumTransmissionUnit = new UnitValue(Unit.B, managementObject[ConstStringHardwareStatic.NETWORK_ADAPTER_MAXIMUM_MTU]?.ToString() ?? string.Empty);
-            networkAdapter.Caption = managementObject[ConstStringHardwareStatic.NETWORK_ADAPTER_CAPTION]?.ToString() ?? string.Empty;
+            networkAdapter.Caption = managementObject[ConstStringHardwareStatic.HARDWARE_COMPONENT_CAPTION]?.ToString() ?? string.Empty;
             networkAdapter.ComponentID = managementObject[ConstStringHardwareStatic.NETWORK_ADAPTER_COMPONENT_ID]?.ToString() ?? string.Empty;
             networkAdapter.ConnectorPresent = managementObject[ConstStringHardwareStatic.NETWORK_ADAPTER_CONNECTOR_PRESENT]?.ToString() ?? string.Empty;
-            networkAdapter.Description = managementObject[ConstStringHardwareStatic.NETWORK_ADAPTER_DESCRIPTION]?.ToString() ?? string.Empty;
+            networkAdapter.Description = managementObject[ConstStringHardwareStatic.HARDWARE_COMPONENT_DESCRIPTION]?.ToString() ?? string.Empty;
             networkAdapter.DeviceID = managementObject[ConstStringHardwareStatic.NETWORK_ADAPTER_DEVICE_ID]?.ToString() ?? string.Empty;
             networkAdapter.DeviceName = managementObject[ConstStringHardwareStatic.NETWORK_ADAPTER_DRIVER_NAME]?.ToString() ?? string.Empty;
             networkAdapter.DriverDate = managementObject[ConstStringHardwareStatic.NETWORK_ADAPTER_DRIVER_DATE]?.ToString() ?? string.Empty;
@@ -72,7 +67,7 @@ namespace SystemMonitor.HardwareStatic.Model.Components
             networkAdapter.DriverVersionString = managementObject[ConstStringHardwareStatic.NETWORK_ADAPTER_DRIVER_VERSION_STRING]?.ToString() ?? string.Empty;
             networkAdapter.InterfaceDescription = managementObject[ConstStringHardwareStatic.NETWORK_ADAPTER_INTERFACE_DESCRIPTION]?.ToString() ?? string.Empty;
             networkAdapter.InterfaceName = managementObject[ConstStringHardwareStatic.NETWORK_ADAPTER_INTERFACE_NAME]?.ToString() ?? string.Empty;
-            networkAdapter.Name = managementObject[ConstStringHardwareStatic.NETWORK_ADAPTER_NAME]?.ToString() ?? string.Empty;
+            networkAdapter.Name = managementObject[ConstStringHardwareStatic.HARDWARE_COMPONENT_NAME]?.ToString() ?? string.Empty;
 
             if (managementObject[ConstStringHardwareStatic.NETWORK_ADAPTER_NDIS_MEDIUM] != null)
             {
@@ -93,6 +88,7 @@ namespace SystemMonitor.HardwareStatic.Model.Components
             }
 
             networkAdapter.PermanentAddress = managementObject[ConstStringHardwareStatic.NETWORK_ADAPTER_PERMANENT_ADDRESS]?.ToString() ?? string.Empty;
+            networkAdapter.Status = managementObject[ConstStringHardwareStatic.HARDWARE_COMPONENT_STATUS]?.ToString() ?? string.Empty;
             networkAdapter.Virtual = managementObject[ConstStringHardwareStatic.NETWORK_ADAPTER_VIRTUAL]?.ToString() ?? string.Empty;
 
             return networkAdapter;

@@ -4,35 +4,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SystemMonitor.HardwareStatic.Model.Components;
+using SystemMonitor.HardwareStatic.Model.Components.Abstract;
 
 namespace SystemMonitor.HardwareStatic.Model
 {
     public class HardwareStaticData
     {
-        public Processor Processor { get; set; }
+        public List<HardwareComponent> Processor { get; set; }
 
-        public List<IHardwareComponent> Memory { get; set; }
+        public List<HardwareComponent> ProcessorCache { get; set; }
 
-        public List<IHardwareComponent> DiskDrive { get; set; }
+        public List<HardwareComponent> Memory { get; set; }
 
-        public List<IHardwareComponent> LogicalDisk { get; set; }
+        public List<HardwareComponent> DiskDrive { get; set; }
 
-        public List<IHardwareComponent> CDROMDrive { get; set; }
+        public List<HardwareComponent> LogicalDisk { get; set; }
 
-        public List<IHardwareComponent> BaseBoard { get; set; }
+        public List<HardwareComponent> CDROMDrive { get; set; }
 
-        public List<IHardwareComponent> Fan { get; set; }
+        public List<HardwareComponent> BaseBoard { get; set; }
 
-        public List<IHardwareComponent> Battery { get; set; }
+        public List<HardwareComponent> Fan { get; set; }
 
-        public List<IHardwareComponent> NetworkAdapter { get; set; }
+        public List<HardwareComponent> Battery { get; set; }
 
-        public List<IHardwareComponent> Printer { get; set; }
+        public List<HardwareComponent> NetworkAdapter { get; set; }
 
-        public List<IHardwareComponent> VideoController { get; set; }
+        public List<HardwareComponent> Printer { get; set; }
 
-        public List<IHardwareComponent> PnPEntity { get; set; }
+        public List<HardwareComponent> VideoController { get; set; }
 
-        public List<IHardwareComponent> Volume { get; set; }
+        public List<HardwareComponent> PnPEntity { get; set; }
+
+        public List<HardwareComponent> Volume { get; set; }
     }
 }

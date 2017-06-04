@@ -5,13 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using SystemMonitor.HardwareStatic.Model;
 using SystemMonitor.HardwareStatic.Model.Components;
+using SystemMonitor.HardwareStatic.Model.Components.Abstract;
 
 namespace SystemMonitor.HardwareStatic.Builder
 {
     public interface IHardwareStaticBuilder
     {
-        Processor GetProcessorStaticData();
-
-        List<IHardwareComponent> GetStaticData(IHardwareComponent iHardwareComponent);
+        List<HardwareComponent> GetStaticData(HardwareComponent hardwareComponent);
     }
 }

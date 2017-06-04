@@ -26,7 +26,8 @@ namespace SystemMonitor.DataBuilder
         public HardwareStaticData GetHardwareStaticData()
         {
             HardwareStaticData data = new HardwareStaticData();
-            data.Processor = this.HardwareStaticBuilder.GetProcessorStaticData();
+            data.Processor = this.HardwareStaticBuilder.GetStaticData(new Processor());
+            data.ProcessorCache = this.HardwareStaticBuilder.GetStaticData(new ProcessorCache());
             data.Memory = this.HardwareStaticBuilder.GetStaticData(new Memory());
             data.DiskDrive = this.HardwareStaticBuilder.GetStaticData(new DiskDrive());
             data.LogicalDisk = this.HardwareStaticBuilder.GetStaticData(new LogicalDisk());
