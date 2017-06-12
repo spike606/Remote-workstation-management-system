@@ -13,6 +13,7 @@ namespace SystemMonitor.HardwareStatic.Model.Components
 {
     public class Battery : HardwareComponent
     {
+        // based on docs: https://msdn.microsoft.com/en-us/library/aa394074(v=vs.85).aspx
         public string BatteryStatus { get; private set; }
 
         public UnitValue DesignCapacity { get; private set; }

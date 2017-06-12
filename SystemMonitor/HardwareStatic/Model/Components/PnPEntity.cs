@@ -11,6 +11,7 @@ namespace SystemMonitor.HardwareStatic.Model.Components
 {
     public class PnPEntity : HardwareComponent
     {
+        // based on docs: https://msdn.microsoft.com/en-us/library/aa394353(v=vs.85).aspx
         public string DeviceID { get; private set; }
 
         public string Manufacturer { get; private set; }

@@ -13,6 +13,7 @@ namespace SystemMonitor.HardwareStatic.Model.Components
 {
     public class NetworkAdapter : HardwareComponent
     {
+        // based on docs: https://msdn.microsoft.com/en-us/library/aa394216(v=vs.85).aspx
         public UnitValue ActiveMaximumTransmissionUnit { get; private set; }
 
         public string ComponentID { get; private set; }

@@ -11,6 +11,7 @@ namespace SystemMonitor.HardwareStatic.Model.Components
 {
     public class Printer : HardwareComponent
     {
+        // based on docs: https://msdn.microsoft.com/en-us/library/aa394363(v=vs.85).aspx
         public string AveragePagesPerMinute { get; private set; }
 
         public string Default { get; private set; }

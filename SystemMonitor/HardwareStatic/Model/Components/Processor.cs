@@ -13,6 +13,7 @@ namespace SystemMonitor.HardwareStatic.Model.Components
 {
     public class Processor : HardwareComponent
     {
+        // based on docs: https://msdn.microsoft.com/en-us/library/aa394373(v=vs.85).aspx
         public UnitValue AddressWidth { get; private set; }
 
         public string Architecture { get; private set; }

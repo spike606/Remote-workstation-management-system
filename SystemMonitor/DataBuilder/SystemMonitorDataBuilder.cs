@@ -40,6 +40,7 @@ namespace SystemMonitor.DataBuilder
             data.VideoController = this.HardwareStaticBuilder.GetStaticData(new VideoController());
             data.PnPEntity = this.HardwareStaticBuilder.GetStaticData(new PnPEntity());
             data.Volume = this.HardwareStaticBuilder.GetStaticData(new Volume());
+            data.DiskPartition = this.HardwareStaticBuilder.GetStaticData(new DiskPartition());
             return data;
         }
     }

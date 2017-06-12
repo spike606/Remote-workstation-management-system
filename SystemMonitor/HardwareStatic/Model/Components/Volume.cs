@@ -14,6 +14,7 @@ namespace SystemMonitor.HardwareStatic.Model.Components
 {
     public class Volume : HardwareComponent
     {
+        // based on docs: https://msdn.microsoft.com/en-us/library/aa394515(v=vs.85).aspx
         public UnitValue BlockSize { get; private set; }
 
         public string BootVolume { get; private set; }

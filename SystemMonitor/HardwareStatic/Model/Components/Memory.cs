@@ -13,6 +13,7 @@ namespace SystemMonitor.HardwareStatic.Model.Components
 {
     public class Memory : HardwareComponent
     {
+        // based on docs: https://msdn.microsoft.com/en-us/library/aa394347(v=vs.85).aspx
         public string BankLabel { get; private set; }
 
         public UnitValue Capacity { get; private set; }

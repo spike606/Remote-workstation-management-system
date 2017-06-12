@@ -12,6 +12,7 @@ namespace SystemMonitor.HardwareStatic.Model.Components
 {
     public class DiskDrive : HardwareComponent
     {
+        // based on docs: https://msdn.microsoft.com/en-us/library/aa394132(v=vs.85).aspx
         public UnitValue BytesPerSector { get; private set; }
 
         public string DeviceID { get; private set; }
@@ -24,6 +25,7 @@ namespace SystemMonitor.HardwareStatic.Model.Components
 
         public string Model { get; private set; }
 
+        // Total number of partitions - extended partitions does not count
         public string Partitions { get; private set; }
 
         public string SerialNumber { get; private set; }

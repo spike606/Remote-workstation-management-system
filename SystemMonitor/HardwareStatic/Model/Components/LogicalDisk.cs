@@ -12,6 +12,7 @@ namespace SystemMonitor.HardwareStatic.Model.Components
 {
     public class LogicalDisk : HardwareComponent
     {
+        // based on docs: https://msdn.microsoft.com/en-us/library/aa394173(v=vs.85).aspx
         public UnitValue BlockSize { get; private set; }
 
         public string DeviceID { get; private set; }

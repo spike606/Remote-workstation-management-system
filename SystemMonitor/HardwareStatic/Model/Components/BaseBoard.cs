@@ -11,6 +11,7 @@ namespace SystemMonitor.HardwareStatic.Model.Components
 {
     public class BaseBoard : HardwareComponent
     {
+        // based on docs: https://msdn.microsoft.com/en-us/library/aa394072(v=vs.85).aspx
         public string Manufacturer { get; private set; }
 
         public string Model { get; private set; }

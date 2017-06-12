@@ -66,6 +66,7 @@
     <Compile Include="HardwareStatic\Model\Components\Battery.cs" />
     <Compile Include="HardwareStatic\Model\Components\CDROMDrive.cs" />
     <Compile Include="HardwareStatic\Model\Components\DiskDrive.cs" />
+    <Compile Include="HardwareStatic\Model\Components\DiskPartition.cs" />
     <Compile Include="HardwareStatic\Model\Components\Fan.cs" />
     <Compile Include="HardwareStatic\Model\Components\LogicalDisk.cs" />
     <Compile Include="HardwareStatic\Model\Components\Memory.cs" />

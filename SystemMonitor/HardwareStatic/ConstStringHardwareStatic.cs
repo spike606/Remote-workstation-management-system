@@ -12,6 +12,7 @@ namespace SystemMonitor.HardwareStatic
     {
         internal const string WMI_NAMESPACE_ROOT_CIMV2 = "root\\CIMV2";
         internal const string WMI_NAMESPACE_ROOT_STANDARD_CIMV2 = "root\\StandardCimv2";
+        internal const string WMI_NAMESPACE_ROOT_MICROSOFT_WINDOWS_STORAGE = "root\\Microsoft\\Windows\\Storage";
 
         internal const string HARDWARE_COMPONENT_CAPTION = "Caption";
         internal const string HARDWARE_COMPONENT_NAME = "Name";
@@ -157,5 +158,22 @@ namespace SystemMonitor.HardwareStatic
         internal const string VOLUME_LABEL = "Label";
         internal const string VOLUME_SERIAL_NUMBER = "SerialNumber";
         internal const string VOLUME_SYSTEM_VOLUME = "SystemVolume";
+
+        internal const string WMI_QUERY_DISK_PARTITION = "select * from MSFT_Partition";
+        internal const string DISK_PARTITION_DISK_ID = "DiskId";
+        internal const string DISK_PARTITION_DISK_NUMBER = "DiskNumber";
+        internal const string DISK_PARTITION_DRIVE_LETTER = "DriveLetter";
+        internal const string DISK_PARTITION_IS_ACTIVE = "IsActive";
+        internal const string DISK_PARTITION_IS_BOOT = "IsBoot";
+        internal const string DISK_PARTITION_IS_HIDDEN = "IsHidden";
+        internal const string DISK_PARTITION_IS_OFFLINE = "IsOffline";
+        internal const string DISK_PARTITION_IS_READ_ONLY = "IsReadOnly";
+        internal const string DISK_PARTITION_IS_SHADOW_COPY = "IsShadowCopy";
+        internal const string DISK_PARTITION_IS_SYSTEM = "IsSystem";
+        internal const string DISK_PARTITION_MRB_TYPE = "MbrType";
+        internal const string DISK_PARTITION_NO_DEFAULT_DRIVE_LETTER = "NoDefaultDriveLetter";
+        internal const string DISK_PARTITION_OFFSET = "Offset";
+        internal const string DISK_PARTITION_PARTITION_NUMBER = "PartitionNumber";
+        internal const string DISK_PARTITION_SIZE = "Size";
     }
 }

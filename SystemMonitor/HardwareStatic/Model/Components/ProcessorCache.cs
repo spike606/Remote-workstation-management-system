@@ -13,6 +13,7 @@ namespace SystemMonitor.HardwareStatic.Model.Components
 {
     public class ProcessorCache : HardwareComponent
     {
+        // based on docs: https://msdn.microsoft.com/en-us/library/aa394080(v=vs.85).aspx
         public UnitValue Speed { get; private set; }
 
         public UnitValue Size { get; private set; }

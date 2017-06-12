@@ -12,6 +12,7 @@ namespace SystemMonitor.HardwareStatic.Model.Components
 {
     public class VideoController : HardwareComponent
     {
+        // based on docs: https://msdn.microsoft.com/en-us/library/aa394512(v=vs.85).aspx
         public string AdapterCompatibility { get; private set; }
 
         public string AdapterDACType { get; private set; }

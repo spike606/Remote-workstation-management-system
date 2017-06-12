@@ -11,6 +11,7 @@ namespace SystemMonitor.HardwareStatic.Model.Components
 {
     public class CDROMDrive : HardwareComponent
     {
+        // based on docs: https://msdn.microsoft.com/en-us/library/aa394081(v=vs.85).aspx
         public string DeviceID { get; private set; }
 
         public string Drive { get; private set; }

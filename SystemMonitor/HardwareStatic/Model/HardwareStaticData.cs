@@ -37,5 +37,7 @@ namespace SystemMonitor.HardwareStatic.Model
         public List<HardwareComponent> PnPEntity { get; set; }
 
         public List<HardwareComponent> Volume { get; set; }
+
+        public List<HardwareComponent> DiskPartition { get; set; }
     }
 }

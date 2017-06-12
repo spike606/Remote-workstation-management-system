@@ -11,6 +11,7 @@ namespace SystemMonitor.HardwareStatic.Model.Components
 {
     public class Fan : HardwareComponent
     {
+        // based on docs: https://msdn.microsoft.com/en-us/library/aa394146(v=vs.85).aspx
         public override HardwareComponent ExtractData(ManagementObject managementObject)
         {
             Fan fan = new Fan();
