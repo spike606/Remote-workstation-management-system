@@ -59,6 +59,7 @@ namespace SystemMonitor.HardwareStatic
         internal const string DISK_DRIVE_BYTES_PER_SECTOR = "BytesPerSector";
         internal const string DISK_DRIVE_DEVICE_ID = "DeviceID";
         internal const string DISK_DRIVE_FIRMWARE_REVISION = "FirmwareRevision";
+        internal const string DISK_DRIVE_INDEX = "Index";
         internal const string DISK_DRIVE_INTERFACE_TYPE = "InterfaceType";
         internal const string DISK_DRIVE_MEDIA_TYPE = "MediaType";
         internal const string DISK_DRIVE_MODEL = "Model";

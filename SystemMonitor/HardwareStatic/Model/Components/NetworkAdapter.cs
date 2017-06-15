@@ -6,8 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using SystemMonitor.HardwareStatic.Model.Components.Abstract;
 using SystemMonitor.HardwareStatic.Model.CustomProperties;
-using SystemMonitor.HardwareStatic.Model.CustomProperties.Enum;
+using SystemMonitor.HardwareStatic.Model.CustomProperties.Enums;
 using SystemMonitor.HardwareStatic.WMI;
+using SystemMonitor.HardwareStatic.Model.CustomProperties.Attributes;
 
 namespace SystemMonitor.HardwareStatic.Model.Components
 {
@@ -72,7 +73,7 @@ namespace SystemMonitor.HardwareStatic.Model.Components
 
             if (managementObject[ConstStringHardwareStatic.NETWORK_ADAPTER_NDIS_MEDIUM] != null)
             {
-                networkAdapter.NdisMedium = ((NdisMediumEnum)((uint)managementObject[ConstStringHardwareStatic.NETWORK_ADAPTER_NDIS_MEDIUM])).ToString();
+                networkAdapter.NdisMedium = ((NdisMediumEnum)((uint)managementObject[ConstStringHardwareStatic.NETWORK_ADAPTER_NDIS_MEDIUM])).GetEnumDescription();
             }
             else
             {

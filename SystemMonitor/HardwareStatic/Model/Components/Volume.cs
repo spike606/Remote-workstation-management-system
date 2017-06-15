@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using SystemMonitor.HardwareStatic.Model;
 using SystemMonitor.HardwareStatic.Model.Components.Abstract;
 using SystemMonitor.HardwareStatic.Model.CustomProperties;
-using SystemMonitor.HardwareStatic.Model.CustomProperties.Enum;
+using SystemMonitor.HardwareStatic.Model.CustomProperties.Enums;
 using SystemMonitor.HardwareStatic.WMI;
 
 namespace SystemMonitor.HardwareStatic.Model.Components

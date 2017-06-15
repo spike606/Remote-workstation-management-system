@@ -62,9 +62,12 @@
     <Compile Include="HardwareStatic\Builder\HardwareStaticBuilder.cs" />
     <Compile Include="HardwareStatic\Builder\IHardwareStaticBuilder.cs" />
     <Compile Include="HardwareStatic\Model\Components\Abstract\HardwareComponent.cs" />
+    <Compile Include="HardwareStatic\Model\Components\Analyzed\Partition.cs" />
+    <Compile Include="HardwareStatic\Model\Components\Analyzed\Storage.cs" />
     <Compile Include="HardwareStatic\Model\Components\BaseBoard.cs" />
     <Compile Include="HardwareStatic\Model\Components\Battery.cs" />
     <Compile Include="HardwareStatic\Model\Components\CDROMDrive.cs" />
+    <Compile Include="HardwareStatic\Model\Components\Disk.cs" />
     <Compile Include="HardwareStatic\Model\Components\DiskDrive.cs" />
     <Compile Include="HardwareStatic\Model\Components\DiskPartition.cs" />
     <Compile Include="HardwareStatic\Model\Components\Fan.cs" />
@@ -76,7 +79,10 @@
     <Compile Include="HardwareStatic\Model\Components\ProcessorCache.cs" />
     <Compile Include="HardwareStatic\Model\Components\VideoController.cs" />
     <Compile Include="HardwareStatic\Model\Components\Volume.cs" />
+    <Compile Include="HardwareStatic\Model\CustomProperties\Attributes\EnumDescriptionAttribute.cs" />
+    <Compile Include="HardwareStatic\Model\CustomProperties\Attributes\EnumExtensions.cs" />
     <Compile Include="HardwareStatic\Model\CustomProperties\Enum\BatteryEnum.cs" />
+    <Compile Include="HardwareStatic\Model\CustomProperties\Enum\DiskEnum.cs" />
     <Compile Include="HardwareStatic\Model\CustomProperties\Enum\LogicalDiskEnum.cs" />
     <Compile Include="HardwareStatic\Model\CustomProperties\Enum\MemoryEnum.cs" />
     <Compile Include="HardwareStatic\Model\CustomProperties\Enum\NetworkAdapterEnum.cs" />

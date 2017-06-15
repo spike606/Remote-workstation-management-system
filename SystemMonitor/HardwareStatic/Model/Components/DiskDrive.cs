@@ -21,6 +21,8 @@ namespace SystemMonitor.HardwareStatic.Model.Components
 
         public string InterfaceType { get; private set; }
 
+        public string Index { get; private set; }
+
         public string MediaType { get; private set; }
 
         public string Model { get; private set; }
@@ -53,6 +55,7 @@ namespace SystemMonitor.HardwareStatic.Model.Components
             diskDrive.DeviceID = managementObject[ConstStringHardwareStatic.DISK_DRIVE_DEVICE_ID]?.ToString() ?? string.Empty;
             diskDrive.FirmwareRevision = managementObject[ConstStringHardwareStatic.DISK_DRIVE_FIRMWARE_REVISION]?.ToString() ?? string.Empty;
             diskDrive.InterfaceType = managementObject[ConstStringHardwareStatic.DISK_DRIVE_INTERFACE_TYPE]?.ToString() ?? string.Empty;
+            diskDrive.Index = managementObject[ConstStringHardwareStatic.DISK_DRIVE_INDEX]?.ToString() ?? string.Empty;
             diskDrive.MediaType = managementObject[ConstStringHardwareStatic.DISK_DRIVE_MEDIA_TYPE]?.ToString() ?? string.Empty;
             diskDrive.Model = managementObject[ConstStringHardwareStatic.DISK_DRIVE_MODEL]?.ToString() ?? string.Empty;
             diskDrive.Name = managementObject[ConstStringHardwareStatic.HARDWARE_COMPONENT_NAME]?.ToString() ?? string.Empty;

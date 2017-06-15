@@ -4,8 +4,9 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SystemMonitor.HardwareStatic.Model.CustomProperties.Attributes;
 
-namespace SystemMonitor.HardwareStatic.Model.CustomProperties.Enum
+namespace SystemMonitor.HardwareStatic.Model.CustomProperties.Enums
 {
     [SuppressMessage("StyleCop.Analyzers", "SA1300:ElementsMustBeginWithAnUppercaseLetter", Justification = "Enum values")]
     internal enum ArchitectureEnum
@@ -28,6 +29,7 @@ namespace SystemMonitor.HardwareStatic.Model.CustomProperties.Enum
         L1, // Primary
         L2, // Secondary
         L3, // Tertiary
+        [EnumDescription("Not Applicable")]
         NotApplicable
     }
 }
