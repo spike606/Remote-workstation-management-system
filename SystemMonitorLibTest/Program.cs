@@ -16,7 +16,6 @@ namespace SystemMonitorLibTest
             WorkstationMonitor monitor = new WorkstationMonitor();
             HardwareStaticData data = monitor.GetHardwareStaticData();
             PrintProperties(data);
-            Console.WriteLine(data.LogicalDisk.Count.ToString());
             Console.ReadLine();
         }
 

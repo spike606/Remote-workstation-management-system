@@ -29,8 +29,7 @@ namespace SystemMonitor.DataBuilder
             data.Processor = this.HardwareStaticBuilder.GetStaticData(new Processor());
             data.ProcessorCache = this.HardwareStaticBuilder.GetStaticData(new ProcessorCache());
             data.Memory = this.HardwareStaticBuilder.GetStaticData(new Memory());
-            data.DiskDrive = this.HardwareStaticBuilder.GetStaticData(new DiskDrive());
-            data.LogicalDisk = this.HardwareStaticBuilder.GetStaticData(new LogicalDisk());
+            data.Disk = this.HardwareStaticBuilder.GetStaticData(new Disk());
             data.CDROMDrive = this.HardwareStaticBuilder.GetStaticData(new CDROMDrive());
             data.BaseBoard = this.HardwareStaticBuilder.GetStaticData(new BaseBoard());
             data.Fan = this.HardwareStaticBuilder.GetStaticData(new Fan());

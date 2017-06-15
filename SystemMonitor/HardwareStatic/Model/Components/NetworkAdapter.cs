@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using SystemMonitor.HardwareStatic.Model.Components.Abstract;
 using SystemMonitor.HardwareStatic.Model.CustomProperties;
+using SystemMonitor.HardwareStatic.Model.CustomProperties.Attributes;
 using SystemMonitor.HardwareStatic.Model.CustomProperties.Enums;
 using SystemMonitor.HardwareStatic.WMI;
-using SystemMonitor.HardwareStatic.Model.CustomProperties.Attributes;
 
 namespace SystemMonitor.HardwareStatic.Model.Components
 {

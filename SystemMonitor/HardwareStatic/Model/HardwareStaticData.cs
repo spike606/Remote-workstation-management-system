@@ -16,9 +16,7 @@ namespace SystemMonitor.HardwareStatic.Model
 
         public List<HardwareComponent> Memory { get; set; }
 
-        public List<HardwareComponent> DiskDrive { get; set; }
-
-        public List<HardwareComponent> LogicalDisk { get; set; }
+        public List<HardwareComponent> Disk { get; set; }
 
         public List<HardwareComponent> CDROMDrive { get; set; }
 
