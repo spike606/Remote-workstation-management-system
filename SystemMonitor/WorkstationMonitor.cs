@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using SystemMonitor.DataBuilder;
+using SystemMonitor.HardwareStatic.Analyzer;
 using SystemMonitor.HardwareStatic.Builder;
 using SystemMonitor.HardwareStatic.Model;
 using SystemMonitor.HardwareStatic.WMI;
@@ -33,6 +34,7 @@ namespace HardwareMonitor
             container.Register(Component.For<INLogger>().ImplementedBy<NLogger>().LifeStyle.Singleton);
             container.Register(Component.For<ISystemMonitorDataBuilder>().ImplementedBy<SystemMonitorDataBuilder>().LifeStyle.Singleton);
             container.Register(Component.For<IHardwareStaticBuilder>().ImplementedBy<HardwareStaticBuilder>().LifeStyle.Singleton);
+            container.Register(Component.For<IHardwareStaticAnalyzer>().ImplementedBy<HardwareStaticAnalyzer>().LifeStyle.Singleton);
             container.Register(Component.For<IWMIClient>().ImplementedBy<WMIClient>().LifeStyle.Singleton);
 
             this.SystemMonitorDataBuilder = container.Resolve<ISystemMonitorDataBuilder>();

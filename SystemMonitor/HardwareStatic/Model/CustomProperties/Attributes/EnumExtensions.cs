@@ -5,7 +5,6 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using SystemMonitor.HardwareStatic.Model.CustomProperties.Enums;
 
 namespace SystemMonitor.HardwareStatic.Model.CustomProperties.Attributes
 {

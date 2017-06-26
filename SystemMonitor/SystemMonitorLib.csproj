@@ -59,6 +59,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBuilder\ISystemMonitorDataBuilder.cs" />
+    <Compile Include="HardwareStatic\Analyzer\HardwareStaticAnalyzer.cs" />
+    <Compile Include="HardwareStatic\Analyzer\IHardwareStaticAnalyzer.cs" />
     <Compile Include="HardwareStatic\Builder\HardwareStaticBuilder.cs" />
     <Compile Include="HardwareStatic\Builder\IHardwareStaticBuilder.cs" />
     <Compile Include="HardwareStatic\Model\Components\Abstract\HardwareComponent.cs" />
@@ -74,16 +76,22 @@
     <Compile Include="HardwareStatic\Model\Components\PnPEntity.cs" />
     <Compile Include="HardwareStatic\Model\Components\Printer.cs" />
     <Compile Include="HardwareStatic\Model\Components\ProcessorCache.cs" />
+    <Compile Include="HardwareStatic\Model\Components\Analyzed\SMARTData.cs" />
+    <Compile Include="HardwareStatic\Model\Components\SmartFailurePredictData.cs" />
+    <Compile Include="HardwareStatic\Model\Components\SmartFailurePredictStatus.cs" />
+    <Compile Include="HardwareStatic\Model\Components\SmartFailurePredictTresholds.cs" />
     <Compile Include="HardwareStatic\Model\Components\VideoController.cs" />
     <Compile Include="HardwareStatic\Model\Components\Volume.cs" />
     <Compile Include="HardwareStatic\Model\CustomProperties\Attributes\EnumDescriptionAttribute.cs" />
     <Compile Include="HardwareStatic\Model\CustomProperties\Attributes\EnumExtensions.cs" />
-    <Compile Include="HardwareStatic\Model\CustomProperties\Enum\BatteryEnum.cs" />
-    <Compile Include="HardwareStatic\Model\CustomProperties\Enum\DiskEnum.cs" />
-    <Compile Include="HardwareStatic\Model\CustomProperties\Enum\StorageEnum.cs" />
-    <Compile Include="HardwareStatic\Model\CustomProperties\Enum\MemoryEnum.cs" />
-    <Compile Include="HardwareStatic\Model\CustomProperties\Enum\NetworkAdapterEnum.cs" />
-    <Compile Include="HardwareStatic\Model\CustomProperties\Enum\ProcessorEnum.cs" />
+    <Compile Include="HardwareStatic\Model\CustomProperties\Enums\BatteryEnum.cs" />
+    <Compile Include="HardwareStatic\Model\CustomProperties\Enums\DiskEnum.cs" />
+    <Compile Include="HardwareStatic\Model\CustomProperties\Enums\SmartDataEnum.cs" />
+    <Compile Include="HardwareStatic\Model\CustomProperties\Enums\StorageEnum.cs" />
+    <Compile Include="HardwareStatic\Model\CustomProperties\Enums\MemoryEnum.cs" />
+    <Compile Include="HardwareStatic\Model\CustomProperties\Enums\NetworkAdapterEnum.cs" />
+    <Compile Include="HardwareStatic\Model\CustomProperties\Enums\ProcessorEnum.cs" />
+    <Compile Include="HardwareStatic\Model\CustomProperties\SmartDataAttribute.cs" />
     <Compile Include="HardwareStatic\Model\CustomProperties\Unit.cs" />
     <Compile Include="HardwareStatic\Model\CustomProperties\UnitValue.cs" />
     <Compile Include="HardwareStatic\Model\HardwareStaticData.cs" />

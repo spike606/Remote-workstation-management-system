@@ -1,0 +1,31 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using SystemMonitor.HardwareStatic.Model.CustomProperties.Attributes;
+
+namespace SystemMonitor.HardwareStatic.Model.CustomProperties.Enums
+{
+    public enum SmartDataAttributeStatusEnum
+    {
+        [EnumDescription("OK - TRESHOLD VALUED NOT REACHED, SEE RAW VALUE FOR MORE SPECIFIC INFO")]
+        OK_TRESHOLD_NOT_REACHED,
+        [EnumDescription("FAILED - TRESHOLD VALUE REACHED")]
+        FAILED,
+        [EnumDescription("FAILED - TRESHOLD VALUE REACHED FOR CRITICAL ATTRIBUTE!")]
+        FAILED_CRITICAL,
+        [EnumDescription("TRESHOLD NOT DEFINED, SEE RAW VALUE FOR MORE SPECIFIC INFO")]
+        TRESHOLD_NOT_DEFINED
+    }
+
+    public enum RawIdealEnum
+    {
+        [EnumDescription("Lower raw value is better")]
+        LOW,
+        [EnumDescription("Higher raw value is better")]
+        HIGH,
+        [EnumDescription("Not applicable")]
+        NONE
+    }
+}

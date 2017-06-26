@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SystemMonitor.HardwareStatic.Model.Components;
 using SystemMonitor.HardwareStatic.Model.Components.Abstract;
+using SystemMonitor.HardwareStatic.Model.Components.Analyzed;
 
 namespace SystemMonitor.HardwareStatic.Model
 {
@@ -37,5 +38,13 @@ namespace SystemMonitor.HardwareStatic.Model
         public List<HardwareComponent> Volume { get; set; }
 
         public List<HardwareComponent> DiskPartition { get; set; }
+
+        public List<HardwareComponent> SmartFailurePredictData { get; set; }
+
+        public List<HardwareComponent> SmartFailurePredictStatus { get; set; }
+
+        public List<HardwareComponent> SmartFailurePredictTresholds { get; set; }
+
+        public List<SMARTData> SMARTData { get; set; }
     }
 }
