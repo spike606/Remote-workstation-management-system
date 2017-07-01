@@ -50,6 +50,11 @@ namespace SystemMonitor.HardwareStatic.Analyzer
             return smartData;
         }
 
+        public List<Storage> GetStorageData(Disk disk, DiskPartition diskPartition, Volume volume, DiskToPartition diskToPartition, PartitionToVolume partitionToVolume)
+        {
+            throw new NotImplementedException();
+        }
+
         private static void ExtractFailurePredictStatus(List<SMARTData> smartData, List<HardwareComponent> smartFailurePredictStatus)
         {
             List<SmartFailurePredictStatus> smartFailurePredictStatusList = smartFailurePredictStatus.Cast<SmartFailurePredictStatus>().ToList();

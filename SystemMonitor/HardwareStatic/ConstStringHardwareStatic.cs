@@ -196,5 +196,13 @@ namespace SystemMonitor.HardwareStatic
         internal const string SMART_PREDICT_FAILURE = "PredictFailure";
         internal const string SMART_VENDOR_SPECIFIC = "VendorSpecific";
         internal const string SMART_INSTANCE_NAME = "InstanceName";
+
+        internal const string WMI_QUERY_DISK_TO_PARTITION = "select * from MSFT_DiskToPartition";
+        internal const string DISK_TO_PARTITION_DISK = "Disk";
+        internal const string DISK_TO_PARTITION_PARTITION = "Partition";
+
+        internal const string WMI_QUERY_PARTITION_TO_VOLUME = "select * from MSFT_PartitionToVolume";
+        internal const string PARTITION_TO_VOLUME_PARTITION = "Partition";
+        internal const string PARTITION_TO_VOLUME_VOLUME = "Volume";
     }
 }

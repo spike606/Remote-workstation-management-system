@@ -51,6 +51,10 @@ namespace SystemMonitor.DataBuilder
                 data.SmartFailurePredictStatus,
                 data.SmartFailurePredictData,
                 data.SmartFailurePredictTresholds);
+
+            data.DiskToPartition = this.HardwareStaticBuilder.GetStaticData(new DiskToPartition());
+            data.PartitionToVolume = this.HardwareStaticBuilder.GetStaticData(new PartitionToVolume());
+
             return data;
         }
     }

@@ -46,5 +46,9 @@ namespace SystemMonitor.HardwareStatic.Model
         public List<HardwareComponent> SmartFailurePredictTresholds { get; set; }
 
         public List<SMARTData> SMARTData { get; set; }
+
+        public List<HardwareComponent> DiskToPartition { get; set; }
+
+        public List<HardwareComponent> PartitionToVolume { get; set; }
     }
 }

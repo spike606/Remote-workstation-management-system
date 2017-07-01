@@ -12,5 +12,7 @@ namespace SystemMonitor.HardwareStatic.Analyzer
     public interface IHardwareStaticAnalyzer
     {
         List<SMARTData> GetSmartData(List<HardwareComponent> smartFailurePredictStatus, List<HardwareComponent> smartFailurePredictData, List<HardwareComponent> smartFailurePredictTresholds);
+
+        List<Storage> GetStorageData(Disk disk, DiskPartition diskPartition, Volume volume, DiskToPartition diskToPartition, PartitionToVolume partitionToVolume);
     }
 }

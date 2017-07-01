@@ -70,6 +70,7 @@
     <Compile Include="HardwareStatic\Model\Components\CDROMDrive.cs" />
     <Compile Include="HardwareStatic\Model\Components\Disk.cs" />
     <Compile Include="HardwareStatic\Model\Components\DiskPartition.cs" />
+    <Compile Include="HardwareStatic\Model\Components\DiskToPartition.cs" />
     <Compile Include="HardwareStatic\Model\Components\Fan.cs" />
     <Compile Include="HardwareStatic\Model\Components\Memory.cs" />
     <Compile Include="HardwareStatic\Model\Components\NetworkAdapter.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="HardwareStatic\Model\CustomProperties\Unit.cs" />
     <Compile Include="HardwareStatic\Model\CustomProperties\UnitValue.cs" />
     <Compile Include="HardwareStatic\Model\HardwareStaticData.cs" />
+    <Compile Include="HardwareStatic\Model\Components\PartitionToVolume.cs" />
     <Compile Include="HardwareStatic\WMI\IWMIClient.cs" />
     <Compile Include="Logger\INLogger.cs" />
     <Compile Include="Logger\NLogger.cs" />
