@@ -38,6 +38,8 @@ namespace SystemMonitor.HardwareStatic.Model.Components
 
         public string NoDefaultDriveLetter { get; private set; }
 
+        public string ObjectId { get; private set; }
+
         public UnitValue Offset { get; private set; }
 
         public string PartitionNumber { get; private set; }
@@ -62,6 +64,7 @@ namespace SystemMonitor.HardwareStatic.Model.Components
             diskPartition.MbrType = managementObject[ConstStringHardwareStatic.DISK_PARTITION_MRB_TYPE]?.ToString() ?? string.Empty;
             diskPartition.Name = string.Empty;
             diskPartition.NoDefaultDriveLetter = managementObject[ConstStringHardwareStatic.DISK_PARTITION_NO_DEFAULT_DRIVE_LETTER]?.ToString() ?? string.Empty;
+            diskPartition.ObjectId = managementObject[ConstStringHardwareStatic.DISK_PARTITION_OBJECT_ID]?.ToString() ?? string.Empty;
             diskPartition.Offset = new UnitValue(Unit.B, managementObject[ConstStringHardwareStatic.DISK_PARTITION_OFFSET]?.ToString() ?? string.Empty);
             diskPartition.PartitionNumber = managementObject[ConstStringHardwareStatic.DISK_PARTITION_PARTITION_NUMBER]?.ToString() ?? string.Empty;
             diskPartition.Size = new UnitValue(Unit.B, managementObject[ConstStringHardwareStatic.DISK_PARTITION_SIZE]?.ToString() ?? string.Empty);

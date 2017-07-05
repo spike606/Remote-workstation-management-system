@@ -46,15 +46,21 @@ namespace SystemMonitor.DataBuilder
             data.DiskPartition = this.HardwareStaticBuilder.GetStaticData(new DiskPartition());
             data.SmartFailurePredictData = this.HardwareStaticBuilder.GetStaticData(new SmartFailurePredictData());
             data.SmartFailurePredictStatus = this.HardwareStaticBuilder.GetStaticData(new SmartFailurePredictStatus());
-            data.SmartFailurePredictTresholds = this.HardwareStaticBuilder.GetStaticData(new SmartFailurePredictTresholds());
+            data.SmartFailurePredictThresholds = this.HardwareStaticBuilder.GetStaticData(new SmartFailurePredictThresholds());
             data.SMARTData = this.HardwareStaticAnalyzer.GetSmartData(
                 data.SmartFailurePredictStatus,
                 data.SmartFailurePredictData,
-                data.SmartFailurePredictTresholds);
+                data.SmartFailurePredictThresholds);
 
             data.DiskToPartition = this.HardwareStaticBuilder.GetStaticData(new DiskToPartition());
             data.PartitionToVolume = this.HardwareStaticBuilder.GetStaticData(new PartitionToVolume());
 
+            data.Storage = this.HardwareStaticAnalyzer.GetStorageData(
+                data.Disk,
+                data.DiskPartition,
+                data.Volume,
+                data.DiskToPartition,
+                data.PartitionToVolume);
             return data;
         }
     }

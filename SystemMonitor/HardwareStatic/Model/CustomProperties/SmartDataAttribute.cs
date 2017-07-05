@@ -39,17 +39,48 @@ namespace SystemMonitor.HardwareStatic.Model.CustomProperties
 
         public SmartDataAttributeStatusEnum Status { get; set; }
 
-        public bool HasData
+        public override bool Equals(object obj)
         {
-            get
+            if (ReferenceEquals(null, obj))
             {
-                if (this.Current == 0 && this.Worst == 0 && this.Threshold == 0 && this.Raw == 0)
-                {
-                    return false;
-                }
+                return false;
+            }
 
+            if (ReferenceEquals(this, obj))
+            {
                 return true;
             }
+
+            if (obj.GetType() != this.GetType())
+            {
+                return false;
+            }
+
+            SmartDataAttribute other = (SmartDataAttribute)obj;
+
+            return this.AttributeName.Equals(other.AttributeName) &&
+                this.Current.Equals(other.Current) &&
+                this.Worst.Equals(other.Worst) &&
+                this.Threshold.Equals(other.Threshold) &&
+                this.Raw.Equals(other.Raw) &&
+                this.RawIdeal.Equals(other.RawIdeal) &&
+                this.IsCriticalAttribute.Equals(other.IsCriticalAttribute) &&
+                this.Status.Equals(other.Status);
+        }
+
+        public override int GetHashCode()
+        {
+            return new
+            {
+                this.AttributeName,
+                this.Current,
+                this.Worst,
+                this.Threshold,
+                this.Raw,
+                this.RawIdeal,
+                this.IsCriticalAttribute,
+                this.Status
+            }.GetHashCode();
         }
     }
 }

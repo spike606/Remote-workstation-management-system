@@ -9,14 +9,14 @@ namespace SystemMonitor.HardwareStatic.Model.CustomProperties.Enums
 {
     public enum SmartDataAttributeStatusEnum
     {
-        [EnumDescription("OK - TRESHOLD VALUED NOT REACHED, SEE RAW VALUE FOR MORE SPECIFIC INFO")]
-        OK_TRESHOLD_NOT_REACHED,
-        [EnumDescription("FAILED - TRESHOLD VALUE REACHED")]
+        [EnumDescription("OK - THRESHOLD VALUED NOT REACHED, SEE RAW VALUE FOR MORE SPECIFIC INFO")]
+        OK_THRESHOLD_NOT_REACHED,
+        [EnumDescription("FAILED - THRESHOLD VALUE REACHED")]
         FAILED,
-        [EnumDescription("FAILED - TRESHOLD VALUE REACHED FOR CRITICAL ATTRIBUTE!")]
+        [EnumDescription("FAILED - THRESHOLD VALUE REACHED FOR CRITICAL ATTRIBUTE!")]
         FAILED_CRITICAL,
-        [EnumDescription("TRESHOLD NOT DEFINED, SEE RAW VALUE FOR MORE SPECIFIC INFO")]
-        TRESHOLD_NOT_DEFINED
+        [EnumDescription("THRESHOLD NOT DEFINED, SEE RAW VALUE FOR MORE SPECIFIC INFO")]
+        THRESHOLD_NOT_DEFINED
     }
 
     public enum RawIdealEnum

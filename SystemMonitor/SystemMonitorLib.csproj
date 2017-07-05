@@ -61,9 +61,12 @@
     <Compile Include="DataBuilder\ISystemMonitorDataBuilder.cs" />
     <Compile Include="HardwareStatic\Analyzer\HardwareStaticAnalyzer.cs" />
     <Compile Include="HardwareStatic\Analyzer\IHardwareStaticAnalyzer.cs" />
+    <Compile Include="HardwareStatic\Analyzer\SmartAttributesDictionary.cs" />
     <Compile Include="HardwareStatic\Builder\HardwareStaticBuilder.cs" />
     <Compile Include="HardwareStatic\Builder\IHardwareStaticBuilder.cs" />
     <Compile Include="HardwareStatic\Model\Components\Abstract\HardwareComponent.cs" />
+    <Compile Include="HardwareStatic\Model\Components\Analyzed\LogicalPartition.cs" />
+    <Compile Include="HardwareStatic\Model\Components\Analyzed\Partition.cs" />
     <Compile Include="HardwareStatic\Model\Components\Analyzed\Storage.cs" />
     <Compile Include="HardwareStatic\Model\Components\BaseBoard.cs" />
     <Compile Include="HardwareStatic\Model\Components\Battery.cs" />
@@ -80,7 +83,7 @@
     <Compile Include="HardwareStatic\Model\Components\Analyzed\SMARTData.cs" />
     <Compile Include="HardwareStatic\Model\Components\SmartFailurePredictData.cs" />
     <Compile Include="HardwareStatic\Model\Components\SmartFailurePredictStatus.cs" />
-    <Compile Include="HardwareStatic\Model\Components\SmartFailurePredictTresholds.cs" />
+    <Compile Include="HardwareStatic\Model\Components\SmartFailurePredictThresholds.cs" />
     <Compile Include="HardwareStatic\Model\Components\VideoController.cs" />
     <Compile Include="HardwareStatic\Model\Components\Volume.cs" />
     <Compile Include="HardwareStatic\Model\CustomProperties\Attributes\EnumDescriptionAttribute.cs" />

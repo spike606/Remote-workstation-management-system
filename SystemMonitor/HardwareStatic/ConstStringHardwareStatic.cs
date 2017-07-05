@@ -186,13 +186,14 @@ namespace SystemMonitor.HardwareStatic
         internal const string DISK_PARTITION_IS_SYSTEM = "IsSystem";
         internal const string DISK_PARTITION_MRB_TYPE = "MbrType";
         internal const string DISK_PARTITION_NO_DEFAULT_DRIVE_LETTER = "NoDefaultDriveLetter";
+        internal const string DISK_PARTITION_OBJECT_ID = "ObjectId";
         internal const string DISK_PARTITION_OFFSET = "Offset";
         internal const string DISK_PARTITION_PARTITION_NUMBER = "PartitionNumber";
         internal const string DISK_PARTITION_SIZE = "Size";
 
         internal const string WMI_QUERY_SMART_STATUS = "select * from MSStorageDriver_FailurePredictStatus";
         internal const string WMI_QUERY_SMART_DATA = "select * from MSStorageDriver_FailurePredictData";
-        internal const string WMI_QUERY_SMART_TRESHOLDS = "select * from MSStorageDriver_FailurePredictThresholds";
+        internal const string WMI_QUERY_SMART_THRESHOLDS = "select * from MSStorageDriver_FailurePredictThresholds";
         internal const string SMART_PREDICT_FAILURE = "PredictFailure";
         internal const string SMART_VENDOR_SPECIFIC = "VendorSpecific";
         internal const string SMART_INSTANCE_NAME = "InstanceName";
