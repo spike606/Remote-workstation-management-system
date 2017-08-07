@@ -14,6 +14,6 @@ namespace SystemMonitor.HardwareDynamic.OHMProvider
     {
         Computer Computer { get; }
 
-        Sensor ExtractDataFromSpecificSensor(ISensor sensor, SensorUnit unit);
+        void ExtractDataFromSensors(HardwareDynamicComponent hardwareDynamicComponent, IHardware hardwareItem);
     }
 }

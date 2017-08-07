@@ -17,6 +17,9 @@ namespace SystemMonitor.HardwareDynamic.Model.CustomProperties.Enum
         [EnumDescription("W")]
         Watt,
         [EnumDescription("GB")]
-        GigaByte
+        GigaByte,
+        RPM,
+        [EnumDescription("V")]
+        Volt
     }
 }

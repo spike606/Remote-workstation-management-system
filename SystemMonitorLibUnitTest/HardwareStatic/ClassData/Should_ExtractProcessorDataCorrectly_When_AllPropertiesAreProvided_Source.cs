@@ -40,41 +40,6 @@ namespace SystemMonitorLibUnitTest.HardwareStatic.ClassData
                                 .WithProperty(ConstStringHardwareStatic.PROCESSOR_THREAD_COUNT, uint.Parse("4"))
                                 .WithProperty(ConstStringHardwareStatic.PROCESSOR_UNIQUE_ID, "BFEBFBF")
                                 .Build(),
-                           //new List<ManagementObject>()
-                           // {
-                           //    new ManagamentObjectBuilder()
-                           //     .WithPathNamespace(@"\\.\root\cimv2")
-                           //     .WithPathClassName("Win32_CacheMemory")
-                           //     .PrepareManagamentObject()
-                           //     .WithProperty(ConstStringHardwareStatic.PROCESSOR_CACHE_SIZE, uint.Parse("32"))
-                           //     .WithProperty(ConstStringHardwareStatic.PROCESSOR_CACHE_SPEED, uint.Parse("2601"))
-                           //     .WithProperty(ConstStringHardwareStatic.PROCESSOR_CACHE_LEVEL, CacheLevelEnum.L1)
-                           //     .Build(),
-                           //    new ManagamentObjectBuilder()
-                           //     .WithPathNamespace(@"\\.\root\cimv2")
-                           //     .WithPathClassName("Win32_CacheMemory")
-                           //     .PrepareManagamentObject()
-                           //     .WithProperty(ConstStringHardwareStatic.PROCESSOR_CACHE_SIZE, uint.Parse("32"))
-                           //     .WithProperty(ConstStringHardwareStatic.PROCESSOR_CACHE_SPEED, uint.Parse("2601"))
-                           //     .WithProperty(ConstStringHardwareStatic.PROCESSOR_CACHE_LEVEL, CacheLevelEnum.L1)
-                           //     .Build(),
-                           //    new ManagamentObjectBuilder()
-                           //     .WithPathNamespace(@"\\.\root\cimv2")
-                           //     .WithPathClassName("Win32_CacheMemory")
-                           //     .PrepareManagamentObject()
-                           //     .WithProperty(ConstStringHardwareStatic.PROCESSOR_CACHE_SIZE, uint.Parse("256"))
-                           //     .WithProperty(ConstStringHardwareStatic.PROCESSOR_CACHE_SPEED, uint.Parse("2601"))
-                           //     .WithProperty(ConstStringHardwareStatic.PROCESSOR_CACHE_LEVEL, CacheLevelEnum.L2)
-                           //     .Build(),
-                           //    new ManagamentObjectBuilder()
-                           //     .WithPathNamespace(@"\\.\root\cimv2")
-                           //     .WithPathClassName("Win32_CacheMemory")
-                           //     .PrepareManagamentObject()
-                           //     .WithProperty(ConstStringHardwareStatic.PROCESSOR_CACHE_SIZE, uint.Parse("4096"))
-                           //     .WithProperty(ConstStringHardwareStatic.PROCESSOR_CACHE_SPEED, uint.Parse("2601"))
-                           //     .WithProperty(ConstStringHardwareStatic.PROCESSOR_CACHE_LEVEL, CacheLevelEnum.L3)
-                           //     .Build()
-                           //},
                            18
             }
         };

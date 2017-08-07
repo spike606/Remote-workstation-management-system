@@ -66,8 +66,10 @@
     <Compile Include="HardwareDynamic\Builder\IHardwareDynamicBuilder.cs" />
     <Compile Include="HardwareDynamic\Model\Components\Abstract\HardwareDynamicComponent.cs" />
     <Compile Include="HardwareDynamic\Model\Components\DiskDynamic.cs" />
+    <Compile Include="HardwareDynamic\Model\Components\MainBoardDynamic.cs" />
     <Compile Include="HardwareDynamic\Model\Components\MemoryDynamic.cs" />
     <Compile Include="HardwareDynamic\Model\Components\ProcessorDynamic.cs" />
+    <Compile Include="HardwareDynamic\Model\Components\VideoControllerDynamic.cs" />
     <Compile Include="HardwareDynamic\Model\CustomProperties\Enum\SensorUnitEnum.cs" />
     <Compile Include="HardwareDynamic\Model\CustomProperties\Sensor.cs" />
     <Compile Include="HardwareDynamic\Model\HardwareDynamicData.cs" />

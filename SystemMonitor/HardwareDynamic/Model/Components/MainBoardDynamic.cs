@@ -11,23 +11,23 @@ using SystemMonitor.HardwareDynamic.OHMProvider;
 
 namespace SystemMonitor.HardwareDynamic.Model.Components
 {
-    public class MemoryDynamic : HardwareDynamicComponent
+    public class MainBoardDynamic : HardwareDynamicComponent
     {
         public override HardwareDynamicComponent GetDynamicDataForHardwareComponent(IOHMProvider ohmProvider)
         {
-            MemoryDynamic memoryDynamic = new MemoryDynamic();
+            MainBoardDynamic mainBoardDynamic = new MainBoardDynamic();
 
             foreach (var hardwareItem in ohmProvider.Computer.Hardware)
             {
-                if (hardwareItem.HardwareType == HardwareType.RAM)
+                if (hardwareItem.HardwareType == HardwareType.Mainboard)
                 {
-                    memoryDynamic.Name = hardwareItem.Name;
+                    mainBoardDynamic.Name = hardwareItem.Name;
                     hardwareItem.Update();
-                    ohmProvider.ExtractDataFromSensors(memoryDynamic, hardwareItem);
+                    ohmProvider.ExtractDataFromSensors(mainBoardDynamic, hardwareItem);
                 }
             }
 
-            return memoryDynamic;
+            return mainBoardDynamic;
         }
     }
 }

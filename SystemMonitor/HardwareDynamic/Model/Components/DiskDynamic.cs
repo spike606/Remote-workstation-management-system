@@ -13,10 +13,6 @@ namespace SystemMonitor.HardwareDynamic.Model.Components
 {
     public class DiskDynamic : HardwareDynamicComponent
     {
-        public List<Sensor> Temperature { get; set; } = new List<Sensor>();
-
-        public List<Sensor> Load { get; set; } = new List<Sensor>();
-
         public override HardwareDynamicComponent GetDynamicDataForHardwareComponent(IOHMProvider ohmProvider)
         {
             DiskDynamic diskDynamic = new DiskDynamic();
@@ -27,20 +23,7 @@ namespace SystemMonitor.HardwareDynamic.Model.Components
                 {
                     diskDynamic.Name = hardwareItem.Name;
                     hardwareItem.Update();
-                    foreach (var sensor in hardwareItem.Sensors)
-                    {
-                        switch (sensor.SensorType)
-                        {
-                            case SensorType.Load:
-                                diskDynamic.Load.Add(ohmProvider.ExtractDataFromSpecificSensor(sensor, SensorUnit.Percentage));
-                                break;
-                            case SensorType.Temperature:
-                                diskDynamic.Temperature.Add(ohmProvider.ExtractDataFromSpecificSensor(sensor, SensorUnit.Celcius));
-                                break;
-                            default:
-                                break;
-                        }
-                    }
+                    ohmProvider.ExtractDataFromSensors(diskDynamic, hardwareItem);
                 }
             }
 

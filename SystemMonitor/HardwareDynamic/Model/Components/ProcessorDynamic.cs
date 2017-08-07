@@ -13,14 +13,6 @@ namespace SystemMonitor.HardwareDynamic.Model.Components
 {
     public class ProcessorDynamic : HardwareDynamicComponent
     {
-        public List<Sensor> Clock { get; set; } = new List<Sensor>();
-
-        public List<Sensor> Temperature { get; set; } = new List<Sensor>();
-
-        public List<Sensor> Load { get; set; } = new List<Sensor>();
-
-        public List<Sensor> Power { get; set; } = new List<Sensor>();
-
         public override HardwareDynamicComponent GetDynamicDataForHardwareComponent(IOHMProvider ohmProvider)
         {
             ProcessorDynamic processorDynamic = new ProcessorDynamic();
@@ -31,26 +23,7 @@ namespace SystemMonitor.HardwareDynamic.Model.Components
                 {
                     processorDynamic.Name = hardwareItem.Name;
                     hardwareItem.Update();
-                    foreach (var sensor in hardwareItem.Sensors)
-                    {
-                        switch (sensor.SensorType)
-                        {
-                            case SensorType.Clock:
-                                processorDynamic.Clock.Add(ohmProvider.ExtractDataFromSpecificSensor(sensor, SensorUnit.MHZ));
-                                break;
-                            case SensorType.Temperature:
-                                processorDynamic.Temperature.Add(ohmProvider.ExtractDataFromSpecificSensor(sensor, SensorUnit.Celcius));
-                                break;
-                            case SensorType.Load:
-                                processorDynamic.Load.Add(ohmProvider.ExtractDataFromSpecificSensor(sensor, SensorUnit.Percentage));
-                                break;
-                            case SensorType.Power:
-                                processorDynamic.Power.Add(ohmProvider.ExtractDataFromSpecificSensor(sensor, SensorUnit.Watt));
-                                break;
-                            default:
-                                break;
-                        }
-                    }
+                    ohmProvider.ExtractDataFromSensors(processorDynamic, hardwareItem);
                 }
             }
 

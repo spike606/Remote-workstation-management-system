@@ -11,23 +11,23 @@ using SystemMonitor.HardwareDynamic.OHMProvider;
 
 namespace SystemMonitor.HardwareDynamic.Model.Components
 {
-    public class MemoryDynamic : HardwareDynamicComponent
+    public class VideoControllerDynamic : HardwareDynamicComponent
     {
         public override HardwareDynamicComponent GetDynamicDataForHardwareComponent(IOHMProvider ohmProvider)
         {
-            MemoryDynamic memoryDynamic = new MemoryDynamic();
+            VideoControllerDynamic videoControllerDynamic = new VideoControllerDynamic();
 
             foreach (var hardwareItem in ohmProvider.Computer.Hardware)
             {
-                if (hardwareItem.HardwareType == HardwareType.RAM)
+                if (hardwareItem.HardwareType == HardwareType.GpuAti || hardwareItem.HardwareType == HardwareType.GpuNvidia)
                 {
-                    memoryDynamic.Name = hardwareItem.Name;
+                    videoControllerDynamic.Name = hardwareItem.Name;
                     hardwareItem.Update();
-                    ohmProvider.ExtractDataFromSensors(memoryDynamic, hardwareItem);
+                    ohmProvider.ExtractDataFromSensors(videoControllerDynamic, hardwareItem);
                 }
             }
 
-            return memoryDynamic;
+            return videoControllerDynamic;
         }
     }
 }

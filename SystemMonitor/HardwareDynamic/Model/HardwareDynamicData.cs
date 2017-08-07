@@ -14,5 +14,9 @@ namespace SystemMonitor.HardwareDynamic.Model
         public HardwareDynamicComponent Memory { get; set; }
 
         public HardwareDynamicComponent Disk { get; set; }
+
+        public HardwareDynamicComponent MainBoard { get; set; }
+
+        public HardwareDynamicComponent VideoController { get; set; }
     }
 }

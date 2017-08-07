@@ -43,6 +43,8 @@ namespace SystemMonitor.DataBuilder
             data.Processor = this.HardwareDynamicBuilder.GetHardwareDynamicData(new ProcessorDynamic());
             data.Memory = this.HardwareDynamicBuilder.GetHardwareDynamicData(new MemoryDynamic());
             data.Disk = this.HardwareDynamicBuilder.GetHardwareDynamicData(new DiskDynamic());
+            data.MainBoard = this.HardwareDynamicBuilder.GetHardwareDynamicData(new MainBoardDynamic());
+            data.VideoController = this.HardwareDynamicBuilder.GetHardwareDynamicData(new VideoControllerDynamic());
 
             return data;
         }
