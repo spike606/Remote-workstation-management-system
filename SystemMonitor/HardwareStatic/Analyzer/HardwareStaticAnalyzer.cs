@@ -22,9 +22,9 @@ namespace SystemMonitor.HardwareStatic.Analyzer
         private const int THRESHOLD_OFFSET = 3;
 
         public List<SMARTData> GetSmartData(
-            List<HardwareComponent> smartFailurePredictStatus,
-            List<HardwareComponent> smartFailurePredictData,
-            List<HardwareComponent> smartFailurePredictThresholds)
+            List<HardwareStaticComponent> smartFailurePredictStatus,
+            List<HardwareStaticComponent> smartFailurePredictData,
+            List<HardwareStaticComponent> smartFailurePredictThresholds)
         {
             List<SMARTData> smartData = new List<SMARTData>();
 
@@ -51,11 +51,11 @@ namespace SystemMonitor.HardwareStatic.Analyzer
         }
 
         public List<Storage> GetStorageData(
-            List<HardwareComponent> diskList,
-            List<HardwareComponent> diskPartitionList,
-            List<HardwareComponent> volumeList,
-            List<HardwareComponent> diskToPartitionList,
-            List<HardwareComponent> partitionToVolumeList)
+            List<HardwareStaticComponent> diskList,
+            List<HardwareStaticComponent> diskPartitionList,
+            List<HardwareStaticComponent> volumeList,
+            List<HardwareStaticComponent> diskToPartitionList,
+            List<HardwareStaticComponent> partitionToVolumeList)
         {
             List<Storage> storageData = new List<Storage>();
 
@@ -76,7 +76,7 @@ namespace SystemMonitor.HardwareStatic.Analyzer
             return storageData;
         }
 
-        private void ExtractFailurePredictStatus(List<SMARTData> smartData, List<HardwareComponent> smartFailurePredictStatus)
+        private void ExtractFailurePredictStatus(List<SMARTData> smartData, List<HardwareStaticComponent> smartFailurePredictStatus)
         {
             List<SmartFailurePredictStatus> smartFailurePredictStatusList = smartFailurePredictStatus.Cast<SmartFailurePredictStatus>().ToList();
 
@@ -90,7 +90,7 @@ namespace SystemMonitor.HardwareStatic.Analyzer
             }
         }
 
-        private void ExtractFailurePredictData(List<SMARTData> smartData, List<HardwareComponent> smartFailurePredictData)
+        private void ExtractFailurePredictData(List<SMARTData> smartData, List<HardwareStaticComponent> smartFailurePredictData)
         {
             List<SmartFailurePredictData> smartFailurePredictDataList = smartFailurePredictData.Cast<SmartFailurePredictData>().ToList();
 
@@ -128,7 +128,7 @@ namespace SystemMonitor.HardwareStatic.Analyzer
             }
         }
 
-        private void ExtractFailrePredictThresholds(List<SMARTData> smartData, List<HardwareComponent> smartFailurePredictThresholds)
+        private void ExtractFailrePredictThresholds(List<SMARTData> smartData, List<HardwareStaticComponent> smartFailurePredictThresholds)
         {
             List<SmartFailurePredictThresholds> smartFailurePredictThresholdsList = smartFailurePredictThresholds.Cast<SmartFailurePredictThresholds>().ToList();
 

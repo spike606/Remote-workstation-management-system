@@ -11,6 +11,6 @@ namespace SystemMonitor.HardwareStatic.Builder
 {
     public interface IHardwareStaticBuilder
     {
-        List<HardwareComponent> GetStaticData(HardwareComponent hardwareComponent);
+        List<HardwareStaticComponent> GetHardwareStaticData(HardwareStaticComponent hardwareComponent);
     }
 }

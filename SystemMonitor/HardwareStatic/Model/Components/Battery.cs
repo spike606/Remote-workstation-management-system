@@ -11,7 +11,7 @@ using SystemMonitor.HardwareStatic.WMI;
 
 namespace SystemMonitor.HardwareStatic.Model.Components
 {
-    public class Battery : HardwareComponent
+    public class Battery : HardwareStaticComponent
     {
         // based on docs: https://msdn.microsoft.com/en-us/library/aa394074(v=vs.85).aspx
         public string BatteryStatus { get; private set; }
@@ -22,7 +22,7 @@ namespace SystemMonitor.HardwareStatic.Model.Components
 
         public UnitValue FullChargeCapacity { get; private set; }
 
-        public override HardwareComponent ExtractData(ManagementObject managementObject)
+        public override HardwareStaticComponent ExtractData(ManagementObject managementObject)
         {
             Battery battery = new Battery();
 

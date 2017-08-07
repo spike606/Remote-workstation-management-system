@@ -9,7 +9,7 @@ using SystemMonitor.HardwareStatic.WMI;
 
 namespace SystemMonitor.HardwareStatic.Model.Components
 {
-    public class Printer : HardwareComponent
+    public class Printer : HardwareStaticComponent
     {
         // based on docs: https://msdn.microsoft.com/en-us/library/aa394363(v=vs.85).aspx
         public string AveragePagesPerMinute { get; private set; }
@@ -22,7 +22,7 @@ namespace SystemMonitor.HardwareStatic.Model.Components
 
         public string PrintProcessor { get; private set; }
 
-        public override HardwareComponent ExtractData(ManagementObject managementObject)
+        public override HardwareStaticComponent ExtractData(ManagementObject managementObject)
         {
             Printer printer = new Printer();
             printer.AveragePagesPerMinute = managementObject[ConstStringHardwareStatic.PRINTER_AVG_PAGES_PER_MINUTE]?.ToString() ?? string.Empty;

@@ -9,7 +9,7 @@ using SystemMonitor.HardwareStatic.WMI;
 
 namespace SystemMonitor.HardwareStatic.Model.Components
 {
-    public class BaseBoard : HardwareComponent
+    public class BaseBoard : HardwareStaticComponent
     {
         // based on docs: https://msdn.microsoft.com/en-us/library/aa394072(v=vs.85).aspx
         public string Manufacturer { get; private set; }
@@ -24,7 +24,7 @@ namespace SystemMonitor.HardwareStatic.Model.Components
 
         public string Version { get; private set; }
 
-        public override HardwareComponent ExtractData(ManagementObject managementObject)
+        public override HardwareStaticComponent ExtractData(ManagementObject managementObject)
         {
             BaseBoard baseBoard = new BaseBoard();
             baseBoard.Caption = managementObject[ConstStringHardwareStatic.HARDWARE_COMPONENT_CAPTION]?.ToString() ?? string.Empty;

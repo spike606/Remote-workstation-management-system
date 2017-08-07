@@ -9,14 +9,14 @@ using SystemMonitor.HardwareStatic.WMI;
 
 namespace SystemMonitor.HardwareStatic.Model.Components
 {
-    public class PnPEntity : HardwareComponent
+    public class PnPEntity : HardwareStaticComponent
     {
         // based on docs: https://msdn.microsoft.com/en-us/library/aa394353(v=vs.85).aspx
         public string DeviceID { get; private set; }
 
         public string Manufacturer { get; private set; }
 
-        public override HardwareComponent ExtractData(ManagementObject managementObject)
+        public override HardwareStaticComponent ExtractData(ManagementObject managementObject)
         {
             PnPEntity pnPEntity = new PnPEntity();
             pnPEntity.Caption = managementObject[ConstStringHardwareStatic.HARDWARE_COMPONENT_CAPTION]?.ToString() ?? string.Empty;

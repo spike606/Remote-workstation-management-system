@@ -33,10 +33,10 @@ namespace SystemMonitorLibUnitTest.HardwareStatic
             IHardwareStaticBuilder sut = new HardwareStaticBuilder(wMIClientMock.Object);
 
             // act
-            var sutResult = (Processor)sut.GetStaticData(new Processor()).FirstOrDefault();
+            var sutResult = (ProcessorStatic)sut.GetHardwareStaticData(new ProcessorStatic()).FirstOrDefault();
 
             // assert
-            Assert.IsType<Processor>(sutResult);
+            Assert.IsType<ProcessorStatic>(sutResult);
             Assert.Equal(propertiesCount, sutResult.GetType().GetProperties().Count());
             Assert.Equal(processorParameter[ConstStringHardwareStatic.PROCESSOR_ADDRESS_WIDTH].ToString(), sutResult.AddressWidth.Value);
             Assert.Equal(((ArchitectureEnum)((ushort)processorParameter[ConstStringHardwareStatic.PROCESSOR_ARCHITECTURE])).ToString(), sutResult.Architecture);
@@ -72,10 +72,10 @@ namespace SystemMonitorLibUnitTest.HardwareStatic
             IHardwareStaticBuilder sut = new HardwareStaticBuilder(wMIClientMock.Object);
 
             // act
-            var sutResult = (Processor)sut.GetStaticData(new Processor()).FirstOrDefault();
+            var sutResult = (ProcessorStatic)sut.GetHardwareStaticData(new ProcessorStatic()).FirstOrDefault();
 
             // assert
-            Assert.IsType<Processor>(sutResult);
+            Assert.IsType<ProcessorStatic>(sutResult);
             Assert.Equal(propertiesCount, sutResult.GetType().GetProperties().Count());
             Assert.Equal(string.Empty, sutResult.AddressWidth.Value);
             Assert.Equal(string.Empty, sutResult.Architecture);
@@ -111,7 +111,7 @@ namespace SystemMonitorLibUnitTest.HardwareStatic
             IHardwareStaticBuilder sut = new HardwareStaticBuilder(wMIClientMock.Object);
 
             // act
-            var sutResult = (Memory)sut.GetStaticData(new Memory()).FirstOrDefault();
+            var sutResult = (Memory)sut.GetHardwareStaticData(new Memory()).FirstOrDefault();
 
             // assert
             Assert.IsType<Memory>(sutResult);
@@ -149,7 +149,7 @@ namespace SystemMonitorLibUnitTest.HardwareStatic
             IHardwareStaticBuilder sut = new HardwareStaticBuilder(wMIClientMock.Object);
 
             // act
-            var suResult = (Memory)sut.GetStaticData(new Memory()).FirstOrDefault();
+            var suResult = (Memory)sut.GetHardwareStaticData(new Memory()).FirstOrDefault();
 
             // assert
             Assert.IsType<Memory>(suResult);

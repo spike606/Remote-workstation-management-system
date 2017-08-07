@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using HardwareMonitor;
+using SystemMonitor.HardwareDynamic.Model;
 using SystemMonitor.HardwareStatic.Model;
 
 namespace SystemMonitorLibTest
@@ -14,8 +15,10 @@ namespace SystemMonitorLibTest
         static void Main(string[] args)
         {
             WorkstationMonitor monitor = new WorkstationMonitor();
-            HardwareStaticData data = monitor.GetHardwareStaticData();
-            PrintProperties(data);
+            HardwareDynamicData dynamicData = monitor.GetHardwareDynamicData();
+
+            //HardwareStaticData data = monitor.GetHardwareStaticData();
+            //PrintProperties(data);
             Console.ReadLine();
         }
 

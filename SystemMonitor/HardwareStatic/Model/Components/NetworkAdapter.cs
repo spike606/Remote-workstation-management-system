@@ -12,7 +12,7 @@ using SystemMonitor.HardwareStatic.WMI;
 
 namespace SystemMonitor.HardwareStatic.Model.Components
 {
-    public class NetworkAdapter : HardwareComponent
+    public class NetworkAdapter : HardwareStaticComponent
     {
         // based on docs: https://msdn.microsoft.com/en-us/library/aa394216(v=vs.85).aspx
         public UnitValue ActiveMaximumTransmissionUnit { get; private set; }
@@ -52,7 +52,7 @@ namespace SystemMonitor.HardwareStatic.Model.Components
             return wMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_NAMESPACE_ROOT_STANDARD_CIMV2, ConstStringHardwareStatic.WMI_QUERY_NETWORK_ADAPTER);
         }
 
-        public override HardwareComponent ExtractData(ManagementObject managementObject)
+        public override HardwareStaticComponent ExtractData(ManagementObject managementObject)
         {
             NetworkAdapter networkAdapter = new NetworkAdapter();
             networkAdapter.ActiveMaximumTransmissionUnit = new UnitValue(Unit.B, managementObject[ConstStringHardwareStatic.NETWORK_ADAPTER_MAXIMUM_MTU]?.ToString() ?? string.Empty);

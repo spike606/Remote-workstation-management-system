@@ -11,7 +11,7 @@ using SystemMonitor.HardwareStatic.WMI;
 
 namespace SystemMonitor.HardwareStatic.Model.Components
 {
-    public class Memory : HardwareComponent
+    public class Memory : HardwareStaticComponent
     {
         // based on docs: https://msdn.microsoft.com/en-us/library/aa394347(v=vs.85).aspx
         public string BankLabel { get; private set; }
@@ -45,7 +45,7 @@ namespace SystemMonitor.HardwareStatic.Model.Components
             return wMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_NAMESPACE_ROOT_CIMV2, ConstStringHardwareStatic.WMI_QUERY_MEMORY);
         }
 
-        public override HardwareComponent ExtractData(ManagementObject managementObject)
+        public override HardwareStaticComponent ExtractData(ManagementObject managementObject)
         {
             Memory memory = new Memory();
             memory.BankLabel = managementObject[ConstStringHardwareStatic.MEMORY_BANK_LABEL]?.ToString() ?? string.Empty;

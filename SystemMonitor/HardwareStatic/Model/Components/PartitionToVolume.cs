@@ -9,13 +9,13 @@ using SystemMonitor.HardwareStatic.WMI;
 
 namespace SystemMonitor.HardwareStatic.Model.Components
 {
-    public class PartitionToVolume : HardwareComponent
+    public class PartitionToVolume : HardwareStaticComponent
     {
         public string Partition { get; set; }
 
         public string Volume { get; set; }
 
-        public override HardwareComponent ExtractData(ManagementObject managementObject)
+        public override HardwareStaticComponent ExtractData(ManagementObject managementObject)
         {
             PartitionToVolume partitionToVolume = new PartitionToVolume();
             partitionToVolume.Caption = string.Empty;

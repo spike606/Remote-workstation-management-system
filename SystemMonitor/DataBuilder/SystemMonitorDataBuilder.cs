@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NLog;
+using SystemMonitor.HardwareDynamic.Builder;
+using SystemMonitor.HardwareDynamic.Model;
+using SystemMonitor.HardwareDynamic.Model.Components;
 using SystemMonitor.HardwareStatic.Analyzer;
 using SystemMonitor.HardwareStatic.Builder;
 using SystemMonitor.HardwareStatic.Model;
@@ -14,11 +17,16 @@ namespace SystemMonitor.DataBuilder
 {
     internal class SystemMonitorDataBuilder : ISystemMonitorDataBuilder
     {
-        public SystemMonitorDataBuilder(INLogger logger, IHardwareStaticBuilder hardwareStaticBuilder, IHardwareStaticAnalyzer hardwareStaticAnalyzer)
+        public SystemMonitorDataBuilder(
+                INLogger logger,
+                IHardwareStaticBuilder hardwareStaticBuilder,
+                IHardwareStaticAnalyzer hardwareStaticAnalyzer,
+                IHardwareDynamicBuilder hardwareDynamicBuilder)
         {
             this.Logger = logger;
             this.HardwareStaticBuilder = hardwareStaticBuilder;
             this.HardwareStaticAnalyzer = hardwareStaticAnalyzer;
+            this.HardwareDynamicBuilder = hardwareDynamicBuilder;
         }
 
         private INLogger Logger { get; set; }
@@ -27,33 +35,45 @@ namespace SystemMonitor.DataBuilder
 
         private IHardwareStaticAnalyzer HardwareStaticAnalyzer { get; set; }
 
+        private IHardwareDynamicBuilder HardwareDynamicBuilder { get; set; }
+
+        public HardwareDynamicData GetHardwareDynamicData()
+        {
+            HardwareDynamicData data = new HardwareDynamicData();
+            data.Processor = this.HardwareDynamicBuilder.GetHardwareDynamicData(new ProcessorDynamic());
+            data.Memory = this.HardwareDynamicBuilder.GetHardwareDynamicData(new MemoryDynamic());
+            data.Disk = this.HardwareDynamicBuilder.GetHardwareDynamicData(new DiskDynamic());
+
+            return data;
+        }
+
         public HardwareStaticData GetHardwareStaticData()
         {
             HardwareStaticData data = new HardwareStaticData();
-            data.Processor = this.HardwareStaticBuilder.GetStaticData(new Processor());
-            data.ProcessorCache = this.HardwareStaticBuilder.GetStaticData(new ProcessorCache());
-            data.Memory = this.HardwareStaticBuilder.GetStaticData(new Memory());
-            data.Disk = this.HardwareStaticBuilder.GetStaticData(new Disk());
-            data.CDROMDrive = this.HardwareStaticBuilder.GetStaticData(new CDROMDrive());
-            data.BaseBoard = this.HardwareStaticBuilder.GetStaticData(new BaseBoard());
-            data.Fan = this.HardwareStaticBuilder.GetStaticData(new Fan());
-            data.Battery = this.HardwareStaticBuilder.GetStaticData(new Battery());
-            data.NetworkAdapter = this.HardwareStaticBuilder.GetStaticData(new NetworkAdapter());
-            data.Printer = this.HardwareStaticBuilder.GetStaticData(new Printer());
-            data.VideoController = this.HardwareStaticBuilder.GetStaticData(new VideoController());
-            data.PnPEntity = this.HardwareStaticBuilder.GetStaticData(new PnPEntity());
-            data.Volume = this.HardwareStaticBuilder.GetStaticData(new Volume());
-            data.DiskPartition = this.HardwareStaticBuilder.GetStaticData(new DiskPartition());
-            data.SmartFailurePredictData = this.HardwareStaticBuilder.GetStaticData(new SmartFailurePredictData());
-            data.SmartFailurePredictStatus = this.HardwareStaticBuilder.GetStaticData(new SmartFailurePredictStatus());
-            data.SmartFailurePredictThresholds = this.HardwareStaticBuilder.GetStaticData(new SmartFailurePredictThresholds());
+            data.Processor = this.HardwareStaticBuilder.GetHardwareStaticData(new ProcessorStatic());
+            data.ProcessorCache = this.HardwareStaticBuilder.GetHardwareStaticData(new ProcessorCache());
+            data.Memory = this.HardwareStaticBuilder.GetHardwareStaticData(new Memory());
+            data.Disk = this.HardwareStaticBuilder.GetHardwareStaticData(new Disk());
+            data.CDROMDrive = this.HardwareStaticBuilder.GetHardwareStaticData(new CDROMDrive());
+            data.BaseBoard = this.HardwareStaticBuilder.GetHardwareStaticData(new BaseBoard());
+            data.Fan = this.HardwareStaticBuilder.GetHardwareStaticData(new Fan());
+            data.Battery = this.HardwareStaticBuilder.GetHardwareStaticData(new Battery());
+            data.NetworkAdapter = this.HardwareStaticBuilder.GetHardwareStaticData(new NetworkAdapter());
+            data.Printer = this.HardwareStaticBuilder.GetHardwareStaticData(new Printer());
+            data.VideoController = this.HardwareStaticBuilder.GetHardwareStaticData(new VideoController());
+            data.PnPEntity = this.HardwareStaticBuilder.GetHardwareStaticData(new PnPEntity());
+            data.Volume = this.HardwareStaticBuilder.GetHardwareStaticData(new Volume());
+            data.DiskPartition = this.HardwareStaticBuilder.GetHardwareStaticData(new DiskPartition());
+            data.SmartFailurePredictData = this.HardwareStaticBuilder.GetHardwareStaticData(new SmartFailurePredictData());
+            data.SmartFailurePredictStatus = this.HardwareStaticBuilder.GetHardwareStaticData(new SmartFailurePredictStatus());
+            data.SmartFailurePredictThresholds = this.HardwareStaticBuilder.GetHardwareStaticData(new SmartFailurePredictThresholds());
             data.SMARTData = this.HardwareStaticAnalyzer.GetSmartData(
                 data.SmartFailurePredictStatus,
                 data.SmartFailurePredictData,
                 data.SmartFailurePredictThresholds);
 
-            data.DiskToPartition = this.HardwareStaticBuilder.GetStaticData(new DiskToPartition());
-            data.PartitionToVolume = this.HardwareStaticBuilder.GetStaticData(new PartitionToVolume());
+            data.DiskToPartition = this.HardwareStaticBuilder.GetHardwareStaticData(new DiskToPartition());
+            data.PartitionToVolume = this.HardwareStaticBuilder.GetHardwareStaticData(new PartitionToVolume());
 
             data.Storage = this.HardwareStaticAnalyzer.GetStorageData(
                 data.Disk,

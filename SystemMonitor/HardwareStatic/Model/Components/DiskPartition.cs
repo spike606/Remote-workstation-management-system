@@ -10,7 +10,7 @@ using SystemMonitor.HardwareStatic.WMI;
 
 namespace SystemMonitor.HardwareStatic.Model.Components
 {
-    public class DiskPartition : HardwareComponent
+    public class DiskPartition : HardwareStaticComponent
     {
         // based on docs: https://msdn.microsoft.com/en-us/library/windows/desktop/hh830524(v=vs.85).aspx
         public string DiskId { get; private set; }
@@ -46,7 +46,7 @@ namespace SystemMonitor.HardwareStatic.Model.Components
 
         public UnitValue Size { get; private set; }
 
-        public override HardwareComponent ExtractData(ManagementObject managementObject)
+        public override HardwareStaticComponent ExtractData(ManagementObject managementObject)
         {
             DiskPartition diskPartition = new DiskPartition();
             diskPartition.Caption = string.Empty;

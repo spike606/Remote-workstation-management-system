@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using SystemMonitor.DataBuilder;
+using SystemMonitor.HardwareDynamic.Builder;
+using SystemMonitor.HardwareDynamic.Model;
+using SystemMonitor.HardwareDynamic.OHMProvider;
 using SystemMonitor.HardwareStatic.Analyzer;
 using SystemMonitor.HardwareStatic.Builder;
 using SystemMonitor.HardwareStatic.Model;
@@ -28,6 +31,11 @@ namespace HardwareMonitor
             return this.SystemMonitorDataBuilder.GetHardwareStaticData();
         }
 
+        public HardwareDynamicData GetHardwareDynamicData()
+        {
+            return this.SystemMonitorDataBuilder.GetHardwareDynamicData();
+        }
+
         private void InitializeIoCContainer()
         {
             var container = new WindsorContainer();
@@ -36,6 +44,8 @@ namespace HardwareMonitor
             container.Register(Component.For<IHardwareStaticBuilder>().ImplementedBy<HardwareStaticBuilder>().LifeStyle.Singleton);
             container.Register(Component.For<IHardwareStaticAnalyzer>().ImplementedBy<HardwareStaticAnalyzer>().LifeStyle.Singleton);
             container.Register(Component.For<IWMIClient>().ImplementedBy<WMIClient>().LifeStyle.Singleton);
+            container.Register(Component.For<IOHMProvider>().ImplementedBy<OHMProvider>().LifeStyle.Singleton);
+            container.Register(Component.For<IHardwareDynamicBuilder>().ImplementedBy<HardwareDynamicBuilder>().LifeStyle.Singleton);
 
             this.SystemMonitorDataBuilder = container.Resolve<ISystemMonitorDataBuilder>();
         }

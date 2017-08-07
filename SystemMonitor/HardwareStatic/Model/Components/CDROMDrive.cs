@@ -9,7 +9,7 @@ using SystemMonitor.HardwareStatic.WMI;
 
 namespace SystemMonitor.HardwareStatic.Model.Components
 {
-    public class CDROMDrive : HardwareComponent
+    public class CDROMDrive : HardwareStaticComponent
     {
         // based on docs: https://msdn.microsoft.com/en-us/library/aa394081(v=vs.85).aspx
         public string DeviceID { get; private set; }
@@ -18,7 +18,7 @@ namespace SystemMonitor.HardwareStatic.Model.Components
 
         public string MediaType { get; private set; }
 
-        public override HardwareComponent ExtractData(ManagementObject managementObject)
+        public override HardwareStaticComponent ExtractData(ManagementObject managementObject)
         {
             CDROMDrive cdROMDrive = new CDROMDrive();
             cdROMDrive.Caption = managementObject[ConstStringHardwareStatic.HARDWARE_COMPONENT_CAPTION]?.ToString() ?? string.Empty;

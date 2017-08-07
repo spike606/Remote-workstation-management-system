@@ -47,6 +47,9 @@
       <HintPath>..\packages\NLog.4.4.9\lib\net45\NLog.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="OpenHardwareMonitorLib">
+      <HintPath>..\..\..\..\Users\krwyz1\Downloads\openhardwaremonitor-v0.8.0-beta\OpenHardwareMonitor\OpenHardwareMonitorLib.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
@@ -59,12 +62,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBuilder\ISystemMonitorDataBuilder.cs" />
+    <Compile Include="HardwareDynamic\Builder\HardwareDynamicBuilder.cs" />
+    <Compile Include="HardwareDynamic\Builder\IHardwareDynamicBuilder.cs" />
+    <Compile Include="HardwareDynamic\Model\Components\Abstract\HardwareDynamicComponent.cs" />
+    <Compile Include="HardwareDynamic\Model\Components\DiskDynamic.cs" />
+    <Compile Include="HardwareDynamic\Model\Components\MemoryDynamic.cs" />
+    <Compile Include="HardwareDynamic\Model\Components\ProcessorDynamic.cs" />
+    <Compile Include="HardwareDynamic\Model\CustomProperties\Enum\SensorUnitEnum.cs" />
+    <Compile Include="HardwareDynamic\Model\CustomProperties\Sensor.cs" />
+    <Compile Include="HardwareDynamic\Model\HardwareDynamicData.cs" />
+    <Compile Include="HardwareDynamic\OHMProvider\IOHMProvider.cs" />
+    <Compile Include="HardwareDynamic\OHMProvider\OHMProvider.cs" />
     <Compile Include="HardwareStatic\Analyzer\HardwareStaticAnalyzer.cs" />
     <Compile Include="HardwareStatic\Analyzer\IHardwareStaticAnalyzer.cs" />
     <Compile Include="HardwareStatic\Analyzer\SmartAttributesDictionary.cs" />
     <Compile Include="HardwareStatic\Builder\HardwareStaticBuilder.cs" />
     <Compile Include="HardwareStatic\Builder\IHardwareStaticBuilder.cs" />
-    <Compile Include="HardwareStatic\Model\Components\Abstract\HardwareComponent.cs" />
+    <Compile Include="HardwareStatic\Model\Components\Abstract\HardwareStaticComponent.cs" />
     <Compile Include="HardwareStatic\Model\Components\Analyzed\LogicalPartition.cs" />
     <Compile Include="HardwareStatic\Model\Components\Analyzed\Partition.cs" />
     <Compile Include="HardwareStatic\Model\Components\Analyzed\Storage.cs" />
@@ -81,6 +95,7 @@
     <Compile Include="HardwareStatic\Model\Components\Printer.cs" />
     <Compile Include="HardwareStatic\Model\Components\ProcessorCache.cs" />
     <Compile Include="HardwareStatic\Model\Components\Analyzed\SMARTData.cs" />
+    <Compile Include="HardwareStatic\Model\Components\ProcessorStatic.cs" />
     <Compile Include="HardwareStatic\Model\Components\SmartFailurePredictData.cs" />
     <Compile Include="HardwareStatic\Model\Components\SmartFailurePredictStatus.cs" />
     <Compile Include="HardwareStatic\Model\Components\SmartFailurePredictThresholds.cs" />
@@ -104,7 +119,6 @@
     <Compile Include="Logger\INLogger.cs" />
     <Compile Include="Logger\NLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="HardwareStatic\Model\Components\Processor.cs" />
     <Compile Include="HardwareStatic\WMI\WMIClient.cs" />
     <Compile Include="DataBuilder\SystemMonitorDataBuilder.cs" />
     <Compile Include="HardwareStatic\ConstStringHardwareStatic.cs" />

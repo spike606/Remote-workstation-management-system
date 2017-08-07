@@ -12,7 +12,7 @@ using SystemMonitor.HardwareStatic.WMI;
 
 namespace SystemMonitor.HardwareStatic.Model.Components
 {
-    public class Disk : HardwareComponent
+    public class Disk : HardwareStaticComponent
     {
         // based on docs: https://msdn.microsoft.com/en-us/library/windows/desktop/hh830493(v=vs.85).aspx
         public UnitValue AllocatedSize { get; private set; }
@@ -69,7 +69,7 @@ namespace SystemMonitor.HardwareStatic.Model.Components
 
         public string UniqueId { get; private set; }
 
-        public override HardwareComponent ExtractData(ManagementObject managementObject)
+        public override HardwareStaticComponent ExtractData(ManagementObject managementObject)
         {
             Disk disk = new Disk();
             disk.AllocatedSize = new UnitValue(Unit.B, managementObject[ConstStringHardwareStatic.DISK_ALLOCATED_SIZE]?.ToString() ?? string.Empty);

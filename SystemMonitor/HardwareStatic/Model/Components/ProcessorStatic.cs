@@ -11,7 +11,7 @@ using SystemMonitor.HardwareStatic.WMI;
 
 namespace SystemMonitor.HardwareStatic.Model.Components
 {
-    public class Processor : HardwareComponent
+    public class ProcessorStatic : HardwareStaticComponent
     {
         // based on docs: https://msdn.microsoft.com/en-us/library/aa394373(v=vs.85).aspx
         public UnitValue AddressWidth { get; private set; }
@@ -47,9 +47,9 @@ namespace SystemMonitor.HardwareStatic.Model.Components
             return wMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_NAMESPACE_ROOT_CIMV2, ConstStringHardwareStatic.WMI_QUERY_PROCESSOR);
         }
 
-        public override HardwareComponent ExtractData(ManagementObject managementObject)
+        public override HardwareStaticComponent ExtractData(ManagementObject managementObject)
         {
-            Processor processor = new Processor();
+            ProcessorStatic processor = new ProcessorStatic();
             processor.AddressWidth = new UnitValue(Unit.BIT, managementObject[ConstStringHardwareStatic.PROCESSOR_ADDRESS_WIDTH]?.ToString() ?? string.Empty);
 
             if (managementObject[ConstStringHardwareStatic.PROCESSOR_ARCHITECTURE] != null)

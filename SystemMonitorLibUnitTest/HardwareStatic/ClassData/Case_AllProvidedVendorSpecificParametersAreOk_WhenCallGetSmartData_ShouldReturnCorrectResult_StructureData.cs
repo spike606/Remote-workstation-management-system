@@ -11,11 +11,11 @@ namespace SystemMonitorLibUnitTest.HardwareStatic.ClassData
 {
     public class Case_AllProvidedVendorSpecificParametersAreOk_WhenCallGetSmartData_ShouldReturnCorrectResult_StructureData
     {
-        public List<HardwareComponent> SmartFailurePredictData { get; set; }
+        public List<HardwareStaticComponent> SmartFailurePredictData { get; set; }
 
-        public List<HardwareComponent> SmartFailurePredictStatus { get; set; }
+        public List<HardwareStaticComponent> SmartFailurePredictStatus { get; set; }
 
-        public List<HardwareComponent> SmartFailurePredictThresholds { get; set; }
+        public List<HardwareStaticComponent> SmartFailurePredictThresholds { get; set; }
 
         public List<SMARTData> ExpectedSmartData { get; set; }
     }

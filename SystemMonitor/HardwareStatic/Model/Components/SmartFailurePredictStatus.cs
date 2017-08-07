@@ -9,13 +9,13 @@ using SystemMonitor.HardwareStatic.WMI;
 
 namespace SystemMonitor.HardwareStatic.Model.Components
 {
-    public class SmartFailurePredictStatus : HardwareComponent
+    public class SmartFailurePredictStatus : HardwareStaticComponent
     {
         public string PredictFailure { get; set; }
 
         public string InstanceName { get; set; }
 
-        public override HardwareComponent ExtractData(ManagementObject managementObject)
+        public override HardwareStaticComponent ExtractData(ManagementObject managementObject)
         {
             SmartFailurePredictStatus smartFailurePredictStatus = new SmartFailurePredictStatus();
             smartFailurePredictStatus.Caption = string.Empty;

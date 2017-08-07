@@ -22,14 +22,14 @@ namespace SystemMonitor.HardwareStatic.Builder
 
         private IWMIClient WMIClient { get; set; }
 
-        public List<HardwareComponent> GetStaticData(HardwareComponent hardwareComponent)
+        public List<HardwareStaticComponent> GetHardwareStaticData(HardwareStaticComponent hardwareStaticComponent)
         {
-            List<ManagementObject> managementObjectList = hardwareComponent.GetManagementObjectsForHardwareComponent(this.WMIClient);
-            List<HardwareComponent> staticData = new List<HardwareComponent>();
+            List<ManagementObject> managementObjectList = hardwareStaticComponent.GetManagementObjectsForHardwareComponent(this.WMIClient);
+            List<HardwareStaticComponent> staticData = new List<HardwareStaticComponent>();
 
             foreach (var managementObject in managementObjectList)
             {
-                staticData.Add(hardwareComponent.ExtractData(managementObject));
+                staticData.Add(hardwareStaticComponent.ExtractData(managementObject));
             }
 
             return staticData;

@@ -11,7 +11,7 @@ using SystemMonitor.HardwareStatic.WMI;
 
 namespace SystemMonitor.HardwareStatic.Model.Components
 {
-    public class ProcessorCache : HardwareComponent
+    public class ProcessorCache : HardwareStaticComponent
     {
         // based on docs: https://msdn.microsoft.com/en-us/library/aa394080(v=vs.85).aspx
         public UnitValue Speed { get; private set; }
@@ -25,7 +25,7 @@ namespace SystemMonitor.HardwareStatic.Model.Components
             return wMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_NAMESPACE_ROOT_CIMV2, ConstStringHardwareStatic.WMI_QUERY_CACHE_MEMORY);
         }
 
-        public override HardwareComponent ExtractData(ManagementObject managementObject)
+        public override HardwareStaticComponent ExtractData(ManagementObject managementObject)
         {
             ProcessorCache processorCache = new ProcessorCache();
             processorCache.Caption = managementObject[ConstStringHardwareStatic.HARDWARE_COMPONENT_CAPTION]?.ToString() ?? string.Empty;

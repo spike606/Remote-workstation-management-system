@@ -9,10 +9,10 @@ using SystemMonitor.HardwareStatic.WMI;
 
 namespace SystemMonitor.HardwareStatic.Model.Components
 {
-    public class Fan : HardwareComponent
+    public class Fan : HardwareStaticComponent
     {
         // based on docs: https://msdn.microsoft.com/en-us/library/aa394146(v=vs.85).aspx
-        public override HardwareComponent ExtractData(ManagementObject managementObject)
+        public override HardwareStaticComponent ExtractData(ManagementObject managementObject)
         {
             Fan fan = new Fan();
             fan.Caption = managementObject[ConstStringHardwareStatic.HARDWARE_COMPONENT_CAPTION]?.ToString() ?? string.Empty;

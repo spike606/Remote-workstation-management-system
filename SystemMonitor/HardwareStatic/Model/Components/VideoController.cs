@@ -10,7 +10,7 @@ using SystemMonitor.HardwareStatic.WMI;
 
 namespace SystemMonitor.HardwareStatic.Model.Components
 {
-    public class VideoController : HardwareComponent
+    public class VideoController : HardwareStaticComponent
     {
         // based on docs: https://msdn.microsoft.com/en-us/library/aa394512(v=vs.85).aspx
         public string AdapterCompatibility { get; private set; }
@@ -37,7 +37,7 @@ namespace SystemMonitor.HardwareStatic.Model.Components
 
         public string VideoProcessor { get; private set; }
 
-        public override HardwareComponent ExtractData(ManagementObject managementObject)
+        public override HardwareStaticComponent ExtractData(ManagementObject managementObject)
         {
             VideoController videoController = new VideoController();
             videoController.AdapterCompatibility = managementObject[ConstStringHardwareStatic.VIDEO_CONTROLLER_ADAPTER_COMPATIBILITY]?.ToString() ?? string.Empty;

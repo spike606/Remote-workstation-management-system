@@ -8,7 +8,7 @@ using SystemMonitor.HardwareStatic.WMI;
 
 namespace SystemMonitor.HardwareStatic.Model.Components.Abstract
 {
-    public abstract class HardwareComponent
+    public abstract class HardwareStaticComponent
     {
         public string Caption { get; protected set; }
 
@@ -20,6 +20,6 @@ namespace SystemMonitor.HardwareStatic.Model.Components.Abstract
 
         public abstract List<ManagementObject> GetManagementObjectsForHardwareComponent(IWMIClient wMIClient);
 
-        public abstract HardwareComponent ExtractData(ManagementObject managementObject);
+        public abstract HardwareStaticComponent ExtractData(ManagementObject managementObject);
     }
 }

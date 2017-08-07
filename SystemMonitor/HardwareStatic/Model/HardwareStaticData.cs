@@ -11,45 +11,45 @@ namespace SystemMonitor.HardwareStatic.Model
 {
     public class HardwareStaticData
     {
-        public List<HardwareComponent> Processor { get; set; }
+        public List<HardwareStaticComponent> Processor { get; set; }
 
-        public List<HardwareComponent> ProcessorCache { get; set; }
+        public List<HardwareStaticComponent> ProcessorCache { get; set; }
 
-        public List<HardwareComponent> Memory { get; set; }
+        public List<HardwareStaticComponent> Memory { get; set; }
 
-        public List<HardwareComponent> Disk { get; set; }
+        public List<HardwareStaticComponent> Disk { get; set; }
 
-        public List<HardwareComponent> CDROMDrive { get; set; }
+        public List<HardwareStaticComponent> CDROMDrive { get; set; }
 
-        public List<HardwareComponent> BaseBoard { get; set; }
+        public List<HardwareStaticComponent> BaseBoard { get; set; }
 
-        public List<HardwareComponent> Fan { get; set; }
+        public List<HardwareStaticComponent> Fan { get; set; }
 
-        public List<HardwareComponent> Battery { get; set; }
+        public List<HardwareStaticComponent> Battery { get; set; }
 
-        public List<HardwareComponent> NetworkAdapter { get; set; }
+        public List<HardwareStaticComponent> NetworkAdapter { get; set; }
 
-        public List<HardwareComponent> Printer { get; set; }
+        public List<HardwareStaticComponent> Printer { get; set; }
 
-        public List<HardwareComponent> VideoController { get; set; }
+        public List<HardwareStaticComponent> VideoController { get; set; }
 
-        public List<HardwareComponent> PnPEntity { get; set; }
+        public List<HardwareStaticComponent> PnPEntity { get; set; }
 
-        public List<HardwareComponent> Volume { get; set; }
+        public List<HardwareStaticComponent> Volume { get; set; }
 
-        public List<HardwareComponent> DiskPartition { get; set; }
+        public List<HardwareStaticComponent> DiskPartition { get; set; }
 
-        public List<HardwareComponent> SmartFailurePredictData { get; set; }
+        public List<HardwareStaticComponent> SmartFailurePredictData { get; set; }
 
-        public List<HardwareComponent> SmartFailurePredictStatus { get; set; }
+        public List<HardwareStaticComponent> SmartFailurePredictStatus { get; set; }
 
-        public List<HardwareComponent> SmartFailurePredictThresholds { get; set; }
+        public List<HardwareStaticComponent> SmartFailurePredictThresholds { get; set; }
 
         public List<SMARTData> SMARTData { get; set; }
 
-        public List<HardwareComponent> DiskToPartition { get; set; }
+        public List<HardwareStaticComponent> DiskToPartition { get; set; }
 
-        public List<HardwareComponent> PartitionToVolume { get; set; }
+        public List<HardwareStaticComponent> PartitionToVolume { get; set; }
 
         public List<Storage> Storage { get; set; }
     }

@@ -13,7 +13,7 @@ using SystemMonitor.HardwareStatic.WMI;
 
 namespace SystemMonitor.HardwareStatic.Model.Components
 {
-    public class Volume : HardwareComponent
+    public class Volume : HardwareStaticComponent
     {
         // based on docs: https://msdn.microsoft.com/en-us/library/windows/desktop/hh830604(v=vs.85).aspx
         public string DedupMode { get; private set; }
@@ -38,7 +38,7 @@ namespace SystemMonitor.HardwareStatic.Model.Components
 
         public string UniqueId { get; private set; }
 
-        public override HardwareComponent ExtractData(ManagementObject managementObject)
+        public override HardwareStaticComponent ExtractData(ManagementObject managementObject)
         {
             Volume volume = new Volume();
             volume.Caption = string.Empty;
