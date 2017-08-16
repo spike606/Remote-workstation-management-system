@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using SystemMonitor.HardwareStatic.Model.Components.Abstract;
 using SystemMonitor.HardwareStatic.Model.CustomProperties;
 using SystemMonitor.HardwareStatic.Model.CustomProperties.Enums;
-using SystemMonitor.HardwareStatic.WMI;
+using SystemMonitor.Shared.WMI;
 
 namespace SystemMonitor.HardwareStatic.Model.Components
 {
@@ -26,29 +26,29 @@ namespace SystemMonitor.HardwareStatic.Model.Components
         {
             Battery battery = new Battery();
 
-            if (managementObject[ConstStringHardwareStatic.BATTERY_BATTERY_STATUS] != null)
+            if (managementObject[ConstString.BATTERY_BATTERY_STATUS] != null)
             {
-                battery.BatteryStatus = ((BatteryStatus)((ushort)managementObject[ConstStringHardwareStatic.BATTERY_BATTERY_STATUS])).ToString();
+                battery.BatteryStatus = ((BatteryStatus)((ushort)managementObject[ConstString.BATTERY_BATTERY_STATUS])).ToString();
             }
             else
             {
                 battery.BatteryStatus = string.Empty;
             }
 
-            battery.Caption = managementObject[ConstStringHardwareStatic.HARDWARE_COMPONENT_CAPTION]?.ToString() ?? string.Empty;
-            battery.Description = managementObject[ConstStringHardwareStatic.HARDWARE_COMPONENT_DESCRIPTION]?.ToString() ?? string.Empty;
-            battery.DesignCapacity = new UnitValue(Unit.MWH, managementObject[ConstStringHardwareStatic.BATTERY_DESIGN_CAPACITY]?.ToString() ?? string.Empty);
-            battery.DeviceID = managementObject[ConstStringHardwareStatic.BATTERY_DEVICE_ID]?.ToString() ?? string.Empty;
-            battery.FullChargeCapacity = new UnitValue(Unit.MWH, managementObject[ConstStringHardwareStatic.BATTERY_FULLY_CHARGE_CAPACITY]?.ToString() ?? string.Empty);
-            battery.Name = managementObject[ConstStringHardwareStatic.HARDWARE_COMPONENT_NAME]?.ToString() ?? string.Empty;
-            battery.Status = managementObject[ConstStringHardwareStatic.HARDWARE_COMPONENT_STATUS]?.ToString() ?? string.Empty;
+            battery.Caption = managementObject[ConstString.COMPONENT_CAPTION]?.ToString() ?? string.Empty;
+            battery.Description = managementObject[ConstString.COMPONENT_DESCRIPTION]?.ToString() ?? string.Empty;
+            battery.DesignCapacity = new UnitValue(Unit.MWH, managementObject[ConstString.BATTERY_DESIGN_CAPACITY]?.ToString() ?? string.Empty);
+            battery.DeviceID = managementObject[ConstString.BATTERY_DEVICE_ID]?.ToString() ?? string.Empty;
+            battery.FullChargeCapacity = new UnitValue(Unit.MWH, managementObject[ConstString.BATTERY_FULLY_CHARGE_CAPACITY]?.ToString() ?? string.Empty);
+            battery.Name = managementObject[ConstString.COMPONENT_NAME]?.ToString() ?? string.Empty;
+            battery.Status = managementObject[ConstString.COMPONENT_STATUS]?.ToString() ?? string.Empty;
 
             return battery;
         }
 
         public override List<ManagementObject> GetManagementObjectsForHardwareComponent(IWMIClient wMIClient)
         {
-            return wMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_NAMESPACE_ROOT_CIMV2, ConstStringHardwareStatic.WMI_QUERY_BATTERY);
+            return wMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstString.WMI_NAMESPACE_ROOT_CIMV2, ConstString.WMI_QUERY_BATTERY);
         }
 
         /*

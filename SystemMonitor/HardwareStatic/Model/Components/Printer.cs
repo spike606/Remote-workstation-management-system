@@ -5,7 +5,7 @@ using System.Management;
 using System.Text;
 using System.Threading.Tasks;
 using SystemMonitor.HardwareStatic.Model.Components.Abstract;
-using SystemMonitor.HardwareStatic.WMI;
+using SystemMonitor.Shared.WMI;
 
 namespace SystemMonitor.HardwareStatic.Model.Components
 {
@@ -25,22 +25,22 @@ namespace SystemMonitor.HardwareStatic.Model.Components
         public override HardwareStaticComponent ExtractData(ManagementObject managementObject)
         {
             Printer printer = new Printer();
-            printer.AveragePagesPerMinute = managementObject[ConstStringHardwareStatic.PRINTER_AVG_PAGES_PER_MINUTE]?.ToString() ?? string.Empty;
-            printer.Caption = managementObject[ConstStringHardwareStatic.HARDWARE_COMPONENT_CAPTION]?.ToString() ?? string.Empty;
-            printer.Default = managementObject[ConstStringHardwareStatic.PRINTER_DEFAULT]?.ToString() ?? string.Empty;
-            printer.Description = managementObject[ConstStringHardwareStatic.HARDWARE_COMPONENT_DESCRIPTION]?.ToString() ?? string.Empty;
-            printer.DeviceID = managementObject[ConstStringHardwareStatic.PRINTER_DEVICE_ID]?.ToString() ?? string.Empty;
-            printer.Name = managementObject[ConstStringHardwareStatic.HARDWARE_COMPONENT_NAME]?.ToString() ?? string.Empty;
-            printer.PortName = managementObject[ConstStringHardwareStatic.PRINTER_PORT_NAME]?.ToString() ?? string.Empty;
-            printer.PrintProcessor = managementObject[ConstStringHardwareStatic.PRINTER_PRINT_PROCESSOR]?.ToString() ?? string.Empty;
-            printer.Status = managementObject[ConstStringHardwareStatic.HARDWARE_COMPONENT_STATUS]?.ToString() ?? string.Empty;
+            printer.AveragePagesPerMinute = managementObject[ConstString.PRINTER_AVG_PAGES_PER_MINUTE]?.ToString() ?? string.Empty;
+            printer.Caption = managementObject[ConstString.COMPONENT_CAPTION]?.ToString() ?? string.Empty;
+            printer.Default = managementObject[ConstString.PRINTER_DEFAULT]?.ToString() ?? string.Empty;
+            printer.Description = managementObject[ConstString.COMPONENT_DESCRIPTION]?.ToString() ?? string.Empty;
+            printer.DeviceID = managementObject[ConstString.PRINTER_DEVICE_ID]?.ToString() ?? string.Empty;
+            printer.Name = managementObject[ConstString.COMPONENT_NAME]?.ToString() ?? string.Empty;
+            printer.PortName = managementObject[ConstString.PRINTER_PORT_NAME]?.ToString() ?? string.Empty;
+            printer.PrintProcessor = managementObject[ConstString.PRINTER_PRINT_PROCESSOR]?.ToString() ?? string.Empty;
+            printer.Status = managementObject[ConstString.COMPONENT_STATUS]?.ToString() ?? string.Empty;
 
             return printer;
         }
 
         public override List<ManagementObject> GetManagementObjectsForHardwareComponent(IWMIClient wMIClient)
         {
-            return wMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_NAMESPACE_ROOT_CIMV2, ConstStringHardwareStatic.WMI_QUERY_PRINTER);
+            return wMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstString.WMI_NAMESPACE_ROOT_CIMV2, ConstString.WMI_QUERY_PRINTER);
         }
     }
 }

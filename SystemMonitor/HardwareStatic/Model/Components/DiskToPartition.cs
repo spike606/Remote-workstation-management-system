@@ -5,7 +5,7 @@ using System.Management;
 using System.Text;
 using System.Threading.Tasks;
 using SystemMonitor.HardwareStatic.Model.Components.Abstract;
-using SystemMonitor.HardwareStatic.WMI;
+using SystemMonitor.Shared.WMI;
 
 namespace SystemMonitor.HardwareStatic.Model.Components
 {
@@ -20,16 +20,16 @@ namespace SystemMonitor.HardwareStatic.Model.Components
             DiskToPartition diskToPartition = new DiskToPartition();
             diskToPartition.Caption = string.Empty;
             diskToPartition.Description = string.Empty;
-            diskToPartition.Disk = managementObject[ConstStringHardwareStatic.DISK_TO_PARTITION_DISK]?.ToString() ?? string.Empty;
+            diskToPartition.Disk = managementObject[ConstString.DISK_TO_PARTITION_DISK]?.ToString() ?? string.Empty;
             diskToPartition.Name = string.Empty;
-            diskToPartition.Partition = managementObject[ConstStringHardwareStatic.DISK_TO_PARTITION_PARTITION]?.ToString() ?? string.Empty;
+            diskToPartition.Partition = managementObject[ConstString.DISK_TO_PARTITION_PARTITION]?.ToString() ?? string.Empty;
             diskToPartition.Status = string.Empty;
             return diskToPartition;
         }
 
         public override List<ManagementObject> GetManagementObjectsForHardwareComponent(IWMIClient wMIClient)
         {
-            return wMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_NAMESPACE_ROOT_MICROSOFT_WINDOWS_STORAGE, ConstStringHardwareStatic.WMI_QUERY_DISK_TO_PARTITION);
+            return wMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstString.WMI_NAMESPACE_ROOT_MICROSOFT_WINDOWS_STORAGE, ConstString.WMI_QUERY_DISK_TO_PARTITION);
         }
     }
 }

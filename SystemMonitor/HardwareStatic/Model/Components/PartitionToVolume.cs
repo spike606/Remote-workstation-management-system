@@ -5,7 +5,7 @@ using System.Management;
 using System.Text;
 using System.Threading.Tasks;
 using SystemMonitor.HardwareStatic.Model.Components.Abstract;
-using SystemMonitor.HardwareStatic.WMI;
+using SystemMonitor.Shared.WMI;
 
 namespace SystemMonitor.HardwareStatic.Model.Components
 {
@@ -20,16 +20,16 @@ namespace SystemMonitor.HardwareStatic.Model.Components
             PartitionToVolume partitionToVolume = new PartitionToVolume();
             partitionToVolume.Caption = string.Empty;
             partitionToVolume.Description = string.Empty;
-            partitionToVolume.Partition = managementObject[ConstStringHardwareStatic.PARTITION_TO_VOLUME_PARTITION]?.ToString() ?? string.Empty;
+            partitionToVolume.Partition = managementObject[ConstString.PARTITION_TO_VOLUME_PARTITION]?.ToString() ?? string.Empty;
             partitionToVolume.Name = string.Empty;
-            partitionToVolume.Volume = managementObject[ConstStringHardwareStatic.PARTITION_TO_VOLUME_VOLUME]?.ToString() ?? string.Empty;
+            partitionToVolume.Volume = managementObject[ConstString.PARTITION_TO_VOLUME_VOLUME]?.ToString() ?? string.Empty;
             partitionToVolume.Status = string.Empty;
             return partitionToVolume;
         }
 
         public override List<ManagementObject> GetManagementObjectsForHardwareComponent(IWMIClient wMIClient)
         {
-            return wMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_NAMESPACE_ROOT_MICROSOFT_WINDOWS_STORAGE, ConstStringHardwareStatic.WMI_QUERY_PARTITION_TO_VOLUME);
+            return wMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstString.WMI_NAMESPACE_ROOT_MICROSOFT_WINDOWS_STORAGE, ConstString.WMI_QUERY_PARTITION_TO_VOLUME);
         }
     }
 }

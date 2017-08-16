@@ -9,6 +9,6 @@ namespace SystemMonitor.HardwareDynamic.Builder
 {
     public interface IHardwareDynamicBuilder
     {
-        HardwareDynamicComponent GetHardwareDynamicData(HardwareDynamicComponent hardwareDynamicComponent);
+        List<HardwareDynamicComponent> GetHardwareDynamicData(HardwareDynamicComponent hardwareDynamicComponent);
     }
 }

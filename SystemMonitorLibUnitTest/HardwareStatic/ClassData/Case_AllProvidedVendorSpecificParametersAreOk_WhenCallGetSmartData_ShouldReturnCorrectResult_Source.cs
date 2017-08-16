@@ -21,7 +21,7 @@ namespace SystemMonitorLibUnitTest.HardwareStatic.ClassData
             {
                 new Case_AllProvidedVendorSpecificParametersAreOk_WhenCallGetSmartData_ShouldReturnCorrectResult_StructureData()
                 {
-                    SmartFailurePredictData = new List<HardwareStaticComponent>()
+                    SmartFailurePredictData = new List<SmartFailurePredictData>()
                     {
                         new SmartFailurePredictData()
                         {
@@ -44,7 +44,7 @@ namespace SystemMonitorLibUnitTest.HardwareStatic.ClassData
                             }
                         }
                     },
-                    SmartFailurePredictStatus = new List<HardwareStaticComponent>()
+                    SmartFailurePredictStatus = new List<SmartFailurePredictStatus>()
                     {
                         new SmartFailurePredictStatus()
                         {
@@ -57,7 +57,7 @@ namespace SystemMonitorLibUnitTest.HardwareStatic.ClassData
                             PredictFailure = "False"
                         }
                     },
-                    SmartFailurePredictThresholds = new List<HardwareStaticComponent>()
+                    SmartFailurePredictThresholds = new List<SmartFailurePredictThresholds>()
                     {
                         new SmartFailurePredictThresholds()
                         {
@@ -108,7 +108,7 @@ namespace SystemMonitorLibUnitTest.HardwareStatic.ClassData
             {
                 new Case_AllProvidedVendorSpecificParametersAreOk_WhenCallGetSmartData_ShouldReturnCorrectResult_StructureData()
                 {
-                    SmartFailurePredictData = new List<HardwareStaticComponent>()
+                    SmartFailurePredictData = new List<SmartFailurePredictData>()
                     {
                         new SmartFailurePredictData()
                         {
@@ -131,7 +131,7 @@ namespace SystemMonitorLibUnitTest.HardwareStatic.ClassData
                             }
                         }
                     },
-                    SmartFailurePredictStatus = new List<HardwareStaticComponent>()
+                    SmartFailurePredictStatus = new List<SmartFailurePredictStatus>()
                     {
                         new SmartFailurePredictStatus()
                         {
@@ -144,7 +144,7 @@ namespace SystemMonitorLibUnitTest.HardwareStatic.ClassData
                             PredictFailure = "False"
                         }
                     },
-                    SmartFailurePredictThresholds = new List<HardwareStaticComponent>()
+                    SmartFailurePredictThresholds = new List<SmartFailurePredictThresholds>()
                     {
                         new SmartFailurePredictThresholds()
                         {

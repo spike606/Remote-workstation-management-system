@@ -13,21 +13,14 @@ namespace SystemMonitor.HardwareDynamic.Model.Components
 {
     public class VideoControllerDynamic : HardwareDynamicComponent
     {
-        public override HardwareDynamicComponent GetDynamicDataForHardwareComponent(IOHMProvider ohmProvider)
+        public override List<HardwareDynamicComponent> GetDynamicDataForHardwareComponent(IOHMProvider ohmProvider)
         {
-            VideoControllerDynamic videoControllerDynamic = new VideoControllerDynamic();
+            return this.GetDynamicData(ohmProvider, new List<HardwareType>() { HardwareType.GpuNvidia, HardwareType.GpuAti }, new VideoControllerDynamic());
+        }
 
-            foreach (var hardwareItem in ohmProvider.Computer.Hardware)
-            {
-                if (hardwareItem.HardwareType == HardwareType.GpuAti || hardwareItem.HardwareType == HardwareType.GpuNvidia)
-                {
-                    videoControllerDynamic.Name = hardwareItem.Name;
-                    hardwareItem.Update();
-                    ohmProvider.ExtractDataFromSensors(videoControllerDynamic, hardwareItem);
-                }
-            }
-
-            return videoControllerDynamic;
+        public override HardwareDynamicComponent GetHardwareDynamicComponentInstance()
+        {
+            return new VideoControllerDynamic();
         }
     }
 }

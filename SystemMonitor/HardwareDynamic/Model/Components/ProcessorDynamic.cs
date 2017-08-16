@@ -13,21 +13,14 @@ namespace SystemMonitor.HardwareDynamic.Model.Components
 {
     public class ProcessorDynamic : HardwareDynamicComponent
     {
-        public override HardwareDynamicComponent GetDynamicDataForHardwareComponent(IOHMProvider ohmProvider)
+        public override List<HardwareDynamicComponent> GetDynamicDataForHardwareComponent(IOHMProvider ohmProvider)
         {
-            ProcessorDynamic processorDynamic = new ProcessorDynamic();
+            return this.GetDynamicData(ohmProvider, new List<HardwareType>() { HardwareType.CPU }, new ProcessorDynamic());
+        }
 
-            foreach (var hardwareItem in ohmProvider.Computer.Hardware)
-            {
-                if (hardwareItem.HardwareType == HardwareType.CPU)
-                {
-                    processorDynamic.Name = hardwareItem.Name;
-                    hardwareItem.Update();
-                    ohmProvider.ExtractDataFromSensors(processorDynamic, hardwareItem);
-                }
-            }
-
-            return processorDynamic;
+        public override HardwareDynamicComponent GetHardwareDynamicComponentInstance()
+        {
+            return new ProcessorDynamic();
         }
     }
 }

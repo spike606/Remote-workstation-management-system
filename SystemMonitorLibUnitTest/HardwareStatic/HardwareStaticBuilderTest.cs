@@ -11,7 +11,7 @@ using SystemMonitor.HardwareStatic.Model;
 using SystemMonitor.HardwareStatic.Model.Components;
 using SystemMonitor.HardwareStatic.Model.Components.Abstract;
 using SystemMonitor.HardwareStatic.Model.CustomProperties.Enums;
-using SystemMonitor.HardwareStatic.WMI;
+using SystemMonitor.Shared.WMI;
 using SystemMonitorLibUnitTest.HardwareStatic.ClassData;
 using Xunit;
 
@@ -38,24 +38,24 @@ namespace SystemMonitorLibUnitTest.HardwareStatic
             // assert
             Assert.IsType<ProcessorStatic>(sutResult);
             Assert.Equal(propertiesCount, sutResult.GetType().GetProperties().Count());
-            Assert.Equal(processorParameter[ConstStringHardwareStatic.PROCESSOR_ADDRESS_WIDTH].ToString(), sutResult.AddressWidth.Value);
-            Assert.Equal(((ArchitectureEnum)((ushort)processorParameter[ConstStringHardwareStatic.PROCESSOR_ARCHITECTURE])).ToString(), sutResult.Architecture);
-            Assert.Equal(processorParameter[ConstStringHardwareStatic.PROCESSOR_BUS_SPEED].ToString(), sutResult.BusSpeed.Value);
-            Assert.Equal(processorParameter[ConstStringHardwareStatic.HARDWARE_COMPONENT_CAPTION], sutResult.Caption);
-            Assert.Equal(processorParameter[ConstStringHardwareStatic.PROCESSOR_DATA_WIDTH].ToString(), sutResult.DataWidth.Value);
-            Assert.Equal(processorParameter[ConstStringHardwareStatic.HARDWARE_COMPONENT_DESCRIPTION], sutResult.Description);
-            Assert.Equal(processorParameter[ConstStringHardwareStatic.PROCESSOR_MANUFACTURER], sutResult.Manufacturer);
-            Assert.Equal(processorParameter[ConstStringHardwareStatic.PROCESSOR_MAX_CLOCK_SPEED].ToString(), sutResult.MaxClockSpeed.Value);
-            Assert.Equal(processorParameter[ConstStringHardwareStatic.HARDWARE_COMPONENT_NAME], sutResult.Name);
-            Assert.Equal(processorParameter[ConstStringHardwareStatic.PROCESSOR_NUMBER_OF_CORES].ToString(), sutResult.NumberOfCores);
-            Assert.Equal(processorParameter[ConstStringHardwareStatic.PROCESSOR_NUMBER_OF_LOGICAL_PROCESSORS].ToString(), sutResult.NumberOfLogicalProcessors);
-            Assert.Equal(processorParameter[ConstStringHardwareStatic.PROCESSOR_ID], sutResult.ProcessorID);
-            Assert.Equal(processorParameter[ConstStringHardwareStatic.PROCESSOR_SERIAL_NUMBER], sutResult.SerialNumber);
-            Assert.Equal(processorParameter[ConstStringHardwareStatic.PROCESSOR_SOCKET_DESIGNATION], sutResult.SocketDesignation);
-            Assert.Equal(processorParameter[ConstStringHardwareStatic.HARDWARE_COMPONENT_STATUS], sutResult.Status);
-            Assert.Equal(processorParameter[ConstStringHardwareStatic.PROCESSOR_STEPPING], sutResult.Stepping);
-            Assert.Equal(processorParameter[ConstStringHardwareStatic.PROCESSOR_THREAD_COUNT].ToString(), sutResult.ThreadCount);
-            Assert.Equal(processorParameter[ConstStringHardwareStatic.PROCESSOR_UNIQUE_ID], sutResult.UniqueId);
+            Assert.Equal(processorParameter[ConstString.PROCESSOR_ADDRESS_WIDTH].ToString(), sutResult.AddressWidth.Value);
+            Assert.Equal(((ArchitectureEnum)((ushort)processorParameter[ConstString.PROCESSOR_ARCHITECTURE])).ToString(), sutResult.Architecture);
+            Assert.Equal(processorParameter[ConstString.PROCESSOR_BUS_SPEED].ToString(), sutResult.BusSpeed.Value);
+            Assert.Equal(processorParameter[ConstString.COMPONENT_CAPTION], sutResult.Caption);
+            Assert.Equal(processorParameter[ConstString.PROCESSOR_DATA_WIDTH].ToString(), sutResult.DataWidth.Value);
+            Assert.Equal(processorParameter[ConstString.COMPONENT_DESCRIPTION], sutResult.Description);
+            Assert.Equal(processorParameter[ConstString.PROCESSOR_MANUFACTURER], sutResult.Manufacturer);
+            Assert.Equal(processorParameter[ConstString.PROCESSOR_MAX_CLOCK_SPEED].ToString(), sutResult.MaxClockSpeed.Value);
+            Assert.Equal(processorParameter[ConstString.COMPONENT_NAME], sutResult.Name);
+            Assert.Equal(processorParameter[ConstString.PROCESSOR_NUMBER_OF_CORES].ToString(), sutResult.NumberOfCores);
+            Assert.Equal(processorParameter[ConstString.PROCESSOR_NUMBER_OF_LOGICAL_PROCESSORS].ToString(), sutResult.NumberOfLogicalProcessors);
+            Assert.Equal(processorParameter[ConstString.PROCESSOR_ID], sutResult.ProcessorID);
+            Assert.Equal(processorParameter[ConstString.PROCESSOR_SERIAL_NUMBER], sutResult.SerialNumber);
+            Assert.Equal(processorParameter[ConstString.PROCESSOR_SOCKET_DESIGNATION], sutResult.SocketDesignation);
+            Assert.Equal(processorParameter[ConstString.COMPONENT_STATUS], sutResult.Status);
+            Assert.Equal(processorParameter[ConstString.PROCESSOR_STEPPING], sutResult.Stepping);
+            Assert.Equal(processorParameter[ConstString.PROCESSOR_THREAD_COUNT].ToString(), sutResult.ThreadCount);
+            Assert.Equal(processorParameter[ConstString.PROCESSOR_UNIQUE_ID], sutResult.UniqueId);
         }
 
         [Theory]
@@ -154,23 +154,23 @@ namespace SystemMonitorLibUnitTest.HardwareStatic
             // assert
             Assert.IsType<Memory>(suResult);
             Assert.Equal(propertiesCount, suResult.GetType().GetProperties().Count());
-            Assert.Equal(memoryParameter[ConstStringHardwareStatic.MEMORY_BANK_LABEL], suResult.BankLabel);
-            Assert.Equal(memoryParameter[ConstStringHardwareStatic.MEMORY_CAPACITY].ToString(), suResult.Capacity.Value);
-            Assert.Equal(memoryParameter[ConstStringHardwareStatic.HARDWARE_COMPONENT_CAPTION], suResult.Caption);
-            Assert.Equal(memoryParameter[ConstStringHardwareStatic.MEMORY_CONFIGURED_CLOCK_SPEED].ToString(), suResult.ConfiguredClockSpeed.Value);
-            Assert.Equal(memoryParameter[ConstStringHardwareStatic.MEMORY_CONFIGURED_VOLTAGE].ToString(), suResult.ConfiguredVoltage.Value);
-            Assert.Equal(memoryParameter[ConstStringHardwareStatic.MEMORY_DATA_WIDTH].ToString(), suResult.DataWidth.Value);
-            Assert.Equal(memoryParameter[ConstStringHardwareStatic.HARDWARE_COMPONENT_DESCRIPTION], suResult.Description);
-            Assert.Equal(memoryParameter[ConstStringHardwareStatic.MEMORY_DEVICE_LOCATOR], suResult.DeviceLocator);
-            Assert.Equal(memoryParameter[ConstStringHardwareStatic.MEMORY_MANUFACTURER], suResult.Manufacturer);
-            Assert.Equal(memoryParameter[ConstStringHardwareStatic.MEMORY_MAX_VOLTAGE].ToString(), suResult.MaxVoltage.Value);
-            Assert.Equal(((MemoryTypeEnum)((ushort)memoryParameter[ConstStringHardwareStatic.MEMORY_MEMORY_TYPE])).ToString(), suResult.MemoryType);
-            Assert.Equal(memoryParameter[ConstStringHardwareStatic.MEMORY_MIN_VOLTAGE].ToString(), suResult.MinVoltage.Value);
-            Assert.Equal(memoryParameter[ConstStringHardwareStatic.HARDWARE_COMPONENT_NAME], suResult.Name);
-            Assert.Equal(memoryParameter[ConstStringHardwareStatic.MEMORY_PART_NUMBER], suResult.PartNumber);
-            Assert.Equal(memoryParameter[ConstStringHardwareStatic.MEMORY_SERIAL_NUMBER], suResult.SerialNumber);
-            Assert.Equal(memoryParameter[ConstStringHardwareStatic.HARDWARE_COMPONENT_STATUS], suResult.Status);
-            Assert.Equal(memoryParameter[ConstStringHardwareStatic.MEMORY_TOTAL_WIDTH].ToString(), suResult.TotalWidth.Value);
+            Assert.Equal(memoryParameter[ConstString.MEMORY_BANK_LABEL], suResult.BankLabel);
+            Assert.Equal(memoryParameter[ConstString.MEMORY_CAPACITY].ToString(), suResult.Capacity.Value);
+            Assert.Equal(memoryParameter[ConstString.COMPONENT_CAPTION], suResult.Caption);
+            Assert.Equal(memoryParameter[ConstString.MEMORY_CONFIGURED_CLOCK_SPEED].ToString(), suResult.ConfiguredClockSpeed.Value);
+            Assert.Equal(memoryParameter[ConstString.MEMORY_CONFIGURED_VOLTAGE].ToString(), suResult.ConfiguredVoltage.Value);
+            Assert.Equal(memoryParameter[ConstString.MEMORY_DATA_WIDTH].ToString(), suResult.DataWidth.Value);
+            Assert.Equal(memoryParameter[ConstString.COMPONENT_DESCRIPTION], suResult.Description);
+            Assert.Equal(memoryParameter[ConstString.MEMORY_DEVICE_LOCATOR], suResult.DeviceLocator);
+            Assert.Equal(memoryParameter[ConstString.MEMORY_MANUFACTURER], suResult.Manufacturer);
+            Assert.Equal(memoryParameter[ConstString.MEMORY_MAX_VOLTAGE].ToString(), suResult.MaxVoltage.Value);
+            Assert.Equal(((MemoryTypeEnum)((ushort)memoryParameter[ConstString.MEMORY_MEMORY_TYPE])).ToString(), suResult.MemoryType);
+            Assert.Equal(memoryParameter[ConstString.MEMORY_MIN_VOLTAGE].ToString(), suResult.MinVoltage.Value);
+            Assert.Equal(memoryParameter[ConstString.COMPONENT_NAME], suResult.Name);
+            Assert.Equal(memoryParameter[ConstString.MEMORY_PART_NUMBER], suResult.PartNumber);
+            Assert.Equal(memoryParameter[ConstString.MEMORY_SERIAL_NUMBER], suResult.SerialNumber);
+            Assert.Equal(memoryParameter[ConstString.COMPONENT_STATUS], suResult.Status);
+            Assert.Equal(memoryParameter[ConstString.MEMORY_TOTAL_WIDTH].ToString(), suResult.TotalWidth.Value);
         }
     }
 }

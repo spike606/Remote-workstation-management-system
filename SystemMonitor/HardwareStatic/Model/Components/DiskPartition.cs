@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SystemMonitor.HardwareStatic.Model.Components.Abstract;
 using SystemMonitor.HardwareStatic.Model.CustomProperties;
-using SystemMonitor.HardwareStatic.WMI;
+using SystemMonitor.Shared.WMI;
 
 namespace SystemMonitor.HardwareStatic.Model.Components
 {
@@ -51,30 +51,30 @@ namespace SystemMonitor.HardwareStatic.Model.Components
             DiskPartition diskPartition = new DiskPartition();
             diskPartition.Caption = string.Empty;
             diskPartition.Description = string.Empty;
-            diskPartition.DiskId = managementObject[ConstStringHardwareStatic.DISK_PARTITION_DISK_ID]?.ToString() ?? string.Empty;
-            diskPartition.DiskNumber = managementObject[ConstStringHardwareStatic.DISK_PARTITION_DISK_NUMBER]?.ToString() ?? string.Empty;
-            diskPartition.DriveLetter = managementObject[ConstStringHardwareStatic.DISK_PARTITION_DRIVE_LETTER]?.ToString() ?? string.Empty;
-            diskPartition.IsActive = managementObject[ConstStringHardwareStatic.DISK_PARTITION_IS_ACTIVE]?.ToString() ?? string.Empty;
-            diskPartition.IsBoot = managementObject[ConstStringHardwareStatic.DISK_PARTITION_IS_BOOT]?.ToString() ?? string.Empty;
-            diskPartition.IsHidden = managementObject[ConstStringHardwareStatic.DISK_PARTITION_IS_HIDDEN]?.ToString() ?? string.Empty;
-            diskPartition.IsOffline = managementObject[ConstStringHardwareStatic.DISK_PARTITION_IS_OFFLINE]?.ToString() ?? string.Empty;
-            diskPartition.IsReadOnly = managementObject[ConstStringHardwareStatic.DISK_PARTITION_IS_READ_ONLY]?.ToString() ?? string.Empty;
-            diskPartition.IsShadowCopy = managementObject[ConstStringHardwareStatic.DISK_PARTITION_IS_SHADOW_COPY]?.ToString() ?? string.Empty;
-            diskPartition.IsSystem = managementObject[ConstStringHardwareStatic.DISK_PARTITION_IS_SYSTEM]?.ToString() ?? string.Empty;
-            diskPartition.MbrType = managementObject[ConstStringHardwareStatic.DISK_PARTITION_MRB_TYPE]?.ToString() ?? string.Empty;
+            diskPartition.DiskId = managementObject[ConstString.DISK_PARTITION_DISK_ID]?.ToString() ?? string.Empty;
+            diskPartition.DiskNumber = managementObject[ConstString.DISK_PARTITION_DISK_NUMBER]?.ToString() ?? string.Empty;
+            diskPartition.DriveLetter = managementObject[ConstString.DISK_PARTITION_DRIVE_LETTER]?.ToString() ?? string.Empty;
+            diskPartition.IsActive = managementObject[ConstString.DISK_PARTITION_IS_ACTIVE]?.ToString() ?? string.Empty;
+            diskPartition.IsBoot = managementObject[ConstString.DISK_PARTITION_IS_BOOT]?.ToString() ?? string.Empty;
+            diskPartition.IsHidden = managementObject[ConstString.DISK_PARTITION_IS_HIDDEN]?.ToString() ?? string.Empty;
+            diskPartition.IsOffline = managementObject[ConstString.DISK_PARTITION_IS_OFFLINE]?.ToString() ?? string.Empty;
+            diskPartition.IsReadOnly = managementObject[ConstString.DISK_PARTITION_IS_READ_ONLY]?.ToString() ?? string.Empty;
+            diskPartition.IsShadowCopy = managementObject[ConstString.DISK_PARTITION_IS_SHADOW_COPY]?.ToString() ?? string.Empty;
+            diskPartition.IsSystem = managementObject[ConstString.DISK_PARTITION_IS_SYSTEM]?.ToString() ?? string.Empty;
+            diskPartition.MbrType = managementObject[ConstString.DISK_PARTITION_MRB_TYPE]?.ToString() ?? string.Empty;
             diskPartition.Name = string.Empty;
-            diskPartition.NoDefaultDriveLetter = managementObject[ConstStringHardwareStatic.DISK_PARTITION_NO_DEFAULT_DRIVE_LETTER]?.ToString() ?? string.Empty;
-            diskPartition.ObjectId = managementObject[ConstStringHardwareStatic.DISK_PARTITION_OBJECT_ID]?.ToString() ?? string.Empty;
-            diskPartition.Offset = new UnitValue(Unit.B, managementObject[ConstStringHardwareStatic.DISK_PARTITION_OFFSET]?.ToString() ?? string.Empty);
-            diskPartition.PartitionNumber = managementObject[ConstStringHardwareStatic.DISK_PARTITION_PARTITION_NUMBER]?.ToString() ?? string.Empty;
-            diskPartition.Size = new UnitValue(Unit.B, managementObject[ConstStringHardwareStatic.DISK_PARTITION_SIZE]?.ToString() ?? string.Empty);
+            diskPartition.NoDefaultDriveLetter = managementObject[ConstString.DISK_PARTITION_NO_DEFAULT_DRIVE_LETTER]?.ToString() ?? string.Empty;
+            diskPartition.ObjectId = managementObject[ConstString.DISK_PARTITION_OBJECT_ID]?.ToString() ?? string.Empty;
+            diskPartition.Offset = new UnitValue(Unit.B, managementObject[ConstString.DISK_PARTITION_OFFSET]?.ToString() ?? string.Empty);
+            diskPartition.PartitionNumber = managementObject[ConstString.DISK_PARTITION_PARTITION_NUMBER]?.ToString() ?? string.Empty;
+            diskPartition.Size = new UnitValue(Unit.B, managementObject[ConstString.DISK_PARTITION_SIZE]?.ToString() ?? string.Empty);
             diskPartition.Status = string.Empty;
             return diskPartition;
         }
 
         public override List<ManagementObject> GetManagementObjectsForHardwareComponent(IWMIClient wMIClient)
         {
-            return wMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_NAMESPACE_ROOT_MICROSOFT_WINDOWS_STORAGE, ConstStringHardwareStatic.WMI_QUERY_DISK_PARTITION);
+            return wMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstString.WMI_NAMESPACE_ROOT_MICROSOFT_WINDOWS_STORAGE, ConstString.WMI_QUERY_DISK_PARTITION);
         }
     }
 }

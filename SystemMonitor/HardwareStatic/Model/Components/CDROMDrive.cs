@@ -5,7 +5,7 @@ using System.Management;
 using System.Text;
 using System.Threading.Tasks;
 using SystemMonitor.HardwareStatic.Model.Components.Abstract;
-using SystemMonitor.HardwareStatic.WMI;
+using SystemMonitor.Shared.WMI;
 
 namespace SystemMonitor.HardwareStatic.Model.Components
 {
@@ -21,20 +21,20 @@ namespace SystemMonitor.HardwareStatic.Model.Components
         public override HardwareStaticComponent ExtractData(ManagementObject managementObject)
         {
             CDROMDrive cdROMDrive = new CDROMDrive();
-            cdROMDrive.Caption = managementObject[ConstStringHardwareStatic.HARDWARE_COMPONENT_CAPTION]?.ToString() ?? string.Empty;
-            cdROMDrive.Description = managementObject[ConstStringHardwareStatic.HARDWARE_COMPONENT_DESCRIPTION]?.ToString() ?? string.Empty;
-            cdROMDrive.DeviceID = managementObject[ConstStringHardwareStatic.CDROM_DRIVE_DEVICE_ID]?.ToString() ?? string.Empty;
-            cdROMDrive.Drive = managementObject[ConstStringHardwareStatic.CDROM_DRIVE_DRIVE]?.ToString() ?? string.Empty;
-            cdROMDrive.MediaType = managementObject[ConstStringHardwareStatic.CDROM_DRIVE_MEDIA_TYPE]?.ToString() ?? string.Empty;
-            cdROMDrive.Name = managementObject[ConstStringHardwareStatic.HARDWARE_COMPONENT_NAME]?.ToString() ?? string.Empty;
-            cdROMDrive.Status = managementObject[ConstStringHardwareStatic.HARDWARE_COMPONENT_STATUS]?.ToString() ?? string.Empty;
+            cdROMDrive.Caption = managementObject[ConstString.COMPONENT_CAPTION]?.ToString() ?? string.Empty;
+            cdROMDrive.Description = managementObject[ConstString.COMPONENT_DESCRIPTION]?.ToString() ?? string.Empty;
+            cdROMDrive.DeviceID = managementObject[ConstString.CDROM_DRIVE_DEVICE_ID]?.ToString() ?? string.Empty;
+            cdROMDrive.Drive = managementObject[ConstString.CDROM_DRIVE_DRIVE]?.ToString() ?? string.Empty;
+            cdROMDrive.MediaType = managementObject[ConstString.CDROM_DRIVE_MEDIA_TYPE]?.ToString() ?? string.Empty;
+            cdROMDrive.Name = managementObject[ConstString.COMPONENT_NAME]?.ToString() ?? string.Empty;
+            cdROMDrive.Status = managementObject[ConstString.COMPONENT_STATUS]?.ToString() ?? string.Empty;
 
             return cdROMDrive;
         }
 
         public override List<ManagementObject> GetManagementObjectsForHardwareComponent(IWMIClient wMIClient)
         {
-            return wMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_NAMESPACE_ROOT_CIMV2, ConstStringHardwareStatic.WMI_QUERY_CDROM_DRIVE);
+            return wMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstString.WMI_NAMESPACE_ROOT_CIMV2, ConstString.WMI_QUERY_CDROM_DRIVE);
         }
     }
 }

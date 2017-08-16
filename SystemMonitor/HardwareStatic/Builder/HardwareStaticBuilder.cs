@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using SystemMonitor.HardwareStatic.Model;
 using SystemMonitor.HardwareStatic.Model.Components;
 using SystemMonitor.HardwareStatic.Model.Components.Abstract;
-using SystemMonitor.HardwareStatic.WMI;
+using SystemMonitor.Shared.WMI;
 
 namespace SystemMonitor.HardwareStatic.Builder
 {

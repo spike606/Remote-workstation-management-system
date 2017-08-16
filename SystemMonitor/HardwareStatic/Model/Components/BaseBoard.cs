@@ -5,7 +5,7 @@ using System.Management;
 using System.Text;
 using System.Threading.Tasks;
 using SystemMonitor.HardwareStatic.Model.Components.Abstract;
-using SystemMonitor.HardwareStatic.WMI;
+using SystemMonitor.Shared.WMI;
 
 namespace SystemMonitor.HardwareStatic.Model.Components
 {
@@ -27,23 +27,23 @@ namespace SystemMonitor.HardwareStatic.Model.Components
         public override HardwareStaticComponent ExtractData(ManagementObject managementObject)
         {
             BaseBoard baseBoard = new BaseBoard();
-            baseBoard.Caption = managementObject[ConstStringHardwareStatic.HARDWARE_COMPONENT_CAPTION]?.ToString() ?? string.Empty;
-            baseBoard.Description = managementObject[ConstStringHardwareStatic.HARDWARE_COMPONENT_DESCRIPTION]?.ToString() ?? string.Empty;
-            baseBoard.Manufacturer = managementObject[ConstStringHardwareStatic.BASE_BOARD_MANUFACTURER]?.ToString() ?? string.Empty;
-            baseBoard.Model = managementObject[ConstStringHardwareStatic.BASE_BOARD_MODEL]?.ToString() ?? string.Empty;
-            baseBoard.Name = managementObject[ConstStringHardwareStatic.HARDWARE_COMPONENT_NAME]?.ToString() ?? string.Empty;
-            baseBoard.PartNumber = managementObject[ConstStringHardwareStatic.BASE_BOARD_PART_NUMBER]?.ToString() ?? string.Empty;
-            baseBoard.Product = managementObject[ConstStringHardwareStatic.BASE_BOARD_PRODUCT]?.ToString() ?? string.Empty;
-            baseBoard.SerialNumber = managementObject[ConstStringHardwareStatic.BASE_BOARD_SERIAL_NUMBER]?.ToString() ?? string.Empty;
-            baseBoard.Status = managementObject[ConstStringHardwareStatic.HARDWARE_COMPONENT_STATUS]?.ToString() ?? string.Empty;
-            baseBoard.Version = managementObject[ConstStringHardwareStatic.BASE_BOARD_VERSION]?.ToString() ?? string.Empty;
+            baseBoard.Caption = managementObject[ConstString.COMPONENT_CAPTION]?.ToString() ?? string.Empty;
+            baseBoard.Description = managementObject[ConstString.COMPONENT_DESCRIPTION]?.ToString() ?? string.Empty;
+            baseBoard.Manufacturer = managementObject[ConstString.BASE_BOARD_MANUFACTURER]?.ToString() ?? string.Empty;
+            baseBoard.Model = managementObject[ConstString.BASE_BOARD_MODEL]?.ToString() ?? string.Empty;
+            baseBoard.Name = managementObject[ConstString.COMPONENT_NAME]?.ToString() ?? string.Empty;
+            baseBoard.PartNumber = managementObject[ConstString.BASE_BOARD_PART_NUMBER]?.ToString() ?? string.Empty;
+            baseBoard.Product = managementObject[ConstString.BASE_BOARD_PRODUCT]?.ToString() ?? string.Empty;
+            baseBoard.SerialNumber = managementObject[ConstString.BASE_BOARD_SERIAL_NUMBER]?.ToString() ?? string.Empty;
+            baseBoard.Status = managementObject[ConstString.COMPONENT_STATUS]?.ToString() ?? string.Empty;
+            baseBoard.Version = managementObject[ConstString.BASE_BOARD_VERSION]?.ToString() ?? string.Empty;
 
             return baseBoard;
         }
 
         public override List<ManagementObject> GetManagementObjectsForHardwareComponent(IWMIClient wMIClient)
         {
-            return wMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_NAMESPACE_ROOT_CIMV2, ConstStringHardwareStatic.WMI_QUERY_BASE_BOARD);
+            return wMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstString.WMI_NAMESPACE_ROOT_CIMV2, ConstString.WMI_QUERY_BASE_BOARD);
         }
     }
 }

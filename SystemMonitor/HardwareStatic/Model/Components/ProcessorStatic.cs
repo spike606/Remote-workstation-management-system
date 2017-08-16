@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using SystemMonitor.HardwareStatic.Model.Components.Abstract;
 using SystemMonitor.HardwareStatic.Model.CustomProperties;
 using SystemMonitor.HardwareStatic.Model.CustomProperties.Enums;
-using SystemMonitor.HardwareStatic.WMI;
+using SystemMonitor.Shared.WMI;
 
 namespace SystemMonitor.HardwareStatic.Model.Components
 {
@@ -44,39 +44,39 @@ namespace SystemMonitor.HardwareStatic.Model.Components
 
         public override List<ManagementObject> GetManagementObjectsForHardwareComponent(IWMIClient wMIClient)
         {
-            return wMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_NAMESPACE_ROOT_CIMV2, ConstStringHardwareStatic.WMI_QUERY_PROCESSOR);
+            return wMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstString.WMI_NAMESPACE_ROOT_CIMV2, ConstString.WMI_QUERY_PROCESSOR);
         }
 
         public override HardwareStaticComponent ExtractData(ManagementObject managementObject)
         {
             ProcessorStatic processor = new ProcessorStatic();
-            processor.AddressWidth = new UnitValue(Unit.BIT, managementObject[ConstStringHardwareStatic.PROCESSOR_ADDRESS_WIDTH]?.ToString() ?? string.Empty);
+            processor.AddressWidth = new UnitValue(Unit.BIT, managementObject[ConstString.PROCESSOR_ADDRESS_WIDTH]?.ToString() ?? string.Empty);
 
-            if (managementObject[ConstStringHardwareStatic.PROCESSOR_ARCHITECTURE] != null)
+            if (managementObject[ConstString.PROCESSOR_ARCHITECTURE] != null)
             {
-                processor.Architecture = ((ArchitectureEnum)((ushort)managementObject[ConstStringHardwareStatic.PROCESSOR_ARCHITECTURE])).ToString();
+                processor.Architecture = ((ArchitectureEnum)((ushort)managementObject[ConstString.PROCESSOR_ARCHITECTURE])).ToString();
             }
             else
             {
                 processor.Architecture = string.Empty;
             }
 
-            processor.Caption = managementObject[ConstStringHardwareStatic.HARDWARE_COMPONENT_CAPTION]?.ToString() ?? string.Empty;
-            processor.DataWidth = new UnitValue(Unit.BIT, managementObject[ConstStringHardwareStatic.PROCESSOR_DATA_WIDTH]?.ToString() ?? string.Empty);
-            processor.Description = managementObject[ConstStringHardwareStatic.HARDWARE_COMPONENT_DESCRIPTION]?.ToString() ?? string.Empty;
-            processor.BusSpeed = new UnitValue(Unit.MHZ, managementObject[ConstStringHardwareStatic.PROCESSOR_BUS_SPEED]?.ToString() ?? string.Empty);
-            processor.Manufacturer = managementObject[ConstStringHardwareStatic.PROCESSOR_MANUFACTURER]?.ToString() ?? string.Empty;
-            processor.MaxClockSpeed = new UnitValue(Unit.MHZ, managementObject[ConstStringHardwareStatic.PROCESSOR_MAX_CLOCK_SPEED]?.ToString() ?? string.Empty);
-            processor.Name = managementObject[ConstStringHardwareStatic.HARDWARE_COMPONENT_NAME]?.ToString() ?? string.Empty;
-            processor.NumberOfCores = managementObject[ConstStringHardwareStatic.PROCESSOR_NUMBER_OF_CORES]?.ToString() ?? string.Empty;
-            processor.NumberOfLogicalProcessors = managementObject[ConstStringHardwareStatic.PROCESSOR_NUMBER_OF_LOGICAL_PROCESSORS]?.ToString() ?? string.Empty;
-            processor.ProcessorID = managementObject[ConstStringHardwareStatic.PROCESSOR_ID]?.ToString() ?? string.Empty;
-            processor.SerialNumber = managementObject[ConstStringHardwareStatic.PROCESSOR_SERIAL_NUMBER]?.ToString() ?? string.Empty;
-            processor.SocketDesignation = managementObject[ConstStringHardwareStatic.PROCESSOR_SOCKET_DESIGNATION]?.ToString() ?? string.Empty;
-            processor.Status = managementObject[ConstStringHardwareStatic.HARDWARE_COMPONENT_STATUS]?.ToString() ?? string.Empty;
-            processor.Stepping = managementObject[ConstStringHardwareStatic.PROCESSOR_STEPPING]?.ToString() ?? string.Empty;
-            processor.ThreadCount = managementObject[ConstStringHardwareStatic.PROCESSOR_THREAD_COUNT]?.ToString() ?? string.Empty;
-            processor.UniqueId = managementObject[ConstStringHardwareStatic.PROCESSOR_UNIQUE_ID]?.ToString() ?? string.Empty;
+            processor.Caption = managementObject[ConstString.COMPONENT_CAPTION]?.ToString() ?? string.Empty;
+            processor.DataWidth = new UnitValue(Unit.BIT, managementObject[ConstString.PROCESSOR_DATA_WIDTH]?.ToString() ?? string.Empty);
+            processor.Description = managementObject[ConstString.COMPONENT_DESCRIPTION]?.ToString() ?? string.Empty;
+            processor.BusSpeed = new UnitValue(Unit.MHZ, managementObject[ConstString.PROCESSOR_BUS_SPEED]?.ToString() ?? string.Empty);
+            processor.Manufacturer = managementObject[ConstString.PROCESSOR_MANUFACTURER]?.ToString() ?? string.Empty;
+            processor.MaxClockSpeed = new UnitValue(Unit.MHZ, managementObject[ConstString.PROCESSOR_MAX_CLOCK_SPEED]?.ToString() ?? string.Empty);
+            processor.Name = managementObject[ConstString.COMPONENT_NAME]?.ToString() ?? string.Empty;
+            processor.NumberOfCores = managementObject[ConstString.PROCESSOR_NUMBER_OF_CORES]?.ToString() ?? string.Empty;
+            processor.NumberOfLogicalProcessors = managementObject[ConstString.PROCESSOR_NUMBER_OF_LOGICAL_PROCESSORS]?.ToString() ?? string.Empty;
+            processor.ProcessorID = managementObject[ConstString.PROCESSOR_ID]?.ToString() ?? string.Empty;
+            processor.SerialNumber = managementObject[ConstString.PROCESSOR_SERIAL_NUMBER]?.ToString() ?? string.Empty;
+            processor.SocketDesignation = managementObject[ConstString.PROCESSOR_SOCKET_DESIGNATION]?.ToString() ?? string.Empty;
+            processor.Status = managementObject[ConstString.COMPONENT_STATUS]?.ToString() ?? string.Empty;
+            processor.Stepping = managementObject[ConstString.PROCESSOR_STEPPING]?.ToString() ?? string.Empty;
+            processor.ThreadCount = managementObject[ConstString.PROCESSOR_THREAD_COUNT]?.ToString() ?? string.Empty;
+            processor.UniqueId = managementObject[ConstString.PROCESSOR_UNIQUE_ID]?.ToString() ?? string.Empty;
             return processor;
         }
     }

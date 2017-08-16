@@ -5,7 +5,7 @@ using System.Management;
 using System.Text;
 using System.Threading.Tasks;
 using SystemMonitor.HardwareStatic.Model.Components.Abstract;
-using SystemMonitor.HardwareStatic.WMI;
+using SystemMonitor.Shared.WMI;
 
 namespace SystemMonitor.HardwareStatic.Model.Components
 {
@@ -20,16 +20,16 @@ namespace SystemMonitor.HardwareStatic.Model.Components
             SmartFailurePredictThresholds smartFailurePredictThresholds = new SmartFailurePredictThresholds();
             smartFailurePredictThresholds.Caption = string.Empty;
             smartFailurePredictThresholds.Description = string.Empty;
-            smartFailurePredictThresholds.InstanceName = managementObject[ConstStringHardwareStatic.SMART_INSTANCE_NAME]?.ToString() ?? string.Empty;
+            smartFailurePredictThresholds.InstanceName = managementObject[ConstString.SMART_INSTANCE_NAME]?.ToString() ?? string.Empty;
             smartFailurePredictThresholds.Name = string.Empty;
-            smartFailurePredictThresholds.VendorSpecific = (byte[])managementObject[ConstStringHardwareStatic.SMART_VENDOR_SPECIFIC] ?? new byte[0];
+            smartFailurePredictThresholds.VendorSpecific = (byte[])managementObject[ConstString.SMART_VENDOR_SPECIFIC] ?? new byte[0];
             smartFailurePredictThresholds.Status = string.Empty;
             return smartFailurePredictThresholds;
         }
 
         public override List<ManagementObject> GetManagementObjectsForHardwareComponent(IWMIClient wMIClient)
         {
-            return wMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_NAMESPACE_ROOT_WMI, ConstStringHardwareStatic.WMI_QUERY_SMART_THRESHOLDS);
+            return wMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstString.WMI_NAMESPACE_ROOT_WMI, ConstString.WMI_QUERY_SMART_THRESHOLDS);
         }
     }
 }

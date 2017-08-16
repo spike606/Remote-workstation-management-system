@@ -8,17 +8,17 @@ using System.Threading.Tasks;
 [assembly: InternalsVisibleTo("SystemMonitorLibUnitTest")]
 namespace SystemMonitor.HardwareStatic
 {
-    internal class ConstStringHardwareStatic
+    internal class ConstString
     {
         internal const string WMI_NAMESPACE_ROOT_CIMV2 = "root\\CIMV2";
         internal const string WMI_NAMESPACE_ROOT_WMI = "root\\WMI";
         internal const string WMI_NAMESPACE_ROOT_STANDARD_CIMV2 = "root\\StandardCimv2";
         internal const string WMI_NAMESPACE_ROOT_MICROSOFT_WINDOWS_STORAGE = "root\\Microsoft\\Windows\\Storage";
 
-        internal const string HARDWARE_COMPONENT_CAPTION = "Caption";
-        internal const string HARDWARE_COMPONENT_NAME = "Name";
-        internal const string HARDWARE_COMPONENT_DESCRIPTION = "Description";
-        internal const string HARDWARE_COMPONENT_STATUS = "Status";
+        internal const string COMPONENT_CAPTION = "Caption";
+        internal const string COMPONENT_NAME = "Name";
+        internal const string COMPONENT_DESCRIPTION = "Description";
+        internal const string COMPONENT_STATUS = "Status";
 
         internal const string WMI_QUERY_PROCESSOR = "select * from Win32_Processor";
         internal const string PROCESSOR_ADDRESS_WIDTH = "AddressWidth";
@@ -205,5 +205,21 @@ namespace SystemMonitor.HardwareStatic
         internal const string WMI_QUERY_PARTITION_TO_VOLUME = "select * from MSFT_PartitionToVolume";
         internal const string PARTITION_TO_VOLUME_PARTITION = "Partition";
         internal const string PARTITION_TO_VOLUME_VOLUME = "Volume";
+
+        internal const string WMI_QUERY_BIOS = "select * from Win32_BIOS";
+        internal const string BIOS_BIOS_VERSION = "BIOSVersion";
+        internal const string BIOS_BUILD_NUMBER = "BuildNumber";
+        internal const string BIOS_EMBEDDED_CONTROLLER_MAJOR_VERSION = "EmbeddedControllerMajorVersion";
+        internal const string BIOS_EMBEDDED_CONTROLLER_MINOR_VERSION = "EmbeddedControllerMinorVersion";
+        internal const string BIOS_MANUFACTURER = "Manufacturer";
+        internal const string BIOS_RELEASE_DATE = "ReleaseDate";
+        internal const string BIOS_SERIAL_NUMBER = "SerialNumber";
+        internal const string BIOS_SMBIOS_VERSION = "SMBIOSBIOSVersion";
+        internal const string BIOS_SMBIOS_MAJOR_VERSION = "SMBIOSMajorVersion";
+        internal const string BIOS_SMBIOS_MINOR_VERSION = "SMBIOSMinorVersion";
+        internal const string BIOS_SMBIOS_PRESENT = "SMBIOSPresent";
+        internal const string BIOS_SYSTEM_BIOS_MAJOR_VERSION = "SystemBiosMajorVersion";
+        internal const string BIOS_SYSTEM_BIOS_MINOR_VERSION = "SystemBiosMinorVersion";
+        internal const string BIOS_VERSION = "Version";
     }
 }

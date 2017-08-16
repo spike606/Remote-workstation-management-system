@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using SystemMonitor.HardwareStatic.Model.Components.Abstract;
 using SystemMonitor.HardwareStatic.Model.CustomProperties;
 using SystemMonitor.HardwareStatic.Model.CustomProperties.Enums;
-using SystemMonitor.HardwareStatic.WMI;
+using SystemMonitor.Shared.WMI;
 
 namespace SystemMonitor.HardwareStatic.Model.Components
 {
@@ -22,19 +22,19 @@ namespace SystemMonitor.HardwareStatic.Model.Components
 
         public override List<ManagementObject> GetManagementObjectsForHardwareComponent(IWMIClient wMIClient)
         {
-            return wMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_NAMESPACE_ROOT_CIMV2, ConstStringHardwareStatic.WMI_QUERY_CACHE_MEMORY);
+            return wMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstString.WMI_NAMESPACE_ROOT_CIMV2, ConstString.WMI_QUERY_CACHE_MEMORY);
         }
 
         public override HardwareStaticComponent ExtractData(ManagementObject managementObject)
         {
             ProcessorCache processorCache = new ProcessorCache();
-            processorCache.Caption = managementObject[ConstStringHardwareStatic.HARDWARE_COMPONENT_CAPTION]?.ToString() ?? string.Empty;
-            processorCache.Description = managementObject[ConstStringHardwareStatic.HARDWARE_COMPONENT_DESCRIPTION]?.ToString() ?? string.Empty;
-            processorCache.Level = ((CacheLevelEnum)((ushort)managementObject[ConstStringHardwareStatic.PROCESSOR_CACHE_LEVEL])).ToString();
-            processorCache.Size = new UnitValue(Unit.KB, managementObject[ConstStringHardwareStatic.PROCESSOR_CACHE_SIZE]?.ToString() ?? string.Empty);
-            processorCache.Speed = new UnitValue(Unit.MHZ, managementObject[ConstStringHardwareStatic.PROCESSOR_CACHE_SPEED]?.ToString() ?? string.Empty);
-            processorCache.Status = managementObject[ConstStringHardwareStatic.HARDWARE_COMPONENT_STATUS]?.ToString() ?? string.Empty;
-            processorCache.Name = managementObject[ConstStringHardwareStatic.HARDWARE_COMPONENT_NAME]?.ToString() ?? string.Empty;
+            processorCache.Caption = managementObject[ConstString.COMPONENT_CAPTION]?.ToString() ?? string.Empty;
+            processorCache.Description = managementObject[ConstString.COMPONENT_DESCRIPTION]?.ToString() ?? string.Empty;
+            processorCache.Level = ((CacheLevelEnum)((ushort)managementObject[ConstString.PROCESSOR_CACHE_LEVEL])).ToString();
+            processorCache.Size = new UnitValue(Unit.KB, managementObject[ConstString.PROCESSOR_CACHE_SIZE]?.ToString() ?? string.Empty);
+            processorCache.Speed = new UnitValue(Unit.MHZ, managementObject[ConstString.PROCESSOR_CACHE_SPEED]?.ToString() ?? string.Empty);
+            processorCache.Status = managementObject[ConstString.COMPONENT_STATUS]?.ToString() ?? string.Empty;
+            processorCache.Name = managementObject[ConstString.COMPONENT_NAME]?.ToString() ?? string.Empty;
             return processorCache;
         }
     }

@@ -9,7 +9,7 @@ using SystemMonitor.HardwareStatic.Model.Components.Abstract;
 using SystemMonitor.HardwareStatic.Model.CustomProperties;
 using SystemMonitor.HardwareStatic.Model.CustomProperties.Attributes;
 using SystemMonitor.HardwareStatic.Model.CustomProperties.Enums;
-using SystemMonitor.HardwareStatic.WMI;
+using SystemMonitor.Shared.WMI;
 
 namespace SystemMonitor.HardwareStatic.Model.Components
 {
@@ -42,9 +42,9 @@ namespace SystemMonitor.HardwareStatic.Model.Components
         {
             Volume volume = new Volume();
             volume.Caption = string.Empty;
-            if (managementObject[ConstStringHardwareStatic.VOLUME_DRIVE_TYPE] != null)
+            if (managementObject[ConstString.VOLUME_DRIVE_TYPE] != null)
             {
-                volume.DedupMode = ((DedupModeEnum)((uint)managementObject[ConstStringHardwareStatic.VOLUME_DEDUP_MODE])).GetEnumDescription();
+                volume.DedupMode = ((DedupModeEnum)((uint)managementObject[ConstString.VOLUME_DEDUP_MODE])).GetEnumDescription();
             }
             else
             {
@@ -52,23 +52,23 @@ namespace SystemMonitor.HardwareStatic.Model.Components
             }
 
             volume.Description = string.Empty;
-            volume.DriveLetter = managementObject[ConstStringHardwareStatic.VOLUME_DRIVE_LETTER]?.ToString() ?? string.Empty;
+            volume.DriveLetter = managementObject[ConstString.VOLUME_DRIVE_LETTER]?.ToString() ?? string.Empty;
 
-            if (managementObject[ConstStringHardwareStatic.VOLUME_DRIVE_TYPE] != null)
+            if (managementObject[ConstString.VOLUME_DRIVE_TYPE] != null)
             {
-                volume.DriveType = ((DriveTypeEnum)((uint)managementObject[ConstStringHardwareStatic.VOLUME_DRIVE_TYPE])).GetEnumDescription();
+                volume.DriveType = ((DriveTypeEnum)((uint)managementObject[ConstString.VOLUME_DRIVE_TYPE])).GetEnumDescription();
             }
             else
             {
                 volume.DriveType = string.Empty;
             }
 
-            volume.FileSystem = managementObject[ConstStringHardwareStatic.VOLUME_FILE_SYSTEM]?.ToString() ?? string.Empty;
-            volume.FileSystemLabel = managementObject[ConstStringHardwareStatic.VOLUME_FILE_SYTEM_LABEL]?.ToString() ?? string.Empty;
+            volume.FileSystem = managementObject[ConstString.VOLUME_FILE_SYSTEM]?.ToString() ?? string.Empty;
+            volume.FileSystemLabel = managementObject[ConstString.VOLUME_FILE_SYTEM_LABEL]?.ToString() ?? string.Empty;
 
-            if (managementObject[ConstStringHardwareStatic.VOLUME_DRIVE_TYPE] != null)
+            if (managementObject[ConstString.VOLUME_DRIVE_TYPE] != null)
             {
-                volume.HealthStatus = ((HealthStatusVolumeEnum)((ushort)managementObject[ConstStringHardwareStatic.VOLUME_HEALTH_STATUS])).GetEnumDescription();
+                volume.HealthStatus = ((HealthStatusVolumeEnum)((ushort)managementObject[ConstString.VOLUME_HEALTH_STATUS])).GetEnumDescription();
             }
             else
             {
@@ -76,19 +76,19 @@ namespace SystemMonitor.HardwareStatic.Model.Components
             }
 
             volume.Name = string.Empty;
-            volume.ObjectId = managementObject[ConstStringHardwareStatic.VOLUME_OBJECT_ID]?.ToString() ?? string.Empty;
-            volume.Path = managementObject[ConstStringHardwareStatic.VOLUME_PATH]?.ToString() ?? string.Empty;
-            volume.Size = new UnitValue(Unit.B, managementObject[ConstStringHardwareStatic.VOLUME_SIZE]?.ToString() ?? string.Empty);
-            volume.SizeRemaining = new UnitValue(Unit.B, managementObject[ConstStringHardwareStatic.VOLUME_SIZE_REMAINING]?.ToString() ?? string.Empty);
+            volume.ObjectId = managementObject[ConstString.VOLUME_OBJECT_ID]?.ToString() ?? string.Empty;
+            volume.Path = managementObject[ConstString.VOLUME_PATH]?.ToString() ?? string.Empty;
+            volume.Size = new UnitValue(Unit.B, managementObject[ConstString.VOLUME_SIZE]?.ToString() ?? string.Empty);
+            volume.SizeRemaining = new UnitValue(Unit.B, managementObject[ConstString.VOLUME_SIZE_REMAINING]?.ToString() ?? string.Empty);
             volume.Status = string.Empty;
-            volume.UniqueId = managementObject[ConstStringHardwareStatic.VOLUME_UNIQUE_ID]?.ToString() ?? string.Empty;
+            volume.UniqueId = managementObject[ConstString.VOLUME_UNIQUE_ID]?.ToString() ?? string.Empty;
 
             return volume;
         }
 
         public override List<ManagementObject> GetManagementObjectsForHardwareComponent(IWMIClient wMIClient)
         {
-            return wMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstStringHardwareStatic.WMI_NAMESPACE_ROOT_MICROSOFT_WINDOWS_STORAGE, ConstStringHardwareStatic.WMI_QUERY_VOLUME);
+            return wMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstString.WMI_NAMESPACE_ROOT_MICROSOFT_WINDOWS_STORAGE, ConstString.WMI_QUERY_VOLUME);
         }
     }
 }

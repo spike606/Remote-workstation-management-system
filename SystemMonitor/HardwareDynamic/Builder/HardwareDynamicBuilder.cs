@@ -17,7 +17,7 @@ namespace SystemMonitor.HardwareDynamic.Builder
 
         private IOHMProvider OhmMProvider { get; set; }
 
-        public HardwareDynamicComponent GetHardwareDynamicData(HardwareDynamicComponent hardwareDynamicComponent)
+        public List<HardwareDynamicComponent> GetHardwareDynamicData(HardwareDynamicComponent hardwareDynamicComponent)
         {
             return hardwareDynamicComponent.GetDynamicDataForHardwareComponent(this.OhmMProvider);
         }

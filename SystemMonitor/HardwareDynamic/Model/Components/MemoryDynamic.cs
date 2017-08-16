@@ -13,21 +13,14 @@ namespace SystemMonitor.HardwareDynamic.Model.Components
 {
     public class MemoryDynamic : HardwareDynamicComponent
     {
-        public override HardwareDynamicComponent GetDynamicDataForHardwareComponent(IOHMProvider ohmProvider)
+        public override List<HardwareDynamicComponent> GetDynamicDataForHardwareComponent(IOHMProvider ohmProvider)
         {
-            MemoryDynamic memoryDynamic = new MemoryDynamic();
+            return this.GetDynamicData(ohmProvider, new List<HardwareType>() { HardwareType.RAM }, new MemoryDynamic());
+        }
 
-            foreach (var hardwareItem in ohmProvider.Computer.Hardware)
-            {
-                if (hardwareItem.HardwareType == HardwareType.RAM)
-                {
-                    memoryDynamic.Name = hardwareItem.Name;
-                    hardwareItem.Update();
-                    ohmProvider.ExtractDataFromSensors(memoryDynamic, hardwareItem);
-                }
-            }
-
-            return memoryDynamic;
+        public override HardwareDynamicComponent GetHardwareDynamicComponentInstance()
+        {
+            return new MemoryDynamic();
         }
     }
 }

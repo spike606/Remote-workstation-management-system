@@ -13,21 +13,14 @@ namespace SystemMonitor.HardwareDynamic.Model.Components
 {
     public class DiskDynamic : HardwareDynamicComponent
     {
-        public override HardwareDynamicComponent GetDynamicDataForHardwareComponent(IOHMProvider ohmProvider)
+        public override List<HardwareDynamicComponent> GetDynamicDataForHardwareComponent(IOHMProvider ohmProvider)
         {
-            DiskDynamic diskDynamic = new DiskDynamic();
+            return this.GetDynamicData(ohmProvider, new List<HardwareType>() { HardwareType.HDD }, new DiskDynamic());
+        }
 
-            foreach (var hardwareItem in ohmProvider.Computer.Hardware)
-            {
-                if (hardwareItem.HardwareType == HardwareType.HDD)
-                {
-                    diskDynamic.Name = hardwareItem.Name;
-                    hardwareItem.Update();
-                    ohmProvider.ExtractDataFromSensors(diskDynamic, hardwareItem);
-                }
-            }
-
-            return diskDynamic;
+        public override HardwareDynamicComponent GetHardwareDynamicComponentInstance()
+        {
+            return new DiskDynamic();
         }
     }
 }

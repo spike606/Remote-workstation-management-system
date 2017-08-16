@@ -4,22 +4,43 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using HardwareMonitor;
 using SystemMonitor.HardwareDynamic.Model;
 using SystemMonitor.HardwareStatic.Model;
+using System.ServiceProcess;
+using Microsoft.Win32;
+using SystemMonitor.SoftwareStatic.Model;
+using SystemMonitor.SoftwareStatic.Model.Components;
 
 namespace SystemMonitorLibTest
 {
     class Program
     {
+        public static WorkstationMonitor monitor = new WorkstationMonitor();
+
         static void Main(string[] args)
         {
-            WorkstationMonitor monitor = new WorkstationMonitor();
-            HardwareDynamicData dynamicData = monitor.GetHardwareDynamicData();
+            HardwareDynamicData hardwareDynamicData = monitor.GetHardwareDynamicData();
+            HardwareStaticData hardwareStaticData = monitor.GetHardwareStaticData();
+            SoftwareStaticData softwareStaticData = monitor.GetSoftwareStaticData();
 
-            //HardwareStaticData data = monitor.GetHardwareStaticData();
             //PrintProperties(data);
-            Console.ReadLine();
+            Timer aTimer = new Timer();
+            aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+            aTimer.Interval = 500;
+            aTimer.Enabled = true;
+
+            while (Console.Read() != 'q') ;
+            //Console.ReadLine();
+        }
+
+        private static void OnTimedEvent(object source, ElapsedEventArgs e)
+        {
+            var data = monitor.GetHardwareDynamicData();
+            Console.WriteLine("Load: value: " + data.Processor.First().Load.First().Value + "max: " + data.Processor.First().Load.First().MaxValue);
+            Console.WriteLine("Clock: value: " + data.Processor.First().Clock.First().Value + "max: " + data.Processor.First().Clock.First().MaxValue);
+
         }
 
         public static void PrintProperties(object obj)

@@ -13,21 +13,14 @@ namespace SystemMonitor.HardwareDynamic.Model.Components
 {
     public class MainBoardDynamic : HardwareDynamicComponent
     {
-        public override HardwareDynamicComponent GetDynamicDataForHardwareComponent(IOHMProvider ohmProvider)
+        public override List<HardwareDynamicComponent> GetDynamicDataForHardwareComponent(IOHMProvider ohmProvider)
         {
-            MainBoardDynamic mainBoardDynamic = new MainBoardDynamic();
+            return this.GetDynamicData(ohmProvider, new List<HardwareType>() { HardwareType.Mainboard }, new MainBoardDynamic());
+        }
 
-            foreach (var hardwareItem in ohmProvider.Computer.Hardware)
-            {
-                if (hardwareItem.HardwareType == HardwareType.Mainboard)
-                {
-                    mainBoardDynamic.Name = hardwareItem.Name;
-                    hardwareItem.Update();
-                    ohmProvider.ExtractDataFromSensors(mainBoardDynamic, hardwareItem);
-                }
-            }
-
-            return mainBoardDynamic;
+        public override HardwareDynamicComponent GetHardwareDynamicComponentInstance()
+        {
+            return new MainBoardDynamic();
         }
     }
 }

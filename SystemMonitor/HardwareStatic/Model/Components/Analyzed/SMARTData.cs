@@ -8,7 +8,6 @@ using SystemMonitor.HardwareStatic.Model.Components.Abstract;
 using SystemMonitor.HardwareStatic.Model.CustomProperties;
 using SystemMonitor.HardwareStatic.Model.CustomProperties.Attributes;
 using SystemMonitor.HardwareStatic.Model.CustomProperties.Enums;
-using SystemMonitor.HardwareStatic.WMI;
 
 namespace SystemMonitor.HardwareStatic.Model.Components.Analyzed
 {

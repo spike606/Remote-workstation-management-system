@@ -22,9 +22,9 @@ namespace SystemMonitor.HardwareStatic.Analyzer
         private const int THRESHOLD_OFFSET = 3;
 
         public List<SMARTData> GetSmartData(
-            List<HardwareStaticComponent> smartFailurePredictStatus,
-            List<HardwareStaticComponent> smartFailurePredictData,
-            List<HardwareStaticComponent> smartFailurePredictThresholds)
+            List<SmartFailurePredictStatus> smartFailurePredictStatus,
+            List<SmartFailurePredictData> smartFailurePredictData,
+            List<SmartFailurePredictThresholds> smartFailurePredictThresholds)
         {
             List<SMARTData> smartData = new List<SMARTData>();
 
@@ -51,23 +51,18 @@ namespace SystemMonitor.HardwareStatic.Analyzer
         }
 
         public List<Storage> GetStorageData(
-            List<HardwareStaticComponent> diskList,
-            List<HardwareStaticComponent> diskPartitionList,
-            List<HardwareStaticComponent> volumeList,
-            List<HardwareStaticComponent> diskToPartitionList,
-            List<HardwareStaticComponent> partitionToVolumeList)
+            List<Disk> disks,
+            List<DiskPartition> diskPartition,
+            List<Volume> volume,
+            List<DiskToPartition> diskToPartition,
+            List<PartitionToVolume> partitionToVolume)
         {
             List<Storage> storageData = new List<Storage>();
 
-            foreach (var disk in diskList)
+            foreach (var disk in disks)
             {
                 storageData.Add(new Storage((Disk)disk));
             }
-
-            List<DiskToPartition> diskToPartition = diskToPartitionList.Cast<DiskToPartition>().ToList();
-            List<DiskPartition> diskPartition = diskPartitionList.Cast<DiskPartition>().ToList();
-            List<PartitionToVolume> partitionToVolume = partitionToVolumeList.Cast<PartitionToVolume>().ToList();
-            List<Volume> volume = volumeList.Cast<Volume>().ToList();
 
             this.ExtractPartitionsForStorage(storageData, diskToPartition, diskPartition, partitionToVolume, volume);
 
@@ -76,7 +71,7 @@ namespace SystemMonitor.HardwareStatic.Analyzer
             return storageData;
         }
 
-        private void ExtractFailurePredictStatus(List<SMARTData> smartData, List<HardwareStaticComponent> smartFailurePredictStatus)
+        private void ExtractFailurePredictStatus(List<SMARTData> smartData, List<SmartFailurePredictStatus> smartFailurePredictStatus)
         {
             List<SmartFailurePredictStatus> smartFailurePredictStatusList = smartFailurePredictStatus.Cast<SmartFailurePredictStatus>().ToList();
 
@@ -90,11 +85,9 @@ namespace SystemMonitor.HardwareStatic.Analyzer
             }
         }
 
-        private void ExtractFailurePredictData(List<SMARTData> smartData, List<HardwareStaticComponent> smartFailurePredictData)
+        private void ExtractFailurePredictData(List<SMARTData> smartData, List<SmartFailurePredictData> smartFailurePredictData)
         {
-            List<SmartFailurePredictData> smartFailurePredictDataList = smartFailurePredictData.Cast<SmartFailurePredictData>().ToList();
-
-            foreach (var driveData in smartFailurePredictDataList)
+            foreach (var driveData in smartFailurePredictData)
             {
                 for (int i = 0; i < BLOCKS_IN_VENDOR_ARRAY; ++i)
                 {
@@ -128,11 +121,9 @@ namespace SystemMonitor.HardwareStatic.Analyzer
             }
         }
 
-        private void ExtractFailrePredictThresholds(List<SMARTData> smartData, List<HardwareStaticComponent> smartFailurePredictThresholds)
+        private void ExtractFailrePredictThresholds(List<SMARTData> smartData, List<SmartFailurePredictThresholds> smartFailurePredictThresholds)
         {
-            List<SmartFailurePredictThresholds> smartFailurePredictThresholdsList = smartFailurePredictThresholds.Cast<SmartFailurePredictThresholds>().ToList();
-
-            foreach (var driveData in smartFailurePredictThresholdsList)
+            foreach (var driveData in smartFailurePredictThresholds)
             {
                 byte[] bytes = driveData.VendorSpecific;
                 for (int i = 0; i < BLOCKS_IN_VENDOR_ARRAY; ++i)

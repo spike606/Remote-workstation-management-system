@@ -12,8 +12,11 @@ using SystemMonitor.HardwareDynamic.OHMProvider;
 using SystemMonitor.HardwareStatic.Analyzer;
 using SystemMonitor.HardwareStatic.Builder;
 using SystemMonitor.HardwareStatic.Model;
-using SystemMonitor.HardwareStatic.WMI;
 using SystemMonitor.NLogger;
+using SystemMonitor.Shared.WMI;
+using SystemMonitor.SoftwareStatic.Builder;
+using SystemMonitor.SoftwareStatic.Model;
+using SystemMonitor.SoftwareStatic.SoftwareStaticProvider;
 
 namespace HardwareMonitor
 {
@@ -36,6 +39,11 @@ namespace HardwareMonitor
             return this.SystemMonitorDataBuilder.GetHardwareDynamicData();
         }
 
+        public SoftwareStaticData GetSoftwareStaticData()
+        {
+            return this.SystemMonitorDataBuilder.GetSoftwareStaticData();
+        }
+
         private void InitializeIoCContainer()
         {
             var container = new WindsorContainer();
@@ -46,6 +54,8 @@ namespace HardwareMonitor
             container.Register(Component.For<IWMIClient>().ImplementedBy<WMIClient>().LifeStyle.Singleton);
             container.Register(Component.For<IOHMProvider>().ImplementedBy<OHMProvider>().LifeStyle.Singleton);
             container.Register(Component.For<IHardwareDynamicBuilder>().ImplementedBy<HardwareDynamicBuilder>().LifeStyle.Singleton);
+            container.Register(Component.For<ISoftwareStaticProvider>().ImplementedBy<SoftwareStaticProvider>().LifeStyle.Singleton);
+            container.Register(Component.For<ISoftwareStaticBuilder>().ImplementedBy<SoftwareStaticBuilder>().LifeStyle.Singleton);
 
             this.SystemMonitorDataBuilder = container.Resolve<ISystemMonitorDataBuilder>();
         }

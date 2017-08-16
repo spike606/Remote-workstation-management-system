@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SystemMonitor</RootNamespace>
     <AssemblyName>SystemMonitor</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -53,6 +54,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -117,13 +119,22 @@
     <Compile Include="HardwareStatic\Model\CustomProperties\UnitValue.cs" />
     <Compile Include="HardwareStatic\Model\HardwareStaticData.cs" />
     <Compile Include="HardwareStatic\Model\Components\PartitionToVolume.cs" />
-    <Compile Include="HardwareStatic\WMI\IWMIClient.cs" />
+    <Compile Include="Shared\ConstString.cs" />
+    <Compile Include="Shared\WMI\IWMIClient.cs" />
     <Compile Include="Logger\INLogger.cs" />
     <Compile Include="Logger\NLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="HardwareStatic\WMI\WMIClient.cs" />
+    <Compile Include="Shared\WMI\IWMISoftwareStaticComponent.cs" />
+    <Compile Include="Shared\WMI\WMIClient.cs" />
     <Compile Include="DataBuilder\SystemMonitorDataBuilder.cs" />
-    <Compile Include="HardwareStatic\ConstStringHardwareStatic.cs" />
+    <Compile Include="SoftwareStatic\Builder\ISoftwareStaticBuilder.cs" />
+    <Compile Include="SoftwareStatic\Builder\SoftwareStaticBuilder.cs" />
+    <Compile Include="SoftwareStatic\Model\Components\Abstract\SoftwareStaticComponent.cs" />
+    <Compile Include="SoftwareStatic\Model\Components\Bios.cs" />
+    <Compile Include="SoftwareStatic\Model\Components\WindowsService.cs" />
+    <Compile Include="SoftwareStatic\Model\SoftwareStaticData.cs" />
+    <Compile Include="SoftwareStatic\SoftwareStaticProvider\ISoftwareStaticProvider.cs" />
+    <Compile Include="SoftwareStatic\SoftwareStaticProvider\SoftwareStaticProvider.cs" />
     <Compile Include="WorkstationMonitor.cs" />
   </ItemGroup>
   <ItemGroup>

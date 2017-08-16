@@ -5,7 +5,7 @@ using System.Management;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SystemMonitor.HardwareStatic.WMI
+namespace SystemMonitor.Shared.WMI
 {
     public interface IWMIClient
     {

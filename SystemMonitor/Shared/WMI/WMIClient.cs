@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SystemMonitor.NLogger;
 
-namespace SystemMonitor.HardwareStatic.WMI
+namespace SystemMonitor.Shared.WMI
 {
     internal class WMIClient : IWMIClient
     {
