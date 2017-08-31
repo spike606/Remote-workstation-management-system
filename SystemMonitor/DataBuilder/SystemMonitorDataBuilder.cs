@@ -99,6 +99,7 @@ namespace SystemMonitor.DataBuilder
             data.WindowsService = this.SoftwareStaticBuilder.GetSoftwareStaticData(new WindowsService()).Cast<WindowsService>().ToList();
             data.Bios = this.SoftwareStaticBuilder.GetSoftwareStaticData(new Bios()).Cast<Bios>().ToList();
             data.OperatingSystem = this.SoftwareStaticBuilder.GetSoftwareStaticData(new OS()).Cast<OS>().ToList();
+            data.InstalledProgram = this.SoftwareStaticBuilder.GetSoftwareStaticData(new InstalledProgram()).Cast<InstalledProgram>().ToList();
             return data;
         }
     }

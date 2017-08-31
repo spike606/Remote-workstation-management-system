@@ -131,6 +131,7 @@
     <Compile Include="SoftwareStatic\Builder\SoftwareStaticBuilder.cs" />
     <Compile Include="SoftwareStatic\Model\Components\Abstract\SoftwareStaticComponent.cs" />
     <Compile Include="SoftwareStatic\Model\Components\Bios.cs" />
+    <Compile Include="SoftwareStatic\Model\Components\InstalledProgram.cs" />
     <Compile Include="SoftwareStatic\Model\Components\OS.cs" />
     <Compile Include="SoftwareStatic\Model\Components\WindowsService.cs" />
     <Compile Include="SoftwareStatic\Model\SoftwareStaticData.cs" />

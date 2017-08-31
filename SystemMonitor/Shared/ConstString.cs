@@ -10,6 +10,13 @@ namespace SystemMonitor.HardwareStatic
 {
     internal class ConstString
     {
+        internal const string REGISTRY_INSTALLED_PROGRAMS_32 = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall";
+        internal const string REGISTRY_INSTALLED_PROGRAMS_64 = @"SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall";
+        internal const string REGISTRY_DISPLAY_NAME = "DisplayName";
+        internal const string REGISTRY_DISPLAY_VERSION = "DisplayVersion";
+        internal const string REGISTRY_INSTALL_DATE = "InstallDate";
+        internal const string REGISTRY_INSTALL_LOCATION = "InstallLocation";
+
         internal const string WMI_NAMESPACE_ROOT_CIMV2 = "root\\CIMV2";
         internal const string WMI_NAMESPACE_ROOT_WMI = "root\\WMI";
         internal const string WMI_NAMESPACE_ROOT_STANDARD_CIMV2 = "root\\StandardCimv2";
