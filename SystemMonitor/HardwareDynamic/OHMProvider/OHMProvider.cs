@@ -25,7 +25,7 @@ namespace SystemMonitor.HardwareDynamic.OHMProvider
             this.Computer.Open();
         }
 
-        public Computer Computer { get;  private set; }
+        public Computer Computer { get; private set; }
 
         public void ExtractDataFromSensors(HardwareDynamicComponent hardwareDynamicComponent, IHardware hardwareItem)
         {

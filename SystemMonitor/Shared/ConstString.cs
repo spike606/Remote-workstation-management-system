@@ -221,5 +221,30 @@ namespace SystemMonitor.HardwareStatic
         internal const string BIOS_SYSTEM_BIOS_MAJOR_VERSION = "SystemBiosMajorVersion";
         internal const string BIOS_SYSTEM_BIOS_MINOR_VERSION = "SystemBiosMinorVersion";
         internal const string BIOS_VERSION = "Version";
+
+        internal const string WMI_QUERY_OS = "select * from Win32_OperatingSystem";
+        internal const string OS_BUILD_NUMBER = "BuildNumber";
+        internal const string OS_BUILD_TYPE = "BuildType";
+        internal const string OS_COUNTRY_CODE = "CountryCode";
+        internal const string OS_CSD_VERSION = "CSDVersion";
+        internal const string OS_CS_NAME = "CSName";
+        internal const string OS_CURRENT_TIME_ZONE = "CurrentTimeZone";
+        internal const string OS_ENCRYPTION_LEVEL = "EncryptionLevel";
+        internal const string OS_INSTALL_DATE = "InstallDate";
+        internal const string OS_LAST_BOOT_UP_TIME = "LastBootUpTime";
+        internal const string OS_LOCALE_DATE_TIME = "LocalDateTime";
+        internal const string OS_LOCALE = "Locale";
+        internal const string OS_MAX_NUMBER_OF_PROCESSES = "MaxNumberOfProcesses";
+        internal const string OS_MAX_PROCESS_MEMORY_SIZE = "MaxProcessMemorySize";
+        internal const string OS_ORGANIZATION = "Organization";
+        internal const string OS_ARCHITECTURE = "OSArchitecture";
+        internal const string OS_REGISTERED_USER = "RegisteredUser";
+        internal const string OS_SERIAL_NUMBER = "SerialNumber";
+        internal const string OS_SERVICE_PACK_MAJOR_VERSION = "ServicePackMajorVersion";
+        internal const string OS_SERVICE_PACK_MINOR_VERSION = "ServicePackMinorVersion";
+        internal const string OS_SYSTEM_DIRECTORY = "SystemDirectory";
+        internal const string OS_SYSTEM_DRIVE = "SystemDrive";
+        internal const string OS_VERSION = "Version";
+        internal const string OS_WINDOWS_DIRECTORY = "WindowsDirectory";
     }
 }

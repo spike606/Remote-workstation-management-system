@@ -29,7 +29,7 @@ namespace SystemMonitor.SoftwareStatic.Model.Components
 
         public string Name { get; private set; }
 
-        public string ReleaseDate { get; private set; }
+        public DateTime ReleaseDate { get; private set; }
 
         public string SerialNumber { get; private set; }
 
@@ -59,7 +59,7 @@ namespace SystemMonitor.SoftwareStatic.Model.Components
             bios.EmbeddedControllerMinorVersion = managementObject[ConstString.BIOS_EMBEDDED_CONTROLLER_MINOR_VERSION]?.ToString() ?? string.Empty;
             bios.Manufacturer = managementObject[ConstString.BIOS_MANUFACTURER]?.ToString() ?? string.Empty;
             bios.Name = managementObject[ConstString.COMPONENT_NAME]?.ToString() ?? string.Empty;
-            bios.ReleaseDate = managementObject[ConstString.BIOS_RELEASE_DATE]?.ToString() ?? string.Empty;
+            bios.ReleaseDate = managementObject[ConstString.BIOS_RELEASE_DATE] != null ? ManagementDateTimeConverter.ToDateTime(managementObject[ConstString.BIOS_RELEASE_DATE].ToString()) : default(DateTime);
             bios.SerialNumber = managementObject[ConstString.BIOS_SERIAL_NUMBER]?.ToString() ?? string.Empty;
             bios.SMBIOSMajorVersion = managementObject[ConstString.BIOS_SMBIOS_MAJOR_VERSION]?.ToString() ?? string.Empty;
             bios.SMBIOSMinorVersion = managementObject[ConstString.BIOS_SMBIOS_MINOR_VERSION]?.ToString() ?? string.Empty;

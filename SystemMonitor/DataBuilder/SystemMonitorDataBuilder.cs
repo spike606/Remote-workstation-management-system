@@ -98,6 +98,7 @@ namespace SystemMonitor.DataBuilder
             SoftwareStaticData data = new SoftwareStaticData();
             data.WindowsService = this.SoftwareStaticBuilder.GetSoftwareStaticData(new WindowsService()).Cast<WindowsService>().ToList();
             data.Bios = this.SoftwareStaticBuilder.GetSoftwareStaticData(new Bios()).Cast<Bios>().ToList();
+            data.OperatingSystem = this.SoftwareStaticBuilder.GetSoftwareStaticData(new OS()).Cast<OS>().ToList();
             return data;
         }
     }

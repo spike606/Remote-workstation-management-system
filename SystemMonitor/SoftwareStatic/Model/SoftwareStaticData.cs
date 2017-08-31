@@ -13,5 +13,7 @@ namespace SystemMonitor.SoftwareStatic.Model
         public List<WindowsService> WindowsService { get; set; }
 
         public List<Bios> Bios { get; set; }
+
+        public List<OS> OperatingSystem { get; set; }
     }
 }
