@@ -26,8 +26,8 @@ namespace SystemMonitor.SoftwareStatic.Model.Components
 
             this.GetProgramsFromRegistryKey(installedPrograms, ConstString.REGISTRY_INSTALLED_PROGRAMS_32);
             this.GetProgramsFromRegistryKey(installedPrograms, ConstString.REGISTRY_INSTALLED_PROGRAMS_64);
-
-            return installedPrograms;
+            var sortedInstalledPrograms = installedPrograms.OrderBy(x => ((InstalledProgram)x).Name).ToList();
+            return sortedInstalledPrograms;
         }
 
         private void GetProgramsFromRegistryKey(List<SoftwareStaticComponent> installedPrograms, string registryKey)
@@ -39,12 +39,15 @@ namespace SystemMonitor.SoftwareStatic.Model.Components
                     using (RegistryKey subkey = key.OpenSubKey(subkeyName))
                     {
                         InstalledProgram program = new InstalledProgram();
-                        program.Name = subkey.GetValue(ConstString.REGISTRY_DISPLAY_NAME)?.ToString() ?? string.Empty;
-                        program.InstallDate = subkey.GetValue(ConstString.REGISTRY_INSTALL_DATE)?.ToString() ?? string.Empty;
-                        program.InstallLocation = subkey.GetValue(ConstString.REGISTRY_INSTALL_LOCATION)?.ToString() ?? string.Empty;
-                        program.Version = subkey.GetValue(ConstString.REGISTRY_DISPLAY_VERSION)?.ToString() ?? string.Empty;
-
-                        installedPrograms.Add(program);
+                        string applicationName = subkey.GetValue(ConstString.REGISTRY_DISPLAY_NAME)?.ToString() ?? string.Empty;
+                        if (!string.IsNullOrEmpty(applicationName) && !installedPrograms.Cast<InstalledProgram>().ToList().Any(x => x.Name == applicationName))
+                        {
+                            program.Name = applicationName;
+                            program.InstallDate = subkey.GetValue(ConstString.REGISTRY_INSTALL_DATE)?.ToString() ?? string.Empty;
+                            program.InstallLocation = subkey.GetValue(ConstString.REGISTRY_INSTALL_LOCATION)?.ToString() ?? string.Empty;
+                            program.Version = subkey.GetValue(ConstString.REGISTRY_DISPLAY_VERSION)?.ToString() ?? string.Empty;
+                            installedPrograms.Add(program);
+                        }
                     }
                 }
             }

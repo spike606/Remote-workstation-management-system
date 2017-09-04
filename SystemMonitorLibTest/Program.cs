@@ -25,6 +25,11 @@ namespace SystemMonitorLibTest
             HardwareStaticData hardwareStaticData = monitor.GetHardwareStaticData();
             SoftwareStaticData softwareStaticData = monitor.GetSoftwareStaticData();
 
+            foreach (var item in softwareStaticData.InstalledProgram)
+            {
+                Console.WriteLine(item.Name);
+            }
+
             //PrintProperties(data);
             Timer aTimer = new Timer();
             aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
