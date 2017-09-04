@@ -10,8 +10,8 @@ namespace SystemMonitor.HardwareStatic
 {
     internal class ConstString
     {
-        internal const string REGISTRY_INSTALLED_PROGRAMS_32 = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall";
-        internal const string REGISTRY_INSTALLED_PROGRAMS_64 = @"SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall";
+        internal const string REGISTRY_INSTALLED_PROGRAMS_64 = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall";
+        internal const string REGISTRY_INSTALLED_PROGRAMS_32 = @"SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall";
         internal const string REGISTRY_DISPLAY_NAME = "DisplayName";
         internal const string REGISTRY_DISPLAY_VERSION = "DisplayVersion";
         internal const string REGISTRY_INSTALL_DATE = "InstallDate";
@@ -253,5 +253,12 @@ namespace SystemMonitor.HardwareStatic
         internal const string OS_SYSTEM_DRIVE = "SystemDrive";
         internal const string OS_VERSION = "Version";
         internal const string OS_WINDOWS_DIRECTORY = "WindowsDirectory";
+
+        internal const string WMI_QUERY_STARTUP_COMMAND = "select * from Win32_StartupCommand";
+        internal const string STARTUP_COMMAND_COMMAND = "Command";
+        internal const string STARTUP_COMMAND_LOCATION = "Location";
+        internal const string STARTUP_COMMAND_SETTING_ID = "SettingID";
+        internal const string STARTUP_COMMAND_USER = "User";
+        internal const string STARTUP_COMMAND_USER_SID = "UserSID";
     }
 }

@@ -17,5 +17,7 @@ namespace SystemMonitor.SoftwareStatic.Model
         public List<OS> OperatingSystem { get; set; }
 
         public List<InstalledProgram> InstalledProgram { get; set; }
+
+        public List<StartupCommand> StartupCommand { get; set; }
     }
 }
