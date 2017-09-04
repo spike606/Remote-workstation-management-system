@@ -24,19 +24,20 @@ namespace SystemMonitor.SoftwareStatic.Model.Components
         {
             List<SoftwareStaticComponent> installedPrograms = new List<SoftwareStaticComponent>();
 
-            this.GetProgramsFromRegistryKey(installedPrograms, ConstString.REGISTRY_INSTALLED_PROGRAMS_32);
-            this.GetProgramsFromRegistryKey(installedPrograms, ConstString.REGISTRY_INSTALLED_PROGRAMS_64);
+            this.GetProgramsFromRegistryKey(installedPrograms, RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).OpenSubKey(ConstString.REGISTRY_INSTALLED_PROGRAMS_64));
+            this.GetProgramsFromRegistryKey(installedPrograms, RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry32).OpenSubKey(ConstString.REGISTRY_INSTALLED_PROGRAMS_32));
+            this.GetProgramsFromRegistryKey(installedPrograms, RegistryKey.OpenBaseKey(RegistryHive.CurrentUser, RegistryView.Registry32).OpenSubKey(ConstString.REGISTRY_INSTALLED_PROGRAMS_64));
             var sortedInstalledPrograms = installedPrograms.OrderBy(x => ((InstalledProgram)x).Name).ToList();
             return sortedInstalledPrograms;
         }
 
-        private void GetProgramsFromRegistryKey(List<SoftwareStaticComponent> installedPrograms, string registryKey)
+        private void GetProgramsFromRegistryKey(List<SoftwareStaticComponent> installedPrograms, RegistryKey registryKey)
         {
-            using (RegistryKey key = Registry.LocalMachine.OpenSubKey(registryKey))
+            using (registryKey)
             {
-                foreach (string subkeyName in key.GetSubKeyNames())
+                foreach (string subkeyName in registryKey.GetSubKeyNames())
                 {
-                    using (RegistryKey subkey = key.OpenSubKey(subkeyName))
+                    using (RegistryKey subkey = registryKey.OpenSubKey(subkeyName))
                     {
                         InstalledProgram program = new InstalledProgram();
                         string applicationName = subkey.GetValue(ConstString.REGISTRY_DISPLAY_NAME)?.ToString() ?? string.Empty;

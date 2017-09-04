@@ -10,8 +10,8 @@ namespace SystemMonitor.HardwareStatic
 {
     internal class ConstString
     {
-        internal const string REGISTRY_INSTALLED_PROGRAMS_32 = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall";
-        internal const string REGISTRY_INSTALLED_PROGRAMS_64 = @"SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall";
+        internal const string REGISTRY_INSTALLED_PROGRAMS_64 = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall";
+        internal const string REGISTRY_INSTALLED_PROGRAMS_32 = @"SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall";
         internal const string REGISTRY_DISPLAY_NAME = "DisplayName";
         internal const string REGISTRY_DISPLAY_VERSION = "DisplayVersion";
         internal const string REGISTRY_INSTALL_DATE = "InstallDate";
