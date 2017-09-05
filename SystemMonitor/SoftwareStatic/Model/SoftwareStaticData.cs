@@ -19,5 +19,7 @@ namespace SystemMonitor.SoftwareStatic.Model
         public List<InstalledProgram> InstalledProgram { get; set; }
 
         public List<StartupCommand> StartupCommand { get; set; }
+
+        public List<MicrosoftWindowsUpdate> MicrosoftWindowsUpdate { get; set; }
     }
 }

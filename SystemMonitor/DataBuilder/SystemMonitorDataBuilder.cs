@@ -101,6 +101,7 @@ namespace SystemMonitor.DataBuilder
             data.OperatingSystem = this.SoftwareStaticBuilder.GetSoftwareStaticData(new OS()).Cast<OS>().ToList();
             data.InstalledProgram = this.SoftwareStaticBuilder.GetSoftwareStaticData(new InstalledProgram()).Cast<InstalledProgram>().ToList();
             data.StartupCommand = this.SoftwareStaticBuilder.GetSoftwareStaticData(new StartupCommand()).Cast<StartupCommand>().ToList();
+            data.MicrosoftWindowsUpdate = this.SoftwareStaticBuilder.GetSoftwareStaticData(new MicrosoftWindowsUpdate()).Cast<MicrosoftWindowsUpdate>().ToList();
             return data;
         }
     }

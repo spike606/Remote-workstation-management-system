@@ -260,5 +260,15 @@ namespace SystemMonitor.HardwareStatic
         internal const string STARTUP_COMMAND_SETTING_ID = "SettingID";
         internal const string STARTUP_COMMAND_USER = "User";
         internal const string STARTUP_COMMAND_USER_SID = "UserSID";
+
+        internal const string WMI_QUERY_STARTUP_QUICK_FIX_ENGINEERING = "select * from Win32_QuickFixEngineering";
+        internal const string QUICK_FIX_ENGINEERING_CSNAME = "CSName";
+        internal const string QUICK_FIX_ENGINEERING_FIX_COMMENTS = "FixComments";
+        internal const string QUICK_FIX_ENGINEERING_HOT_FIX_ID = "HotFixID";
+        internal const string QUICK_FIX_ENGINEERING_INSTALL_DATE = "InstallDate";
+        internal const string QUICK_FIX_ENGINEERING_INSTALLED_BY = "InstalledBy";
+        internal const string QUICK_FIX_ENGINEERING_INSTALLED_ON = "InstalledOn";
+        internal const string QUICK_FIX_ENGINEERING_SERVICE_PACK_IN_EFFECT = "ServicePackInEffect";
+
     }
 }

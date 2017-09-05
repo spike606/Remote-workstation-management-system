@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Win32;
 using SystemMonitor.HardwareStatic;
+using SystemMonitor.Shared;
 using SystemMonitor.SoftwareStatic.Model.Components.Abstract;
 using SystemMonitor.SoftwareStatic.SoftwareStaticProvider;
 
@@ -14,7 +16,7 @@ namespace SystemMonitor.SoftwareStatic.Model.Components
     {
         public string InstallLocation { get; set; }
 
-        public string InstallDate { get; set; }
+        public DateTime InstallDate { get; set; }
 
         public string Name { get; set; }
 
@@ -44,7 +46,8 @@ namespace SystemMonitor.SoftwareStatic.Model.Components
                         if (!string.IsNullOrEmpty(applicationName) && !installedPrograms.Cast<InstalledProgram>().ToList().Any(x => x.Name == applicationName))
                         {
                             program.Name = applicationName;
-                            program.InstallDate = subkey.GetValue(ConstString.REGISTRY_INSTALL_DATE)?.ToString() ?? string.Empty;
+                            string installDateAsString = subkey.GetValue(ConstString.REGISTRY_INSTALL_DATE)?.ToString() ?? string.Empty;
+                            program.InstallDate = DateTimeHelper.ConvertRegistryDateStringToCorrectDateTimeFormat(installDateAsString);
                             program.InstallLocation = subkey.GetValue(ConstString.REGISTRY_INSTALL_LOCATION)?.ToString() ?? string.Empty;
                             program.Version = subkey.GetValue(ConstString.REGISTRY_DISPLAY_VERSION)?.ToString() ?? string.Empty;
                             installedPrograms.Add(program);
