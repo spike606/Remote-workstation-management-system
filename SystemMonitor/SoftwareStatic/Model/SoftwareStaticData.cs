@@ -21,5 +21,9 @@ namespace SystemMonitor.SoftwareStatic.Model
         public List<StartupCommand> StartupCommand { get; set; }
 
         public List<MicrosoftWindowsUpdate> MicrosoftWindowsUpdate { get; set; }
+
+        public List<LocalUser> LocalUser { get; set; }
+
+        public List<ComputerSystem> CurrentUser { get; set; }
     }
 }

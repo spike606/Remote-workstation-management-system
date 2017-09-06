@@ -33,7 +33,7 @@ namespace SystemMonitorLibUnitTest.HardwareStatic
             IHardwareStaticBuilder sut = new HardwareStaticBuilder(wMIClientMock.Object);
 
             // act
-            var sutResult = (ProcessorStatic)sut.GetHardwareStaticData(new ProcessorStatic()).FirstOrDefault();
+            var sutResult = sut.GetHardwareStaticData<ProcessorStatic>().FirstOrDefault();
 
             // assert
             Assert.IsType<ProcessorStatic>(sutResult);
@@ -72,7 +72,7 @@ namespace SystemMonitorLibUnitTest.HardwareStatic
             IHardwareStaticBuilder sut = new HardwareStaticBuilder(wMIClientMock.Object);
 
             // act
-            var sutResult = (ProcessorStatic)sut.GetHardwareStaticData(new ProcessorStatic()).FirstOrDefault();
+            var sutResult = sut.GetHardwareStaticData<ProcessorStatic>().FirstOrDefault();
 
             // assert
             Assert.IsType<ProcessorStatic>(sutResult);
@@ -111,7 +111,7 @@ namespace SystemMonitorLibUnitTest.HardwareStatic
             IHardwareStaticBuilder sut = new HardwareStaticBuilder(wMIClientMock.Object);
 
             // act
-            var sutResult = (Memory)sut.GetHardwareStaticData(new Memory()).FirstOrDefault();
+            var sutResult = sut.GetHardwareStaticData<Memory>().FirstOrDefault();
 
             // assert
             Assert.IsType<Memory>(sutResult);
@@ -149,7 +149,7 @@ namespace SystemMonitorLibUnitTest.HardwareStatic
             IHardwareStaticBuilder sut = new HardwareStaticBuilder(wMIClientMock.Object);
 
             // act
-            var suResult = (Memory)sut.GetHardwareStaticData(new Memory()).FirstOrDefault();
+            var suResult = sut.GetHardwareStaticData<Memory>().FirstOrDefault();
 
             // assert
             Assert.IsType<Memory>(suResult);

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SystemMonitor.HardwareDynamic.Model.Components.Abstract;
+using SystemMonitor.HardwareDynamic.Model.Components.Interface;
 using SystemMonitor.HardwareDynamic.OHMProvider;
 
 namespace SystemMonitor.HardwareDynamic.Builder
@@ -17,9 +18,11 @@ namespace SystemMonitor.HardwareDynamic.Builder
 
         private IOHMProvider OhmMProvider { get; set; }
 
-        public List<HardwareDynamicComponent> GetHardwareDynamicData(HardwareDynamicComponent hardwareDynamicComponent)
+        public List<T> GetHardwareDynamicData<T>()
+            where T : HardwareDynamicComponent, IHardwareDynamicComponent, new()
         {
-            return hardwareDynamicComponent.GetDynamicDataForHardwareComponent(this.OhmMProvider);
+            T hardwareDynamicComponent = new T();
+            return hardwareDynamicComponent.GetDynamicDataForHardwareComponent<T>(this.OhmMProvider);
         }
     }
 }

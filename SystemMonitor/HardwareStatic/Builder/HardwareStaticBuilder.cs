@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using SystemMonitor.HardwareStatic.Model;
 using SystemMonitor.HardwareStatic.Model.Components;
 using SystemMonitor.HardwareStatic.Model.Components.Abstract;
+using SystemMonitor.HardwareStatic.Model.Components.Interface;
 using SystemMonitor.Shared.WMI;
 
 namespace SystemMonitor.HardwareStatic.Builder
@@ -22,17 +23,12 @@ namespace SystemMonitor.HardwareStatic.Builder
 
         private IWMIClient WMIClient { get; set; }
 
-        public List<HardwareStaticComponent> GetHardwareStaticData(HardwareStaticComponent hardwareStaticComponent)
+        public List<T> GetHardwareStaticData<T>()
+             where T : HardwareStaticComponent, IHardwareStaticComponent<T>, new()
         {
+            T hardwareStaticComponent = new T();
             List<ManagementObject> managementObjectList = hardwareStaticComponent.GetManagementObjectsForHardwareComponent(this.WMIClient);
-            List<HardwareStaticComponent> staticData = new List<HardwareStaticComponent>();
-
-            foreach (var managementObject in managementObjectList)
-            {
-                staticData.Add(hardwareStaticComponent.ExtractData(managementObject));
-            }
-
-            return staticData;
+            return hardwareStaticComponent.ExtractData(managementObjectList);
         }
     }
 }

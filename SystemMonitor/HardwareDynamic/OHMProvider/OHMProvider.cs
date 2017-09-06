@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using OpenHardwareMonitor.Hardware;
 using SystemMonitor.HardwareDynamic.Model.Components;
 using SystemMonitor.HardwareDynamic.Model.Components.Abstract;
+using SystemMonitor.HardwareDynamic.Model.Components.Interface;
 using SystemMonitor.HardwareDynamic.Model.CustomProperties;
 using SystemMonitor.HardwareDynamic.Model.CustomProperties.Enum;
 using SystemMonitor.HardwareStatic.Model.CustomProperties.Attributes;
@@ -27,7 +28,21 @@ namespace SystemMonitor.HardwareDynamic.OHMProvider
 
         public Computer Computer { get; private set; }
 
-        public void ExtractDataFromSensors(HardwareDynamicComponent hardwareDynamicComponent, IHardware hardwareItem)
+        public void GetDynamicData<T>(List<T> hardwareDynamicComponentList, IEnumerable<HardwareType> hardwareType)
+            where T : HardwareDynamicComponent, IHardwareDynamicComponent, new()
+        {
+            var hardwareItems = this.Computer.Hardware.Where(x => hardwareType.Contains(x.HardwareType));
+            foreach (var item in hardwareItems)
+            {
+                var dynamicHardwareItem = new T();
+                dynamicHardwareItem.Name = item.Name;
+                item.Update();
+                this.ExtractDataFromSensors(dynamicHardwareItem, item);
+                hardwareDynamicComponentList.Add(dynamicHardwareItem);
+            }
+        }
+
+        private void ExtractDataFromSensors(HardwareDynamicComponent hardwareDynamicComponent, IHardware hardwareItem)
         {
             foreach (var sensor in hardwareItem.Sensors)
             {

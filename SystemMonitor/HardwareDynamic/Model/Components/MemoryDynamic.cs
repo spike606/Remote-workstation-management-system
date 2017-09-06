@@ -5,22 +5,23 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenHardwareMonitor.Hardware;
 using SystemMonitor.HardwareDynamic.Model.Components.Abstract;
+using SystemMonitor.HardwareDynamic.Model.Components.Interface;
 using SystemMonitor.HardwareDynamic.Model.CustomProperties;
 using SystemMonitor.HardwareDynamic.Model.CustomProperties.Enum;
 using SystemMonitor.HardwareDynamic.OHMProvider;
 
 namespace SystemMonitor.HardwareDynamic.Model.Components
 {
-    public class MemoryDynamic : HardwareDynamicComponent
+    public class MemoryDynamic : HardwareDynamicComponent, IHardwareDynamicComponent
     {
-        public override List<HardwareDynamicComponent> GetDynamicDataForHardwareComponent(IOHMProvider ohmProvider)
+        public List<T> GetDynamicDataForHardwareComponent<T>(IOHMProvider ohmProvider)
+            where T : HardwareDynamicComponent, IHardwareDynamicComponent, new()
         {
-            return this.GetDynamicData(ohmProvider, new List<HardwareType>() { HardwareType.RAM }, new MemoryDynamic());
-        }
+            List<T> hardwareDynamicComponentList = new List<T>();
 
-        public override HardwareDynamicComponent GetHardwareDynamicComponentInstance()
-        {
-            return new MemoryDynamic();
+            ohmProvider.GetDynamicData(hardwareDynamicComponentList, new List<HardwareType>() { HardwareType.RAM });
+
+            return hardwareDynamicComponentList;
         }
     }
 }

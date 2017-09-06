@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OpenHardwareMonitor.Hardware;
+using SystemMonitor.HardwareDynamic.Model.Components.Interface;
 using SystemMonitor.HardwareDynamic.Model.CustomProperties;
 using SystemMonitor.HardwareDynamic.OHMProvider;
 
@@ -28,25 +29,5 @@ namespace SystemMonitor.HardwareDynamic.Model.Components.Abstract
         public List<Sensor> Data { get; set; } = new List<Sensor>();
 
         public List<Sensor> Power { get; set; } = new List<Sensor>();
-
-        public abstract List<HardwareDynamicComponent> GetDynamicDataForHardwareComponent(IOHMProvider ohmProvider);
-
-        public abstract HardwareDynamicComponent GetHardwareDynamicComponentInstance();
-
-        public List<HardwareDynamicComponent> GetDynamicData(IOHMProvider ohmProvider, List<HardwareType> hardwareType, HardwareDynamicComponent hardwareDynamicComponent)
-        {
-            List<HardwareDynamicComponent> hardwareDynamicComponentList = new List<HardwareDynamicComponent>();
-            var hardwareItems = ohmProvider.Computer.Hardware.Where(x => hardwareType.Contains(x.HardwareType));
-            foreach (var item in hardwareItems)
-            {
-                var dynamicHardwareItem = hardwareDynamicComponent.GetHardwareDynamicComponentInstance();
-                dynamicHardwareItem.Name = item.Name;
-                item.Update();
-                ohmProvider.ExtractDataFromSensors(dynamicHardwareItem, item);
-                hardwareDynamicComponentList.Add(dynamicHardwareItem);
-            }
-
-            return hardwareDynamicComponentList;
-        }
     }
 }

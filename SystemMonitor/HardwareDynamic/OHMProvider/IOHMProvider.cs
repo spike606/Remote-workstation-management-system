@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenHardwareMonitor.Hardware;
 using SystemMonitor.HardwareDynamic.Model.Components.Abstract;
+using SystemMonitor.HardwareDynamic.Model.Components.Interface;
 using SystemMonitor.HardwareDynamic.Model.CustomProperties;
 using SystemMonitor.HardwareDynamic.Model.CustomProperties.Enum;
 
@@ -14,6 +15,9 @@ namespace SystemMonitor.HardwareDynamic.OHMProvider
     {
         Computer Computer { get; }
 
-        void ExtractDataFromSensors(HardwareDynamicComponent hardwareDynamicComponent, IHardware hardwareItem);
+        void GetDynamicData<T>(
+            List<T> hardwareDynamicComponentList,
+            IEnumerable<HardwareType> hardwareType)
+            where T : HardwareDynamicComponent, IHardwareDynamicComponent, new();
     }
 }

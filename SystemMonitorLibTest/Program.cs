@@ -42,9 +42,9 @@ namespace SystemMonitorLibTest
 
         private static void OnTimedEvent(object source, ElapsedEventArgs e)
         {
-            var data = monitor.GetHardwareDynamicData();
-            Console.WriteLine("Load: value: " + data.Processor.First().Load.First().Value + "max: " + data.Processor.First().Load.First().MaxValue);
-            Console.WriteLine("Clock: value: " + data.Processor.First().Clock.First().Value + "max: " + data.Processor.First().Clock.First().MaxValue);
+            //var data = monitor.GetHardwareDynamicData();
+            //Console.WriteLine("Load: value: " + data.Processor.First().Load.First().Value + "max: " + data.Processor.First().Load.First().MaxValue);
+            //Console.WriteLine("Clock: value: " + data.Processor.First().Clock.First().Value + "max: " + data.Processor.First().Clock.First().MaxValue);
 
         }
 

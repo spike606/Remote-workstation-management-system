@@ -7,6 +7,7 @@ using NLog;
 using SystemMonitor.HardwareDynamic.Builder;
 using SystemMonitor.HardwareDynamic.Model;
 using SystemMonitor.HardwareDynamic.Model.Components;
+using SystemMonitor.HardwareDynamic.Model.Components.Interface;
 using SystemMonitor.HardwareStatic.Analyzer;
 using SystemMonitor.HardwareStatic.Builder;
 using SystemMonitor.HardwareStatic.Model;
@@ -47,11 +48,11 @@ namespace SystemMonitor.DataBuilder
         public HardwareDynamicData GetHardwareDynamicData()
         {
             HardwareDynamicData data = new HardwareDynamicData();
-            data.Processor = this.HardwareDynamicBuilder.GetHardwareDynamicData(new ProcessorDynamic()).Cast<ProcessorDynamic>().ToList();
-            data.Memory = this.HardwareDynamicBuilder.GetHardwareDynamicData(new MemoryDynamic()).Cast<MemoryDynamic>().ToList();
-            data.Disk = this.HardwareDynamicBuilder.GetHardwareDynamicData(new DiskDynamic()).Cast<DiskDynamic>().ToList();
-            data.MainBoard = this.HardwareDynamicBuilder.GetHardwareDynamicData(new MainBoardDynamic()).Cast<MainBoardDynamic>().ToList();
-            data.VideoController = this.HardwareDynamicBuilder.GetHardwareDynamicData(new VideoControllerDynamic()).Cast<VideoControllerDynamic>().ToList();
+            data.Processor = this.HardwareDynamicBuilder.GetHardwareDynamicData<ProcessorDynamic>();
+            data.Memory = this.HardwareDynamicBuilder.GetHardwareDynamicData<MemoryDynamic>();
+            data.Disk = this.HardwareDynamicBuilder.GetHardwareDynamicData<DiskDynamic>();
+            data.MainBoard = this.HardwareDynamicBuilder.GetHardwareDynamicData<MainBoardDynamic>();
+            data.VideoController = this.HardwareDynamicBuilder.GetHardwareDynamicData<VideoControllerDynamic>();
 
             return data;
         }
@@ -59,30 +60,30 @@ namespace SystemMonitor.DataBuilder
         public HardwareStaticData GetHardwareStaticData()
         {
             HardwareStaticData data = new HardwareStaticData();
-            data.Processor = this.HardwareStaticBuilder.GetHardwareStaticData(new ProcessorStatic()).Cast<ProcessorStatic>().ToList();
-            data.ProcessorCache = this.HardwareStaticBuilder.GetHardwareStaticData(new ProcessorCache()).Cast<ProcessorCache>().ToList();
-            data.Memory = this.HardwareStaticBuilder.GetHardwareStaticData(new Memory()).Cast<Memory>().ToList();
-            data.Disk = this.HardwareStaticBuilder.GetHardwareStaticData(new Disk()).Cast<Disk>().ToList();
-            data.CDROMDrive = this.HardwareStaticBuilder.GetHardwareStaticData(new CDROMDrive()).Cast<CDROMDrive>().ToList();
-            data.BaseBoard = this.HardwareStaticBuilder.GetHardwareStaticData(new BaseBoard()).Cast<BaseBoard>().ToList();
-            data.Fan = this.HardwareStaticBuilder.GetHardwareStaticData(new Fan()).Cast<Fan>().ToList();
-            data.Battery = this.HardwareStaticBuilder.GetHardwareStaticData(new Battery()).Cast<Battery>().ToList();
-            data.NetworkAdapter = this.HardwareStaticBuilder.GetHardwareStaticData(new NetworkAdapter()).Cast<NetworkAdapter>().ToList();
-            data.Printer = this.HardwareStaticBuilder.GetHardwareStaticData(new Printer()).Cast<Printer>().ToList();
-            data.VideoController = this.HardwareStaticBuilder.GetHardwareStaticData(new VideoController()).Cast<VideoController>().ToList();
-            data.PnPEntity = this.HardwareStaticBuilder.GetHardwareStaticData(new PnPEntity()).Cast<PnPEntity>().ToList();
-            data.Volume = this.HardwareStaticBuilder.GetHardwareStaticData(new Volume()).Cast<Volume>().ToList();
-            data.DiskPartition = this.HardwareStaticBuilder.GetHardwareStaticData(new DiskPartition()).Cast<DiskPartition>().ToList();
-            data.SmartFailurePredictData = this.HardwareStaticBuilder.GetHardwareStaticData(new SmartFailurePredictData()).Cast<SmartFailurePredictData>().ToList();
-            data.SmartFailurePredictStatus = this.HardwareStaticBuilder.GetHardwareStaticData(new SmartFailurePredictStatus()).Cast<SmartFailurePredictStatus>().ToList();
-            data.SmartFailurePredictThresholds = this.HardwareStaticBuilder.GetHardwareStaticData(new SmartFailurePredictThresholds()).Cast<SmartFailurePredictThresholds>().ToList();
+            data.Processor = this.HardwareStaticBuilder.GetHardwareStaticData<ProcessorStatic>();
+            data.ProcessorCache = this.HardwareStaticBuilder.GetHardwareStaticData<ProcessorCache>();
+            data.Memory = this.HardwareStaticBuilder.GetHardwareStaticData<Memory>();
+            data.Disk = this.HardwareStaticBuilder.GetHardwareStaticData<Disk>();
+            data.CDROMDrive = this.HardwareStaticBuilder.GetHardwareStaticData<CDROMDrive>();
+            data.BaseBoard = this.HardwareStaticBuilder.GetHardwareStaticData<BaseBoard>();
+            data.Fan = this.HardwareStaticBuilder.GetHardwareStaticData<Fan>();
+            data.Battery = this.HardwareStaticBuilder.GetHardwareStaticData<Battery>();
+            data.NetworkAdapter = this.HardwareStaticBuilder.GetHardwareStaticData<NetworkAdapter>();
+            data.Printer = this.HardwareStaticBuilder.GetHardwareStaticData<Printer>();
+            data.VideoController = this.HardwareStaticBuilder.GetHardwareStaticData<VideoController>();
+            data.PnPEntity = this.HardwareStaticBuilder.GetHardwareStaticData<PnPEntity>();
+            data.Volume = this.HardwareStaticBuilder.GetHardwareStaticData<Volume>();
+            data.DiskPartition = this.HardwareStaticBuilder.GetHardwareStaticData<DiskPartition>();
+            data.SmartFailurePredictData = this.HardwareStaticBuilder.GetHardwareStaticData<SmartFailurePredictData>();
+            data.SmartFailurePredictStatus = this.HardwareStaticBuilder.GetHardwareStaticData<SmartFailurePredictStatus>();
+            data.SmartFailurePredictThresholds = this.HardwareStaticBuilder.GetHardwareStaticData<SmartFailurePredictThresholds>();
             data.SMARTData = this.HardwareStaticAnalyzer.GetSmartData(
                 data.SmartFailurePredictStatus,
                 data.SmartFailurePredictData,
                 data.SmartFailurePredictThresholds);
 
-            data.DiskToPartition = this.HardwareStaticBuilder.GetHardwareStaticData(new DiskToPartition()).Cast<DiskToPartition>().ToList();
-            data.PartitionToVolume = this.HardwareStaticBuilder.GetHardwareStaticData(new PartitionToVolume()).Cast<PartitionToVolume>().ToList();
+            data.DiskToPartition = this.HardwareStaticBuilder.GetHardwareStaticData<DiskToPartition>();
+            data.PartitionToVolume = this.HardwareStaticBuilder.GetHardwareStaticData<PartitionToVolume>();
 
             data.Storage = this.HardwareStaticAnalyzer.GetStorageData(
                 data.Disk,
@@ -102,6 +103,8 @@ namespace SystemMonitor.DataBuilder
             data.InstalledProgram = this.SoftwareStaticBuilder.GetSoftwareStaticData(new InstalledProgram()).Cast<InstalledProgram>().ToList();
             data.StartupCommand = this.SoftwareStaticBuilder.GetSoftwareStaticData(new StartupCommand()).Cast<StartupCommand>().ToList();
             data.MicrosoftWindowsUpdate = this.SoftwareStaticBuilder.GetSoftwareStaticData(new MicrosoftWindowsUpdate()).Cast<MicrosoftWindowsUpdate>().ToList();
+            data.LocalUser = this.SoftwareStaticBuilder.GetSoftwareStaticData(new LocalUser()).Cast<LocalUser>().ToList();
+            data.CurrentUser = this.SoftwareStaticBuilder.GetSoftwareStaticData(new ComputerSystem()).Cast<ComputerSystem>().ToList();
             return data;
         }
     }

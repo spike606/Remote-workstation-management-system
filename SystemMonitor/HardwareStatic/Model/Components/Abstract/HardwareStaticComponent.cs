@@ -17,9 +17,5 @@ namespace SystemMonitor.HardwareStatic.Model.Components.Abstract
         public string Description { get; protected set; }
 
         public string Status { get; protected set; }
-
-        public abstract List<ManagementObject> GetManagementObjectsForHardwareComponent(IWMIClient wMIClient);
-
-        public abstract HardwareStaticComponent ExtractData(ManagementObject managementObject);
     }
 }

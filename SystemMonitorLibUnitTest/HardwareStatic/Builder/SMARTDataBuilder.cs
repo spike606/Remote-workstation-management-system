@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using SystemMonitor.HardwareStatic.Analyzer;
 using SystemMonitor.HardwareStatic.Model.Components.Analyzed;
-using SystemMonitor.HardwareStatic.Model.CustomProperties;
 using SystemMonitor.HardwareStatic.Model.CustomProperties.Enums;
 
 namespace SystemMonitorLibUnitTest.HardwareStatic.Builder

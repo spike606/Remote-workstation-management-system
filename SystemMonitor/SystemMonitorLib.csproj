@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SystemMonitor</RootNamespace>
     <AssemblyName>SystemMonitor</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -68,6 +68,7 @@
     <Compile Include="HardwareDynamic\Builder\IHardwareDynamicBuilder.cs" />
     <Compile Include="HardwareDynamic\Model\Components\Abstract\HardwareDynamicComponent.cs" />
     <Compile Include="HardwareDynamic\Model\Components\DiskDynamic.cs" />
+    <Compile Include="HardwareDynamic\Model\Components\Interface\IHardwareDynamicComponent.cs" />
     <Compile Include="HardwareDynamic\Model\Components\MainBoardDynamic.cs" />
     <Compile Include="HardwareDynamic\Model\Components\MemoryDynamic.cs" />
     <Compile Include="HardwareDynamic\Model\Components\ProcessorDynamic.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="HardwareStatic\Model\Components\Abstract\HardwareStaticComponent.cs" />
     <Compile Include="HardwareStatic\Model\Components\Analyzed\LogicalPartition.cs" />
     <Compile Include="HardwareStatic\Model\Components\Analyzed\Partition.cs" />
+    <Compile Include="HardwareStatic\Model\Components\Analyzed\SMARTData.cs" />
     <Compile Include="HardwareStatic\Model\Components\Analyzed\Storage.cs" />
     <Compile Include="HardwareStatic\Model\Components\BaseBoard.cs" />
     <Compile Include="HardwareStatic\Model\Components\Battery.cs" />
@@ -93,12 +95,13 @@
     <Compile Include="HardwareStatic\Model\Components\DiskPartition.cs" />
     <Compile Include="HardwareStatic\Model\Components\DiskToPartition.cs" />
     <Compile Include="HardwareStatic\Model\Components\Fan.cs" />
+    <Compile Include="HardwareStatic\Model\Components\Interface\IHardwareStaticComponent.cs" />
     <Compile Include="HardwareStatic\Model\Components\Memory.cs" />
     <Compile Include="HardwareStatic\Model\Components\NetworkAdapter.cs" />
+    <Compile Include="HardwareStatic\Model\Components\PartitionToVolume.cs" />
     <Compile Include="HardwareStatic\Model\Components\PnPEntity.cs" />
     <Compile Include="HardwareStatic\Model\Components\Printer.cs" />
     <Compile Include="HardwareStatic\Model\Components\ProcessorCache.cs" />
-    <Compile Include="HardwareStatic\Model\Components\Analyzed\SMARTData.cs" />
     <Compile Include="HardwareStatic\Model\Components\ProcessorStatic.cs" />
     <Compile Include="HardwareStatic\Model\Components\SmartFailurePredictData.cs" />
     <Compile Include="HardwareStatic\Model\Components\SmartFailurePredictStatus.cs" />
@@ -118,7 +121,6 @@
     <Compile Include="Shared\CustomProperties\Unit.cs" />
     <Compile Include="Shared\CustomProperties\UnitValue.cs" />
     <Compile Include="HardwareStatic\Model\HardwareStaticData.cs" />
-    <Compile Include="HardwareStatic\Model\Components\PartitionToVolume.cs" />
     <Compile Include="Shared\ConstString.cs" />
     <Compile Include="Shared\DateTimeHelper.cs" />
     <Compile Include="Shared\WMI\IWMIClient.cs" />
@@ -132,7 +134,9 @@
     <Compile Include="SoftwareStatic\Builder\SoftwareStaticBuilder.cs" />
     <Compile Include="SoftwareStatic\Model\Components\Abstract\SoftwareStaticComponent.cs" />
     <Compile Include="SoftwareStatic\Model\Components\Bios.cs" />
+    <Compile Include="SoftwareStatic\Model\Components\ComputerSystem.cs" />
     <Compile Include="SoftwareStatic\Model\Components\InstalledProgram.cs" />
+    <Compile Include="SoftwareStatic\Model\Components\LocalUser.cs" />
     <Compile Include="SoftwareStatic\Model\Components\MicrosoftWindowsUpdate.cs" />
     <Compile Include="SoftwareStatic\Model\Components\OS.cs" />
     <Compile Include="SoftwareStatic\Model\Components\StartupCommand.cs" />

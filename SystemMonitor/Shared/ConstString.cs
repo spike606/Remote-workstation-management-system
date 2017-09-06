@@ -270,5 +270,18 @@ namespace SystemMonitor.HardwareStatic
         internal const string QUICK_FIX_ENGINEERING_INSTALLED_ON = "InstalledOn";
         internal const string QUICK_FIX_ENGINEERING_SERVICE_PACK_IN_EFFECT = "ServicePackInEffect";
 
+        internal const string WMI_QUERY_LOCAL_USER = "select * from Win32_UserAccount where LocalAccount=true";
+        internal const string LOCAL_USER_ACCOUNT_TYPE = "AccountType";
+        internal const string LOCAL_USER_DOMAIN = "Domain";
+        internal const string LOCAL_USER_FULL_NAME = "FullName";
+        internal const string LOCAL_USER_PASSWORD_CHANGEABLE = "PasswordChangeable";
+        internal const string LOCAL_USER_PASSWORD_EXPIRES = "PasswordExpires";
+        internal const string LOCAL_USER_PASSWORD_REQUIRED = "PasswordRequired";
+        internal const string LOCAL_USER_SID = "SID";
+        internal const string LOCAL_USER_SID_TYPE = "SIDType";
+
+        internal const string WMI_QUERY_STARTUP_COMPUTER_SYSTEM = "select * from Win32_ComputerSystem";
+        internal const string COMPUTER_SYSTEM_ADMIN_PASSWORD_STATUS = "CSName";
+        internal const string COMPUTER_SYSTEM_ = "FixComments";
     }
 }

@@ -5,6 +5,7 @@ using System.Management;
 using System.Text;
 using System.Threading.Tasks;
 using SystemMonitor.HardwareStatic.Model.Components.Abstract;
+using SystemMonitor.HardwareStatic.Model.Components.Interface;
 using SystemMonitor.HardwareStatic.Model.CustomProperties;
 using SystemMonitor.HardwareStatic.Model.CustomProperties.Attributes;
 using SystemMonitor.HardwareStatic.Model.CustomProperties.Enums;
@@ -12,7 +13,7 @@ using SystemMonitor.Shared.WMI;
 
 namespace SystemMonitor.HardwareStatic.Model.Components
 {
-    public class NetworkAdapter : HardwareStaticComponent
+    public class NetworkAdapter : HardwareStaticComponent, IHardwareStaticComponent<NetworkAdapter>
     {
         // based on docs: https://msdn.microsoft.com/en-us/library/aa394216(v=vs.85).aspx
         public UnitValue ActiveMaximumTransmissionUnit { get; private set; }
@@ -47,53 +48,60 @@ namespace SystemMonitor.HardwareStatic.Model.Components
 
         public string Virtual { get; private set; }
 
-        public override List<ManagementObject> GetManagementObjectsForHardwareComponent(IWMIClient wMIClient)
+        public List<ManagementObject> GetManagementObjectsForHardwareComponent(IWMIClient wMIClient)
         {
             return wMIClient.RetriveListOfObjectsByExecutingWMIQuery(ConstString.WMI_NAMESPACE_ROOT_STANDARD_CIMV2, ConstString.WMI_QUERY_NETWORK_ADAPTER);
         }
 
-        public override HardwareStaticComponent ExtractData(ManagementObject managementObject)
+        public List<NetworkAdapter> ExtractData(List<ManagementObject> managementObjectList)
         {
-            NetworkAdapter networkAdapter = new NetworkAdapter();
-            networkAdapter.ActiveMaximumTransmissionUnit = new UnitValue(Unit.B, managementObject[ConstString.NETWORK_ADAPTER_MAXIMUM_MTU]?.ToString() ?? string.Empty);
-            networkAdapter.Caption = managementObject[ConstString.COMPONENT_CAPTION]?.ToString() ?? string.Empty;
-            networkAdapter.ComponentID = managementObject[ConstString.NETWORK_ADAPTER_COMPONENT_ID]?.ToString() ?? string.Empty;
-            networkAdapter.ConnectorPresent = managementObject[ConstString.NETWORK_ADAPTER_CONNECTOR_PRESENT]?.ToString() ?? string.Empty;
-            networkAdapter.Description = managementObject[ConstString.COMPONENT_DESCRIPTION]?.ToString() ?? string.Empty;
-            networkAdapter.DeviceID = managementObject[ConstString.NETWORK_ADAPTER_DEVICE_ID]?.ToString() ?? string.Empty;
-            networkAdapter.DeviceName = managementObject[ConstString.NETWORK_ADAPTER_DRIVER_NAME]?.ToString() ?? string.Empty;
-            networkAdapter.DriverDate = managementObject[ConstString.NETWORK_ADAPTER_DRIVER_DATE]?.ToString() ?? string.Empty;
-            networkAdapter.DriverDescription = managementObject[ConstString.NETWORK_ADAPTER_DRIVER_DESCRIPTION]?.ToString() ?? string.Empty;
-            networkAdapter.DriverName = managementObject[ConstString.NETWORK_ADAPTER_DRIVER_NAME]?.ToString() ?? string.Empty;
-            networkAdapter.DriverProvider = managementObject[ConstString.NETWORK_ADAPTER_DRIVER_PROVIDER]?.ToString() ?? string.Empty;
-            networkAdapter.DriverVersionString = managementObject[ConstString.NETWORK_ADAPTER_DRIVER_VERSION_STRING]?.ToString() ?? string.Empty;
-            networkAdapter.InterfaceDescription = managementObject[ConstString.NETWORK_ADAPTER_INTERFACE_DESCRIPTION]?.ToString() ?? string.Empty;
-            networkAdapter.InterfaceName = managementObject[ConstString.NETWORK_ADAPTER_INTERFACE_NAME]?.ToString() ?? string.Empty;
-            networkAdapter.Name = managementObject[ConstString.COMPONENT_NAME]?.ToString() ?? string.Empty;
+            List<NetworkAdapter> staticData = new List<NetworkAdapter>();
 
-            if (managementObject[ConstString.NETWORK_ADAPTER_NDIS_MEDIUM] != null)
+            foreach (var managementObject in managementObjectList)
             {
-                networkAdapter.NdisMedium = ((NdisMediumEnum)((uint)managementObject[ConstString.NETWORK_ADAPTER_NDIS_MEDIUM])).GetEnumDescription();
-            }
-            else
-            {
-                networkAdapter.NdisMedium = string.Empty;
+                NetworkAdapter networkAdapter = new NetworkAdapter();
+                networkAdapter.ActiveMaximumTransmissionUnit = new UnitValue(Unit.B, managementObject[ConstString.NETWORK_ADAPTER_MAXIMUM_MTU]?.ToString() ?? string.Empty);
+                networkAdapter.Caption = managementObject[ConstString.COMPONENT_CAPTION]?.ToString() ?? string.Empty;
+                networkAdapter.ComponentID = managementObject[ConstString.NETWORK_ADAPTER_COMPONENT_ID]?.ToString() ?? string.Empty;
+                networkAdapter.ConnectorPresent = managementObject[ConstString.NETWORK_ADAPTER_CONNECTOR_PRESENT]?.ToString() ?? string.Empty;
+                networkAdapter.Description = managementObject[ConstString.COMPONENT_DESCRIPTION]?.ToString() ?? string.Empty;
+                networkAdapter.DeviceID = managementObject[ConstString.NETWORK_ADAPTER_DEVICE_ID]?.ToString() ?? string.Empty;
+                networkAdapter.DeviceName = managementObject[ConstString.NETWORK_ADAPTER_DRIVER_NAME]?.ToString() ?? string.Empty;
+                networkAdapter.DriverDate = managementObject[ConstString.NETWORK_ADAPTER_DRIVER_DATE]?.ToString() ?? string.Empty;
+                networkAdapter.DriverDescription = managementObject[ConstString.NETWORK_ADAPTER_DRIVER_DESCRIPTION]?.ToString() ?? string.Empty;
+                networkAdapter.DriverName = managementObject[ConstString.NETWORK_ADAPTER_DRIVER_NAME]?.ToString() ?? string.Empty;
+                networkAdapter.DriverProvider = managementObject[ConstString.NETWORK_ADAPTER_DRIVER_PROVIDER]?.ToString() ?? string.Empty;
+                networkAdapter.DriverVersionString = managementObject[ConstString.NETWORK_ADAPTER_DRIVER_VERSION_STRING]?.ToString() ?? string.Empty;
+                networkAdapter.InterfaceDescription = managementObject[ConstString.NETWORK_ADAPTER_INTERFACE_DESCRIPTION]?.ToString() ?? string.Empty;
+                networkAdapter.InterfaceName = managementObject[ConstString.NETWORK_ADAPTER_INTERFACE_NAME]?.ToString() ?? string.Empty;
+                networkAdapter.Name = managementObject[ConstString.COMPONENT_NAME]?.ToString() ?? string.Empty;
+
+                if (managementObject[ConstString.NETWORK_ADAPTER_NDIS_MEDIUM] != null)
+                {
+                    networkAdapter.NdisMedium = ((NdisMediumEnum)((uint)managementObject[ConstString.NETWORK_ADAPTER_NDIS_MEDIUM])).GetEnumDescription();
+                }
+                else
+                {
+                    networkAdapter.NdisMedium = string.Empty;
+                }
+
+                if (managementObject[ConstString.NETWORK_ADAPTER_NDIS_PHYSICAL_MEDIUM] != null)
+                {
+                    networkAdapter.NdisPhysicalMedium = ((NdisPhysicalMediumEnum)((uint)managementObject[ConstString.NETWORK_ADAPTER_NDIS_PHYSICAL_MEDIUM])).ToString();
+                }
+                else
+                {
+                    networkAdapter.NdisPhysicalMedium = string.Empty;
+                }
+
+                networkAdapter.PermanentAddress = managementObject[ConstString.NETWORK_ADAPTER_PERMANENT_ADDRESS]?.ToString() ?? string.Empty;
+                networkAdapter.Status = managementObject[ConstString.COMPONENT_STATUS]?.ToString() ?? string.Empty;
+                networkAdapter.Virtual = managementObject[ConstString.NETWORK_ADAPTER_VIRTUAL]?.ToString() ?? string.Empty;
+
+                staticData.Add(networkAdapter);
             }
 
-            if (managementObject[ConstString.NETWORK_ADAPTER_NDIS_PHYSICAL_MEDIUM] != null)
-            {
-                networkAdapter.NdisPhysicalMedium = ((NdisPhysicalMediumEnum)((uint)managementObject[ConstString.NETWORK_ADAPTER_NDIS_PHYSICAL_MEDIUM])).ToString();
-            }
-            else
-            {
-                networkAdapter.NdisPhysicalMedium = string.Empty;
-            }
-
-            networkAdapter.PermanentAddress = managementObject[ConstString.NETWORK_ADAPTER_PERMANENT_ADDRESS]?.ToString() ?? string.Empty;
-            networkAdapter.Status = managementObject[ConstString.COMPONENT_STATUS]?.ToString() ?? string.Empty;
-            networkAdapter.Virtual = managementObject[ConstString.NETWORK_ADAPTER_VIRTUAL]?.ToString() ?? string.Empty;
-
-            return networkAdapter;
+            return staticData;
         }
     }
 }
