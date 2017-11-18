@@ -12,6 +12,7 @@ using System.ServiceProcess;
 using Microsoft.Win32;
 using SystemMonitor.SoftwareStatic.Model;
 using SystemMonitor.SoftwareStatic.Model.Components;
+using System.Diagnostics;
 
 namespace SystemMonitorLibTest
 {
@@ -24,7 +25,7 @@ namespace SystemMonitorLibTest
             HardwareDynamicData hardwareDynamicData = monitor.GetHardwareDynamicData();
             HardwareStaticData hardwareStaticData = monitor.GetHardwareStaticData();
             SoftwareStaticData softwareStaticData = monitor.GetSoftwareStaticData();
-
+            EventLog[] eventLogs = EventLog.GetEventLogs();
             foreach (var item in softwareStaticData.InstalledProgram)
             {
                 Console.WriteLine(item.Name);

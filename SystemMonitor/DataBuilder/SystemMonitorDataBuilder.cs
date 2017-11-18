@@ -104,7 +104,7 @@ namespace SystemMonitor.DataBuilder
             data.StartupCommand = this.SoftwareStaticBuilder.GetSoftwareStaticData<StartupCommand>();
             data.MicrosoftWindowsUpdate = this.SoftwareStaticBuilder.GetSoftwareStaticData<MicrosoftWindowsUpdate>();
             data.LocalUser = this.SoftwareStaticBuilder.GetSoftwareStaticData<LocalUser>();
-            //data.CurrentUser = this.SoftwareStaticBuilder.GetSoftwareStaticData<ComputerSystem>();
+            data.CurrentUser = this.SoftwareStaticBuilder.GetSoftwareStaticData<CurrentUser>();
             return data;
         }
     }

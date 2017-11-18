@@ -23,6 +23,6 @@ namespace SystemMonitor.SoftwareStatic.Model
 
         public List<LocalUser> LocalUser { get; set; }
 
-        public List<ComputerSystem> CurrentUser { get; set; }
+        public List<CurrentUser> CurrentUser { get; set; }
     }
 }

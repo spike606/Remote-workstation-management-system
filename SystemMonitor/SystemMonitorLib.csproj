@@ -133,7 +133,7 @@
     <Compile Include="SoftwareStatic\Builder\ISoftwareStaticBuilder.cs" />
     <Compile Include="SoftwareStatic\Builder\SoftwareStaticBuilder.cs" />
     <Compile Include="SoftwareStatic\Model\Components\Bios.cs" />
-    <Compile Include="SoftwareStatic\Model\Components\ComputerSystem.cs" />
+    <Compile Include="SoftwareStatic\Model\Components\CurrentUser.cs" />
     <Compile Include="SoftwareStatic\Model\Components\InstalledProgram.cs" />
     <Compile Include="SoftwareStatic\Model\Components\Interface\ISoftwareStaticComponent.cs" />
     <Compile Include="SoftwareStatic\Model\Components\LocalUser.cs" />
