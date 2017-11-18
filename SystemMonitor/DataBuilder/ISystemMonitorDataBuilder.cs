@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SystemMonitor.HardwareDynamic.Model;
 using SystemMonitor.HardwareStatic.Model;
+using SystemMonitor.SoftwareDynamic.Model;
 using SystemMonitor.SoftwareStatic.Model;
 
 namespace SystemMonitor.DataBuilder
@@ -16,5 +17,7 @@ namespace SystemMonitor.DataBuilder
         HardwareDynamicData GetHardwareDynamicData();
 
         SoftwareStaticData GetSoftwareStaticData();
+
+        SoftwareDynamicData GetSoftwareDynamicData();
     }
 }

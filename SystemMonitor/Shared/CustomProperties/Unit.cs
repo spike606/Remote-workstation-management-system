@@ -18,5 +18,6 @@ namespace SystemMonitor.HardwareStatic.Model.CustomProperties
         internal const string MWH = "mWh";
         internal const string PX = "pixel";
         internal const string Minutes = "minutes";
+        internal const string Days = "days";
     }
 }

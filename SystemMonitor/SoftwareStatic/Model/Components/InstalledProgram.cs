@@ -8,7 +8,7 @@ using Microsoft.Win32;
 using SystemMonitor.HardwareStatic;
 using SystemMonitor.Shared;
 using SystemMonitor.SoftwareStatic.Model.Components.Interface;
-using SystemMonitor.SoftwareStatic.SoftwareStaticProvider;
+using SystemMonitor.SoftwareStatic.Provider;
 
 namespace SystemMonitor.SoftwareStatic.Model.Components
 {

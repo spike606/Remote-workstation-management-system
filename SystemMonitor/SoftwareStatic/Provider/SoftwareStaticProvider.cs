@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 using Microsoft.Win32;
 using SystemMonitor.Shared.WMI;
 using SystemMonitor.SoftwareStatic.Model.Components.Interface;
+using SystemMonitor.SoftwareStatic.Provider;
 
-namespace SystemMonitor.SoftwareStatic.SoftwareStaticProvider
+namespace SystemMonitor.SoftwareStatic.Provider
 {
     public class SoftwareStaticProvider : ISoftwareStaticProvider
     {
@@ -19,11 +20,6 @@ namespace SystemMonitor.SoftwareStatic.SoftwareStaticProvider
         }
 
         private IWMIClient WMIClient { get; set; }
-
-        public ServiceController[] GetAllWindowsServices()
-        {
-            return ServiceController.GetServices();
-        }
 
         public List<T> GetSoftwareStaticDataFromWMI<T>()
             where T : IWMISoftwareStaticComponent<T>, new()

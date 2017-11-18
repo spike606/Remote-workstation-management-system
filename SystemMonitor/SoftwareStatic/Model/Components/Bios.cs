@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using SystemMonitor.HardwareStatic;
 using SystemMonitor.Shared.WMI;
 using SystemMonitor.SoftwareStatic.Model.Components.Interface;
-using SystemMonitor.SoftwareStatic.SoftwareStaticProvider;
+using SystemMonitor.SoftwareStatic.Provider;
 
 namespace SystemMonitor.SoftwareStatic.Model.Components
 {

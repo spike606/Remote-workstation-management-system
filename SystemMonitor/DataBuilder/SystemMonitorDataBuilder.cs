@@ -13,6 +13,9 @@ using SystemMonitor.HardwareStatic.Builder;
 using SystemMonitor.HardwareStatic.Model;
 using SystemMonitor.HardwareStatic.Model.Components;
 using SystemMonitor.NLogger;
+using SystemMonitor.SoftwareDynamic.Builder;
+using SystemMonitor.SoftwareDynamic.Model;
+using SystemMonitor.SoftwareDynamic.Model.Components;
 using SystemMonitor.SoftwareStatic.Builder;
 using SystemMonitor.SoftwareStatic.Model;
 using SystemMonitor.SoftwareStatic.Model.Components;
@@ -26,13 +29,15 @@ namespace SystemMonitor.DataBuilder
                 IHardwareStaticBuilder hardwareStaticBuilder,
                 IHardwareStaticAnalyzer hardwareStaticAnalyzer,
                 IHardwareDynamicBuilder hardwareDynamicBuilder,
-                ISoftwareStaticBuilder softwareStaticBuilder)
+                ISoftwareStaticBuilder softwareStaticBuilder,
+                ISoftwareDynamicBuilder softwareDynamicBuilder)
         {
             this.Logger = logger;
             this.HardwareStaticBuilder = hardwareStaticBuilder;
             this.HardwareStaticAnalyzer = hardwareStaticAnalyzer;
             this.HardwareDynamicBuilder = hardwareDynamicBuilder;
             this.SoftwareStaticBuilder = softwareStaticBuilder;
+            this.SoftwareDynamicBuilder = softwareDynamicBuilder;
         }
 
         private INLogger Logger { get; set; }
@@ -44,6 +49,8 @@ namespace SystemMonitor.DataBuilder
         private IHardwareDynamicBuilder HardwareDynamicBuilder { get; set; }
 
         private ISoftwareStaticBuilder SoftwareStaticBuilder { get; set; }
+
+        private ISoftwareDynamicBuilder SoftwareDynamicBuilder { get; set; }
 
         public HardwareDynamicData GetHardwareDynamicData()
         {
@@ -94,10 +101,18 @@ namespace SystemMonitor.DataBuilder
             return data;
         }
 
+        public SoftwareDynamicData GetSoftwareDynamicData()
+        {
+            SoftwareDynamicData data = new SoftwareDynamicData();
+            data.WindowsService = this.SoftwareDynamicBuilder.GetSoftwareDynamicData<WindowsService>();
+            data.WindowsLog = this.SoftwareDynamicBuilder.GetSoftwareDynamicData<WindowsLog>();
+
+            return data;
+        }
+
         public SoftwareStaticData GetSoftwareStaticData()
         {
             SoftwareStaticData data = new SoftwareStaticData();
-            data.WindowsService = this.SoftwareStaticBuilder.GetSoftwareStaticData<WindowsService>();
             data.Bios = this.SoftwareStaticBuilder.GetSoftwareStaticData<Bios>();
             data.OperatingSystem = this.SoftwareStaticBuilder.GetSoftwareStaticData<OS>();
             data.InstalledProgram = this.SoftwareStaticBuilder.GetSoftwareStaticData<InstalledProgram>();

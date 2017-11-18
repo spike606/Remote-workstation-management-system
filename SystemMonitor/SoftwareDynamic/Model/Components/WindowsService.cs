@@ -4,12 +4,14 @@ using System.Linq;
 using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
+using SystemMonitor.SoftwareDynamic.Model.Components.Interface;
+using SystemMonitor.SoftwareDynamic.Provider;
 using SystemMonitor.SoftwareStatic.Model.Components.Interface;
-using SystemMonitor.SoftwareStatic.SoftwareStaticProvider;
+using SystemMonitor.SoftwareStatic.Provider;
 
-namespace SystemMonitor.SoftwareStatic.Model.Components
+namespace SystemMonitor.SoftwareDynamic.Model.Components
 {
-    public class WindowsService : ISoftwareStaticComponent<WindowsService>
+    public class WindowsService : ISoftwareDynamicComponent<WindowsService>
     {
         public string CanPauseAndContinue { get; set; }
 
@@ -27,10 +29,10 @@ namespace SystemMonitor.SoftwareStatic.Model.Components
 
         public string Status { get; set; }
 
-        public List<WindowsService> GetStaticDataForSoftwareComponent(ISoftwareStaticProvider softwareStaticProvider)
+        public List<WindowsService> GetDynamicDataForSoftwareComponent(ISoftwareDynamicProvider softwareDynamicProvider)
         {
             List<WindowsService> windowsServices = new List<WindowsService>();
-            var services = softwareStaticProvider.GetAllWindowsServices();
+            var services = softwareDynamicProvider.GetWindowsServices();
             foreach (var service in services)
             {
                 WindowsService windowsService = new WindowsService();

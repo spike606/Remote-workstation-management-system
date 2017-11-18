@@ -130,6 +130,13 @@
     <Compile Include="Shared\WMI\IWMISoftwareStaticComponent.cs" />
     <Compile Include="Shared\WMI\WMIClient.cs" />
     <Compile Include="DataBuilder\SystemMonitorDataBuilder.cs" />
+    <Compile Include="SoftwareDynamic\Builder\ISoftwareDynamicBuilder.cs" />
+    <Compile Include="SoftwareDynamic\Builder\SoftwareDynamicBuilder.cs" />
+    <Compile Include="SoftwareDynamic\Model\Components\Interface\ISoftwareDynamicComponent.cs" />
+    <Compile Include="SoftwareDynamic\Model\Components\WindowsLog.cs" />
+    <Compile Include="SoftwareDynamic\Model\SoftwareDynamicData.cs" />
+    <Compile Include="SoftwareDynamic\Provider\ISoftwareDynamicProvider.cs" />
+    <Compile Include="SoftwareDynamic\Provider\SoftwareDynamicProvider.cs" />
     <Compile Include="SoftwareStatic\Builder\ISoftwareStaticBuilder.cs" />
     <Compile Include="SoftwareStatic\Builder\SoftwareStaticBuilder.cs" />
     <Compile Include="SoftwareStatic\Model\Components\Bios.cs" />
@@ -140,10 +147,10 @@
     <Compile Include="SoftwareStatic\Model\Components\MicrosoftWindowsUpdate.cs" />
     <Compile Include="SoftwareStatic\Model\Components\OS.cs" />
     <Compile Include="SoftwareStatic\Model\Components\StartupCommand.cs" />
-    <Compile Include="SoftwareStatic\Model\Components\WindowsService.cs" />
+    <Compile Include="SoftwareDynamic\Model\Components\WindowsService.cs" />
     <Compile Include="SoftwareStatic\Model\SoftwareStaticData.cs" />
-    <Compile Include="SoftwareStatic\SoftwareStaticProvider\ISoftwareStaticProvider.cs" />
-    <Compile Include="SoftwareStatic\SoftwareStaticProvider\SoftwareStaticProvider.cs" />
+    <Compile Include="SoftwareStatic\Provider\ISoftwareStaticProvider.cs" />
+    <Compile Include="SoftwareStatic\Provider\SoftwareStaticProvider.cs" />
     <Compile Include="WorkstationMonitor.cs" />
   </ItemGroup>
   <ItemGroup>

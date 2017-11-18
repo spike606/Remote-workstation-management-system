@@ -8,12 +8,10 @@ using Microsoft.Win32;
 using SystemMonitor.Shared.WMI;
 using SystemMonitor.SoftwareStatic.Model.Components.Interface;
 
-namespace SystemMonitor.SoftwareStatic.SoftwareStaticProvider
+namespace SystemMonitor.SoftwareStatic.Provider
 {
     public interface ISoftwareStaticProvider
     {
-        ServiceController[] GetAllWindowsServices();
-
         List<T> GetSoftwareStaticDataFromWMI<T>()
             where T : IWMISoftwareStaticComponent<T>, new();
     }
