@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Win32;
 using SystemMonitor.Shared.WMI;
-using SystemMonitor.SoftwareStatic.Model.Components.Abstract;
+using SystemMonitor.SoftwareStatic.Model.Components.Interface;
 
 namespace SystemMonitor.SoftwareStatic.SoftwareStaticProvider
 {
@@ -25,17 +25,19 @@ namespace SystemMonitor.SoftwareStatic.SoftwareStaticProvider
             return ServiceController.GetServices();
         }
 
-        public List<SoftwareStaticComponent> GetSoftwareStaticDataFromWMI(IWMISoftwareStaticComponent wmiComponent)
+        public List<T> GetSoftwareStaticDataFromWMI<T>()
+            where T : IWMISoftwareStaticComponent<T>, new()
         {
-            List<ManagementObject> managementObjectList = wmiComponent.GetManagementObjectsForSoftwareComponent(this.WMIClient);
-            List<SoftwareStaticComponent> staticData = new List<SoftwareStaticComponent>();
+            List<T> softwareStaticDataList = new List<T>();
+            var softwareStaticData = new T();
+            List<ManagementObject> managementObjectList = softwareStaticData.GetManagementObjectsForSoftwareComponent(this.WMIClient);
 
             foreach (var managementObject in managementObjectList)
             {
-                staticData.Add(wmiComponent.ExtractData(managementObject));
+                softwareStaticDataList.Add(softwareStaticData.ExtractData(managementObject));
             }
 
-            return staticData;
+            return softwareStaticDataList;
         }
     }
 }

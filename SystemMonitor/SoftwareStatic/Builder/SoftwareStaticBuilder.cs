@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SystemMonitor.Shared.WMI;
-using SystemMonitor.SoftwareStatic.Model.Components.Abstract;
+using SystemMonitor.SoftwareStatic.Model.Components.Interface;
 using SystemMonitor.SoftwareStatic.SoftwareStaticProvider;
 
 namespace SystemMonitor.SoftwareStatic.Builder
@@ -20,8 +20,11 @@ namespace SystemMonitor.SoftwareStatic.Builder
 
         private ISoftwareStaticProvider SoftwareStaticProvider { get; set; }
 
-        public List<SoftwareStaticComponent> GetSoftwareStaticData(SoftwareStaticComponent softwareStaticComponent)
+        public List<T> GetSoftwareStaticData<T>()
+            where T : ISoftwareStaticComponent<T>, new()
         {
+            T softwareStaticComponent = new T();
+
             return softwareStaticComponent.GetStaticDataForSoftwareComponent(this.SoftwareStaticProvider);
         }
     }

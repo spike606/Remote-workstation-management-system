@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Microsoft.Win32;
 using SystemMonitor.HardwareStatic;
 using SystemMonitor.Shared;
-using SystemMonitor.SoftwareStatic.Model.Components.Abstract;
+using SystemMonitor.SoftwareStatic.Model.Components.Interface;
 using SystemMonitor.SoftwareStatic.SoftwareStaticProvider;
 
 namespace SystemMonitor.SoftwareStatic.Model.Components
 {
-    public class InstalledProgram : SoftwareStaticComponent
+    public class InstalledProgram : ISoftwareStaticComponent<InstalledProgram>
     {
         public string InstallLocation { get; set; }
 
@@ -22,9 +22,9 @@ namespace SystemMonitor.SoftwareStatic.Model.Components
 
         public string Version { get; set; }
 
-        public override List<SoftwareStaticComponent> GetStaticDataForSoftwareComponent(ISoftwareStaticProvider softwareStaticProvider)
+        public List<InstalledProgram> GetStaticDataForSoftwareComponent(ISoftwareStaticProvider softwareStaticProvider)
         {
-            List<SoftwareStaticComponent> installedPrograms = new List<SoftwareStaticComponent>();
+            List<InstalledProgram> installedPrograms = new List<InstalledProgram>();
 
             this.GetProgramsFromRegistryKey(installedPrograms, RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).OpenSubKey(ConstString.REGISTRY_INSTALLED_PROGRAMS_64));
             this.GetProgramsFromRegistryKey(installedPrograms, RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry32).OpenSubKey(ConstString.REGISTRY_INSTALLED_PROGRAMS_32));
@@ -33,7 +33,7 @@ namespace SystemMonitor.SoftwareStatic.Model.Components
             return sortedInstalledPrograms;
         }
 
-        private void GetProgramsFromRegistryKey(List<SoftwareStaticComponent> installedPrograms, RegistryKey registryKey)
+        private void GetProgramsFromRegistryKey(List<InstalledProgram> installedPrograms, RegistryKey registryKey)
         {
             using (registryKey)
             {

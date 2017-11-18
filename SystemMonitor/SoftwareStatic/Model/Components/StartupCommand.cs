@@ -6,12 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using SystemMonitor.HardwareStatic;
 using SystemMonitor.Shared.WMI;
-using SystemMonitor.SoftwareStatic.Model.Components.Abstract;
+using SystemMonitor.SoftwareStatic.Model.Components.Interface;
 using SystemMonitor.SoftwareStatic.SoftwareStaticProvider;
 
 namespace SystemMonitor.SoftwareStatic.Model.Components
 {
-    public class StartupCommand : SoftwareStaticComponent, IWMISoftwareStaticComponent
+    public class StartupCommand : ISoftwareStaticComponent<StartupCommand>, IWMISoftwareStaticComponent<StartupCommand>
     {
         public string Caption { get; set; }
 
@@ -29,7 +29,7 @@ namespace SystemMonitor.SoftwareStatic.Model.Components
 
         public string UserSID { get; set; }
 
-        public SoftwareStaticComponent ExtractData(ManagementObject managementObject)
+        public StartupCommand ExtractData(ManagementObject managementObject)
         {
             StartupCommand startupCommand = new StartupCommand();
             startupCommand.Caption = managementObject[ConstString.COMPONENT_CAPTION]?.ToString() ?? string.Empty;
@@ -49,9 +49,9 @@ namespace SystemMonitor.SoftwareStatic.Model.Components
             return wmiClient.RetriveListOfObjectsByExecutingWMIQuery(ConstString.WMI_NAMESPACE_ROOT_CIMV2, ConstString.WMI_QUERY_STARTUP_COMMAND);
         }
 
-        public override List<SoftwareStaticComponent> GetStaticDataForSoftwareComponent(ISoftwareStaticProvider softwareStaticProvider)
+        public List<StartupCommand> GetStaticDataForSoftwareComponent(ISoftwareStaticProvider softwareStaticProvider)
         {
-            return softwareStaticProvider.GetSoftwareStaticDataFromWMI(new StartupCommand());
+            return softwareStaticProvider.GetSoftwareStaticDataFromWMI<StartupCommand>();
         }
     }
 }

@@ -4,12 +4,12 @@ using System.Linq;
 using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
-using SystemMonitor.SoftwareStatic.Model.Components.Abstract;
+using SystemMonitor.SoftwareStatic.Model.Components.Interface;
 using SystemMonitor.SoftwareStatic.SoftwareStaticProvider;
 
 namespace SystemMonitor.SoftwareStatic.Model.Components
 {
-    public class WindowsService : SoftwareStaticComponent
+    public class WindowsService : ISoftwareStaticComponent<WindowsService>
     {
         public string CanPauseAndContinue { get; set; }
 
@@ -27,9 +27,9 @@ namespace SystemMonitor.SoftwareStatic.Model.Components
 
         public string Status { get; set; }
 
-        public override List<SoftwareStaticComponent> GetStaticDataForSoftwareComponent(ISoftwareStaticProvider softwareStaticProvider)
+        public List<WindowsService> GetStaticDataForSoftwareComponent(ISoftwareStaticProvider softwareStaticProvider)
         {
-            List<SoftwareStaticComponent> windowsServices = new List<SoftwareStaticComponent>();
+            List<WindowsService> windowsServices = new List<WindowsService>();
             var services = softwareStaticProvider.GetAllWindowsServices();
             foreach (var service in services)
             {
@@ -40,7 +40,7 @@ namespace SystemMonitor.SoftwareStatic.Model.Components
                 windowsService.DisplayName = service.DisplayName;
                 windowsService.ServiceName = service.ServiceName;
                 windowsService.ServiceType = service.ServiceType.ToString();
-                windowsService.StartType = service.StartType.ToString();
+                //windowsService.StartType = service.StartType.ToString();
                 windowsService.Status = service.Status.ToString();
                 windowsServices.Add(windowsService);
             }

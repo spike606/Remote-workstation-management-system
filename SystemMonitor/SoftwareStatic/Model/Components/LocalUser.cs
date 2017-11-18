@@ -6,12 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using SystemMonitor.HardwareStatic;
 using SystemMonitor.Shared.WMI;
-using SystemMonitor.SoftwareStatic.Model.Components.Abstract;
+using SystemMonitor.SoftwareStatic.Model.Components.Interface;
 using SystemMonitor.SoftwareStatic.SoftwareStaticProvider;
 
 namespace SystemMonitor.SoftwareStatic.Model.Components
 {
-    public class LocalUser : SoftwareStaticComponent, IWMISoftwareStaticComponent
+    public class LocalUser : ISoftwareStaticComponent<LocalUser>, IWMISoftwareStaticComponent<LocalUser>
     {
         public string Caption { get; set; }
 
@@ -33,7 +33,7 @@ namespace SystemMonitor.SoftwareStatic.Model.Components
 
         public string SIDType { get; set; }
 
-        public SoftwareStaticComponent ExtractData(ManagementObject managementObject)
+        public LocalUser ExtractData(ManagementObject managementObject)
         {
             LocalUser localUser = new LocalUser();
             localUser.Caption = managementObject[ConstString.COMPONENT_CAPTION]?.ToString() ?? string.Empty;
@@ -55,9 +55,9 @@ namespace SystemMonitor.SoftwareStatic.Model.Components
             return wmiClient.RetriveListOfObjectsByExecutingWMIQuery(ConstString.WMI_NAMESPACE_ROOT_CIMV2, ConstString.WMI_QUERY_LOCAL_USER);
         }
 
-        public override List<SoftwareStaticComponent> GetStaticDataForSoftwareComponent(ISoftwareStaticProvider softwareStaticProvider)
+        public List<LocalUser> GetStaticDataForSoftwareComponent(ISoftwareStaticProvider softwareStaticProvider)
         {
-            return softwareStaticProvider.GetSoftwareStaticDataFromWMI(new LocalUser());
+            return softwareStaticProvider.GetSoftwareStaticDataFromWMI<LocalUser>();
         }
     }
 }

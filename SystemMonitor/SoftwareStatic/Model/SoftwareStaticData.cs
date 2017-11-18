@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SystemMonitor.SoftwareStatic.Model.Components;
-using SystemMonitor.SoftwareStatic.Model.Components.Abstract;
 
 namespace SystemMonitor.SoftwareStatic.Model
 {

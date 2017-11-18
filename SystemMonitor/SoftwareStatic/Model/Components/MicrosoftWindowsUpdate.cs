@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using SystemMonitor.HardwareStatic;
 using SystemMonitor.Shared;
 using SystemMonitor.Shared.WMI;
-using SystemMonitor.SoftwareStatic.Model.Components.Abstract;
+using SystemMonitor.SoftwareStatic.Model.Components.Interface;
 using SystemMonitor.SoftwareStatic.SoftwareStaticProvider;
 
 namespace SystemMonitor.SoftwareStatic.Model.Components
 {
-    public class MicrosoftWindowsUpdate : SoftwareStaticComponent, IWMISoftwareStaticComponent
+    public class MicrosoftWindowsUpdate : ISoftwareStaticComponent<MicrosoftWindowsUpdate>, IWMISoftwareStaticComponent<MicrosoftWindowsUpdate>
     {
         public string Caption { get; set; }
 
@@ -36,7 +36,7 @@ namespace SystemMonitor.SoftwareStatic.Model.Components
 
         public string Status { get; set; }
 
-        public SoftwareStaticComponent ExtractData(ManagementObject managementObject)
+        public MicrosoftWindowsUpdate ExtractData(ManagementObject managementObject)
         {
             MicrosoftWindowsUpdate microsoftWindowsUpdate = new MicrosoftWindowsUpdate();
             microsoftWindowsUpdate.Caption = managementObject[ConstString.COMPONENT_CAPTION]?.ToString() ?? string.Empty;
@@ -61,9 +61,9 @@ namespace SystemMonitor.SoftwareStatic.Model.Components
             return wmiClient.RetriveListOfObjectsByExecutingWMIQuery(ConstString.WMI_NAMESPACE_ROOT_CIMV2, ConstString.WMI_QUERY_STARTUP_QUICK_FIX_ENGINEERING);
         }
 
-        public override List<SoftwareStaticComponent> GetStaticDataForSoftwareComponent(ISoftwareStaticProvider softwareStaticProvider)
+        public List<MicrosoftWindowsUpdate> GetStaticDataForSoftwareComponent(ISoftwareStaticProvider softwareStaticProvider)
         {
-            return softwareStaticProvider.GetSoftwareStaticDataFromWMI(new MicrosoftWindowsUpdate());
+            return softwareStaticProvider.GetSoftwareStaticDataFromWMI<MicrosoftWindowsUpdate>();
         }
     }
 }

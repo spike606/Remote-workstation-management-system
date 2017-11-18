@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Win32;
 using SystemMonitor.Shared.WMI;
-using SystemMonitor.SoftwareStatic.Model.Components.Abstract;
+using SystemMonitor.SoftwareStatic.Model.Components.Interface;
 
 namespace SystemMonitor.SoftwareStatic.SoftwareStaticProvider
 {
@@ -14,6 +14,7 @@ namespace SystemMonitor.SoftwareStatic.SoftwareStaticProvider
     {
         ServiceController[] GetAllWindowsServices();
 
-        List<SoftwareStaticComponent> GetSoftwareStaticDataFromWMI(IWMISoftwareStaticComponent wmiComponent);
+        List<T> GetSoftwareStaticDataFromWMI<T>()
+            where T : IWMISoftwareStaticComponent<T>, new();
     }
 }

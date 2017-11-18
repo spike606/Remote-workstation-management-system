@@ -6,12 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using SystemMonitor.HardwareStatic;
 using SystemMonitor.Shared.WMI;
-using SystemMonitor.SoftwareStatic.Model.Components.Abstract;
+using SystemMonitor.SoftwareStatic.Model.Components.Interface;
 using SystemMonitor.SoftwareStatic.SoftwareStaticProvider;
 
 namespace SystemMonitor.SoftwareStatic.Model.Components
 {
-    public class Bios : SoftwareStaticComponent, IWMISoftwareStaticComponent
+    public class Bios : ISoftwareStaticComponent<Bios>, IWMISoftwareStaticComponent<Bios>
     {
         public string BIOSVersion { get; private set; }
 
@@ -47,7 +47,7 @@ namespace SystemMonitor.SoftwareStatic.Model.Components
 
         public string Version { get; private set; }
 
-        public SoftwareStaticComponent ExtractData(ManagementObject managementObject)
+        public Bios ExtractData(ManagementObject managementObject)
         {
             Bios bios = new Bios();
 
@@ -77,9 +77,9 @@ namespace SystemMonitor.SoftwareStatic.Model.Components
             return wmiClient.RetriveListOfObjectsByExecutingWMIQuery(ConstString.WMI_NAMESPACE_ROOT_CIMV2, ConstString.WMI_QUERY_BIOS);
         }
 
-        public override List<SoftwareStaticComponent> GetStaticDataForSoftwareComponent(ISoftwareStaticProvider softwareStaticProvider)
+        public List<Bios> GetStaticDataForSoftwareComponent(ISoftwareStaticProvider softwareStaticProvider)
         {
-            return softwareStaticProvider.GetSoftwareStaticDataFromWMI(new Bios());
+            return softwareStaticProvider.GetSoftwareStaticDataFromWMI<Bios>();
         }
     }
 }

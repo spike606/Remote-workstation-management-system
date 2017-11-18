@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using SystemMonitor.HardwareStatic;
 using SystemMonitor.HardwareStatic.Model.CustomProperties;
 using SystemMonitor.Shared.WMI;
-using SystemMonitor.SoftwareStatic.Model.Components.Abstract;
+using SystemMonitor.SoftwareStatic.Model.Components.Interface;
 using SystemMonitor.SoftwareStatic.SoftwareStaticProvider;
 
 namespace SystemMonitor.SoftwareStatic.Model.Components
 {
-    public class OS : SoftwareStaticComponent, IWMISoftwareStaticComponent
+    public class OS : ISoftwareStaticComponent<OS>, IWMISoftwareStaticComponent<OS>
     {
         public string BuildNumber { get; set; }
 
@@ -66,7 +66,7 @@ namespace SystemMonitor.SoftwareStatic.Model.Components
 
         public string WindowsDirectory { get; set; }
 
-        public SoftwareStaticComponent ExtractData(ManagementObject managementObject)
+        public OS ExtractData(ManagementObject managementObject)
         {
             OS operatingSystem = new OS();
 
@@ -105,9 +105,9 @@ namespace SystemMonitor.SoftwareStatic.Model.Components
             return wmiClient.RetriveListOfObjectsByExecutingWMIQuery(ConstString.WMI_NAMESPACE_ROOT_CIMV2, ConstString.WMI_QUERY_OS);
         }
 
-        public override List<SoftwareStaticComponent> GetStaticDataForSoftwareComponent(ISoftwareStaticProvider softwareStaticProvider)
+        public List<OS> GetStaticDataForSoftwareComponent(ISoftwareStaticProvider softwareStaticProvider)
         {
-            return softwareStaticProvider.GetSoftwareStaticDataFromWMI(new OS());
+            return softwareStaticProvider.GetSoftwareStaticDataFromWMI<OS>();
         }
     }
 }

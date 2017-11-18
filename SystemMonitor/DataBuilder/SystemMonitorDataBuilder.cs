@@ -97,14 +97,14 @@ namespace SystemMonitor.DataBuilder
         public SoftwareStaticData GetSoftwareStaticData()
         {
             SoftwareStaticData data = new SoftwareStaticData();
-            data.WindowsService = this.SoftwareStaticBuilder.GetSoftwareStaticData(new WindowsService()).Cast<WindowsService>().ToList();
-            data.Bios = this.SoftwareStaticBuilder.GetSoftwareStaticData(new Bios()).Cast<Bios>().ToList();
-            data.OperatingSystem = this.SoftwareStaticBuilder.GetSoftwareStaticData(new OS()).Cast<OS>().ToList();
-            data.InstalledProgram = this.SoftwareStaticBuilder.GetSoftwareStaticData(new InstalledProgram()).Cast<InstalledProgram>().ToList();
-            data.StartupCommand = this.SoftwareStaticBuilder.GetSoftwareStaticData(new StartupCommand()).Cast<StartupCommand>().ToList();
-            data.MicrosoftWindowsUpdate = this.SoftwareStaticBuilder.GetSoftwareStaticData(new MicrosoftWindowsUpdate()).Cast<MicrosoftWindowsUpdate>().ToList();
-            data.LocalUser = this.SoftwareStaticBuilder.GetSoftwareStaticData(new LocalUser()).Cast<LocalUser>().ToList();
-            data.CurrentUser = this.SoftwareStaticBuilder.GetSoftwareStaticData(new ComputerSystem()).Cast<ComputerSystem>().ToList();
+            data.WindowsService = this.SoftwareStaticBuilder.GetSoftwareStaticData<WindowsService>();
+            data.Bios = this.SoftwareStaticBuilder.GetSoftwareStaticData<Bios>();
+            data.OperatingSystem = this.SoftwareStaticBuilder.GetSoftwareStaticData<OS>();
+            data.InstalledProgram = this.SoftwareStaticBuilder.GetSoftwareStaticData<InstalledProgram>();
+            data.StartupCommand = this.SoftwareStaticBuilder.GetSoftwareStaticData<StartupCommand>();
+            data.MicrosoftWindowsUpdate = this.SoftwareStaticBuilder.GetSoftwareStaticData<MicrosoftWindowsUpdate>();
+            data.LocalUser = this.SoftwareStaticBuilder.GetSoftwareStaticData<LocalUser>();
+            //data.CurrentUser = this.SoftwareStaticBuilder.GetSoftwareStaticData<ComputerSystem>();
             return data;
         }
     }
