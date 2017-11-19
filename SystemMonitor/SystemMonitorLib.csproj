@@ -123,6 +123,8 @@
     <Compile Include="HardwareStatic\Model\HardwareStaticData.cs" />
     <Compile Include="Shared\ConstString.cs" />
     <Compile Include="Shared\DateTimeHelper.cs" />
+    <Compile Include="Shared\Win32API\IWin32APIClient.cs" />
+    <Compile Include="Shared\Win32API\Win32APIClient.cs" />
     <Compile Include="Shared\WMI\IWMIClient.cs" />
     <Compile Include="Logger\INLogger.cs" />
     <Compile Include="Logger\NLogger.cs" />

@@ -13,6 +13,7 @@ using SystemMonitor.HardwareStatic.Analyzer;
 using SystemMonitor.HardwareStatic.Builder;
 using SystemMonitor.HardwareStatic.Model;
 using SystemMonitor.NLogger;
+using SystemMonitor.Shared.Win32API;
 using SystemMonitor.Shared.WMI;
 using SystemMonitor.SoftwareDynamic.Builder;
 using SystemMonitor.SoftwareDynamic.Model;
@@ -66,6 +67,7 @@ namespace HardwareMonitor
             container.Register(Component.For<ISoftwareStaticBuilder>().ImplementedBy<SoftwareStaticBuilder>().LifeStyle.Singleton);
             container.Register(Component.For<ISoftwareDynamicProvider>().ImplementedBy<SoftwareDynamicProvider>().LifeStyle.Singleton);
             container.Register(Component.For<ISoftwareDynamicBuilder>().ImplementedBy<SoftwareDynamicBuilder>().LifeStyle.Singleton);
+            container.Register(Component.For<IWin32APIClient>().ImplementedBy<Win32APIClient>().LifeStyle.Singleton);
 
             this.SystemMonitorDataBuilder = container.Resolve<ISystemMonitorDataBuilder>();
         }

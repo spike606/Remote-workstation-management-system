@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SystemMonitor.HardwareStatic;
 using SystemMonitor.NLogger;
+using SystemMonitor.Shared.Win32API;
 using SystemMonitor.Shared.WMI;
 
 namespace SystemMonitor.SoftwareDynamic.Provider
@@ -15,15 +16,15 @@ namespace SystemMonitor.SoftwareDynamic.Provider
     public class SoftwareDynamicProvider : ISoftwareDynamicProvider
     {
 
-        public SoftwareDynamicProvider(INLogger logger, IWMIClient wmiClient)
+        public SoftwareDynamicProvider(INLogger logger, IWin32APIClient win32APIClient)
         {
             this.Logger = logger;
-            this.WMIClient = wmiClient;
+            this.Win32APIClient = win32APIClient;
         }
 
         public INLogger Logger { get; set; }
 
-        private IWMIClient WMIClient { get; set; }
+        private IWin32APIClient Win32APIClient { get; set; }
 
         public ServiceController[] GetWindowsServices()
         {
@@ -58,9 +59,9 @@ namespace SystemMonitor.SoftwareDynamic.Provider
             return new Process[0];
         }
 
-        public ManagementObjectCollection GetWindowsProcessesFromWMI()
+        public string GetProcessOwner(Process process)
         {
-            return this.WMIClient.GetObjectsFromWMI(ConstString.WMI_NAMESPACE_ROOT_CIMV2, ConstString.WMI_QUERY_PROCESS);
+            return this.Win32APIClient.GetProcessUser(process);
         }
     }
 }

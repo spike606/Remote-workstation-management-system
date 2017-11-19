@@ -17,6 +17,6 @@ namespace SystemMonitor.SoftwareDynamic.Provider
 
         Process[] GetWindowsProcesses();
 
-        ManagementObjectCollection GetWindowsProcessesFromWMI();
+        string GetProcessOwner(Process process);
     }
 }

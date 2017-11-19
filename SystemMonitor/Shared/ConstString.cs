@@ -284,7 +284,5 @@ namespace SystemMonitor.HardwareStatic
         internal const string COMPUTER_SYSTEM_ADMIN_PASSWORD_STATUS = "CSName";
         internal const string COMPUTER_SYSTEM_ = "FixComments";
 
-        internal const string WMI_QUERY_PROCESS = "select * from Win32_Process";
-
     }
 }

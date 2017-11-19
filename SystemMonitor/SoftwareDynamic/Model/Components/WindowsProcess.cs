@@ -38,13 +38,10 @@ namespace SystemMonitor.SoftwareDynamic.Model.Components
 
         public string UserName { get; private set; }
 
-        public string UserDomain { get; private set; }
-
         public List<WindowsProcess> GetDynamicDataForSoftwareComponent(ISoftwareDynamicProvider softwareDynamicProvider)
         {
             List<WindowsProcess> windowsProcesses = new List<WindowsProcess>();
             var processes = softwareDynamicProvider.GetWindowsProcesses();
-            var processesWMI = softwareDynamicProvider.GetWindowsProcessesFromWMI();
 
             foreach (var process in processes)
             {
@@ -65,26 +62,14 @@ namespace SystemMonitor.SoftwareDynamic.Model.Components
                     windowsProcess.PeakMemorySize = new UnitValue() { Unit = Unit.B, Value = process.PeakWorkingSet64.ToString() };
                     windowsProcess.SessionId = process.SessionId.ToString();
 
+                    var processOwner = softwareDynamicProvider.GetProcessOwner(process);
+                    windowsProcess.UserName = processOwner.Contains(@"\") ? processOwner.Substring(processOwner.IndexOf(@"\") + 1) : processOwner;
+
                     windowsProcesses.Add(windowsProcess);
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                 }
-            }
-
-            foreach (ManagementObject wmiItem in processesWMI)
-            {
-                string wmiProcessId = wmiItem["ProcessId"].ToString();
-                WindowsProcess windowsProcess = windowsProcesses.Find(p => p.Id == wmiProcessId);
-                if (windowsProcess == null)
-                {
-                    continue;
-                }
-
-                string[] processOwnerInfo = new string[2];
-                wmiItem.InvokeMethod("GetOwner", (object[])processOwnerInfo);
-                windowsProcess.UserName = processOwnerInfo[0]?.ToString() ?? string.Empty;
-                windowsProcess.UserDomain = processOwnerInfo[1]?.ToString() ?? string.Empty;
             }
 
             return windowsProcesses;
