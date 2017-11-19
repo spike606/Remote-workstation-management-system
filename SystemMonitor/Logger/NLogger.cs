@@ -15,5 +15,10 @@ namespace SystemMonitor.NLogger
         {
             logger.Log(LogLevel.Debug, message);
         }
+
+        public void LogError(string message)
+        {
+            logger.Log(LogLevel.Error, message);
+        }
     }
 }

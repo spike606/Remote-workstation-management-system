@@ -134,6 +134,7 @@
     <Compile Include="SoftwareDynamic\Builder\SoftwareDynamicBuilder.cs" />
     <Compile Include="SoftwareDynamic\Model\Components\Interface\ISoftwareDynamicComponent.cs" />
     <Compile Include="SoftwareDynamic\Model\Components\WindowsLog.cs" />
+    <Compile Include="SoftwareDynamic\Model\Components\WindowsProcess.cs" />
     <Compile Include="SoftwareDynamic\Model\SoftwareDynamicData.cs" />
     <Compile Include="SoftwareDynamic\Provider\ISoftwareDynamicProvider.cs" />
     <Compile Include="SoftwareDynamic\Provider\SoftwareDynamicProvider.cs" />

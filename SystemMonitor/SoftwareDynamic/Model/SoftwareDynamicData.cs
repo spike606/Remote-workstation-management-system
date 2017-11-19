@@ -12,5 +12,7 @@ namespace SystemMonitor.SoftwareDynamic.Model
         public List<WindowsService> WindowsService { get; set; }
 
         public List<WindowsLog> WindowsLog { get; set; }
+
+        public List<WindowsProcess> WindowsProcess { get; set; }
     }
 }

@@ -17,6 +17,11 @@ namespace SystemMonitor.Shared.WMI
 
         public INLogger Logger { get; private set; }
 
+        public ManagementObjectCollection GetObjectsFromWMI(string wmiNamespace, string wmiQuery)
+        {
+            return new ManagementObjectSearcher(wmiNamespace, wmiQuery).Get();
+        }
+
         public List<ManagementObject> RetriveListOfObjectsByExecutingWMIQuery(string wmiNamespace, string wmiQuery)
         {
             List<ManagementObject> managementObjects = new List<ManagementObject>();
@@ -31,7 +36,7 @@ namespace SystemMonitor.Shared.WMI
             }
             catch (ManagementException exc)
             {
-                this.Logger.LogDebug(exc.ToString());
+                this.Logger.LogError(exc.Message);
             }
 
             return managementObjects;

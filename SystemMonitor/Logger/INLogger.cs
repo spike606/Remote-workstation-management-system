@@ -7,8 +7,10 @@ using NLog;
 
 namespace SystemMonitor.NLogger
 {
-    internal interface INLogger
+    public interface INLogger
     {
         void LogDebug(string message);
+
+        void LogError(string message);
     }
 }
