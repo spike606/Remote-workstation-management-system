@@ -12,7 +12,7 @@ using SystemMonitor.HardwareStatic.Analyzer;
 using SystemMonitor.HardwareStatic.Builder;
 using SystemMonitor.HardwareStatic.Model;
 using SystemMonitor.HardwareStatic.Model.Components;
-using SystemMonitor.NLogger;
+using SystemMonitor.Logger;
 using SystemMonitor.SoftwareDynamic.Builder;
 using SystemMonitor.SoftwareDynamic.Model;
 using SystemMonitor.SoftwareDynamic.Model.Components;
@@ -22,7 +22,7 @@ using SystemMonitor.SoftwareStatic.Model.Components;
 
 namespace SystemMonitor.DataBuilder
 {
-    internal class SystemMonitorDataBuilder : ISystemMonitorDataBuilder
+    public class SystemMonitorDataBuilder : ISystemMonitorDataBuilder
     {
         public SystemMonitorDataBuilder(
                 INLogger logger,

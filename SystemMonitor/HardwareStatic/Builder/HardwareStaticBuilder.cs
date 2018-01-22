@@ -14,7 +14,7 @@ using SystemMonitor.Shared.WMI;
 
 namespace SystemMonitor.HardwareStatic.Builder
 {
-    internal class HardwareStaticBuilder : IHardwareStaticBuilder
+    public class HardwareStaticBuilder : IHardwareStaticBuilder
     {
         public HardwareStaticBuilder(IWMIClient wmiClient)
         {

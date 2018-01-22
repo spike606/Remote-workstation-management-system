@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using NLog;
 
-namespace SystemMonitor.NLogger
+namespace SystemMonitor.Logger
 {
-    internal class NLogger : INLogger
+    public class NLogger : INLogger
     {
-        private static Logger logger = LogManager.GetCurrentClassLogger();
+        private static NLog.Logger logger = LogManager.GetCurrentClassLogger();
 
         public void LogDebug(string message)
         {

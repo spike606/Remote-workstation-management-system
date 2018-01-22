@@ -4,11 +4,11 @@ using System.Linq;
 using System.Management;
 using System.Text;
 using System.Threading.Tasks;
-using SystemMonitor.NLogger;
+using SystemMonitor.Logger;
 
 namespace SystemMonitor.Shared.WMI
 {
-    internal class WMIClient : IWMIClient
+    public class WMIClient : IWMIClient
     {
         public WMIClient(INLogger logger)
         {

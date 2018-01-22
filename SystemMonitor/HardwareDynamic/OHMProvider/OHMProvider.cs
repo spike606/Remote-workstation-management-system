@@ -13,7 +13,7 @@ using SystemMonitor.HardwareStatic.Model.CustomProperties.Attributes;
 
 namespace SystemMonitor.HardwareDynamic.OHMProvider
 {
-    internal class OHMProvider : IOHMProvider
+    public class OHMProvider : IOHMProvider
     {
         public OHMProvider()
         {

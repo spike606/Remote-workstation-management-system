@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
-using SystemMonitor.NLogger;
+using SystemMonitor.Logger;
 
 namespace SystemMonitor.Shared.Win32API
 {

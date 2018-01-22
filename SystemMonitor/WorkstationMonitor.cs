@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
+using Castle.Windsor.Installer;
 using SystemMonitor.DataBuilder;
 using SystemMonitor.HardwareDynamic.Builder;
 using SystemMonitor.HardwareDynamic.Model;
@@ -12,7 +13,7 @@ using SystemMonitor.HardwareDynamic.OHMProvider;
 using SystemMonitor.HardwareStatic.Analyzer;
 using SystemMonitor.HardwareStatic.Builder;
 using SystemMonitor.HardwareStatic.Model;
-using SystemMonitor.NLogger;
+using SystemMonitor.Logger;
 using SystemMonitor.Shared.Win32API;
 using SystemMonitor.Shared.WMI;
 using SystemMonitor.SoftwareDynamic.Builder;
@@ -22,7 +23,7 @@ using SystemMonitor.SoftwareStatic.Builder;
 using SystemMonitor.SoftwareStatic.Model;
 using SystemMonitor.SoftwareStatic.Provider;
 
-namespace HardwareMonitor
+namespace SystemMonitor
 {
     public class WorkstationMonitor
     {
@@ -56,19 +57,7 @@ namespace HardwareMonitor
         private void InitializeIoCContainer()
         {
             var container = new WindsorContainer();
-            container.Register(Component.For<INLogger>().ImplementedBy<NLogger>().LifeStyle.Singleton);
-            container.Register(Component.For<ISystemMonitorDataBuilder>().ImplementedBy<SystemMonitorDataBuilder>().LifeStyle.Singleton);
-            container.Register(Component.For<IHardwareStaticBuilder>().ImplementedBy<HardwareStaticBuilder>().LifeStyle.Singleton);
-            container.Register(Component.For<IHardwareStaticAnalyzer>().ImplementedBy<HardwareStaticAnalyzer>().LifeStyle.Singleton);
-            container.Register(Component.For<IWMIClient>().ImplementedBy<WMIClient>().LifeStyle.Singleton);
-            container.Register(Component.For<IOHMProvider>().ImplementedBy<OHMProvider>().LifeStyle.Singleton);
-            container.Register(Component.For<IHardwareDynamicBuilder>().ImplementedBy<HardwareDynamicBuilder>().LifeStyle.Singleton);
-            container.Register(Component.For<ISoftwareStaticProvider>().ImplementedBy<SoftwareStaticProvider>().LifeStyle.Singleton);
-            container.Register(Component.For<ISoftwareStaticBuilder>().ImplementedBy<SoftwareStaticBuilder>().LifeStyle.Singleton);
-            container.Register(Component.For<ISoftwareDynamicProvider>().ImplementedBy<SoftwareDynamicProvider>().LifeStyle.Singleton);
-            container.Register(Component.For<ISoftwareDynamicBuilder>().ImplementedBy<SoftwareDynamicBuilder>().LifeStyle.Singleton);
-            container.Register(Component.For<IWin32APIClient>().ImplementedBy<Win32APIClient>().LifeStyle.Singleton);
-
+            container.Install(FromAssembly.This());
             this.SystemMonitorDataBuilder = container.Resolve<ISystemMonitorDataBuilder>();
         }
     }

@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
-using HardwareMonitor;
+using SystemMonitor;
 using SystemMonitor.HardwareDynamic.Model;
 using SystemMonitor.HardwareStatic.Model;
 using System.ServiceProcess;
@@ -28,14 +28,16 @@ namespace SystemMonitorLibTest
             SoftwareStaticData softwareStaticData = monitor.GetSoftwareStaticData();
             SoftwareDynamicData softwareDynamicData = monitor.GetSoftwareDynamicData();
 
-            foreach (var item in softwareStaticData.InstalledProgram)
-            {
-                Console.WriteLine(item.Name);
-            }
+            //foreach (var item in softwareStaticData.InstalledProgram)
+            //{
+            //    Console.WriteLine(item.Name);
+            //}
 
             //PrintProperties(data);
             Timer aTimer = new Timer();
-            aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+            //aTimer.Elapsed += new ElapsedEventHandler(OnTimedEventProcessor);
+            //aTimer.Elapsed += new ElapsedEventHandler(OnTimedEventProcess);
+            aTimer.Elapsed += new ElapsedEventHandler(OnTimedEventGPU);
             aTimer.Interval = 500;
             aTimer.Enabled = true;
 
@@ -43,12 +45,27 @@ namespace SystemMonitorLibTest
             //Console.ReadLine();
         }
 
-        private static void OnTimedEvent(object source, ElapsedEventArgs e)
+        private static void OnTimedEventProcessor(object source, ElapsedEventArgs e)
         {
-            //var data = monitor.GetHardwareDynamicData();
-            //Console.WriteLine("Load: value: " + data.Processor.First().Load.First().Value + "max: " + data.Processor.First().Load.First().MaxValue);
+            var data = monitor.GetHardwareDynamicData();
+            Console.WriteLine("Load: value: " + data.Processor.First().Load.First().Value + data.Processor.First().Load.First().Unit);
             //Console.WriteLine("Clock: value: " + data.Processor.First().Clock.First().Value + "max: " + data.Processor.First().Clock.First().MaxValue);
+        }
 
+        private static void OnTimedEventProcess(object source, ElapsedEventArgs e)
+        {
+            var data = monitor.GetSoftwareDynamicData();
+            Console.WriteLine("Process memory size: " + data.WindowsProcess.First().MemorySize.Value + data.WindowsProcess.First().MemorySize.Unit);
+            //Console.WriteLine("Clock: value: " + data.Processor.First().Clock.First().Value + "max: " + data.Processor.First().Clock.First().MaxValue);
+        }
+
+        private static void OnTimedEventGPU(object source, ElapsedEventArgs e)
+        {
+            var data = monitor.GetHardwareDynamicData();
+            Console.WriteLine("Clock: " + data.VideoController.First().Clock.First().Value +
+                data.VideoController.First().Clock.First().Unit);
+            Console.WriteLine("Temp: " + data.VideoController.First().Temperature.First().Value +
+                data.VideoController.First().Temperature.First().Unit);
         }
 
         public static void PrintProperties(object obj)

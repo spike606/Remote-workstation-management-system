@@ -7,7 +7,7 @@ using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
 using SystemMonitor.HardwareStatic;
-using SystemMonitor.NLogger;
+using SystemMonitor.Logger;
 using SystemMonitor.Shared.Win32API;
 using SystemMonitor.Shared.WMI;
 

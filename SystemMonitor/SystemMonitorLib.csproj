@@ -108,6 +108,8 @@
     <Compile Include="HardwareStatic\Model\Components\SmartFailurePredictThresholds.cs" />
     <Compile Include="HardwareStatic\Model\Components\VideoController.cs" />
     <Compile Include="HardwareStatic\Model\Components\Volume.cs" />
+    <Compile Include="Infrastracture\Installers\SystemMonitorComponentsInstaller.cs" />
+    <Compile Include="Infrastracture\ReferenceClass.cs" />
     <Compile Include="Shared\CustomProperties\Attributes\EnumDescriptionAttribute.cs" />
     <Compile Include="Shared\CustomProperties\Attributes\EnumExtensions.cs" />
     <Compile Include="Shared\CustomProperties\Enums\BatteryEnum.cs" />

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NLog;
 
-namespace SystemMonitor.NLogger
+namespace SystemMonitor.Logger
 {
     public interface INLogger
     {
