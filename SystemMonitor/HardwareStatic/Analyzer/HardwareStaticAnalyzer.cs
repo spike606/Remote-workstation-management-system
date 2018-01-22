@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 using SystemMonitor.HardwareStatic.Model.Components;
 using SystemMonitor.HardwareStatic.Model.Components.Abstract;
 using SystemMonitor.HardwareStatic.Model.Components.Analyzed;
+using SystemMonitor.HardwareStatic.Model.CustomProperties;
 using SystemMonitor.HardwareStatic.Model.CustomProperties.Enums;
+using SystemMonitor.Logger;
 
 namespace SystemMonitor.HardwareStatic.Analyzer
 {
@@ -20,42 +22,30 @@ namespace SystemMonitor.HardwareStatic.Analyzer
         private const int WORST_OFFSET = 6;
         private const int RAW_OFFSET_LSB = 7;
         private const int THRESHOLD_OFFSET = 3;
+        private const string EXTENDED_PARTITION_MBR_TYPE = "15";
 
         public List<SMARTData> GetSmartData(
-            List<SmartFailurePredictStatus> smartFailurePredictStatus,
-            List<SmartFailurePredictData> smartFailurePredictData,
+            List<SmartFailurePredictStatus> smartFailurePredictStatuses,
+            List<SmartFailurePredictData> smartFailurePredictDatas,
             List<SmartFailurePredictThresholds> smartFailurePredictThresholds)
         {
-            List<SMARTData> smartData = new List<SMARTData>();
+            List<SMARTData> smartDataList = new List<SMARTData>();
 
-            this.ExtractFailurePredictStatus(smartData, smartFailurePredictStatus);
-            this.ExtractFailurePredictData(smartData, smartFailurePredictData);
-            this.ExtractFailrePredictThresholds(smartData, smartFailurePredictThresholds);
+            this.ExtractFailurePredictStatus(smartDataList, smartFailurePredictStatuses);
+            this.ExtractFailurePredictData(smartDataList, smartFailurePredictDatas);
+            this.ExtractFailrePredictThresholds(smartDataList, smartFailurePredictThresholds);
 
-            this.SetSmartAttributesStatusBasedOnThresholdValues(smartData);
+            this.SetSmartAttributesStatusBasedOnThresholdValues(smartDataList);
 
-            foreach (var data in smartData)
-            {
-                Console.WriteLine("ID                   Current  Worst  Threshold  Data  Status");
-                foreach (var attr in data.Attributes)
-                {
-                    Console.WriteLine("{0}\t {1}\t {2}\t {3}\t {4}\t {5}\t", attr.Value.AttributeName, attr.Value.Current, attr.Value.Worst, attr.Value.Threshold, attr.Value.Raw, attr.Value.Status);
-                }
-
-                Console.WriteLine();
-                Console.WriteLine();
-                Console.WriteLine();
-            }
-
-            return smartData;
+            return smartDataList;
         }
 
         public List<Storage> GetStorageData(
             List<Disk> disks,
-            List<DiskPartition> diskPartition,
-            List<Volume> volume,
-            List<DiskToPartition> diskToPartition,
-            List<PartitionToVolume> partitionToVolume)
+            List<DiskPartition> diskPartitions,
+            List<Volume> volumes,
+            List<DiskToPartition> disksToPartitions,
+            List<PartitionToVolume> partitionsToVolumes)
         {
             List<Storage> storageData = new List<Storage>();
 
@@ -64,98 +54,97 @@ namespace SystemMonitor.HardwareStatic.Analyzer
                 storageData.Add(new Storage((Disk)disk));
             }
 
-            this.ExtractPartitionsForStorage(storageData, diskToPartition, diskPartition, partitionToVolume, volume);
+            this.ExtractPartitionsForStorage(storageData, disksToPartitions, diskPartitions, partitionsToVolumes, volumes);
 
             this.MatchLogicalPartitionsToExtendedPartitions(storageData);
 
             return storageData;
         }
 
-        private void ExtractFailurePredictStatus(List<SMARTData> smartData, List<SmartFailurePredictStatus> smartFailurePredictStatus)
+        private void ExtractFailurePredictStatus(List<SMARTData> smartDataList, List<SmartFailurePredictStatus> smartFailurePredictStatuses)
         {
-            List<SmartFailurePredictStatus> smartFailurePredictStatusList = smartFailurePredictStatus.Cast<SmartFailurePredictStatus>().ToList();
-
-            foreach (var driveData in smartFailurePredictStatusList)
+            foreach (var smartFailurePredictStatus in smartFailurePredictStatuses)
             {
-                smartData.Add(new SMARTData
+                smartDataList.Add(new SMARTData
                 {
-                    InstanceName = driveData.InstanceName,
-                    PredictFailure = driveData.PredictFailure
+                    InstanceName = smartFailurePredictStatus.InstanceName,
+                    PredictFailure = smartFailurePredictStatus.PredictFailure
                 });
             }
         }
 
-        private void ExtractFailurePredictData(List<SMARTData> smartData, List<SmartFailurePredictData> smartFailurePredictData)
+        private void ExtractFailurePredictData(List<SMARTData> smartDataList, List<SmartFailurePredictData> smartFailurePredictDatas)
         {
-            foreach (var driveData in smartFailurePredictData)
+            foreach (var smartFailurePredictData in smartFailurePredictDatas)
             {
                 for (int i = 0; i < BLOCKS_IN_VENDOR_ARRAY; ++i)
                 {
                     int currentBlock = i * BLOCK_SIZE;
-                    try
-                    {
-                        int attributeId = driveData.VendorSpecific[currentBlock + ARIBUTE_ID_OFFSET];
-                        int value = driveData.VendorSpecific[currentBlock + VALUE_OFFSET];
-                        int worst = driveData.VendorSpecific[currentBlock + WORST_OFFSET];
-                        int rawData = BitConverter.ToInt32(driveData.VendorSpecific, currentBlock + RAW_OFFSET_LSB);
-                        if (attributeId == 0)
-                        {
-                            continue;
-                        }
 
-                        var smartDrive = smartData.Where(x => x.InstanceName == driveData.InstanceName).First();
-                        SmartAttributesDictionary smartAttributesDictionary = new SmartAttributesDictionary();
-                        var currentAttributeFromDictionary = smartAttributesDictionary.Attributes.Where(x => x.Key == attributeId).First();
-
-                        smartDrive.Attributes.Add(currentAttributeFromDictionary.Key, currentAttributeFromDictionary.Value);
-                        var currentAttribute = smartDrive.Attributes[currentAttributeFromDictionary.Key];
-                        currentAttribute.Current = value;
-                        currentAttribute.Worst = worst;
-                        currentAttribute.Raw = rawData;
-                    }
-                    catch
+                    int attributeId = smartFailurePredictData.VendorSpecific[currentBlock + ARIBUTE_ID_OFFSET];
+                    int value = smartFailurePredictData.VendorSpecific[currentBlock + VALUE_OFFSET];
+                    int worst = smartFailurePredictData.VendorSpecific[currentBlock + WORST_OFFSET];
+                    int rawData = BitConverter.ToInt32(smartFailurePredictData.VendorSpecific, currentBlock + RAW_OFFSET_LSB);
+                    if (attributeId == 0)
                     {
-                        // key does not exist in attribute collection
+                        continue;
                     }
+
+                    SMARTData smartData = smartDataList.Where(x => x.InstanceName == smartFailurePredictData.InstanceName).FirstOrDefault();
+                    if (smartData == null)
+                    {
+                        continue;
+                    }
+
+                    SmartAttributesDictionary smartAttributesDictionary = new SmartAttributesDictionary();
+                    KeyValuePair<int, SmartDataAttribute> currentAttributeFromDictionary = smartAttributesDictionary.Attributes.Where(x => x.Key == attributeId).FirstOrDefault();
+                    if (currentAttributeFromDictionary.Equals(default(KeyValuePair<int, SmartDataAttribute>)))
+                    {
+                        continue;
+                    }
+
+                    smartData.Attributes.Add(currentAttributeFromDictionary.Key, currentAttributeFromDictionary.Value);
+                    var currentAttribute = smartData.Attributes[currentAttributeFromDictionary.Key];
+                    currentAttribute.Current = value;
+                    currentAttribute.Worst = worst;
+                    currentAttribute.Raw = rawData;
                 }
             }
         }
 
-        private void ExtractFailrePredictThresholds(List<SMARTData> smartData, List<SmartFailurePredictThresholds> smartFailurePredictThresholds)
+        private void ExtractFailrePredictThresholds(List<SMARTData> smartDataList, List<SmartFailurePredictThresholds> smartFailurePredictThresholds)
         {
-            foreach (var driveData in smartFailurePredictThresholds)
+            foreach (var smartFailurePredictThreshold in smartFailurePredictThresholds)
             {
-                byte[] bytes = driveData.VendorSpecific;
+                byte[] bytes = smartFailurePredictThreshold.VendorSpecific;
                 for (int i = 0; i < BLOCKS_IN_VENDOR_ARRAY; ++i)
                 {
                     int currentBlock = i * BLOCK_SIZE;
 
-                    try
+                    int attributeId = bytes[currentBlock + ARIBUTE_ID_OFFSET];
+                    int threshold = bytes[currentBlock + THRESHOLD_OFFSET];
+                    if (attributeId == 0)
                     {
-                        int attributeId = bytes[currentBlock + ARIBUTE_ID_OFFSET];
-                        int threshold = bytes[currentBlock + THRESHOLD_OFFSET];
-                        if (attributeId == 0)
-                        {
-                            continue;
-                        }
+                        continue;
+                    }
 
-                        var smartDrive = smartData.Where(x => x.InstanceName == driveData.InstanceName).First();
-                        var attribute = smartDrive.Attributes[attributeId];
-                        attribute.Threshold = threshold;
-                    }
-                    catch
+                    SMARTData smartData = smartDataList.Where(x => x.InstanceName == smartFailurePredictThreshold.InstanceName).FirstOrDefault();
+                    if (smartData == null)
                     {
-                        // key does not exist in attribute collection
+                        continue;
                     }
+
+                    SmartDataAttribute attribute = smartData.Attributes[attributeId];
+                    attribute.Threshold = threshold;
                 }
             }
         }
 
-        private void SetSmartAttributesStatusBasedOnThresholdValues(List<SMARTData> smartData)
+        private void SetSmartAttributesStatusBasedOnThresholdValues(List<SMARTData> smartDataList)
         {
-            foreach (var driveData in smartData)
+            foreach (var smartData in smartDataList)
             {
-                foreach (var attribute in driveData.Attributes)
+                foreach (var attribute in smartData.Attributes)
                 {
                     if (attribute.Value.Threshold.Equals(0))
                     {
@@ -180,12 +169,11 @@ namespace SystemMonitor.HardwareStatic.Analyzer
             }
         }
 
-        private void ExtractPartitionsForStorage(List<Storage> storageData, List<DiskToPartition> diskToPartition, List<DiskPartition> diskPartition, List<PartitionToVolume> partitionToVolume, List<Volume> volume)
+        private void ExtractPartitionsForStorage(List<Storage> storageData, List<DiskToPartition> disksToPartitions, List<DiskPartition> diskPartitions, List<PartitionToVolume> partitionsToVolumes, List<Volume> volumes)
         {
-            foreach (var diskToPartitionAssociation in diskToPartition)
+            foreach (var diskToPartitionAssociation in disksToPartitions)
             {
                 string substringBeginning = "objectid";
-                string extendePartitionMbrType = "15";
 
                 string diskAssociationLower = diskToPartitionAssociation.Disk.ToLower();
                 string diskAssociationLowerSubstring = diskAssociationLower
@@ -199,18 +187,18 @@ namespace SystemMonitor.HardwareStatic.Analyzer
 
                 Storage currentStorage = storageData.First(x => preparedDiskAssociation.Contains(x.Disk.ObjectId.ToLower()));
 
-                foreach (var currentPartition in diskPartition)
+                foreach (var currentPartition in diskPartitions)
                 {
                     if (preparedPartitionAssociation.Contains(currentPartition.ObjectId.ToLower()))
                     {
-                        var currentPartitionToVolume = partitionToVolume
+                        var currentPartitionToVolume = partitionsToVolumes
                             .FirstOrDefault(x => x.Partition.ToLower() == partitionAssociationLower);
 
                         if (currentPartitionToVolume != null)
                         {
-                            this.AddPartitionToStorage(volume, substringBeginning, currentStorage, currentPartition, currentPartitionToVolume);
+                            this.AddPartitionToStorage(volumes, substringBeginning, currentStorage, currentPartition, currentPartitionToVolume);
                         }
-                        else if (currentPartitionToVolume == null && currentPartition.MbrType == extendePartitionMbrType)
+                        else if (currentPartitionToVolume == null && currentPartition.MbrType == EXTENDED_PARTITION_MBR_TYPE)
                         {
                             this.AddLogicalPartitionToStorage(currentStorage, currentPartition);
                         }
@@ -219,14 +207,14 @@ namespace SystemMonitor.HardwareStatic.Analyzer
             }
         }
 
-        private void AddPartitionToStorage(List<Volume> volume, string substringBeginning, Storage currentStorage, DiskPartition currentPartition, PartitionToVolume currentPartitionToVolume)
+        private void AddPartitionToStorage(List<Volume> volumes, string substringBeginning, Storage currentStorage, DiskPartition currentPartition, PartitionToVolume currentPartitionToVolume)
         {
             string volumeAssociationLower = currentPartitionToVolume.Volume.ToLower();
             string volumeAssociationLowerSubstring = volumeAssociationLower
                 .Substring(volumeAssociationLower.IndexOf(substringBeginning) + substringBeginning.Length);
             string preparedVolumeAssociation = Regex.Unescape(volumeAssociationLowerSubstring);
 
-            var currentVolume = volume.First(x => preparedVolumeAssociation
+            var currentVolume = volumes.First(x => preparedVolumeAssociation
                 .Contains(x.ObjectId.ToLower()));
 
             currentStorage.Partition.Add(new Partition()
@@ -288,7 +276,7 @@ namespace SystemMonitor.HardwareStatic.Analyzer
             foreach (var storage in storageData)
             {
                 var extendedPartitionsForStorage = storage.Partition
-                    .Where(x => x.MbrType == "15").ToList();
+                    .Where(x => x.MbrType == EXTENDED_PARTITION_MBR_TYPE).ToList();
 
                 foreach (var extendedPartition in extendedPartitionsForStorage)
                 {

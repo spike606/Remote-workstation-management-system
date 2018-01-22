@@ -20,5 +20,10 @@ namespace SystemMonitor.Logger
         {
             logger.Log(LogLevel.Error, message);
         }
+
+        public void LogInfo(string message)
+        {
+            logger.Log(LogLevel.Info, message);
+        }
     }
 }
