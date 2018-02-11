@@ -51,23 +51,23 @@ namespace SystemMonitor.SoftwareStatic.Model.Components
         {
             Bios bios = new Bios();
 
-            bios.BIOSVersion = managementObject[ConstString.BIOS_BIOS_VERSION]?.ToString() ?? string.Empty;
-            bios.BuildNumber = managementObject[ConstString.BIOS_BUILD_NUMBER]?.ToString() ?? string.Empty;
-            bios.Caption = managementObject[ConstString.COMPONENT_CAPTION]?.ToString() ?? string.Empty;
-            bios.Description = managementObject[ConstString.COMPONENT_DESCRIPTION]?.ToString() ?? string.Empty;
-            bios.EmbeddedControllerMajorVersion = managementObject[ConstString.BIOS_EMBEDDED_CONTROLLER_MAJOR_VERSION]?.ToString() ?? string.Empty;
-            bios.EmbeddedControllerMinorVersion = managementObject[ConstString.BIOS_EMBEDDED_CONTROLLER_MINOR_VERSION]?.ToString() ?? string.Empty;
-            bios.Manufacturer = managementObject[ConstString.BIOS_MANUFACTURER]?.ToString() ?? string.Empty;
-            bios.Name = managementObject[ConstString.COMPONENT_NAME]?.ToString() ?? string.Empty;
+            bios.BIOSVersion = managementObject[ConstString.BIOS_BIOS_VERSION].TryGetStringValue();
+            bios.BuildNumber = managementObject[ConstString.BIOS_BUILD_NUMBER].TryGetStringValue();
+            bios.Caption = managementObject[ConstString.COMPONENT_CAPTION].TryGetStringValue();
+            bios.Description = managementObject[ConstString.COMPONENT_DESCRIPTION].TryGetStringValue();
+            bios.EmbeddedControllerMajorVersion = managementObject[ConstString.BIOS_EMBEDDED_CONTROLLER_MAJOR_VERSION].TryGetStringValue();
+            bios.EmbeddedControllerMinorVersion = managementObject[ConstString.BIOS_EMBEDDED_CONTROLLER_MINOR_VERSION].TryGetStringValue();
+            bios.Manufacturer = managementObject[ConstString.BIOS_MANUFACTURER].TryGetStringValue();
+            bios.Name = managementObject[ConstString.COMPONENT_NAME].TryGetStringValue();
             bios.ReleaseDate = managementObject[ConstString.BIOS_RELEASE_DATE] != null ? ManagementDateTimeConverter.ToDateTime(managementObject[ConstString.BIOS_RELEASE_DATE].ToString()) : default(DateTime);
-            bios.SerialNumber = managementObject[ConstString.BIOS_SERIAL_NUMBER]?.ToString() ?? string.Empty;
-            bios.SMBIOSMajorVersion = managementObject[ConstString.BIOS_SMBIOS_MAJOR_VERSION]?.ToString() ?? string.Empty;
-            bios.SMBIOSMinorVersion = managementObject[ConstString.BIOS_SMBIOS_MINOR_VERSION]?.ToString() ?? string.Empty;
-            bios.SMBIOSPresent = managementObject[ConstString.BIOS_SMBIOS_PRESENT]?.ToString() ?? string.Empty;
-            bios.SMBIOSBIOSVersion = managementObject[ConstString.BIOS_SMBIOS_VERSION]?.ToString() ?? string.Empty;
-            bios.SystemBiosMajorVersion = managementObject[ConstString.BIOS_SYSTEM_BIOS_MAJOR_VERSION]?.ToString() ?? string.Empty;
-            bios.SystemBiosMinorVersion = managementObject[ConstString.BIOS_SYSTEM_BIOS_MINOR_VERSION]?.ToString() ?? string.Empty;
-            bios.Version = managementObject[ConstString.BIOS_VERSION]?.ToString() ?? string.Empty;
+            bios.SerialNumber = managementObject[ConstString.BIOS_SERIAL_NUMBER].TryGetStringValue();
+            bios.SMBIOSMajorVersion = managementObject[ConstString.BIOS_SMBIOS_MAJOR_VERSION].TryGetStringValue();
+            bios.SMBIOSMinorVersion = managementObject[ConstString.BIOS_SMBIOS_MINOR_VERSION].TryGetStringValue();
+            bios.SMBIOSPresent = managementObject[ConstString.BIOS_SMBIOS_PRESENT].TryGetStringValue();
+            bios.SMBIOSBIOSVersion = managementObject[ConstString.BIOS_SMBIOS_VERSION].TryGetStringValue();
+            bios.SystemBiosMajorVersion = managementObject[ConstString.BIOS_SYSTEM_BIOS_MAJOR_VERSION].TryGetStringValue();
+            bios.SystemBiosMinorVersion = managementObject[ConstString.BIOS_SYSTEM_BIOS_MINOR_VERSION].TryGetStringValue();
+            bios.Version = managementObject[ConstString.BIOS_VERSION].TryGetStringValue();
 
             return bios;
         }

@@ -40,13 +40,13 @@ namespace SystemMonitor.HardwareStatic.Model.Components
                     battery.BatteryStatus = string.Empty;
                 }
 
-                battery.Caption = managementObject[ConstString.COMPONENT_CAPTION]?.ToString() ?? string.Empty;
-                battery.Description = managementObject[ConstString.COMPONENT_DESCRIPTION]?.ToString() ?? string.Empty;
-                battery.DesignCapacity = new UnitValue(Unit.MWH, managementObject[ConstString.BATTERY_DESIGN_CAPACITY]?.ToString() ?? string.Empty);
-                battery.DeviceID = managementObject[ConstString.BATTERY_DEVICE_ID]?.ToString() ?? string.Empty;
-                battery.FullChargeCapacity = new UnitValue(Unit.MWH, managementObject[ConstString.BATTERY_FULLY_CHARGE_CAPACITY]?.ToString() ?? string.Empty);
-                battery.Name = managementObject[ConstString.COMPONENT_NAME]?.ToString() ?? string.Empty;
-                battery.Status = managementObject[ConstString.COMPONENT_STATUS]?.ToString() ?? string.Empty;
+                battery.Caption = managementObject[ConstString.COMPONENT_CAPTION].TryGetStringValue();
+                battery.Description = managementObject[ConstString.COMPONENT_DESCRIPTION].TryGetStringValue();
+                battery.DesignCapacity = managementObject[ConstString.BATTERY_DESIGN_CAPACITY].TryGetUnitValue(Unit.MWH);
+                battery.DeviceID = managementObject[ConstString.BATTERY_DEVICE_ID].TryGetStringValue();
+                battery.FullChargeCapacity = managementObject[ConstString.BATTERY_FULLY_CHARGE_CAPACITY].TryGetUnitValue(Unit.MWH);
+                battery.Name = managementObject[ConstString.COMPONENT_NAME].TryGetStringValue();
+                battery.Status = managementObject[ConstString.COMPONENT_STATUS].TryGetStringValue();
 
                 staticData.Add(battery);
             }

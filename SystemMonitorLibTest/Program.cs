@@ -27,7 +27,6 @@ namespace SystemMonitorLibTest
             HardwareStaticData hardwareStaticData = monitor.GetHardwareStaticData();
             SoftwareStaticData softwareStaticData = monitor.GetSoftwareStaticData();
             SoftwareDynamicData softwareDynamicData = monitor.GetSoftwareDynamicData();
-
             //foreach (var item in softwareStaticData.InstalledProgram)
             //{
             //    Console.WriteLine(item.Name);
@@ -40,7 +39,6 @@ namespace SystemMonitorLibTest
             aTimer.Elapsed += new ElapsedEventHandler(OnTimedEventGPU);
             aTimer.Interval = 500;
             aTimer.Enabled = true;
-
             while (Console.Read() != 'q') ;
             //Console.ReadLine();
         }

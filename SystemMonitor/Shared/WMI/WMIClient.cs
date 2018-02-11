@@ -34,9 +34,9 @@ namespace SystemMonitor.Shared.WMI
                     managementObjects.Add(queryObj);
                 }
             }
-            catch (ManagementException exc)
+            catch (ManagementException ex)
             {
-                this.Logger.LogError(exc.Message);
+                this.Logger.LogError(ex.Message, ex);
             }
 
             return managementObjects;

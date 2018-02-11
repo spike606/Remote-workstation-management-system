@@ -55,7 +55,7 @@ namespace SystemMonitor.HardwareStatic.Model.Components
             foreach (var managementObject in managementObjectList)
             {
                 ProcessorStatic processor = new ProcessorStatic();
-                processor.AddressWidth = new UnitValue(Unit.BIT, managementObject[ConstString.PROCESSOR_ADDRESS_WIDTH]?.ToString() ?? string.Empty);
+                processor.AddressWidth = managementObject[ConstString.PROCESSOR_ADDRESS_WIDTH].TryGetUnitValue(Unit.BIT);
 
                 if (managementObject[ConstString.PROCESSOR_ARCHITECTURE] != null)
                 {
@@ -66,22 +66,22 @@ namespace SystemMonitor.HardwareStatic.Model.Components
                     processor.Architecture = string.Empty;
                 }
 
-                processor.Caption = managementObject[ConstString.COMPONENT_CAPTION]?.ToString() ?? string.Empty;
-                processor.DataWidth = new UnitValue(Unit.BIT, managementObject[ConstString.PROCESSOR_DATA_WIDTH]?.ToString() ?? string.Empty);
-                processor.Description = managementObject[ConstString.COMPONENT_DESCRIPTION]?.ToString() ?? string.Empty;
-                processor.BusSpeed = new UnitValue(Unit.MHZ, managementObject[ConstString.PROCESSOR_BUS_SPEED]?.ToString() ?? string.Empty);
-                processor.Manufacturer = managementObject[ConstString.PROCESSOR_MANUFACTURER]?.ToString() ?? string.Empty;
-                processor.MaxClockSpeed = new UnitValue(Unit.MHZ, managementObject[ConstString.PROCESSOR_MAX_CLOCK_SPEED]?.ToString() ?? string.Empty);
-                processor.Name = managementObject[ConstString.COMPONENT_NAME]?.ToString() ?? string.Empty;
-                processor.NumberOfCores = managementObject[ConstString.PROCESSOR_NUMBER_OF_CORES]?.ToString() ?? string.Empty;
-                processor.NumberOfLogicalProcessors = managementObject[ConstString.PROCESSOR_NUMBER_OF_LOGICAL_PROCESSORS]?.ToString() ?? string.Empty;
-                processor.ProcessorID = managementObject[ConstString.PROCESSOR_ID]?.ToString() ?? string.Empty;
-                processor.SerialNumber = managementObject[ConstString.PROCESSOR_SERIAL_NUMBER]?.ToString() ?? string.Empty;
-                processor.SocketDesignation = managementObject[ConstString.PROCESSOR_SOCKET_DESIGNATION]?.ToString() ?? string.Empty;
-                processor.Status = managementObject[ConstString.COMPONENT_STATUS]?.ToString() ?? string.Empty;
-                processor.Stepping = managementObject[ConstString.PROCESSOR_STEPPING]?.ToString() ?? string.Empty;
-                processor.ThreadCount = managementObject[ConstString.PROCESSOR_THREAD_COUNT]?.ToString() ?? string.Empty;
-                processor.UniqueId = managementObject[ConstString.PROCESSOR_UNIQUE_ID]?.ToString() ?? string.Empty;
+                processor.Caption = managementObject[ConstString.COMPONENT_CAPTION].TryGetStringValue();
+                processor.DataWidth = managementObject[ConstString.PROCESSOR_DATA_WIDTH].TryGetUnitValue(Unit.BIT);
+                processor.Description = managementObject[ConstString.COMPONENT_DESCRIPTION].TryGetStringValue();
+                processor.BusSpeed = managementObject[ConstString.PROCESSOR_BUS_SPEED].TryGetUnitValue(Unit.MHZ);
+                processor.Manufacturer = managementObject[ConstString.PROCESSOR_MANUFACTURER].TryGetStringValue();
+                processor.MaxClockSpeed = managementObject[ConstString.PROCESSOR_MAX_CLOCK_SPEED].TryGetUnitValue(Unit.MHZ);
+                processor.Name = managementObject[ConstString.COMPONENT_NAME].TryGetStringValue();
+                processor.NumberOfCores = managementObject[ConstString.PROCESSOR_NUMBER_OF_CORES].TryGetStringValue();
+                processor.NumberOfLogicalProcessors = managementObject[ConstString.PROCESSOR_NUMBER_OF_LOGICAL_PROCESSORS].TryGetStringValue();
+                processor.ProcessorID = managementObject[ConstString.PROCESSOR_ID].TryGetStringValue();
+                processor.SerialNumber = managementObject[ConstString.PROCESSOR_SERIAL_NUMBER].TryGetStringValue();
+                processor.SocketDesignation = managementObject[ConstString.PROCESSOR_SOCKET_DESIGNATION].TryGetStringValue();
+                processor.Status = managementObject[ConstString.COMPONENT_STATUS].TryGetStringValue();
+                processor.Stepping = managementObject[ConstString.PROCESSOR_STEPPING].TryGetStringValue();
+                processor.ThreadCount = managementObject[ConstString.PROCESSOR_THREAD_COUNT].TryGetStringValue();
+                processor.UniqueId = managementObject[ConstString.PROCESSOR_UNIQUE_ID].TryGetStringValue();
 
                 staticData.Add(processor);
             }

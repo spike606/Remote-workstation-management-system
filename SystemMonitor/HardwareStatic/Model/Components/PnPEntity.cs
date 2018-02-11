@@ -24,12 +24,12 @@ namespace SystemMonitor.HardwareStatic.Model.Components
             foreach (var managementObject in managementObjectList)
             {
                 PnPEntity pnPEntity = new PnPEntity();
-                pnPEntity.Caption = managementObject[ConstString.COMPONENT_CAPTION]?.ToString() ?? string.Empty;
-                pnPEntity.Description = managementObject[ConstString.COMPONENT_DESCRIPTION]?.ToString() ?? string.Empty;
-                pnPEntity.DeviceID = managementObject[ConstString.PNP_ENTITY_DEVICE_ID]?.ToString() ?? string.Empty;
-                pnPEntity.Manufacturer = managementObject[ConstString.PNP_ENTITY_MANUFACTURER]?.ToString() ?? string.Empty;
-                pnPEntity.Name = managementObject[ConstString.COMPONENT_NAME]?.ToString() ?? string.Empty;
-                pnPEntity.Status = managementObject[ConstString.COMPONENT_STATUS]?.ToString() ?? string.Empty;
+                pnPEntity.Caption = managementObject[ConstString.COMPONENT_CAPTION].TryGetStringValue();
+                pnPEntity.Description = managementObject[ConstString.COMPONENT_DESCRIPTION].TryGetStringValue();
+                pnPEntity.DeviceID = managementObject[ConstString.PNP_ENTITY_DEVICE_ID].TryGetStringValue();
+                pnPEntity.Manufacturer = managementObject[ConstString.PNP_ENTITY_MANUFACTURER].TryGetStringValue();
+                pnPEntity.Name = managementObject[ConstString.COMPONENT_NAME].TryGetStringValue();
+                pnPEntity.Status = managementObject[ConstString.COMPONENT_STATUS].TryGetStringValue();
 
                 staticData.Add(pnPEntity);
             }

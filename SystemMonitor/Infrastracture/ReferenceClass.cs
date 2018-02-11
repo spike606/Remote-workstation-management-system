@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SystemMonitor.Infrastracture
 {
-    class ReferenceClass
+    internal class ReferenceClass
     {
     }
 }

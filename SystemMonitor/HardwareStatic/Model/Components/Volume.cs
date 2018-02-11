@@ -57,7 +57,7 @@ namespace SystemMonitor.HardwareStatic.Model.Components
                 }
 
                 volume.Description = string.Empty;
-                volume.DriveLetter = managementObject[ConstString.VOLUME_DRIVE_LETTER]?.ToString() ?? string.Empty;
+                volume.DriveLetter = managementObject[ConstString.VOLUME_DRIVE_LETTER].TryGetStringValue();
 
                 if (managementObject[ConstString.VOLUME_DRIVE_TYPE] != null)
                 {
@@ -68,8 +68,8 @@ namespace SystemMonitor.HardwareStatic.Model.Components
                     volume.DriveType = string.Empty;
                 }
 
-                volume.FileSystem = managementObject[ConstString.VOLUME_FILE_SYSTEM]?.ToString() ?? string.Empty;
-                volume.FileSystemLabel = managementObject[ConstString.VOLUME_FILE_SYTEM_LABEL]?.ToString() ?? string.Empty;
+                volume.FileSystem = managementObject[ConstString.VOLUME_FILE_SYSTEM].TryGetStringValue();
+                volume.FileSystemLabel = managementObject[ConstString.VOLUME_FILE_SYTEM_LABEL].TryGetStringValue();
 
                 if (managementObject[ConstString.VOLUME_DRIVE_TYPE] != null)
                 {
@@ -81,12 +81,12 @@ namespace SystemMonitor.HardwareStatic.Model.Components
                 }
 
                 volume.Name = string.Empty;
-                volume.ObjectId = managementObject[ConstString.VOLUME_OBJECT_ID]?.ToString() ?? string.Empty;
-                volume.Path = managementObject[ConstString.VOLUME_PATH]?.ToString() ?? string.Empty;
-                volume.Size = new UnitValue(Unit.B, managementObject[ConstString.VOLUME_SIZE]?.ToString() ?? string.Empty);
-                volume.SizeRemaining = new UnitValue(Unit.B, managementObject[ConstString.VOLUME_SIZE_REMAINING]?.ToString() ?? string.Empty);
+                volume.ObjectId = managementObject[ConstString.VOLUME_OBJECT_ID].TryGetStringValue();
+                volume.Path = managementObject[ConstString.VOLUME_PATH].TryGetStringValue();
+                volume.Size = managementObject[ConstString.VOLUME_SIZE].TryGetUnitValue(Unit.B);
+                volume.SizeRemaining = managementObject[ConstString.VOLUME_SIZE_REMAINING].TryGetUnitValue(Unit.B);
                 volume.Status = string.Empty;
-                volume.UniqueId = managementObject[ConstString.VOLUME_UNIQUE_ID]?.ToString() ?? string.Empty;
+                volume.UniqueId = managementObject[ConstString.VOLUME_UNIQUE_ID].TryGetStringValue();
                 staticData.Add(volume);
             }
 

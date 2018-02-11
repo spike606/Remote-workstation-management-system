@@ -30,15 +30,15 @@ namespace SystemMonitor.HardwareStatic.Model.Components
             foreach (var managementObject in managementObjectList)
             {
                 Printer printer = new Printer();
-                printer.AveragePagesPerMinute = managementObject[ConstString.PRINTER_AVG_PAGES_PER_MINUTE]?.ToString() ?? string.Empty;
-                printer.Caption = managementObject[ConstString.COMPONENT_CAPTION]?.ToString() ?? string.Empty;
-                printer.Default = managementObject[ConstString.PRINTER_DEFAULT]?.ToString() ?? string.Empty;
-                printer.Description = managementObject[ConstString.COMPONENT_DESCRIPTION]?.ToString() ?? string.Empty;
-                printer.DeviceID = managementObject[ConstString.PRINTER_DEVICE_ID]?.ToString() ?? string.Empty;
-                printer.Name = managementObject[ConstString.COMPONENT_NAME]?.ToString() ?? string.Empty;
-                printer.PortName = managementObject[ConstString.PRINTER_PORT_NAME]?.ToString() ?? string.Empty;
-                printer.PrintProcessor = managementObject[ConstString.PRINTER_PRINT_PROCESSOR]?.ToString() ?? string.Empty;
-                printer.Status = managementObject[ConstString.COMPONENT_STATUS]?.ToString() ?? string.Empty;
+                printer.AveragePagesPerMinute = managementObject[ConstString.PRINTER_AVG_PAGES_PER_MINUTE].TryGetStringValue();
+                printer.Caption = managementObject[ConstString.COMPONENT_CAPTION].TryGetStringValue();
+                printer.Default = managementObject[ConstString.PRINTER_DEFAULT].TryGetStringValue();
+                printer.Description = managementObject[ConstString.COMPONENT_DESCRIPTION].TryGetStringValue();
+                printer.DeviceID = managementObject[ConstString.PRINTER_DEVICE_ID].TryGetStringValue();
+                printer.Name = managementObject[ConstString.COMPONENT_NAME].TryGetStringValue();
+                printer.PortName = managementObject[ConstString.PRINTER_PORT_NAME].TryGetStringValue();
+                printer.PrintProcessor = managementObject[ConstString.PRINTER_PRINT_PROCESSOR].TryGetStringValue();
+                printer.Status = managementObject[ConstString.COMPONENT_STATUS].TryGetStringValue();
 
                 staticData.Add(printer);
             }

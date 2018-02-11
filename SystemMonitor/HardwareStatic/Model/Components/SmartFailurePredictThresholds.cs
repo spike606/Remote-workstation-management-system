@@ -25,7 +25,7 @@ namespace SystemMonitor.HardwareStatic.Model.Components
                 SmartFailurePredictThresholds smartFailurePredictThresholds = new SmartFailurePredictThresholds();
                 smartFailurePredictThresholds.Caption = string.Empty;
                 smartFailurePredictThresholds.Description = string.Empty;
-                smartFailurePredictThresholds.InstanceName = managementObject[ConstString.SMART_INSTANCE_NAME]?.ToString() ?? string.Empty;
+                smartFailurePredictThresholds.InstanceName = managementObject[ConstString.SMART_INSTANCE_NAME].TryGetStringValue();
                 smartFailurePredictThresholds.Name = string.Empty;
                 smartFailurePredictThresholds.VendorSpecific = (byte[])managementObject[ConstString.SMART_VENDOR_SPECIFIC] ?? new byte[0];
                 smartFailurePredictThresholds.Status = string.Empty;

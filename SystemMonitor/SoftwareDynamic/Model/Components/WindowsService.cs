@@ -42,7 +42,7 @@ namespace SystemMonitor.SoftwareDynamic.Model.Components
                 windowsService.DisplayName = service.DisplayName;
                 windowsService.ServiceName = service.ServiceName;
                 windowsService.ServiceType = service.ServiceType.ToString();
-                //windowsService.StartType = service.StartType.ToString();
+                windowsService.StartType = service.StartType.ToString();
                 windowsService.Status = service.Status.ToString();
                 windowsServices.Add(windowsService);
             }

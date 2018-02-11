@@ -12,32 +12,19 @@ namespace SystemMonitor.SoftwareDynamic.Model.Components
 {
     public class WindowsLog : ISoftwareDynamicComponent<WindowsLog>
     {
-        public EventLogEntryCollection Entries { get; private set; }
+        public EventLogEntryCollection Entries { get; internal set; }
 
-        public string LogName { get; private set; }
+        public string LogName { get; internal set; }
 
-        public string LogDisplayName { get; private set; }
+        public string LogDisplayName { get; internal set; }
 
-        public UnitValue MaximumKilobytes { get; private set; }
+        public UnitValue MaximumKilobytes { get; internal set; }
 
-        public UnitValue MinimumRetentionDays { get; private set; }
+        public UnitValue MinimumRetentionDays { get; internal set; }
 
         public List<WindowsLog> GetDynamicDataForSoftwareComponent(ISoftwareDynamicProvider softwareDynamicProvider)
         {
-            List<WindowsLog> windowsLogs = new List<WindowsLog>();
-            var logs = softwareDynamicProvider.GetWindowsLogs();
-            foreach (var log in logs)
-            {
-                WindowsLog windowsLog = new WindowsLog();
-                windowsLog.Entries = log.Entries;
-                windowsLog.LogName = log.Log;
-                windowsLog.LogDisplayName = log.LogDisplayName;
-                windowsLog.MaximumKilobytes = new UnitValue() { Unit = Unit.KB, Value = log.MaximumKilobytes.ToString() };
-                windowsLog.MinimumRetentionDays = new UnitValue() { Unit = Unit.Days, Value = log.MinimumRetentionDays.ToString() };
-                windowsLogs.Add(windowsLog);
-            }
-
-            return windowsLogs;
+            return softwareDynamicProvider.GetWindowsLogs();
         }
     }
 }

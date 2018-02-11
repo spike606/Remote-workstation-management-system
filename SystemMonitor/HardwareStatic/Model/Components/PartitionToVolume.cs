@@ -25,9 +25,9 @@ namespace SystemMonitor.HardwareStatic.Model.Components
                 PartitionToVolume partitionToVolume = new PartitionToVolume();
                 partitionToVolume.Caption = string.Empty;
                 partitionToVolume.Description = string.Empty;
-                partitionToVolume.Partition = managementObject[ConstString.PARTITION_TO_VOLUME_PARTITION]?.ToString() ?? string.Empty;
+                partitionToVolume.Partition = managementObject[ConstString.PARTITION_TO_VOLUME_PARTITION].TryGetStringValue();
                 partitionToVolume.Name = string.Empty;
-                partitionToVolume.Volume = managementObject[ConstString.PARTITION_TO_VOLUME_VOLUME]?.ToString() ?? string.Empty;
+                partitionToVolume.Volume = managementObject[ConstString.PARTITION_TO_VOLUME_VOLUME].TryGetStringValue();
                 partitionToVolume.Status = string.Empty;
 
                 staticData.Add(partitionToVolume);

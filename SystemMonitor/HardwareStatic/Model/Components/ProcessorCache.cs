@@ -33,13 +33,13 @@ namespace SystemMonitor.HardwareStatic.Model.Components
             foreach (var managementObject in managementObjectList)
             {
                 ProcessorCache processorCache = new ProcessorCache();
-                processorCache.Caption = managementObject[ConstString.COMPONENT_CAPTION]?.ToString() ?? string.Empty;
-                processorCache.Description = managementObject[ConstString.COMPONENT_DESCRIPTION]?.ToString() ?? string.Empty;
+                processorCache.Caption = managementObject[ConstString.COMPONENT_CAPTION].TryGetStringValue();
+                processorCache.Description = managementObject[ConstString.COMPONENT_DESCRIPTION].TryGetStringValue();
                 processorCache.Level = ((CacheLevelEnum)((ushort)managementObject[ConstString.PROCESSOR_CACHE_LEVEL])).ToString();
-                processorCache.Size = new UnitValue(Unit.KB, managementObject[ConstString.PROCESSOR_CACHE_SIZE]?.ToString() ?? string.Empty);
-                processorCache.Speed = new UnitValue(Unit.MHZ, managementObject[ConstString.PROCESSOR_CACHE_SPEED]?.ToString() ?? string.Empty);
-                processorCache.Status = managementObject[ConstString.COMPONENT_STATUS]?.ToString() ?? string.Empty;
-                processorCache.Name = managementObject[ConstString.COMPONENT_NAME]?.ToString() ?? string.Empty;
+                processorCache.Size = managementObject[ConstString.PROCESSOR_CACHE_SIZE].TryGetUnitValue(Unit.KB);
+                processorCache.Speed = managementObject[ConstString.PROCESSOR_CACHE_SPEED].TryGetUnitValue(Unit.MHZ);
+                processorCache.Status = managementObject[ConstString.COMPONENT_STATUS].TryGetStringValue();
+                processorCache.Name = managementObject[ConstString.COMPONENT_NAME].TryGetStringValue();
 
                 staticData.Add(processorCache);
             }

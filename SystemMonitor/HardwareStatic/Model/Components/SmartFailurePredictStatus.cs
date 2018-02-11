@@ -25,9 +25,9 @@ namespace SystemMonitor.HardwareStatic.Model.Components
                 SmartFailurePredictStatus smartFailurePredictStatus = new SmartFailurePredictStatus();
                 smartFailurePredictStatus.Caption = string.Empty;
                 smartFailurePredictStatus.Description = string.Empty;
-                smartFailurePredictStatus.InstanceName = managementObject[ConstString.SMART_INSTANCE_NAME]?.ToString() ?? string.Empty;
+                smartFailurePredictStatus.InstanceName = managementObject[ConstString.SMART_INSTANCE_NAME].TryGetStringValue();
                 smartFailurePredictStatus.Name = string.Empty;
-                smartFailurePredictStatus.PredictFailure = managementObject[ConstString.SMART_PREDICT_FAILURE]?.ToString() ?? string.Empty;
+                smartFailurePredictStatus.PredictFailure = managementObject[ConstString.SMART_PREDICT_FAILURE].TryGetStringValue();
                 smartFailurePredictStatus.Status = string.Empty;
 
                 staticData.Add(smartFailurePredictStatus);

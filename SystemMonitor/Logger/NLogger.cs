@@ -13,17 +13,17 @@ namespace SystemMonitor.Logger
 
         public void LogDebug(string message)
         {
-            logger.Log(LogLevel.Debug, message);
+            logger.Debug(message);
         }
 
-        public void LogError(string message)
+        public void LogError(string message, Exception exception)
         {
-            logger.Log(LogLevel.Error, message);
+            logger.Error(exception, message);
         }
 
         public void LogInfo(string message)
         {
-            logger.Log(LogLevel.Info, message);
+            logger.Info(message);
         }
     }
 }

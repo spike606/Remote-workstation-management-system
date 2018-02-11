@@ -20,9 +20,9 @@ namespace SystemMonitor.HardwareStatic.Model.Components
             foreach (var managementObject in managementObjectList)
             {
                 Fan fan = new Fan();
-                fan.Caption = managementObject[ConstString.COMPONENT_CAPTION]?.ToString() ?? string.Empty;
-                fan.Description = managementObject[ConstString.COMPONENT_DESCRIPTION]?.ToString() ?? string.Empty;
-                fan.Name = managementObject[ConstString.COMPONENT_NAME]?.ToString() ?? string.Empty;
+                fan.Caption = managementObject[ConstString.COMPONENT_CAPTION].TryGetStringValue();
+                fan.Description = managementObject[ConstString.COMPONENT_DESCRIPTION].TryGetStringValue();
+                fan.Name = managementObject[ConstString.COMPONENT_NAME].TryGetStringValue();
 
                 staticData.Add(fan);
             }

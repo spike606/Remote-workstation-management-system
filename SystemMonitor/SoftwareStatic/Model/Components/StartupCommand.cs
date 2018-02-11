@@ -32,14 +32,14 @@ namespace SystemMonitor.SoftwareStatic.Model.Components
         public StartupCommand ExtractData(ManagementObject managementObject)
         {
             StartupCommand startupCommand = new StartupCommand();
-            startupCommand.Caption = managementObject[ConstString.COMPONENT_CAPTION]?.ToString() ?? string.Empty;
-            startupCommand.Command = managementObject[ConstString.STARTUP_COMMAND_COMMAND]?.ToString() ?? string.Empty;
-            startupCommand.Description = managementObject[ConstString.COMPONENT_DESCRIPTION]?.ToString() ?? string.Empty;
-            startupCommand.Location = managementObject[ConstString.STARTUP_COMMAND_LOCATION]?.ToString() ?? string.Empty;
-            startupCommand.Name = managementObject[ConstString.COMPONENT_NAME]?.ToString() ?? string.Empty;
-            startupCommand.SettingID = managementObject[ConstString.STARTUP_COMMAND_SETTING_ID]?.ToString() ?? string.Empty;
-            startupCommand.User = managementObject[ConstString.STARTUP_COMMAND_USER]?.ToString() ?? string.Empty;
-            startupCommand.UserSID = managementObject[ConstString.STARTUP_COMMAND_USER_SID]?.ToString() ?? string.Empty;
+            startupCommand.Caption = managementObject[ConstString.COMPONENT_CAPTION].TryGetStringValue();
+            startupCommand.Command = managementObject[ConstString.STARTUP_COMMAND_COMMAND].TryGetStringValue();
+            startupCommand.Description = managementObject[ConstString.COMPONENT_DESCRIPTION].TryGetStringValue();
+            startupCommand.Location = managementObject[ConstString.STARTUP_COMMAND_LOCATION].TryGetStringValue();
+            startupCommand.Name = managementObject[ConstString.COMPONENT_NAME].TryGetStringValue();
+            startupCommand.SettingID = managementObject[ConstString.STARTUP_COMMAND_SETTING_ID].TryGetStringValue();
+            startupCommand.User = managementObject[ConstString.STARTUP_COMMAND_USER].TryGetStringValue();
+            startupCommand.UserSID = managementObject[ConstString.STARTUP_COMMAND_USER_SID].TryGetStringValue();
 
             return startupCommand;
         }

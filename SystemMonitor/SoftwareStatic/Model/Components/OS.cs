@@ -70,32 +70,32 @@ namespace SystemMonitor.SoftwareStatic.Model.Components
         {
             OS operatingSystem = new OS();
 
-            operatingSystem.BuildNumber = managementObject[ConstString.OS_BUILD_NUMBER]?.ToString() ?? string.Empty;
-            operatingSystem.BuildType = managementObject[ConstString.OS_BUILD_TYPE]?.ToString() ?? string.Empty;
-            operatingSystem.Caption = managementObject[ConstString.COMPONENT_CAPTION]?.ToString() ?? string.Empty;
-            operatingSystem.CountryCode = managementObject[ConstString.OS_COUNTRY_CODE]?.ToString() ?? string.Empty;
-            operatingSystem.CDSVersion = managementObject[ConstString.OS_CSD_VERSION]?.ToString() ?? string.Empty;
-            operatingSystem.CSName = managementObject[ConstString.COMPONENT_NAME]?.ToString() ?? string.Empty;
-            operatingSystem.CurrentTimeZone = new UnitValue(Unit.Minutes, managementObject[ConstString.OS_CURRENT_TIME_ZONE]?.ToString() ?? string.Empty);
-            operatingSystem.Description = managementObject[ConstString.COMPONENT_DESCRIPTION]?.ToString() ?? string.Empty;
-            operatingSystem.EncryptionLevel = new UnitValue(Unit.BIT, managementObject[ConstString.OS_ENCRYPTION_LEVEL]?.ToString() ?? string.Empty);
+            operatingSystem.BuildNumber = managementObject[ConstString.OS_BUILD_NUMBER].TryGetStringValue();
+            operatingSystem.BuildType = managementObject[ConstString.OS_BUILD_TYPE].TryGetStringValue();
+            operatingSystem.Caption = managementObject[ConstString.COMPONENT_CAPTION].TryGetStringValue();
+            operatingSystem.CountryCode = managementObject[ConstString.OS_COUNTRY_CODE].TryGetStringValue();
+            operatingSystem.CDSVersion = managementObject[ConstString.OS_CSD_VERSION].TryGetStringValue();
+            operatingSystem.CSName = managementObject[ConstString.COMPONENT_NAME].TryGetStringValue();
+            operatingSystem.CurrentTimeZone = managementObject[ConstString.OS_CURRENT_TIME_ZONE].TryGetUnitValue(Unit.Minutes);
+            operatingSystem.Description = managementObject[ConstString.COMPONENT_DESCRIPTION].TryGetStringValue();
+            operatingSystem.EncryptionLevel = managementObject[ConstString.OS_ENCRYPTION_LEVEL].TryGetUnitValue(Unit.BIT);
             operatingSystem.InstallDate = managementObject[ConstString.OS_INSTALL_DATE] != null ? ManagementDateTimeConverter.ToDateTime(managementObject[ConstString.OS_INSTALL_DATE].ToString()) : default(DateTime);
             operatingSystem.LastBootUpTime = managementObject[ConstString.OS_LAST_BOOT_UP_TIME] != null ? ManagementDateTimeConverter.ToDateTime(managementObject[ConstString.OS_LAST_BOOT_UP_TIME].ToString()) : default(DateTime);
             operatingSystem.LocalDateTime = managementObject[ConstString.OS_LOCALE_DATE_TIME] != null ? ManagementDateTimeConverter.ToDateTime(managementObject[ConstString.OS_LOCALE_DATE_TIME].ToString()) : default(DateTime);
-            operatingSystem.Locale = managementObject[ConstString.OS_LOCALE]?.ToString() ?? string.Empty;
-            operatingSystem.MaxNumerOfProcesses = managementObject[ConstString.OS_MAX_NUMBER_OF_PROCESSES]?.ToString() ?? string.Empty;
-            operatingSystem.MaxProcessMemorySize = new UnitValue(Unit.KB, managementObject[ConstString.OS_MAX_PROCESS_MEMORY_SIZE]?.ToString() ?? string.Empty);
-            operatingSystem.Name = managementObject[ConstString.COMPONENT_NAME]?.ToString() ?? string.Empty;
-            operatingSystem.Organization = managementObject[ConstString.OS_ORGANIZATION]?.ToString() ?? string.Empty;
-            operatingSystem.OSArchitecture = managementObject[ConstString.OS_ARCHITECTURE]?.ToString() ?? string.Empty;
-            operatingSystem.RegisteredUser = managementObject[ConstString.OS_REGISTERED_USER]?.ToString() ?? string.Empty;
-            operatingSystem.SerialNumber = managementObject[ConstString.OS_SERIAL_NUMBER]?.ToString() ?? string.Empty;
-            operatingSystem.ServicePackMajorVersion = managementObject[ConstString.OS_SERVICE_PACK_MAJOR_VERSION]?.ToString() ?? string.Empty;
-            operatingSystem.ServicePackMinorVersion = managementObject[ConstString.OS_SERVICE_PACK_MINOR_VERSION]?.ToString() ?? string.Empty;
-            operatingSystem.SystemDirectory = managementObject[ConstString.OS_SYSTEM_DIRECTORY]?.ToString() ?? string.Empty;
-            operatingSystem.SystemDrive = managementObject[ConstString.OS_SYSTEM_DRIVE]?.ToString() ?? string.Empty;
-            operatingSystem.Version = managementObject[ConstString.OS_VERSION]?.ToString() ?? string.Empty;
-            operatingSystem.WindowsDirectory = managementObject[ConstString.OS_WINDOWS_DIRECTORY]?.ToString() ?? string.Empty;
+            operatingSystem.Locale = managementObject[ConstString.OS_LOCALE].TryGetStringValue();
+            operatingSystem.MaxNumerOfProcesses = managementObject[ConstString.OS_MAX_NUMBER_OF_PROCESSES].TryGetStringValue();
+            operatingSystem.MaxProcessMemorySize = managementObject[ConstString.OS_MAX_PROCESS_MEMORY_SIZE].TryGetUnitValue(Unit.KB);
+            operatingSystem.Name = managementObject[ConstString.COMPONENT_NAME].TryGetStringValue();
+            operatingSystem.Organization = managementObject[ConstString.OS_ORGANIZATION].TryGetStringValue();
+            operatingSystem.OSArchitecture = managementObject[ConstString.OS_ARCHITECTURE].TryGetStringValue();
+            operatingSystem.RegisteredUser = managementObject[ConstString.OS_REGISTERED_USER].TryGetStringValue();
+            operatingSystem.SerialNumber = managementObject[ConstString.OS_SERIAL_NUMBER].TryGetStringValue();
+            operatingSystem.ServicePackMajorVersion = managementObject[ConstString.OS_SERVICE_PACK_MAJOR_VERSION].TryGetStringValue();
+            operatingSystem.ServicePackMinorVersion = managementObject[ConstString.OS_SERVICE_PACK_MINOR_VERSION].TryGetStringValue();
+            operatingSystem.SystemDirectory = managementObject[ConstString.OS_SYSTEM_DIRECTORY].TryGetStringValue();
+            operatingSystem.SystemDrive = managementObject[ConstString.OS_SYSTEM_DRIVE].TryGetStringValue();
+            operatingSystem.Version = managementObject[ConstString.OS_VERSION].TryGetStringValue();
+            operatingSystem.WindowsDirectory = managementObject[ConstString.OS_WINDOWS_DIRECTORY].TryGetStringValue();
 
             return operatingSystem;
         }

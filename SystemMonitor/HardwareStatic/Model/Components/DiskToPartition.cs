@@ -25,9 +25,9 @@ namespace SystemMonitor.HardwareStatic.Model.Components
                 DiskToPartition diskToPartition = new DiskToPartition();
                 diskToPartition.Caption = string.Empty;
                 diskToPartition.Description = string.Empty;
-                diskToPartition.Disk = managementObject[ConstString.DISK_TO_PARTITION_DISK]?.ToString() ?? string.Empty;
+                diskToPartition.Disk = managementObject[ConstString.DISK_TO_PARTITION_DISK].TryGetStringValue();
                 diskToPartition.Name = string.Empty;
-                diskToPartition.Partition = managementObject[ConstString.DISK_TO_PARTITION_PARTITION]?.ToString() ?? string.Empty;
+                diskToPartition.Partition = managementObject[ConstString.DISK_TO_PARTITION_PARTITION].TryGetStringValue();
                 diskToPartition.Status = string.Empty;
 
                 staticData.Add(diskToPartition);

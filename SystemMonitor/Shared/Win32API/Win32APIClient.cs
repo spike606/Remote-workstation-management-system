@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
@@ -12,7 +13,6 @@ namespace SystemMonitor.Shared.Win32API
 {
     public class Win32APIClient : IWin32APIClient
     {
-
         public Win32APIClient(INLogger logger)
         {
             this.Logger = logger;
@@ -31,7 +31,7 @@ namespace SystemMonitor.Shared.Win32API
             }
             catch (Exception ex)
             {
-                this.Logger.LogError(ex.Message);
+                this.Logger.LogError(ex.Message, ex);
                 return string.Empty;
             }
             finally
@@ -43,6 +43,7 @@ namespace SystemMonitor.Shared.Win32API
             }
         }
 
+        [SuppressMessage("StyleCop.Analyzers", "SA1313:ParameterNamesMustBeginWithLowerCaseLetter", Justification = "Dll import")]
         [DllImport("advapi32.dll", SetLastError = true)]
         private static extern bool OpenProcessToken(IntPtr ProcessHandle, uint DesiredAccess, out IntPtr TokenHandle);
 

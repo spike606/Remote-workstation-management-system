@@ -6,6 +6,7 @@ using System.Management;
 using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
+using SystemMonitor.SoftwareDynamic.Model.Components;
 
 namespace SystemMonitor.SoftwareDynamic.Provider
 {
@@ -13,7 +14,7 @@ namespace SystemMonitor.SoftwareDynamic.Provider
     {
         ServiceController[] GetWindowsServices();
 
-        EventLog[] GetWindowsLogs();
+        List<WindowsLog> GetWindowsLogs();
 
         Process[] GetWindowsProcesses();
 

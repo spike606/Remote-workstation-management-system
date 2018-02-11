@@ -26,13 +26,13 @@ namespace SystemMonitor.HardwareStatic.Model.Components
             foreach (var managementObject in managementObjectList)
             {
                 CDROMDrive cdROMDrive = new CDROMDrive();
-                cdROMDrive.Caption = managementObject[ConstString.COMPONENT_CAPTION]?.ToString() ?? string.Empty;
-                cdROMDrive.Description = managementObject[ConstString.COMPONENT_DESCRIPTION]?.ToString() ?? string.Empty;
-                cdROMDrive.DeviceID = managementObject[ConstString.CDROM_DRIVE_DEVICE_ID]?.ToString() ?? string.Empty;
-                cdROMDrive.Drive = managementObject[ConstString.CDROM_DRIVE_DRIVE]?.ToString() ?? string.Empty;
-                cdROMDrive.MediaType = managementObject[ConstString.CDROM_DRIVE_MEDIA_TYPE]?.ToString() ?? string.Empty;
-                cdROMDrive.Name = managementObject[ConstString.COMPONENT_NAME]?.ToString() ?? string.Empty;
-                cdROMDrive.Status = managementObject[ConstString.COMPONENT_STATUS]?.ToString() ?? string.Empty;
+                cdROMDrive.Caption = managementObject[ConstString.COMPONENT_CAPTION].TryGetStringValue();
+                cdROMDrive.Description = managementObject[ConstString.COMPONENT_DESCRIPTION].TryGetStringValue();
+                cdROMDrive.DeviceID = managementObject[ConstString.CDROM_DRIVE_DEVICE_ID].TryGetStringValue();
+                cdROMDrive.Drive = managementObject[ConstString.CDROM_DRIVE_DRIVE].TryGetStringValue();
+                cdROMDrive.MediaType = managementObject[ConstString.CDROM_DRIVE_MEDIA_TYPE].TryGetStringValue();
+                cdROMDrive.Name = managementObject[ConstString.COMPONENT_NAME].TryGetStringValue();
+                cdROMDrive.Status = managementObject[ConstString.COMPONENT_STATUS].TryGetStringValue();
 
                 staticData.Add(cdROMDrive);
             }

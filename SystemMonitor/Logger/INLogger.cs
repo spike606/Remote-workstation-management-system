@@ -11,7 +11,7 @@ namespace SystemMonitor.Logger
     {
         void LogDebug(string message);
 
-        void LogError(string message);
+        void LogError(string message, Exception exception);
 
         void LogInfo(string message);
     }

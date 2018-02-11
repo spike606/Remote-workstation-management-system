@@ -45,31 +45,25 @@ namespace SystemMonitor.SoftwareDynamic.Model.Components
 
             foreach (var process in processes)
             {
-                try
-                {
-                    WindowsProcess windowsProcess = new WindowsProcess();
-                    windowsProcess.BasePriority = process.BasePriority.ToString();
-                    windowsProcess.Id = process.Id.ToString();
-                    windowsProcess.Name = process.ProcessName;
-                    windowsProcess.StartTime = process.StartTime;
-                    windowsProcess.TotalProcessorTime = process.TotalProcessorTime;
-                    windowsProcess.PagedMemorySize64 = new UnitValue() { Unit = Unit.B, Value = process.PagedMemorySize64.ToString() };
-                    windowsProcess.VirtualMemorySize64 = new UnitValue() { Unit = Unit.B, Value = process.VirtualMemorySize64.ToString() };
-                    windowsProcess.MemorySize = new UnitValue() { Unit = Unit.B, Value = process.WorkingSet64.ToString() };
-                    windowsProcess.TotalProcessorTime = process.TotalProcessorTime;
-                    windowsProcess.PeakPagedMemorySize64 = new UnitValue() { Unit = Unit.B, Value = process.PeakPagedMemorySize64.ToString() };
-                    windowsProcess.PeakVirtualMemorySize64 = new UnitValue() { Unit = Unit.B, Value = process.PeakVirtualMemorySize64.ToString() };
-                    windowsProcess.PeakMemorySize = new UnitValue() { Unit = Unit.B, Value = process.PeakWorkingSet64.ToString() };
-                    windowsProcess.SessionId = process.SessionId.ToString();
+                WindowsProcess windowsProcess = new WindowsProcess();
+                windowsProcess.BasePriority = process.BasePriority.ToString();
+                windowsProcess.Id = process.Id.ToString();
+                windowsProcess.Name = process.ProcessName;
+                windowsProcess.StartTime = process.StartTime;
+                windowsProcess.TotalProcessorTime = process.TotalProcessorTime;
+                windowsProcess.PagedMemorySize64 = new UnitValue() { Unit = Unit.B, Value = process.PagedMemorySize64.ToString() };
+                windowsProcess.VirtualMemorySize64 = new UnitValue() { Unit = Unit.B, Value = process.VirtualMemorySize64.ToString() };
+                windowsProcess.MemorySize = new UnitValue() { Unit = Unit.B, Value = process.WorkingSet64.ToString() };
+                windowsProcess.TotalProcessorTime = process.TotalProcessorTime;
+                windowsProcess.PeakPagedMemorySize64 = new UnitValue() { Unit = Unit.B, Value = process.PeakPagedMemorySize64.ToString() };
+                windowsProcess.PeakVirtualMemorySize64 = new UnitValue() { Unit = Unit.B, Value = process.PeakVirtualMemorySize64.ToString() };
+                windowsProcess.PeakMemorySize = new UnitValue() { Unit = Unit.B, Value = process.PeakWorkingSet64.ToString() };
+                windowsProcess.SessionId = process.SessionId.ToString();
 
-                    var processOwner = softwareDynamicProvider.GetProcessOwner(process);
-                    windowsProcess.UserName = processOwner.Contains(@"\") ? processOwner.Substring(processOwner.IndexOf(@"\") + 1) : processOwner;
+                var processOwner = softwareDynamicProvider.GetProcessOwner(process);
+                windowsProcess.UserName = processOwner.Contains(@"\") ? processOwner.Substring(processOwner.IndexOf(@"\") + 1) : processOwner;
 
-                    windowsProcesses.Add(windowsProcess);
-                }
-                catch (Exception ex)
-                {
-                }
+                windowsProcesses.Add(windowsProcess);
             }
 
             return windowsProcesses;

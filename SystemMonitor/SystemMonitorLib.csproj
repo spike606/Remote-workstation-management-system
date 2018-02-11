@@ -132,6 +132,7 @@
     <Compile Include="Logger\NLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shared\WMI\IWMISoftwareStaticComponent.cs" />
+    <Compile Include="Shared\WMI\ManagamentObjectExtension.cs" />
     <Compile Include="Shared\WMI\WMIClient.cs" />
     <Compile Include="DataBuilder\SystemMonitorDataBuilder.cs" />
     <Compile Include="SoftwareDynamic\Builder\ISoftwareDynamicBuilder.cs" />

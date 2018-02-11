@@ -16,26 +16,19 @@ namespace SystemMonitor.SoftwareStatic.Model.Components
     // https://support.microsoft.com/en-us/help/243330/well-known-security-identifiers-in-windows-operating-systems
     public class CurrentUser : ISoftwareStaticComponent<CurrentUser>
     {
-        public string Name { get; set; }
+        public string Name { get; internal set; }
 
-        public string AuthenticationType { get; private set; }
+        public string AuthenticationType { get; internal set; }
 
-        public IEnumerable<Claim> Claims { get; private set; }
+        public IEnumerable<Claim> Claims { get; internal set; }
 
-        public IdentityReferenceCollection Groups { get; private set; }
+        public IdentityReferenceCollection Groups { get; internal set; }
 
         public List<CurrentUser> GetStaticDataForSoftwareComponent(ISoftwareStaticProvider softwareStaticProvider)
         {
+            CurrentUser currentUser = softwareStaticProvider.GetCurrentUser();
+
             List<CurrentUser> currentUserList = new List<CurrentUser>();
-
-            CurrentUser currentUser = new CurrentUser();
-            var identity = WindowsIdentity.GetCurrent();
-
-            currentUser.Name = identity.Name;
-            currentUser.AuthenticationType = identity.AuthenticationType;
-            currentUser.Claims = identity.Claims;
-            currentUser.Groups = identity.Groups;
-
             currentUserList.Add(currentUser);
 
             return currentUserList;

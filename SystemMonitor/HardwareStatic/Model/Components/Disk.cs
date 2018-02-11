@@ -77,8 +77,8 @@ namespace SystemMonitor.HardwareStatic.Model.Components
             foreach (var managementObject in managementObjectList)
             {
                 Disk disk = new Disk();
-                disk.AllocatedSize = new UnitValue(Unit.B, managementObject[ConstString.DISK_ALLOCATED_SIZE]?.ToString() ?? string.Empty);
-                disk.BootFromDisk = managementObject[ConstString.DISK_BOOT_FROM_DISK]?.ToString() ?? string.Empty;
+                disk.AllocatedSize = managementObject[ConstString.DISK_ALLOCATED_SIZE].TryGetUnitValue(Unit.B);
+                disk.BootFromDisk = managementObject[ConstString.DISK_BOOT_FROM_DISK].TryGetStringValue();
                 if (managementObject[ConstString.DISK_BUS_TYPE] != null)
                 {
                     disk.BusType = ((BusTypeEnum)((ushort)managementObject[ConstString.DISK_BUS_TYPE])).GetEnumDescription();
@@ -90,8 +90,8 @@ namespace SystemMonitor.HardwareStatic.Model.Components
 
                 disk.Caption = string.Empty;
                 disk.Description = string.Empty;
-                disk.FirmwareVersion = managementObject[ConstString.DISK_FIRMWARE_VERSION]?.ToString() ?? string.Empty;
-                disk.FriendlyName = managementObject[ConstString.DISK_FRIENDLY_NAME]?.ToString() ?? string.Empty;
+                disk.FirmwareVersion = managementObject[ConstString.DISK_FIRMWARE_VERSION].TryGetStringValue();
+                disk.FriendlyName = managementObject[ConstString.DISK_FRIENDLY_NAME].TryGetStringValue();
 
                 if (managementObject[ConstString.DISK_HEALTH_STATUS] != null)
                 {
@@ -102,20 +102,20 @@ namespace SystemMonitor.HardwareStatic.Model.Components
                     disk.HealthStatus = string.Empty;
                 }
 
-                disk.IsBoot = managementObject[ConstString.DISK_IS_BOOT]?.ToString() ?? string.Empty;
-                disk.IsClustered = managementObject[ConstString.DISK_IS_CLUSTERED]?.ToString() ?? string.Empty;
-                disk.IsOffline = managementObject[ConstString.DISK_IS_OFFILINE]?.ToString() ?? string.Empty;
-                disk.IsReadOnly = managementObject[ConstString.DISK_IS_READONLY]?.ToString() ?? string.Empty;
-                disk.IsSystem = managementObject[ConstString.DISK_IS_SYSTEM]?.ToString() ?? string.Empty;
-                disk.LargestFreeExtent = new UnitValue(Unit.B, managementObject[ConstString.DISK_LARGEST_FREE_EXTEND]?.ToString() ?? string.Empty);
-                disk.Location = managementObject[ConstString.DISK_LOCATION]?.ToString() ?? string.Empty;
-                disk.LogicalSectorSize = new UnitValue(Unit.B, managementObject[ConstString.DISK_LOGICAL_SECTOR_SIZE]?.ToString() ?? string.Empty);
-                disk.Manufacturer = managementObject[ConstString.DISK_MANUFACTURER]?.ToString() ?? string.Empty;
-                disk.Model = managementObject[ConstString.DISK_MODEL]?.ToString() ?? string.Empty;
+                disk.IsBoot = managementObject[ConstString.DISK_IS_BOOT].TryGetStringValue();
+                disk.IsClustered = managementObject[ConstString.DISK_IS_CLUSTERED].TryGetStringValue();
+                disk.IsOffline = managementObject[ConstString.DISK_IS_OFFILINE].TryGetStringValue();
+                disk.IsReadOnly = managementObject[ConstString.DISK_IS_READONLY].TryGetStringValue();
+                disk.IsSystem = managementObject[ConstString.DISK_IS_SYSTEM].TryGetStringValue();
+                disk.LargestFreeExtent = managementObject[ConstString.DISK_LARGEST_FREE_EXTEND].TryGetUnitValue(Unit.B);
+                disk.Location = managementObject[ConstString.DISK_LOCATION].TryGetStringValue();
+                disk.LogicalSectorSize = managementObject[ConstString.DISK_LOGICAL_SECTOR_SIZE].TryGetUnitValue(Unit.B);
+                disk.Manufacturer = managementObject[ConstString.DISK_MANUFACTURER].TryGetStringValue();
+                disk.Model = managementObject[ConstString.DISK_MODEL].TryGetStringValue();
                 disk.Name = string.Empty;
-                disk.Number = managementObject[ConstString.DISK_NUMBER]?.ToString() ?? string.Empty;
-                disk.NumberOfPartitions = managementObject[ConstString.DISK_NUMBER_OF_PARTITIONS]?.ToString() ?? string.Empty;
-                disk.ObjectId = managementObject[ConstString.DISK_OBJECT_ID]?.ToString() ?? string.Empty;
+                disk.Number = managementObject[ConstString.DISK_NUMBER].TryGetStringValue();
+                disk.NumberOfPartitions = managementObject[ConstString.DISK_NUMBER_OF_PARTITIONS].TryGetStringValue();
+                disk.ObjectId = managementObject[ConstString.DISK_OBJECT_ID].TryGetStringValue();
                 if (managementObject[ConstString.DISK_OFFLINE_REASON] != null)
                 {
                     disk.OfflineReason = ((OfflineReasonEnum)((ushort)managementObject[ConstString.DISK_OFFLINE_REASON])).GetEnumDescription();
@@ -135,13 +135,13 @@ namespace SystemMonitor.HardwareStatic.Model.Components
                     disk.PartitionStyle = string.Empty;
                 }
 
-                disk.Path = managementObject[ConstString.DISK_PATH]?.ToString() ?? string.Empty;
-                disk.PhysicalSectorSize = new UnitValue(Unit.B, managementObject[ConstString.DISK_PHYSICAL_SECTOR_SIZE]?.ToString() ?? string.Empty);
-                disk.SerialNumber = managementObject[ConstString.DISK_SERIAL_NUMBER]?.ToString() ?? string.Empty;
-                disk.Signature = managementObject[ConstString.DISK_SIGNATURE]?.ToString() ?? string.Empty;
-                disk.Size = new UnitValue(Unit.B, managementObject[ConstString.DISK_SIZE]?.ToString() ?? string.Empty);
+                disk.Path = managementObject[ConstString.DISK_PATH].TryGetStringValue();
+                disk.PhysicalSectorSize = managementObject[ConstString.DISK_PHYSICAL_SECTOR_SIZE].TryGetUnitValue(Unit.B);
+                disk.SerialNumber = managementObject[ConstString.DISK_SERIAL_NUMBER].TryGetStringValue();
+                disk.Signature = managementObject[ConstString.DISK_SIGNATURE].TryGetStringValue();
+                disk.Size = managementObject[ConstString.DISK_SIZE].TryGetUnitValue(Unit.B);
                 disk.Status = string.Empty;
-                disk.UniqueId = managementObject[ConstString.DISK_UNIQUE_ID]?.ToString() ?? string.Empty;
+                disk.UniqueId = managementObject[ConstString.DISK_UNIQUE_ID].TryGetStringValue();
 
                 staticData.Add(disk);
             }

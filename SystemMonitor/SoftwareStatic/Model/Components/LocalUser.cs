@@ -36,16 +36,16 @@ namespace SystemMonitor.SoftwareStatic.Model.Components
         public LocalUser ExtractData(ManagementObject managementObject)
         {
             LocalUser localUser = new LocalUser();
-            localUser.Caption = managementObject[ConstString.COMPONENT_CAPTION]?.ToString() ?? string.Empty;
-            localUser.Descritption = managementObject[ConstString.COMPONENT_DESCRIPTION]?.ToString() ?? string.Empty;
-            localUser.Domain = managementObject[ConstString.LOCAL_USER_DOMAIN]?.ToString() ?? string.Empty;
-            localUser.FullName = managementObject[ConstString.LOCAL_USER_FULL_NAME]?.ToString() ?? string.Empty;
-            localUser.Name = managementObject[ConstString.COMPONENT_NAME]?.ToString() ?? string.Empty;
-            localUser.PasswordChangeable = managementObject[ConstString.LOCAL_USER_PASSWORD_CHANGEABLE]?.ToString() ?? string.Empty;
-            localUser.PasswordExpires = managementObject[ConstString.LOCAL_USER_PASSWORD_EXPIRES]?.ToString() ?? string.Empty;
-            localUser.PasswordRequired = managementObject[ConstString.LOCAL_USER_PASSWORD_REQUIRED]?.ToString() ?? string.Empty;
-            localUser.SID = managementObject[ConstString.LOCAL_USER_SID]?.ToString() ?? string.Empty;
-            localUser.SIDType = managementObject[ConstString.LOCAL_USER_SID_TYPE]?.ToString() ?? string.Empty;
+            localUser.Caption = managementObject[ConstString.COMPONENT_CAPTION].TryGetStringValue();
+            localUser.Descritption = managementObject[ConstString.COMPONENT_DESCRIPTION].TryGetStringValue();
+            localUser.Domain = managementObject[ConstString.LOCAL_USER_DOMAIN].TryGetStringValue();
+            localUser.FullName = managementObject[ConstString.LOCAL_USER_FULL_NAME].TryGetStringValue();
+            localUser.Name = managementObject[ConstString.COMPONENT_NAME].TryGetStringValue();
+            localUser.PasswordChangeable = managementObject[ConstString.LOCAL_USER_PASSWORD_CHANGEABLE].TryGetStringValue();
+            localUser.PasswordExpires = managementObject[ConstString.LOCAL_USER_PASSWORD_EXPIRES].TryGetStringValue();
+            localUser.PasswordRequired = managementObject[ConstString.LOCAL_USER_PASSWORD_REQUIRED].TryGetStringValue();
+            localUser.SID = managementObject[ConstString.LOCAL_USER_SID].TryGetStringValue();
+            localUser.SIDType = managementObject[ConstString.LOCAL_USER_SID_TYPE].TryGetStringValue();
 
             return localUser;
         }

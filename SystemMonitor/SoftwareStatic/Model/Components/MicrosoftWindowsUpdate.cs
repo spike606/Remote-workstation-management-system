@@ -39,19 +39,19 @@ namespace SystemMonitor.SoftwareStatic.Model.Components
         public MicrosoftWindowsUpdate ExtractData(ManagementObject managementObject)
         {
             MicrosoftWindowsUpdate microsoftWindowsUpdate = new MicrosoftWindowsUpdate();
-            microsoftWindowsUpdate.Caption = managementObject[ConstString.COMPONENT_CAPTION]?.ToString() ?? string.Empty;
-            microsoftWindowsUpdate.CSName = managementObject[ConstString.QUICK_FIX_ENGINEERING_CSNAME]?.ToString() ?? string.Empty;
-            microsoftWindowsUpdate.Description = managementObject[ConstString.COMPONENT_DESCRIPTION]?.ToString() ?? string.Empty;
-            microsoftWindowsUpdate.FixComments = managementObject[ConstString.QUICK_FIX_ENGINEERING_FIX_COMMENTS]?.ToString() ?? string.Empty;
-            microsoftWindowsUpdate.HotFixID = managementObject[ConstString.QUICK_FIX_ENGINEERING_HOT_FIX_ID]?.ToString() ?? string.Empty;
-            string installdateAsString = managementObject[ConstString.QUICK_FIX_ENGINEERING_INSTALL_DATE]?.ToString() ?? string.Empty;
+            microsoftWindowsUpdate.Caption = managementObject[ConstString.COMPONENT_CAPTION].TryGetStringValue();
+            microsoftWindowsUpdate.CSName = managementObject[ConstString.QUICK_FIX_ENGINEERING_CSNAME].TryGetStringValue();
+            microsoftWindowsUpdate.Description = managementObject[ConstString.COMPONENT_DESCRIPTION].TryGetStringValue();
+            microsoftWindowsUpdate.FixComments = managementObject[ConstString.QUICK_FIX_ENGINEERING_FIX_COMMENTS].TryGetStringValue();
+            microsoftWindowsUpdate.HotFixID = managementObject[ConstString.QUICK_FIX_ENGINEERING_HOT_FIX_ID].TryGetStringValue();
+            string installdateAsString = managementObject[ConstString.QUICK_FIX_ENGINEERING_INSTALL_DATE].TryGetStringValue();
             microsoftWindowsUpdate.InstallDate = DateTimeHelper.ConvertRegistryDateStringToCorrectDateTimeFormat(installdateAsString);
-            microsoftWindowsUpdate.InstalledBy = managementObject[ConstString.QUICK_FIX_ENGINEERING_INSTALLED_BY]?.ToString() ?? string.Empty;
-            string installedOnAsString = managementObject[ConstString.QUICK_FIX_ENGINEERING_INSTALLED_ON]?.ToString() ?? string.Empty;
+            microsoftWindowsUpdate.InstalledBy = managementObject[ConstString.QUICK_FIX_ENGINEERING_INSTALLED_BY].TryGetStringValue();
+            string installedOnAsString = managementObject[ConstString.QUICK_FIX_ENGINEERING_INSTALLED_ON].TryGetStringValue();
             microsoftWindowsUpdate.InstalledOn = DateTimeHelper.ConvertRegistryDateStringToCorrectDateTimeFormat(installedOnAsString);
-            microsoftWindowsUpdate.Name = managementObject[ConstString.COMPONENT_NAME]?.ToString() ?? string.Empty;
-            microsoftWindowsUpdate.ServicePackInEffect = managementObject[ConstString.QUICK_FIX_ENGINEERING_SERVICE_PACK_IN_EFFECT]?.ToString() ?? string.Empty;
-            microsoftWindowsUpdate.Status = managementObject[ConstString.COMPONENT_STATUS]?.ToString() ?? string.Empty;
+            microsoftWindowsUpdate.Name = managementObject[ConstString.COMPONENT_NAME].TryGetStringValue();
+            microsoftWindowsUpdate.ServicePackInEffect = managementObject[ConstString.QUICK_FIX_ENGINEERING_SERVICE_PACK_IN_EFFECT].TryGetStringValue();
+            microsoftWindowsUpdate.Status = managementObject[ConstString.COMPONENT_STATUS].TryGetStringValue();
 
             return microsoftWindowsUpdate;
         }

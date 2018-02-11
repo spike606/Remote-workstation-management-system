@@ -32,16 +32,16 @@ namespace SystemMonitor.HardwareStatic.Model.Components
             foreach (var managementObject in managementObjectList)
             {
                 var baseBoard = new BaseBoard();
-                baseBoard.Caption = managementObject[ConstString.COMPONENT_CAPTION]?.ToString() ?? string.Empty;
-                baseBoard.Description = managementObject[ConstString.COMPONENT_DESCRIPTION]?.ToString() ?? string.Empty;
-                baseBoard.Manufacturer = managementObject[ConstString.BASE_BOARD_MANUFACTURER]?.ToString() ?? string.Empty;
-                baseBoard.Model = managementObject[ConstString.BASE_BOARD_MODEL]?.ToString() ?? string.Empty;
-                baseBoard.Name = managementObject[ConstString.COMPONENT_NAME]?.ToString() ?? string.Empty;
-                baseBoard.PartNumber = managementObject[ConstString.BASE_BOARD_PART_NUMBER]?.ToString() ?? string.Empty;
-                baseBoard.Product = managementObject[ConstString.BASE_BOARD_PRODUCT]?.ToString() ?? string.Empty;
-                baseBoard.SerialNumber = managementObject[ConstString.BASE_BOARD_SERIAL_NUMBER]?.ToString() ?? string.Empty;
-                baseBoard.Status = managementObject[ConstString.COMPONENT_STATUS]?.ToString() ?? string.Empty;
-                baseBoard.Version = managementObject[ConstString.BASE_BOARD_VERSION]?.ToString() ?? string.Empty;
+                baseBoard.Caption = managementObject[ConstString.COMPONENT_CAPTION].TryGetStringValue();
+                baseBoard.Description = managementObject[ConstString.COMPONENT_DESCRIPTION].TryGetStringValue();
+                baseBoard.Manufacturer = managementObject[ConstString.BASE_BOARD_MANUFACTURER].TryGetStringValue();
+                baseBoard.Model = managementObject[ConstString.BASE_BOARD_MODEL].TryGetStringValue();
+                baseBoard.Name = managementObject[ConstString.COMPONENT_NAME].TryGetStringValue();
+                baseBoard.PartNumber = managementObject[ConstString.BASE_BOARD_PART_NUMBER].TryGetStringValue();
+                baseBoard.Product = managementObject[ConstString.BASE_BOARD_PRODUCT].TryGetStringValue();
+                baseBoard.SerialNumber = managementObject[ConstString.BASE_BOARD_SERIAL_NUMBER].TryGetStringValue();
+                baseBoard.Status = managementObject[ConstString.COMPONENT_STATUS].TryGetStringValue();
+                baseBoard.Version = managementObject[ConstString.BASE_BOARD_VERSION].TryGetStringValue();
                 staticData.Add(baseBoard);
             }
 
