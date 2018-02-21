@@ -14,8 +14,8 @@ namespace SystemMonitorLibUnitTest.HardwareStatic
     public class HardwareStaticAnalyzerTest
     {
         [Theory]
-        [ClassData(typeof(Case_AllProvidedVendorSpecificParametersAreOk_WhenCallGetSmartData_ShouldReturnCorrectResult_Source))]
-        public void Case_AllProvidedVendorSpecificParametersAreOk_WhenCallGetSmartData_ShouldReturnCorrectResult(Case_AllProvidedVendorSpecificParametersAreOk_WhenCallGetSmartData_ShouldReturnCorrectResult_StructureData parameters)
+        [ClassData(typeof(Case_VendorSpecificParametersAreOk_WhenCallGetSmartData_ShouldReturnCorrectResult_Source))]
+        public void Case_AllProvidedVendorSpecificParametersAreOk_WhenCallGetSmartData_ShouldReturnCorrectResult(Case_VendorSpecificParametersAreOk_WhenCallGetSmartData_ShouldReturnCorrectResult_StructureData parameters)
         {
             // Arrange
             IHardwareStaticAnalyzer sut = new HardwareStaticAnalyzer();

@@ -7,8 +7,8 @@
     <ProjectGuid>{6F1E2895-2CCD-4F97-A587-0F8D3533BB6B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SystemMonitorLibUnitTest</RootNamespace>
-    <AssemblyName>SystemMonitorLibUnitTest</AssemblyName>
+    <RootNamespace>SystemManagamentLibUnitTest</RootNamespace>
+    <AssemblyName>SystemManagamentLibUnitTest</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -29,7 +29,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>..\SystemMonitor\RWMSSolutionRuleSet.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>..\SystemManagamentLib\RWMSSolutionRuleSet.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -48,9 +48,8 @@
       <HintPath>..\packages\Moq.4.7.10\lib\net45\Moq.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="OpenHardwareMonitorLib, Version=0.8.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Users\krwyz1\Downloads\openhardwaremonitor-v0.8.0-beta\OpenHardwareMonitor\OpenHardwareMonitorLib.dll</HintPath>
+    <Reference Include="OpenHardwareMonitorLib">
+      <HintPath>..\packages\OpenHardwareMonitor\OpenHardwareMonitorLib.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Management" />
@@ -87,8 +86,8 @@
     <Compile Include="EnumTest\EnumTest.cs" />
     <Compile Include="HardwareStatic\Builder\ManagamentObjectBuilder.cs" />
     <Compile Include="HardwareStatic\Builder\SMARTDataBuilder.cs" />
-    <Compile Include="HardwareStatic\ClassData\Case_AllProvidedVendorSpecificParametersAreOk_WhenCallGetSmartData_ShouldReturnCorrectResult_Source.cs" />
-    <Compile Include="HardwareStatic\ClassData\Case_AllProvidedVendorSpecificParametersAreOk_WhenCallGetSmartData_ShouldReturnCorrectResult_StructureData.cs" />
+    <Compile Include="HardwareStatic\ClassData\Case_VendorSpecificParametersAreOk_WhenCallGetSmartData_ShouldReturnCorrectResult_Source.cs" />
+    <Compile Include="HardwareStatic\ClassData\Case_VendorSpecificParametersAreOk_WhenCallGetSmartData_ShouldReturnCorrectResult_StructureData.cs" />
     <Compile Include="HardwareStatic\ClassData\Should_ExtractPhysicalMemoryDataCorrectly_When_AllPropertiesAreNull_Source.cs" />
     <Compile Include="HardwareStatic\ClassData\Should_ExtractPhysicalMemoryDataCorrectly_When_AllPropertiesAreProvided_Source.cs" />
     <Compile Include="HardwareStatic\ClassData\Should_ExtractProcessorDataCorrectly_When_AllPropertiesAreNull_Source.cs" />
@@ -107,9 +106,9 @@
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SystemMonitor\SystemMonitorLib.csproj">
+    <ProjectReference Include="..\SystemManagamentLib\SystemManagamentLib.csproj">
       <Project>{1D379DE8-C14E-4FE2-ABDD-F0BA86015C15}</Project>
-      <Name>SystemMonitorLib</Name>
+      <Name>SystemManagamentLib</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

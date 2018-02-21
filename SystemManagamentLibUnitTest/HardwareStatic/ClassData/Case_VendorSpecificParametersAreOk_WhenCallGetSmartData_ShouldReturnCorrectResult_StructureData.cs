@@ -9,7 +9,7 @@ using SystemMonitor.HardwareStatic.Model.Components.Analyzed;
 
 namespace SystemMonitorLibUnitTest.HardwareStatic.ClassData
 {
-    public class Case_AllProvidedVendorSpecificParametersAreOk_WhenCallGetSmartData_ShouldReturnCorrectResult_StructureData
+    public class Case_VendorSpecificParametersAreOk_WhenCallGetSmartData_ShouldReturnCorrectResult_StructureData
     {
         public List<SmartFailurePredictData> SmartFailurePredictData { get; set; }
 

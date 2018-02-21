@@ -13,13 +13,13 @@ using SystemMonitorLibUnitTest.HardwareStatic.Builder;
 
 namespace SystemMonitorLibUnitTest.HardwareStatic.ClassData
 {
-    public class Case_AllProvidedVendorSpecificParametersAreOk_WhenCallGetSmartData_ShouldReturnCorrectResult_Source : IEnumerable<object[]>
+    public class Case_VendorSpecificParametersAreOk_WhenCallGetSmartData_ShouldReturnCorrectResult_Source : IEnumerable<object[]>
     {
         private readonly List<object[]> data = new List<object[]>
         {
             new object[]
             {
-                new Case_AllProvidedVendorSpecificParametersAreOk_WhenCallGetSmartData_ShouldReturnCorrectResult_StructureData()
+                new Case_VendorSpecificParametersAreOk_WhenCallGetSmartData_ShouldReturnCorrectResult_StructureData()
                 {
                     SmartFailurePredictData = new List<SmartFailurePredictData>()
                     {
@@ -106,7 +106,7 @@ namespace SystemMonitorLibUnitTest.HardwareStatic.ClassData
             },
             new object[]
             {
-                new Case_AllProvidedVendorSpecificParametersAreOk_WhenCallGetSmartData_ShouldReturnCorrectResult_StructureData()
+                new Case_VendorSpecificParametersAreOk_WhenCallGetSmartData_ShouldReturnCorrectResult_StructureData()
                 {
                     SmartFailurePredictData = new List<SmartFailurePredictData>()
                     {

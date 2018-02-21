@@ -7,8 +7,8 @@
     <ProjectGuid>{1D379DE8-C14E-4FE2-ABDD-F0BA86015C15}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SystemMonitor</RootNamespace>
-    <AssemblyName>SystemMonitor</AssemblyName>
+    <RootNamespace>SystemManagament</RootNamespace>
+    <AssemblyName>SystemManagament</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -23,7 +23,7 @@
     <WarningLevel>4</WarningLevel>
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
-    <DocumentationFile>bin\Debug\SystemMonitor.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\SystemManagament.xml</DocumentationFile>
     <CodeAnalysisRuleSet>RWMSSolutionRuleSet.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -49,7 +49,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="OpenHardwareMonitorLib">
-      <HintPath>..\..\..\..\Users\krwyz1\Downloads\openhardwaremonitor-v0.8.0-beta\OpenHardwareMonitor\OpenHardwareMonitorLib.dll</HintPath>
+      <HintPath>..\packages\OpenHardwareMonitor\OpenHardwareMonitorLib.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
