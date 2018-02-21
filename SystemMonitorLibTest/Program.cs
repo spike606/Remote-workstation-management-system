@@ -32,14 +32,14 @@ namespace SystemMonitorLibTest
             //    Console.WriteLine(item.Name);
             //}
 
-            //PrintProperties(data);
-            Timer aTimer = new Timer();
-            //aTimer.Elapsed += new ElapsedEventHandler(OnTimedEventProcessor);
-            //aTimer.Elapsed += new ElapsedEventHandler(OnTimedEventProcess);
-            aTimer.Elapsed += new ElapsedEventHandler(OnTimedEventGPU);
-            aTimer.Interval = 500;
-            aTimer.Enabled = true;
-            while (Console.Read() != 'q') ;
+            ////PrintProperties(data);
+            //Timer aTimer = new Timer();
+            ////aTimer.Elapsed += new ElapsedEventHandler(OnTimedEventProcessor);
+            ////aTimer.Elapsed += new ElapsedEventHandler(OnTimedEventProcess);
+            //aTimer.Elapsed += new ElapsedEventHandler(OnTimedEventGPU);
+            //aTimer.Interval = 500;
+            //aTimer.Enabled = true;
+            //while (Console.Read() != 'q') ;
             //Console.ReadLine();
         }
 

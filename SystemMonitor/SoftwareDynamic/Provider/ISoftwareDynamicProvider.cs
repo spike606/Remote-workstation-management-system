@@ -16,8 +16,6 @@ namespace SystemMonitor.SoftwareDynamic.Provider
 
         List<WindowsLog> GetWindowsLogs();
 
-        Process[] GetWindowsProcesses();
-
-        string GetProcessOwner(Process process);
+        List<WindowsProcess> GetWindowsProcesses();
     }
 }

@@ -160,7 +160,9 @@
     <Compile Include="WorkstationMonitor.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="NLog.config" />
+    <None Include="NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="RWMSSolutionRuleSet.ruleset" />
   </ItemGroup>

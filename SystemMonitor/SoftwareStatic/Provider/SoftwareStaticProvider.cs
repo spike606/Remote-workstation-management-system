@@ -85,16 +85,23 @@ namespace SystemMonitor.SoftwareStatic.Provider
                 {
                     using (RegistryKey subkey = registryKey.OpenSubKey(subkeyName))
                     {
-                        InstalledProgram program = new InstalledProgram();
-                        string applicationName = subkey.GetValue(ConstString.REGISTRY_DISPLAY_NAME)?.ToString() ?? string.Empty;
-                        if (!string.IsNullOrEmpty(applicationName) && !installedPrograms.Cast<InstalledProgram>().ToList().Any(x => x.Name == applicationName))
+                        try
                         {
-                            program.Name = applicationName;
-                            string installDateAsString = subkey.GetValue(ConstString.REGISTRY_INSTALL_DATE)?.ToString() ?? string.Empty;
-                            program.InstallDate = DateTimeHelper.ConvertRegistryDateStringToCorrectDateTimeFormat(installDateAsString);
-                            program.InstallLocation = subkey.GetValue(ConstString.REGISTRY_INSTALL_LOCATION)?.ToString() ?? string.Empty;
-                            program.Version = subkey.GetValue(ConstString.REGISTRY_DISPLAY_VERSION)?.ToString() ?? string.Empty;
-                            installedPrograms.Add(program);
+                            InstalledProgram program = new InstalledProgram();
+                            string applicationName = subkey.GetValue(ConstString.REGISTRY_DISPLAY_NAME)?.ToString() ?? string.Empty;
+                            if (!string.IsNullOrEmpty(applicationName) && !installedPrograms.Cast<InstalledProgram>().ToList().Any(x => x.Name == applicationName))
+                            {
+                                program.Name = applicationName;
+                                string installDateAsString = subkey.GetValue(ConstString.REGISTRY_INSTALL_DATE)?.ToString() ?? string.Empty;
+                                program.InstallDate = DateTimeHelper.ConvertRegistryDateStringToCorrectDateTimeFormat(installDateAsString);
+                                program.InstallLocation = subkey.GetValue(ConstString.REGISTRY_INSTALL_LOCATION)?.ToString() ?? string.Empty;
+                                program.Version = subkey.GetValue(ConstString.REGISTRY_DISPLAY_VERSION)?.ToString() ?? string.Empty;
+                                installedPrograms.Add(program);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            this.Logger.LogError(ex.Message, ex);
                         }
                     }
                 }

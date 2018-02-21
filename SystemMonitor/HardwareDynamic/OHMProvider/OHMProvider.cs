@@ -10,13 +10,15 @@ using SystemMonitor.HardwareDynamic.Model.Components.Interface;
 using SystemMonitor.HardwareDynamic.Model.CustomProperties;
 using SystemMonitor.HardwareDynamic.Model.CustomProperties.Enum;
 using SystemMonitor.HardwareStatic.Model.CustomProperties.Attributes;
+using SystemMonitor.Logger;
 
 namespace SystemMonitor.HardwareDynamic.OHMProvider
 {
     public class OHMProvider : IOHMProvider
     {
-        public OHMProvider()
+        public OHMProvider(INLogger logger)
         {
+            this.Logger = logger;
             this.Computer = new Computer();
             this.Computer.CPUEnabled = true;
             this.Computer.RAMEnabled = true;
@@ -28,17 +30,26 @@ namespace SystemMonitor.HardwareDynamic.OHMProvider
 
         public Computer Computer { get; private set; }
 
+        private INLogger Logger { get; set; }
+
         public void GetDynamicData<T>(List<T> hardwareDynamicComponentList, IEnumerable<HardwareType> hardwareType)
             where T : HardwareDynamicComponent, IHardwareDynamicComponent, new()
         {
-            var hardwareItems = this.Computer.Hardware.Where(x => hardwareType.Contains(x.HardwareType));
-            foreach (var item in hardwareItems)
+            try
             {
-                var dynamicHardwareItem = new T();
-                dynamicHardwareItem.Name = item.Name;
-                item.Update();
-                this.ExtractDataFromSensors(dynamicHardwareItem, item);
-                hardwareDynamicComponentList.Add(dynamicHardwareItem);
+                var hardwareItems = this.Computer.Hardware.Where(x => hardwareType.Contains(x.HardwareType));
+                foreach (var item in hardwareItems)
+                {
+                    var dynamicHardwareItem = new T();
+                    dynamicHardwareItem.Name = item.Name;
+                    item.Update();
+                    this.ExtractDataFromSensors(dynamicHardwareItem, item);
+                    hardwareDynamicComponentList.Add(dynamicHardwareItem);
+                }
+            }
+            catch (Exception ex)
+            {
+                this.Logger.LogError(ex.Message, ex);
             }
         }
 

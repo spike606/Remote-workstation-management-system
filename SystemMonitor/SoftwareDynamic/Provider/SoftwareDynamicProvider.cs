@@ -41,32 +41,50 @@ namespace SystemMonitor.SoftwareDynamic.Provider
             return new ServiceController[0];
         }
 
-        public Process[] GetWindowsProcesses()
+        public List<WindowsProcess> GetWindowsProcesses()
         {
+            List<WindowsProcess> windowsProcesses = new List<WindowsProcess>();
+
             try
             {
-                return Process.GetProcesses();
+                foreach (var process in Process.GetProcesses())
+                {
+                    WindowsProcess windowsProcess = new WindowsProcess();
+                    windowsProcess.BasePriority = process.BasePriority.ToString();
+                    windowsProcess.Id = process.Id.ToString();
+                    windowsProcess.Name = process.ProcessName;
+                    windowsProcess.StartTime = process.StartTime;
+                    windowsProcess.TotalProcessorTime = process.TotalProcessorTime;
+                    windowsProcess.PagedMemorySize64 = new UnitValue() { Unit = Unit.B, Value = process.PagedMemorySize64.ToString() };
+                    windowsProcess.VirtualMemorySize64 = new UnitValue() { Unit = Unit.B, Value = process.VirtualMemorySize64.ToString() };
+                    windowsProcess.MemorySize = new UnitValue() { Unit = Unit.B, Value = process.WorkingSet64.ToString() };
+                    windowsProcess.TotalProcessorTime = process.TotalProcessorTime;
+                    windowsProcess.PeakPagedMemorySize64 = new UnitValue() { Unit = Unit.B, Value = process.PeakPagedMemorySize64.ToString() };
+                    windowsProcess.PeakVirtualMemorySize64 = new UnitValue() { Unit = Unit.B, Value = process.PeakVirtualMemorySize64.ToString() };
+                    windowsProcess.PeakMemorySize = new UnitValue() { Unit = Unit.B, Value = process.PeakWorkingSet64.ToString() };
+                    windowsProcess.SessionId = process.SessionId.ToString();
+
+                    var processOwner = this.GetProcessOwner(process);
+                    windowsProcess.UserName = processOwner.Contains(@"\") ? processOwner.Substring(processOwner.IndexOf(@"\") + 1) : processOwner;
+
+                    windowsProcesses.Add(windowsProcess);
+                }
             }
             catch (Exception ex)
             {
                 this.Logger.LogError(ex.Message, ex);
             }
 
-            return new Process[0];
-        }
-
-        public string GetProcessOwner(Process process)
-        {
-            return this.Win32APIClient.GetProcessUser(process);
+            return windowsProcesses;
         }
 
         public List<WindowsLog> GetWindowsLogs()
         {
             List<WindowsLog> windowsLogs = new List<WindowsLog>();
-            var logs = EventLog.GetEventLogs();
-            foreach (var log in logs)
+            try
             {
-                try
+                var logs = EventLog.GetEventLogs();
+                foreach (var log in logs)
                 {
                     WindowsLog windowsLog = new WindowsLog();
                     windowsLog.Entries = log.Entries;
@@ -76,13 +94,18 @@ namespace SystemMonitor.SoftwareDynamic.Provider
                     windowsLog.MinimumRetentionDays = new UnitValue() { Unit = Unit.Days, Value = log.MinimumRetentionDays.ToString() };
                     windowsLogs.Add(windowsLog);
                 }
-                catch (Exception ex)
-                {
-                    this.Logger.LogError(ex.Message, ex);
-                }
+            }
+            catch (Exception ex)
+            {
+                this.Logger.LogError(ex.Message, ex);
             }
 
             return windowsLogs;
+        }
+
+        private string GetProcessOwner(Process process)
+        {
+            return this.Win32APIClient.GetProcessUser(process);
         }
     }
 }

@@ -43,10 +43,12 @@ namespace SystemMonitor.Shared.Win32API
             }
         }
 
+        [SuppressMessage("Microsoft.Design", "CA1060:MovePInvokesToNativeMethodsClass", Justification = "Method used locally")]
         [SuppressMessage("StyleCop.Analyzers", "SA1313:ParameterNamesMustBeginWithLowerCaseLetter", Justification = "Dll import")]
         [DllImport("advapi32.dll", SetLastError = true)]
         private static extern bool OpenProcessToken(IntPtr ProcessHandle, uint DesiredAccess, out IntPtr TokenHandle);
 
+        [SuppressMessage("Microsoft.Design", "CA1060:MovePInvokesToNativeMethodsClass", Justification = "Method used locally")]
         [DllImport("kernel32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool CloseHandle(IntPtr hObject);
