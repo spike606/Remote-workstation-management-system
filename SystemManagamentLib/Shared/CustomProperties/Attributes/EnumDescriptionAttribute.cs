@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SystemMonitor.HardwareStatic.Model.CustomProperties.Attributes
+namespace SystemManagament.Monitor.HardwareStatic.Model.CustomProperties.Attributes
 {
     [AttributeUsage(AttributeTargets.Field, AllowMultiple = false, Inherited = false)]
     public class EnumDescriptionAttribute : Attribute

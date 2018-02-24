@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SystemMonitor.HardwareStatic.Analyzer;
-using SystemMonitor.HardwareStatic.Model.Components.Analyzed;
-using SystemMonitor.HardwareStatic.Model.CustomProperties.Enums;
+using SystemManagament.Monitor.HardwareStatic.Analyzer;
+using SystemManagament.Monitor.HardwareStatic.Model.Components.Analyzed;
+using SystemManagament.Monitor.HardwareStatic.Model.CustomProperties.Enums;
 
 namespace SystemMonitorLibUnitTest.HardwareStatic.Builder
 {

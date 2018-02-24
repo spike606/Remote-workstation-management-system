@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SystemMonitor.HardwareStatic.Model.Components;
-using SystemMonitor.HardwareStatic.Model.Components.Abstract;
-using SystemMonitor.HardwareStatic.Model.Components.Analyzed;
-using SystemMonitor.HardwareStatic.Model.CustomProperties;
-using SystemMonitor.HardwareStatic.Model.CustomProperties.Enums;
+using SystemManagament.Monitor.HardwareStatic.Model.Components;
+using SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract;
+using SystemManagament.Monitor.HardwareStatic.Model.Components.Analyzed;
+using SystemManagament.Monitor.HardwareStatic.Model.CustomProperties;
+using SystemManagament.Monitor.HardwareStatic.Model.CustomProperties.Enums;
 using SystemMonitorLibUnitTest.HardwareStatic.Builder;
 
 namespace SystemMonitorLibUnitTest.HardwareStatic.ClassData
@@ -31,7 +31,7 @@ namespace SystemMonitorLibUnitTest.HardwareStatic.ClassData
                                 0, 0,  5, 0, 0, 100, 100,   0,  0, 0, 0, 0,
                                 0, 0,  9, 0, 0,  99,  99, 200, 50, 0, 0, 0,
                                 0, 0, 12, 0, 0,  98,  98, 250,  4, 0, 0, 0,
-                            }
+                            }.Concat(Enumerable.Repeat<byte>(0, 480).ToArray()).ToArray()
                         },
                         new SmartFailurePredictData()
                         {
@@ -41,7 +41,7 @@ namespace SystemMonitorLibUnitTest.HardwareStatic.ClassData
                                 0, 0,  1, 0, 0, 100, 100,   7,  0, 0, 0, 0,
                                 0, 0,  2, 0, 0, 252, 252,   0,  0, 0, 0, 0,
                                 0, 0,  3, 0, 0,  90,  89,  11, 10, 0, 0, 0,
-                            }
+                            }.Concat(Enumerable.Repeat<byte>(0, 480).ToArray()).ToArray()
                         }
                     },
                     SmartFailurePredictStatus = new List<SmartFailurePredictStatus>()
@@ -67,7 +67,7 @@ namespace SystemMonitorLibUnitTest.HardwareStatic.ClassData
                                 0, 0,  5, 10, 0, 0, 0, 0, 0, 0, 0, 0,
                                 0, 0,  9,  0, 0, 0, 0, 0, 0, 0, 0, 0,
                                 0, 0, 12,  0, 0, 0, 0, 0, 0, 0, 0, 0,
-                            }
+                            }.Concat(Enumerable.Repeat<byte>(0, 480).ToArray()).ToArray()
                         },
                         new SmartFailurePredictThresholds()
                         {
@@ -77,7 +77,7 @@ namespace SystemMonitorLibUnitTest.HardwareStatic.ClassData
                                 0, 0,  1, 51, 0, 0, 0, 0, 0, 0, 0, 0,
                                 0, 0,  2,  0, 0, 0, 0, 0, 0, 0, 0, 0,
                                 0, 0,  3, 25, 0, 0, 0, 0, 0, 0, 0, 0,
-                            }
+                            }.Concat(Enumerable.Repeat<byte>(0, 480).ToArray()).ToArray()
                         }
                     },
                     ExpectedSmartData = new List<SMARTData>()
@@ -118,7 +118,7 @@ namespace SystemMonitorLibUnitTest.HardwareStatic.ClassData
                                 0, 0,  5, 0, 0,  60,  40,   0,  0, 0, 0, 0,
                                 0, 0,  9, 0, 0,  99,  99, 200, 50, 0, 0, 0,
                                 0, 0, 12, 0, 0,  98,  98, 250,  4, 0, 0, 0,
-                            }
+                            }.Concat(Enumerable.Repeat<byte>(0, 480).ToArray()).ToArray()
                         },
                         new SmartFailurePredictData()
                         {
@@ -128,7 +128,7 @@ namespace SystemMonitorLibUnitTest.HardwareStatic.ClassData
                                 0, 0,  1, 0, 0,  51,  51,   7,  0, 0, 0, 0,
                                 0, 0,  2, 0, 0, 252, 252,   0,  0, 0, 0, 0,
                                 0, 0,  3, 0, 0,  90,  89,  11, 10, 0, 0, 0,
-                            }
+                            }.Concat(Enumerable.Repeat<byte>(0, 480).ToArray()).ToArray()
                         }
                     },
                     SmartFailurePredictStatus = new List<SmartFailurePredictStatus>()
@@ -154,7 +154,7 @@ namespace SystemMonitorLibUnitTest.HardwareStatic.ClassData
                                 0, 0,  5, 50, 0, 0, 0, 0, 0, 0, 0, 0,
                                 0, 0,  9,  0, 0, 0, 0, 0, 0, 0, 0, 0,
                                 0, 0, 12,  0, 0, 0, 0, 0, 0, 0, 0, 0,
-                            }
+                            }.Concat(Enumerable.Repeat<byte>(0, 480).ToArray()).ToArray()
                         },
                         new SmartFailurePredictThresholds()
                         {
@@ -164,7 +164,7 @@ namespace SystemMonitorLibUnitTest.HardwareStatic.ClassData
                                 0, 0,  1, 51, 0, 0, 0, 0, 0, 0, 0, 0,
                                 0, 0,  2,  0, 0, 0, 0, 0, 0, 0, 0, 0,
                                 0, 0,  3, 25, 0, 0, 0, 0, 0, 0, 0, 0,
-                            }
+                            }.Concat(Enumerable.Repeat<byte>(0, 480).ToArray()).ToArray()
                         }
                     },
                     ExpectedSmartData = new List<SMARTData>()

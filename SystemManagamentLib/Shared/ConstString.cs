@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 [assembly: InternalsVisibleTo("SystemManagamentLibUnitTest")]
-namespace SystemMonitor.HardwareStatic
+namespace SystemManagament.Monitor.HardwareStatic
 {
     internal class ConstString
     {

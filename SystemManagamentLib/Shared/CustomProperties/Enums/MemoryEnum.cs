@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SystemMonitor.HardwareStatic.Model.CustomProperties.Attributes;
+using SystemManagament.Monitor.HardwareStatic.Model.CustomProperties.Attributes;
 
-namespace SystemMonitor.HardwareStatic.Model.CustomProperties.Enums
+namespace SystemManagament.Monitor.HardwareStatic.Model.CustomProperties.Enums
 {
     internal enum MemoryTypeEnum
     {

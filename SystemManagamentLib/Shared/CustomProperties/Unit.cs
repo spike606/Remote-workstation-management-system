@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SystemMonitor.HardwareStatic.Model.CustomProperties
+namespace SystemManagament.Monitor.HardwareStatic.Model.CustomProperties
 {
     internal static class Unit
     {

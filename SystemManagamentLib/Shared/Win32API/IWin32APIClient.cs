@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SystemMonitor.Shared.Win32API
+namespace SystemManagament.Shared.Win32API
 {
     public interface IWin32APIClient
     {

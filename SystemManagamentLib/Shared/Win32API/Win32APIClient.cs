@@ -7,9 +7,9 @@ using System.Runtime.InteropServices;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
-using SystemMonitor.Logger;
+using SystemManagament.Logger;
 
-namespace SystemMonitor.Shared.Win32API
+namespace SystemManagament.Shared.Win32API
 {
     public class Win32APIClient : IWin32APIClient
     {

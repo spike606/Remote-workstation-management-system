@@ -4,9 +4,9 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SystemMonitor.HardwareStatic.Model.CustomProperties.Attributes;
+using SystemManagament.Monitor.HardwareStatic.Model.CustomProperties.Attributes;
 
-namespace SystemMonitor.HardwareStatic.Model.CustomProperties.Enums
+namespace SystemManagament.Monitor.HardwareStatic.Model.CustomProperties.Enums
 {
     [SuppressMessage("StyleCop.Analyzers", "SA1300:ElementsMustBeginWithAnUppercaseLetter", Justification = "Enum values")]
     internal enum BusTypeEnum

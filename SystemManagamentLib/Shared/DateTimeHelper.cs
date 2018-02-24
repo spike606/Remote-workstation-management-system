@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SystemMonitor.Shared
+namespace SystemManagament.Shared
 {
     public class DateTimeHelper
     {

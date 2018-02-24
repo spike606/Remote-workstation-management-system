@@ -5,8 +5,8 @@ using System.Linq;
 using System.Management;
 using System.Text;
 using System.Threading.Tasks;
-using SystemMonitor.HardwareStatic;
-using SystemMonitor.HardwareStatic.Model.CustomProperties.Enums;
+using SystemManagament.Monitor.HardwareStatic;
+using SystemManagament.Monitor.HardwareStatic.Model.CustomProperties.Enums;
 using SystemMonitorLibUnitTest.HardwareStatic.Builder;
 
 namespace SystemMonitorLibUnitTest.HardwareStatic.ClassData

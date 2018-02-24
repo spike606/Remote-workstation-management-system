@@ -4,9 +4,9 @@ using System.Linq;
 using System.Management;
 using System.Text;
 using System.Threading.Tasks;
-using SystemMonitor.Logger;
+using SystemManagament.Logger;
 
-namespace SystemMonitor.Shared.WMI
+namespace SystemManagament.Shared.WMI
 {
     public class WMIClient : IWMIClient
     {

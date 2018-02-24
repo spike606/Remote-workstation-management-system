@@ -5,15 +5,11 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
-using SystemMonitor;
-using SystemMonitor.HardwareDynamic.Model;
-using SystemMonitor.HardwareStatic.Model;
-using System.ServiceProcess;
-using Microsoft.Win32;
-using SystemMonitor.SoftwareStatic.Model;
-using SystemMonitor.SoftwareStatic.Model.Components;
-using System.Diagnostics;
-using SystemMonitor.SoftwareDynamic.Model;
+using SystemManagament;
+using SystemManagament.Monitor.HardwareDynamic.Model;
+using SystemManagament.Monitor.HardwareStatic.Model;
+using SystemManagament.Monitor.SoftwareStatic.Model;
+using SystemManagament.Monitor.SoftwareDynamic.Model;
 
 namespace SystemMonitorLibTest
 {

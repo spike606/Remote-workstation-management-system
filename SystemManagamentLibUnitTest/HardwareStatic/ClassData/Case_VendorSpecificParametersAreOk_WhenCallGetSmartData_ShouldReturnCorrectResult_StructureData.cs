@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SystemMonitor.HardwareStatic.Model.Components;
-using SystemMonitor.HardwareStatic.Model.Components.Abstract;
-using SystemMonitor.HardwareStatic.Model.Components.Analyzed;
+using SystemManagament.Monitor.HardwareStatic.Model.Components;
+using SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract;
+using SystemManagament.Monitor.HardwareStatic.Model.Components.Analyzed;
 
 namespace SystemMonitorLibUnitTest.HardwareStatic.ClassData
 {

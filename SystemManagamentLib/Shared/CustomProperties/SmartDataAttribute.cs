@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SystemMonitor.HardwareStatic.Model.CustomProperties.Attributes;
-using SystemMonitor.HardwareStatic.Model.CustomProperties.Enums;
+using SystemManagament.Monitor.HardwareStatic.Model.CustomProperties.Attributes;
+using SystemManagament.Monitor.HardwareStatic.Model.CustomProperties.Enums;
 
-namespace SystemMonitor.HardwareStatic.Model.CustomProperties
+namespace SystemManagament.Monitor.HardwareStatic.Model.CustomProperties
 {
     public class SmartDataAttribute
     {

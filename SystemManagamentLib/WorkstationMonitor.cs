@@ -6,24 +6,13 @@ using System.Threading.Tasks;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using Castle.Windsor.Installer;
-using SystemMonitor.DataBuilder;
-using SystemMonitor.HardwareDynamic.Builder;
-using SystemMonitor.HardwareDynamic.Model;
-using SystemMonitor.HardwareDynamic.OHMProvider;
-using SystemMonitor.HardwareStatic.Analyzer;
-using SystemMonitor.HardwareStatic.Builder;
-using SystemMonitor.HardwareStatic.Model;
-using SystemMonitor.Logger;
-using SystemMonitor.Shared.Win32API;
-using SystemMonitor.Shared.WMI;
-using SystemMonitor.SoftwareDynamic.Builder;
-using SystemMonitor.SoftwareDynamic.Model;
-using SystemMonitor.SoftwareDynamic.Provider;
-using SystemMonitor.SoftwareStatic.Builder;
-using SystemMonitor.SoftwareStatic.Model;
-using SystemMonitor.SoftwareStatic.Provider;
+using SystemManagament.Monitor.DataBuilder;
+using SystemManagament.Monitor.HardwareDynamic.Model;
+using SystemManagament.Monitor.HardwareStatic.Model;
+using SystemManagament.Monitor.SoftwareDynamic.Model;
+using SystemManagament.Monitor.SoftwareStatic.Model;
 
-namespace SystemMonitor
+namespace SystemManagament
 {
     public class WorkstationMonitor
     {

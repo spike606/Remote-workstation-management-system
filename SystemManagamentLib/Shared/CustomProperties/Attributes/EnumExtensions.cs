@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SystemMonitor.HardwareStatic.Model.CustomProperties.Attributes
+namespace SystemManagament.Monitor.HardwareStatic.Model.CustomProperties.Attributes
 {
     public static class EnumExtensions
     {

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Management;
 using System.Text;
 using System.Threading.Tasks;
-using SystemMonitor.HardwareStatic.Model.CustomProperties;
+using SystemManagament.Monitor.HardwareStatic.Model.CustomProperties;
 
-namespace SystemMonitor.Shared.WMI
+namespace SystemManagament.Shared.WMI
 {
     public static class ManagamentObjectExtension
     {
