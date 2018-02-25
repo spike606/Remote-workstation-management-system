@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1D379DE8-C14E-4FE2-ABDD-F0BA86015C15}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SystemManagament</RootNamespace>
+    <AssemblyName>SystemManagament</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DocumentationFile>bin\Debug\SystemManagament.xml</DocumentationFile>
+    <CodeAnalysisRuleSet>RWMSSolutionRuleSet.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>RWMSSolutionRuleSet.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.3.3.0\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=3.4.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Windsor.3.4.0\lib\net45\Castle.Windsor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.4.9\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="OpenHardwareMonitorLib">
+      <HintPath>..\packages\OpenHardwareMonitor\OpenHardwareMonitorLib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Control\ControlManager.cs" />
+    <Compile Include="Control\IControlManager.cs" />
+    <Compile Include="Shared\OperationStatus.cs" />
+    <Compile Include="Control\ProcessClient\IProcessClient.cs" />
+    <Compile Include="Control\ProcessClient\ProcessClient.cs" />
+    <Compile Include="Monitor\DataBuilder\ISystemMonitorDataBuilder.cs" />
+    <Compile Include="Monitor\HardwareDynamic\Builder\HardwareDynamicBuilder.cs" />
+    <Compile Include="Monitor\HardwareDynamic\Builder\IHardwareDynamicBuilder.cs" />
+    <Compile Include="Monitor\HardwareDynamic\Model\Components\Abstract\HardwareDynamicComponent.cs" />
+    <Compile Include="Monitor\HardwareDynamic\Model\Components\DiskDynamic.cs" />
+    <Compile Include="Monitor\HardwareDynamic\Model\Components\Interface\IHardwareDynamicComponent.cs" />
+    <Compile Include="Monitor\HardwareDynamic\Model\Components\MainBoardDynamic.cs" />
+    <Compile Include="Monitor\HardwareDynamic\Model\Components\MemoryDynamic.cs" />
+    <Compile Include="Monitor\HardwareDynamic\Model\Components\ProcessorDynamic.cs" />
+    <Compile Include="Monitor\HardwareDynamic\Model\Components\VideoControllerDynamic.cs" />
+    <Compile Include="Monitor\HardwareDynamic\Model\CustomProperties\Enum\SensorUnitEnum.cs" />
+    <Compile Include="Monitor\HardwareDynamic\Model\CustomProperties\Sensor.cs" />
+    <Compile Include="Monitor\HardwareDynamic\Model\HardwareDynamicData.cs" />
+    <Compile Include="Monitor\HardwareDynamic\OHMProvider\IOHMProvider.cs" />
+    <Compile Include="Monitor\HardwareDynamic\OHMProvider\OHMProvider.cs" />
+    <Compile Include="Monitor\HardwareStatic\Analyzer\HardwareStaticAnalyzer.cs" />
+    <Compile Include="Monitor\HardwareStatic\Analyzer\IHardwareStaticAnalyzer.cs" />
+    <Compile Include="Monitor\HardwareStatic\Analyzer\SmartAttributesDictionary.cs" />
+    <Compile Include="Monitor\HardwareStatic\Builder\HardwareStaticBuilder.cs" />
+    <Compile Include="Monitor\HardwareStatic\Builder\IHardwareStaticBuilder.cs" />
+    <Compile Include="Monitor\HardwareStatic\Model\Components\Abstract\HardwareStaticComponent.cs" />
+    <Compile Include="Monitor\HardwareStatic\Model\Components\Analyzed\LogicalPartition.cs" />
+    <Compile Include="Monitor\HardwareStatic\Model\Components\Analyzed\Partition.cs" />
+    <Compile Include="Monitor\HardwareStatic\Model\Components\Analyzed\SMARTData.cs" />
+    <Compile Include="Monitor\HardwareStatic\Model\Components\Analyzed\Storage.cs" />
+    <Compile Include="Monitor\HardwareStatic\Model\Components\BaseBoard.cs" />
+    <Compile Include="Monitor\HardwareStatic\Model\Components\Battery.cs" />
+    <Compile Include="Monitor\HardwareStatic\Model\Components\CDROMDrive.cs" />
+    <Compile Include="Monitor\HardwareStatic\Model\Components\Disk.cs" />
+    <Compile Include="Monitor\HardwareStatic\Model\Components\DiskPartition.cs" />
+    <Compile Include="Monitor\HardwareStatic\Model\Components\DiskToPartition.cs" />
+    <Compile Include="Monitor\HardwareStatic\Model\Components\Fan.cs" />
+    <Compile Include="Monitor\HardwareStatic\Model\Components\Interface\IHardwareStaticComponent.cs" />
+    <Compile Include="Monitor\HardwareStatic\Model\Components\Memory.cs" />
+    <Compile Include="Monitor\HardwareStatic\Model\Components\NetworkAdapter.cs" />
+    <Compile Include="Monitor\HardwareStatic\Model\Components\PartitionToVolume.cs" />
+    <Compile Include="Monitor\HardwareStatic\Model\Components\PnPEntity.cs" />
+    <Compile Include="Monitor\HardwareStatic\Model\Components\Printer.cs" />
+    <Compile Include="Monitor\HardwareStatic\Model\Components\ProcessorCache.cs" />
+    <Compile Include="Monitor\HardwareStatic\Model\Components\ProcessorStatic.cs" />
+    <Compile Include="Monitor\HardwareStatic\Model\Components\SmartFailurePredictData.cs" />
+    <Compile Include="Monitor\HardwareStatic\Model\Components\SmartFailurePredictStatus.cs" />
+    <Compile Include="Monitor\HardwareStatic\Model\Components\SmartFailurePredictThresholds.cs" />
+    <Compile Include="Monitor\HardwareStatic\Model\Components\VideoController.cs" />
+    <Compile Include="Monitor\HardwareStatic\Model\Components\Volume.cs" />
+    <Compile Include="Infrastracture\Installers\SystemMonitorComponentsInstaller.cs" />
+    <Compile Include="Infrastracture\ReferenceClass.cs" />
+    <Compile Include="Shared\CustomProperties\Attributes\EnumDescriptionAttribute.cs" />
+    <Compile Include="Shared\CustomProperties\Attributes\EnumExtensions.cs" />
+    <Compile Include="Shared\CustomProperties\Enums\BatteryEnum.cs" />
+    <Compile Include="Shared\CustomProperties\Enums\DiskEnum.cs" />
+    <Compile Include="Shared\CustomProperties\Enums\SmartDataEnum.cs" />
+    <Compile Include="Shared\CustomProperties\Enums\StorageEnum.cs" />
+    <Compile Include="Shared\CustomProperties\Enums\MemoryEnum.cs" />
+    <Compile Include="Shared\CustomProperties\Enums\NetworkAdapterEnum.cs" />
+    <Compile Include="Shared\CustomProperties\Enums\ProcessorEnum.cs" />
+    <Compile Include="Shared\CustomProperties\SmartDataAttribute.cs" />
+    <Compile Include="Shared\CustomProperties\Unit.cs" />
+    <Compile Include="Shared\CustomProperties\UnitValue.cs" />
+    <Compile Include="Monitor\HardwareStatic\Model\HardwareStaticData.cs" />
+    <Compile Include="Shared\ConstString.cs" />
+    <Compile Include="Shared\DateTimeHelper.cs" />
+    <Compile Include="Shared\Win32API\IWin32APIClient.cs" />
+    <Compile Include="Shared\Win32API\Win32APIClient.cs" />
+    <Compile Include="Shared\WMI\IWMIClient.cs" />
+    <Compile Include="Logger\INLogger.cs" />
+    <Compile Include="Logger\NLogger.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Shared\WMI\IWMISoftwareStaticComponent.cs" />
+    <Compile Include="Shared\WMI\ManagamentObjectExtension.cs" />
+    <Compile Include="Shared\WMI\WMIClient.cs" />
+    <Compile Include="Monitor\DataBuilder\SystemMonitorDataBuilder.cs" />
+    <Compile Include="Monitor\SoftwareDynamic\Builder\ISoftwareDynamicBuilder.cs" />
+    <Compile Include="Monitor\SoftwareDynamic\Builder\SoftwareDynamicBuilder.cs" />
+    <Compile Include="Monitor\SoftwareDynamic\Model\Components\Interface\ISoftwareDynamicComponent.cs" />
+    <Compile Include="Monitor\SoftwareDynamic\Model\Components\WindowsLog.cs" />
+    <Compile Include="Monitor\SoftwareDynamic\Model\Components\WindowsProcess.cs" />
+    <Compile Include="Monitor\SoftwareDynamic\Model\SoftwareDynamicData.cs" />
+    <Compile Include="Monitor\SoftwareDynamic\Provider\ISoftwareDynamicProvider.cs" />
+    <Compile Include="Monitor\SoftwareDynamic\Provider\SoftwareDynamicProvider.cs" />
+    <Compile Include="Monitor\SoftwareStatic\Builder\ISoftwareStaticBuilder.cs" />
+    <Compile Include="Monitor\SoftwareStatic\Builder\SoftwareStaticBuilder.cs" />
+    <Compile Include="Monitor\SoftwareStatic\Model\Components\Bios.cs" />
+    <Compile Include="Monitor\SoftwareStatic\Model\Components\CurrentUser.cs" />
+    <Compile Include="Monitor\SoftwareStatic\Model\Components\InstalledProgram.cs" />
+    <Compile Include="Monitor\SoftwareStatic\Model\Components\Interface\ISoftwareStaticComponent.cs" />
+    <Compile Include="Monitor\SoftwareStatic\Model\Components\LocalUser.cs" />
+    <Compile Include="Monitor\SoftwareStatic\Model\Components\MicrosoftWindowsUpdate.cs" />
+    <Compile Include="Monitor\SoftwareStatic\Model\Components\OS.cs" />
+    <Compile Include="Monitor\SoftwareStatic\Model\Components\StartupCommand.cs" />
+    <Compile Include="Monitor\SoftwareDynamic\Model\Components\WindowsService.cs" />
+    <Compile Include="Monitor\SoftwareStatic\Model\SoftwareStaticData.cs" />
+    <Compile Include="Monitor\SoftwareStatic\Provider\ISoftwareStaticProvider.cs" />
+    <Compile Include="Monitor\SoftwareStatic\Provider\SoftwareStaticProvider.cs" />
+    <Compile Include="WorkstationMonitor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="RWMSSolutionRuleSet.ruleset" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\Newtonsoft.Json.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Externals\advapi32.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Externals\kernel32.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Externals\user32.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

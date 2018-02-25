@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemMonitorLib", "SystemMonitor\SystemMonitorLib.csproj", "{1D379DE8-C14E-4FE2-ABDD-F0BA86015C15}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemManagamentLib", "SystemManagamentLib\SystemManagamentLib.csproj", "{1D379DE8-C14E-4FE2-ABDD-F0BA86015C15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemMonitorLibTest", "SystemMonitorLibTest\SystemMonitorLibTest.csproj", "{CF9FE383-D54D-4BCE-91F7-E3A0B7E21D0F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemManagamentLibTest", "SystemManagamentLibTest\SystemManagamentLibTest.csproj", "{CF9FE383-D54D-4BCE-91F7-E3A0B7E21D0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemMonitorLibUnitTest", "SystemMonitorLibUnitTest\SystemMonitorLibUnitTest.csproj", "{6F1E2895-2CCD-4F97-A587-0F8D3533BB6B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemManagamentLibUnitTest", "SystemManagamentLibUnitTest\SystemManagamentLibUnitTest.csproj", "{6F1E2895-2CCD-4F97-A587-0F8D3533BB6B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
