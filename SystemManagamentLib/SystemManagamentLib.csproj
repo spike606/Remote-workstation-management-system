@@ -25,6 +25,7 @@
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <DocumentationFile>bin\Debug\SystemManagament.xml</DocumentationFile>
     <CodeAnalysisRuleSet>RWMSSolutionRuleSet.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -63,6 +64,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Control\ControlManager.cs" />
+    <Compile Include="Control\IControlManager.cs" />
+    <Compile Include="Shared\OperationStatus.cs" />
+    <Compile Include="Control\ProcessClient\IProcessClient.cs" />
+    <Compile Include="Control\ProcessClient\ProcessClient.cs" />
     <Compile Include="Monitor\DataBuilder\ISystemMonitorDataBuilder.cs" />
     <Compile Include="Monitor\HardwareDynamic\Builder\HardwareDynamicBuilder.cs" />
     <Compile Include="Monitor\HardwareDynamic\Builder\IHardwareDynamicBuilder.cs" />
@@ -171,7 +177,17 @@
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Externals\advapi32.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Externals\kernel32.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Externals\user32.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

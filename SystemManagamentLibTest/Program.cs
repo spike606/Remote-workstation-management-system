@@ -19,6 +19,8 @@ namespace SystemMonitorLibTest
 
         static void Main(string[] args)
         {
+            //monitor.RestartMachine();
+
             HardwareDynamicData hardwareDynamicData = monitor.GetHardwareDynamicData();
             HardwareStaticData hardwareStaticData = monitor.GetHardwareStaticData();
             SoftwareStaticData softwareStaticData = monitor.GetSoftwareStaticData();

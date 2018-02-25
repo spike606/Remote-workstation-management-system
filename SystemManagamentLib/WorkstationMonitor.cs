@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using Castle.Windsor.Installer;
+using SystemManagament.Control;
 using SystemManagament.Monitor.DataBuilder;
 using SystemManagament.Monitor.HardwareDynamic.Model;
 using SystemManagament.Monitor.HardwareStatic.Model;
 using SystemManagament.Monitor.SoftwareDynamic.Model;
 using SystemManagament.Monitor.SoftwareStatic.Model;
+using SystemManagament.Shared;
 
 namespace SystemManagament
 {
@@ -22,6 +24,8 @@ namespace SystemManagament
         }
 
         private ISystemMonitorDataBuilder SystemMonitorDataBuilder { get; set; }
+
+        private IControlManager ControlManager { get; set; }
 
         public HardwareStaticData GetHardwareStaticData()
         {
@@ -43,11 +47,27 @@ namespace SystemManagament
             return this.SystemMonitorDataBuilder.GetSoftwareDynamicData();
         }
 
+        public OperationStatus TurnMachineOff()
+        {
+            return this.ControlManager.TurnMachineOff();
+        }
+
+        public OperationStatus RestartMachine()
+        {
+            return this.ControlManager.RestartMachine();
+        }
+
+        public OperationStatus LogOutUser()
+        {
+            return this.ControlManager.ForceLogOutUser();
+        }
+
         private void InitializeIoCContainer()
         {
             var container = new WindsorContainer();
             container.Install(FromAssembly.This());
             this.SystemMonitorDataBuilder = container.Resolve<ISystemMonitorDataBuilder>();
+            this.ControlManager = container.Resolve<IControlManager>();
         }
     }
 }

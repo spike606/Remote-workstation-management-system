@@ -10,5 +10,7 @@ namespace SystemManagament.Shared.Win32API
     public interface IWin32APIClient
     {
         string GetProcessUser(Process process);
+
+        OperationStatus LogOutUser();
     }
 }

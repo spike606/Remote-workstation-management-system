@@ -13,6 +13,8 @@ namespace SystemManagament.Shared.Win32API
 {
     public class Win32APIClient : IWin32APIClient
     {
+        private const uint EWX_FORCEIFHUNG_FLAG = 0x00000010;
+
         public Win32APIClient(INLogger logger)
         {
             this.Logger = logger;
@@ -43,14 +45,33 @@ namespace SystemManagament.Shared.Win32API
             }
         }
 
+        public OperationStatus LogOutUser()
+        {
+            try
+            {
+                ExitWindowsEx(EWX_FORCEIFHUNG_FLAG, 0);
+            }
+            catch (Exception ex)
+            {
+                this.Logger.LogError(ex.Message, ex);
+                return new OperationStatus(false, ex.Message);
+            }
+
+            return new OperationStatus(true, string.Empty);
+        }
+
         [SuppressMessage("Microsoft.Design", "CA1060:MovePInvokesToNativeMethodsClass", Justification = "Method used locally")]
         [SuppressMessage("StyleCop.Analyzers", "SA1313:ParameterNamesMustBeginWithLowerCaseLetter", Justification = "Dll import")]
-        [DllImport("advapi32.dll", SetLastError = true)]
+        [DllImport(".\\Externals\\advapi32.dll", SetLastError = true)]
         private static extern bool OpenProcessToken(IntPtr ProcessHandle, uint DesiredAccess, out IntPtr TokenHandle);
 
         [SuppressMessage("Microsoft.Design", "CA1060:MovePInvokesToNativeMethodsClass", Justification = "Method used locally")]
-        [DllImport("kernel32.dll", SetLastError = true)]
+        [DllImport(".\\Externals\\kernel32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool CloseHandle(IntPtr hObject);
+
+        [SuppressMessage("Microsoft.Design", "CA1060:MovePInvokesToNativeMethodsClass", Justification = "Method used locally")]
+        [DllImport(".\\Externals\\user32.dll")]
+        private static extern bool ExitWindowsEx(uint uFlags, uint dwReason);
     }
 }
