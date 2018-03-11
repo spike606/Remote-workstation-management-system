@@ -5,7 +5,7 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WcfHost.Services
+namespace Wcf.Contract.Service.Interface
 {
     [ServiceContract]
     public interface IWorkstationMonitorService
