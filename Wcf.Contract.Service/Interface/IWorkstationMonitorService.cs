@@ -4,6 +4,7 @@ using System.Linq;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
+using SystemManagament.Monitor.SoftwareDynamic.Model;
 
 namespace Wcf.Contract.Service.Interface
 {
@@ -21,5 +22,8 @@ namespace Wcf.Contract.Service.Interface
 
         [OperationContract]
         double Divide(double n1, double n2);
+
+        [OperationContract]
+        SoftwareDynamicData ReadSoftwareDynamicData();
     }
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SystemManagament;
+using SystemManagament.Monitor.SoftwareDynamic.Model;
 using Wcf.Contract.Service.Interface;
 
 namespace Wcf.Contract.Service.Implementation
@@ -31,6 +33,12 @@ namespace Wcf.Contract.Service.Implementation
         {
             double result = n1 / n2;
             return result;
+        }
+
+        public SoftwareDynamicData ReadSoftwareDynamicData()
+        {
+            var data = new WorkstationMonitor().GetSoftwareDynamicData();
+            return data;
         }
     }
 }
