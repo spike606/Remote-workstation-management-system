@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareDynamic.Model" />
+  <xs:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.Model" />
+  <xs:element name="Add">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="n1" type="xs:double" />
+        <xs:element minOccurs="0" name="n2" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddResult" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Subtract">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="n1" type="xs:double" />
+        <xs:element minOccurs="0" name="n2" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubtractResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SubtractResult" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Multiply">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="n1" type="xs:double" />
+        <xs:element minOccurs="0" name="n2" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MultiplyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="MultiplyResult" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Divide">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="n1" type="xs:double" />
+        <xs:element minOccurs="0" name="n2" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DivideResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DivideResult" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadSoftwareDynamicData">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadSoftwareDynamicDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareDynamic.Model" minOccurs="0" name="ReadSoftwareDynamicDataResult" nillable="true" type="q1:SoftwareDynamicData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadSoftwareStaticData">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadSoftwareStaticDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.Model" minOccurs="0" name="ReadSoftwareStaticDataResult" nillable="true" type="q2:SoftwareStaticData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -5,6 +5,7 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using SystemManagament.Monitor.SoftwareDynamic.Model;
+using SystemManagament.Monitor.SoftwareStatic.Model;
 
 namespace Wcf.Contract.Service.Interface
 {
@@ -25,5 +26,8 @@ namespace Wcf.Contract.Service.Interface
 
         [OperationContract]
         SoftwareDynamicData ReadSoftwareDynamicData();
+
+        [OperationContract]
+        SoftwareStaticData ReadSoftwareStaticData();
     }
 }

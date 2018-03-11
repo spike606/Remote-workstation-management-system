@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wcf.Host", "Wcf.Host\Wcf.Ho
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wcf.Host.Debug", "Wcf.Host.Debug\Wcf.Host.Debug.csproj", "{06485DE5-964F-45AB-A56A-1F9E6D36FD8E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemManagament.Client.WPF", "SystemManagament.Client.WPF\SystemManagament.Client.WPF.csproj", "{63975C08-D53B-4B3B-99F9-5C8A3DED1716}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +99,18 @@ Global
 		{06485DE5-964F-45AB-A56A-1F9E6D36FD8E}.Release|x64.Build.0 = Release|Any CPU
 		{06485DE5-964F-45AB-A56A-1F9E6D36FD8E}.Release|x86.ActiveCfg = Release|Any CPU
 		{06485DE5-964F-45AB-A56A-1F9E6D36FD8E}.Release|x86.Build.0 = Release|Any CPU
+		{63975C08-D53B-4B3B-99F9-5C8A3DED1716}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63975C08-D53B-4B3B-99F9-5C8A3DED1716}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63975C08-D53B-4B3B-99F9-5C8A3DED1716}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{63975C08-D53B-4B3B-99F9-5C8A3DED1716}.Debug|x64.Build.0 = Debug|Any CPU
+		{63975C08-D53B-4B3B-99F9-5C8A3DED1716}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{63975C08-D53B-4B3B-99F9-5C8A3DED1716}.Debug|x86.Build.0 = Debug|Any CPU
+		{63975C08-D53B-4B3B-99F9-5C8A3DED1716}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63975C08-D53B-4B3B-99F9-5C8A3DED1716}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63975C08-D53B-4B3B-99F9-5C8A3DED1716}.Release|x64.ActiveCfg = Release|Any CPU
+		{63975C08-D53B-4B3B-99F9-5C8A3DED1716}.Release|x64.Build.0 = Release|Any CPU
+		{63975C08-D53B-4B3B-99F9-5C8A3DED1716}.Release|x86.ActiveCfg = Release|Any CPU
+		{63975C08-D53B-4B3B-99F9-5C8A3DED1716}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

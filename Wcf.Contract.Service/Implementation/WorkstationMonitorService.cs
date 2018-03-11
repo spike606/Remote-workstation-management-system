@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SystemManagament;
 using SystemManagament.Monitor.SoftwareDynamic.Model;
+using SystemManagament.Monitor.SoftwareStatic.Model;
 using Wcf.Contract.Service.Interface;
 
 namespace Wcf.Contract.Service.Implementation
@@ -38,6 +39,12 @@ namespace Wcf.Contract.Service.Implementation
         public SoftwareDynamicData ReadSoftwareDynamicData()
         {
             var data = new WorkstationMonitor().GetSoftwareDynamicData();
+            return data;
+        }
+
+        public SoftwareStaticData ReadSoftwareStaticData()
+        {
+            var data = new WorkstationMonitor().GetSoftwareStaticData();
             return data;
         }
     }
