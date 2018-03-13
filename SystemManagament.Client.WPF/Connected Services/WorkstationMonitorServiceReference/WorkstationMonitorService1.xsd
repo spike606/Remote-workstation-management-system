@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareDynamic.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareDynamic.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareDynamic.Model.Components" />
-  <xs:complexType name="SoftwareDynamicData">
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="UnitValue">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
     <xs:sequence>
-      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareDynamic.Model.Components" minOccurs="0" name="WindowsLog" nillable="true" type="q1:ArrayOfWindowsLog" />
-      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareDynamic.Model.Components" minOccurs="0" name="WindowsProcess" nillable="true" type="q2:ArrayOfWindowsProcess" />
-      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareDynamic.Model.Components" minOccurs="0" name="WindowsService" nillable="true" type="q3:ArrayOfWindowsService" />
+      <xs:element minOccurs="0" name="Unit" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="SoftwareDynamicData" nillable="true" type="tns:SoftwareDynamicData" />
+  <xs:element name="UnitValue" nillable="true" type="tns:UnitValue" />
 </xs:schema>

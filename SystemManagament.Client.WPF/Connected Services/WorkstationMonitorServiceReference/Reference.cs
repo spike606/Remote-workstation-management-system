@@ -96,10 +96,48 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
     [System.Runtime.Serialization.DataContractAttribute(Name="WindowsLog", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareDynamic." +
         "Model.Components")]
     [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.SoftwareDynamicData))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Bios[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Bios))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.CurrentUser[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.CurrentUser))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.InstalledProgram[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.InstalledProgram))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.LocalUser[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.LocalUser))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.MicrosoftWindowsUpdate[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.MicrosoftWindowsUpdate))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.OS[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.OS))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.StartupCommand[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.StartupCommand))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(object[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsLog[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsProcess[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsProcess))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsService[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsService))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.SoftwareStaticData))]
     public partial class WindowsLog : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private object[] EntriesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LogDisplayNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LogNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue MaximumKilobytesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue MinimumRetentionDaysField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -108,6 +146,71 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public object[] Entries {
+            get {
+                return this.EntriesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EntriesField, value) != true)) {
+                    this.EntriesField = value;
+                    this.RaisePropertyChanged("Entries");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LogDisplayName {
+            get {
+                return this.LogDisplayNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LogDisplayNameField, value) != true)) {
+                    this.LogDisplayNameField = value;
+                    this.RaisePropertyChanged("LogDisplayName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LogName {
+            get {
+                return this.LogNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LogNameField, value) != true)) {
+                    this.LogNameField = value;
+                    this.RaisePropertyChanged("LogName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue MaximumKilobytes {
+            get {
+                return this.MaximumKilobytesField;
+            }
+            set {
+                if ((this.MaximumKilobytesField.Equals(value) != true)) {
+                    this.MaximumKilobytesField = value;
+                    this.RaisePropertyChanged("MaximumKilobytes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue MinimumRetentionDays {
+            get {
+                return this.MinimumRetentionDaysField;
+            }
+            set {
+                if ((this.MinimumRetentionDaysField.Equals(value) != true)) {
+                    this.MinimumRetentionDaysField = value;
+                    this.RaisePropertyChanged("MinimumRetentionDays");
+                }
             }
         }
         
@@ -131,6 +234,45 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BasePriorityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue MemorySizeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue PagedMemorySize64Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue PeakMemorySizeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue PeakPagedMemorySize64Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue PeakVirtualMemorySize64Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SessionIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime StartTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.TimeSpan TotalProcessorTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UserNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue VirtualMemorySize64Field;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -138,6 +280,175 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BasePriority {
+            get {
+                return this.BasePriorityField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BasePriorityField, value) != true)) {
+                    this.BasePriorityField = value;
+                    this.RaisePropertyChanged("BasePriority");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IdField, value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue MemorySize {
+            get {
+                return this.MemorySizeField;
+            }
+            set {
+                if ((this.MemorySizeField.Equals(value) != true)) {
+                    this.MemorySizeField = value;
+                    this.RaisePropertyChanged("MemorySize");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue PagedMemorySize64 {
+            get {
+                return this.PagedMemorySize64Field;
+            }
+            set {
+                if ((this.PagedMemorySize64Field.Equals(value) != true)) {
+                    this.PagedMemorySize64Field = value;
+                    this.RaisePropertyChanged("PagedMemorySize64");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue PeakMemorySize {
+            get {
+                return this.PeakMemorySizeField;
+            }
+            set {
+                if ((this.PeakMemorySizeField.Equals(value) != true)) {
+                    this.PeakMemorySizeField = value;
+                    this.RaisePropertyChanged("PeakMemorySize");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue PeakPagedMemorySize64 {
+            get {
+                return this.PeakPagedMemorySize64Field;
+            }
+            set {
+                if ((this.PeakPagedMemorySize64Field.Equals(value) != true)) {
+                    this.PeakPagedMemorySize64Field = value;
+                    this.RaisePropertyChanged("PeakPagedMemorySize64");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue PeakVirtualMemorySize64 {
+            get {
+                return this.PeakVirtualMemorySize64Field;
+            }
+            set {
+                if ((this.PeakVirtualMemorySize64Field.Equals(value) != true)) {
+                    this.PeakVirtualMemorySize64Field = value;
+                    this.RaisePropertyChanged("PeakVirtualMemorySize64");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SessionId {
+            get {
+                return this.SessionIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SessionIdField, value) != true)) {
+                    this.SessionIdField = value;
+                    this.RaisePropertyChanged("SessionId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime StartTime {
+            get {
+                return this.StartTimeField;
+            }
+            set {
+                if ((this.StartTimeField.Equals(value) != true)) {
+                    this.StartTimeField = value;
+                    this.RaisePropertyChanged("StartTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.TimeSpan TotalProcessorTime {
+            get {
+                return this.TotalProcessorTimeField;
+            }
+            set {
+                if ((this.TotalProcessorTimeField.Equals(value) != true)) {
+                    this.TotalProcessorTimeField = value;
+                    this.RaisePropertyChanged("TotalProcessorTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserName {
+            get {
+                return this.UserNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
+                    this.UserNameField = value;
+                    this.RaisePropertyChanged("UserName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue VirtualMemorySize64 {
+            get {
+                return this.VirtualMemorySize64Field;
+            }
+            set {
+                if ((this.VirtualMemorySize64Field.Equals(value) != true)) {
+                    this.VirtualMemorySize64Field = value;
+                    this.RaisePropertyChanged("VirtualMemorySize64");
+                }
             }
         }
         
@@ -311,36 +622,20 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SoftwareStaticData", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.M" +
-        "odel")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UnitValue", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.M" +
+        "odel.CustomProperties")]
     [System.SerializableAttribute()]
-    public partial class SoftwareStaticData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial struct UnitValue : System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Bios[] BiosField;
+        private string UnitField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.CurrentUser[] CurrentUserField;
+        private string ValueField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.InstalledProgram[] InstalledProgramField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.LocalUser[] LocalUserField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.MicrosoftWindowsUpdate[] MicrosoftWindowsUpdateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.OS[] OperatingSystemField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.StartupCommand[] StartupCommandField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
                 return this.extensionDataField;
@@ -351,99 +646,34 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Bios[] Bios {
+        public string Unit {
             get {
-                return this.BiosField;
+                return this.UnitField;
             }
             set {
-                if ((object.ReferenceEquals(this.BiosField, value) != true)) {
-                    this.BiosField = value;
-                    this.RaisePropertyChanged("Bios");
+                if ((object.ReferenceEquals(this.UnitField, value) != true)) {
+                    this.UnitField = value;
+                    this.RaisePropertyChanged("Unit");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.CurrentUser[] CurrentUser {
+        public string Value {
             get {
-                return this.CurrentUserField;
+                return this.ValueField;
             }
             set {
-                if ((object.ReferenceEquals(this.CurrentUserField, value) != true)) {
-                    this.CurrentUserField = value;
-                    this.RaisePropertyChanged("CurrentUser");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.InstalledProgram[] InstalledProgram {
-            get {
-                return this.InstalledProgramField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.InstalledProgramField, value) != true)) {
-                    this.InstalledProgramField = value;
-                    this.RaisePropertyChanged("InstalledProgram");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.LocalUser[] LocalUser {
-            get {
-                return this.LocalUserField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LocalUserField, value) != true)) {
-                    this.LocalUserField = value;
-                    this.RaisePropertyChanged("LocalUser");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.MicrosoftWindowsUpdate[] MicrosoftWindowsUpdate {
-            get {
-                return this.MicrosoftWindowsUpdateField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MicrosoftWindowsUpdateField, value) != true)) {
-                    this.MicrosoftWindowsUpdateField = value;
-                    this.RaisePropertyChanged("MicrosoftWindowsUpdate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.OS[] OperatingSystem {
-            get {
-                return this.OperatingSystemField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OperatingSystemField, value) != true)) {
-                    this.OperatingSystemField = value;
-                    this.RaisePropertyChanged("OperatingSystem");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.StartupCommand[] StartupCommand {
-            get {
-                return this.StartupCommandField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.StartupCommandField, value) != true)) {
-                    this.StartupCommandField = value;
-                    this.RaisePropertyChanged("StartupCommand");
+                if ((object.ReferenceEquals(this.ValueField, value) != true)) {
+                    this.ValueField = value;
+                    this.RaisePropertyChanged("Value");
                 }
             }
         }
         
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
-        protected void RaisePropertyChanged(string propertyName) {
+        void RaisePropertyChanged(string propertyName) {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
@@ -1607,20 +1837,36 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UnitValue", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.M" +
-        "odel.CustomProperties")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SoftwareStaticData", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.M" +
+        "odel")]
     [System.SerializableAttribute()]
-    public partial struct UnitValue : System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class SoftwareStaticData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string UnitField;
+        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Bios[] BiosField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ValueField;
+        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.CurrentUser[] CurrentUserField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.InstalledProgram[] InstalledProgramField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.LocalUser[] LocalUserField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.MicrosoftWindowsUpdate[] MicrosoftWindowsUpdateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.OS[] OperatingSystemField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.StartupCommand[] StartupCommandField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
                 return this.extensionDataField;
@@ -1631,34 +1877,99 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Unit {
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Bios[] Bios {
             get {
-                return this.UnitField;
+                return this.BiosField;
             }
             set {
-                if ((object.ReferenceEquals(this.UnitField, value) != true)) {
-                    this.UnitField = value;
-                    this.RaisePropertyChanged("Unit");
+                if ((object.ReferenceEquals(this.BiosField, value) != true)) {
+                    this.BiosField = value;
+                    this.RaisePropertyChanged("Bios");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Value {
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.CurrentUser[] CurrentUser {
             get {
-                return this.ValueField;
+                return this.CurrentUserField;
             }
             set {
-                if ((object.ReferenceEquals(this.ValueField, value) != true)) {
-                    this.ValueField = value;
-                    this.RaisePropertyChanged("Value");
+                if ((object.ReferenceEquals(this.CurrentUserField, value) != true)) {
+                    this.CurrentUserField = value;
+                    this.RaisePropertyChanged("CurrentUser");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.InstalledProgram[] InstalledProgram {
+            get {
+                return this.InstalledProgramField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.InstalledProgramField, value) != true)) {
+                    this.InstalledProgramField = value;
+                    this.RaisePropertyChanged("InstalledProgram");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.LocalUser[] LocalUser {
+            get {
+                return this.LocalUserField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LocalUserField, value) != true)) {
+                    this.LocalUserField = value;
+                    this.RaisePropertyChanged("LocalUser");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.MicrosoftWindowsUpdate[] MicrosoftWindowsUpdate {
+            get {
+                return this.MicrosoftWindowsUpdateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MicrosoftWindowsUpdateField, value) != true)) {
+                    this.MicrosoftWindowsUpdateField = value;
+                    this.RaisePropertyChanged("MicrosoftWindowsUpdate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.OS[] OperatingSystem {
+            get {
+                return this.OperatingSystemField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OperatingSystemField, value) != true)) {
+                    this.OperatingSystemField = value;
+                    this.RaisePropertyChanged("OperatingSystem");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.StartupCommand[] StartupCommand {
+            get {
+                return this.StartupCommandField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StartupCommandField, value) != true)) {
+                    this.StartupCommandField = value;
+                    this.RaisePropertyChanged("StartupCommand");
                 }
             }
         }
         
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
-        void RaisePropertyChanged(string propertyName) {
+        protected void RaisePropertyChanged(string propertyName) {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));

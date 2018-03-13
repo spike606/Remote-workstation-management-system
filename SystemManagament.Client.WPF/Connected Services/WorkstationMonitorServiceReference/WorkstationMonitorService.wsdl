@@ -324,15 +324,45 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_IWorkstationMonitorService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareDynamic.Model" />
       <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareDynamic.Model.Components" />
-      <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.Model" />
-      <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.Model.Components" />
-      <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" />
+      <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" />
+      <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.Model" />
+      <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.Model.Components" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IWorkstationMonitorService_Add_InputMessage">
@@ -467,11 +497,78 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IWorkstationMonitorService" type="tns:IWorkstationMonitorService">
+    <wsp:PolicyReference URI="#NetTcpBinding_IWorkstationMonitorService_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="Add">
+      <soap12:operation soapAction="http://tempuri.org/IWorkstationMonitorService/Add" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Subtract">
+      <soap12:operation soapAction="http://tempuri.org/IWorkstationMonitorService/Subtract" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Multiply">
+      <soap12:operation soapAction="http://tempuri.org/IWorkstationMonitorService/Multiply" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Divide">
+      <soap12:operation soapAction="http://tempuri.org/IWorkstationMonitorService/Divide" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadSoftwareDynamicData">
+      <soap12:operation soapAction="http://tempuri.org/IWorkstationMonitorService/ReadSoftwareDynamicData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadSoftwareStaticData">
+      <soap12:operation soapAction="http://tempuri.org/IWorkstationMonitorService/ReadSoftwareStaticData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
   <wsdl:service name="WorkstationMonitorService">
     <wsdl:port name="WSHttpBinding_IWorkstationMonitorService" binding="tns:WSHttpBinding_IWorkstationMonitorService">
       <soap12:address location="http://localhost:8000/WorkstationMonitorService" />
       <wsa10:EndpointReference>
         <wsa10:Address>http://localhost:8000/WorkstationMonitorService</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>DESKTOP-6KIJ564\KRYSTUS</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IWorkstationMonitorService" binding="tns:NetTcpBinding_IWorkstationMonitorService">
+      <soap12:address location="net.tcp://localhost:8001/WorkstationMonitorService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8001/WorkstationMonitorService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
           <Upn>DESKTOP-6KIJ564\KRYSTUS</Upn>
         </Identity>

@@ -29,10 +29,10 @@ namespace SystemManagament.Client.WPF
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //creating the object of WCF service client       
-            WorkstationMonitorServiceClient client = new WorkstationMonitorServiceClient();
+            WorkstationMonitorServiceClient client = new WorkstationMonitorServiceClient("NetTcpBinding_IWorkstationMonitorService");
 
-            var data = client.ReadSoftwareStaticData();
-
+            //var softwareStatic = client.ReadSoftwareStaticData();
+            var dynamicData = client.ReadSoftwareDynamicData();
             MessageBox.Show("ok");
         }
     }

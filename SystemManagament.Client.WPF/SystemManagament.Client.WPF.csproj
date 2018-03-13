@@ -108,10 +108,13 @@
     <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService4.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService41.xsd">
+    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService5.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService42.xsd">
+    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService7.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\Settings.settings">
