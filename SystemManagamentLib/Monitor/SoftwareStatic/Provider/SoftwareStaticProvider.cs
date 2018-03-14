@@ -43,8 +43,8 @@ namespace SystemManagament.Monitor.SoftwareStatic.Provider
             CurrentUser currentUser = new CurrentUser();
             currentUser.Name = identity?.Name ?? string.Empty;
             currentUser.AuthenticationType = identity?.AuthenticationType ?? string.Empty;
-            currentUser.Claims = identity?.Claims;
-            currentUser.Groups = identity?.Groups;
+            //currentUser.Claims = identity?.Claims;
+            //currentUser.Groups = identity?.Groups;
 
             return currentUser;
         }

@@ -104,8 +104,8 @@ namespace SystemManagament.Monitor.DataBuilder
         {
             SoftwareDynamicData data = new SoftwareDynamicData();
             data.WindowsService = this.SoftwareDynamicBuilder.GetSoftwareDynamicData<WindowsService>();
-            //data.WindowsLog = this.SoftwareDynamicBuilder.GetSoftwareDynamicData<WindowsLog>();
-            //data.WindowsProcess = this.SoftwareDynamicBuilder.GetSoftwareDynamicData<WindowsProcess>();
+            data.WindowsLog = this.SoftwareDynamicBuilder.GetSoftwareDynamicData<WindowsLog>();
+            data.WindowsProcess = this.SoftwareDynamicBuilder.GetSoftwareDynamicData<WindowsProcess>();
 
             return data;
         }

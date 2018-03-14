@@ -96,8 +96,13 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
     [System.Runtime.Serialization.DataContractAttribute(Name="WindowsLog", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareDynamic." +
         "Model.Components")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(object[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<string, string>))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.SoftwareStaticData))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.SoftwareDynamicData))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Security.Claims.Claim[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Security.Claims.Claim))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Bios[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Bios))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.CurrentUser[]))]
@@ -112,13 +117,13 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.OS))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.StartupCommand[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.StartupCommand))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(object[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsLog[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsProcess[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsProcess))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsService[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsService))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.SoftwareStaticData))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Security.Principal.IdentityReference[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Security.Principal.IdentityReference))]
     public partial class WindowsLog : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -683,13 +688,34 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Bios", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.M" +
-        "odel.Components")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SoftwareStaticData", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.M" +
+        "odel")]
     [System.SerializableAttribute()]
-    public partial class Bios : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class SoftwareStaticData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Bios[] BiosField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.CurrentUser[] CurrentUserField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.InstalledProgram[] InstalledProgramField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.LocalUser[] LocalUserField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.MicrosoftWindowsUpdate[] MicrosoftWindowsUpdateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.OS[] OperatingSystemField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.StartupCommand[] StartupCommandField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -698,6 +724,399 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Bios[] Bios {
+            get {
+                return this.BiosField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BiosField, value) != true)) {
+                    this.BiosField = value;
+                    this.RaisePropertyChanged("Bios");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.CurrentUser[] CurrentUser {
+            get {
+                return this.CurrentUserField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CurrentUserField, value) != true)) {
+                    this.CurrentUserField = value;
+                    this.RaisePropertyChanged("CurrentUser");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.InstalledProgram[] InstalledProgram {
+            get {
+                return this.InstalledProgramField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.InstalledProgramField, value) != true)) {
+                    this.InstalledProgramField = value;
+                    this.RaisePropertyChanged("InstalledProgram");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.LocalUser[] LocalUser {
+            get {
+                return this.LocalUserField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LocalUserField, value) != true)) {
+                    this.LocalUserField = value;
+                    this.RaisePropertyChanged("LocalUser");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.MicrosoftWindowsUpdate[] MicrosoftWindowsUpdate {
+            get {
+                return this.MicrosoftWindowsUpdateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MicrosoftWindowsUpdateField, value) != true)) {
+                    this.MicrosoftWindowsUpdateField = value;
+                    this.RaisePropertyChanged("MicrosoftWindowsUpdate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.OS[] OperatingSystem {
+            get {
+                return this.OperatingSystemField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OperatingSystemField, value) != true)) {
+                    this.OperatingSystemField = value;
+                    this.RaisePropertyChanged("OperatingSystem");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.StartupCommand[] StartupCommand {
+            get {
+                return this.StartupCommandField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StartupCommandField, value) != true)) {
+                    this.StartupCommandField = value;
+                    this.RaisePropertyChanged("StartupCommand");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Bios", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.M" +
+        "odel.Components")]
+    [System.SerializableAttribute()]
+    public partial class Bios : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BIOSVersionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BuildNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CaptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmbeddedControllerMajorVersionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmbeddedControllerMinorVersionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ManufacturerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime ReleaseDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SMBIOSBIOSVersionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SMBIOSMajorVersionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SMBIOSMinorVersionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SMBIOSPresentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SerialNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SystemBiosMajorVersionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SystemBiosMinorVersionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string VersionField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BIOSVersion {
+            get {
+                return this.BIOSVersionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BIOSVersionField, value) != true)) {
+                    this.BIOSVersionField = value;
+                    this.RaisePropertyChanged("BIOSVersion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BuildNumber {
+            get {
+                return this.BuildNumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BuildNumberField, value) != true)) {
+                    this.BuildNumberField = value;
+                    this.RaisePropertyChanged("BuildNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Caption {
+            get {
+                return this.CaptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CaptionField, value) != true)) {
+                    this.CaptionField = value;
+                    this.RaisePropertyChanged("Caption");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EmbeddedControllerMajorVersion {
+            get {
+                return this.EmbeddedControllerMajorVersionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmbeddedControllerMajorVersionField, value) != true)) {
+                    this.EmbeddedControllerMajorVersionField = value;
+                    this.RaisePropertyChanged("EmbeddedControllerMajorVersion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EmbeddedControllerMinorVersion {
+            get {
+                return this.EmbeddedControllerMinorVersionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmbeddedControllerMinorVersionField, value) != true)) {
+                    this.EmbeddedControllerMinorVersionField = value;
+                    this.RaisePropertyChanged("EmbeddedControllerMinorVersion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Manufacturer {
+            get {
+                return this.ManufacturerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ManufacturerField, value) != true)) {
+                    this.ManufacturerField = value;
+                    this.RaisePropertyChanged("Manufacturer");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime ReleaseDate {
+            get {
+                return this.ReleaseDateField;
+            }
+            set {
+                if ((this.ReleaseDateField.Equals(value) != true)) {
+                    this.ReleaseDateField = value;
+                    this.RaisePropertyChanged("ReleaseDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SMBIOSBIOSVersion {
+            get {
+                return this.SMBIOSBIOSVersionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SMBIOSBIOSVersionField, value) != true)) {
+                    this.SMBIOSBIOSVersionField = value;
+                    this.RaisePropertyChanged("SMBIOSBIOSVersion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SMBIOSMajorVersion {
+            get {
+                return this.SMBIOSMajorVersionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SMBIOSMajorVersionField, value) != true)) {
+                    this.SMBIOSMajorVersionField = value;
+                    this.RaisePropertyChanged("SMBIOSMajorVersion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SMBIOSMinorVersion {
+            get {
+                return this.SMBIOSMinorVersionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SMBIOSMinorVersionField, value) != true)) {
+                    this.SMBIOSMinorVersionField = value;
+                    this.RaisePropertyChanged("SMBIOSMinorVersion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SMBIOSPresent {
+            get {
+                return this.SMBIOSPresentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SMBIOSPresentField, value) != true)) {
+                    this.SMBIOSPresentField = value;
+                    this.RaisePropertyChanged("SMBIOSPresent");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SerialNumber {
+            get {
+                return this.SerialNumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SerialNumberField, value) != true)) {
+                    this.SerialNumberField = value;
+                    this.RaisePropertyChanged("SerialNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SystemBiosMajorVersion {
+            get {
+                return this.SystemBiosMajorVersionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SystemBiosMajorVersionField, value) != true)) {
+                    this.SystemBiosMajorVersionField = value;
+                    this.RaisePropertyChanged("SystemBiosMajorVersion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SystemBiosMinorVersion {
+            get {
+                return this.SystemBiosMinorVersionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SystemBiosMinorVersionField, value) != true)) {
+                    this.SystemBiosMinorVersionField = value;
+                    this.RaisePropertyChanged("SystemBiosMinorVersion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Version {
+            get {
+                return this.VersionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.VersionField, value) != true)) {
+                    this.VersionField = value;
+                    this.RaisePropertyChanged("Version");
+                }
             }
         }
         
@@ -721,6 +1140,18 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AuthenticationTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Security.Claims.Claim[] ClaimsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Security.Principal.IdentityReference[] GroupsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -728,6 +1159,58 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AuthenticationType {
+            get {
+                return this.AuthenticationTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AuthenticationTypeField, value) != true)) {
+                    this.AuthenticationTypeField = value;
+                    this.RaisePropertyChanged("AuthenticationType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Security.Claims.Claim[] Claims {
+            get {
+                return this.ClaimsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ClaimsField, value) != true)) {
+                    this.ClaimsField = value;
+                    this.RaisePropertyChanged("Claims");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Security.Principal.IdentityReference[] Groups {
+            get {
+                return this.GroupsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GroupsField, value) != true)) {
+                    this.GroupsField = value;
+                    this.RaisePropertyChanged("Groups");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
             }
         }
         
@@ -1821,148 +2304,6 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
                 if ((object.ReferenceEquals(this.UserSIDField, value) != true)) {
                     this.UserSIDField = value;
                     this.RaisePropertyChanged("UserSID");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SoftwareStaticData", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.M" +
-        "odel")]
-    [System.SerializableAttribute()]
-    public partial class SoftwareStaticData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Bios[] BiosField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.CurrentUser[] CurrentUserField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.InstalledProgram[] InstalledProgramField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.LocalUser[] LocalUserField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.MicrosoftWindowsUpdate[] MicrosoftWindowsUpdateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.OS[] OperatingSystemField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.StartupCommand[] StartupCommandField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Bios[] Bios {
-            get {
-                return this.BiosField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BiosField, value) != true)) {
-                    this.BiosField = value;
-                    this.RaisePropertyChanged("Bios");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.CurrentUser[] CurrentUser {
-            get {
-                return this.CurrentUserField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CurrentUserField, value) != true)) {
-                    this.CurrentUserField = value;
-                    this.RaisePropertyChanged("CurrentUser");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.InstalledProgram[] InstalledProgram {
-            get {
-                return this.InstalledProgramField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.InstalledProgramField, value) != true)) {
-                    this.InstalledProgramField = value;
-                    this.RaisePropertyChanged("InstalledProgram");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.LocalUser[] LocalUser {
-            get {
-                return this.LocalUserField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LocalUserField, value) != true)) {
-                    this.LocalUserField = value;
-                    this.RaisePropertyChanged("LocalUser");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.MicrosoftWindowsUpdate[] MicrosoftWindowsUpdate {
-            get {
-                return this.MicrosoftWindowsUpdateField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MicrosoftWindowsUpdateField, value) != true)) {
-                    this.MicrosoftWindowsUpdateField = value;
-                    this.RaisePropertyChanged("MicrosoftWindowsUpdate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.OS[] OperatingSystem {
-            get {
-                return this.OperatingSystemField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OperatingSystemField, value) != true)) {
-                    this.OperatingSystemField = value;
-                    this.RaisePropertyChanged("OperatingSystem");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.StartupCommand[] StartupCommand {
-            get {
-                return this.StartupCommandField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.StartupCommandField, value) != true)) {
-                    this.StartupCommandField = value;
-                    this.RaisePropertyChanged("StartupCommand");
                 }
             }
         }

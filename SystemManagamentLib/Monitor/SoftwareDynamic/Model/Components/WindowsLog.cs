@@ -14,8 +14,8 @@ namespace SystemManagament.Monitor.SoftwareDynamic.Model.Components
     [DataContract]
     public class WindowsLog : ISoftwareDynamicComponent<WindowsLog>
     {
-        [DataMember]
-        public EventLogEntryCollection Entries { get; internal set; }
+        //[DataMember]
+        //public EventLogEntryCollection Entries { get; internal set; }
 
         [DataMember]
         public string LogName { get; internal set; }

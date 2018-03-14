@@ -363,6 +363,8 @@
       <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" />
       <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.Model" />
       <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.Model.Components" />
+      <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/System.Security.Claims" />
+      <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/System.Security.Principal" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IWorkstationMonitorService_Add_InputMessage">

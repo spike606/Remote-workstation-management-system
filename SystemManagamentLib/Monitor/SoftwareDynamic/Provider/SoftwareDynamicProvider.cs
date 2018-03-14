@@ -85,7 +85,7 @@ namespace SystemManagament.Monitor.SoftwareDynamic.Provider
                 foreach (var log in logs)
                 {
                     WindowsLog windowsLog = new WindowsLog();
-                    windowsLog.Entries = log.Entries;
+                    //windowsLog.Entries = log.Entries;
                     windowsLog.LogName = log.Log;
                     windowsLog.LogDisplayName = log.LogDisplayName;
                     windowsLog.MaximumKilobytes = new UnitValue() { Unit = Unit.KB, Value = log.MaximumKilobytes.ToString() };

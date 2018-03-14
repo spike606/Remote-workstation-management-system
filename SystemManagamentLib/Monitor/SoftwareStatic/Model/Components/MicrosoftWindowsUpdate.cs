@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Management;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using SystemManagament.Monitor.HardwareStatic;
@@ -12,28 +13,40 @@ using SystemManagament.Shared.WMI;
 
 namespace SystemManagament.Monitor.SoftwareStatic.Model.Components
 {
+    [DataContract]
     public class MicrosoftWindowsUpdate : ISoftwareStaticComponent<MicrosoftWindowsUpdate>, IWMISoftwareStaticComponent<MicrosoftWindowsUpdate>
     {
+        [DataMember]
         public string Caption { get; set; }
 
+        [DataMember]
         public string CSName { get; set; }
 
+        [DataMember]
         public string Description { get; set; }
 
+        [DataMember]
         public string FixComments { get; set; }
 
+        [DataMember]
         public string HotFixID { get; set; }
 
+        [DataMember]
         public DateTime InstallDate { get; set; }
 
+        [DataMember]
         public string InstalledBy { get; set; }
 
+        [DataMember]
         public DateTime InstalledOn { get; set; }
 
+        [DataMember]
         public string Name { get; set; }
 
+        [DataMember]
         public string ServicePackInEffect { get; set; }
 
+        [DataMember]
         public string Status { get; set; }
 
         public MicrosoftWindowsUpdate ExtractData(ManagementObject managementObject)
