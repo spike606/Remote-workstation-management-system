@@ -49,7 +49,13 @@ namespace SystemManagament.Monitor.HardwareStatic.Analyzer
 
             foreach (var disk in disks)
             {
-                storageData.Add(new Storage((Disk)disk));
+                Storage storage = new Storage()
+                {
+                    Disk = disk,
+                    Partition = new List<LogicalPartition>()
+                };
+
+                storageData.Add(storage);
             }
 
             this.ExtractPartitionsForStorage(storageData, disksToPartitions, diskPartitions, partitionsToVolumes, volumes);

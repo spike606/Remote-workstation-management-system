@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Management;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract;
@@ -13,30 +14,42 @@ using SystemManagament.Shared.WMI;
 
 namespace SystemManagament.Monitor.HardwareStatic.Model.Components
 {
+    [DataContract]
     public class Volume : HardwareStaticComponent, IHardwareStaticComponent<Volume>
     {
         // based on docs: https://msdn.microsoft.com/en-us/library/windows/desktop/hh830604(v=vs.85).aspx
-        public string DedupMode { get; private set; }
+        [DataMember]
+        public string DedupMode { get; set; }
 
-        public string DriveLetter { get; private set; }
+        [DataMember]
+        public string DriveLetter { get; set; }
 
-        public string DriveType { get; private set; }
+        [DataMember]
+        public string DriveType { get; set; }
 
-        public string FileSystem { get; private set; }
+        [DataMember]
+        public string FileSystem { get; set; }
 
-        public string FileSystemLabel { get; private set; }
+        [DataMember]
+        public string FileSystemLabel { get; set; }
 
-        public string HealthStatus { get; private set; }
+        [DataMember]
+        public string HealthStatus { get; set; }
 
-        public string ObjectId { get; private set; }
+        [DataMember]
+        public string ObjectId { get; set; }
 
-        public string Path { get; private set; }
+        [DataMember]
+        public string Path { get; set; }
 
-        public UnitValue Size { get; private set; }
+        [DataMember]
+        public UnitValue Size { get; set; }
 
-        public UnitValue SizeRemaining { get; private set; }
+        [DataMember]
+        public UnitValue SizeRemaining { get; set; }
 
-        public string UniqueId { get; private set; }
+        [DataMember]
+        public string UniqueId { get; set; }
 
         public List<Volume> ExtractData(List<ManagementObject> managementObjectList)
         {

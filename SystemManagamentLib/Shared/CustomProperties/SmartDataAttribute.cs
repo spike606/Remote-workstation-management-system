@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using SystemManagament.Monitor.HardwareStatic.Model.CustomProperties.Attributes;
@@ -8,6 +9,7 @@ using SystemManagament.Monitor.HardwareStatic.Model.CustomProperties.Enums;
 
 namespace SystemManagament.Monitor.HardwareStatic.Model.CustomProperties
 {
+    [DataContract]
     public class SmartDataAttribute
     {
         public SmartDataAttribute(string attributeName, bool isCriticalAttribute = false)
@@ -23,20 +25,28 @@ namespace SystemManagament.Monitor.HardwareStatic.Model.CustomProperties
             this.IsCriticalAttribute = isCriticalAttribute;
         }
 
+        [DataMember]
         public string AttributeName { get; set; }
 
+        [DataMember]
         public int Current { get; set; }
 
+        [DataMember]
         public int Worst { get; set; }
 
+        [DataMember]
         public int Threshold { get; set; }
 
+        [DataMember]
         public int Raw { get; set; }
 
+        [DataMember]
         public string RawIdeal { get; set; } = RawIdealEnum.NONE.GetEnumDescription();
 
+        [DataMember]
         public bool IsCriticalAttribute { get; set; }
 
+        [DataMember]
         public SmartDataAttributeStatusEnum Status { get; set; }
 
         public override bool Equals(object obj)

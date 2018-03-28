@@ -2,18 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Management;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using SystemManagament.Monitor.HardwareStatic.Model.CustomProperties;
 
 namespace SystemManagament.Monitor.HardwareStatic.Model.Components.Analyzed
 {
+    [DataContract]
     public class SMARTData
     {
+        [DataMember]
         public string InstanceName { get; set; }
 
+        [DataMember]
         public string PredictFailure { get; set; }
 
+        [DataMember]
         public Dictionary<int, SmartDataAttribute> Attributes { get; set; } = new Dictionary<int, SmartDataAttribute>();
 
         public override bool Equals(object obj)

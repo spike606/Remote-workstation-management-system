@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="QISGh+eRpUbtN8mbcDQH2IoAN9U=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="eStQhadv7T8GywAldWkDsDL584s=">
   <bindingConfigurations>
-    <bindingConfiguration bindingType="netTcpBinding" name="NetTcpBinding_IWorkstationMonitorService">
+    <bindingConfiguration bindingType="netTcpBinding" name="NetTcpBinding_IWorkstationMonitorService1">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>NetTcpBinding_IWorkstationMonitorService</serializedValue>
+          <serializedValue>NetTcpBinding_IWorkstationMonitorService1</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -330,7 +330,7 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="NetTcpBinding_IWorkstationMonitorService" contract="WorkstationMonitorServiceReference.IWorkstationMonitorService" bindingType="netTcpBinding" address="net.tcp://localhost:8001/WorkstationMonitorService" bindingConfiguration="NetTcpBinding_IWorkstationMonitorService">
+    <endpoint name="NetTcpBinding_IWorkstationMonitorService1" contract="WorkstationMonitorServiceReference.IWorkstationMonitorService" bindingType="netTcpBinding" address="net.tcp://localhost:8001/WorkstationMonitorService" bindingConfiguration="NetTcpBinding_IWorkstationMonitorService1">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>net.tcp://localhost:8001/WorkstationMonitorService</serializedValue>
@@ -342,7 +342,7 @@
           <serializedValue>netTcpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>NetTcpBinding_IWorkstationMonitorService</serializedValue>
+          <serializedValue>NetTcpBinding_IWorkstationMonitorService1</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>WorkstationMonitorServiceReference.IWorkstationMonitorService</serializedValue>
@@ -405,7 +405,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>NetTcpBinding_IWorkstationMonitorService</serializedValue>
+          <serializedValue>NetTcpBinding_IWorkstationMonitorService1</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

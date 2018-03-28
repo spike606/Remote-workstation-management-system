@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Management;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract;
@@ -13,39 +14,56 @@ using SystemManagament.Shared.WMI;
 
 namespace SystemManagament.Monitor.HardwareStatic.Model.Components
 {
+    [DataContract]
     public class NetworkAdapter : HardwareStaticComponent, IHardwareStaticComponent<NetworkAdapter>
     {
         // based on docs: https://msdn.microsoft.com/en-us/library/aa394216(v=vs.85).aspx
+        [DataMember]
         public UnitValue ActiveMaximumTransmissionUnit { get; private set; }
 
+        [DataMember]
         public string ComponentID { get; private set; }
 
+        [DataMember]
         public string ConnectorPresent { get; private set; }
 
+        [DataMember]
         public string DeviceID { get; private set; }
 
+        [DataMember]
         public string DeviceName { get; private set; }
 
+        [DataMember]
         public string DriverDate { get; private set; }
 
+        [DataMember]
         public string DriverDescription { get; private set; }
 
+        [DataMember]
         public string DriverName { get; private set; }
 
+        [DataMember]
         public string DriverProvider { get; private set; }
 
+        [DataMember]
         public string DriverVersionString { get; private set; }
 
+        [DataMember]
         public string InterfaceDescription { get; private set; }
 
+        [DataMember]
         public string InterfaceName { get; private set; }
 
+        [DataMember]
         public string NdisMedium { get; private set; }
 
+        [DataMember]
         public string NdisPhysicalMedium { get; private set; }
 
+        [DataMember]
         public string PermanentAddress { get; private set; }
 
+        [DataMember]
         public string Virtual { get; private set; }
 
         public List<ManagementObject> GetManagementObjectsForHardwareComponent(IWMIClient wMIClient)

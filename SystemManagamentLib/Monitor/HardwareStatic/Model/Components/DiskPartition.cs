@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Management;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract;
@@ -11,41 +12,58 @@ using SystemManagament.Shared.WMI;
 
 namespace SystemManagament.Monitor.HardwareStatic.Model.Components
 {
+    [DataContract]
     public class DiskPartition : HardwareStaticComponent, IHardwareStaticComponent<DiskPartition>
     {
         // based on docs: https://msdn.microsoft.com/en-us/library/windows/desktop/hh830524(v=vs.85).aspx
-        public string DiskId { get; private set; }
+        [DataMember]
+        public string DiskId { get; set; }
 
-        public string DiskNumber { get; private set; }
+        [DataMember]
+        public string DiskNumber { get; set; }
 
-        public string DriveLetter { get; private set; }
+        [DataMember]
+        public string DriveLetter { get; set; }
 
-        public string IsActive { get; private set; }
+        [DataMember]
+        public string IsActive { get; set; }
 
-        public string IsBoot { get; private set; }
+        [DataMember]
+        public string IsBoot { get; set; }
 
-        public string IsHidden { get; private set; }
+        [DataMember]
+        public string IsHidden { get; set; }
 
-        public string IsOffline { get; private set; }
+        [DataMember]
+        public string IsOffline { get; set; }
 
-        public string IsReadOnly { get; private set; }
+        [DataMember]
+        public string IsReadOnly { get; set; }
 
-        public string IsShadowCopy { get; private set; }
+        [DataMember]
+        public string IsShadowCopy { get; set; }
 
-        public string IsSystem { get; private set; }
+        [DataMember]
+        public string IsSystem { get; set; }
 
         // See https://en.wikipedia.org/wiki/Partition_type#PID_00h
-        public string MbrType { get; private set; }
+        [DataMember]
+        public string MbrType { get; set; }
 
-        public string NoDefaultDriveLetter { get; private set; }
+        [DataMember]
+        public string NoDefaultDriveLetter { get; set; }
 
-        public string ObjectId { get; private set; }
+        [DataMember]
+        public string ObjectId { get; set; }
 
-        public UnitValue Offset { get; private set; }
+        [DataMember]
+        public UnitValue Offset { get; set; }
 
-        public string PartitionNumber { get; private set; }
+        [DataMember]
+        public string PartitionNumber { get; set; }
 
-        public UnitValue Size { get; private set; }
+        [DataMember]
+        public UnitValue Size { get; set; }
 
         public List<DiskPartition> ExtractData(List<ManagementObject> managementObjectList)
         {

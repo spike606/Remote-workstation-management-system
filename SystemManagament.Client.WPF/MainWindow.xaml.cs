@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -28,12 +29,22 @@ namespace SystemManagament.Client.WPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //creating the object of WCF service client       
-            WorkstationMonitorServiceClient client = new WorkstationMonitorServiceClient("NetTcpBinding_IWorkstationMonitorService");
+            try
+            {
+                //creating the object of WCF service client       
+                WorkstationMonitorServiceClient client = new WorkstationMonitorServiceClient("NetTcpBinding_IWorkstationMonitorService");
 
-            var softwareStatic = client.ReadSoftwareStaticData();
-            var dynamicData = client.ReadSoftwareDynamicData();
-            MessageBox.Show("ok");
+                var hardwarestatic = client.ReadHardwareStaticData();
+                //var hardwaredynamic = client.ReadHardwareDynamicData();
+                //var softwareStatic = client.ReadSoftwareStaticData();
+                //var dynamicData = client.ReadSoftwareDynamicData();
+                MessageBox.Show("ok");
+            }
+            catch(CommunicationException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }

@@ -99,6 +99,21 @@
     <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService13.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService14.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService2.xsd">
       <SubType>Designer</SubType>
     </None>

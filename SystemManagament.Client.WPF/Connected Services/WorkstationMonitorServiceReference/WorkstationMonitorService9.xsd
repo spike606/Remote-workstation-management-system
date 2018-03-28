@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/System.Security.Principal" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System.Security.Principal" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:complexType name="ArrayOfIdentityReference">
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" />
+  <xs:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components.Analyzed" />
+  <xs:complexType name="HardwareStaticData">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="IdentityReference" nillable="true" type="tns:IdentityReference" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" minOccurs="0" name="BaseBoard" nillable="true" type="q1:ArrayOfBaseBoard" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" minOccurs="0" name="Battery" nillable="true" type="q2:ArrayOfBattery" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" minOccurs="0" name="CDROMDrive" nillable="true" type="q3:ArrayOfCDROMDrive" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" minOccurs="0" name="Disk" nillable="true" type="q4:ArrayOfDisk" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" minOccurs="0" name="DiskPartition" nillable="true" type="q5:ArrayOfDiskPartition" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" minOccurs="0" name="DiskToPartition" nillable="true" type="q6:ArrayOfDiskToPartition" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" minOccurs="0" name="Fan" nillable="true" type="q7:ArrayOfFan" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" minOccurs="0" name="Memory" nillable="true" type="q8:ArrayOfMemory" />
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" minOccurs="0" name="NetworkAdapter" nillable="true" type="q9:ArrayOfNetworkAdapter" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" minOccurs="0" name="PartitionToVolume" nillable="true" type="q10:ArrayOfPartitionToVolume" />
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" minOccurs="0" name="PnPEntity" nillable="true" type="q11:ArrayOfPnPEntity" />
+      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" minOccurs="0" name="Printer" nillable="true" type="q12:ArrayOfPrinter" />
+      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" minOccurs="0" name="Processor" nillable="true" type="q13:ArrayOfProcessorStatic" />
+      <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" minOccurs="0" name="ProcessorCache" nillable="true" type="q14:ArrayOfProcessorCache" />
+      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components.Analyzed" minOccurs="0" name="Storage" nillable="true" type="q15:ArrayOfStorage" />
+      <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" minOccurs="0" name="VideoController" nillable="true" type="q16:ArrayOfVideoController" />
+      <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" minOccurs="0" name="Volume" nillable="true" type="q17:ArrayOfVolume" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfIdentityReference" nillable="true" type="tns:ArrayOfIdentityReference" />
-  <xs:complexType name="IdentityReference">
-    <xs:sequence />
-  </xs:complexType>
-  <xs:element name="IdentityReference" nillable="true" type="tns:IdentityReference" />
+  <xs:element name="HardwareStaticData" nillable="true" type="tns:HardwareStaticData" />
 </xs:schema>

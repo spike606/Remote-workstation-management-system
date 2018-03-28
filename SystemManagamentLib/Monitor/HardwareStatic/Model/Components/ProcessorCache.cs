@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Management;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract;
@@ -12,13 +13,17 @@ using SystemManagament.Shared.WMI;
 
 namespace SystemManagament.Monitor.HardwareStatic.Model.Components
 {
+    [DataContract]
     public class ProcessorCache : HardwareStaticComponent, IHardwareStaticComponent<ProcessorCache>
     {
         // based on docs: https://msdn.microsoft.com/en-us/library/aa394080(v=vs.85).aspx
+        [DataMember]
         public UnitValue Speed { get; private set; }
 
+        [DataMember]
         public UnitValue Size { get; private set; }
 
+        [DataMember]
         public string Level { get; private set; }
 
         public List<ManagementObject> GetManagementObjectsForHardwareComponent(IWMIClient wMIClient)

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Management;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract;
@@ -12,35 +13,50 @@ using SystemManagament.Shared.WMI;
 
 namespace SystemManagament.Monitor.HardwareStatic.Model.Components
 {
+    [DataContract]
     public class ProcessorStatic : HardwareStaticComponent, IHardwareStaticComponent<ProcessorStatic>
     {
         // based on docs: https://msdn.microsoft.com/en-us/library/aa394373(v=vs.85).aspx
+        [DataMember]
         public UnitValue AddressWidth { get; private set; }
 
+        [DataMember]
         public string Architecture { get; private set; }
 
+        [DataMember]
         public UnitValue DataWidth { get; private set; }
 
+        [DataMember]
         public UnitValue BusSpeed { get; private set; }
 
+        [DataMember]
         public string Manufacturer { get; private set; }
 
+        [DataMember]
         public UnitValue MaxClockSpeed { get; private set; }
 
+        [DataMember]
         public string NumberOfCores { get; private set; }
 
+        [DataMember]
         public string NumberOfLogicalProcessors { get; private set; }
 
+        [DataMember]
         public string ProcessorID { get; private set; }
 
+        [DataMember]
         public string SerialNumber { get; private set; }
 
+        [DataMember]
         public string SocketDesignation { get; private set; }
 
+        [DataMember]
         public string Stepping { get; private set; }
 
+        [DataMember]
         public string ThreadCount { get; private set; }
 
+        [DataMember]
         public string UniqueId { get; private set; }
 
         public List<ManagementObject> GetManagementObjectsForHardwareComponent(IWMIClient wMIClient)

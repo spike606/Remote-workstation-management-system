@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Management;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract;
@@ -10,17 +11,23 @@ using SystemManagament.Shared.WMI;
 
 namespace SystemManagament.Monitor.HardwareStatic.Model.Components
 {
+    [DataContract]
     public class Printer : HardwareStaticComponent, IHardwareStaticComponent<Printer>
     {
         // based on docs: https://msdn.microsoft.com/en-us/library/aa394363(v=vs.85).aspx
+        [DataMember]
         public string AveragePagesPerMinute { get; private set; }
 
+        [DataMember]
         public string Default { get; private set; }
 
+        [DataMember]
         public string DeviceID { get; private set; }
 
+        [DataMember]
         public string PortName { get; private set; }
 
+        [DataMember]
         public string PrintProcessor { get; private set; }
 
         public List<Printer> ExtractData(List<ManagementObject> managementObjectList)

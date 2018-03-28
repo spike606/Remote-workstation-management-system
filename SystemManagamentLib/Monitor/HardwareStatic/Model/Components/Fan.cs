@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Management;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract;
@@ -10,6 +11,7 @@ using SystemManagament.Shared.WMI;
 
 namespace SystemManagament.Monitor.HardwareStatic.Model.Components
 {
+    [DataContract]
     public class Fan : HardwareStaticComponent, IHardwareStaticComponent<Fan>
     {
         // based on docs: https://msdn.microsoft.com/en-us/library/aa394146(v=vs.85).aspx
