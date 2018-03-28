@@ -283,17 +283,21 @@
       <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareDynamic.Model" />
       <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareDynamic.Model.Components" />
-      <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" />
-      <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.Model" />
-      <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.Model.Components" />
-      <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model" />
-      <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components" />
-      <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components.Abstract" />
-      <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.CustomProperties" />
-      <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model" />
-      <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" />
-      <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd13" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract" />
-      <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components.Analyzed" />
+      <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareDynamic.Model.Components.Duplicate" />
+      <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" />
+      <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.Model" />
+      <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.Model.Components" />
+      <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.Model.Components.Duplicate" />
+      <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model" />
+      <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components" />
+      <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components.Abstract" />
+      <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd13" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.CustomProperties" />
+      <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model" />
+      <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd15" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" />
+      <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd16" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract" />
+      <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd17" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components.Analyzed" />
+      <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd18" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties.Enums" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IWorkstationMonitorService_ReadSoftwareDynamicData_InputMessage">

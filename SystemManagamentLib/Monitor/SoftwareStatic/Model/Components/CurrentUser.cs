@@ -8,6 +8,7 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using SystemManagament.Monitor.HardwareStatic;
+using SystemManagament.Monitor.SoftwareStatic.Model.Components.Duplicate;
 using SystemManagament.Monitor.SoftwareStatic.Model.Components.Interface;
 using SystemManagament.Monitor.SoftwareStatic.Provider;
 
@@ -23,11 +24,11 @@ namespace SystemManagament.Monitor.SoftwareStatic.Model.Components
         [DataMember]
         public string AuthenticationType { get; internal set; }
 
-        //[DataMember]
-        //public IEnumerable<Claim> Claims { get; internal set; }
+        [DataMember]
+        public List<ClaimDuplicate> Claims { get; internal set; }
 
-        //[DataMember]
-        //public IdentityReferenceCollection Groups { get; internal set; }
+        [DataMember]
+        public List<GroupDuplicate> Groups { get; internal set; }
 
         public List<CurrentUser> GetStaticDataForSoftwareComponent(ISoftwareStaticProvider softwareStaticProvider)
         {

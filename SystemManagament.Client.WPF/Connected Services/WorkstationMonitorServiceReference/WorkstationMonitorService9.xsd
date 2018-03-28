@@ -1,27 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" />
-  <xs:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components.Analyzed" />
-  <xs:complexType name="HardwareStaticData">
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components.Abstract" />
+  <xs:complexType name="ArrayOfDiskDynamic">
     <xs:sequence>
-      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" minOccurs="0" name="BaseBoard" nillable="true" type="q1:ArrayOfBaseBoard" />
-      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" minOccurs="0" name="Battery" nillable="true" type="q2:ArrayOfBattery" />
-      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" minOccurs="0" name="CDROMDrive" nillable="true" type="q3:ArrayOfCDROMDrive" />
-      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" minOccurs="0" name="Disk" nillable="true" type="q4:ArrayOfDisk" />
-      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" minOccurs="0" name="DiskPartition" nillable="true" type="q5:ArrayOfDiskPartition" />
-      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" minOccurs="0" name="DiskToPartition" nillable="true" type="q6:ArrayOfDiskToPartition" />
-      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" minOccurs="0" name="Fan" nillable="true" type="q7:ArrayOfFan" />
-      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" minOccurs="0" name="Memory" nillable="true" type="q8:ArrayOfMemory" />
-      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" minOccurs="0" name="NetworkAdapter" nillable="true" type="q9:ArrayOfNetworkAdapter" />
-      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" minOccurs="0" name="PartitionToVolume" nillable="true" type="q10:ArrayOfPartitionToVolume" />
-      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" minOccurs="0" name="PnPEntity" nillable="true" type="q11:ArrayOfPnPEntity" />
-      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" minOccurs="0" name="Printer" nillable="true" type="q12:ArrayOfPrinter" />
-      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" minOccurs="0" name="Processor" nillable="true" type="q13:ArrayOfProcessorStatic" />
-      <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" minOccurs="0" name="ProcessorCache" nillable="true" type="q14:ArrayOfProcessorCache" />
-      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components.Analyzed" minOccurs="0" name="Storage" nillable="true" type="q15:ArrayOfStorage" />
-      <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" minOccurs="0" name="VideoController" nillable="true" type="q16:ArrayOfVideoController" />
-      <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" minOccurs="0" name="Volume" nillable="true" type="q17:ArrayOfVolume" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DiskDynamic" nillable="true" type="tns:DiskDynamic" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="HardwareStaticData" nillable="true" type="tns:HardwareStaticData" />
+  <xs:element name="ArrayOfDiskDynamic" nillable="true" type="tns:ArrayOfDiskDynamic" />
+  <xs:complexType name="DiskDynamic">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components.Abstract" base="q1:HardwareDynamicComponent">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DiskDynamic" nillable="true" type="tns:DiskDynamic" />
+  <xs:complexType name="ArrayOfMainBoardDynamic">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MainBoardDynamic" nillable="true" type="tns:MainBoardDynamic" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMainBoardDynamic" nillable="true" type="tns:ArrayOfMainBoardDynamic" />
+  <xs:complexType name="MainBoardDynamic">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components.Abstract" base="q2:HardwareDynamicComponent">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MainBoardDynamic" nillable="true" type="tns:MainBoardDynamic" />
+  <xs:complexType name="ArrayOfMemoryDynamic">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MemoryDynamic" nillable="true" type="tns:MemoryDynamic" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMemoryDynamic" nillable="true" type="tns:ArrayOfMemoryDynamic" />
+  <xs:complexType name="MemoryDynamic">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components.Abstract" base="q3:HardwareDynamicComponent">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MemoryDynamic" nillable="true" type="tns:MemoryDynamic" />
+  <xs:complexType name="ArrayOfProcessorDynamic">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProcessorDynamic" nillable="true" type="tns:ProcessorDynamic" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProcessorDynamic" nillable="true" type="tns:ArrayOfProcessorDynamic" />
+  <xs:complexType name="ProcessorDynamic">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components.Abstract" base="q4:HardwareDynamicComponent">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProcessorDynamic" nillable="true" type="tns:ProcessorDynamic" />
+  <xs:complexType name="ArrayOfVideoControllerDynamic">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VideoControllerDynamic" nillable="true" type="tns:VideoControllerDynamic" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVideoControllerDynamic" nillable="true" type="tns:ArrayOfVideoControllerDynamic" />
+  <xs:complexType name="VideoControllerDynamic">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components.Abstract" base="q5:HardwareDynamicComponent">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="VideoControllerDynamic" nillable="true" type="tns:VideoControllerDynamic" />
 </xs:schema>

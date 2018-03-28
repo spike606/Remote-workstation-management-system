@@ -34,10 +34,10 @@ namespace SystemManagament.Client.WPF
                 //creating the object of WCF service client       
                 WorkstationMonitorServiceClient client = new WorkstationMonitorServiceClient("NetTcpBinding_IWorkstationMonitorService");
 
-                var hardwarestatic = client.ReadHardwareStaticData();
+                //var hardwarestatic = client.ReadHardwareStaticData();
                 //var hardwaredynamic = client.ReadHardwareDynamicData();
-                //var softwareStatic = client.ReadSoftwareStaticData();
-                //var dynamicData = client.ReadSoftwareDynamicData();
+                var softwareStatic = client.ReadSoftwareStaticData();
+                var dynamicData = client.ReadSoftwareDynamicData();
                 MessageBox.Show("ok");
             }
             catch(CommunicationException ex)

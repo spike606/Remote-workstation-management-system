@@ -117,6 +117,10 @@
   <ItemGroup>
     <Compile Include="Control\ControlManager.cs" />
     <Compile Include="Control\IControlManager.cs" />
+    <Compile Include="Monitor\SoftwareDynamic\Model\Components\Duplicate\EventLogEntryDuplicate.cs" />
+    <Compile Include="Monitor\SoftwareDynamic\Model\Components\Duplicate\EventLogEntryTypeDuplicate.cs" />
+    <Compile Include="Monitor\SoftwareStatic\Model\Components\Duplicate\ClaimDuplicate.cs" />
+    <Compile Include="Monitor\SoftwareStatic\Model\Components\Duplicate\GroupDuplicate.cs" />
     <Compile Include="Shared\OperationStatus.cs" />
     <Compile Include="Control\ProcessClient\IProcessClient.cs" />
     <Compile Include="Control\ProcessClient\ProcessClient.cs" />

@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd16" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract" />
+  <xs:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" />
+  <xs:complexType name="ArrayOfBaseBoard">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BaseBoard" nillable="true" type="tns:BaseBoard" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBaseBoard" nillable="true" type="tns:ArrayOfBaseBoard" />
+  <xs:complexType name="BaseBoard">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract" base="q1:HardwareStaticComponent">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Manufacturer" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Model" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Product" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SerialNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BaseBoard" nillable="true" type="tns:BaseBoard" />
+  <xs:complexType name="ArrayOfBattery">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Battery" nillable="true" type="tns:Battery" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBattery" nillable="true" type="tns:ArrayOfBattery" />
+  <xs:complexType name="Battery">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract" base="q2:HardwareStaticComponent">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BatteryStatus" nillable="true" type="xs:string" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="DesignCapacity" type="q3:UnitValue" />
+          <xs:element minOccurs="0" name="DeviceID" nillable="true" type="xs:string" />
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="FullChargeCapacity" type="q4:UnitValue" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Battery" nillable="true" type="tns:Battery" />
+  <xs:complexType name="ArrayOfCDROMDrive">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CDROMDrive" nillable="true" type="tns:CDROMDrive" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCDROMDrive" nillable="true" type="tns:ArrayOfCDROMDrive" />
+  <xs:complexType name="CDROMDrive">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract" base="q5:HardwareStaticComponent">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DeviceID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Drive" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MediaType" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CDROMDrive" nillable="true" type="tns:CDROMDrive" />
+  <xs:complexType name="ArrayOfFan">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Fan" nillable="true" type="tns:Fan" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFan" nillable="true" type="tns:ArrayOfFan" />
+  <xs:complexType name="Fan">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract" base="q6:HardwareStaticComponent">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Fan" nillable="true" type="tns:Fan" />
+  <xs:complexType name="ArrayOfMemory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Memory" nillable="true" type="tns:Memory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMemory" nillable="true" type="tns:ArrayOfMemory" />
+  <xs:complexType name="Memory">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract" base="q7:HardwareStaticComponent">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BankLabel" nillable="true" type="xs:string" />
+          <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="Capacity" type="q8:UnitValue" />
+          <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="ConfiguredClockSpeed" type="q9:UnitValue" />
+          <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="ConfiguredVoltage" type="q10:UnitValue" />
+          <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="DataWidth" type="q11:UnitValue" />
+          <xs:element minOccurs="0" name="DeviceLocator" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Manufacturer" nillable="true" type="xs:string" />
+          <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="MaxVoltage" type="q12:UnitValue" />
+          <xs:element minOccurs="0" name="MemoryType" nillable="true" type="xs:string" />
+          <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="MinVoltage" type="q13:UnitValue" />
+          <xs:element minOccurs="0" name="PartNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SerialNumber" nillable="true" type="xs:string" />
+          <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="TotalWidth" type="q14:UnitValue" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Memory" nillable="true" type="tns:Memory" />
+  <xs:complexType name="ArrayOfNetworkAdapter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="NetworkAdapter" nillable="true" type="tns:NetworkAdapter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNetworkAdapter" nillable="true" type="tns:ArrayOfNetworkAdapter" />
+  <xs:complexType name="NetworkAdapter">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q15="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract" base="q15:HardwareStaticComponent">
+        <xs:sequence>
+          <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="ActiveMaximumTransmissionUnit" type="q16:UnitValue" />
+          <xs:element minOccurs="0" name="ComponentID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ConnectorPresent" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DeviceID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DeviceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DriverDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DriverDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DriverName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DriverProvider" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DriverVersionString" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InterfaceDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="InterfaceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NdisMedium" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NdisPhysicalMedium" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PermanentAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Virtual" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="NetworkAdapter" nillable="true" type="tns:NetworkAdapter" />
+  <xs:complexType name="ArrayOfPnPEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PnPEntity" nillable="true" type="tns:PnPEntity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPnPEntity" nillable="true" type="tns:ArrayOfPnPEntity" />
+  <xs:complexType name="PnPEntity">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q17="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract" base="q17:HardwareStaticComponent">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DeviceID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Manufacturer" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PnPEntity" nillable="true" type="tns:PnPEntity" />
+  <xs:complexType name="ArrayOfPrinter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Printer" nillable="true" type="tns:Printer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPrinter" nillable="true" type="tns:ArrayOfPrinter" />
+  <xs:complexType name="Printer">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q18="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract" base="q18:HardwareStaticComponent">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AveragePagesPerMinute" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Default" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DeviceID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PortName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PrintProcessor" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Printer" nillable="true" type="tns:Printer" />
+  <xs:complexType name="ArrayOfProcessorStatic">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProcessorStatic" nillable="true" type="tns:ProcessorStatic" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProcessorStatic" nillable="true" type="tns:ArrayOfProcessorStatic" />
+  <xs:complexType name="ProcessorStatic">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q19="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract" base="q19:HardwareStaticComponent">
+        <xs:sequence>
+          <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="AddressWidth" type="q20:UnitValue" />
+          <xs:element minOccurs="0" name="Architecture" nillable="true" type="xs:string" />
+          <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="BusSpeed" type="q21:UnitValue" />
+          <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="DataWidth" type="q22:UnitValue" />
+          <xs:element minOccurs="0" name="Manufacturer" nillable="true" type="xs:string" />
+          <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="MaxClockSpeed" type="q23:UnitValue" />
+          <xs:element minOccurs="0" name="NumberOfCores" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NumberOfLogicalProcessors" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ProcessorID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SerialNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SocketDesignation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Stepping" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ThreadCount" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UniqueId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProcessorStatic" nillable="true" type="tns:ProcessorStatic" />
+  <xs:complexType name="ArrayOfProcessorCache">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProcessorCache" nillable="true" type="tns:ProcessorCache" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProcessorCache" nillable="true" type="tns:ArrayOfProcessorCache" />
+  <xs:complexType name="ProcessorCache">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q24="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract" base="q24:HardwareStaticComponent">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Level" nillable="true" type="xs:string" />
+          <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="Size" type="q25:UnitValue" />
+          <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="Speed" type="q26:UnitValue" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProcessorCache" nillable="true" type="tns:ProcessorCache" />
+  <xs:complexType name="Disk">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q27="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract" base="q27:HardwareStaticComponent">
+        <xs:sequence>
+          <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="AllocatedSize" type="q28:UnitValue" />
+          <xs:element minOccurs="0" name="BootFromDisk" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="BusType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FirmwareVersion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FriendlyName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HealthStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsBoot" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsClustered" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsOffline" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsReadOnly" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsSystem" nillable="true" type="xs:string" />
+          <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="LargestFreeExtent" type="q29:UnitValue" />
+          <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+          <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="LogicalSectorSize" type="q30:UnitValue" />
+          <xs:element minOccurs="0" name="Manufacturer" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Model" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NumberOfPartitions" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ObjectId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OfflineReason" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PartitionStyle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Path" nillable="true" type="xs:string" />
+          <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="PhysicalSectorSize" type="q31:UnitValue" />
+          <xs:element minOccurs="0" name="SerialNumber" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Signature" nillable="true" type="xs:string" />
+          <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="Size" type="q32:UnitValue" />
+          <xs:element minOccurs="0" name="UniqueId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Disk" nillable="true" type="tns:Disk" />
+  <xs:complexType name="ArrayOfVideoController">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VideoController" nillable="true" type="tns:VideoController" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVideoController" nillable="true" type="tns:ArrayOfVideoController" />
+  <xs:complexType name="VideoController">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q33="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract" base="q33:HardwareStaticComponent">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdapterCompatibility" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AdapterDACType" nillable="true" type="xs:string" />
+          <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="AdapterRAM" type="q34:UnitValue" />
+          <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="CurrentBitsPerPixel" type="q35:UnitValue" />
+          <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="CurrentHorizontalResolution" type="q36:UnitValue" />
+          <xs:element minOccurs="0" name="CurrentNumberOfColors" nillable="true" type="xs:string" />
+          <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="CurrentRefreshRate" type="q37:UnitValue" />
+          <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="CurrentVerticalResolution" type="q38:UnitValue" />
+          <xs:element minOccurs="0" name="DeviceID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DriverVersion" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VideoModeDescription" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VideoProcessor" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="VideoController" nillable="true" type="tns:VideoController" />
+</xs:schema>

@@ -102,6 +102,9 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.EventLogEntryDuplicate[] EntriesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LogDisplayNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -120,6 +123,19 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.EventLogEntryDuplicate[] Entries {
+            get {
+                return this.EntriesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EntriesField, value) != true)) {
+                    this.EntriesField = value;
+                    this.RaisePropertyChanged("Entries");
+                }
             }
         }
         
@@ -644,6 +660,268 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EventLogEntryDuplicate", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareDynamic." +
+        "Model.Components")]
+    [System.SerializableAttribute()]
+    public partial class EventLogEntryDuplicate : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CategoryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private short CategoryNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] DataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.EventLogEntryTypeDuplicate EntryTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IndexField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long InstanceIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MachineNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MessageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string[] ReplacementStringsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SourceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime TimeGeneratedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime TimeWrittenField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UserNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Category {
+            get {
+                return this.CategoryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CategoryField, value) != true)) {
+                    this.CategoryField = value;
+                    this.RaisePropertyChanged("Category");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public short CategoryNumber {
+            get {
+                return this.CategoryNumberField;
+            }
+            set {
+                if ((this.CategoryNumberField.Equals(value) != true)) {
+                    this.CategoryNumberField = value;
+                    this.RaisePropertyChanged("CategoryNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] Data {
+            get {
+                return this.DataField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DataField, value) != true)) {
+                    this.DataField = value;
+                    this.RaisePropertyChanged("Data");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.EventLogEntryTypeDuplicate EntryType {
+            get {
+                return this.EntryTypeField;
+            }
+            set {
+                if ((this.EntryTypeField.Equals(value) != true)) {
+                    this.EntryTypeField = value;
+                    this.RaisePropertyChanged("EntryType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Index {
+            get {
+                return this.IndexField;
+            }
+            set {
+                if ((this.IndexField.Equals(value) != true)) {
+                    this.IndexField = value;
+                    this.RaisePropertyChanged("Index");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long InstanceId {
+            get {
+                return this.InstanceIdField;
+            }
+            set {
+                if ((this.InstanceIdField.Equals(value) != true)) {
+                    this.InstanceIdField = value;
+                    this.RaisePropertyChanged("InstanceId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MachineName {
+            get {
+                return this.MachineNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MachineNameField, value) != true)) {
+                    this.MachineNameField = value;
+                    this.RaisePropertyChanged("MachineName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Message {
+            get {
+                return this.MessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MessageField, value) != true)) {
+                    this.MessageField = value;
+                    this.RaisePropertyChanged("Message");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string[] ReplacementStrings {
+            get {
+                return this.ReplacementStringsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ReplacementStringsField, value) != true)) {
+                    this.ReplacementStringsField = value;
+                    this.RaisePropertyChanged("ReplacementStrings");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Source {
+            get {
+                return this.SourceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SourceField, value) != true)) {
+                    this.SourceField = value;
+                    this.RaisePropertyChanged("Source");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime TimeGenerated {
+            get {
+                return this.TimeGeneratedField;
+            }
+            set {
+                if ((this.TimeGeneratedField.Equals(value) != true)) {
+                    this.TimeGeneratedField = value;
+                    this.RaisePropertyChanged("TimeGenerated");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime TimeWritten {
+            get {
+                return this.TimeWrittenField;
+            }
+            set {
+                if ((this.TimeWrittenField.Equals(value) != true)) {
+                    this.TimeWrittenField = value;
+                    this.RaisePropertyChanged("TimeWritten");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserName {
+            get {
+                return this.UserNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
+                    this.UserNameField = value;
+                    this.RaisePropertyChanged("UserName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EventLogEntryTypeDuplicate", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareDynamic." +
+        "Model.Components.Duplicate")]
+    public enum EventLogEntryTypeDuplicate : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Unknown = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Error = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Warning = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Information = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        SuccessAudit = 8,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FailureAudit = 16,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SoftwareStaticData", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.M" +
         "odel")]
     [System.SerializableAttribute()]
@@ -1100,6 +1378,12 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         private string AuthenticationTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.ClaimDuplicate[] ClaimsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.GroupDuplicate[] GroupsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -1121,6 +1405,32 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
                 if ((object.ReferenceEquals(this.AuthenticationTypeField, value) != true)) {
                     this.AuthenticationTypeField = value;
                     this.RaisePropertyChanged("AuthenticationType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.ClaimDuplicate[] Claims {
+            get {
+                return this.ClaimsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ClaimsField, value) != true)) {
+                    this.ClaimsField = value;
+                    this.RaisePropertyChanged("Claims");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.GroupDuplicate[] Groups {
+            get {
+                return this.GroupsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GroupsField, value) != true)) {
+                    this.GroupsField = value;
+                    this.RaisePropertyChanged("Groups");
                 }
             }
         }
@@ -2244,6 +2554,178 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ClaimDuplicate", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.M" +
+        "odel.Components.Duplicate")]
+    [System.SerializableAttribute()]
+    public partial class ClaimDuplicate : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IssuerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OriginalIssuerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.Dictionary<string, string> PropertiesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ValueField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ValueTypeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Issuer {
+            get {
+                return this.IssuerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IssuerField, value) != true)) {
+                    this.IssuerField = value;
+                    this.RaisePropertyChanged("Issuer");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OriginalIssuer {
+            get {
+                return this.OriginalIssuerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OriginalIssuerField, value) != true)) {
+                    this.OriginalIssuerField = value;
+                    this.RaisePropertyChanged("OriginalIssuer");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.Dictionary<string, string> Properties {
+            get {
+                return this.PropertiesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PropertiesField, value) != true)) {
+                    this.PropertiesField = value;
+                    this.RaisePropertyChanged("Properties");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Type {
+            get {
+                return this.TypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TypeField, value) != true)) {
+                    this.TypeField = value;
+                    this.RaisePropertyChanged("Type");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Value {
+            get {
+                return this.ValueField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ValueField, value) != true)) {
+                    this.ValueField = value;
+                    this.RaisePropertyChanged("Value");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ValueType {
+            get {
+                return this.ValueTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ValueTypeField, value) != true)) {
+                    this.ValueTypeField = value;
+                    this.RaisePropertyChanged("ValueType");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GroupDuplicate", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.M" +
+        "odel.Components.Duplicate")]
+    [System.SerializableAttribute()]
+    public partial class GroupDuplicate : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ValueField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Value {
+            get {
+                return this.ValueField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ValueField, value) != true)) {
+                    this.ValueField = value;
+                    this.RaisePropertyChanged("Value");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="HardwareDynamicData", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic." +
         "Model")]
     [System.SerializableAttribute()]
@@ -2717,15 +3199,6 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.CDROMDrive[] CDROMDriveField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Disk[] DiskField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.DiskPartition[] DiskPartitionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.DiskToPartition[] DiskToPartitionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Fan[] FanField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -2733,9 +3206,6 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.NetworkAdapter[] NetworkAdapterField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.PartitionToVolume[] PartitionToVolumeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.PnPEntity[] PnPEntityField;
@@ -2750,13 +3220,13 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.ProcessorCache[] ProcessorCacheField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.SMARTData[] SMARTDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Storage[] StorageField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.VideoController[] VideoControllerField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Volume[] VolumeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -2808,45 +3278,6 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Disk[] Disk {
-            get {
-                return this.DiskField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DiskField, value) != true)) {
-                    this.DiskField = value;
-                    this.RaisePropertyChanged("Disk");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.DiskPartition[] DiskPartition {
-            get {
-                return this.DiskPartitionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DiskPartitionField, value) != true)) {
-                    this.DiskPartitionField = value;
-                    this.RaisePropertyChanged("DiskPartition");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.DiskToPartition[] DiskToPartition {
-            get {
-                return this.DiskToPartitionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DiskToPartitionField, value) != true)) {
-                    this.DiskToPartitionField = value;
-                    this.RaisePropertyChanged("DiskToPartition");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Fan[] Fan {
             get {
                 return this.FanField;
@@ -2881,19 +3312,6 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
                 if ((object.ReferenceEquals(this.NetworkAdapterField, value) != true)) {
                     this.NetworkAdapterField = value;
                     this.RaisePropertyChanged("NetworkAdapter");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.PartitionToVolume[] PartitionToVolume {
-            get {
-                return this.PartitionToVolumeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PartitionToVolumeField, value) != true)) {
-                    this.PartitionToVolumeField = value;
-                    this.RaisePropertyChanged("PartitionToVolume");
                 }
             }
         }
@@ -2951,6 +3369,19 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.SMARTData[] SMARTData {
+            get {
+                return this.SMARTDataField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SMARTDataField, value) != true)) {
+                    this.SMARTDataField = value;
+                    this.RaisePropertyChanged("SMARTData");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Storage[] Storage {
             get {
                 return this.StorageField;
@@ -2972,19 +3403,6 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
                 if ((object.ReferenceEquals(this.VideoControllerField, value) != true)) {
                     this.VideoControllerField = value;
                     this.RaisePropertyChanged("VideoController");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Volume[] Volume {
-            get {
-                return this.VolumeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.VolumeField, value) != true)) {
-                    this.VolumeField = value;
-                    this.RaisePropertyChanged("Volume");
                 }
             }
         }
@@ -3226,750 +3644,6 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
                 if ((object.ReferenceEquals(this.MediaTypeField, value) != true)) {
                     this.MediaTypeField = value;
                     this.RaisePropertyChanged("MediaType");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Disk", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.M" +
-        "odel.Components")]
-    [System.SerializableAttribute()]
-    public partial class Disk : SystemManagament.Client.WPF.WorkstationMonitorServiceReference.HardwareStaticComponent {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue AllocatedSizeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string BootFromDiskField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string BusTypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string FirmwareVersionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string FriendlyNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string HealthStatusField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IsBootField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IsClusteredField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IsOfflineField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IsReadOnlyField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IsSystemField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue LargestFreeExtentField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string LocationField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue LogicalSectorSizeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ManufacturerField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ModelField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NumberField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NumberOfPartitionsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ObjectIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string OfflineReasonField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PartitionStyleField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PathField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue PhysicalSectorSizeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SerialNumberField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SignatureField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue SizeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string UniqueIdField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue AllocatedSize {
-            get {
-                return this.AllocatedSizeField;
-            }
-            set {
-                if ((this.AllocatedSizeField.Equals(value) != true)) {
-                    this.AllocatedSizeField = value;
-                    this.RaisePropertyChanged("AllocatedSize");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string BootFromDisk {
-            get {
-                return this.BootFromDiskField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BootFromDiskField, value) != true)) {
-                    this.BootFromDiskField = value;
-                    this.RaisePropertyChanged("BootFromDisk");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string BusType {
-            get {
-                return this.BusTypeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.BusTypeField, value) != true)) {
-                    this.BusTypeField = value;
-                    this.RaisePropertyChanged("BusType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FirmwareVersion {
-            get {
-                return this.FirmwareVersionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FirmwareVersionField, value) != true)) {
-                    this.FirmwareVersionField = value;
-                    this.RaisePropertyChanged("FirmwareVersion");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FriendlyName {
-            get {
-                return this.FriendlyNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FriendlyNameField, value) != true)) {
-                    this.FriendlyNameField = value;
-                    this.RaisePropertyChanged("FriendlyName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string HealthStatus {
-            get {
-                return this.HealthStatusField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.HealthStatusField, value) != true)) {
-                    this.HealthStatusField = value;
-                    this.RaisePropertyChanged("HealthStatus");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string IsBoot {
-            get {
-                return this.IsBootField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IsBootField, value) != true)) {
-                    this.IsBootField = value;
-                    this.RaisePropertyChanged("IsBoot");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string IsClustered {
-            get {
-                return this.IsClusteredField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IsClusteredField, value) != true)) {
-                    this.IsClusteredField = value;
-                    this.RaisePropertyChanged("IsClustered");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string IsOffline {
-            get {
-                return this.IsOfflineField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IsOfflineField, value) != true)) {
-                    this.IsOfflineField = value;
-                    this.RaisePropertyChanged("IsOffline");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string IsReadOnly {
-            get {
-                return this.IsReadOnlyField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IsReadOnlyField, value) != true)) {
-                    this.IsReadOnlyField = value;
-                    this.RaisePropertyChanged("IsReadOnly");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string IsSystem {
-            get {
-                return this.IsSystemField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IsSystemField, value) != true)) {
-                    this.IsSystemField = value;
-                    this.RaisePropertyChanged("IsSystem");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue LargestFreeExtent {
-            get {
-                return this.LargestFreeExtentField;
-            }
-            set {
-                if ((this.LargestFreeExtentField.Equals(value) != true)) {
-                    this.LargestFreeExtentField = value;
-                    this.RaisePropertyChanged("LargestFreeExtent");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Location {
-            get {
-                return this.LocationField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LocationField, value) != true)) {
-                    this.LocationField = value;
-                    this.RaisePropertyChanged("Location");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue LogicalSectorSize {
-            get {
-                return this.LogicalSectorSizeField;
-            }
-            set {
-                if ((this.LogicalSectorSizeField.Equals(value) != true)) {
-                    this.LogicalSectorSizeField = value;
-                    this.RaisePropertyChanged("LogicalSectorSize");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Manufacturer {
-            get {
-                return this.ManufacturerField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ManufacturerField, value) != true)) {
-                    this.ManufacturerField = value;
-                    this.RaisePropertyChanged("Manufacturer");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Model {
-            get {
-                return this.ModelField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ModelField, value) != true)) {
-                    this.ModelField = value;
-                    this.RaisePropertyChanged("Model");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Number {
-            get {
-                return this.NumberField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NumberField, value) != true)) {
-                    this.NumberField = value;
-                    this.RaisePropertyChanged("Number");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string NumberOfPartitions {
-            get {
-                return this.NumberOfPartitionsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NumberOfPartitionsField, value) != true)) {
-                    this.NumberOfPartitionsField = value;
-                    this.RaisePropertyChanged("NumberOfPartitions");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ObjectId {
-            get {
-                return this.ObjectIdField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ObjectIdField, value) != true)) {
-                    this.ObjectIdField = value;
-                    this.RaisePropertyChanged("ObjectId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OfflineReason {
-            get {
-                return this.OfflineReasonField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OfflineReasonField, value) != true)) {
-                    this.OfflineReasonField = value;
-                    this.RaisePropertyChanged("OfflineReason");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PartitionStyle {
-            get {
-                return this.PartitionStyleField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PartitionStyleField, value) != true)) {
-                    this.PartitionStyleField = value;
-                    this.RaisePropertyChanged("PartitionStyle");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Path {
-            get {
-                return this.PathField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PathField, value) != true)) {
-                    this.PathField = value;
-                    this.RaisePropertyChanged("Path");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue PhysicalSectorSize {
-            get {
-                return this.PhysicalSectorSizeField;
-            }
-            set {
-                if ((this.PhysicalSectorSizeField.Equals(value) != true)) {
-                    this.PhysicalSectorSizeField = value;
-                    this.RaisePropertyChanged("PhysicalSectorSize");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string SerialNumber {
-            get {
-                return this.SerialNumberField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SerialNumberField, value) != true)) {
-                    this.SerialNumberField = value;
-                    this.RaisePropertyChanged("SerialNumber");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Signature {
-            get {
-                return this.SignatureField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SignatureField, value) != true)) {
-                    this.SignatureField = value;
-                    this.RaisePropertyChanged("Signature");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue Size {
-            get {
-                return this.SizeField;
-            }
-            set {
-                if ((this.SizeField.Equals(value) != true)) {
-                    this.SizeField = value;
-                    this.RaisePropertyChanged("Size");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UniqueId {
-            get {
-                return this.UniqueIdField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UniqueIdField, value) != true)) {
-                    this.UniqueIdField = value;
-                    this.RaisePropertyChanged("UniqueId");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DiskPartition", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.M" +
-        "odel.Components")]
-    [System.SerializableAttribute()]
-    public partial class DiskPartition : SystemManagament.Client.WPF.WorkstationMonitorServiceReference.HardwareStaticComponent {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DiskIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DiskNumberField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DriveLetterField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IsActiveField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IsBootField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IsHiddenField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IsOfflineField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IsReadOnlyField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IsShadowCopyField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IsSystemField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string MbrTypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NoDefaultDriveLetterField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ObjectIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue OffsetField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PartitionNumberField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue SizeField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DiskId {
-            get {
-                return this.DiskIdField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DiskIdField, value) != true)) {
-                    this.DiskIdField = value;
-                    this.RaisePropertyChanged("DiskId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DiskNumber {
-            get {
-                return this.DiskNumberField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DiskNumberField, value) != true)) {
-                    this.DiskNumberField = value;
-                    this.RaisePropertyChanged("DiskNumber");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DriveLetter {
-            get {
-                return this.DriveLetterField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DriveLetterField, value) != true)) {
-                    this.DriveLetterField = value;
-                    this.RaisePropertyChanged("DriveLetter");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string IsActive {
-            get {
-                return this.IsActiveField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IsActiveField, value) != true)) {
-                    this.IsActiveField = value;
-                    this.RaisePropertyChanged("IsActive");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string IsBoot {
-            get {
-                return this.IsBootField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IsBootField, value) != true)) {
-                    this.IsBootField = value;
-                    this.RaisePropertyChanged("IsBoot");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string IsHidden {
-            get {
-                return this.IsHiddenField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IsHiddenField, value) != true)) {
-                    this.IsHiddenField = value;
-                    this.RaisePropertyChanged("IsHidden");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string IsOffline {
-            get {
-                return this.IsOfflineField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IsOfflineField, value) != true)) {
-                    this.IsOfflineField = value;
-                    this.RaisePropertyChanged("IsOffline");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string IsReadOnly {
-            get {
-                return this.IsReadOnlyField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IsReadOnlyField, value) != true)) {
-                    this.IsReadOnlyField = value;
-                    this.RaisePropertyChanged("IsReadOnly");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string IsShadowCopy {
-            get {
-                return this.IsShadowCopyField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IsShadowCopyField, value) != true)) {
-                    this.IsShadowCopyField = value;
-                    this.RaisePropertyChanged("IsShadowCopy");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string IsSystem {
-            get {
-                return this.IsSystemField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IsSystemField, value) != true)) {
-                    this.IsSystemField = value;
-                    this.RaisePropertyChanged("IsSystem");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string MbrType {
-            get {
-                return this.MbrTypeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MbrTypeField, value) != true)) {
-                    this.MbrTypeField = value;
-                    this.RaisePropertyChanged("MbrType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string NoDefaultDriveLetter {
-            get {
-                return this.NoDefaultDriveLetterField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NoDefaultDriveLetterField, value) != true)) {
-                    this.NoDefaultDriveLetterField = value;
-                    this.RaisePropertyChanged("NoDefaultDriveLetter");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ObjectId {
-            get {
-                return this.ObjectIdField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ObjectIdField, value) != true)) {
-                    this.ObjectIdField = value;
-                    this.RaisePropertyChanged("ObjectId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue Offset {
-            get {
-                return this.OffsetField;
-            }
-            set {
-                if ((this.OffsetField.Equals(value) != true)) {
-                    this.OffsetField = value;
-                    this.RaisePropertyChanged("Offset");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string PartitionNumber {
-            get {
-                return this.PartitionNumberField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PartitionNumberField, value) != true)) {
-                    this.PartitionNumberField = value;
-                    this.RaisePropertyChanged("PartitionNumber");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue Size {
-            get {
-                return this.SizeField;
-            }
-            set {
-                if ((this.SizeField.Equals(value) != true)) {
-                    this.SizeField = value;
-                    this.RaisePropertyChanged("Size");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DiskToPartition", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.M" +
-        "odel.Components")]
-    [System.SerializableAttribute()]
-    public partial class DiskToPartition : SystemManagament.Client.WPF.WorkstationMonitorServiceReference.HardwareStaticComponent {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DiskField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PartitionField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Disk {
-            get {
-                return this.DiskField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DiskField, value) != true)) {
-                    this.DiskField = value;
-                    this.RaisePropertyChanged("Disk");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Partition {
-            get {
-                return this.PartitionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PartitionField, value) != true)) {
-                    this.PartitionField = value;
-                    this.RaisePropertyChanged("Partition");
                 }
             }
         }
@@ -4465,46 +4139,6 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PartitionToVolume", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.M" +
-        "odel.Components")]
-    [System.SerializableAttribute()]
-    public partial class PartitionToVolume : SystemManagament.Client.WPF.WorkstationMonitorServiceReference.HardwareStaticComponent {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PartitionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string VolumeField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Partition {
-            get {
-                return this.PartitionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PartitionField, value) != true)) {
-                    this.PartitionField = value;
-                    this.RaisePropertyChanged("Partition");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Volume {
-            get {
-                return this.VolumeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.VolumeField, value) != true)) {
-                    this.VolumeField = value;
-                    this.RaisePropertyChanged("Volume");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PnPEntity", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.M" +
         "odel.Components")]
     [System.SerializableAttribute()]
@@ -4921,6 +4555,84 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SMARTData", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.M" +
+        "odel.Components.Analyzed")]
+    [System.SerializableAttribute()]
+    public partial class SMARTData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.Dictionary<int, SystemManagament.Client.WPF.WorkstationMonitorServiceReference.SmartDataAttribute> AttributesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string InstanceNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PredictFailureField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.Dictionary<int, SystemManagament.Client.WPF.WorkstationMonitorServiceReference.SmartDataAttribute> Attributes {
+            get {
+                return this.AttributesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AttributesField, value) != true)) {
+                    this.AttributesField = value;
+                    this.RaisePropertyChanged("Attributes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string InstanceName {
+            get {
+                return this.InstanceNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.InstanceNameField, value) != true)) {
+                    this.InstanceNameField = value;
+                    this.RaisePropertyChanged("InstanceName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PredictFailure {
+            get {
+                return this.PredictFailureField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PredictFailureField, value) != true)) {
+                    this.PredictFailureField = value;
+                    this.RaisePropertyChanged("PredictFailure");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Storage", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.M" +
         "odel.Components.Analyzed")]
     [System.SerializableAttribute()]
@@ -5183,208 +4895,20 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Volume", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.M" +
-        "odel.Components")]
-    [System.SerializableAttribute()]
-    public partial class Volume : SystemManagament.Client.WPF.WorkstationMonitorServiceReference.HardwareStaticComponent {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DedupModeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DriveLetterField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DriveTypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string FileSystemField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string FileSystemLabelField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string HealthStatusField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ObjectIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PathField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue SizeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue SizeRemainingField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string UniqueIdField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DedupMode {
-            get {
-                return this.DedupModeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DedupModeField, value) != true)) {
-                    this.DedupModeField = value;
-                    this.RaisePropertyChanged("DedupMode");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DriveLetter {
-            get {
-                return this.DriveLetterField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DriveLetterField, value) != true)) {
-                    this.DriveLetterField = value;
-                    this.RaisePropertyChanged("DriveLetter");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DriveType {
-            get {
-                return this.DriveTypeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DriveTypeField, value) != true)) {
-                    this.DriveTypeField = value;
-                    this.RaisePropertyChanged("DriveType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FileSystem {
-            get {
-                return this.FileSystemField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FileSystemField, value) != true)) {
-                    this.FileSystemField = value;
-                    this.RaisePropertyChanged("FileSystem");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FileSystemLabel {
-            get {
-                return this.FileSystemLabelField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FileSystemLabelField, value) != true)) {
-                    this.FileSystemLabelField = value;
-                    this.RaisePropertyChanged("FileSystemLabel");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string HealthStatus {
-            get {
-                return this.HealthStatusField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.HealthStatusField, value) != true)) {
-                    this.HealthStatusField = value;
-                    this.RaisePropertyChanged("HealthStatus");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ObjectId {
-            get {
-                return this.ObjectIdField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ObjectIdField, value) != true)) {
-                    this.ObjectIdField = value;
-                    this.RaisePropertyChanged("ObjectId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Path {
-            get {
-                return this.PathField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PathField, value) != true)) {
-                    this.PathField = value;
-                    this.RaisePropertyChanged("Path");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue Size {
-            get {
-                return this.SizeField;
-            }
-            set {
-                if ((this.SizeField.Equals(value) != true)) {
-                    this.SizeField = value;
-                    this.RaisePropertyChanged("Size");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue SizeRemaining {
-            get {
-                return this.SizeRemainingField;
-            }
-            set {
-                if ((this.SizeRemainingField.Equals(value) != true)) {
-                    this.SizeRemainingField = value;
-                    this.RaisePropertyChanged("SizeRemaining");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string UniqueId {
-            get {
-                return this.UniqueIdField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.UniqueIdField, value) != true)) {
-                    this.UniqueIdField = value;
-                    this.RaisePropertyChanged("UniqueId");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="HardwareStaticComponent", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.M" +
         "odel.Components.Abstract")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Battery))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.CDROMDrive))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Disk))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.DiskPartition))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.DiskToPartition))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Fan))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Memory))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.NetworkAdapter))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.PartitionToVolume))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.PnPEntity))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Printer))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.ProcessorStatic))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.ProcessorCache))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Disk))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.VideoController))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Volume))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.BaseBoard))]
     public partial class HardwareStaticComponent : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -5477,6 +5001,622 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Disk", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.M" +
+        "odel.Components")]
+    [System.SerializableAttribute()]
+    public partial class Disk : SystemManagament.Client.WPF.WorkstationMonitorServiceReference.HardwareStaticComponent {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue AllocatedSizeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BootFromDiskField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BusTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FirmwareVersionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FriendlyNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string HealthStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IsBootField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IsClusteredField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IsOfflineField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IsReadOnlyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IsSystemField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue LargestFreeExtentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LocationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue LogicalSectorSizeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ManufacturerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ModelField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NumberOfPartitionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ObjectIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OfflineReasonField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PartitionStyleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PathField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue PhysicalSectorSizeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SerialNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SignatureField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue SizeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UniqueIdField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue AllocatedSize {
+            get {
+                return this.AllocatedSizeField;
+            }
+            set {
+                if ((this.AllocatedSizeField.Equals(value) != true)) {
+                    this.AllocatedSizeField = value;
+                    this.RaisePropertyChanged("AllocatedSize");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BootFromDisk {
+            get {
+                return this.BootFromDiskField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BootFromDiskField, value) != true)) {
+                    this.BootFromDiskField = value;
+                    this.RaisePropertyChanged("BootFromDisk");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BusType {
+            get {
+                return this.BusTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BusTypeField, value) != true)) {
+                    this.BusTypeField = value;
+                    this.RaisePropertyChanged("BusType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FirmwareVersion {
+            get {
+                return this.FirmwareVersionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FirmwareVersionField, value) != true)) {
+                    this.FirmwareVersionField = value;
+                    this.RaisePropertyChanged("FirmwareVersion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FriendlyName {
+            get {
+                return this.FriendlyNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FriendlyNameField, value) != true)) {
+                    this.FriendlyNameField = value;
+                    this.RaisePropertyChanged("FriendlyName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string HealthStatus {
+            get {
+                return this.HealthStatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.HealthStatusField, value) != true)) {
+                    this.HealthStatusField = value;
+                    this.RaisePropertyChanged("HealthStatus");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string IsBoot {
+            get {
+                return this.IsBootField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IsBootField, value) != true)) {
+                    this.IsBootField = value;
+                    this.RaisePropertyChanged("IsBoot");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string IsClustered {
+            get {
+                return this.IsClusteredField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IsClusteredField, value) != true)) {
+                    this.IsClusteredField = value;
+                    this.RaisePropertyChanged("IsClustered");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string IsOffline {
+            get {
+                return this.IsOfflineField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IsOfflineField, value) != true)) {
+                    this.IsOfflineField = value;
+                    this.RaisePropertyChanged("IsOffline");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string IsReadOnly {
+            get {
+                return this.IsReadOnlyField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IsReadOnlyField, value) != true)) {
+                    this.IsReadOnlyField = value;
+                    this.RaisePropertyChanged("IsReadOnly");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string IsSystem {
+            get {
+                return this.IsSystemField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IsSystemField, value) != true)) {
+                    this.IsSystemField = value;
+                    this.RaisePropertyChanged("IsSystem");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue LargestFreeExtent {
+            get {
+                return this.LargestFreeExtentField;
+            }
+            set {
+                if ((this.LargestFreeExtentField.Equals(value) != true)) {
+                    this.LargestFreeExtentField = value;
+                    this.RaisePropertyChanged("LargestFreeExtent");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Location {
+            get {
+                return this.LocationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LocationField, value) != true)) {
+                    this.LocationField = value;
+                    this.RaisePropertyChanged("Location");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue LogicalSectorSize {
+            get {
+                return this.LogicalSectorSizeField;
+            }
+            set {
+                if ((this.LogicalSectorSizeField.Equals(value) != true)) {
+                    this.LogicalSectorSizeField = value;
+                    this.RaisePropertyChanged("LogicalSectorSize");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Manufacturer {
+            get {
+                return this.ManufacturerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ManufacturerField, value) != true)) {
+                    this.ManufacturerField = value;
+                    this.RaisePropertyChanged("Manufacturer");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Model {
+            get {
+                return this.ModelField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ModelField, value) != true)) {
+                    this.ModelField = value;
+                    this.RaisePropertyChanged("Model");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Number {
+            get {
+                return this.NumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NumberField, value) != true)) {
+                    this.NumberField = value;
+                    this.RaisePropertyChanged("Number");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NumberOfPartitions {
+            get {
+                return this.NumberOfPartitionsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NumberOfPartitionsField, value) != true)) {
+                    this.NumberOfPartitionsField = value;
+                    this.RaisePropertyChanged("NumberOfPartitions");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ObjectId {
+            get {
+                return this.ObjectIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ObjectIdField, value) != true)) {
+                    this.ObjectIdField = value;
+                    this.RaisePropertyChanged("ObjectId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OfflineReason {
+            get {
+                return this.OfflineReasonField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OfflineReasonField, value) != true)) {
+                    this.OfflineReasonField = value;
+                    this.RaisePropertyChanged("OfflineReason");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PartitionStyle {
+            get {
+                return this.PartitionStyleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PartitionStyleField, value) != true)) {
+                    this.PartitionStyleField = value;
+                    this.RaisePropertyChanged("PartitionStyle");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Path {
+            get {
+                return this.PathField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PathField, value) != true)) {
+                    this.PathField = value;
+                    this.RaisePropertyChanged("Path");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue PhysicalSectorSize {
+            get {
+                return this.PhysicalSectorSizeField;
+            }
+            set {
+                if ((this.PhysicalSectorSizeField.Equals(value) != true)) {
+                    this.PhysicalSectorSizeField = value;
+                    this.RaisePropertyChanged("PhysicalSectorSize");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string SerialNumber {
+            get {
+                return this.SerialNumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SerialNumberField, value) != true)) {
+                    this.SerialNumberField = value;
+                    this.RaisePropertyChanged("SerialNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Signature {
+            get {
+                return this.SignatureField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SignatureField, value) != true)) {
+                    this.SignatureField = value;
+                    this.RaisePropertyChanged("Signature");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue Size {
+            get {
+                return this.SizeField;
+            }
+            set {
+                if ((this.SizeField.Equals(value) != true)) {
+                    this.SizeField = value;
+                    this.RaisePropertyChanged("Size");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UniqueId {
+            get {
+                return this.UniqueIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UniqueIdField, value) != true)) {
+                    this.UniqueIdField = value;
+                    this.RaisePropertyChanged("UniqueId");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SmartDataAttribute", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.M" +
+        "odel.CustomProperties")]
+    [System.SerializableAttribute()]
+    public partial class SmartDataAttribute : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AttributeNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CurrentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsCriticalAttributeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int RawField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RawIdealField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.SmartDataAttributeStatusEnum StatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ThresholdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int WorstField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AttributeName {
+            get {
+                return this.AttributeNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AttributeNameField, value) != true)) {
+                    this.AttributeNameField = value;
+                    this.RaisePropertyChanged("AttributeName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Current {
+            get {
+                return this.CurrentField;
+            }
+            set {
+                if ((this.CurrentField.Equals(value) != true)) {
+                    this.CurrentField = value;
+                    this.RaisePropertyChanged("Current");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsCriticalAttribute {
+            get {
+                return this.IsCriticalAttributeField;
+            }
+            set {
+                if ((this.IsCriticalAttributeField.Equals(value) != true)) {
+                    this.IsCriticalAttributeField = value;
+                    this.RaisePropertyChanged("IsCriticalAttribute");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Raw {
+            get {
+                return this.RawField;
+            }
+            set {
+                if ((this.RawField.Equals(value) != true)) {
+                    this.RawField = value;
+                    this.RaisePropertyChanged("Raw");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RawIdeal {
+            get {
+                return this.RawIdealField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RawIdealField, value) != true)) {
+                    this.RawIdealField = value;
+                    this.RaisePropertyChanged("RawIdeal");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.SmartDataAttributeStatusEnum Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((this.StatusField.Equals(value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Threshold {
+            get {
+                return this.ThresholdField;
+            }
+            set {
+                if ((this.ThresholdField.Equals(value) != true)) {
+                    this.ThresholdField = value;
+                    this.RaisePropertyChanged("Threshold");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Worst {
+            get {
+                return this.WorstField;
+            }
+            set {
+                if ((this.WorstField.Equals(value) != true)) {
+                    this.WorstField = value;
+                    this.RaisePropertyChanged("Worst");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SmartDataAttributeStatusEnum", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.M" +
+        "odel.CustomProperties.Enums")]
+    public enum SmartDataAttributeStatusEnum : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        OK_THRESHOLD_NOT_REACHED = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FAILED = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        FAILED_CRITICAL = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        THRESHOLD_NOT_DEFINED = 3,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="LogicalPartition", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.M" +
         "odel.Components.Analyzed")]
     [System.SerializableAttribute()]
@@ -5530,6 +5670,9 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PartitionNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.LogicalPartition[] PartitionsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue SizeAsPartitionField;
@@ -5735,6 +5878,19 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
                 if ((object.ReferenceEquals(this.PartitionNumberField, value) != true)) {
                     this.PartitionNumberField = value;
                     this.RaisePropertyChanged("PartitionNumber");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.LogicalPartition[] Partitions {
+            get {
+                return this.PartitionsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PartitionsField, value) != true)) {
+                    this.PartitionsField = value;
+                    this.RaisePropertyChanged("Partitions");
                 }
             }
         }

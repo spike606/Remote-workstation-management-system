@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components" />
-  <xs:complexType name="HardwareDynamicData">
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.Model.Components" />
+  <xs:complexType name="SoftwareStaticData">
     <xs:sequence>
-      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components" minOccurs="0" name="Disk" nillable="true" type="q1:ArrayOfDiskDynamic" />
-      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components" minOccurs="0" name="MainBoard" nillable="true" type="q2:ArrayOfMainBoardDynamic" />
-      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components" minOccurs="0" name="Memory" nillable="true" type="q3:ArrayOfMemoryDynamic" />
-      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components" minOccurs="0" name="Processor" nillable="true" type="q4:ArrayOfProcessorDynamic" />
-      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components" minOccurs="0" name="VideoController" nillable="true" type="q5:ArrayOfVideoControllerDynamic" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.Model.Components" minOccurs="0" name="Bios" nillable="true" type="q1:ArrayOfBios" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.Model.Components" minOccurs="0" name="CurrentUser" nillable="true" type="q2:ArrayOfCurrentUser" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.Model.Components" minOccurs="0" name="InstalledProgram" nillable="true" type="q3:ArrayOfInstalledProgram" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.Model.Components" minOccurs="0" name="LocalUser" nillable="true" type="q4:ArrayOfLocalUser" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.Model.Components" minOccurs="0" name="MicrosoftWindowsUpdate" nillable="true" type="q5:ArrayOfMicrosoftWindowsUpdate" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.Model.Components" minOccurs="0" name="OperatingSystem" nillable="true" type="q6:ArrayOfOS" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.Model.Components" minOccurs="0" name="StartupCommand" nillable="true" type="q7:ArrayOfStartupCommand" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="HardwareDynamicData" nillable="true" type="tns:HardwareDynamicData" />
+  <xs:element name="SoftwareStaticData" nillable="true" type="tns:SoftwareStaticData" />
 </xs:schema>

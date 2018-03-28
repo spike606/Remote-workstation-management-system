@@ -26,6 +26,9 @@
     <MetadataFile FileName="WorkstationMonitorService1.xsd" MetadataType="Schema" ID="7ddab7b8-ad64-4ae5-8ebf-44ecc515b9ae" SourceId="1" SourceUrl="http://localhost:8000/WorkstationMonitorService?xsd=xsd6" />
     <MetadataFile FileName="WorkstationMonitorService2.xsd" MetadataType="Schema" ID="3d51c81e-c8d4-483d-8a0b-d5e381afaa95" SourceId="1" SourceUrl="http://localhost:8000/WorkstationMonitorService?xsd=xsd0" />
     <MetadataFile FileName="WorkstationMonitorService3.xsd" MetadataType="Schema" ID="bcc7acc2-c9c8-4949-86e5-a14d64a71c46" SourceId="1" SourceUrl="http://localhost:8000/WorkstationMonitorService?xsd=xsd2" />
+    <MetadataFile FileName="WorkstationMonitorService13.xsd" MetadataType="Schema" ID="b06518b9-be8a-4de9-babb-28e183bb2a09" SourceId="1" SourceUrl="http://localhost:8000/WorkstationMonitorService?xsd=xsd14" />
+    <MetadataFile FileName="WorkstationMonitorService15.xsd" MetadataType="Schema" ID="07c5b879-4916-4411-a29e-4bda9b0266a6" SourceId="1" SourceUrl="http://localhost:8000/WorkstationMonitorService?xsd=xsd17" />
+    <MetadataFile FileName="WorkstationMonitorService151.xsd" MetadataType="Schema" ID="2c22f11a-7979-48db-b676-fed76dfe05c6" SourceId="1" SourceUrl="http://localhost:8000/WorkstationMonitorService?xsd=xsd16" />
     <MetadataFile FileName="WorkstationMonitorService4.xsd" MetadataType="Schema" ID="11fba22c-ea00-4ca5-a1a3-114f61b4aae0" SourceId="1" SourceUrl="http://localhost:8000/WorkstationMonitorService?xsd=xsd8" />
     <MetadataFile FileName="WorkstationMonitorService5.xsd" MetadataType="Schema" ID="6dc4e95a-45ab-44c7-a195-d98767c52dd1" SourceId="1" SourceUrl="http://localhost:8000/WorkstationMonitorService?xsd=xsd5" />
     <MetadataFile FileName="WorkstationMonitorService6.xsd" MetadataType="Schema" ID="8678a85e-3869-4efd-b655-02d2195aa852" SourceId="1" SourceUrl="http://localhost:8000/WorkstationMonitorService?xsd=xsd13" />
@@ -36,7 +39,8 @@
     <MetadataFile FileName="WorkstationMonitorService10.xsd" MetadataType="Schema" ID="178089df-d33d-4da6-8d7b-2dcb8153e2c9" SourceId="1" SourceUrl="http://localhost:8000/WorkstationMonitorService?xsd=xsd1" />
     <MetadataFile FileName="WorkstationMonitorService11.xsd" MetadataType="Schema" ID="cfbfe5b2-9739-4473-b479-7c3047e2f4ae" SourceId="1" SourceUrl="http://localhost:8000/WorkstationMonitorService?xsd=xsd12" />
     <MetadataFile FileName="WorkstationMonitorService12.xsd" MetadataType="Schema" ID="7db5aa7d-e121-4679-a027-edd35b60e86c" SourceId="1" SourceUrl="http://localhost:8000/WorkstationMonitorService?xsd=xsd3" />
-    <MetadataFile FileName="WorkstationMonitorService13.xsd" MetadataType="Schema" ID="b06518b9-be8a-4de9-babb-28e183bb2a09" SourceId="1" SourceUrl="http://localhost:8000/WorkstationMonitorService?xsd=xsd14" />
+    <MetadataFile FileName="WorkstationMonitorService152.xsd" MetadataType="Schema" ID="65fb9718-b63c-4520-b4a5-48fb9688fed0" SourceId="1" SourceUrl="http://localhost:8000/WorkstationMonitorService?xsd=xsd18" />
+    <MetadataFile FileName="WorkstationMonitorService153.xsd" MetadataType="Schema" ID="a1279872-d023-4eb6-88bb-7ef27a1246c8" SourceId="1" SourceUrl="http://localhost:8000/WorkstationMonitorService?xsd=xsd15" />
     <MetadataFile FileName="WorkstationMonitorService14.xsd" MetadataType="Schema" ID="462db25b-4df5-413e-80cd-5e0d2882a6fa" SourceId="1" SourceUrl="http://localhost:8000/WorkstationMonitorService?xsd=xsd9" />
     <MetadataFile FileName="WorkstationMonitorService.wsdl" MetadataType="Wsdl" ID="801e940c-b5c0-4efd-8bd7-a62cfb68c68d" SourceId="1" SourceUrl="http://localhost:8000/WorkstationMonitorService?wsdl" />
   </Metadata>
