@@ -248,6 +248,310 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IWorkstationMonitorService_ReadProcessorDynamicData_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IWorkstationMonitorService_ReadProcessorDynamicData_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IWorkstationMonitorService_ReadMemoryDynamicData_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IWorkstationMonitorService_ReadMemoryDynamicData_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IWorkstationMonitorService_ReadDiskDynamicData_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IWorkstationMonitorService_ReadDiskDynamicData_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IWorkstationMonitorService_ReadMainBoardDynamicData_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IWorkstationMonitorService_ReadMainBoardDynamicData_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IWorkstationMonitorService_ReadVideoControllerDynamicData_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IWorkstationMonitorService_ReadVideoControllerDynamicData_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IWorkstationMonitorService_ReadWindowsServiceDynamicData_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IWorkstationMonitorService_ReadWindowsServiceDynamicData_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IWorkstationMonitorService_ReadWindowsLogDynamicData_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IWorkstationMonitorService_ReadWindowsLogDynamicData_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IWorkstationMonitorService_ReadWindowsProcessDynamicData_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IWorkstationMonitorService_ReadWindowsProcessDynamicData_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsp:Policy wsu:Id="NetTcpBinding_IWorkstationMonitorService_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -324,6 +628,54 @@
   <wsdl:message name="IWorkstationMonitorService_ReadHardwareStaticData_OutputMessage">
     <wsdl:part name="parameters" element="tns:ReadHardwareStaticDataResponse" />
   </wsdl:message>
+  <wsdl:message name="IWorkstationMonitorService_ReadProcessorDynamicData_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReadProcessorDynamicData" />
+  </wsdl:message>
+  <wsdl:message name="IWorkstationMonitorService_ReadProcessorDynamicData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadProcessorDynamicDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkstationMonitorService_ReadMemoryDynamicData_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReadMemoryDynamicData" />
+  </wsdl:message>
+  <wsdl:message name="IWorkstationMonitorService_ReadMemoryDynamicData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadMemoryDynamicDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkstationMonitorService_ReadDiskDynamicData_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReadDiskDynamicData" />
+  </wsdl:message>
+  <wsdl:message name="IWorkstationMonitorService_ReadDiskDynamicData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadDiskDynamicDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkstationMonitorService_ReadMainBoardDynamicData_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReadMainBoardDynamicData" />
+  </wsdl:message>
+  <wsdl:message name="IWorkstationMonitorService_ReadMainBoardDynamicData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadMainBoardDynamicDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkstationMonitorService_ReadVideoControllerDynamicData_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReadVideoControllerDynamicData" />
+  </wsdl:message>
+  <wsdl:message name="IWorkstationMonitorService_ReadVideoControllerDynamicData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadVideoControllerDynamicDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkstationMonitorService_ReadWindowsServiceDynamicData_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReadWindowsServiceDynamicData" />
+  </wsdl:message>
+  <wsdl:message name="IWorkstationMonitorService_ReadWindowsServiceDynamicData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadWindowsServiceDynamicDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkstationMonitorService_ReadWindowsLogDynamicData_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReadWindowsLogDynamicData" />
+  </wsdl:message>
+  <wsdl:message name="IWorkstationMonitorService_ReadWindowsLogDynamicData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadWindowsLogDynamicDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkstationMonitorService_ReadWindowsProcessDynamicData_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReadWindowsProcessDynamicData" />
+  </wsdl:message>
+  <wsdl:message name="IWorkstationMonitorService_ReadWindowsProcessDynamicData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadWindowsProcessDynamicDataResponse" />
+  </wsdl:message>
   <wsdl:portType name="IWorkstationMonitorService">
     <wsdl:operation name="ReadSoftwareDynamicData">
       <wsdl:input wsaw:Action="http://tempuri.org/IWorkstationMonitorService/ReadSoftwareDynamicData" message="tns:IWorkstationMonitorService_ReadSoftwareDynamicData_InputMessage" />
@@ -340,6 +692,38 @@
     <wsdl:operation name="ReadHardwareStaticData">
       <wsdl:input wsaw:Action="http://tempuri.org/IWorkstationMonitorService/ReadHardwareStaticData" message="tns:IWorkstationMonitorService_ReadHardwareStaticData_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IWorkstationMonitorService/ReadHardwareStaticDataResponse" message="tns:IWorkstationMonitorService_ReadHardwareStaticData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadProcessorDynamicData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkstationMonitorService/ReadProcessorDynamicData" message="tns:IWorkstationMonitorService_ReadProcessorDynamicData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkstationMonitorService/ReadProcessorDynamicDataResponse" message="tns:IWorkstationMonitorService_ReadProcessorDynamicData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadMemoryDynamicData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkstationMonitorService/ReadMemoryDynamicData" message="tns:IWorkstationMonitorService_ReadMemoryDynamicData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkstationMonitorService/ReadMemoryDynamicDataResponse" message="tns:IWorkstationMonitorService_ReadMemoryDynamicData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadDiskDynamicData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkstationMonitorService/ReadDiskDynamicData" message="tns:IWorkstationMonitorService_ReadDiskDynamicData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkstationMonitorService/ReadDiskDynamicDataResponse" message="tns:IWorkstationMonitorService_ReadDiskDynamicData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadMainBoardDynamicData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkstationMonitorService/ReadMainBoardDynamicData" message="tns:IWorkstationMonitorService_ReadMainBoardDynamicData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkstationMonitorService/ReadMainBoardDynamicDataResponse" message="tns:IWorkstationMonitorService_ReadMainBoardDynamicData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadVideoControllerDynamicData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkstationMonitorService/ReadVideoControllerDynamicData" message="tns:IWorkstationMonitorService_ReadVideoControllerDynamicData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkstationMonitorService/ReadVideoControllerDynamicDataResponse" message="tns:IWorkstationMonitorService_ReadVideoControllerDynamicData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadWindowsServiceDynamicData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkstationMonitorService/ReadWindowsServiceDynamicData" message="tns:IWorkstationMonitorService_ReadWindowsServiceDynamicData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkstationMonitorService/ReadWindowsServiceDynamicDataResponse" message="tns:IWorkstationMonitorService_ReadWindowsServiceDynamicData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadWindowsLogDynamicData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkstationMonitorService/ReadWindowsLogDynamicData" message="tns:IWorkstationMonitorService_ReadWindowsLogDynamicData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkstationMonitorService/ReadWindowsLogDynamicDataResponse" message="tns:IWorkstationMonitorService_ReadWindowsLogDynamicData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadWindowsProcessDynamicData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkstationMonitorService/ReadWindowsProcessDynamicData" message="tns:IWorkstationMonitorService_ReadWindowsProcessDynamicData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkstationMonitorService/ReadWindowsProcessDynamicDataResponse" message="tns:IWorkstationMonitorService_ReadWindowsProcessDynamicData_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSHttpBinding_IWorkstationMonitorService" type="tns:IWorkstationMonitorService">
@@ -389,6 +773,94 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ReadProcessorDynamicData">
+      <soap12:operation soapAction="http://tempuri.org/IWorkstationMonitorService/ReadProcessorDynamicData" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IWorkstationMonitorService_ReadProcessorDynamicData_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IWorkstationMonitorService_ReadProcessorDynamicData_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadMemoryDynamicData">
+      <soap12:operation soapAction="http://tempuri.org/IWorkstationMonitorService/ReadMemoryDynamicData" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IWorkstationMonitorService_ReadMemoryDynamicData_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IWorkstationMonitorService_ReadMemoryDynamicData_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadDiskDynamicData">
+      <soap12:operation soapAction="http://tempuri.org/IWorkstationMonitorService/ReadDiskDynamicData" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IWorkstationMonitorService_ReadDiskDynamicData_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IWorkstationMonitorService_ReadDiskDynamicData_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadMainBoardDynamicData">
+      <soap12:operation soapAction="http://tempuri.org/IWorkstationMonitorService/ReadMainBoardDynamicData" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IWorkstationMonitorService_ReadMainBoardDynamicData_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IWorkstationMonitorService_ReadMainBoardDynamicData_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadVideoControllerDynamicData">
+      <soap12:operation soapAction="http://tempuri.org/IWorkstationMonitorService/ReadVideoControllerDynamicData" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IWorkstationMonitorService_ReadVideoControllerDynamicData_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IWorkstationMonitorService_ReadVideoControllerDynamicData_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadWindowsServiceDynamicData">
+      <soap12:operation soapAction="http://tempuri.org/IWorkstationMonitorService/ReadWindowsServiceDynamicData" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IWorkstationMonitorService_ReadWindowsServiceDynamicData_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IWorkstationMonitorService_ReadWindowsServiceDynamicData_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadWindowsLogDynamicData">
+      <soap12:operation soapAction="http://tempuri.org/IWorkstationMonitorService/ReadWindowsLogDynamicData" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IWorkstationMonitorService_ReadWindowsLogDynamicData_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IWorkstationMonitorService_ReadWindowsLogDynamicData_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadWindowsProcessDynamicData">
+      <soap12:operation soapAction="http://tempuri.org/IWorkstationMonitorService/ReadWindowsProcessDynamicData" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IWorkstationMonitorService_ReadWindowsProcessDynamicData_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IWorkstationMonitorService_ReadWindowsProcessDynamicData_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="NetTcpBinding_IWorkstationMonitorService" type="tns:IWorkstationMonitorService">
     <wsp:PolicyReference URI="#NetTcpBinding_IWorkstationMonitorService_policy" />
@@ -422,6 +894,78 @@
     </wsdl:operation>
     <wsdl:operation name="ReadHardwareStaticData">
       <soap12:operation soapAction="http://tempuri.org/IWorkstationMonitorService/ReadHardwareStaticData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadProcessorDynamicData">
+      <soap12:operation soapAction="http://tempuri.org/IWorkstationMonitorService/ReadProcessorDynamicData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadMemoryDynamicData">
+      <soap12:operation soapAction="http://tempuri.org/IWorkstationMonitorService/ReadMemoryDynamicData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadDiskDynamicData">
+      <soap12:operation soapAction="http://tempuri.org/IWorkstationMonitorService/ReadDiskDynamicData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadMainBoardDynamicData">
+      <soap12:operation soapAction="http://tempuri.org/IWorkstationMonitorService/ReadMainBoardDynamicData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadVideoControllerDynamicData">
+      <soap12:operation soapAction="http://tempuri.org/IWorkstationMonitorService/ReadVideoControllerDynamicData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadWindowsServiceDynamicData">
+      <soap12:operation soapAction="http://tempuri.org/IWorkstationMonitorService/ReadWindowsServiceDynamicData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadWindowsLogDynamicData">
+      <soap12:operation soapAction="http://tempuri.org/IWorkstationMonitorService/ReadWindowsLogDynamicData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadWindowsProcessDynamicData">
+      <soap12:operation soapAction="http://tempuri.org/IWorkstationMonitorService/ReadWindowsProcessDynamicData" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

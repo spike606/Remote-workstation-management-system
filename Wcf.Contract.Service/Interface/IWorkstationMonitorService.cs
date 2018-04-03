@@ -4,9 +4,12 @@ using System.Linq;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
+using SystemManagament.Monitor.DataBuilder;
 using SystemManagament.Monitor.HardwareDynamic.Model;
+using SystemManagament.Monitor.HardwareDynamic.Model.Components;
 using SystemManagament.Monitor.HardwareStatic.Model;
 using SystemManagament.Monitor.SoftwareDynamic.Model;
+using SystemManagament.Monitor.SoftwareDynamic.Model.Components;
 using SystemManagament.Monitor.SoftwareStatic.Model;
 
 namespace Wcf.Contract.Service.Interface
@@ -25,5 +28,29 @@ namespace Wcf.Contract.Service.Interface
 
         [OperationContract]
         HardwareStaticData ReadHardwareStaticData();
+
+        [OperationContract]
+        List<ProcessorDynamic> ReadProcessorDynamicData();
+
+        [OperationContract]
+        List<MemoryDynamic> ReadMemoryDynamicData();
+
+        [OperationContract]
+        List<DiskDynamic> ReadDiskDynamicData();
+
+        [OperationContract]
+        List<MainBoardDynamic> ReadMainBoardDynamicData();
+
+        [OperationContract]
+        List<VideoControllerDynamic> ReadVideoControllerDynamicData();
+
+        [OperationContract]
+        List<WindowsService> ReadWindowsServiceDynamicData();
+
+        [OperationContract]
+        List<WindowsLog> ReadWindowsLogDynamicData();
+
+        [OperationContract]
+        List<WindowsProcess> ReadWindowsProcessDynamicData();
     }
 }

@@ -7,8 +7,10 @@ using SystemManagament;
 using SystemManagament.Control;
 using SystemManagament.Monitor.DataBuilder;
 using SystemManagament.Monitor.HardwareDynamic.Model;
+using SystemManagament.Monitor.HardwareDynamic.Model.Components;
 using SystemManagament.Monitor.HardwareStatic.Model;
 using SystemManagament.Monitor.SoftwareDynamic.Model;
+using SystemManagament.Monitor.SoftwareDynamic.Model.Components;
 using SystemManagament.Monitor.SoftwareStatic.Model;
 using Wcf.Contract.Service.Interface;
 
@@ -30,26 +32,62 @@ namespace Wcf.Contract.Service.Implementation
 
         public SoftwareDynamicData ReadSoftwareDynamicData()
         {
-            var data = this.SystemMonitorDataBuilder.GetSoftwareDynamicData();
-            return data;
+            return this.SystemMonitorDataBuilder.GetSoftwareDynamicData();
         }
 
         public SoftwareStaticData ReadSoftwareStaticData()
         {
-            var data = this.SystemMonitorDataBuilder.GetSoftwareStaticData();
-            return data;
+            return this.SystemMonitorDataBuilder.GetSoftwareStaticData();
         }
 
         public HardwareDynamicData ReadHardwareDynamicData()
         {
-            var data = this.SystemMonitorDataBuilder.GetHardwareDynamicData();
-            return data;
+            return this.SystemMonitorDataBuilder.GetHardwareDynamicData();
         }
 
         public HardwareStaticData ReadHardwareStaticData()
         {
-            var data = this.SystemMonitorDataBuilder.GetHardwareStaticData();
-            return data;
+            return this.SystemMonitorDataBuilder.GetHardwareStaticData();
+        }
+
+        public List<ProcessorDynamic> ReadProcessorDynamicData()
+        {
+            return this.SystemMonitorDataBuilder.GetProcessorDynamicData();
+        }
+
+        public List<MemoryDynamic> ReadMemoryDynamicData()
+        {
+            return this.SystemMonitorDataBuilder.GetMemoryDynamicData();
+        }
+
+        public List<DiskDynamic> ReadDiskDynamicData()
+        {
+            return this.SystemMonitorDataBuilder.GetDiskDynamicData();
+        }
+
+        public List<MainBoardDynamic> ReadMainBoardDynamicData()
+        {
+            return this.SystemMonitorDataBuilder.GetMainBoardDynamicData();
+        }
+
+        public List<VideoControllerDynamic> ReadVideoControllerDynamicData()
+        {
+            return this.SystemMonitorDataBuilder.GetVideoControllerDynamicData();
+        }
+
+        public List<WindowsService> ReadWindowsServiceDynamicData()
+        {
+            return this.SystemMonitorDataBuilder.GetWindowsServiceDynamicData();
+        }
+
+        public List<WindowsLog> ReadWindowsLogDynamicData()
+        {
+            return this.SystemMonitorDataBuilder.GetWindowsLogDynamicData();
+        }
+
+        public List<WindowsProcess> ReadWindowsProcessDynamicData()
+        {
+            return this.SystemMonitorDataBuilder.GetWindowsProcessDynamicData();
         }
     }
 }

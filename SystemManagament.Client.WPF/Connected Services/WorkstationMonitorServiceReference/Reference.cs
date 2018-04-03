@@ -6113,6 +6113,60 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadHardwareStaticData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadHardwareStaticDataResponse")]
         System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.HardwareStaticData> ReadHardwareStaticDataAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadProcessorDynamicData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadProcessorDynamicDataResponse")]
+        SystemManagament.Client.WPF.WorkstationMonitorServiceReference.ProcessorDynamic[] ReadProcessorDynamicData();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadProcessorDynamicData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadProcessorDynamicDataResponse")]
+        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.ProcessorDynamic[]> ReadProcessorDynamicDataAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadMemoryDynamicData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadMemoryDynamicDataResponse")]
+        SystemManagament.Client.WPF.WorkstationMonitorServiceReference.MemoryDynamic[] ReadMemoryDynamicData();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadMemoryDynamicData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadMemoryDynamicDataResponse")]
+        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.MemoryDynamic[]> ReadMemoryDynamicDataAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadDiskDynamicData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadDiskDynamicDataResponse")]
+        SystemManagament.Client.WPF.WorkstationMonitorServiceReference.DiskDynamic[] ReadDiskDynamicData();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadDiskDynamicData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadDiskDynamicDataResponse")]
+        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.DiskDynamic[]> ReadDiskDynamicDataAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadMainBoardDynamicData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadMainBoardDynamicDataResponse")]
+        SystemManagament.Client.WPF.WorkstationMonitorServiceReference.MainBoardDynamic[] ReadMainBoardDynamicData();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadMainBoardDynamicData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadMainBoardDynamicDataResponse")]
+        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.MainBoardDynamic[]> ReadMainBoardDynamicDataAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadVideoControllerDynamicData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadVideoControllerDynamicDataRespo" +
+            "nse")]
+        SystemManagament.Client.WPF.WorkstationMonitorServiceReference.VideoControllerDynamic[] ReadVideoControllerDynamicData();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadVideoControllerDynamicData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadVideoControllerDynamicDataRespo" +
+            "nse")]
+        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.VideoControllerDynamic[]> ReadVideoControllerDynamicDataAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadWindowsServiceDynamicData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadWindowsServiceDynamicDataRespon" +
+            "se")]
+        SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsService[] ReadWindowsServiceDynamicData();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadWindowsServiceDynamicData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadWindowsServiceDynamicDataRespon" +
+            "se")]
+        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsService[]> ReadWindowsServiceDynamicDataAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadWindowsLogDynamicData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadWindowsLogDynamicDataResponse")]
+        SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsLog[] ReadWindowsLogDynamicData();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadWindowsLogDynamicData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadWindowsLogDynamicDataResponse")]
+        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsLog[]> ReadWindowsLogDynamicDataAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadWindowsProcessDynamicData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadWindowsProcessDynamicDataRespon" +
+            "se")]
+        SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsProcess[] ReadWindowsProcessDynamicData();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadWindowsProcessDynamicData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadWindowsProcessDynamicDataRespon" +
+            "se")]
+        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsProcess[]> ReadWindowsProcessDynamicDataAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -6172,6 +6226,70 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         
         public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.HardwareStaticData> ReadHardwareStaticDataAsync() {
             return base.Channel.ReadHardwareStaticDataAsync();
+        }
+        
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.ProcessorDynamic[] ReadProcessorDynamicData() {
+            return base.Channel.ReadProcessorDynamicData();
+        }
+        
+        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.ProcessorDynamic[]> ReadProcessorDynamicDataAsync() {
+            return base.Channel.ReadProcessorDynamicDataAsync();
+        }
+        
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.MemoryDynamic[] ReadMemoryDynamicData() {
+            return base.Channel.ReadMemoryDynamicData();
+        }
+        
+        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.MemoryDynamic[]> ReadMemoryDynamicDataAsync() {
+            return base.Channel.ReadMemoryDynamicDataAsync();
+        }
+        
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.DiskDynamic[] ReadDiskDynamicData() {
+            return base.Channel.ReadDiskDynamicData();
+        }
+        
+        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.DiskDynamic[]> ReadDiskDynamicDataAsync() {
+            return base.Channel.ReadDiskDynamicDataAsync();
+        }
+        
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.MainBoardDynamic[] ReadMainBoardDynamicData() {
+            return base.Channel.ReadMainBoardDynamicData();
+        }
+        
+        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.MainBoardDynamic[]> ReadMainBoardDynamicDataAsync() {
+            return base.Channel.ReadMainBoardDynamicDataAsync();
+        }
+        
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.VideoControllerDynamic[] ReadVideoControllerDynamicData() {
+            return base.Channel.ReadVideoControllerDynamicData();
+        }
+        
+        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.VideoControllerDynamic[]> ReadVideoControllerDynamicDataAsync() {
+            return base.Channel.ReadVideoControllerDynamicDataAsync();
+        }
+        
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsService[] ReadWindowsServiceDynamicData() {
+            return base.Channel.ReadWindowsServiceDynamicData();
+        }
+        
+        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsService[]> ReadWindowsServiceDynamicDataAsync() {
+            return base.Channel.ReadWindowsServiceDynamicDataAsync();
+        }
+        
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsLog[] ReadWindowsLogDynamicData() {
+            return base.Channel.ReadWindowsLogDynamicData();
+        }
+        
+        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsLog[]> ReadWindowsLogDynamicDataAsync() {
+            return base.Channel.ReadWindowsLogDynamicDataAsync();
+        }
+        
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsProcess[] ReadWindowsProcessDynamicData() {
+            return base.Channel.ReadWindowsProcessDynamicData();
+        }
+        
+        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsProcess[]> ReadWindowsProcessDynamicDataAsync() {
+            return base.Channel.ReadWindowsProcessDynamicDataAsync();
         }
     }
 }
