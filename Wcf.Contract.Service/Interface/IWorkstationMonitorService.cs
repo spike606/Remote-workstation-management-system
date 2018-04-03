@@ -11,6 +11,7 @@ using SystemManagament.Monitor.HardwareStatic.Model;
 using SystemManagament.Monitor.SoftwareDynamic.Model;
 using SystemManagament.Monitor.SoftwareDynamic.Model.Components;
 using SystemManagament.Monitor.SoftwareStatic.Model;
+using SystemManagament.Shared;
 
 namespace Wcf.Contract.Service.Interface
 {
@@ -52,5 +53,14 @@ namespace Wcf.Contract.Service.Interface
 
         [OperationContract]
         List<WindowsProcess> ReadWindowsProcessDynamicData();
+
+        [OperationContract]
+        OperationStatus TurnMachineOff();
+
+        [OperationContract]
+        OperationStatus RestartMachine();
+
+        [OperationContract]
+        OperationStatus ForceLogOutUser();
     }
 }

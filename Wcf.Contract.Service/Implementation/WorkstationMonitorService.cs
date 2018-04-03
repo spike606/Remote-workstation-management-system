@@ -12,6 +12,7 @@ using SystemManagament.Monitor.HardwareStatic.Model;
 using SystemManagament.Monitor.SoftwareDynamic.Model;
 using SystemManagament.Monitor.SoftwareDynamic.Model.Components;
 using SystemManagament.Monitor.SoftwareStatic.Model;
+using SystemManagament.Shared;
 using Wcf.Contract.Service.Interface;
 
 namespace Wcf.Contract.Service.Implementation
@@ -88,6 +89,21 @@ namespace Wcf.Contract.Service.Implementation
         public List<WindowsProcess> ReadWindowsProcessDynamicData()
         {
             return this.SystemMonitorDataBuilder.GetWindowsProcessDynamicData();
+        }
+
+        public OperationStatus TurnMachineOff()
+        {
+            return this.ControlManager.TurnMachineOff();
+        }
+
+        public OperationStatus RestartMachine()
+        {
+            return this.ControlManager.RestartMachine();
+        }
+
+        public OperationStatus ForceLogOutUser()
+        {
+            return this.ControlManager.ForceLogOutUser();
         }
     }
 }

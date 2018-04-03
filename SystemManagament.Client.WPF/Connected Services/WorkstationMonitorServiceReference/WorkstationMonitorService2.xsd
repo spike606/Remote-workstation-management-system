@@ -6,6 +6,7 @@
   <xs:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model" />
   <xs:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components" />
   <xs:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareDynamic.Model.Components" />
+  <xs:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd19" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Shared" />
   <xs:element name="ReadSoftwareDynamicData">
     <xs:complexType>
       <xs:sequence />
@@ -147,6 +148,42 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareDynamic.Model.Components" minOccurs="0" name="ReadWindowsProcessDynamicDataResult" nillable="true" type="q12:ArrayOfWindowsProcess" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TurnMachineOff">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TurnMachineOffResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SystemManagament.Shared" minOccurs="0" name="TurnMachineOffResult" nillable="true" type="q13:OperationStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RestartMachine">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RestartMachineResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SystemManagament.Shared" minOccurs="0" name="RestartMachineResult" nillable="true" type="q14:OperationStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ForceLogOutUser">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ForceLogOutUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SystemManagament.Shared" minOccurs="0" name="ForceLogOutUserResult" nillable="true" type="q15:OperationStatus" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -7,7 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="195,118,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="21,20,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <ScrollViewer HorizontalAlignment="Left" Height="262" Margin="139,29,0,0" VerticalAlignment="Top" Width="368">
+            <TextBlock Name="textBlock1" TextWrapping="Wrap" Text="TextBlock"/>
+        </ScrollViewer>
 
     </Grid>
 </Window>

@@ -552,6 +552,120 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IWorkstationMonitorService_TurnMachineOff_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IWorkstationMonitorService_TurnMachineOff_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IWorkstationMonitorService_RestartMachine_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IWorkstationMonitorService_RestartMachine_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IWorkstationMonitorService_ForceLogOutUser_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IWorkstationMonitorService_ForceLogOutUser_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsp:Policy wsu:Id="NetTcpBinding_IWorkstationMonitorService_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -602,6 +716,7 @@
       <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd16" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract" />
       <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd17" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components.Analyzed" />
       <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd18" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties.Enums" />
+      <xsd:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd19" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Shared" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IWorkstationMonitorService_ReadSoftwareDynamicData_InputMessage">
@@ -676,6 +791,24 @@
   <wsdl:message name="IWorkstationMonitorService_ReadWindowsProcessDynamicData_OutputMessage">
     <wsdl:part name="parameters" element="tns:ReadWindowsProcessDynamicDataResponse" />
   </wsdl:message>
+  <wsdl:message name="IWorkstationMonitorService_TurnMachineOff_InputMessage">
+    <wsdl:part name="parameters" element="tns:TurnMachineOff" />
+  </wsdl:message>
+  <wsdl:message name="IWorkstationMonitorService_TurnMachineOff_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TurnMachineOffResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkstationMonitorService_RestartMachine_InputMessage">
+    <wsdl:part name="parameters" element="tns:RestartMachine" />
+  </wsdl:message>
+  <wsdl:message name="IWorkstationMonitorService_RestartMachine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RestartMachineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWorkstationMonitorService_ForceLogOutUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:ForceLogOutUser" />
+  </wsdl:message>
+  <wsdl:message name="IWorkstationMonitorService_ForceLogOutUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ForceLogOutUserResponse" />
+  </wsdl:message>
   <wsdl:portType name="IWorkstationMonitorService">
     <wsdl:operation name="ReadSoftwareDynamicData">
       <wsdl:input wsaw:Action="http://tempuri.org/IWorkstationMonitorService/ReadSoftwareDynamicData" message="tns:IWorkstationMonitorService_ReadSoftwareDynamicData_InputMessage" />
@@ -724,6 +857,18 @@
     <wsdl:operation name="ReadWindowsProcessDynamicData">
       <wsdl:input wsaw:Action="http://tempuri.org/IWorkstationMonitorService/ReadWindowsProcessDynamicData" message="tns:IWorkstationMonitorService_ReadWindowsProcessDynamicData_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IWorkstationMonitorService/ReadWindowsProcessDynamicDataResponse" message="tns:IWorkstationMonitorService_ReadWindowsProcessDynamicData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TurnMachineOff">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkstationMonitorService/TurnMachineOff" message="tns:IWorkstationMonitorService_TurnMachineOff_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkstationMonitorService/TurnMachineOffResponse" message="tns:IWorkstationMonitorService_TurnMachineOff_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RestartMachine">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkstationMonitorService/RestartMachine" message="tns:IWorkstationMonitorService_RestartMachine_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkstationMonitorService/RestartMachineResponse" message="tns:IWorkstationMonitorService_RestartMachine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ForceLogOutUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorkstationMonitorService/ForceLogOutUser" message="tns:IWorkstationMonitorService_ForceLogOutUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorkstationMonitorService/ForceLogOutUserResponse" message="tns:IWorkstationMonitorService_ForceLogOutUser_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSHttpBinding_IWorkstationMonitorService" type="tns:IWorkstationMonitorService">
@@ -861,6 +1006,39 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="TurnMachineOff">
+      <soap12:operation soapAction="http://tempuri.org/IWorkstationMonitorService/TurnMachineOff" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IWorkstationMonitorService_TurnMachineOff_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IWorkstationMonitorService_TurnMachineOff_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestartMachine">
+      <soap12:operation soapAction="http://tempuri.org/IWorkstationMonitorService/RestartMachine" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IWorkstationMonitorService_RestartMachine_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IWorkstationMonitorService_RestartMachine_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ForceLogOutUser">
+      <soap12:operation soapAction="http://tempuri.org/IWorkstationMonitorService/ForceLogOutUser" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSHttpBinding_IWorkstationMonitorService_ForceLogOutUser_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSHttpBinding_IWorkstationMonitorService_ForceLogOutUser_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="NetTcpBinding_IWorkstationMonitorService" type="tns:IWorkstationMonitorService">
     <wsp:PolicyReference URI="#NetTcpBinding_IWorkstationMonitorService_policy" />
@@ -966,6 +1144,33 @@
     </wsdl:operation>
     <wsdl:operation name="ReadWindowsProcessDynamicData">
       <soap12:operation soapAction="http://tempuri.org/IWorkstationMonitorService/ReadWindowsProcessDynamicData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TurnMachineOff">
+      <soap12:operation soapAction="http://tempuri.org/IWorkstationMonitorService/TurnMachineOff" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestartMachine">
+      <soap12:operation soapAction="http://tempuri.org/IWorkstationMonitorService/RestartMachine" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ForceLogOutUser">
+      <soap12:operation soapAction="http://tempuri.org/IWorkstationMonitorService/ForceLogOutUser" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

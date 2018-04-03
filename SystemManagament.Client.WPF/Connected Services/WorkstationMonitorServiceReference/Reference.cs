@@ -6086,6 +6086,67 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OperationStatus", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Shared")]
+    [System.SerializableAttribute()]
+    public partial class OperationStatus : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool IsSuccededField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MessageField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool IsSucceded {
+            get {
+                return this.IsSuccededField;
+            }
+            set {
+                if ((this.IsSuccededField.Equals(value) != true)) {
+                    this.IsSuccededField = value;
+                    this.RaisePropertyChanged("IsSucceded");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Message {
+            get {
+                return this.MessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MessageField, value) != true)) {
+                    this.MessageField = value;
+                    this.RaisePropertyChanged("Message");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WorkstationMonitorServiceReference.IWorkstationMonitorService")]
     public interface IWorkstationMonitorService {
@@ -6167,6 +6228,24 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadWindowsProcessDynamicData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadWindowsProcessDynamicDataRespon" +
             "se")]
         System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsProcess[]> ReadWindowsProcessDynamicDataAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/TurnMachineOff", ReplyAction="http://tempuri.org/IWorkstationMonitorService/TurnMachineOffResponse")]
+        SystemManagament.Client.WPF.WorkstationMonitorServiceReference.OperationStatus TurnMachineOff();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/TurnMachineOff", ReplyAction="http://tempuri.org/IWorkstationMonitorService/TurnMachineOffResponse")]
+        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.OperationStatus> TurnMachineOffAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/RestartMachine", ReplyAction="http://tempuri.org/IWorkstationMonitorService/RestartMachineResponse")]
+        SystemManagament.Client.WPF.WorkstationMonitorServiceReference.OperationStatus RestartMachine();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/RestartMachine", ReplyAction="http://tempuri.org/IWorkstationMonitorService/RestartMachineResponse")]
+        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.OperationStatus> RestartMachineAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ForceLogOutUser", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ForceLogOutUserResponse")]
+        SystemManagament.Client.WPF.WorkstationMonitorServiceReference.OperationStatus ForceLogOutUser();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ForceLogOutUser", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ForceLogOutUserResponse")]
+        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.OperationStatus> ForceLogOutUserAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -6290,6 +6369,30 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         
         public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsProcess[]> ReadWindowsProcessDynamicDataAsync() {
             return base.Channel.ReadWindowsProcessDynamicDataAsync();
+        }
+        
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.OperationStatus TurnMachineOff() {
+            return base.Channel.TurnMachineOff();
+        }
+        
+        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.OperationStatus> TurnMachineOffAsync() {
+            return base.Channel.TurnMachineOffAsync();
+        }
+        
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.OperationStatus RestartMachine() {
+            return base.Channel.RestartMachine();
+        }
+        
+        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.OperationStatus> RestartMachineAsync() {
+            return base.Channel.RestartMachineAsync();
+        }
+        
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.OperationStatus ForceLogOutUser() {
+            return base.Channel.ForceLogOutUser();
+        }
+        
+        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.OperationStatus> ForceLogOutUserAsync() {
+            return base.Channel.ForceLogOutUserAsync();
         }
     }
 }
