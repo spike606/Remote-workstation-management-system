@@ -1,48 +1,68 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using SystemManagament.Monitor.HardwareStatic.Model.CustomProperties;
 
 namespace SystemManagament.Monitor.HardwareStatic.Model.Components.Analyzed
 {
+    [DataContract]
+    [KnownType(typeof(Partition))]
     public class LogicalPartition
     {
         // based on docs: https://msdn.microsoft.com/en-us/library/windows/desktop/hh830524(v=vs.85).aspx
-        public string DiskId { get; internal set; }
+        [DataMember]
+        public string DiskId { get; set; }
 
-        public string DiskNumber { get; internal set; }
+        [DataMember]
+        public string DiskNumber { get; set; }
 
-        public string DriveLetter { get; internal set; }
+        [DataMember]
+        public string DriveLetter { get; set; }
 
-        public string IsActive { get; internal set; }
+        [DataMember]
+        public string IsActive { get; set; }
 
-        public string IsBoot { get; internal set; }
+        [DataMember]
+        public string IsBoot { get; set; }
 
-        public string IsHidden { get; internal set; }
+        [DataMember]
+        public string IsHidden { get; set; }
 
-        public string IsOffline { get; internal set; }
+        [DataMember]
+        public string IsOffline { get; set; }
 
-        public string IsReadOnly { get; internal set; }
+        [DataMember]
+        public string IsReadOnly { get; set; }
 
-        public string IsShadowCopy { get; internal set; }
+        [DataMember]
+        public string IsShadowCopy { get; set; }
 
-        public string IsSystem { get; internal set; }
+        [DataMember]
+        public string IsSystem { get; set; }
 
         // See https://en.wikipedia.org/wiki/Partition_type#PID_00h
-        public string MbrType { get; internal set; }
+        [DataMember]
+        public string MbrType { get; set; }
 
-        public string NoDefaultDriveLetter { get; internal set; }
+        [DataMember]
+        public string NoDefaultDriveLetter { get; set; }
 
-        public string ObjectIdAsPartition { get; internal set; }
+        [DataMember]
+        public string ObjectIdAsPartition { get; set; }
 
-        public UnitValue Offset { get; internal set; }
+        [DataMember]
+        public UnitValue Offset { get; set; }
 
-        public string PartitionNumber { get; internal set; }
+        [DataMember]
+        public string PartitionNumber { get; set; }
 
-        public UnitValue SizeAsPartition { get; internal set; }
+        [DataMember]
+        public UnitValue SizeAsPartition { get; set; }
 
-        public List<LogicalPartition> Partitions { get; internal set; } = new List<LogicalPartition>();
+        [DataMember]
+        public List<LogicalPartition> Partitions { get; set; } = new List<LogicalPartition>();
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Management;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract;
@@ -12,33 +13,47 @@ using SystemManagament.Shared.WMI;
 
 namespace SystemManagament.Monitor.HardwareStatic.Model.Components
 {
+    [DataContract]
     public class Memory : HardwareStaticComponent, IHardwareStaticComponent<Memory>
     {
         // based on docs: https://msdn.microsoft.com/en-us/library/aa394347(v=vs.85).aspx
+        [DataMember]
         public string BankLabel { get; private set; }
 
+        [DataMember]
         public UnitValue Capacity { get; private set; }
 
+        [DataMember]
         public UnitValue ConfiguredClockSpeed { get; private set; }
 
+        [DataMember]
         public UnitValue ConfiguredVoltage { get; private set; }
 
+        [DataMember]
         public UnitValue DataWidth { get; private set; }
 
+        [DataMember]
         public string DeviceLocator { get; private set; }
 
+        [DataMember]
         public string Manufacturer { get; private set; }
 
+        [DataMember]
         public UnitValue MaxVoltage { get; private set; }
 
+        [DataMember]
         public string MemoryType { get; private set; }
 
+        [DataMember]
         public UnitValue MinVoltage { get; private set; }
 
+        [DataMember]
         public string PartNumber { get; private set; }
 
+        [DataMember]
         public string SerialNumber { get; private set; }
 
+        [DataMember]
         public UnitValue TotalWidth { get; private set; }
 
         public List<ManagementObject> GetManagementObjectsForHardwareComponent(IWMIClient wMIClient)

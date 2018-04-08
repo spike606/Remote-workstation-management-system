@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+//using System.Diagnostics;
 using System.Linq;
 using System.Management;
 using System.ServiceProcess;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 using SystemManagament.Logger;
 using SystemManagament.Monitor.HardwareStatic.Model.CustomProperties;
 using SystemManagament.Monitor.SoftwareDynamic.Model.Components;
+using SystemManagament.Monitor.SoftwareDynamic.Model.Components.Duplicate;
 using SystemManagament.Shared.Win32API;
 
 namespace SystemManagament.Monitor.SoftwareDynamic.Provider
@@ -85,7 +87,7 @@ namespace SystemManagament.Monitor.SoftwareDynamic.Provider
                 foreach (var log in logs)
                 {
                     WindowsLog windowsLog = new WindowsLog();
-                    windowsLog.Entries = log.Entries;
+                    windowsLog.Entries = this.MapSystemEventLogEntries(log.Entries);
                     windowsLog.LogName = log.Log;
                     windowsLog.LogDisplayName = log.LogDisplayName;
                     windowsLog.MaximumKilobytes = new UnitValue() { Unit = Unit.KB, Value = log.MaximumKilobytes.ToString() };
@@ -99,6 +101,36 @@ namespace SystemManagament.Monitor.SoftwareDynamic.Provider
             }
 
             return windowsLogs;
+        }
+
+        private List<EventLogEntryDuplicate> MapSystemEventLogEntries(EventLogEntryCollection entries)
+        {
+            List<EventLogEntryDuplicate> eventLogEntryDuplicates = new List<EventLogEntryDuplicate>();
+
+            var enumarator = entries.GetEnumerator();
+
+            while (enumarator.MoveNext())
+            {
+                EventLogEntry eventLogEntry = (EventLogEntry)enumarator.Current;
+                eventLogEntryDuplicates.Add(new EventLogEntryDuplicate()
+                {
+                    Category = eventLogEntry.Category,
+                    Data = eventLogEntry.Data,
+                    CategoryNumber = eventLogEntry.CategoryNumber,
+                    EntryType = (EventLogEntryTypeDuplicate)eventLogEntry.EntryType,
+                    Index = eventLogEntry.Index,
+                    InstanceId = eventLogEntry.InstanceId,
+                    MachineName = eventLogEntry.MachineName,
+                    Message = eventLogEntry.Message,
+                    ReplacementStrings = eventLogEntry.ReplacementStrings,
+                    Source = eventLogEntry.Source,
+                    TimeGenerated = eventLogEntry.TimeGenerated,
+                    TimeWritten = eventLogEntry.TimeWritten,
+                    UserName = eventLogEntry.UserName,
+                });
+            }
+
+            return eventLogEntryDuplicates;
         }
 
         private string GetProcessOwner(Process process)

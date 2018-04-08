@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Management;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using SystemManagament.Monitor.HardwareStatic;
@@ -12,58 +13,85 @@ using SystemManagament.Shared.WMI;
 
 namespace SystemManagament.Monitor.SoftwareStatic.Model.Components
 {
+    [DataContract]
     public class OS : ISoftwareStaticComponent<OS>, IWMISoftwareStaticComponent<OS>
     {
+        [DataMember]
         public string BuildNumber { get; set; }
 
+        [DataMember]
         public string BuildType { get; set; }
 
+        [DataMember]
         public string Caption { get; set; }
 
+        [DataMember]
         public string CountryCode { get; set; }
 
+        [DataMember]
         public string CDSVersion { get; set; }
 
+        [DataMember]
         public string CSName { get; set; }
 
+        [DataMember]
         public UnitValue CurrentTimeZone { get; set; }
 
+        [DataMember]
         public string Description { get; set; }
 
+        [DataMember]
         public UnitValue EncryptionLevel { get; set; }
 
+        [DataMember]
         public DateTime InstallDate { get; set; }
 
+        [DataMember]
         public DateTime LastBootUpTime { get; set; }
 
+        [DataMember]
         public DateTime LocalDateTime { get; set; }
 
+        [DataMember]
         public string Locale { get; set; }
 
+        [DataMember]
         public string MaxNumerOfProcesses { get; set; }
 
+        [DataMember]
         public UnitValue MaxProcessMemorySize { get; set; }
 
+        [DataMember]
         public string Name { get; set; }
 
+        [DataMember]
         public string Organization { get; set; }
 
+        [DataMember]
         public string OSArchitecture { get; set; }
 
+        [DataMember]
         public string RegisteredUser { get; set; }
 
+        [DataMember]
         public string SerialNumber { get; set; }
 
+        [DataMember]
         public string ServicePackMajorVersion { get; set; }
 
+        [DataMember]
         public string ServicePackMinorVersion { get; set; }
 
+        [DataMember]
         public string SystemDirectory { get; set; }
 
+        [DataMember]
         public string SystemDrive { get; set; }
 
+        [DataMember]
         public string Version { get; set; }
 
+        [DataMember]
         public string WindowsDirectory { get; set; }
 
         public OS ExtractData(ManagementObject managementObject)

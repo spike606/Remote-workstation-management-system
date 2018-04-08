@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Management;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract;
@@ -13,62 +14,90 @@ using SystemManagament.Shared.WMI;
 
 namespace SystemManagament.Monitor.HardwareStatic.Model.Components
 {
+    [DataContract]
     public class Disk : HardwareStaticComponent, IHardwareStaticComponent<Disk>
     {
         // based on docs: https://msdn.microsoft.com/en-us/library/windows/desktop/hh830493(v=vs.85).aspx
-        public UnitValue AllocatedSize { get; private set; }
+        [DataMember]
+        public UnitValue AllocatedSize { get; set; }
 
-        public string BootFromDisk { get; private set; }
+        [DataMember]
+        public string BootFromDisk { get; set; }
 
-        public string BusType { get; private set; }
+        [DataMember]
+        public string BusType { get; set; }
 
-        public string FirmwareVersion { get; private set; }
+        [DataMember]
+        public string FirmwareVersion { get; set; }
 
-        public string FriendlyName { get; private set; }
+        [DataMember]
+        public string FriendlyName { get; set; }
 
-        public string HealthStatus { get; private set; }
+        [DataMember]
+        public string HealthStatus { get; set; }
 
-        public string IsBoot { get; private set; }
+        [DataMember]
+        public string IsBoot { get; set; }
 
-        public string IsClustered { get; private set; }
+        [DataMember]
+        public string IsClustered { get; set; }
 
-        public string IsOffline { get; private set; }
+        [DataMember]
+        public string IsOffline { get; set; }
 
-        public string IsReadOnly { get; private set; }
+        [DataMember]
+        public string IsReadOnly { get; set; }
 
-        public string IsSystem { get; private set; }
+        [DataMember]
+        public string IsSystem { get; set; }
 
-        public UnitValue LargestFreeExtent { get; private set; }
+        [DataMember]
+        public UnitValue LargestFreeExtent { get; set; }
 
-        public string Location { get; private set; }
+        [DataMember]
+        public string Location { get; set; }
 
-        public UnitValue LogicalSectorSize { get; private set; }
+        [DataMember]
+        public UnitValue LogicalSectorSize { get; set; }
 
-        public string Manufacturer { get; private set; }
+        [DataMember]
+        public string Manufacturer { get; set; }
 
-        public string Model { get; private set; }
+        [DataMember]
+        public string Model { get; set; }
 
-        public string Number { get; private set; }
+        [DataMember]
+        public string Number { get; set; }
 
-        public string NumberOfPartitions { get; private set; }
+        [DataMember]
+        public string NumberOfPartitions { get; set; }
 
-        public string ObjectId { get; private set; }
+        [DataMember]
+        public string ObjectId { get; set; }
 
-        public string OfflineReason { get; private set; }
+        [DataMember]
+        public string OfflineReason { get; set; }
 
-        public string PartitionStyle { get; private set; }
+        [DataMember]
+        public string PartitionStyle { get; set; }
 
-        public string Path { get; private set; }
+        [DataMember]
+        public string Path { get; set; }
 
-        public UnitValue PhysicalSectorSize { get; private set; }
+        [DataMember]
+        public UnitValue PhysicalSectorSize { get; set; }
 
-        public string SerialNumber { get; private set; }
+        [DataMember]
+        public string SerialNumber { get; set; }
 
-        public string Signature { get; private set; }
+        [DataMember]
+        public string Signature { get; set; }
 
-        public UnitValue Size { get; private set; }
+        [DataMember]
+        public UnitValue Size { get; set; }
 
-        public string UniqueId { get; private set; }
+        [DataMember]
+        public string UniqueId { get; set; }
 
         public List<Disk> ExtractData(List<ManagementObject> managementObjectList)
         {

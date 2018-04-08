@@ -54,11 +54,11 @@ namespace SystemManagament.Monitor.DataBuilder
         public HardwareDynamicData GetHardwareDynamicData()
         {
             HardwareDynamicData data = new HardwareDynamicData();
-            data.Processor = this.HardwareDynamicBuilder.GetHardwareDynamicData<ProcessorDynamic>();
-            data.Memory = this.HardwareDynamicBuilder.GetHardwareDynamicData<MemoryDynamic>();
-            data.Disk = this.HardwareDynamicBuilder.GetHardwareDynamicData<DiskDynamic>();
-            data.MainBoard = this.HardwareDynamicBuilder.GetHardwareDynamicData<MainBoardDynamic>();
-            data.VideoController = this.HardwareDynamicBuilder.GetHardwareDynamicData<VideoControllerDynamic>();
+            data.Processor = this.GetProcessorDynamicData();
+            data.Memory = this.GetMemoryDynamicData();
+            data.Disk = this.GetDiskDynamicData();
+            data.MainBoard = this.GetMainBoardDynamicData();
+            data.VideoController = this.GetVideoControllerDynamicData();
 
             return data;
         }
@@ -103,9 +103,9 @@ namespace SystemManagament.Monitor.DataBuilder
         public SoftwareDynamicData GetSoftwareDynamicData()
         {
             SoftwareDynamicData data = new SoftwareDynamicData();
-            data.WindowsService = this.SoftwareDynamicBuilder.GetSoftwareDynamicData<WindowsService>();
-            data.WindowsLog = this.SoftwareDynamicBuilder.GetSoftwareDynamicData<WindowsLog>();
-            data.WindowsProcess = this.SoftwareDynamicBuilder.GetSoftwareDynamicData<WindowsProcess>();
+            data.WindowsService = this.GetWindowsServiceDynamicData();
+            data.WindowsLog = this.GetWindowsLogDynamicData();
+            data.WindowsProcess = this.GetWindowsProcessDynamicData();
 
             return data;
         }
@@ -121,6 +121,46 @@ namespace SystemManagament.Monitor.DataBuilder
             data.LocalUser = this.SoftwareStaticBuilder.GetSoftwareStaticData<LocalUser>();
             data.CurrentUser = this.SoftwareStaticBuilder.GetSoftwareStaticData<CurrentUser>();
             return data;
+        }
+
+        public List<MainBoardDynamic> GetMainBoardDynamicData()
+        {
+            return this.HardwareDynamicBuilder.GetHardwareDynamicData<MainBoardDynamic>();
+        }
+
+        public List<DiskDynamic> GetDiskDynamicData()
+        {
+            return this.HardwareDynamicBuilder.GetHardwareDynamicData<DiskDynamic>();
+        }
+
+        public List<MemoryDynamic> GetMemoryDynamicData()
+        {
+            return this.HardwareDynamicBuilder.GetHardwareDynamicData<MemoryDynamic>();
+        }
+
+        public List<ProcessorDynamic> GetProcessorDynamicData()
+        {
+            return this.HardwareDynamicBuilder.GetHardwareDynamicData<ProcessorDynamic>();
+        }
+
+        public List<VideoControllerDynamic> GetVideoControllerDynamicData()
+        {
+            return this.HardwareDynamicBuilder.GetHardwareDynamicData<VideoControllerDynamic>();
+        }
+
+        public List<WindowsLog> GetWindowsLogDynamicData()
+        {
+            return this.SoftwareDynamicBuilder.GetSoftwareDynamicData<WindowsLog>();
+        }
+
+        public List<WindowsProcess> GetWindowsProcessDynamicData()
+        {
+            return this.SoftwareDynamicBuilder.GetSoftwareDynamicData<WindowsProcess>();
+        }
+
+        public List<WindowsService> GetWindowsServiceDynamicData()
+        {
+            return this.SoftwareDynamicBuilder.GetSoftwareDynamicData<WindowsService>();
         }
     }
 }

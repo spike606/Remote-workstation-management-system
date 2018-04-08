@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Management;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract;
@@ -11,31 +12,44 @@ using SystemManagament.Shared.WMI;
 
 namespace SystemManagament.Monitor.HardwareStatic.Model.Components
 {
+    [DataContract]
     public class VideoController : HardwareStaticComponent, IHardwareStaticComponent<VideoController>
     {
         // based on docs: https://msdn.microsoft.com/en-us/library/aa394512(v=vs.85).aspx
+        [DataMember]
         public string AdapterCompatibility { get; private set; }
 
+        [DataMember]
         public string AdapterDACType { get; private set; }
 
+        [DataMember]
         public UnitValue AdapterRAM { get; private set; }
 
+        [DataMember]
         public UnitValue CurrentBitsPerPixel { get; private set; }
 
+        [DataMember]
         public UnitValue CurrentHorizontalResolution { get; private set; }
 
+        [DataMember]
         public string CurrentNumberOfColors { get; private set; }
 
+        [DataMember]
         public UnitValue CurrentRefreshRate { get; private set; }
 
+        [DataMember]
         public UnitValue CurrentVerticalResolution { get; private set; }
 
+        [DataMember]
         public string DeviceID { get; private set; }
 
+        [DataMember]
         public string DriverVersion { get; private set; }
 
+        [DataMember]
         public string VideoModeDescription { get; private set; }
 
+        [DataMember]
         public string VideoProcessor { get; private set; }
 
         public List<VideoController> ExtractData(List<ManagementObject> managementObjectList)

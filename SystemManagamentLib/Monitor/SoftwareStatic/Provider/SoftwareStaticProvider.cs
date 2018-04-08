@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Management;
 using System.Security;
+using System.Security.Claims;
 using System.Security.Principal;
 using System.ServiceProcess;
 using System.Text;
@@ -11,6 +12,7 @@ using Microsoft.Win32;
 using SystemManagament.Logger;
 using SystemManagament.Monitor.HardwareStatic;
 using SystemManagament.Monitor.SoftwareStatic.Model.Components;
+using SystemManagament.Monitor.SoftwareStatic.Model.Components.Duplicate;
 using SystemManagament.Shared;
 using SystemManagament.Shared.WMI;
 
@@ -43,8 +45,8 @@ namespace SystemManagament.Monitor.SoftwareStatic.Provider
             CurrentUser currentUser = new CurrentUser();
             currentUser.Name = identity?.Name ?? string.Empty;
             currentUser.AuthenticationType = identity?.AuthenticationType ?? string.Empty;
-            currentUser.Claims = identity?.Claims;
-            currentUser.Groups = identity?.Groups;
+            currentUser.Claims = this.MapSystemClaims(identity);
+            currentUser.Groups = this.MapSystemGroups(identity);
 
             return currentUser;
         }
@@ -104,6 +106,47 @@ namespace SystemManagament.Monitor.SoftwareStatic.Provider
                     }
                 }
             }
+        }
+
+        private List<GroupDuplicate> MapSystemGroups(WindowsIdentity identity)
+        {
+            List<GroupDuplicate> groupDuplicate = new List<GroupDuplicate>();
+
+            if (identity != null)
+            {
+                foreach (var group in identity.Groups)
+                {
+                    groupDuplicate.Add(new GroupDuplicate()
+                    {
+                        Value = group.Value
+                    });
+                }
+            }
+
+            return groupDuplicate;
+        }
+
+        private List<ClaimDuplicate> MapSystemClaims(WindowsIdentity identity)
+        {
+            List<ClaimDuplicate> claimDuplicate = new List<ClaimDuplicate>();
+
+            if (identity != null)
+            {
+                foreach (var claim in identity.Claims)
+                {
+                    claimDuplicate.Add(new ClaimDuplicate()
+                    {
+                        Issuer = claim.Issuer,
+                        OriginalIssuer = claim.OriginalIssuer,
+                        Properties = claim.Properties,
+                        Type = claim.Type,
+                        Value = claim.Value,
+                        ValueType = claim.ValueType,
+                    });
+                }
+            }
+
+            return claimDuplicate;
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Management;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract;
@@ -10,11 +11,14 @@ using SystemManagament.Shared.WMI;
 
 namespace SystemManagament.Monitor.HardwareStatic.Model.Components
 {
+    [DataContract]
     public class PnPEntity : HardwareStaticComponent, IHardwareStaticComponent<PnPEntity>
     {
         // based on docs: https://msdn.microsoft.com/en-us/library/aa394353(v=vs.85).aspx
+        [DataMember]
         public string DeviceID { get; private set; }
 
+        [DataMember]
         public string Manufacturer { get; private set; }
 
         public List<PnPEntity> ExtractData(List<ManagementObject> managementObjectList)

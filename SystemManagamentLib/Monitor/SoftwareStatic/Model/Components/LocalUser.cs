@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Management;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using SystemManagament.Monitor.HardwareStatic;
@@ -11,26 +12,37 @@ using SystemManagament.Shared.WMI;
 
 namespace SystemManagament.Monitor.SoftwareStatic.Model.Components
 {
+    [DataContract]
     public class LocalUser : ISoftwareStaticComponent<LocalUser>, IWMISoftwareStaticComponent<LocalUser>
     {
+        [DataMember]
         public string Caption { get; set; }
 
+        [DataMember]
         public string Descritption { get; set; }
 
+        [DataMember]
         public string Domain { get; set; }
 
+        [DataMember]
         public string FullName { get; set; }
 
+        [DataMember]
         public string Name { get; set; }
 
+        [DataMember]
         public string PasswordChangeable { get; set; }
 
+        [DataMember]
         public string PasswordExpires { get; set; }
 
+        [DataMember]
         public string PasswordRequired { get; set; }
 
+        [DataMember]
         public string SID { get; set; }
 
+        [DataMember]
         public string SIDType { get; set; }
 
         public LocalUser ExtractData(ManagementObject managementObject)

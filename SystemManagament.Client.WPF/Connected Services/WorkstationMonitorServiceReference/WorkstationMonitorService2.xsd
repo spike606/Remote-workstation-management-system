@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareDynamic.Model" />
+  <xs:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.Model" />
+  <xs:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model" />
+  <xs:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model" />
+  <xs:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components" />
+  <xs:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareDynamic.Model.Components" />
+  <xs:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd19" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Shared" />
+  <xs:element name="ReadSoftwareDynamicData">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadSoftwareDynamicDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareDynamic.Model" minOccurs="0" name="ReadSoftwareDynamicDataResult" nillable="true" type="q1:SoftwareDynamicData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadSoftwareStaticData">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadSoftwareStaticDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.Model" minOccurs="0" name="ReadSoftwareStaticDataResult" nillable="true" type="q2:SoftwareStaticData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadHardwareDynamicData">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadHardwareDynamicDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model" minOccurs="0" name="ReadHardwareDynamicDataResult" nillable="true" type="q3:HardwareDynamicData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadHardwareStaticData">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadHardwareStaticDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model" minOccurs="0" name="ReadHardwareStaticDataResult" nillable="true" type="q4:HardwareStaticData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadProcessorDynamicData">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadProcessorDynamicDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components" minOccurs="0" name="ReadProcessorDynamicDataResult" nillable="true" type="q5:ArrayOfProcessorDynamic" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadMemoryDynamicData">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadMemoryDynamicDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components" minOccurs="0" name="ReadMemoryDynamicDataResult" nillable="true" type="q6:ArrayOfMemoryDynamic" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadDiskDynamicData">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadDiskDynamicDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components" minOccurs="0" name="ReadDiskDynamicDataResult" nillable="true" type="q7:ArrayOfDiskDynamic" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadMainBoardDynamicData">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadMainBoardDynamicDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components" minOccurs="0" name="ReadMainBoardDynamicDataResult" nillable="true" type="q8:ArrayOfMainBoardDynamic" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadVideoControllerDynamicData">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadVideoControllerDynamicDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components" minOccurs="0" name="ReadVideoControllerDynamicDataResult" nillable="true" type="q9:ArrayOfVideoControllerDynamic" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadWindowsServiceDynamicData">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadWindowsServiceDynamicDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareDynamic.Model.Components" minOccurs="0" name="ReadWindowsServiceDynamicDataResult" nillable="true" type="q10:ArrayOfWindowsService" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadWindowsLogDynamicData">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadWindowsLogDynamicDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareDynamic.Model.Components" minOccurs="0" name="ReadWindowsLogDynamicDataResult" nillable="true" type="q11:ArrayOfWindowsLog" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadWindowsProcessDynamicData">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadWindowsProcessDynamicDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareDynamic.Model.Components" minOccurs="0" name="ReadWindowsProcessDynamicDataResult" nillable="true" type="q12:ArrayOfWindowsProcess" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TurnMachineOff">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TurnMachineOffResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SystemManagament.Shared" minOccurs="0" name="TurnMachineOffResult" nillable="true" type="q13:OperationStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RestartMachine">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RestartMachineResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SystemManagament.Shared" minOccurs="0" name="RestartMachineResult" nillable="true" type="q14:OperationStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ForceLogOutUser">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ForceLogOutUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SystemManagament.Shared" minOccurs="0" name="ForceLogOutUserResult" nillable="true" type="q15:OperationStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

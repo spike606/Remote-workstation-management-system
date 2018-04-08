@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Management;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using SystemManagament.Monitor.HardwareStatic;
@@ -11,22 +12,31 @@ using SystemManagament.Shared.WMI;
 
 namespace SystemManagament.Monitor.SoftwareStatic.Model.Components
 {
+    [DataContract]
     public class StartupCommand : ISoftwareStaticComponent<StartupCommand>, IWMISoftwareStaticComponent<StartupCommand>
     {
+        [DataMember]
         public string Caption { get; set; }
 
+        [DataMember]
         public string Command { get; set; }
 
+        [DataMember]
         public string Description { get; set; }
 
+        [DataMember]
         public string Location { get; set; }
 
+        [DataMember]
         public string Name { get; set; }
 
+        [DataMember]
         public string SettingID { get; set; }
 
+        [DataMember]
         public string User { get; set; }
 
+        [DataMember]
         public string UserSID { get; set; }
 
         public StartupCommand ExtractData(ManagementObject managementObject)
