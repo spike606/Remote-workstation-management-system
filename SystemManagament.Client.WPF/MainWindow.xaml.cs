@@ -54,7 +54,7 @@ namespace SystemManagament.Client.WPF
                 Timer aTimer = new Timer();
                 //aTimer.Elapsed += new ElapsedEventHandler(OnTimedEventProcessor);
                 //aTimer.Elapsed += new ElapsedEventHandler(OnTimedEventProcess);
-                aTimer.Elapsed += new ElapsedEventHandler(OnTimedEventProcessor);
+                //aTimer.Elapsed += new ElapsedEventHandler(OnTimedEventProcessor);
                 aTimer.Interval = 500;
                 aTimer.Enabled = true;
                 //while (Console.Read() != 'q') ;
@@ -69,20 +69,20 @@ namespace SystemManagament.Client.WPF
 
         }
 
-        private void OnTimedEventProcessor(object source, ElapsedEventArgs e)
-        {
+        //private void OnTimedEventProcessor(object source, ElapsedEventArgs e)
+        //{
 
 
-            var data = new WorkstationMonitorServiceClient("NetTcpBinding_IWorkstationMonitorService").ReadMemoryDynamicData();
+        //    var data = new WorkstationMonitorServiceClient("NetTcpBinding_IWorkstationMonitorService").ReadMemoryDynamicData();
 
-            this.Dispatcher.Invoke(() =>
-            {
-                this.textBlock1.Text += "Temperature: value: " + data.First().Data.First().MaxValue + data.First().Data.First().Unit + "\n";
-                //this.textBlock1.Text += "Clock: value: " + data.First().Clock.First().MaxValue + data.First().Clock.First().Unit + "\n";
+        //    this.Dispatcher.Invoke(() =>
+        //    {
+        //        this.textBlock1.Text += "Temperature: value: " + data.First().Data.First().MaxValue + data.First().Data.First().Unit + "\n";
+        //        //this.textBlock1.Text += "Clock: value: " + data.First().Clock.First().MaxValue + data.First().Clock.First().Unit + "\n";
 
-            });
+        //    });
 
 
-        }
+        //}
     }
 }

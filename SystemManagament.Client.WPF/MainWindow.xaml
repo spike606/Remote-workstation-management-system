@@ -5,12 +5,48 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SystemManagament.Client.WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
+        Title="MainWindow" Height="350" Width="525"
+        DataContext="{Binding Source={StaticResource Locator}, Path=Main}">
+    <!--<Grid>
         <Button Content="Button" HorizontalAlignment="Left" Margin="21,20,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
         <ScrollViewer HorizontalAlignment="Left" Height="262" Margin="139,29,0,0" VerticalAlignment="Top" Width="368">
             <TextBlock Name="textBlock1" TextWrapping="Wrap" Text="TextBlock"/>
         </ScrollViewer>
 
+    </Grid>-->
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Title Panel -->
+        <StackPanel Grid.Row="0" Margin="19,0,0,0">
+            <TextBlock Text="MVVM LIGHT DEMO" Margin="0,12,0,0" />
+            <TextBlock Text="test" Margin="0,-6.5,0,26.5"/>
+        </StackPanel>
+
+        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Button Content="Load data" Command="{Binding LoadDataCommand}"
+                    HorizontalAlignment="Stretch" />
+            <Button Content="Clear data" Command="{Binding ClearDataCommand}"
+                    HorizontalAlignment="Stretch" Grid.Row="1" />
+
+            <ListView ItemsSource="{Binding Items}" Grid.Row="2">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="0,0,0,27.5">
+                            <TextBlock Text="{Binding}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
     </Grid>
 </Window>
