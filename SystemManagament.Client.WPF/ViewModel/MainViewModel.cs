@@ -34,27 +34,27 @@ namespace SystemManagament.Client.WPF.ViewModel
 
         private IWcfClient wcfClient;
 
-
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
         public MainViewModel(IWcfClient wcfClient)
         {
             //this.LoadDataCommand = new RelayCommand(LoadData);
-            this.ClearDataCommand = new RelayCommand(ClearData);
+            this.ClearDataCommand = new RelayCommand(this.ClearData);
             this.items = new ExtendedObservableCollection<WindowsProcess>();
             this.memoryItems = new ExtendedObservableCollection<Memory>();
             this.wcfClient = wcfClient;
 
-            LoadWindowsProcessDynamicDataCommand = new AsyncCommand<WindowsProcess[]>(async (cancellationToken) =>
+            this.LoadWindowsProcessDynamicDataCommand = new AsyncCommand<WindowsProcess[]>(async (cancellationToken) =>
             {
-                var result = await wcfClient.ReadWindowsProcessDynamicDataAsync();
+                var result = await wcfClient.ReadWindowsProcessDynamicDataAsync().WithCancellation(cancellationToken);
+
                 this.Items.RefreshRange(result);
 
                 return result;
             });
 
-            LoadHardwareStaticDataCommand = new AsyncCommand<HardwareStaticData>(async (cancellationToken) =>
+            this.LoadHardwareStaticDataCommand = new AsyncCommand<HardwareStaticData>(async (cancellationToken) =>
             {
                 // CANCEL EXAMPLE
                 //await Task.Delay(TimeSpan.FromSeconds(3), cancellationToken).ConfigureAwait(false);
@@ -64,8 +64,7 @@ namespace SystemManagament.Client.WPF.ViewModel
                 //    var data = await response.Content.ReadAsByteArrayAsync().ConfigureAwait(false);
 
                 //}
-
-                var result = await wcfClient.ReadHardwareStaticDataAsync();
+                var result = await wcfClient.ReadHardwareStaticDataAsync().WithCancellation(cancellationToken);
                 this.MemoryItems.RefreshRange(result.Memory);
 
                 return new HardwareStaticData();
@@ -89,11 +88,12 @@ namespace SystemManagament.Client.WPF.ViewModel
         {
             get
             {
-                return items;
+                return this.items;
             }
+
             private set
             {
-                Set(() => Items, ref items, value);
+                this.Set(() => this.Items, ref this.items, value);
             }
         }
 
@@ -101,11 +101,12 @@ namespace SystemManagament.Client.WPF.ViewModel
         {
             get
             {
-                return memoryItems;
+                return this.memoryItems;
             }
+
             private set
             {
-                Set(() => MemoryItems, ref memoryItems, value);
+                this.Set(() => this.MemoryItems, ref this.memoryItems, value);
             }
         }
 

@@ -20,28 +20,39 @@ namespace SystemManagament.Client.WPF.ViewModel.Commands
             add { CommandManager.RequerySuggested += value; }
             remove { CommandManager.RequerySuggested -= value; }
         }
-        public CancellationToken Token { get { return cts.Token; } }
+
+        public CancellationToken Token
+        {
+            get { return this.cts.Token; }
+        }
+
         public void NotifyCommandStarting()
         {
-            commandExecuting = true;
-            if (!cts.IsCancellationRequested)
+            this.commandExecuting = true;
+            if (!this.cts.IsCancellationRequested)
+            {
                 return;
-            cts = new CancellationTokenSource();
-            RaiseCanExecuteChanged();
+            }
+
+            this.cts = new CancellationTokenSource();
+            this.RaiseCanExecuteChanged();
         }
+
         public void NotifyCommandFinished()
         {
-            commandExecuting = false;
-            RaiseCanExecuteChanged();
+            this.commandExecuting = false;
+            this.RaiseCanExecuteChanged();
         }
+
         bool ICommand.CanExecute(object parameter)
         {
-            return commandExecuting && !cts.IsCancellationRequested;
+            return this.commandExecuting && !this.cts.IsCancellationRequested;
         }
+
         void ICommand.Execute(object parameter)
         {
-            cts.Cancel();
-            RaiseCanExecuteChanged();
+            this.cts.Cancel();
+            this.RaiseCanExecuteChanged();
         }
 
         private void RaiseCanExecuteChanged()

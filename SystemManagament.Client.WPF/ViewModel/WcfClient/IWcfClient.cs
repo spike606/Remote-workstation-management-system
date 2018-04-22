@@ -12,6 +12,5 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
         Task<WindowsProcess[]> ReadWindowsProcessDynamicDataAsync();
 
         Task<HardwareStaticData> ReadHardwareStaticDataAsync();
-
     }
 }

@@ -17,20 +17,23 @@ namespace SystemManagament.Client.WPF.Extensions
 
         public void ClearAllItems()
         {
-            suppressCollectionChnagedEvent = true;
+            this.suppressCollectionChnagedEvent = true;
 
             this.Clear();
 
-            suppressCollectionChnagedEvent = false;
+            this.suppressCollectionChnagedEvent = false;
             NotifyCollectionChangedEventArgs obEvtArgs = new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, this);
             this.OnCollectionChangedMultipleItems(obEvtArgs);
         }
+
         public void RefreshRange(IList<T> list)
         {
-            if (list == null)
-                throw new ArgumentNullException("list");
+            if (list == null || list.Count == 0)
+            {
+                return;
+            }
 
-            suppressCollectionChnagedEvent = true;
+            this.suppressCollectionChnagedEvent = true;
             this.Clear();
 
             foreach (T item in list)
@@ -38,31 +41,38 @@ namespace SystemManagament.Client.WPF.Extensions
                 this.Add(item);
             }
 
-            suppressCollectionChnagedEvent = false;
+            this.suppressCollectionChnagedEvent = false;
 
-            NotifyCollectionChangedEventArgs obEvtArgs = new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add,
+            NotifyCollectionChangedEventArgs obEvtArgs = new NotifyCollectionChangedEventArgs(
+                NotifyCollectionChangedAction.Add,
                 list as System.Collections.IList);
 
-            OnCollectionChangedMultipleItems(obEvtArgs);
+            this.OnCollectionChangedMultipleItems(obEvtArgs);
         }
 
         protected override void OnCollectionChanged(NotifyCollectionChangedEventArgs e)
         {
-            if (!suppressCollectionChnagedEvent)
+            if (!this.suppressCollectionChnagedEvent)
+            {
                 base.OnCollectionChanged(e);
+            }
         }
 
         private void OnCollectionChangedMultipleItems(NotifyCollectionChangedEventArgs e)
         {
-            NotifyCollectionChangedEventHandler handlers = CollectionChanged;
+            NotifyCollectionChangedEventHandler handlers = this.CollectionChanged;
             if (handlers != null)
             {
                 foreach (NotifyCollectionChangedEventHandler handler in handlers.GetInvocationList())
                 {
                     if (handler.Target is CollectionView)
+                    {
                         ((CollectionView)handler.Target).Refresh();
+                    }
                     else
+                    {
                         handler(this, e);
+                    }
                 }
             }
         }

@@ -23,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\SystemManagamentLib\RWMSSolutionRuleSet.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -73,13 +74,12 @@
     </ApplicationDefinition>
     <Compile Include="Converters\NullToVisibilityConverter.cs" />
     <Compile Include="Extensions\ExtendedObservableCollection.cs" />
+    <Compile Include="Extensions\TaskExtension.cs" />
     <Compile Include="ViewModel\Commands\Abstract\AsyncCommandBase.cs" />
     <Compile Include="ViewModel\Commands\Abstract\IAsyncCommand.cs" />
     <Compile Include="ViewModel\Commands\Abstract\NotifyTaskCompletion.cs" />
     <Compile Include="ViewModel\Commands\AsyncCommand.cs" />
     <Compile Include="ViewModel\Commands\CancelAsyncCommand.cs" />
-    <Compile Include="ViewModel\Commands\IWindowsProcessesPeriodically.cs" />
-    <Compile Include="ViewModel\Commands\WindowsProcessesPeriodically.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="ViewModel\WcfClient\WcfClient.cs" />
@@ -211,6 +211,10 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\Newtonsoft.Json.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

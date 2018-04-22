@@ -27,14 +27,14 @@ namespace SystemManagament.Client.WPF
 
         public MainWindow()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                //creating the object of WCF service client       
+                //creating the object of WCF service client
                 //client = new WorkstationMonitorServiceClient("NetTcpBinding_IWorkstationMonitorService");
 
                 //var dynamic1 = client.ReadDiskDynamicData();
@@ -45,12 +45,10 @@ namespace SystemManagament.Client.WPF
                 //var dynamic6 = client.ReadWindowsLogDynamicData();
                 //var dynamic7 = client.ReadWindowsProcessDynamicData();
                 //var dynamic8 = client.ReadWindowsServiceDynamicData();
-                var hardwarestatic = client.ReadHardwareStaticData();
+                var hardwarestatic = this.client.ReadHardwareStaticData();
                 //var hardwaredynamic = client.ReadHardwareDynamicData();
                 //var softwareStatic = client.ReadSoftwareStaticData();
                 //var dynamicData = client.ReadSoftwareDynamicData();
-
-
                 Timer aTimer = new Timer();
                 //aTimer.Elapsed += new ElapsedEventHandler(OnTimedEventProcessor);
                 //aTimer.Elapsed += new ElapsedEventHandler(OnTimedEventProcess);
@@ -58,21 +56,16 @@ namespace SystemManagament.Client.WPF
                 aTimer.Interval = 500;
                 aTimer.Enabled = true;
                 //while (Console.Read() != 'q') ;
-
-
                 //MessageBox.Show("ok");
             }
-            catch(CommunicationException ex)
+            catch (CommunicationException ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
 
         //private void OnTimedEventProcessor(object source, ElapsedEventArgs e)
         //{
-
-
         //    var data = new WorkstationMonitorServiceClient("NetTcpBinding_IWorkstationMonitorService").ReadMemoryDynamicData();
 
         //    this.Dispatcher.Invoke(() =>
@@ -81,8 +74,6 @@ namespace SystemManagament.Client.WPF
         //        //this.textBlock1.Text += "Clock: value: " + data.First().Clock.First().MaxValue + data.First().Clock.First().Unit + "\n";
 
         //    });
-
-
         //}
     }
 }

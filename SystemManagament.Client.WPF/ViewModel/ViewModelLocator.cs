@@ -4,7 +4,6 @@
       <vm:ViewModelLocator xmlns:vm="clr-namespace:SystemManagament.Client.WPF"
                            x:Key="Locator" />
   </Application.Resources>
-  
   In the View:
   DataContext="{Binding Source={StaticResource Locator}, Path=ViewModelName}"
 
@@ -61,6 +60,7 @@ namespace SystemManagament.Client.WPF.ViewModel
                 return ServiceLocator.Current.GetInstance<WcfClient>();
             }
         }
+
         public static void Cleanup()
         {
             // TODO Clear the ViewModels

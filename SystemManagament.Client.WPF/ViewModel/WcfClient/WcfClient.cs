@@ -9,17 +9,17 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
 {
     public class WcfClient : IWcfClient
     {
-        public WorkstationMonitorServiceClient workstationMonitorServiceClient { get; set; }
+        public WorkstationMonitorServiceClient WorkstationMonitorServiceClient { get; set; }
             = new WorkstationMonitorServiceClient("NetTcpBinding_IWorkstationMonitorService");
 
         public async Task<WindowsProcess[]> ReadWindowsProcessDynamicDataAsync()
         {
-            return await workstationMonitorServiceClient.ReadWindowsProcessDynamicDataAsync();
+            return await this.WorkstationMonitorServiceClient.ReadWindowsProcessDynamicDataAsync();
         }
 
         public async Task<HardwareStaticData> ReadHardwareStaticDataAsync()
         {
-            return await workstationMonitorServiceClient.ReadHardwareStaticDataAsync();
+            return await this.WorkstationMonitorServiceClient.ReadHardwareStaticDataAsync();
         }
     }
 }

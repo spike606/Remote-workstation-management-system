@@ -14,48 +14,59 @@ namespace SystemManagament.Client.WPF.ViewModel.Commands
     public class AsyncCommand<TResult> : AsyncCommandBase, INotifyPropertyChanged
     {
         private readonly Func<CancellationToken, Task<TResult>> command;
-        private NotifyTaskCompletion<TResult> execution;
         private readonly CancelAsyncCommand cancelCommand;
+        private NotifyTaskCompletion<TResult> execution;
+
         public AsyncCommand(Func<CancellationToken, Task<TResult>> command)
         {
             this.command = command;
             this.cancelCommand = new CancelAsyncCommand();
         }
-        public override bool CanExecute(object parameter)
-        {
-            return Execution == null || Execution.IsCompleted;
-        }
-        public override async Task ExecuteAsync(object parameter)
-        {
-            this.cancelCommand.NotifyCommandStarting();
-            Execution = new NotifyTaskCompletion<TResult>(this.command(this.cancelCommand.Token));
-            RaiseCanExecuteChanged();
-            await Execution.TaskCompletion;
-            this.cancelCommand.NotifyCommandFinished();
-            RaiseCanExecuteChanged();
 
-        }
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public ICommand CancelCommand
         {
-            get { return cancelCommand; }
+            get { return this.cancelCommand; }
         }
 
         // Raises PropertyChanged
         public NotifyTaskCompletion<TResult> Execution
         {
-            get { return execution; }
+            get
+            {
+                return this.execution;
+            }
+
             private set
             {
-                execution = value;
-                OnPropertyChanged();
+                this.execution = value;
+                this.OnPropertyChanged();
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public override bool CanExecute(object parameter)
+        {
+            return this.Execution == null || this.Execution.IsCompleted;
+        }
+
+        public override async Task ExecuteAsync(object parameter)
+        {
+            this.cancelCommand.NotifyCommandStarting();
+            this.Execution = new NotifyTaskCompletion<TResult>(this.command(this.cancelCommand.Token));
+            this.RaiseCanExecuteChanged();
+            await this.Execution.TaskCompletion;
+            this.cancelCommand.NotifyCommandFinished();
+            this.RaiseCanExecuteChanged();
+        }
+
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChangedEventHandler handler = this.PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
     }
 }
