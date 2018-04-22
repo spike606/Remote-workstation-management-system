@@ -3,10 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SystemManagament.Client.WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525"
+        Title="MainWindow" Height="550" Width="725"
+        xmlns:converters="clr-namespace:SystemManagament.Client.WPF.Converters"
         DataContext="{Binding Source={StaticResource Locator}, Path=Main}">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <converters:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
+    </Window.Resources>
     <!--<Grid>
         <Button Content="Button" HorizontalAlignment="Left" Margin="21,20,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
         <ScrollViewer HorizontalAlignment="Left" Height="262" Margin="139,29,0,0" VerticalAlignment="Top" Width="368">
@@ -14,6 +18,7 @@
         </ScrollViewer>
 
     </Grid>-->
+   
     <Grid x:Name="LayoutRoot">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -30,23 +35,62 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <Button Content="Load data" Command="{Binding LoadDataCommand}"
-                    HorizontalAlignment="Stretch" />
-            <Button Content="Clear data" Command="{Binding ClearDataCommand}"
-                    HorizontalAlignment="Stretch" Grid.Row="1" />
+            <Button Content="Load process dynamic" Command="{Binding LoadWindowsProcessDynamicDataCommand}"
+                    HorizontalAlignment="Stretch" Grid.Row="0"/>
+            <Button Command="{Binding LoadWindowsProcessDynamicDataCommand.CancelCommand}" Content="Cancel" Grid.Row="1"/>
+            <Button Content="Load memory static" Command="{Binding LoadHardwareStaticDataCommand}"
+                    HorizontalAlignment="Stretch" Grid.Row="2" />
+            <Button Command="{Binding LoadHardwareStaticDataCommand.CancelCommand}" Content="Cancel" Grid.Row="3"/>
 
-            <ListView ItemsSource="{Binding Items}" Grid.Row="2">
+            <Button Content="Clear data" Command="{Binding ClearDataCommand}"
+                    HorizontalAlignment="Stretch" Grid.Row="4" />
+
+            <ListView ItemsSource="{Binding Items}" Grid.Row="5">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Margin="0,0,0,27.5">
-                            <TextBlock Text="{Binding}"/>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Name}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+
+            <ListView ItemsSource="{Binding MemoryItems}" Grid.Row="6">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Manufacturer}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Grid Visibility="{Binding LoadHardwareStaticDataCommand.Execution,
+    Converter={StaticResource NullToVisibilityConverter}}">
+                <!--Busy indicator-->
+                <Label Content="Loading..."
+      Visibility="{Binding LoadHardwareStaticDataCommand.Execution.IsNotCompleted,
+      Converter={StaticResource BooleanToVisibilityConverter}}" Foreground="Yellow"/>
+                <!--Results-->
+                <Label Content="{Binding LoadHardwareStaticDataCommand.Execution.Result}"
+      Visibility="{Binding LoadHardwareStaticDataCommand.Execution.IsSuccessfullyCompleted,
+      Converter={StaticResource BooleanToVisibilityConverter}}" Foreground="Black"/>
+                <!--Error details-->
+                <Label Content="{Binding LoadHardwareStaticDataCommand.Execution.ErrorMessage}"
+      Visibility="{Binding LoadHardwareStaticDataCommand.Execution.IsFaulted,
+      Converter={StaticResource BooleanToVisibilityConverter}}" Foreground="Red" />
+                <!--Canceled-->
+                <Label Content="Canceled"
+      Visibility="{Binding LoadHardwareStaticDataCommand.Execution.IsCanceled,
+      Converter={StaticResource BooleanToVisibilityConverter}}" Foreground="Blue" />
+            </Grid>
         </Grid>
     </Grid>
 </Window>

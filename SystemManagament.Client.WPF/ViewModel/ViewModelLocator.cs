@@ -15,6 +15,7 @@
 using CommonServiceLocator;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
+using SystemManagament.Client.WPF.ViewModel.Wcf;
 
 namespace SystemManagament.Client.WPF.ViewModel
 {
@@ -41,8 +42,8 @@ namespace SystemManagament.Client.WPF.ViewModel
             ////    // Create run time view services and models
             ////    SimpleIoc.Default.Register<IDataService, DataService>();
             ////}
-
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<IWcfClient, WcfClient>();
         }
 
         public MainViewModel Main
@@ -52,7 +53,14 @@ namespace SystemManagament.Client.WPF.ViewModel
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
             }
         }
-        
+
+        public WcfClient WcfClient
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<WcfClient>();
+            }
+        }
         public static void Cleanup()
         {
             // TODO Clear the ViewModels

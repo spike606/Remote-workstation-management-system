@@ -1,8 +1,16 @@
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using SystemManagament.Client.WPF.Extensions;
+using SystemManagament.Client.WPF.ViewModel.Commands;
+using SystemManagament.Client.WPF.ViewModel.Commands.Abstract;
+using SystemManagament.Client.WPF.ViewModel.Wcf;
 using SystemManagament.Client.WPF.WorkstationMonitorServiceReference;
 
 namespace SystemManagament.Client.WPF.ViewModel
@@ -21,29 +29,63 @@ namespace SystemManagament.Client.WPF.ViewModel
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
-        private ObservableCollection<string> items = null;
+        private ExtendedObservableCollection<WindowsProcess> items = null;
+        private ExtendedObservableCollection<Memory> memoryItems = null;
+
+        private IWcfClient wcfClient;
 
 
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
-        public MainViewModel()
+        public MainViewModel(IWcfClient wcfClient)
         {
-            this.LoadDataCommand = new RelayCommand(LoadData);
+            //this.LoadDataCommand = new RelayCommand(LoadData);
             this.ClearDataCommand = new RelayCommand(ClearData);
-            this.items = new ObservableCollection<string>();
+            this.items = new ExtendedObservableCollection<WindowsProcess>();
+            this.memoryItems = new ExtendedObservableCollection<Memory>();
+            this.wcfClient = wcfClient;
+
+            LoadWindowsProcessDynamicDataCommand = new AsyncCommand<WindowsProcess[]>(async (cancellationToken) =>
+            {
+                var result = await wcfClient.ReadWindowsProcessDynamicDataAsync();
+                this.Items.RefreshRange(result);
+
+                return result;
+            });
+
+            LoadHardwareStaticDataCommand = new AsyncCommand<HardwareStaticData>(async (cancellationToken) =>
+            {
+                // CANCEL EXAMPLE
+                //await Task.Delay(TimeSpan.FromSeconds(3), cancellationToken).ConfigureAwait(false);
+                //var client = new HttpClient();
+                //using (var response = await client.GetAsync("www.google.com", cancellationToken).ConfigureAwait(false))
+                //{
+                //    var data = await response.Content.ReadAsByteArrayAsync().ConfigureAwait(false);
+
+                //}
+
+                var result = await wcfClient.ReadHardwareStaticDataAsync();
+                this.MemoryItems.RefreshRange(result.Memory);
+
+                return new HardwareStaticData();
+            });
         }
 
-            ////if (IsInDesignMode)
-            ////{
-            ////    // Code runs in Blend --> create design time data.
-            ////}
-            ////else
-            ////{
-            ////    // Code runs "for real"
-            ////}
+        ////if (IsInDesignMode)
+        ////{
+        ////    // Code runs in Blend --> create design time data.
+        ////}
+        ////else
+        ////{
+        ////    // Code runs "for real"
+        ////}
 
-        public ObservableCollection<string> Items
+        public IAsyncCommand LoadWindowsProcessDynamicDataCommand { get; private set; }
+
+        public IAsyncCommand LoadHardwareStaticDataCommand { get; private set; }
+
+        public ExtendedObservableCollection<WindowsProcess> Items
         {
             get
             {
@@ -55,10 +97,16 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
-        public ICommand LoadDataCommand
+        public ExtendedObservableCollection<Memory> MemoryItems
         {
-            get;
-            private set;
+            get
+            {
+                return memoryItems;
+            }
+            private set
+            {
+                Set(() => MemoryItems, ref memoryItems, value);
+            }
         }
 
         public ICommand ClearDataCommand
@@ -67,20 +115,10 @@ namespace SystemManagament.Client.WPF.ViewModel
             private set;
         }
 
-        private async void LoadData()
-        {
-            var client = new WorkstationMonitorServiceClient("NetTcpBinding_IWorkstationMonitorService");
-            var processes = await client.ReadWindowsProcessDynamicDataAsync();
-            for (int i = 1; i <= 10; ++i)
-            {
-                // only insertion/deletion/moving fires up OnPropertyChanged from INotifyPropertyChanged interface
-                this.items.Add(processes[i].Name);
-            };
-        }
-
         private void ClearData()
         {
-            this.items.Clear();
+            this.items.ClearAllItems();
+            this.memoryItems.ClearAllItems();
         }
     }
 }
