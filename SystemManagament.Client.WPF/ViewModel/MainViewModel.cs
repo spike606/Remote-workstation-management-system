@@ -31,91 +31,20 @@ namespace SystemManagament.Client.WPF.ViewModel
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
-        private ExtendedObservableCollection<WindowsProcess> items = null;
-        private ExtendedObservableCollection<Memory> memoryItems = null;
-        private ExtendedObservableCollection<ProcessorDynamic> processorItems = null;
+        private ExtendedObservableCollection<WindowsProcess> items = new ExtendedObservableCollection<WindowsProcess>();
+        private ExtendedObservableCollection<Memory> memoryItems = new ExtendedObservableCollection<Memory>();
+        private ExtendedObservableCollection<ProcessorDynamic> processorItems = new ExtendedObservableCollection<ProcessorDynamic>();
 
         private IWcfClient wcfClient;
+        private ICommandFactory commandFactory;
 
-        /// <summary>
-        /// Initializes a new instance of the MainViewModel class.
-        /// </summary>
-        public MainViewModel(IWcfClient wcfClient)
+        public MainViewModel(IWcfClient wcfClient, ICommandFactory commandFactory)
         {
-            //this.LoadDataCommand = new RelayCommand(LoadData);
-            this.ClearDataCommand = new RelayCommand(this.ClearData);
-            this.items = new ExtendedObservableCollection<WindowsProcess>();
-            this.memoryItems = new ExtendedObservableCollection<Memory>();
-            this.processorItems = new ExtendedObservableCollection<ProcessorDynamic>();
             this.wcfClient = wcfClient;
+            this.commandFactory = commandFactory;
 
-            this.LoadWindowsProcessDynamicDataCommand = new AsyncCommand<WindowsProcess[]>(async (cancellationToken) =>
-            {
-                return await Task.Run(async () =>
-                 {
-                     var result = await wcfClient.ReadWindowsProcessDynamicDataAsync()
-                     .WithCancellation(cancellationToken)
-                     // Following statements will be processed in the same thread, won't use caught context (UI)
-                     .ConfigureAwait(false);
-
-                     this.Items.RefreshRange(result);
-                     return result;
-                 });
-
-            });
-
-            this.LoadHardwareStaticDataCommand = new AsyncCommand<HardwareStaticData>(async (cancellationToken) =>
-            {
-                // CANCEL EXAMPLE
-                //await Task.Delay(TimeSpan.FromSeconds(3), cancellationToken).ConfigureAwait(false);
-                //var client = new HttpClient();
-                //using (var response = await client.GetAsync("www.google.com", cancellationToken).ConfigureAwait(false))
-                //{
-                //    var data = await response.Content.ReadAsByteArrayAsync().ConfigureAwait(false);
-
-                //}
-                var result = await wcfClient.ReadHardwareStaticDataAsync()
-                .WithCancellation(cancellationToken)
-                // Following statements will be processed in the same thread, won't use caught context (UI)
-                .ConfigureAwait(false);
-
-                this.MemoryItems.RefreshRange(result.Memory);
-
-                return result;
-            });
-
-            this.LoadProcessorDynamicDataCommand = new AsyncCommand<bool>(async (cancellationToken) =>
-            {
-                return await Task.Run(async () =>
-                {
-                    // Set the task.
-                    var neverEndingTask = new TPLFactory().CreateNeverEndingTask(
-                        (now, ct) => wcfClient.ReadProcessorDynamicDataAsync(this.ProcessorItems).WithCancellation(ct),
-                        cancellationToken);
-
-                    // Start the task.  Post the time.
-                    var result = neverEndingTask.Post(DateTimeOffset.Now);
-
-                    // if cancel was not requested task is still ongoing
-                    while (!cancellationToken.IsCancellationRequested)
-                    {
-                        await Task.Delay(1000);
-                    }
-
-                    return result;
-                });
-
-            });
+            this.InitializeCommands();
         }
-
-        ////if (IsInDesignMode)
-        ////{
-        ////    // Code runs in Blend --> create design time data.
-        ////}
-        ////else
-        ////{
-        ////    // Code runs "for real"
-        ////}
 
         public IAsyncCommand LoadWindowsProcessDynamicDataCommand { get; private set; }
 
@@ -167,6 +96,27 @@ namespace SystemManagament.Client.WPF.ViewModel
             get;
             private set;
         }
+
+        /// <summary>
+        /// Initializes a new instance of the MainViewModel class.
+        /// </summary>
+
+        private void InitializeCommands()
+        {
+            this.ClearDataCommand = this.commandFactory.CreateClearDataCommand(this.ClearData);
+            this.LoadWindowsProcessDynamicDataCommand = this.commandFactory.CreateWindowsProcessDynamicDataCommand(this.Items);
+            this.LoadHardwareStaticDataCommand = this.commandFactory.CreateHardwareStaticDataCommand(this.MemoryItems);
+            this.LoadProcessorDynamicDataCommand = this.commandFactory.CreateProcessorDynamicDataCommand(this.ProcessorItems);
+        }
+
+        ////if (IsInDesignMode)
+        ////{
+        ////    // Code runs in Blend --> create design time data.
+        ////}
+        ////else
+        ////{
+        ////    // Code runs "for real"
+        ////}
 
         private void ClearData()
         {

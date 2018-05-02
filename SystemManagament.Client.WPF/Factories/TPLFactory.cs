@@ -9,8 +9,10 @@ using SystemManagament.Client.WPF.Extensions;
 
 namespace SystemManagament.Client.WPF.Factories
 {
-    public class TPLFactory
+    public class TPLFactory : ITPLFactory
     {
+        private readonly int betweenCallsDelayInSeconds = 2;
+
         public ITargetBlock<DateTimeOffset> CreateNeverEndingTask(
             Func<DateTimeOffset, CancellationToken, Task> action,
             CancellationToken cancellationToken)
@@ -25,14 +27,13 @@ namespace SystemManagament.Client.WPF.Factories
             ActionBlock<DateTimeOffset> block = null;
 
             // Create the block, it will call itself, so
-            // you need to separate the declaration and
-            // the assignment.
-            // Async so you can wait easily when the
+            // declaration and assignment are separated
+            // Async so we can wait easily when the
             // delay comes.
             block = new ActionBlock<DateTimeOffset>(
                 async now =>
                 {
-                    // Perform the action.  Wait on the result.
+                    // Perform the action. Wait on the result.
                     await action(now, cancellationToken).
                         // Doing this here because synchronization context more than
                         // likely *doesn't* need to be captured for the continuation
@@ -41,7 +42,7 @@ namespace SystemManagament.Client.WPF.Factories
                         ConfigureAwait(false);
 
                     // Wait.
-                    await Task.Delay(TimeSpan.FromSeconds(2), cancellationToken).
+                    await Task.Delay(TimeSpan.FromSeconds(this.betweenCallsDelayInSeconds), cancellationToken).
                         // Same as above.
                         ConfigureAwait(false);
 
@@ -49,7 +50,6 @@ namespace SystemManagament.Client.WPF.Factories
                     block.Post(DateTimeOffset.Now);
                 }, new ExecutionDataflowBlockOptions { CancellationToken = cancellationToken });
 
-            // Return the block.
             return block;
         }
     }

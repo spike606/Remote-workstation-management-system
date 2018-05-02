@@ -14,6 +14,7 @@
 using CommonServiceLocator;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
+using SystemManagament.Client.WPF.Factories;
 using SystemManagament.Client.WPF.ViewModel.Wcf;
 
 namespace SystemManagament.Client.WPF.ViewModel
@@ -43,6 +44,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             ////}
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<IWcfClient, WcfClient>();
+            SimpleIoc.Default.Register<ICommandFactory, CommandFactory>();
         }
 
         public MainViewModel Main

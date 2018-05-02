@@ -79,6 +79,9 @@
     <Compile Include="Converters\NullToVisibilityConverter.cs" />
     <Compile Include="Extensions\ExtendedObservableCollection.cs" />
     <Compile Include="Extensions\TaskExtension.cs" />
+    <Compile Include="Factories\CommandFactory.cs" />
+    <Compile Include="Factories\ICommandFactory.cs" />
+    <Compile Include="Factories\ITPLFactory.cs" />
     <Compile Include="Factories\TPLFactory.cs" />
     <Compile Include="ViewModel\Commands\Abstract\AsyncCommandBase.cs" />
     <Compile Include="ViewModel\Commands\Abstract\IAsyncCommand.cs" />
