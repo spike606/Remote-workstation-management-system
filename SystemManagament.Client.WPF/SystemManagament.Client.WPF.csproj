@@ -83,6 +83,10 @@
     <Compile Include="Factories\ICommandFactory.cs" />
     <Compile Include="Factories\ITPLFactory.cs" />
     <Compile Include="Factories\TPLFactory.cs" />
+    <Compile Include="ViewModel\WorkStationViewModel.cs" />
+    <Compile Include="WorkStationTabView.xaml.cs">
+      <DependentUpon>WorkStationTabView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\Commands\Abstract\AsyncCommandBase.cs" />
     <Compile Include="ViewModel\Commands\Abstract\IAsyncCommand.cs" />
     <Compile Include="ViewModel\Commands\Abstract\NotifyTaskCompletion.cs" />
@@ -92,6 +96,10 @@
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="ViewModel\WcfClient\WcfClient.cs" />
     <Compile Include="ViewModel\WcfClient\IWcfClient.cs" />
+    <Page Include="WorkStationTabView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
