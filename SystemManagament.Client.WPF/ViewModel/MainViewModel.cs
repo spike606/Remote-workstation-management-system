@@ -4,10 +4,12 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Threading.Tasks.Dataflow;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using SystemManagament.Client.WPF.Extensions;
+using SystemManagament.Client.WPF.Factories;
 using SystemManagament.Client.WPF.ViewModel.Commands;
 using SystemManagament.Client.WPF.ViewModel.Commands.Abstract;
 using SystemManagament.Client.WPF.ViewModel.Wcf;
@@ -31,6 +33,7 @@ namespace SystemManagament.Client.WPF.ViewModel
     {
         private ExtendedObservableCollection<WindowsProcess> items = null;
         private ExtendedObservableCollection<Memory> memoryItems = null;
+        private ExtendedObservableCollection<ProcessorDynamic> processorItems = null;
 
         private IWcfClient wcfClient;
 
@@ -43,6 +46,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             this.ClearDataCommand = new RelayCommand(this.ClearData);
             this.items = new ExtendedObservableCollection<WindowsProcess>();
             this.memoryItems = new ExtendedObservableCollection<Memory>();
+            this.processorItems = new ExtendedObservableCollection<ProcessorDynamic>();
             this.wcfClient = wcfClient;
 
             this.LoadWindowsProcessDynamicDataCommand = new AsyncCommand<WindowsProcess[]>(async (cancellationToken) =>
@@ -77,7 +81,30 @@ namespace SystemManagament.Client.WPF.ViewModel
 
                 this.MemoryItems.RefreshRange(result.Memory);
 
-                return new HardwareStaticData();
+                return result;
+            });
+
+            this.LoadProcessorDynamicDataCommand = new AsyncCommand<bool>(async (cancellationToken) =>
+            {
+                return await Task.Run(async () =>
+                {
+                    // Set the task.
+                    var neverEndingTask = new TPLFactory().CreateNeverEndingTask(
+                        (now, ct) => wcfClient.ReadProcessorDynamicDataAsync(this.ProcessorItems).WithCancellation(ct),
+                        cancellationToken);
+
+                    // Start the task.  Post the time.
+                    var result = neverEndingTask.Post(DateTimeOffset.Now);
+
+                    // if cancel was not requested task is still ongoing
+                    while (!cancellationToken.IsCancellationRequested)
+                    {
+                        await Task.Delay(1000);
+                    }
+
+                    return result;
+                });
+
             });
         }
 
@@ -93,6 +120,8 @@ namespace SystemManagament.Client.WPF.ViewModel
         public IAsyncCommand LoadWindowsProcessDynamicDataCommand { get; private set; }
 
         public IAsyncCommand LoadHardwareStaticDataCommand { get; private set; }
+
+        public IAsyncCommand LoadProcessorDynamicDataCommand { get; private set; }
 
         public ExtendedObservableCollection<WindowsProcess> Items
         {
@@ -117,6 +146,19 @@ namespace SystemManagament.Client.WPF.ViewModel
             private set
             {
                 this.Set(() => this.MemoryItems, ref this.memoryItems, value);
+            }
+        }
+
+        public ExtendedObservableCollection<ProcessorDynamic> ProcessorItems
+        {
+            get
+            {
+                return this.processorItems;
+            }
+
+            private set
+            {
+                this.Set(() => this.ProcessorItems, ref this.processorItems, value);
             }
         }
 

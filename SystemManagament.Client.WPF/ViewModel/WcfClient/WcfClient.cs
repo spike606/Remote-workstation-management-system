@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SystemManagament.Client.WPF.Extensions;
 using SystemManagament.Client.WPF.WorkstationMonitorServiceReference;
 
 namespace SystemManagament.Client.WPF.ViewModel.Wcf
@@ -20,6 +21,14 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
         public async Task<HardwareStaticData> ReadHardwareStaticDataAsync()
         {
             return await this.WorkstationMonitorServiceClient.ReadHardwareStaticDataAsync();
+        }
+
+        public async Task<ProcessorDynamic[]> ReadProcessorDynamicDataAsync(ExtendedObservableCollection<ProcessorDynamic> extendedObservableCollection)
+        {
+            var result = await this.WorkstationMonitorServiceClient.ReadProcessorDynamicDataAsync();
+            extendedObservableCollection.RefreshRange(result);
+
+            return result;
         }
     }
 }

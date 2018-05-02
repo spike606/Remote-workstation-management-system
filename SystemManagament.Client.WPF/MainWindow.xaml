@@ -38,21 +38,26 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-
-            <Button Content="Load process dynamic" Command="{Binding LoadWindowsProcessDynamicDataCommand}"
+            <Button Content="Load processor dynamic" Command="{Binding LoadProcessorDynamicDataCommand}"
                     HorizontalAlignment="Stretch" Grid.Row="0"/>
-            <Button Command="{Binding LoadWindowsProcessDynamicDataCommand.CancelCommand}" Content="Cancel" Grid.Row="1"/>
+            <Button Command="{Binding LoadProcessorDynamicDataCommand.CancelCommand}" Content="Cancel" Grid.Row="1"/>
+            <Button Content="Load process dynamic" Command="{Binding LoadWindowsProcessDynamicDataCommand}"
+                    HorizontalAlignment="Stretch" Grid.Row="2"/>
+            <Button Command="{Binding LoadWindowsProcessDynamicDataCommand.CancelCommand}" Content="Cancel" Grid.Row="3"/>
             <Button Content="Load memory static" Command="{Binding LoadHardwareStaticDataCommand}"
-                    HorizontalAlignment="Stretch" Grid.Row="2" />
-            <Button Command="{Binding LoadHardwareStaticDataCommand.CancelCommand}" Content="Cancel" Grid.Row="3"/>
+                    HorizontalAlignment="Stretch" Grid.Row="4" />
+            <Button Command="{Binding LoadHardwareStaticDataCommand.CancelCommand}" Content="Cancel" Grid.Row="5"/>
 
             <Button Content="Clear data" Command="{Binding ClearDataCommand}"
-                    HorizontalAlignment="Stretch" Grid.Row="4" />
+                    HorizontalAlignment="Stretch" Grid.Row="6" />
 
-            <ListView ItemsSource="{Binding Items}" Grid.Row="5">
+            <ListView ItemsSource="{Binding Items}" Grid.Row="7">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
@@ -62,7 +67,7 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-            <ListView ItemsSource="{Binding MemoryItems}" Grid.Row="6">
+            <ListView ItemsSource="{Binding MemoryItems}" Grid.Row="8">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
@@ -72,6 +77,22 @@
                 </ListView.ItemTemplate>
             </ListView>
 
+            <ListView ItemsSource="{Binding ProcessorItems}" Grid.Row="9">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ListView ItemsSource="{Binding Load}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Value}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
             <Grid Visibility="{Binding LoadHardwareStaticDataCommand.Execution,
     Converter={StaticResource NullToVisibilityConverter}}">
                 <!--Busy indicator-->
