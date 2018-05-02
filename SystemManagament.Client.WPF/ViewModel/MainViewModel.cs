@@ -47,11 +47,17 @@ namespace SystemManagament.Client.WPF.ViewModel
 
             this.LoadWindowsProcessDynamicDataCommand = new AsyncCommand<WindowsProcess[]>(async (cancellationToken) =>
             {
-                var result = await wcfClient.ReadWindowsProcessDynamicDataAsync().WithCancellation(cancellationToken);
+                return await Task.Run(async () =>
+                 {
+                     var result = await wcfClient.ReadWindowsProcessDynamicDataAsync()
+                     .WithCancellation(cancellationToken)
+                     // Following statements will be processed in the same thread, won't use caught context (UI)
+                     .ConfigureAwait(false);
 
-                this.Items.RefreshRange(result);
+                     this.Items.RefreshRange(result);
+                     return result;
+                 });
 
-                return result;
             });
 
             this.LoadHardwareStaticDataCommand = new AsyncCommand<HardwareStaticData>(async (cancellationToken) =>
@@ -64,7 +70,11 @@ namespace SystemManagament.Client.WPF.ViewModel
                 //    var data = await response.Content.ReadAsByteArrayAsync().ConfigureAwait(false);
 
                 //}
-                var result = await wcfClient.ReadHardwareStaticDataAsync().WithCancellation(cancellationToken);
+                var result = await wcfClient.ReadHardwareStaticDataAsync()
+                .WithCancellation(cancellationToken)
+                // Following statements will be processed in the same thread, won't use caught context (UI)
+                .ConfigureAwait(false);
+
                 this.MemoryItems.RefreshRange(result.Memory);
 
                 return new HardwareStaticData();

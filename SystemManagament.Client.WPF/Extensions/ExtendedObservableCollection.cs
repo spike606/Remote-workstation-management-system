@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
+using System.Windows.Threading;
 
 namespace SystemManagament.Client.WPF.Extensions
 {
@@ -46,7 +47,6 @@ namespace SystemManagament.Client.WPF.Extensions
             NotifyCollectionChangedEventArgs obEvtArgs = new NotifyCollectionChangedEventArgs(
                 NotifyCollectionChangedAction.Add,
                 list as System.Collections.IList);
-
             this.OnCollectionChangedMultipleItems(obEvtArgs);
         }
 
@@ -67,7 +67,11 @@ namespace SystemManagament.Client.WPF.Extensions
                 {
                     if (handler.Target is CollectionView)
                     {
-                        ((CollectionView)handler.Target).Refresh();
+                        // Use dispatcher because currently running method won't be executed on the UI thread
+                        App.Current.Dispatcher.Invoke(() =>
+                        {
+                            ((CollectionView)handler.Target).Refresh();
+                        });
                     }
                     else
                     {
