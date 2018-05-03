@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Threading.Tasks.Dataflow;
+using System.Windows;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
@@ -47,6 +48,8 @@ namespace SystemManagament.Client.WPF.ViewModel
 
         public ICommand NewTab { get; private set; }
 
+        public ICommand Exit { get; private set; }
+
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
@@ -54,6 +57,8 @@ namespace SystemManagament.Client.WPF.ViewModel
         private void InitializeCommands()
         {
             this.NewTab = new RelayCommand(this.CreateNewTab);
+            this.Exit = new RelayCommand(this.CloseApplication);
+
         }
 
         public ObservableCollection<WorkStationViewModel> ViewModelTabs
@@ -82,6 +87,11 @@ namespace SystemManagament.Client.WPF.ViewModel
         {
             this.ViewModelTabs.Add(
                 new WorkStationViewModel(SimpleIoc.Default.GetInstance<IWcfClient>(), SimpleIoc.Default.GetInstance<ICommandFactory>()));
+        }
+
+        private void CloseApplication()
+        {
+            Application.Current.Shutdown();
         }
     }
 }
