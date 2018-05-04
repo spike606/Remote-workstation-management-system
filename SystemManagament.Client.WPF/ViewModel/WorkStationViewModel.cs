@@ -22,6 +22,10 @@ namespace SystemManagament.Client.WPF.ViewModel
         private ExtendedObservableCollection<Memory> memoryItems = new ExtendedObservableCollection<Memory>();
         private ExtendedObservableCollection<ProcessorDynamic> processorItems = new ExtendedObservableCollection<ProcessorDynamic>();
 
+        private ExtendedObservableCollection<CurrentUser> currentUser = new ExtendedObservableCollection<CurrentUser>();
+        private ExtendedObservableCollection<ClaimDuplicate> currentUserClaims = new ExtendedObservableCollection<ClaimDuplicate>();
+        private ExtendedObservableCollection<GroupDuplicate> currentUserGroups = new ExtendedObservableCollection<GroupDuplicate>();
+
         public WorkStationViewModel(IWcfClient wcfClient, ICommandFactory commandFactory)
         {
             this.wcfClient = wcfClient;
@@ -35,6 +39,8 @@ namespace SystemManagament.Client.WPF.ViewModel
         public IAsyncCommand LoadHardwareStaticDataCommand { get; private set; }
 
         public IAsyncCommand LoadProcessorDynamicDataCommand { get; private set; }
+
+        public IAsyncCommand LoadSoftwareStaticDataCommand { get; private set; }
 
         public ICommand ClearDataCommand { get; private set; }
 
@@ -77,12 +83,52 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
+        public ExtendedObservableCollection<CurrentUser> CurrentUser
+        {
+            get
+            {
+                return this.currentUser;
+            }
+
+            private set
+            {
+                this.Set(() => this.CurrentUser, ref this.currentUser, value);
+            }
+        }
+
+        public ExtendedObservableCollection<ClaimDuplicate> CurrentUserClaims
+        {
+            get
+            {
+                return this.currentUserClaims;
+            }
+
+            private set
+            {
+                this.Set(() => this.CurrentUserClaims, ref this.currentUserClaims, value);
+            }
+        }
+
+        public ExtendedObservableCollection<GroupDuplicate> CurrentUserGroups
+        {
+            get
+            {
+                return this.currentUserGroups;
+            }
+
+            private set
+            {
+                this.Set(() => this.CurrentUserGroups, ref this.currentUserGroups, value);
+            }
+        }
+
         private void InitializeCommands()
         {
             this.ClearDataCommand = this.commandFactory.CreateClearDataCommand(this.ClearData);
             this.LoadWindowsProcessDynamicDataCommand = this.commandFactory.CreateWindowsProcessDynamicDataCommand(this.Items);
             this.LoadHardwareStaticDataCommand = this.commandFactory.CreateHardwareStaticDataCommand(this.MemoryItems);
             this.LoadProcessorDynamicDataCommand = this.commandFactory.CreateProcessorDynamicDataCommand(this.ProcessorItems);
+            this.LoadSoftwareStaticDataCommand = this.commandFactory.CreateSoftwareStaticDataCommand(this.CurrentUser, this.CurrentUserClaims, this.CurrentUserGroups);
         }
 
         private void ClearData()

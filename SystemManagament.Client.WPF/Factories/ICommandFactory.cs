@@ -18,6 +18,8 @@ namespace SystemManagament.Client.WPF.Factories
 
         IAsyncCommand CreateProcessorDynamicDataCommand(ExtendedObservableCollection<ProcessorDynamic> processorDynamic);
 
+        IAsyncCommand CreateSoftwareStaticDataCommand(ExtendedObservableCollection<CurrentUser> currentUser, ExtendedObservableCollection<ClaimDuplicate> currentUserClaims, ExtendedObservableCollection<GroupDuplicate> currentUserGroups);
+
         ICommand CreateClearDataCommand(Action clearData);
     }
 }

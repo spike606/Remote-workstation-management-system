@@ -30,5 +30,10 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
 
             return result;
         }
+
+        public async Task<SoftwareStaticData> ReadSoftwareStaticDataAsync()
+        {
+            return await this.WorkstationMonitorServiceClient.ReadSoftwareStaticDataAsync();
+        }
     }
 }

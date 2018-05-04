@@ -86,5 +86,28 @@ namespace SystemManagament.Client.WPF.Factories
                 });
             });
         }
+
+        public IAsyncCommand CreateSoftwareStaticDataCommand(
+            ExtendedObservableCollection<CurrentUser> currentUser,
+            ExtendedObservableCollection<ClaimDuplicate> currentUserClaims,
+            ExtendedObservableCollection<GroupDuplicate> currentUserGroups)
+        {
+            return new AsyncCommand<SoftwareStaticData>(async (cancellationToken) =>
+            {
+                return await Task.Run(async () =>
+                {
+                    var result = await this.wcfClient.ReadSoftwareStaticDataAsync()
+                    .WithCancellation(cancellationToken)
+                    // Following statements will be processed in the same thread, won't use caught context (UI)
+                    .ConfigureAwait(false);
+
+                    currentUser.RefreshRange(result.CurrentUser);
+                    currentUserClaims.RefreshRange(result.CurrentUser.First().Claims);
+                    currentUserGroups.RefreshRange(result.CurrentUser.First().Groups);
+
+                    return result;
+                });
+            });
+        }
     }
 }

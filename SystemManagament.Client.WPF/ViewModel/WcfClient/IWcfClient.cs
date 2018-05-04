@@ -15,5 +15,7 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
         Task<HardwareStaticData> ReadHardwareStaticDataAsync();
 
         Task<ProcessorDynamic[]> ReadProcessorDynamicDataAsync(ExtendedObservableCollection<ProcessorDynamic> extendedObservableCollection);
+
+        Task<SoftwareStaticData> ReadSoftwareStaticDataAsync();
     }
 }
