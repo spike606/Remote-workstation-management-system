@@ -12,6 +12,7 @@
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
         <converters:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
+        <converters:UnitValueToStringConverter x:Key="UnitValueToStringConverter"/>
     </UserControl.Resources>
     <Grid>
         <TabControl TabStripPlacement="Left">
@@ -176,7 +177,89 @@
 
                                 </Expander.Content>
                             </Expander>
-                            
+                            <Expander>
+                                <Expander.Header>
+                                    <TextBlock Text="Operating System" FontWeight="Bold" FontSize="15"/>
+                                </Expander.Header>
+                                <Expander.Style>
+                                    <Style TargetType="Expander">
+                                        <Setter Property="IsExpanded" Value="True" />
+                                    </Style>
+                                </Expander.Style>
+                                <Expander.Content>
+                                    <StackPanel Margin="10,4,0,0">
+                                        <Label FontFamily = "Verdana" Content="Basic OS Info" FontSize="12" FontWeight="Bold"/>
+                                        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding OperatingSystem}" ColumnWidth="*">
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
+                                                <DataGridTextColumn Header="Organization" Binding="{Binding Organization}" />
+                                                <DataGridTextColumn Header="OS Architecture" Binding="{Binding OSArchitecture}" />
+                                                <DataGridTextColumn Header="Version" Binding="{Binding Version}" />
+                                                <DataGridTextColumn Header="Build Number" Binding="{Binding BuildNumber}" />
+                                                <DataGridTextColumn Header="Build Type" Binding="{Binding BuildType}" />
+                                                <DataGridTextColumn Header="Serial Number" Binding="{Binding SerialNumber}" />
+                                                <DataGridTextColumn Header="Service Pack Major Version" Binding="{Binding ServicePackMajorVersion}" />
+                                                <DataGridTextColumn Header="Service Pack Minor Version" Binding="{Binding ServicePackMinorVersion}" />
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                        <Label FontFamily = "Verdana" Content="Additional OS Info" FontSize="12" FontWeight="Bold"/>
+                                        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding OperatingSystem}" ColumnWidth="*">
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="CurrentTimeZone" Binding="{Binding CurrentTimeZone, Converter={StaticResource UnitValueToStringConverter}}" />
+                                                <DataGridTextColumn Header="Local DateTime" Binding="{Binding LocalDateTime}" />
+                                                <DataGridTextColumn Header="Locale" Binding="{Binding Locale}" />
+                                                <DataGridTextColumn Header="Country Code" Binding="{Binding CountryCode}" />
+                                                <DataGridTextColumn Header="Install Date" Binding="{Binding InstallDate}" />
+                                                <DataGridTextColumn Header="Last Boot Up Time" Binding="{Binding LastBootUpTime}" />
+                                                <DataGridTextColumn Header="System Directory" Binding="{Binding SystemDirectory}" />
+                                                <DataGridTextColumn Header="System Drive" Binding="{Binding SystemDrive}" />
+                                                <DataGridTextColumn Header="Windows Directory" Binding="{Binding WindowsDirectory}" />
+                                                <DataGridTextColumn Header="Max Numer Of Processes" Binding="{Binding MaxNumerOfProcesses}" />
+                                                <DataGridTextColumn Header="Max Process Memory Size" Binding="{Binding MaxProcessMemorySize, Converter={StaticResource UnitValueToStringConverter}}" />
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                    </StackPanel>
+
+                                </Expander.Content>
+                            </Expander>
+                            <Expander>
+                                <Expander.Header>
+                                    <TextBlock Text="BIOS" FontWeight="Bold" FontSize="15"/>
+                                </Expander.Header>
+                                <Expander.Style>
+                                    <Style TargetType="Expander">
+                                        <Setter Property="IsExpanded" Value="True" />
+                                    </Style>
+                                </Expander.Style>
+                                <Expander.Content>
+                                    <StackPanel Margin="10,4,0,0">
+                                        <Label FontFamily = "Verdana" Content="Basic BIOS Info" FontSize="12" FontWeight="Bold"/>
+                                        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Bios}" ColumnWidth="*">
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
+                                                <DataGridTextColumn Header="Manufacturer" Binding="{Binding Manufacturer}" />
+                                                <DataGridTextColumn Header="Build Number" Binding="{Binding BuildNumber}" />
+                                                <DataGridTextColumn Header="Release Date" Binding="{Binding ReleaseDate}" />
+                                                <DataGridTextColumn Header="Serial Number" Binding="{Binding SerialNumber}" />
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                        <Label FontFamily = "Verdana" Content="Additional BIOS Info" FontSize="12" FontWeight="Bold"/>
+                                        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Bios}" ColumnWidth="*">
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="Embedded Controller Major Version" Binding="{Binding EmbeddedControllerMajorVersion}" />
+                                                <DataGridTextColumn Header="Embedded Controller Minor Version" Binding="{Binding EmbeddedControllerMinorVersion}" />
+                                                <DataGridTextColumn Header="SMBIOS BIOS Version" Binding="{Binding SMBIOSBIOSVersion}" />
+                                                <DataGridTextColumn Header="SMBIOS Major Version" Binding="{Binding SMBIOSMajorVersion}" />
+                                                <DataGridTextColumn Header="SMBIOS Minor Version" Binding="{Binding SMBIOSMinorVersion}" />
+                                                <DataGridTextColumn Header="SMBIOS Present" Binding="{Binding SMBIOSPresent}" />
+                                                <DataGridTextColumn Header="System Bios Major Version" Binding="{Binding SystemBiosMajorVersion}" />
+                                                <DataGridTextColumn Header="System Bios Minor Version" Binding="{Binding SystemBiosMinorVersion}" />
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                    </StackPanel>
+
+                                </Expander.Content>
+                            </Expander>
 
 
                         </StackPanel>

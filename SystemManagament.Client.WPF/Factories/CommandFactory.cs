@@ -90,7 +90,9 @@ namespace SystemManagament.Client.WPF.Factories
         public IAsyncCommand CreateSoftwareStaticDataCommand(
             ExtendedObservableCollection<CurrentUser> currentUser,
             ExtendedObservableCollection<ClaimDuplicate> currentUserClaims,
-            ExtendedObservableCollection<GroupDuplicate> currentUserGroups)
+            ExtendedObservableCollection<GroupDuplicate> currentUserGroups,
+            ExtendedObservableCollection<OS> operatingSystem,
+            ExtendedObservableCollection<Bios> bios)
         {
             return new AsyncCommand<SoftwareStaticData>(async (cancellationToken) =>
             {
@@ -104,6 +106,8 @@ namespace SystemManagament.Client.WPF.Factories
                     currentUser.RefreshRange(result.CurrentUser);
                     currentUserClaims.RefreshRange(result.CurrentUser.First().Claims);
                     currentUserGroups.RefreshRange(result.CurrentUser.First().Groups);
+                    operatingSystem.RefreshRange(result.OperatingSystem);
+                    bios.RefreshRange(result.Bios);
 
                     return result;
                 });

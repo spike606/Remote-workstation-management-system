@@ -26,6 +26,10 @@ namespace SystemManagament.Client.WPF.ViewModel
         private ExtendedObservableCollection<ClaimDuplicate> currentUserClaims = new ExtendedObservableCollection<ClaimDuplicate>();
         private ExtendedObservableCollection<GroupDuplicate> currentUserGroups = new ExtendedObservableCollection<GroupDuplicate>();
 
+        private ExtendedObservableCollection<OS> operatingSystem = new ExtendedObservableCollection<OS>();
+        private ExtendedObservableCollection<Bios> bios = new ExtendedObservableCollection<Bios>();
+
+
         public WorkStationViewModel(IWcfClient wcfClient, ICommandFactory commandFactory)
         {
             this.wcfClient = wcfClient;
@@ -122,13 +126,44 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
+        public ExtendedObservableCollection<OS> OperatingSystem
+        {
+            get
+            {
+                return this.operatingSystem;
+            }
+
+            private set
+            {
+                this.Set(() => this.OperatingSystem, ref this.operatingSystem, value);
+            }
+        }
+
+        public ExtendedObservableCollection<Bios> Bios
+        {
+            get
+            {
+                return this.bios;
+            }
+
+            private set
+            {
+                this.Set(() => this.Bios, ref this.bios, value);
+            }
+        }
+
         private void InitializeCommands()
         {
             this.ClearDataCommand = this.commandFactory.CreateClearDataCommand(this.ClearData);
             this.LoadWindowsProcessDynamicDataCommand = this.commandFactory.CreateWindowsProcessDynamicDataCommand(this.Items);
             this.LoadHardwareStaticDataCommand = this.commandFactory.CreateHardwareStaticDataCommand(this.MemoryItems);
             this.LoadProcessorDynamicDataCommand = this.commandFactory.CreateProcessorDynamicDataCommand(this.ProcessorItems);
-            this.LoadSoftwareStaticDataCommand = this.commandFactory.CreateSoftwareStaticDataCommand(this.CurrentUser, this.CurrentUserClaims, this.CurrentUserGroups);
+            this.LoadSoftwareStaticDataCommand = this.commandFactory.CreateSoftwareStaticDataCommand(
+                this.CurrentUser,
+                this.CurrentUserClaims,
+                this.CurrentUserGroups,
+                this.OperatingSystem,
+                this.Bios);
         }
 
         private void ClearData()
