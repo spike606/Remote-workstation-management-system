@@ -28,7 +28,10 @@ namespace SystemManagament.Client.WPF.ViewModel
 
         private ExtendedObservableCollection<OS> operatingSystem = new ExtendedObservableCollection<OS>();
         private ExtendedObservableCollection<Bios> bios = new ExtendedObservableCollection<Bios>();
-
+        private ExtendedObservableCollection<InstalledProgram> installedProgram = new ExtendedObservableCollection<InstalledProgram>();
+        private ExtendedObservableCollection<MicrosoftWindowsUpdate> microsoftWindowsUpdate = new ExtendedObservableCollection<MicrosoftWindowsUpdate>();
+        private ExtendedObservableCollection<StartupCommand> startupCommand = new ExtendedObservableCollection<StartupCommand>();
+        private ExtendedObservableCollection<LocalUser> localUser = new ExtendedObservableCollection<LocalUser>();
 
         public WorkStationViewModel(IWcfClient wcfClient, ICommandFactory commandFactory)
         {
@@ -152,6 +155,58 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
+        public ExtendedObservableCollection<InstalledProgram> InstalledProgram
+        {
+            get
+            {
+                return this.installedProgram;
+            }
+
+            private set
+            {
+                this.Set(() => this.InstalledProgram, ref this.installedProgram, value);
+            }
+        }
+
+        public ExtendedObservableCollection<MicrosoftWindowsUpdate> MicrosoftWindowsUpdate
+        {
+            get
+            {
+                return this.microsoftWindowsUpdate;
+            }
+
+            private set
+            {
+                this.Set(() => this.MicrosoftWindowsUpdate, ref this.microsoftWindowsUpdate, value);
+            }
+        }
+
+        public ExtendedObservableCollection<StartupCommand> StartupCommand
+        {
+            get
+            {
+                return this.startupCommand;
+            }
+
+            private set
+            {
+                this.Set(() => this.StartupCommand, ref this.startupCommand, value);
+            }
+        }
+
+        public ExtendedObservableCollection<LocalUser> LocalUser
+        {
+            get
+            {
+                return this.localUser;
+            }
+
+            private set
+            {
+                this.Set(() => this.LocalUser, ref this.localUser, value);
+            }
+        }
+
         private void InitializeCommands()
         {
             this.ClearDataCommand = this.commandFactory.CreateClearDataCommand(this.ClearData);
@@ -163,7 +218,11 @@ namespace SystemManagament.Client.WPF.ViewModel
                 this.CurrentUserClaims,
                 this.CurrentUserGroups,
                 this.OperatingSystem,
-                this.Bios);
+                this.Bios,
+                this.InstalledProgram,
+                this.MicrosoftWindowsUpdate,
+                this.StartupCommand,
+                this.LocalUser);
         }
 
         private void ClearData()

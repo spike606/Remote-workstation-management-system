@@ -92,7 +92,11 @@ namespace SystemManagament.Client.WPF.Factories
             ExtendedObservableCollection<ClaimDuplicate> currentUserClaims,
             ExtendedObservableCollection<GroupDuplicate> currentUserGroups,
             ExtendedObservableCollection<OS> operatingSystem,
-            ExtendedObservableCollection<Bios> bios)
+            ExtendedObservableCollection<Bios> bios,
+            ExtendedObservableCollection<InstalledProgram> installedProgram,
+            ExtendedObservableCollection<MicrosoftWindowsUpdate> microsoftWindowsUpdate,
+            ExtendedObservableCollection<StartupCommand> startupCommand,
+            ExtendedObservableCollection<LocalUser> localUser)
         {
             return new AsyncCommand<SoftwareStaticData>(async (cancellationToken) =>
             {
@@ -108,6 +112,10 @@ namespace SystemManagament.Client.WPF.Factories
                     currentUserGroups.RefreshRange(result.CurrentUser.First().Groups);
                     operatingSystem.RefreshRange(result.OperatingSystem);
                     bios.RefreshRange(result.Bios);
+                    installedProgram.RefreshRange(result.InstalledProgram);
+                    microsoftWindowsUpdate.RefreshRange(result.MicrosoftWindowsUpdate);
+                    startupCommand.RefreshRange(result.StartupCommand);
+                    localUser.RefreshRange(result.LocalUser);
 
                     return result;
                 });

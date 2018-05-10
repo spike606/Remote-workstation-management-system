@@ -15,39 +15,41 @@
         <converters:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
     </Window.Resources>
 
-    <DockPanel>
-        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5 5 5 10" >
-            <Menu HorizontalAlignment = "Left" VerticalAlignment = "Top" >
-                <MenuItem Header = "Manage">
-                    <MenuItem Header = "Connect..." HorizontalAlignment = "Left" Width = "150" Command="{Binding NewTab}"/>
-                    <MenuItem Header = "Item 2" HorizontalAlignment = "Left" Width = "150" />
-                    <Separator HorizontalAlignment = "Left" Width = "150"/>
-                    <MenuItem Header = "Exit" HorizontalAlignment = "Left" Width = "150" Command="{Binding Exit}"/>
-                </MenuItem>
-            </Menu>
-            <Menu HorizontalAlignment = "Left" VerticalAlignment = "Top">
-                <MenuItem Header = "Options">
-                    <MenuItem Header = "Preferences" HorizontalAlignment = "Left" Width = "150" />
-                    <MenuItem Header = "Item 2" HorizontalAlignment="Left" Width = "150" />
-                    <Separator HorizontalAlignment = "Left" Width = "150"/>
-                    <MenuItem Header = "Item 3" HorizontalAlignment = "Left" Width = "150" />
-                </MenuItem>
-            </Menu>
-        </StackPanel>
-        <!--<StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
+        <DockPanel>
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5 5 5 10" >
+                <Menu HorizontalAlignment = "Left" VerticalAlignment = "Top" >
+                    <MenuItem Header = "Manage">
+                        <MenuItem Header = "Connect..." HorizontalAlignment = "Left" Width = "150" Command="{Binding NewTab}"/>
+                        <MenuItem Header = "Item 2" HorizontalAlignment = "Left" Width = "150" />
+                        <Separator HorizontalAlignment = "Left" Width = "150"/>
+                        <MenuItem Header = "Exit" HorizontalAlignment = "Left" Width = "150" Command="{Binding Exit}"/>
+                    </MenuItem>
+                </Menu>
+                <Menu HorizontalAlignment = "Left" VerticalAlignment = "Top">
+                    <MenuItem Header = "Options">
+                        <MenuItem Header = "Preferences" HorizontalAlignment = "Left" Width = "150" />
+                        <MenuItem Header = "Item 2" HorizontalAlignment="Left" Width = "150" />
+                        <Separator HorizontalAlignment = "Left" Width = "150"/>
+                        <MenuItem Header = "Item 3" HorizontalAlignment = "Left" Width = "150" />
+                    </MenuItem>
+                </Menu>
+            </StackPanel>
+            <!--<StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
             <Button Command="{Binding NewTab}" Margin="0,0,12,0">New Tab</Button>
         </StackPanel>-->
-        <TabControl DockPanel.Dock="Bottom" ItemsSource="{Binding ViewModelTabs}">
-            <TabControl.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="test"/>
-                </DataTemplate>
-            </TabControl.ItemTemplate>
-            <TabControl.ContentTemplate>
-                <DataTemplate DataType="{x:Type viewModel:WorkStationViewModel}">
-                    <tabs:WorkStationTabView DataContext="{Binding}"></tabs:WorkStationTabView>
-                </DataTemplate>
-            </TabControl.ContentTemplate>
-        </TabControl>
-    </DockPanel>
+            <TabControl DockPanel.Dock="Bottom" ItemsSource="{Binding ViewModelTabs}">
+                <TabControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="test"/>
+                    </DataTemplate>
+                </TabControl.ItemTemplate>
+                <TabControl.ContentTemplate>
+                    <DataTemplate DataType="{x:Type viewModel:WorkStationViewModel}">
+                        <tabs:WorkStationTabView DataContext="{Binding}"></tabs:WorkStationTabView>
+                    </DataTemplate>
+                </TabControl.ContentTemplate>
+            </TabControl>
+        </DockPanel>
+    </ScrollViewer>
 </Window>

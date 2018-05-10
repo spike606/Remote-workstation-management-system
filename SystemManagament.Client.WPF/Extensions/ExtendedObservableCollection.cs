@@ -68,10 +68,7 @@ namespace SystemManagament.Client.WPF.Extensions
                     if (handler.Target is CollectionView)
                     {
                         // Use dispatcher because currently running method won't be executed on the UI thread
-                        App.Current.Dispatcher.Invoke(() =>
-                        {
-                            ((CollectionView)handler.Target).Refresh();
-                        });
+                        App.Current.Dispatcher.BeginInvoke(DispatcherPriority.DataBind, (Action)(() => { ((CollectionView)handler.Target).Refresh(); }));
                     }
                     else
                     {

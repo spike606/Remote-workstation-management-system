@@ -23,7 +23,11 @@ namespace SystemManagament.Client.WPF.Factories
             ExtendedObservableCollection<ClaimDuplicate> currentUserClaims,
             ExtendedObservableCollection<GroupDuplicate> currentUserGroups,
             ExtendedObservableCollection<OS> operatingSystem,
-            ExtendedObservableCollection<Bios> bios);
+            ExtendedObservableCollection<Bios> bios,
+            ExtendedObservableCollection<InstalledProgram> installedProgram,
+            ExtendedObservableCollection<MicrosoftWindowsUpdate> microsoftWindowsUpdate,
+            ExtendedObservableCollection<StartupCommand> startupCommand,
+            ExtendedObservableCollection<LocalUser> localUser);
 
         ICommand CreateClearDataCommand(Action clearData);
     }
