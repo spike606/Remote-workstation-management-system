@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Threading.Tasks.Dataflow;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.CommandWpf;
+using Microsoft.VisualStudio.Language.Intellisense;
 using SystemManagament.Client.WPF.Extensions;
 using SystemManagament.Client.WPF.ViewModel.Commands;
 using SystemManagament.Client.WPF.ViewModel.Commands.Abstract;
@@ -17,7 +18,7 @@ namespace SystemManagament.Client.WPF.Factories
 {
     public class CommandFactory : ICommandFactory
     {
-        private readonly int neverEndingCommandDelayInMiliSeconds = 800;
+        private readonly int neverEndingCommandDelayInMiliSeconds = 200;
         private IWcfClient wcfClient;
 
         public CommandFactory(IWcfClient wcfClient)
@@ -49,11 +50,36 @@ namespace SystemManagament.Client.WPF.Factories
         {
             return new AsyncCommand<bool>(async (cancellationToken) =>
             {
-                return await Task.Run(async () =>
+                return await Task.Run(() =>
                 {
                     // Set the task.
                     var neverEndingTask = new TPLFactory().CreateNeverEndingTask(
                         (now, ct) => this.wcfClient.ReadProcessorDynamicDataAsync(processorDynamic).WithCancellation(ct),
+                        cancellationToken);
+
+                    // Start the task. Post the time.
+                    var result = neverEndingTask.Post(DateTimeOffset.Now);
+
+                    // if cancel was not requested task is still ongoing
+                    //while (!cancellationToken.IsCancellationRequested)
+                    //{
+                    //    await Task.Delay(this.neverEndingCommandDelayInMiliSeconds);
+                    //}
+
+                    return result;
+                });
+            });
+        }
+
+        public IAsyncCommand CreateWindowsProcessDynamicDataCommand(BulkObservableCollection<WindowsProcess> windowsProcesses)
+        {
+            return new AsyncCommand<bool>(async (cancellationToken) =>
+            {
+                return await Task.Run(async () =>
+                {
+                    // Set the task.
+                    var neverEndingTask = new TPLFactory().CreateNeverEndingTask(
+                        (now, ct) => this.wcfClient.ReadWindowsProcessDynamicDataAsync(windowsProcesses).WithCancellation(ct),
                         cancellationToken);
 
                     // Start the task. Post the time.
@@ -65,23 +91,6 @@ namespace SystemManagament.Client.WPF.Factories
                         await Task.Delay(this.neverEndingCommandDelayInMiliSeconds);
                     }
 
-                    return result;
-                });
-            });
-        }
-
-        public IAsyncCommand CreateWindowsProcessDynamicDataCommand(ExtendedObservableCollection<WindowsProcess> windowsProcesses)
-        {
-            return new AsyncCommand<WindowsProcess[]>(async (cancellationToken) =>
-            {
-                return await Task.Run(async () =>
-                {
-                    var result = await this.wcfClient.ReadWindowsProcessDynamicDataAsync()
-                    .WithCancellation(cancellationToken)
-                    // Following statements will be processed in the same thread, won't use caught context (UI)
-                    .ConfigureAwait(false);
-
-                    windowsProcesses.RefreshRange(result);
                     return result;
                 });
             });

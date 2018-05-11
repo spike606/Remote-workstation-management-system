@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
+using Microsoft.VisualStudio.Language.Intellisense;
 using SystemManagament.Client.WPF.Extensions;
 using SystemManagament.Client.WPF.Factories;
 using SystemManagament.Client.WPF.ViewModel.Commands.Abstract;
@@ -18,20 +19,20 @@ namespace SystemManagament.Client.WPF.ViewModel
         private IWcfClient wcfClient;
         private ICommandFactory commandFactory;
 
-        private ExtendedObservableCollection<WindowsProcess> items = new ExtendedObservableCollection<WindowsProcess>();
-        private ExtendedObservableCollection<Memory> memoryItems = new ExtendedObservableCollection<Memory>();
-        private ExtendedObservableCollection<ProcessorDynamic> processorItems = new ExtendedObservableCollection<ProcessorDynamic>();
+        private BulkObservableCollection<WindowsProcess> windowsProcess = new BulkObservableCollection<WindowsProcess>();
+        private BulkObservableCollection<Memory> memoryItems = new BulkObservableCollection<Memory>();
+        private BulkObservableCollection<ProcessorDynamic> processorItems = new BulkObservableCollection<ProcessorDynamic>();
 
-        private ExtendedObservableCollection<CurrentUser> currentUser = new ExtendedObservableCollection<CurrentUser>();
-        private ExtendedObservableCollection<ClaimDuplicate> currentUserClaims = new ExtendedObservableCollection<ClaimDuplicate>();
-        private ExtendedObservableCollection<GroupDuplicate> currentUserGroups = new ExtendedObservableCollection<GroupDuplicate>();
+        private BulkObservableCollection<CurrentUser> currentUser = new BulkObservableCollection<CurrentUser>();
+        private BulkObservableCollection<ClaimDuplicate> currentUserClaims = new BulkObservableCollection<ClaimDuplicate>();
+        private BulkObservableCollection<GroupDuplicate> currentUserGroups = new BulkObservableCollection<GroupDuplicate>();
 
-        private ExtendedObservableCollection<OS> operatingSystem = new ExtendedObservableCollection<OS>();
-        private ExtendedObservableCollection<Bios> bios = new ExtendedObservableCollection<Bios>();
-        private ExtendedObservableCollection<InstalledProgram> installedProgram = new ExtendedObservableCollection<InstalledProgram>();
-        private ExtendedObservableCollection<MicrosoftWindowsUpdate> microsoftWindowsUpdate = new ExtendedObservableCollection<MicrosoftWindowsUpdate>();
-        private ExtendedObservableCollection<StartupCommand> startupCommand = new ExtendedObservableCollection<StartupCommand>();
-        private ExtendedObservableCollection<LocalUser> localUser = new ExtendedObservableCollection<LocalUser>();
+        private BulkObservableCollection<OS> operatingSystem = new BulkObservableCollection<OS>();
+        private BulkObservableCollection<Bios> bios = new BulkObservableCollection<Bios>();
+        private BulkObservableCollection<InstalledProgram> installedProgram = new BulkObservableCollection<InstalledProgram>();
+        private BulkObservableCollection<MicrosoftWindowsUpdate> microsoftWindowsUpdate = new BulkObservableCollection<MicrosoftWindowsUpdate>();
+        private BulkObservableCollection<StartupCommand> startupCommand = new BulkObservableCollection<StartupCommand>();
+        private BulkObservableCollection<LocalUser> localUser = new BulkObservableCollection<LocalUser>();
 
         public WorkStationViewModel(IWcfClient wcfClient, ICommandFactory commandFactory)
         {
@@ -51,20 +52,20 @@ namespace SystemManagament.Client.WPF.ViewModel
 
         public ICommand ClearDataCommand { get; private set; }
 
-        public ExtendedObservableCollection<WindowsProcess> Items
+        public BulkObservableCollection<WindowsProcess> WindowsProcess
         {
             get
             {
-                return this.items;
+                return this.windowsProcess;
             }
 
             private set
             {
-                this.Set(() => this.Items, ref this.items, value);
+                this.Set(() => this.WindowsProcess, ref this.windowsProcess, value);
             }
         }
 
-        public ExtendedObservableCollection<Memory> MemoryItems
+        public BulkObservableCollection<Memory> MemoryItems
         {
             get
             {
@@ -77,7 +78,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
-        public ExtendedObservableCollection<ProcessorDynamic> ProcessorItems
+        public BulkObservableCollection<ProcessorDynamic> ProcessorItems
         {
             get
             {
@@ -90,7 +91,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
-        public ExtendedObservableCollection<CurrentUser> CurrentUser
+        public BulkObservableCollection<CurrentUser> CurrentUser
         {
             get
             {
@@ -103,7 +104,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
-        public ExtendedObservableCollection<ClaimDuplicate> CurrentUserClaims
+        public BulkObservableCollection<ClaimDuplicate> CurrentUserClaims
         {
             get
             {
@@ -116,7 +117,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
-        public ExtendedObservableCollection<GroupDuplicate> CurrentUserGroups
+        public BulkObservableCollection<GroupDuplicate> CurrentUserGroups
         {
             get
             {
@@ -129,7 +130,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
-        public ExtendedObservableCollection<OS> OperatingSystem
+        public BulkObservableCollection<OS> OperatingSystem
         {
             get
             {
@@ -142,7 +143,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
-        public ExtendedObservableCollection<Bios> Bios
+        public BulkObservableCollection<Bios> Bios
         {
             get
             {
@@ -155,7 +156,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
-        public ExtendedObservableCollection<InstalledProgram> InstalledProgram
+        public BulkObservableCollection<InstalledProgram> InstalledProgram
         {
             get
             {
@@ -168,7 +169,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
-        public ExtendedObservableCollection<MicrosoftWindowsUpdate> MicrosoftWindowsUpdate
+        public BulkObservableCollection<MicrosoftWindowsUpdate> MicrosoftWindowsUpdate
         {
             get
             {
@@ -181,7 +182,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
-        public ExtendedObservableCollection<StartupCommand> StartupCommand
+        public BulkObservableCollection<StartupCommand> StartupCommand
         {
             get
             {
@@ -194,7 +195,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
-        public ExtendedObservableCollection<LocalUser> LocalUser
+        public BulkObservableCollection<LocalUser> LocalUser
         {
             get
             {
@@ -210,25 +211,25 @@ namespace SystemManagament.Client.WPF.ViewModel
         private void InitializeCommands()
         {
             this.ClearDataCommand = this.commandFactory.CreateClearDataCommand(this.ClearData);
-            this.LoadWindowsProcessDynamicDataCommand = this.commandFactory.CreateWindowsProcessDynamicDataCommand(this.Items);
-            this.LoadHardwareStaticDataCommand = this.commandFactory.CreateHardwareStaticDataCommand(this.MemoryItems);
-            this.LoadProcessorDynamicDataCommand = this.commandFactory.CreateProcessorDynamicDataCommand(this.ProcessorItems);
-            this.LoadSoftwareStaticDataCommand = this.commandFactory.CreateSoftwareStaticDataCommand(
-                this.CurrentUser,
-                this.CurrentUserClaims,
-                this.CurrentUserGroups,
-                this.OperatingSystem,
-                this.Bios,
-                this.InstalledProgram,
-                this.MicrosoftWindowsUpdate,
-                this.StartupCommand,
-                this.LocalUser);
+            this.LoadWindowsProcessDynamicDataCommand = this.commandFactory.CreateWindowsProcessDynamicDataCommand(this.WindowsProcess);
+            //this.LoadHardwareStaticDataCommand = this.commandFactory.CreateHardwareStaticDataCommand(this.MemoryItems);
+            //this.LoadProcessorDynamicDataCommand = this.commandFactory.CreateProcessorDynamicDataCommand(this.ProcessorItems);
+            //this.LoadSoftwareStaticDataCommand = this.commandFactory.CreateSoftwareStaticDataCommand(
+            //    this.CurrentUser,
+            //    this.CurrentUserClaims,
+            //    this.CurrentUserGroups,
+            //    this.OperatingSystem,
+            //    this.Bios,
+            //    this.InstalledProgram,
+            //    this.MicrosoftWindowsUpdate,
+            //    this.StartupCommand,
+            //    this.LocalUser);
         }
 
         private void ClearData()
         {
-            this.items.ClearAllItems();
-            this.memoryItems.ClearAllItems();
+            //this.windowsProcess.ClearAllItems();
+            //this.memoryItems.ClearAllItems();
         }
     }
 }
