@@ -60,9 +60,6 @@
     <Reference Include="Microsoft.VisualStudio.Language, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.VisualStudio.Language.15.6.27740\lib\net46\Microsoft.VisualStudio.Language.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.VisualStudio.Language.Intellisense, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.VisualStudio.Language.Intellisense.15.6.27740\lib\net46\Microsoft.VisualStudio.Language.Intellisense.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.VisualStudio.Text.Data, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.VisualStudio.Text.Data.15.6.27740\lib\net46\Microsoft.VisualStudio.Text.Data.dll</HintPath>
     </Reference>
@@ -112,10 +109,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Comparer\WindowsProcessComparer.cs" />
     <Compile Include="Converters\NullToVisibilityConverter.cs" />
     <Compile Include="Converters\UnitValueToStringConverter.cs" />
-    <Compile Include="Extensions\ExtendedObservableCollection.cs" />
+    <Compile Include="Extensions\ObservableRangeCollection.cs" />
     <Compile Include="Extensions\TaskExtension.cs" />
+    <Compile Include="Extensions\WpfObservableRangeCollection.cs" />
     <Compile Include="Factories\CommandFactory.cs" />
     <Compile Include="Factories\ICommandFactory.cs" />
     <Compile Include="Factories\ITPLFactory.cs" />

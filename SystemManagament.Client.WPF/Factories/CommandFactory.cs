@@ -31,7 +31,7 @@ namespace SystemManagament.Client.WPF.Factories
             return new RelayCommand(() => clearData());
         }
 
-        public IAsyncCommand CreateHardwareStaticDataCommand(ExtendedObservableCollection<Memory> memory)
+        public IAsyncCommand CreateHardwareStaticDataCommand(WpfObservableRangeCollection<Memory> memory)
         {
             return new AsyncCommand<HardwareStaticData>(async (cancellationToken) =>
             {
@@ -40,13 +40,13 @@ namespace SystemManagament.Client.WPF.Factories
                 // Following statements will be processed in the same thread, won't use caught context (UI)
                 .ConfigureAwait(false);
 
-                memory.RefreshRange(result.Memory);
+                memory.ReplaceRange(result.Memory);
 
                 return result;
             });
         }
 
-        public IAsyncCommand CreateProcessorDynamicDataCommand(ExtendedObservableCollection<ProcessorDynamic> processorDynamic)
+        public IAsyncCommand CreateProcessorDynamicDataCommand(WpfObservableRangeCollection<ProcessorDynamic> processorDynamic)
         {
             return new AsyncCommand<bool>(async (cancellationToken) =>
             {
@@ -65,13 +65,12 @@ namespace SystemManagament.Client.WPF.Factories
                     //{
                     //    await Task.Delay(this.neverEndingCommandDelayInMiliSeconds);
                     //}
-
                     return result;
                 });
             });
         }
 
-        public IAsyncCommand CreateWindowsProcessDynamicDataCommand(BulkObservableCollection<WindowsProcess> windowsProcesses)
+        public IAsyncCommand CreateWindowsProcessDynamicDataCommand(WpfObservableRangeCollection<WindowsProcess> windowsProcesses)
         {
             return new AsyncCommand<bool>(async (cancellationToken) =>
             {
@@ -97,15 +96,15 @@ namespace SystemManagament.Client.WPF.Factories
         }
 
         public IAsyncCommand CreateSoftwareStaticDataCommand(
-            ExtendedObservableCollection<CurrentUser> currentUser,
-            ExtendedObservableCollection<ClaimDuplicate> currentUserClaims,
-            ExtendedObservableCollection<GroupDuplicate> currentUserGroups,
-            ExtendedObservableCollection<OS> operatingSystem,
-            ExtendedObservableCollection<Bios> bios,
-            ExtendedObservableCollection<InstalledProgram> installedProgram,
-            ExtendedObservableCollection<MicrosoftWindowsUpdate> microsoftWindowsUpdate,
-            ExtendedObservableCollection<StartupCommand> startupCommand,
-            ExtendedObservableCollection<LocalUser> localUser)
+            WpfObservableRangeCollection<CurrentUser> currentUser,
+            WpfObservableRangeCollection<ClaimDuplicate> currentUserClaims,
+            WpfObservableRangeCollection<GroupDuplicate> currentUserGroups,
+            WpfObservableRangeCollection<OS> operatingSystem,
+            WpfObservableRangeCollection<Bios> bios,
+            WpfObservableRangeCollection<InstalledProgram> installedProgram,
+            WpfObservableRangeCollection<MicrosoftWindowsUpdate> microsoftWindowsUpdate,
+            WpfObservableRangeCollection<StartupCommand> startupCommand,
+            WpfObservableRangeCollection<LocalUser> localUser)
         {
             return new AsyncCommand<SoftwareStaticData>(async (cancellationToken) =>
             {
@@ -114,17 +113,17 @@ namespace SystemManagament.Client.WPF.Factories
                     var result = await this.wcfClient.ReadSoftwareStaticDataAsync()
                     .WithCancellation(cancellationToken)
                     // Following statements will be processed in the same thread, won't use caught context (UI)
-                    .ConfigureAwait(false);
+                    .ConfigureAwait(true);
 
-                    currentUser.RefreshRange(result.CurrentUser);
-                    currentUserClaims.RefreshRange(result.CurrentUser.First().Claims);
-                    currentUserGroups.RefreshRange(result.CurrentUser.First().Groups);
-                    operatingSystem.RefreshRange(result.OperatingSystem);
-                    bios.RefreshRange(result.Bios);
-                    installedProgram.RefreshRange(result.InstalledProgram);
-                    microsoftWindowsUpdate.RefreshRange(result.MicrosoftWindowsUpdate);
-                    startupCommand.RefreshRange(result.StartupCommand);
-                    localUser.RefreshRange(result.LocalUser);
+                    currentUser.ReplaceRange(result.CurrentUser);
+                    currentUserClaims.ReplaceRange(result.CurrentUser.First().Claims);
+                    currentUserGroups.ReplaceRange(result.CurrentUser.First().Groups);
+                    operatingSystem.ReplaceRange(result.OperatingSystem);
+                    bios.ReplaceRange(result.Bios);
+                    installedProgram.ReplaceRange(result.InstalledProgram);
+                    microsoftWindowsUpdate.ReplaceRange(result.MicrosoftWindowsUpdate);
+                    startupCommand.ReplaceRange(result.StartupCommand);
+                    localUser.ReplaceRange(result.LocalUser);
 
                     return result;
                 });

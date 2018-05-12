@@ -392,13 +392,16 @@
                         </Expander.Header>
                         <Expander.Style>
                             <Style TargetType="Expander">
-                                <Setter Property="IsExpanded" Value="False" />
+                                <Setter Property="IsExpanded" Value="True" />
                             </Style>
                         </Expander.Style>
                         <Expander.Content>
                             <StackPanel Margin="10,4,0,0">
                                 <Label FontFamily = "Verdana" Content="List of windows processes" FontSize="12" FontWeight="Bold"/>
-                                <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding WindowsProcess}" ColumnWidth="*">
+                                <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding WindowsProcess, IsAsync=True}" ColumnWidth="*" Margin="0,0,39,0"
+                                        HorizontalScrollBarVisibility="Auto"
+                                        VerticalScrollBarVisibility="Auto"
+                                        ScrollViewer.CanContentScroll="True" MaxHeight="500">
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
                                         <DataGridTextColumn Header="Id" Binding="{Binding Id}" />

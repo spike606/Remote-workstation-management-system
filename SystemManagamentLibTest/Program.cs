@@ -71,7 +71,10 @@ namespace SystemMonitorLibTest
         public static void PrintProperties(object obj, int indent)
         {
             if (obj == null)
+            {
                 return;
+            }
+
             string indentString = new string(' ', indent);
             Type objType = obj.GetType();
             if (objType.Name == "UnitValue")

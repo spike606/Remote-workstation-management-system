@@ -11,11 +11,11 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
 {
     public interface IWcfClient
     {
-        Task<WindowsProcess[]> ReadWindowsProcessDynamicDataAsync(BulkObservableCollection<WindowsProcess> windowsProcessDynamicObservableCollection);
+        Task<WindowsProcess[]> ReadWindowsProcessDynamicDataAsync(WpfObservableRangeCollection<WindowsProcess> windowsProcessDynamicObservableCollection);
 
         Task<HardwareStaticData> ReadHardwareStaticDataAsync();
 
-        Task<ProcessorDynamic[]> ReadProcessorDynamicDataAsync(ExtendedObservableCollection<ProcessorDynamic> extendedObservableCollection);
+        Task<ProcessorDynamic[]> ReadProcessorDynamicDataAsync(ObservableRangeCollection<ProcessorDynamic> extendedObservableCollection);
 
         Task<SoftwareStaticData> ReadSoftwareStaticDataAsync();
     }

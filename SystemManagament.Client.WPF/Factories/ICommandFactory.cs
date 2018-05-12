@@ -13,22 +13,22 @@ namespace SystemManagament.Client.WPF.Factories
 {
     public interface ICommandFactory
     {
-        IAsyncCommand CreateWindowsProcessDynamicDataCommand(BulkObservableCollection<WindowsProcess> windowsProcess);
+        IAsyncCommand CreateWindowsProcessDynamicDataCommand(WpfObservableRangeCollection<WindowsProcess> windowsProcess);
 
-        IAsyncCommand CreateHardwareStaticDataCommand(ExtendedObservableCollection<Memory> memory);
+        IAsyncCommand CreateHardwareStaticDataCommand(WpfObservableRangeCollection<Memory> memory);
 
-        IAsyncCommand CreateProcessorDynamicDataCommand(ExtendedObservableCollection<ProcessorDynamic> processorDynamic);
+        IAsyncCommand CreateProcessorDynamicDataCommand(WpfObservableRangeCollection<ProcessorDynamic> processorDynamic);
 
         IAsyncCommand CreateSoftwareStaticDataCommand(
-            ExtendedObservableCollection<CurrentUser> currentUser,
-            ExtendedObservableCollection<ClaimDuplicate> currentUserClaims,
-            ExtendedObservableCollection<GroupDuplicate> currentUserGroups,
-            ExtendedObservableCollection<OS> operatingSystem,
-            ExtendedObservableCollection<Bios> bios,
-            ExtendedObservableCollection<InstalledProgram> installedProgram,
-            ExtendedObservableCollection<MicrosoftWindowsUpdate> microsoftWindowsUpdate,
-            ExtendedObservableCollection<StartupCommand> startupCommand,
-            ExtendedObservableCollection<LocalUser> localUser);
+            WpfObservableRangeCollection<CurrentUser> currentUser,
+            WpfObservableRangeCollection<ClaimDuplicate> currentUserClaims,
+            WpfObservableRangeCollection<GroupDuplicate> currentUserGroups,
+            WpfObservableRangeCollection<OS> operatingSystem,
+            WpfObservableRangeCollection<Bios> bios,
+            WpfObservableRangeCollection<InstalledProgram> installedProgram,
+            WpfObservableRangeCollection<MicrosoftWindowsUpdate> microsoftWindowsUpdate,
+            WpfObservableRangeCollection<StartupCommand> startupCommand,
+            WpfObservableRangeCollection<LocalUser> localUser);
 
         ICommand CreateClearDataCommand(Action clearData);
     }

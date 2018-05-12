@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.Language.Intellisense;
+using SystemManagament.Client.WPF.Comparer;
 using SystemManagament.Client.WPF.Extensions;
 using SystemManagament.Client.WPF.WorkstationMonitorServiceReference;
 
@@ -14,14 +17,10 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
         public WorkstationMonitorServiceClient WorkstationMonitorServiceClient { get; set; }
             = new WorkstationMonitorServiceClient("NetTcpBinding_IWorkstationMonitorService");
 
-        public async Task<WindowsProcess[]> ReadWindowsProcessDynamicDataAsync(BulkObservableCollection<WindowsProcess> windowsProcessDynamicObservableCollection)
+        public async Task<WindowsProcess[]> ReadWindowsProcessDynamicDataAsync(WpfObservableRangeCollection<WindowsProcess> windowsProcessDynamicObservableCollection)
         {
             var result = await this.WorkstationMonitorServiceClient.ReadWindowsProcessDynamicDataAsync();
-            windowsProcessDynamicObservableCollection.BeginBulkOperation();
-            windowsProcessDynamicObservableCollection.Clear();
-            windowsProcessDynamicObservableCollection.AddRange(result);
-            windowsProcessDynamicObservableCollection.EndBulkOperation();
-
+            windowsProcessDynamicObservableCollection.ReplaceRange(result, new WindowsProcessComparer());
             return result;
         }
 
@@ -30,10 +29,10 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
             return await this.WorkstationMonitorServiceClient.ReadHardwareStaticDataAsync();
         }
 
-        public async Task<ProcessorDynamic[]> ReadProcessorDynamicDataAsync(ExtendedObservableCollection<ProcessorDynamic> processorDynamicObservableCollection)
+        public async Task<ProcessorDynamic[]> ReadProcessorDynamicDataAsync(ObservableRangeCollection<ProcessorDynamic> processorDynamicObservableCollection)
         {
             var result = await this.WorkstationMonitorServiceClient.ReadProcessorDynamicDataAsync();
-            processorDynamicObservableCollection.RefreshRange(result);
+            processorDynamicObservableCollection.ReplaceRange(result);
 
             return result;
         }

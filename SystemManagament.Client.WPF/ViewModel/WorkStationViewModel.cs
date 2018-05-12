@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,20 +20,20 @@ namespace SystemManagament.Client.WPF.ViewModel
         private IWcfClient wcfClient;
         private ICommandFactory commandFactory;
 
-        private BulkObservableCollection<WindowsProcess> windowsProcess = new BulkObservableCollection<WindowsProcess>();
-        private BulkObservableCollection<Memory> memoryItems = new BulkObservableCollection<Memory>();
-        private BulkObservableCollection<ProcessorDynamic> processorItems = new BulkObservableCollection<ProcessorDynamic>();
+        private WpfObservableRangeCollection<WindowsProcess> windowsProcess = new WpfObservableRangeCollection<WindowsProcess>();
+        private WpfObservableRangeCollection<Memory> memoryItems = new WpfObservableRangeCollection<Memory>();
+        private WpfObservableRangeCollection<ProcessorDynamic> processorItems = new WpfObservableRangeCollection<ProcessorDynamic>();
 
-        private BulkObservableCollection<CurrentUser> currentUser = new BulkObservableCollection<CurrentUser>();
-        private BulkObservableCollection<ClaimDuplicate> currentUserClaims = new BulkObservableCollection<ClaimDuplicate>();
-        private BulkObservableCollection<GroupDuplicate> currentUserGroups = new BulkObservableCollection<GroupDuplicate>();
+        private WpfObservableRangeCollection<CurrentUser> currentUser = new WpfObservableRangeCollection<CurrentUser>();
+        private WpfObservableRangeCollection<ClaimDuplicate> currentUserClaims = new WpfObservableRangeCollection<ClaimDuplicate>();
+        private WpfObservableRangeCollection<GroupDuplicate> currentUserGroups = new WpfObservableRangeCollection<GroupDuplicate>();
 
-        private BulkObservableCollection<OS> operatingSystem = new BulkObservableCollection<OS>();
-        private BulkObservableCollection<Bios> bios = new BulkObservableCollection<Bios>();
-        private BulkObservableCollection<InstalledProgram> installedProgram = new BulkObservableCollection<InstalledProgram>();
-        private BulkObservableCollection<MicrosoftWindowsUpdate> microsoftWindowsUpdate = new BulkObservableCollection<MicrosoftWindowsUpdate>();
-        private BulkObservableCollection<StartupCommand> startupCommand = new BulkObservableCollection<StartupCommand>();
-        private BulkObservableCollection<LocalUser> localUser = new BulkObservableCollection<LocalUser>();
+        private WpfObservableRangeCollection<OS> operatingSystem = new WpfObservableRangeCollection<OS>();
+        private WpfObservableRangeCollection<Bios> bios = new WpfObservableRangeCollection<Bios>();
+        private WpfObservableRangeCollection<InstalledProgram> installedProgram = new WpfObservableRangeCollection<InstalledProgram>();
+        private WpfObservableRangeCollection<MicrosoftWindowsUpdate> microsoftWindowsUpdate = new WpfObservableRangeCollection<MicrosoftWindowsUpdate>();
+        private WpfObservableRangeCollection<StartupCommand> startupCommand = new WpfObservableRangeCollection<StartupCommand>();
+        private WpfObservableRangeCollection<LocalUser> localUser = new WpfObservableRangeCollection<LocalUser>();
 
         public WorkStationViewModel(IWcfClient wcfClient, ICommandFactory commandFactory)
         {
@@ -52,7 +53,7 @@ namespace SystemManagament.Client.WPF.ViewModel
 
         public ICommand ClearDataCommand { get; private set; }
 
-        public BulkObservableCollection<WindowsProcess> WindowsProcess
+        public WpfObservableRangeCollection<WindowsProcess> WindowsProcess
         {
             get
             {
@@ -65,7 +66,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
-        public BulkObservableCollection<Memory> MemoryItems
+        public WpfObservableRangeCollection<Memory> MemoryItems
         {
             get
             {
@@ -78,7 +79,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
-        public BulkObservableCollection<ProcessorDynamic> ProcessorItems
+        public WpfObservableRangeCollection<ProcessorDynamic> ProcessorItems
         {
             get
             {
@@ -91,7 +92,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
-        public BulkObservableCollection<CurrentUser> CurrentUser
+        public WpfObservableRangeCollection<CurrentUser> CurrentUser
         {
             get
             {
@@ -104,7 +105,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
-        public BulkObservableCollection<ClaimDuplicate> CurrentUserClaims
+        public WpfObservableRangeCollection<ClaimDuplicate> CurrentUserClaims
         {
             get
             {
@@ -117,7 +118,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
-        public BulkObservableCollection<GroupDuplicate> CurrentUserGroups
+        public WpfObservableRangeCollection<GroupDuplicate> CurrentUserGroups
         {
             get
             {
@@ -130,7 +131,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
-        public BulkObservableCollection<OS> OperatingSystem
+        public WpfObservableRangeCollection<OS> OperatingSystem
         {
             get
             {
@@ -143,7 +144,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
-        public BulkObservableCollection<Bios> Bios
+        public WpfObservableRangeCollection<Bios> Bios
         {
             get
             {
@@ -156,7 +157,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
-        public BulkObservableCollection<InstalledProgram> InstalledProgram
+        public WpfObservableRangeCollection<InstalledProgram> InstalledProgram
         {
             get
             {
@@ -169,7 +170,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
-        public BulkObservableCollection<MicrosoftWindowsUpdate> MicrosoftWindowsUpdate
+        public WpfObservableRangeCollection<MicrosoftWindowsUpdate> MicrosoftWindowsUpdate
         {
             get
             {
@@ -182,7 +183,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
-        public BulkObservableCollection<StartupCommand> StartupCommand
+        public WpfObservableRangeCollection<StartupCommand> StartupCommand
         {
             get
             {
@@ -195,7 +196,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
-        public BulkObservableCollection<LocalUser> LocalUser
+        public WpfObservableRangeCollection<LocalUser> LocalUser
         {
             get
             {
@@ -212,18 +213,18 @@ namespace SystemManagament.Client.WPF.ViewModel
         {
             this.ClearDataCommand = this.commandFactory.CreateClearDataCommand(this.ClearData);
             this.LoadWindowsProcessDynamicDataCommand = this.commandFactory.CreateWindowsProcessDynamicDataCommand(this.WindowsProcess);
-            //this.LoadHardwareStaticDataCommand = this.commandFactory.CreateHardwareStaticDataCommand(this.MemoryItems);
-            //this.LoadProcessorDynamicDataCommand = this.commandFactory.CreateProcessorDynamicDataCommand(this.ProcessorItems);
-            //this.LoadSoftwareStaticDataCommand = this.commandFactory.CreateSoftwareStaticDataCommand(
-            //    this.CurrentUser,
-            //    this.CurrentUserClaims,
-            //    this.CurrentUserGroups,
-            //    this.OperatingSystem,
-            //    this.Bios,
-            //    this.InstalledProgram,
-            //    this.MicrosoftWindowsUpdate,
-            //    this.StartupCommand,
-            //    this.LocalUser);
+            this.LoadHardwareStaticDataCommand = this.commandFactory.CreateHardwareStaticDataCommand(this.MemoryItems);
+            this.LoadProcessorDynamicDataCommand = this.commandFactory.CreateProcessorDynamicDataCommand(this.ProcessorItems);
+            this.LoadSoftwareStaticDataCommand = this.commandFactory.CreateSoftwareStaticDataCommand(
+                this.CurrentUser,
+                this.CurrentUserClaims,
+                this.CurrentUserGroups,
+                this.OperatingSystem,
+                this.Bios,
+                this.InstalledProgram,
+                this.MicrosoftWindowsUpdate,
+                this.StartupCommand,
+                this.LocalUser);
         }
 
         private void ClearData()
