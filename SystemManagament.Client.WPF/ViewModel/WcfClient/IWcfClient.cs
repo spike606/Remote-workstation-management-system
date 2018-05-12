@@ -18,5 +18,9 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
         Task<ProcessorDynamic[]> ReadProcessorDynamicDataAsync(ObservableRangeCollection<ProcessorDynamic> extendedObservableCollection);
 
         Task<SoftwareStaticData> ReadSoftwareStaticDataAsync();
+
+        Task<WindowsService[]> ReadWindowsServiceDynamicDataAsync(WpfObservableRangeCollection<WindowsService> windowsServiceDynamicObservableCollection);
+
+        Task<WindowsLog[]> ReadWindowsLogDynamicDataAsync(WpfObservableRangeCollection<WindowsLog> windowsLogDynamicObservableCollection);
     }
 }

@@ -21,6 +21,9 @@ namespace SystemManagament.Client.WPF.ViewModel
         private ICommandFactory commandFactory;
 
         private WpfObservableRangeCollection<WindowsProcess> windowsProcess = new WpfObservableRangeCollection<WindowsProcess>();
+        private WpfObservableRangeCollection<WindowsService> windowsService = new WpfObservableRangeCollection<WindowsService>();
+        private WpfObservableRangeCollection<WindowsLog> windowsLog = new WpfObservableRangeCollection<WindowsLog>();
+
         private WpfObservableRangeCollection<Memory> memoryItems = new WpfObservableRangeCollection<Memory>();
         private WpfObservableRangeCollection<ProcessorDynamic> processorItems = new WpfObservableRangeCollection<ProcessorDynamic>();
 
@@ -45,6 +48,10 @@ namespace SystemManagament.Client.WPF.ViewModel
 
         public IAsyncCommand LoadWindowsProcessDynamicDataCommand { get; private set; }
 
+        public IAsyncCommand LoadWindowsServiceDynamicDataCommand { get; private set; }
+
+        public IAsyncCommand LoadWindowsLogDynamicDataCommand { get; private set; }
+
         public IAsyncCommand LoadHardwareStaticDataCommand { get; private set; }
 
         public IAsyncCommand LoadProcessorDynamicDataCommand { get; private set; }
@@ -63,6 +70,32 @@ namespace SystemManagament.Client.WPF.ViewModel
             private set
             {
                 this.Set(() => this.WindowsProcess, ref this.windowsProcess, value);
+            }
+        }
+
+        public WpfObservableRangeCollection<WindowsService> WindowsService
+        {
+            get
+            {
+                return this.windowsService;
+            }
+
+            private set
+            {
+                this.Set(() => this.WindowsService, ref this.windowsService, value);
+            }
+        }
+
+        public WpfObservableRangeCollection<WindowsLog> WindowsLog
+        {
+            get
+            {
+                return this.windowsLog;
+            }
+
+            private set
+            {
+                this.Set(() => this.WindowsLog, ref this.windowsLog, value);
             }
         }
 
@@ -213,6 +246,8 @@ namespace SystemManagament.Client.WPF.ViewModel
         {
             this.ClearDataCommand = this.commandFactory.CreateClearDataCommand(this.ClearData);
             this.LoadWindowsProcessDynamicDataCommand = this.commandFactory.CreateWindowsProcessDynamicDataCommand(this.WindowsProcess);
+            this.LoadWindowsServiceDynamicDataCommand = this.commandFactory.CreateWindowsServiceDynamicDataCommand(this.WindowsService);
+            this.LoadWindowsLogDynamicDataCommand = this.commandFactory.CreateWindowsLogDynamicDataCommand(this.WindowsLog);
             this.LoadHardwareStaticDataCommand = this.commandFactory.CreateHardwareStaticDataCommand(this.MemoryItems);
             this.LoadProcessorDynamicDataCommand = this.commandFactory.CreateProcessorDynamicDataCommand(this.ProcessorItems);
             this.LoadSoftwareStaticDataCommand = this.commandFactory.CreateSoftwareStaticDataCommand(

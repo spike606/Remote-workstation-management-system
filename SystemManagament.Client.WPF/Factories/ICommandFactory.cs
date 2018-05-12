@@ -31,5 +31,9 @@ namespace SystemManagament.Client.WPF.Factories
             WpfObservableRangeCollection<LocalUser> localUser);
 
         ICommand CreateClearDataCommand(Action clearData);
+
+        IAsyncCommand CreateWindowsServiceDynamicDataCommand(WpfObservableRangeCollection<WindowsService> windowsService);
+
+        IAsyncCommand CreateWindowsLogDynamicDataCommand(WpfObservableRangeCollection<WindowsLog> windowsLog);
     }
 }

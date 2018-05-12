@@ -41,5 +41,19 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
         {
             return await this.WorkstationMonitorServiceClient.ReadSoftwareStaticDataAsync();
         }
+
+        public async Task<WindowsService[]> ReadWindowsServiceDynamicDataAsync(WpfObservableRangeCollection<WindowsService> windowsServiceDynamicObservableCollection)
+        {
+            var result = await this.WorkstationMonitorServiceClient.ReadWindowsServiceDynamicDataAsync();
+            windowsServiceDynamicObservableCollection.ReplaceRange(result, new WindowsServiceComparer());
+            return result;
+        }
+
+        public async Task<WindowsLog[]> ReadWindowsLogDynamicDataAsync(WpfObservableRangeCollection<WindowsLog> windowsLogDynamicObservableCollection)
+        {
+            var result = await this.WorkstationMonitorServiceClient.ReadWindowsLogDynamicDataAsync();
+            windowsLogDynamicObservableCollection.ReplaceRange(result, new WindowsLogComparer());
+            return result;
+        }
     }
 }

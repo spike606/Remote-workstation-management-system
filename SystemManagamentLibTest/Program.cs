@@ -23,15 +23,15 @@ namespace SystemMonitorLibTest
 
             //HardwareDynamicData hardwareDynamicData = monitor.GetHardwareDynamicData();
             //HardwareStaticData hardwareStaticData = monitor.GetHardwareStaticData();
-            SoftwareStaticData softwareStaticData = monitor.GetSoftwareStaticData();
-            //SoftwareDynamicData softwareDynamicData = monitor.GetSoftwareDynamicData();
+            //SoftwareStaticData softwareStaticData = monitor.GetSoftwareStaticData();
+            SoftwareDynamicData softwareDynamicData = monitor.GetSoftwareDynamicData();
             //foreach (var item in softwareStaticData.InstalledProgram)
             //{
             //    Console.WriteLine(item.Name);
             //}
 
             ////PrintProperties(data);
-            //Timer aTimer = new Timer();
+            Timer aTimer = new Timer();
             ////aTimer.Elapsed += new ElapsedEventHandler(OnTimedEventProcessor);
             ////aTimer.Elapsed += new ElapsedEventHandler(OnTimedEventProcess);
             //aTimer.Elapsed += new ElapsedEventHandler(OnTimedEventGPU);

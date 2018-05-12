@@ -398,7 +398,7 @@
                         <Expander.Content>
                             <StackPanel Margin="10,4,0,0">
                                 <Label FontFamily = "Verdana" Content="List of windows processes" FontSize="12" FontWeight="Bold"/>
-                                <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding WindowsProcess, IsAsync=True}" ColumnWidth="*" Margin="0,0,39,0"
+                                <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding WindowsProcess}" ColumnWidth="*" Margin="0,0,39,0"
                                         HorizontalScrollBarVisibility="Auto"
                                         VerticalScrollBarVisibility="Auto"
                                         ScrollViewer.CanContentScroll="True" MaxHeight="500">
@@ -415,6 +415,37 @@
                                         <DataGridTextColumn Header="SessionId" Binding="{Binding SessionId}" />
                                         <DataGridTextColumn Header="StartTime" Binding="{Binding StartTime}" />
                                         <DataGridTextColumn Header="BasePriority" Binding="{Binding BasePriority}" />
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </StackPanel>
+                        </Expander.Content>
+                    </Expander>
+                    <Button Content="Start windows service dynamic data" Command="{Binding LoadWindowsServiceDynamicDataCommand}" HorizontalAlignment="Right"/>
+                    <Expander>
+                        <Expander.Header>
+                            <TextBlock Text="Windows services" FontWeight="Bold" FontSize="15"/>
+                        </Expander.Header>
+                        <Expander.Style>
+                            <Style TargetType="Expander">
+                                <Setter Property="IsExpanded" Value="True" />
+                            </Style>
+                        </Expander.Style>
+                        <Expander.Content>
+                            <StackPanel Margin="10,4,0,0">
+                                <Label FontFamily = "Verdana" Content="List of windows services" FontSize="12" FontWeight="Bold"/>
+                                <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding WindowsService}" ColumnWidth="*" Margin="0,0,39,0"
+                                        HorizontalScrollBarVisibility="Auto"
+                                        VerticalScrollBarVisibility="Auto"
+                                        ScrollViewer.CanContentScroll="True" MaxHeight="500">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="Service Name" Binding="{Binding ServiceName}" />
+                                        <DataGridTextColumn Header="Display Name" Binding="{Binding DisplayName}" />
+                                        <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
+                                        <DataGridTextColumn Header="Start Type" Binding="{Binding StartType}" />
+                                        <DataGridTextColumn Header="ServiceType" Binding="{Binding ServiceType}" />
+                                        <DataGridTextColumn Header="CanPauseAndContinue" Binding="{Binding CanPauseAndContinue}" />
+                                        <DataGridTextColumn Header="CanShutdown" Binding="{Binding CanShutdown}" />
+                                        <DataGridTextColumn Header="CanStop" Binding="{Binding CanStop}" />
                                     </DataGrid.Columns>
                                 </DataGrid>
                             </StackPanel>

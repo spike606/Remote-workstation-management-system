@@ -109,7 +109,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Comparer\WindowsLogComparer.cs" />
     <Compile Include="Comparer\WindowsProcessComparer.cs" />
+    <Compile Include="Comparer\WindowsServiceComparer.cs" />
     <Compile Include="Converters\NullToVisibilityConverter.cs" />
     <Compile Include="Converters\UnitValueToStringConverter.cs" />
     <Compile Include="Extensions\ObservableRangeCollection.cs" />

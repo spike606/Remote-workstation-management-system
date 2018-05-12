@@ -44,7 +44,7 @@ namespace SystemManagament.Client.WPF.Extensions
         /// </remarks>
         protected override void OnCollectionChanged(NotifyCollectionChangedEventArgs e)
         {
-            var deferredEvents = (ICollection<NotifyCollectionChangedEventArgs>)typeof(ObservableRangeCollection<T>).GetField("_deferredEvents", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(this);
+            var deferredEvents = (ICollection<NotifyCollectionChangedEventArgs>)typeof(ObservableRangeCollection<T>).GetField("deferredEvents", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(this);
             if (deferredEvents != null)
             {
                 deferredEvents.Add(e);

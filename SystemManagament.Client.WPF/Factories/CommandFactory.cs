@@ -129,5 +129,55 @@ namespace SystemManagament.Client.WPF.Factories
                 });
             });
         }
+
+        public IAsyncCommand CreateWindowsServiceDynamicDataCommand(WpfObservableRangeCollection<WindowsService> windowsService)
+        {
+            return new AsyncCommand<bool>(async (cancellationToken) =>
+            {
+                return await Task.Run(async () =>
+                {
+                    // Set the task.
+                    var neverEndingTask = new TPLFactory().CreateNeverEndingTask(
+                        (now, ct) => this.wcfClient.ReadWindowsServiceDynamicDataAsync(windowsService).WithCancellation(ct),
+                        cancellationToken);
+
+                    // Start the task. Post the time.
+                    var result = neverEndingTask.Post(DateTimeOffset.Now);
+
+                    // if cancel was not requested task is still ongoing
+                    while (!cancellationToken.IsCancellationRequested)
+                    {
+                        await Task.Delay(this.neverEndingCommandDelayInMiliSeconds);
+                    }
+
+                    return result;
+                });
+            });
+        }
+
+        public IAsyncCommand CreateWindowsLogDynamicDataCommand(WpfObservableRangeCollection<WindowsLog> windowsLog)
+        {
+            return new AsyncCommand<bool>(async (cancellationToken) =>
+            {
+                return await Task.Run(async () =>
+                {
+                    // Set the task.
+                    var neverEndingTask = new TPLFactory().CreateNeverEndingTask(
+                        (now, ct) => this.wcfClient.ReadWindowsLogDynamicDataAsync(windowsLog).WithCancellation(ct),
+                        cancellationToken);
+
+                    // Start the task. Post the time.
+                    var result = neverEndingTask.Post(DateTimeOffset.Now);
+
+                    // if cancel was not requested task is still ongoing
+                    while (!cancellationToken.IsCancellationRequested)
+                    {
+                        await Task.Delay(this.neverEndingCommandDelayInMiliSeconds);
+                    }
+
+                    return result;
+                });
+            });
+        }
     }
 }
