@@ -127,7 +127,8 @@ namespace SystemManagament.Client.WPF.Factories
             WpfObservableRangeCollection<CDROMDrive> cDROMDrive,
             WpfObservableRangeCollection<Fan> fan,
             WpfObservableRangeCollection<Printer> printer,
-            WpfObservableRangeCollection<Battery> battery)
+            WpfObservableRangeCollection<Battery> battery,
+            WpfObservableRangeCollection<Storage> storage)
         {
             return new AsyncCommand<HardwareStaticData>(async (cancellationToken) =>
             {
@@ -147,6 +148,7 @@ namespace SystemManagament.Client.WPF.Factories
                 fan.ReplaceRange(result.Fan);
                 printer.ReplaceRange(result.Printer);
                 battery.ReplaceRange(result.Battery);
+                storage.ReplaceRange(result.Storage);
 
                 return result;
             });

@@ -43,7 +43,8 @@ namespace SystemManagament.Monitor.HardwareStatic.Analyzer
             List<DiskPartition> diskPartitions,
             List<Volume> volumes,
             List<DiskToPartition> disksToPartitions,
-            List<PartitionToVolume> partitionsToVolumes)
+            List<PartitionToVolume> partitionsToVolumes,
+            List<SMARTData> smartData)
         {
             List<Storage> storageData = new List<Storage>();
 
@@ -61,6 +62,8 @@ namespace SystemManagament.Monitor.HardwareStatic.Analyzer
             this.ExtractPartitionsForStorage(storageData, disksToPartitions, diskPartitions, partitionsToVolumes, volumes);
 
             this.MatchLogicalPartitionsToExtendedPartitions(storageData);
+
+            this.MatchSmartDataForStorage(storageData, smartData);
 
             return storageData;
         }
@@ -299,6 +302,24 @@ namespace SystemManagament.Monitor.HardwareStatic.Analyzer
                         {
                             extendedPartition.Partitions.Add(partition);
                         }
+                    }
+                }
+            }
+        }
+
+        private void MatchSmartDataForStorage(List<Storage> storageData, List<SMARTData> smartData)
+        {
+            foreach (var smart in smartData)
+            {
+                foreach (var storage in storageData)
+                {
+                    string diskUniqueIdLower = storage.Disk.UniqueId.ToLower();
+                    string diskUniqueIdLowerSubstring = diskUniqueIdLower.Substring(0, diskUniqueIdLower.LastIndexOf(":"));
+
+                    if (smart.InstanceName.ToLower().Contains(diskUniqueIdLowerSubstring))
+                    {
+                        storage.SMARTData = smart;
+                        break;
                     }
                 }
             }

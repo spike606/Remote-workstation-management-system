@@ -12,6 +12,12 @@ namespace SystemManagament.Monitor.HardwareStatic.Analyzer
     {
         List<SMARTData> GetSmartData(List<SmartFailurePredictStatus> smartFailurePredictStatuses, List<SmartFailurePredictData> smartFailurePredictDatas, List<SmartFailurePredictThresholds> smartFailurePredictThresholds);
 
-        List<Storage> GetStorageData(List<Disk> disks, List<DiskPartition> diskPartitions, List<Volume> volumes, List<DiskToPartition> disksToPartitions, List<PartitionToVolume> partitionsToVolumes);
+        List<Storage> GetStorageData(
+            List<Disk> disks,
+            List<DiskPartition> diskPartitions,
+            List<Volume> volumes,
+            List<DiskToPartition> disksToPartitions,
+            List<PartitionToVolume> partitionsToVolumes,
+            List<SMARTData> smartData);
     }
 }

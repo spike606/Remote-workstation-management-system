@@ -37,6 +37,7 @@ namespace SystemManagament.Client.WPF.ViewModel
         private WpfObservableRangeCollection<Fan> fan = new WpfObservableRangeCollection<Fan>();
         private WpfObservableRangeCollection<Battery> battery = new WpfObservableRangeCollection<Battery>();
         private WpfObservableRangeCollection<Printer> printer = new WpfObservableRangeCollection<Printer>();
+        private WpfObservableRangeCollection<Storage> storage = new WpfObservableRangeCollection<Storage>();
 
         private WpfObservableRangeCollection<CurrentUser> currentUser = new WpfObservableRangeCollection<CurrentUser>();
         private WpfObservableRangeCollection<ClaimDuplicate> currentUserClaims = new WpfObservableRangeCollection<ClaimDuplicate>();
@@ -265,6 +266,19 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
+        public WpfObservableRangeCollection<Storage> Storage
+        {
+            get
+            {
+                return this.storage;
+            }
+
+            private set
+            {
+                this.Set(() => this.Storage, ref this.storage, value);
+            }
+        }
+
         public WpfObservableRangeCollection<CurrentUser> CurrentUser
         {
             get
@@ -399,7 +413,8 @@ namespace SystemManagament.Client.WPF.ViewModel
                 this.CDROMDrive,
                 this.Fan,
                 this.Printer,
-                this.Battery);
+                this.Battery,
+                this.Storage);
 
             this.LoadProcessorDynamicDataCommand = this.commandFactory.CreateProcessorDynamicDataCommand(this.ProcessorDynamic);
             this.LoadSoftwareStaticDataCommand = this.commandFactory.CreateSoftwareStaticDataCommand(

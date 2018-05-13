@@ -96,7 +96,8 @@ namespace SystemManagament.Monitor.DataBuilder
                 data.DiskPartition,
                 data.Volume,
                 data.DiskToPartition,
-                data.PartitionToVolume);
+                data.PartitionToVolume,
+                data.SMARTData);
             return data;
         }
 

@@ -27,6 +27,7 @@
     <xs:sequence>
       <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" minOccurs="0" name="Disk" nillable="true" type="q2:Disk" />
       <xs:element minOccurs="0" name="Partition" nillable="true" type="tns:ArrayOfLogicalPartition" />
+      <xs:element minOccurs="0" name="SMARTData" nillable="true" type="tns:SMARTData" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Storage" nillable="true" type="tns:Storage" />

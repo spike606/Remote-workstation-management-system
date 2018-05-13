@@ -493,7 +493,7 @@
             <TabItem Header="Hardware Static">
                 <StackPanel>
                     <Button Content="Refresh hardware static data" Command="{Binding LoadHardwareStaticDataCommand}" HorizontalAlignment="Right"/>
-                    <Label FontFamily = "Verdana" Content="Processor Info" FontSize="18" FontWeight="Bold"/>
+                    <!--<Label FontFamily = "Verdana" Content="Processor Info" FontSize="18" FontWeight="Bold"/>
                     <StackPanel>
                         <Expander>
                             <Expander.Header>
@@ -501,7 +501,7 @@
                             </Expander.Header>
                             <Expander.Style>
                                 <Style TargetType="Expander">
-                                    <Setter Property="IsExpanded" Value="True" />
+                                    <Setter Property="IsExpanded" Value="False" />
                                 </Style>
                             </Expander.Style>
                             <Expander.Content>
@@ -541,7 +541,7 @@
                             </Expander.Header>
                             <Expander.Style>
                                 <Style TargetType="Expander">
-                                    <Setter Property="IsExpanded" Value="True" />
+                                    <Setter Property="IsExpanded" Value="False" />
                                 </Style>
                             </Expander.Style>
                             <Expander.Content>
@@ -572,7 +572,7 @@
                             </Expander.Header>
                             <Expander.Style>
                                 <Style TargetType="Expander">
-                                    <Setter Property="IsExpanded" Value="True" />
+                                    <Setter Property="IsExpanded" Value="False" />
                                 </Style>
                             </Expander.Style>
                             <Expander.Content>
@@ -613,7 +613,7 @@
                             </Expander.Header>
                             <Expander.Style>
                                 <Style TargetType="Expander">
-                                    <Setter Property="IsExpanded" Value="True" />
+                                    <Setter Property="IsExpanded" Value="False" />
                                 </Style>
                             </Expander.Style>
                             <Expander.Content>
@@ -639,7 +639,6 @@
                             </Expander.Content>
                         </Expander>
                     </StackPanel>
-
                     <Label FontFamily = "Verdana" Content="Video Info" FontSize="18" FontWeight="Bold"/>
                     <StackPanel>
                         <Expander>
@@ -648,7 +647,7 @@
                             </Expander.Header>
                             <Expander.Style>
                                 <Style TargetType="Expander">
-                                    <Setter Property="IsExpanded" Value="True" />
+                                    <Setter Property="IsExpanded" Value="False" />
                                 </Style>
                             </Expander.Style>
                             <Expander.Content>
@@ -680,7 +679,6 @@
                             </Expander.Content>
                         </Expander>
                     </StackPanel>
-
                     <Label FontFamily = "Verdana" Content="Network Adapter Info" FontSize="18" FontWeight="Bold"/>
                     <StackPanel>
                         <Expander>
@@ -689,7 +687,7 @@
                             </Expander.Header>
                             <Expander.Style>
                                 <Style TargetType="Expander">
-                                    <Setter Property="IsExpanded" Value="True" />
+                                    <Setter Property="IsExpanded" Value="False" />
                                 </Style>
                             </Expander.Style>
                             <Expander.Content>
@@ -725,7 +723,6 @@
                             </Expander.Content>
                         </Expander>
                     </StackPanel>
-
                     <Label FontFamily = "Verdana" Content="Plug and Play Info" FontSize="18" FontWeight="Bold"/>
                     <StackPanel>
                         <Expander>
@@ -734,7 +731,7 @@
                             </Expander.Header>
                             <Expander.Style>
                                 <Style TargetType="Expander">
-                                    <Setter Property="IsExpanded" Value="True" />
+                                    <Setter Property="IsExpanded" Value="False" />
                                 </Style>
                             </Expander.Style>
                             <Expander.Content>
@@ -756,7 +753,6 @@
                             </Expander.Content>
                         </Expander>
                     </StackPanel>
-
                     <Label FontFamily = "Verdana" Content="CDROM Info" FontSize="18" FontWeight="Bold"/>
                     <StackPanel>
                         <Expander>
@@ -765,7 +761,7 @@
                             </Expander.Header>
                             <Expander.Style>
                                 <Style TargetType="Expander">
-                                    <Setter Property="IsExpanded" Value="True" />
+                                    <Setter Property="IsExpanded" Value="False" />
                                 </Style>
                             </Expander.Style>
                             <Expander.Content>
@@ -788,7 +784,6 @@
                             </Expander.Content>
                         </Expander>
                     </StackPanel>
-
                     <Label FontFamily = "Verdana" Content="Fan Info" FontSize="18" FontWeight="Bold"/>
                     <StackPanel>
                         <Expander>
@@ -797,7 +792,7 @@
                             </Expander.Header>
                             <Expander.Style>
                                 <Style TargetType="Expander">
-                                    <Setter Property="IsExpanded" Value="True" />
+                                    <Setter Property="IsExpanded" Value="False" />
                                 </Style>
                             </Expander.Style>
                             <Expander.Content>
@@ -817,7 +812,6 @@
                             </Expander.Content>
                         </Expander>
                     </StackPanel>
-
                     <Label FontFamily = "Verdana" Content="Battery Info" FontSize="18" FontWeight="Bold"/>
                     <StackPanel>
                         <Expander>
@@ -826,7 +820,7 @@
                             </Expander.Header>
                             <Expander.Style>
                                 <Style TargetType="Expander">
-                                    <Setter Property="IsExpanded" Value="True" />
+                                    <Setter Property="IsExpanded" Value="False" />
                                 </Style>
                             </Expander.Style>
                             <Expander.Content>
@@ -850,7 +844,6 @@
                             </Expander.Content>
                         </Expander>
                     </StackPanel>
-
                     <Label FontFamily = "Verdana" Content="Printer Info" FontSize="18" FontWeight="Bold"/>
                     <StackPanel>
                         <Expander>
@@ -859,7 +852,7 @@
                             </Expander.Header>
                             <Expander.Style>
                                 <Style TargetType="Expander">
-                                    <Setter Property="IsExpanded" Value="True" />
+                                    <Setter Property="IsExpanded" Value="False" />
                                 </Style>
                             </Expander.Style>
                             <Expander.Content>
@@ -883,12 +876,95 @@
                                 </StackPanel>
                             </Expander.Content>
                         </Expander>
+                    </StackPanel>-->
+                    <Label FontFamily = "Verdana" Content="Storage Info" FontSize="18" FontWeight="Bold"/>
+                    <StackPanel>
+                        <Expander>
+                            <Expander.Header>
+                                <TextBlock Text="Storage Data" FontWeight="ExtraBlack" FontSize="15"/>
+                            </Expander.Header>
+                            <Expander.Style>
+                                <Style TargetType="Expander">
+                                    <Setter Property="IsExpanded" Value="True" />
+                                </Style>
+                            </Expander.Style>
+                            <Expander.Content>
+                                <ItemsControl ItemsSource="{Binding Storage}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Vertical">
+                                                <Expander Header="{Binding Disk.FriendlyName}" FontWeight="Bold" FontSize="12">
+                                                    <WrapPanel  Orientation="Horizontal">
+                                                        <WrapPanel.Resources>
+                                                            <Style TargetType="{x:Type TextBox}">
+                                                                <Setter Property="Margin" Value="0,10,0,0"/>
+                                                            </Style>
+                                                        </WrapPanel.Resources>
+                                                        <TextBlock Text="{Binding Disk.Caption}"/>
+                                                        <TextBlock Text="{Binding Disk.Name}" />
+                                                        <TextBlock Text="{Binding Disk.Description}" />
+                                                        <TextBlock Text="{Binding Disk.Status}" />
+                                                        <TextBlock Text="{Binding Disk.BootFromDisk}" />
+                                                        <TextBlock Text="{Binding Disk.AllocatedSize, Converter={StaticResource UnitValueToStringConverter}}" />
+                                                        <TextBlock Text="{Binding Disk.BusType}" />
+                                                        <TextBlock Text="{Binding Disk.FirmwareVersion}" />
+                                                        <TextBlock Text="{Binding Disk.FriendlyName}" />
+                                                        <TextBlock Text="{Binding Disk.HealthStatus}" />
+                                                        <TextBlock Text="{Binding Disk.IsBoot}" />
+                                                        <TextBlock Text="{Binding Disk.IsClustered}" />
+                                                        <TextBlock Text="{Binding Disk.IsOffline}" />
+                                                        <TextBlock Text="{Binding Disk.IsReadOnly}" />
+                                                        <TextBlock Text="{Binding Disk.IsSystem}" />
+                                                        <TextBlock Text="{Binding Disk.LargestFreeExtent, Converter={StaticResource UnitValueToStringConverter}}" />
+                                                        <TextBlock Text="{Binding Disk.LogicalSectorSize, Converter={StaticResource UnitValueToStringConverter}}" />
+                                                        <TextBlock Text="{Binding Disk.Location}" />
+                                                        <TextBlock Text="{Binding Disk.Manufacturer}" />
+                                                        <TextBlock Text="{Binding Disk.Model}" />
+                                                        <TextBlock Text="{Binding Disk.Number}" />
+                                                        <TextBlock Text="{Binding Disk.NumberOfPartitions}" />
+                                                        <TextBlock Text="{Binding Disk.ObjectId}" />
+                                                        <TextBlock Text="{Binding Disk.OfflineReason}" />
+                                                        <TextBlock Text="{Binding Disk.PartitionStyle}" />
+                                                        <TextBlock Text="{Binding Disk.Path}" />
+                                                        <TextBlock Text="{Binding Disk.PhysicalSectorSize, Converter={StaticResource UnitValueToStringConverter}}" />
+                                                        <TextBlock Text="{Binding Disk.Size, Converter={StaticResource UnitValueToStringConverter}}" />
+                                                        <TextBlock Text="{Binding Disk.UniqueId}" />
+                                                        <TextBlock Text="{Binding Disk.Signature}" />
+                                                        <TextBlock Text="{Binding Disk.SerialNumber}" />
+                                                    </WrapPanel>
+                                                </Expander>
+                                                <Expander Header="SMARTData Analyst" FontWeight="Bold" FontSize="12">
+                                                    <StackPanel Orientation="Vertical">
+                                                        <TextBlock Text="PredictFailure?"/>
+                                                        <TextBlock Text="{Binding SMARTData.PredictFailure}"/>
+                                                        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding SMARTData.Attributes}" ColumnWidth="*" Margin="0,0,39,0"
+                                                                HorizontalScrollBarVisibility="Auto"
+                                                                VerticalScrollBarVisibility="Auto"
+                                                                ScrollViewer.CanContentScroll="True" MaxHeight="500">
+                                                            <DataGrid.Columns>
+                                                                <DataGridTextColumn Header="Attribute Id" Binding="{Binding Key}" />
+                                                                <DataGridTextColumn Header="AttributeName" Binding="{Binding Value.AttributeName}" />
+                                                                <DataGridTextColumn Header="Current" Binding="{Binding Value.Current}" />
+                                                                <DataGridTextColumn Header="Worst" Binding="{Binding Value.Worst}" />
+                                                                <DataGridTextColumn Header="Threshold" Binding="{Binding Value.Threshold}" />
+                                                                <DataGridTextColumn Header="Raw" Binding="{Binding Value.Raw}" />
+                                                                <DataGridTextColumn Header="RawIdeal" Binding="{Binding Value.RawIdeal}" />
+                                                                <DataGridTextColumn Header="IsCriticalAttribute" Binding="{Binding Value.IsCriticalAttribute}" />
+                                                                <DataGridTextColumn Header="Status" Binding="{Binding Value.Status}" />
+                                                            </DataGrid.Columns>
+                                                        </DataGrid>
+                                                    </StackPanel>
+                                                </Expander>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </Expander.Content>
+                        </Expander>
                     </StackPanel>
-
                 </StackPanel>
             </TabItem>
             <TabItem Header="Hardware Dynamic" />
-
         </TabControl>
     </Grid>
 

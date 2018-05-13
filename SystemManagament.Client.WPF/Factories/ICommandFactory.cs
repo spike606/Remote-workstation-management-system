@@ -32,7 +32,8 @@ namespace SystemManagament.Client.WPF.Factories
             WpfObservableRangeCollection<CDROMDrive> cDROMDrive,
             WpfObservableRangeCollection<Fan> fan,
             WpfObservableRangeCollection<Printer> printer,
-            WpfObservableRangeCollection<Battery> battery);
+            WpfObservableRangeCollection<Battery> battery,
+            WpfObservableRangeCollection<Storage> storage);
 
         IAsyncCommand CreateSoftwareStaticDataCommand(
             WpfObservableRangeCollection<CurrentUser> currentUser,

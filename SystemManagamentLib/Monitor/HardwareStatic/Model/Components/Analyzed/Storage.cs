@@ -15,5 +15,8 @@ namespace SystemManagament.Monitor.HardwareStatic.Model.Components.Analyzed
 
         [DataMember]
         public List<LogicalPartition> Partition { get; set; }
+
+        [DataMember]
+        public SMARTData SMARTData { get; set; }
     }
 }

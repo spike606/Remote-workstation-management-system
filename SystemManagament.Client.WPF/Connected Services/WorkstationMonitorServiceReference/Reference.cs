@@ -4647,6 +4647,9 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.LogicalPartition[] PartitionField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.SMARTData SMARTDataField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -4679,6 +4682,19 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
                 if ((object.ReferenceEquals(this.PartitionField, value) != true)) {
                     this.PartitionField = value;
                     this.RaisePropertyChanged("Partition");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.SMARTData SMARTData {
+            get {
+                return this.SMARTDataField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SMARTDataField, value) != true)) {
+                    this.SMARTDataField = value;
+                    this.RaisePropertyChanged("SMARTData");
                 }
             }
         }
