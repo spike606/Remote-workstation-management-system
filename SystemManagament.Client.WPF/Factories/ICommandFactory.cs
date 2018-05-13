@@ -15,9 +15,24 @@ namespace SystemManagament.Client.WPF.Factories
     {
         IAsyncCommand CreateWindowsProcessDynamicDataCommand(WpfObservableRangeCollection<WindowsProcess> windowsProcess);
 
-        IAsyncCommand CreateHardwareStaticDataCommand(WpfObservableRangeCollection<Memory> memory);
+        IAsyncCommand CreateWindowsLogDynamicDataCommand(WpfObservableRangeCollection<WindowsLog> windowsLog);
+
+        IAsyncCommand CreateWindowsServiceDynamicDataCommand(WpfObservableRangeCollection<WindowsService> windowsService);
 
         IAsyncCommand CreateProcessorDynamicDataCommand(WpfObservableRangeCollection<ProcessorDynamic> processorDynamic);
+
+        IAsyncCommand CreateHardwareStaticDataCommand(
+            WpfObservableRangeCollection<ProcessorStatic> processorStatic,
+            WpfObservableRangeCollection<ProcessorCache> processorCache,
+            WpfObservableRangeCollection<Memory> memoryItems,
+            WpfObservableRangeCollection<BaseBoard> baseBoard,
+            WpfObservableRangeCollection<VideoController> videoController,
+            WpfObservableRangeCollection<NetworkAdapter> networkAdapter,
+            WpfObservableRangeCollection<PnPEntity> pnPEntity,
+            WpfObservableRangeCollection<CDROMDrive> cDROMDrive,
+            WpfObservableRangeCollection<Fan> fan,
+            WpfObservableRangeCollection<Printer> printer,
+            WpfObservableRangeCollection<Battery> battery);
 
         IAsyncCommand CreateSoftwareStaticDataCommand(
             WpfObservableRangeCollection<CurrentUser> currentUser,
@@ -31,9 +46,5 @@ namespace SystemManagament.Client.WPF.Factories
             WpfObservableRangeCollection<LocalUser> localUser);
 
         ICommand CreateClearDataCommand(Action clearData);
-
-        IAsyncCommand CreateWindowsServiceDynamicDataCommand(WpfObservableRangeCollection<WindowsService> windowsService);
-
-        IAsyncCommand CreateWindowsLogDynamicDataCommand(WpfObservableRangeCollection<WindowsLog> windowsLog);
     }
 }

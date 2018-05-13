@@ -24,13 +24,23 @@ namespace SystemManagament.Client.WPF.ViewModel
         private WpfObservableRangeCollection<WindowsService> windowsService = new WpfObservableRangeCollection<WindowsService>();
         private WpfObservableRangeCollection<WindowsLog> windowsLog = new WpfObservableRangeCollection<WindowsLog>();
 
-        private WpfObservableRangeCollection<Memory> memoryItems = new WpfObservableRangeCollection<Memory>();
-        private WpfObservableRangeCollection<ProcessorDynamic> processorItems = new WpfObservableRangeCollection<ProcessorDynamic>();
+        private WpfObservableRangeCollection<ProcessorDynamic> processorDynamic = new WpfObservableRangeCollection<ProcessorDynamic>();
+
+        private WpfObservableRangeCollection<ProcessorStatic> processorStatic = new WpfObservableRangeCollection<ProcessorStatic>();
+        private WpfObservableRangeCollection<ProcessorCache> processorCache = new WpfObservableRangeCollection<ProcessorCache>();
+        private WpfObservableRangeCollection<Memory> memory = new WpfObservableRangeCollection<Memory>();
+        private WpfObservableRangeCollection<BaseBoard> baseBoard = new WpfObservableRangeCollection<BaseBoard>();
+        private WpfObservableRangeCollection<VideoController> videoController = new WpfObservableRangeCollection<VideoController>();
+        private WpfObservableRangeCollection<NetworkAdapter> networkAdapter = new WpfObservableRangeCollection<NetworkAdapter>();
+        private WpfObservableRangeCollection<PnPEntity> pnPEntity = new WpfObservableRangeCollection<PnPEntity>();
+        private WpfObservableRangeCollection<CDROMDrive> cDROMDrive = new WpfObservableRangeCollection<CDROMDrive>();
+        private WpfObservableRangeCollection<Fan> fan = new WpfObservableRangeCollection<Fan>();
+        private WpfObservableRangeCollection<Battery> battery = new WpfObservableRangeCollection<Battery>();
+        private WpfObservableRangeCollection<Printer> printer = new WpfObservableRangeCollection<Printer>();
 
         private WpfObservableRangeCollection<CurrentUser> currentUser = new WpfObservableRangeCollection<CurrentUser>();
         private WpfObservableRangeCollection<ClaimDuplicate> currentUserClaims = new WpfObservableRangeCollection<ClaimDuplicate>();
         private WpfObservableRangeCollection<GroupDuplicate> currentUserGroups = new WpfObservableRangeCollection<GroupDuplicate>();
-
         private WpfObservableRangeCollection<OS> operatingSystem = new WpfObservableRangeCollection<OS>();
         private WpfObservableRangeCollection<Bios> bios = new WpfObservableRangeCollection<Bios>();
         private WpfObservableRangeCollection<InstalledProgram> installedProgram = new WpfObservableRangeCollection<InstalledProgram>();
@@ -99,29 +109,159 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
-        public WpfObservableRangeCollection<Memory> MemoryItems
+        public WpfObservableRangeCollection<ProcessorDynamic> ProcessorDynamic
         {
             get
             {
-                return this.memoryItems;
+                return this.processorDynamic;
             }
 
             private set
             {
-                this.Set(() => this.MemoryItems, ref this.memoryItems, value);
+                this.Set(() => this.ProcessorDynamic, ref this.processorDynamic, value);
             }
         }
 
-        public WpfObservableRangeCollection<ProcessorDynamic> ProcessorItems
+        public WpfObservableRangeCollection<ProcessorStatic> ProcessorStatic
         {
             get
             {
-                return this.processorItems;
+                return this.processorStatic;
             }
 
             private set
             {
-                this.Set(() => this.ProcessorItems, ref this.processorItems, value);
+                this.Set(() => this.ProcessorStatic, ref this.processorStatic, value);
+            }
+        }
+
+        public WpfObservableRangeCollection<ProcessorCache> ProcessorCache
+        {
+            get
+            {
+                return this.processorCache;
+            }
+
+            private set
+            {
+                this.Set(() => this.ProcessorCache, ref this.processorCache, value);
+            }
+        }
+
+        public WpfObservableRangeCollection<Memory> Memory
+        {
+            get
+            {
+                return this.memory;
+            }
+
+            private set
+            {
+                this.Set(() => this.Memory, ref this.memory, value);
+            }
+        }
+
+        public WpfObservableRangeCollection<BaseBoard> BaseBoard
+        {
+            get
+            {
+                return this.baseBoard;
+            }
+
+            private set
+            {
+                this.Set(() => this.BaseBoard, ref this.baseBoard, value);
+            }
+        }
+
+        public WpfObservableRangeCollection<VideoController> VideoController
+        {
+            get
+            {
+                return this.videoController;
+            }
+
+            private set
+            {
+                this.Set(() => this.VideoController, ref this.videoController, value);
+            }
+        }
+
+        public WpfObservableRangeCollection<NetworkAdapter> NetworkAdapter
+        {
+            get
+            {
+                return this.networkAdapter;
+            }
+
+            private set
+            {
+                this.Set(() => this.NetworkAdapter, ref this.networkAdapter, value);
+            }
+        }
+
+        public WpfObservableRangeCollection<PnPEntity> PnPEntity
+        {
+            get
+            {
+                return this.pnPEntity;
+            }
+
+            private set
+            {
+                this.Set(() => this.PnPEntity, ref this.pnPEntity, value);
+            }
+        }
+
+        public WpfObservableRangeCollection<CDROMDrive> CDROMDrive
+        {
+            get
+            {
+                return this.cDROMDrive;
+            }
+
+            private set
+            {
+                this.Set(() => this.CDROMDrive, ref this.cDROMDrive, value);
+            }
+        }
+
+        public WpfObservableRangeCollection<Fan> Fan
+        {
+            get
+            {
+                return this.fan;
+            }
+
+            private set
+            {
+                this.Set(() => this.Fan, ref this.fan, value);
+            }
+        }
+
+        public WpfObservableRangeCollection<Printer> Printer
+        {
+            get
+            {
+                return this.printer;
+            }
+
+            private set
+            {
+                this.Set(() => this.Printer, ref this.printer, value);
+            }
+        }
+
+        public WpfObservableRangeCollection<Battery> Battery
+        {
+            get
+            {
+                return this.battery;
+            }
+
+            private set
+            {
+                this.Set(() => this.Battery, ref this.battery, value);
             }
         }
 
@@ -248,8 +388,20 @@ namespace SystemManagament.Client.WPF.ViewModel
             this.LoadWindowsProcessDynamicDataCommand = this.commandFactory.CreateWindowsProcessDynamicDataCommand(this.WindowsProcess);
             this.LoadWindowsServiceDynamicDataCommand = this.commandFactory.CreateWindowsServiceDynamicDataCommand(this.WindowsService);
             this.LoadWindowsLogDynamicDataCommand = this.commandFactory.CreateWindowsLogDynamicDataCommand(this.WindowsLog);
-            this.LoadHardwareStaticDataCommand = this.commandFactory.CreateHardwareStaticDataCommand(this.MemoryItems);
-            this.LoadProcessorDynamicDataCommand = this.commandFactory.CreateProcessorDynamicDataCommand(this.ProcessorItems);
+            this.LoadHardwareStaticDataCommand = this.commandFactory.CreateHardwareStaticDataCommand(
+                this.ProcessorStatic,
+                this.ProcessorCache,
+                this.Memory,
+                this.BaseBoard,
+                this.VideoController,
+                this.NetworkAdapter,
+                this.PnPEntity,
+                this.CDROMDrive,
+                this.Fan,
+                this.Printer,
+                this.Battery);
+
+            this.LoadProcessorDynamicDataCommand = this.commandFactory.CreateProcessorDynamicDataCommand(this.ProcessorDynamic);
             this.LoadSoftwareStaticDataCommand = this.commandFactory.CreateSoftwareStaticDataCommand(
                 this.CurrentUser,
                 this.CurrentUserClaims,
