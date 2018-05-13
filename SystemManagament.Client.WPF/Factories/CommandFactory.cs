@@ -113,7 +113,7 @@ namespace SystemManagament.Client.WPF.Factories
                     var result = await this.wcfClient.ReadSoftwareStaticDataAsync()
                     .WithCancellation(cancellationToken)
                     // Following statements will be processed in the same thread, won't use caught context (UI)
-                    .ConfigureAwait(true);
+                    .ConfigureAwait(false);
 
                     currentUser.ReplaceRange(result.CurrentUser);
                     currentUserClaims.ReplaceRange(result.CurrentUser.First().Claims);
@@ -157,23 +157,14 @@ namespace SystemManagament.Client.WPF.Factories
 
         public IAsyncCommand CreateWindowsLogDynamicDataCommand(WpfObservableRangeCollection<WindowsLog> windowsLog)
         {
-            return new AsyncCommand<bool>(async (cancellationToken) =>
+            return new AsyncCommand<WindowsLog[]>(async (cancellationToken) =>
             {
                 return await Task.Run(async () =>
                 {
-                    // Set the task.
-                    var neverEndingTask = new TPLFactory().CreateNeverEndingTask(
-                        (now, ct) => this.wcfClient.ReadWindowsLogDynamicDataAsync(windowsLog).WithCancellation(ct),
-                        cancellationToken);
-
-                    // Start the task. Post the time.
-                    var result = neverEndingTask.Post(DateTimeOffset.Now);
-
-                    // if cancel was not requested task is still ongoing
-                    while (!cancellationToken.IsCancellationRequested)
-                    {
-                        await Task.Delay(this.neverEndingCommandDelayInMiliSeconds);
-                    }
+                    var result = await this.wcfClient.ReadWindowsLogDynamicDataAsync(windowsLog)
+                        .WithCancellation(cancellationToken)
+                        // Following statements will be processed in the same thread, won't use caught context (UI)
+                        .ConfigureAwait(false);
 
                     return result;
                 });

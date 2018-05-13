@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-//using System.Diagnostics;
 using System.Linq;
 using System.Management;
 using System.ServiceProcess;
@@ -84,6 +83,7 @@ namespace SystemManagament.Monitor.SoftwareDynamic.Provider
             try
             {
                 var logs = EventLog.GetEventLogs();
+
                 foreach (var log in logs)
                 {
                     WindowsLog windowsLog = new WindowsLog();

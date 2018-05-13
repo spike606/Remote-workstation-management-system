@@ -451,6 +451,43 @@
                             </StackPanel>
                         </Expander.Content>
                     </Expander>
+                    <Button Content="Start windows logs dynamic data" Command="{Binding LoadWindowsLogDynamicDataCommand}" HorizontalAlignment="Right"/>
+                    <Expander>
+                        <Expander.Header>
+                            <TextBlock Text="Windows Logs" FontWeight="ExtraBlack" FontSize="15"/>
+                        </Expander.Header>
+                        <Expander.Style>
+                            <Style TargetType="Expander">
+                                <Setter Property="IsExpanded" Value="True" />
+                            </Style>
+                        </Expander.Style>
+                        <Expander.Content>
+                            <ItemsControl ItemsSource="{Binding WindowsLog}">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Expander Header="{Binding LogDisplayName}" FontWeight="Bold" FontSize="12">
+                                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Entries}" ColumnWidth="*" Margin="0,0,39,0"
+                                        HorizontalScrollBarVisibility="Auto"
+                                        VerticalScrollBarVisibility="Auto"
+                                        ScrollViewer.CanContentScroll="True" MaxHeight="500">
+                                                <DataGrid.Columns>
+                                                    <DataGridTextColumn Header="Machine Name" Binding="{Binding MachineName}" />
+                                                    <DataGridTextColumn Header="Category" Binding="{Binding Category}" />
+                                                    <DataGridTextColumn Header="Category Number" Binding="{Binding CategoryNumber}" />
+                                                    <DataGridTextColumn Header="Entry Type" Binding="{Binding EntryType}" />
+                                                    <DataGridTextColumn Header="Message" Binding="{Binding Message}" />
+                                                    <DataGridTextColumn Header="Source" Binding="{Binding Source}" />
+                                                    <DataGridTextColumn Header="Time Generated" Binding="{Binding TimeGenerated}" />
+                                                    <DataGridTextColumn Header="User Name" Binding="{Binding UserName}" />
+                                                </DataGrid.Columns>
+                                            </DataGrid>
+
+                                        </Expander>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </Expander.Content>
+                    </Expander>
                 </StackPanel>
             </TabItem>
             <TabItem Header="Hardware Static" />
