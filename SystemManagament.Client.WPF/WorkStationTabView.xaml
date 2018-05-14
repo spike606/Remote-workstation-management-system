@@ -14,6 +14,7 @@
         <converters:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
         <converters:UnitValueToStringConverter x:Key="UnitValueToStringConverter"/>
     </UserControl.Resources>
+
     <Grid>
         <TabControl TabStripPlacement="Left">
             <TabItem Header="Control">
@@ -109,54 +110,55 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Software Static">
-                <StackPanel>
-                    <Label FontFamily = "Verdana" Content="Basic Machine Info" FontSize="18" FontWeight="Bold"/>
+                <ScrollViewer VerticalScrollBarVisibility="Auto" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
                     <StackPanel>
-                        <Button Content="Refresh software static data" Command="{Binding LoadSoftwareStaticDataCommand}" HorizontalAlignment="Right"/>
-                        <StackPanel Orientation="Vertical">
+                        <Label FontFamily = "Verdana" Content="Basic Machine Info" FontSize="18" FontWeight="Bold"/>
+                        <StackPanel>
+                            <Button Content="Refresh software static data" Command="{Binding LoadSoftwareStaticDataCommand}" HorizontalAlignment="Right"/>
+                            <StackPanel Orientation="Vertical">
 
-                            <Expander>
-                                <Expander.Header>
-                                    <TextBlock Text="Current User Info" FontWeight="Bold" FontSize="15"/>
-                                </Expander.Header>
-                                <Expander.Style>
-                                    <Style TargetType="Expander">
-                                        <Setter Property="IsExpanded" Value="False" />
-                                    </Style>
-                                </Expander.Style>
-                                <Expander.Content>
-                                    <StackPanel Margin="10,4,0,0">
-                                        <Label FontFamily = "Verdana" Content="Basic User Info" FontSize="12" FontWeight="Bold"/>
-                                        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding CurrentUser}" ColumnWidth="*">
-                                            <DataGrid.Columns>
-                                                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                                                <DataGridTextColumn Header="AuthenticationType" Binding="{Binding AuthenticationType}" />
-                                            </DataGrid.Columns>
-                                        </DataGrid>
+                                <Expander>
+                                    <Expander.Header>
+                                        <TextBlock Text="Current User Info" FontWeight="Bold" FontSize="15"/>
+                                    </Expander.Header>
+                                    <Expander.Style>
+                                        <Style TargetType="Expander">
+                                            <Setter Property="IsExpanded" Value="False" />
+                                        </Style>
+                                    </Expander.Style>
+                                    <Expander.Content>
+                                        <StackPanel Margin="10,4,0,0">
+                                            <Label FontFamily = "Verdana" Content="Basic User Info" FontSize="12" FontWeight="Bold"/>
+                                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding CurrentUser}" ColumnWidth="*">
+                                                <DataGrid.Columns>
+                                                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                                                    <DataGridTextColumn Header="AuthenticationType" Binding="{Binding AuthenticationType}" />
+                                                </DataGrid.Columns>
+                                            </DataGrid>
 
-                                        <Label FontFamily = "Verdana" Content="User Claims" FontSize="12" FontWeight="Bold"/>
-                                        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding CurrentUserClaims}" ColumnWidth="*">
-                                            <DataGrid.Columns>
-                                                <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
-                                                <DataGridTextColumn Header="OriginalIssuer" Binding="{Binding OriginalIssuer}" />
-                                                <DataGridTextColumn Header="Issuer" Binding="{Binding Issuer}" />
-                                                <DataGridTextColumn Header="ValueType" Binding="{Binding ValueType}" />
-                                                <DataGridTextColumn Header="Value" Binding="{Binding Value}" />
-                                            </DataGrid.Columns>
-                                        </DataGrid>
+                                            <Label FontFamily = "Verdana" Content="User Claims" FontSize="12" FontWeight="Bold"/>
+                                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding CurrentUserClaims}" ColumnWidth="*">
+                                                <DataGrid.Columns>
+                                                    <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
+                                                    <DataGridTextColumn Header="OriginalIssuer" Binding="{Binding OriginalIssuer}" />
+                                                    <DataGridTextColumn Header="Issuer" Binding="{Binding Issuer}" />
+                                                    <DataGridTextColumn Header="ValueType" Binding="{Binding ValueType}" />
+                                                    <DataGridTextColumn Header="Value" Binding="{Binding Value}" />
+                                                </DataGrid.Columns>
+                                            </DataGrid>
 
-                                        <Label FontFamily = "Verdana" Content="User Groups" FontSize="12" FontWeight="Bold"/>
-                                        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding CurrentUserGroups}" ColumnWidth="*">
-                                            <DataGrid.Columns>
-                                                <DataGridTextColumn Header="Value" Binding="{Binding Value}" />
-                                            </DataGrid.Columns>
-                                        </DataGrid>
+                                            <Label FontFamily = "Verdana" Content="User Groups" FontSize="12" FontWeight="Bold"/>
+                                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding CurrentUserGroups}" ColumnWidth="*">
+                                                <DataGrid.Columns>
+                                                    <DataGridTextColumn Header="Value" Binding="{Binding Value}" />
+                                                </DataGrid.Columns>
+                                            </DataGrid>
 
 
 
-                                        <!-- TODO: For now don't use this way of displaying nested data, use later-->
+                                            <!-- TODO: For now don't use this way of displaying nested data, use later-->
 
-                                        <!--<DataGrid ItemsSource="{Binding CurrentUser}" AutoGenerateColumns="False" Height="Auto" Width="Auto">
+                                            <!--<DataGrid ItemsSource="{Binding CurrentUser}" AutoGenerateColumns="False" Height="Auto" Width="Auto">
                         <DataGrid.RowDetailsTemplate>
                             <DataTemplate>
                                 <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Claims}">
@@ -173,715 +175,224 @@
                             <DataGridTextColumn Header="AuthenticationType" Width="Auto" FontSize="16" Binding="{Binding Path=AuthenticationType}" />
                         </DataGrid.Columns>
                     </DataGrid>-->
-                                    </StackPanel>
+                                        </StackPanel>
 
-                                </Expander.Content>
-                            </Expander>
-                            <Expander>
-                                <Expander.Header>
-                                    <TextBlock Text="Operating System" FontWeight="Bold" FontSize="15"/>
-                                </Expander.Header>
-                                <Expander.Style>
-                                    <Style TargetType="Expander">
-                                        <Setter Property="IsExpanded" Value="False" />
-                                    </Style>
-                                </Expander.Style>
-                                <Expander.Content>
-                                    <StackPanel Margin="10,4,0,0">
-                                        <Label FontFamily = "Verdana" Content="Basic OS Info" FontSize="12" FontWeight="Bold"/>
-                                        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding OperatingSystem}" ColumnWidth="*">
-                                            <DataGrid.Columns>
-                                                <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
-                                                <DataGridTextColumn Header="Organization" Binding="{Binding Organization}" />
-                                                <DataGridTextColumn Header="OS Architecture" Binding="{Binding OSArchitecture}" />
-                                                <DataGridTextColumn Header="Version" Binding="{Binding Version}" />
-                                                <DataGridTextColumn Header="Build Number" Binding="{Binding BuildNumber}" />
-                                                <DataGridTextColumn Header="Build Type" Binding="{Binding BuildType}" />
-                                                <DataGridTextColumn Header="Serial Number" Binding="{Binding SerialNumber}" />
-                                                <DataGridTextColumn Header="Service Pack Major Version" Binding="{Binding ServicePackMajorVersion}" />
-                                                <DataGridTextColumn Header="Service Pack Minor Version" Binding="{Binding ServicePackMinorVersion}" />
-                                            </DataGrid.Columns>
-                                        </DataGrid>
-                                        <Label FontFamily = "Verdana" Content="Additional OS Info" FontSize="12" FontWeight="Bold"/>
-                                        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding OperatingSystem}" ColumnWidth="*">
-                                            <DataGrid.Columns>
-                                                <DataGridTextColumn Header="CurrentTimeZone" Binding="{Binding CurrentTimeZone, Converter={StaticResource UnitValueToStringConverter}}" />
-                                                <DataGridTextColumn Header="Local DateTime" Binding="{Binding LocalDateTime}" />
-                                                <DataGridTextColumn Header="Locale" Binding="{Binding Locale}" />
-                                                <DataGridTextColumn Header="Country Code" Binding="{Binding CountryCode}" />
-                                                <DataGridTextColumn Header="Install Date" Binding="{Binding InstallDate}" />
-                                                <DataGridTextColumn Header="Last Boot Up Time" Binding="{Binding LastBootUpTime}" />
-                                                <DataGridTextColumn Header="System Directory" Binding="{Binding SystemDirectory}" />
-                                                <DataGridTextColumn Header="System Drive" Binding="{Binding SystemDrive}" />
-                                                <DataGridTextColumn Header="Windows Directory" Binding="{Binding WindowsDirectory}" />
-                                                <DataGridTextColumn Header="Max Numer Of Processes" Binding="{Binding MaxNumerOfProcesses}" />
-                                                <DataGridTextColumn Header="Max Process Memory Size" Binding="{Binding MaxProcessMemorySize, Converter={StaticResource UnitValueToStringConverter}}" />
-                                            </DataGrid.Columns>
-                                        </DataGrid>
-                                    </StackPanel>
-
-                                </Expander.Content>
-                            </Expander>
-                            <Expander>
-                                <Expander.Header>
-                                    <TextBlock Text="BIOS" FontWeight="Bold" FontSize="15"/>
-                                </Expander.Header>
-                                <Expander.Style>
-                                    <Style TargetType="Expander">
-                                        <Setter Property="IsExpanded" Value="False" />
-                                    </Style>
-                                </Expander.Style>
-                                <Expander.Content>
-                                    <StackPanel Margin="10,4,0,0">
-                                        <Label FontFamily = "Verdana" Content="Basic BIOS Info" FontSize="12" FontWeight="Bold"/>
-                                        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Bios}" ColumnWidth="*">
-                                            <DataGrid.Columns>
-                                                <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
-                                                <DataGridTextColumn Header="Manufacturer" Binding="{Binding Manufacturer}" />
-                                                <DataGridTextColumn Header="Build Number" Binding="{Binding BuildNumber}" />
-                                                <DataGridTextColumn Header="Release Date" Binding="{Binding ReleaseDate}" />
-                                                <DataGridTextColumn Header="Serial Number" Binding="{Binding SerialNumber}" />
-                                            </DataGrid.Columns>
-                                        </DataGrid>
-                                        <Label FontFamily = "Verdana" Content="Additional BIOS Info" FontSize="12" FontWeight="Bold"/>
-                                        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Bios}" ColumnWidth="*">
-                                            <DataGrid.Columns>
-                                                <DataGridTextColumn Header="Embedded Controller Major Version" Binding="{Binding EmbeddedControllerMajorVersion}" />
-                                                <DataGridTextColumn Header="Embedded Controller Minor Version" Binding="{Binding EmbeddedControllerMinorVersion}" />
-                                                <DataGridTextColumn Header="SMBIOS BIOS Version" Binding="{Binding SMBIOSBIOSVersion}" />
-                                                <DataGridTextColumn Header="SMBIOS Major Version" Binding="{Binding SMBIOSMajorVersion}" />
-                                                <DataGridTextColumn Header="SMBIOS Minor Version" Binding="{Binding SMBIOSMinorVersion}" />
-                                                <DataGridTextColumn Header="SMBIOS Present" Binding="{Binding SMBIOSPresent}" />
-                                                <DataGridTextColumn Header="System Bios Major Version" Binding="{Binding SystemBiosMajorVersion}" />
-                                                <DataGridTextColumn Header="System Bios Minor Version" Binding="{Binding SystemBiosMinorVersion}" />
-                                            </DataGrid.Columns>
-                                        </DataGrid>
-                                    </StackPanel>
-
-                                </Expander.Content>
-                            </Expander>
-
-
-                        </StackPanel>
-
-                    </StackPanel>
-                    <StackPanel>
-                        <Label FontFamily = "Verdana" Content="Additional Machine Info" FontSize="18" FontWeight="Bold"/>
-
-                        <StackPanel Orientation="Vertical">
-
-                        <Expander>
-                            <Expander.Header>
-                                <TextBlock Text="Installed programs" FontWeight="Bold" FontSize="15"/>
-                            </Expander.Header>
-                            <Expander.Style>
-                                <Style TargetType="Expander">
-                                    <Setter Property="IsExpanded" Value="True" />
-                                </Style>
-                            </Expander.Style>
-                            <Expander.Content>
-                                <StackPanel Margin="10,4,0,0">
-                                    <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding InstalledProgram}" ColumnWidth="*">
-                                        <DataGrid.Columns>
-                                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                                            <DataGridTextColumn Header="Version" Binding="{Binding Version}" />
-                                            <DataGridTextColumn Header="InstallDate" Binding="{Binding InstallDate}" />
-                                            <DataGridTextColumn Header="InstallLocation" Binding="{Binding InstallLocation}" />
-                                        </DataGrid.Columns>
-                                    </DataGrid>
-                                </StackPanel>
-                            </Expander.Content>
-
-                        </Expander>
-                        <Expander>
-                            <Expander.Header>
-                                <TextBlock Text="Microsoft Updates" FontWeight="Bold" FontSize="15"/>
-                            </Expander.Header>
-                            <Expander.Style>
-                                <Style TargetType="Expander">
-                                    <Setter Property="IsExpanded" Value="True" />
-                                </Style>
-                            </Expander.Style>
-                            <Expander.Content>
-                                <StackPanel Margin="10,4,0,0">
-                                    <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding MicrosoftWindowsUpdate}" ColumnWidth="*">
-                                        <DataGrid.Columns>
-                                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                                            <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
-                                            <DataGridTextColumn Header="CSName" Binding="{Binding CSName}" />
-                                            <DataGridTextColumn Header="InstallDate" Binding="{Binding InstallDate}" />
-                                            <DataGridTextColumn Header="InstalledBy" Binding="{Binding InstalledBy}" />
-                                            <DataGridTextColumn Header="InstalledOn" Binding="{Binding InstalledOn}" />
-                                            <DataGridTextColumn Header="ServicePackInEffect" Binding="{Binding ServicePackInEffect}" />
-                                            <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
-                                            <DataGridTextColumn Header="HotFixID" Binding="{Binding HotFixID}" />
-                                            <DataGridTextColumn Header="FixComments" Binding="{Binding FixComments}" />
-                                            <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
-                                        </DataGrid.Columns>
-                                    </DataGrid>
-                                </StackPanel>
-                            </Expander.Content>
-
-                        </Expander>
-                        <Expander>
-                            <Expander.Header>
-                                <TextBlock Text="Startup Commands" FontWeight="Bold" FontSize="15"/>
-                            </Expander.Header>
-                            <Expander.Style>
-                                <Style TargetType="Expander">
-                                    <Setter Property="IsExpanded" Value="True" />
-                                </Style>
-                            </Expander.Style>
-                            <Expander.Content>
-                                <StackPanel Margin="10,4,0,0">
-                                    <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding StartupCommand}" ColumnWidth="*">
-                                        <DataGrid.Columns>
-                                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                                            <DataGridTextColumn Header="Command" Binding="{Binding Command}" />
-                                            <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
-                                            <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
-                                            <DataGridTextColumn Header="Location" Binding="{Binding Location}" />
-                                            <DataGridTextColumn Header="SettingID" Binding="{Binding SettingID}" />
-                                            <DataGridTextColumn Header="User" Binding="{Binding User}" />
-                                            <DataGridTextColumn Header="UserSID" Binding="{Binding UserSID}" />
-                                        </DataGrid.Columns>
-                                    </DataGrid>
-                                </StackPanel>
-                            </Expander.Content>
-
-                        </Expander>
-                        <Expander>
-                            <Expander.Header>
-                                <TextBlock Text="Local Users" FontWeight="Bold" FontSize="15"/>
-                            </Expander.Header>
-                            <Expander.Style>
-                                <Style TargetType="Expander">
-                                    <Setter Property="IsExpanded" Value="True" />
-                                </Style>
-                            </Expander.Style>
-                            <Expander.Content>
-                                <StackPanel Margin="10,4,0,0">
-                                    <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding LocalUser}" ColumnWidth="*">
-                                        <DataGrid.Columns>
-                                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                                            <DataGridTextColumn Header="Domain" Binding="{Binding Domain}" />
-                                            <DataGridTextColumn Header="FullName" Binding="{Binding FullName}" />
-                                            <DataGridTextColumn Header="SID" Binding="{Binding SID}" />
-                                            <DataGridTextColumn Header="SIDType" Binding="{Binding SIDType}" />
-                                            <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
-                                            <DataGridTextColumn Header="Descritption" Binding="{Binding Descritption}" />
-                                            <DataGridTextColumn Header="PasswordChangeable" Binding="{Binding PasswordChangeable}" />
-                                            <DataGridTextColumn Header="PasswordExpires" Binding="{Binding PasswordExpires}" />
-                                            <DataGridTextColumn Header="PasswordRequired" Binding="{Binding PasswordRequired}" />
-                                        </DataGrid.Columns>
-                                    </DataGrid>
-                                </StackPanel>
-                            </Expander.Content>
-
-                        </Expander>
-                    </StackPanel>
-                    </StackPanel>
-                </StackPanel>
-            </TabItem>
-            <TabItem Header="Software Dynamic">
-                <StackPanel>
-                    <Button Content="Start windows process dynamic data" Command="{Binding LoadWindowsProcessDynamicDataCommand}" HorizontalAlignment="Right"/>
-                    <Expander>
-                        <Expander.Header>
-                            <TextBlock Text="Windows process" FontWeight="Bold" FontSize="15"/>
-                        </Expander.Header>
-                        <Expander.Style>
-                            <Style TargetType="Expander">
-                                <Setter Property="IsExpanded" Value="True" />
-                            </Style>
-                        </Expander.Style>
-                        <Expander.Content>
-                            <StackPanel Margin="10,4,0,0">
-                                <Label FontFamily = "Verdana" Content="List of windows processes" FontSize="12" FontWeight="Bold"/>
-                                <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding WindowsProcess}" ColumnWidth="*" Margin="0,0,39,0"
-                                        HorizontalScrollBarVisibility="Auto"
-                                        VerticalScrollBarVisibility="Auto"
-                                        ScrollViewer.CanContentScroll="True" MaxHeight="500">
-                                    <DataGrid.Columns>
-                                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                                        <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
-                                        <DataGridTextColumn Header="User Name" Binding="{Binding UserName}" />
-                                        <DataGridTextColumn Header="PeakPagedMemorySize64" Binding="{Binding PeakPagedMemorySize64,Converter={StaticResource UnitValueToStringConverter}}" />
-                                        <DataGridTextColumn Header="PeakVirtualMemorySize64" Binding="{Binding PeakVirtualMemorySize64, Converter={StaticResource UnitValueToStringConverter}}" />
-                                        <DataGridTextColumn Header="PeakMemorySize" Binding="{Binding PeakMemorySize, Converter={StaticResource UnitValueToStringConverter}}" />
-                                        <DataGridTextColumn Header="PagedMemorySize64" Binding="{Binding PagedMemorySize64, Converter={StaticResource UnitValueToStringConverter}}" />
-                                        <DataGridTextColumn Header="VirtualMemorySize64" Binding="{Binding VirtualMemorySize64, Converter={StaticResource UnitValueToStringConverter}}" />
-                                        <DataGridTextColumn Header="MemorySize" Binding="{Binding MemorySize, Converter={StaticResource UnitValueToStringConverter}}" />
-                                        <DataGridTextColumn Header="SessionId" Binding="{Binding SessionId}" />
-                                        <DataGridTextColumn Header="StartTime" Binding="{Binding StartTime}" />
-                                        <DataGridTextColumn Header="BasePriority" Binding="{Binding BasePriority}" />
-                                    </DataGrid.Columns>
-                                </DataGrid>
-                            </StackPanel>
-                        </Expander.Content>
-                    </Expander>
-                    <Button Content="Start windows service dynamic data" Command="{Binding LoadWindowsServiceDynamicDataCommand}" HorizontalAlignment="Right"/>
-                    <Expander>
-                        <Expander.Header>
-                            <TextBlock Text="Windows services" FontWeight="Bold" FontSize="15"/>
-                        </Expander.Header>
-                        <Expander.Style>
-                            <Style TargetType="Expander">
-                                <Setter Property="IsExpanded" Value="True" />
-                            </Style>
-                        </Expander.Style>
-                        <Expander.Content>
-                            <StackPanel Margin="10,4,0,0">
-                                <Label FontFamily = "Verdana" Content="List of windows services" FontSize="12" FontWeight="Bold"/>
-                                <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding WindowsService}" ColumnWidth="*" Margin="0,0,39,0"
-                                        HorizontalScrollBarVisibility="Auto"
-                                        VerticalScrollBarVisibility="Auto"
-                                        ScrollViewer.CanContentScroll="True" MaxHeight="500">
-                                    <DataGrid.Columns>
-                                        <DataGridTextColumn Header="Service Name" Binding="{Binding ServiceName}" />
-                                        <DataGridTextColumn Header="Display Name" Binding="{Binding DisplayName}" />
-                                        <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
-                                        <DataGridTextColumn Header="Start Type" Binding="{Binding StartType}" />
-                                        <DataGridTextColumn Header="ServiceType" Binding="{Binding ServiceType}" />
-                                        <DataGridTextColumn Header="CanPauseAndContinue" Binding="{Binding CanPauseAndContinue}" />
-                                        <DataGridTextColumn Header="CanShutdown" Binding="{Binding CanShutdown}" />
-                                        <DataGridTextColumn Header="CanStop" Binding="{Binding CanStop}" />
-                                    </DataGrid.Columns>
-                                </DataGrid>
-                            </StackPanel>
-                        </Expander.Content>
-                    </Expander>
-                    <Button Content="Start windows logs dynamic data" Command="{Binding LoadWindowsLogDynamicDataCommand}" HorizontalAlignment="Right"/>
-                    <Expander>
-                        <Expander.Header>
-                            <TextBlock Text="Windows Logs" FontWeight="ExtraBlack" FontSize="15"/>
-                        </Expander.Header>
-                        <Expander.Style>
-                            <Style TargetType="Expander">
-                                <Setter Property="IsExpanded" Value="True" />
-                            </Style>
-                        </Expander.Style>
-                        <Expander.Content>
-                            <ItemsControl ItemsSource="{Binding WindowsLog}">
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <Expander Header="{Binding LogDisplayName}" FontWeight="Bold" FontSize="12">
-                                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Entries}" ColumnWidth="*" Margin="0,0,39,0"
-                                        HorizontalScrollBarVisibility="Auto"
-                                        VerticalScrollBarVisibility="Auto"
-                                        ScrollViewer.CanContentScroll="True" MaxHeight="500">
+                                    </Expander.Content>
+                                </Expander>
+                                <Expander>
+                                    <Expander.Header>
+                                        <TextBlock Text="Operating System" FontWeight="Bold" FontSize="15"/>
+                                    </Expander.Header>
+                                    <Expander.Style>
+                                        <Style TargetType="Expander">
+                                            <Setter Property="IsExpanded" Value="False" />
+                                        </Style>
+                                    </Expander.Style>
+                                    <Expander.Content>
+                                        <StackPanel Margin="10,4,0,0">
+                                            <Label FontFamily = "Verdana" Content="Basic OS Info" FontSize="12" FontWeight="Bold"/>
+                                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding OperatingSystem}" ColumnWidth="*">
                                                 <DataGrid.Columns>
-                                                    <DataGridTextColumn Header="Machine Name" Binding="{Binding MachineName}" />
-                                                    <DataGridTextColumn Header="Category" Binding="{Binding Category}" />
-                                                    <DataGridTextColumn Header="Category Number" Binding="{Binding CategoryNumber}" />
-                                                    <DataGridTextColumn Header="Entry Type" Binding="{Binding EntryType}" />
-                                                    <DataGridTextColumn Header="Message" Binding="{Binding Message}" />
-                                                    <DataGridTextColumn Header="Source" Binding="{Binding Source}" />
-                                                    <DataGridTextColumn Header="Time Generated" Binding="{Binding TimeGenerated}" />
-                                                    <DataGridTextColumn Header="User Name" Binding="{Binding UserName}" />
+                                                    <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
+                                                    <DataGridTextColumn Header="Organization" Binding="{Binding Organization}" />
+                                                    <DataGridTextColumn Header="OS Architecture" Binding="{Binding OSArchitecture}" />
+                                                    <DataGridTextColumn Header="Version" Binding="{Binding Version}" />
+                                                    <DataGridTextColumn Header="Build Number" Binding="{Binding BuildNumber}" />
+                                                    <DataGridTextColumn Header="Build Type" Binding="{Binding BuildType}" />
+                                                    <DataGridTextColumn Header="Serial Number" Binding="{Binding SerialNumber}" />
+                                                    <DataGridTextColumn Header="Service Pack Major Version" Binding="{Binding ServicePackMajorVersion}" />
+                                                    <DataGridTextColumn Header="Service Pack Minor Version" Binding="{Binding ServicePackMinorVersion}" />
                                                 </DataGrid.Columns>
                                             </DataGrid>
+                                            <Label FontFamily = "Verdana" Content="Additional OS Info" FontSize="12" FontWeight="Bold"/>
+                                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding OperatingSystem}" ColumnWidth="*">
+                                                <DataGrid.Columns>
+                                                    <DataGridTextColumn Header="CurrentTimeZone" Binding="{Binding CurrentTimeZone, Converter={StaticResource UnitValueToStringConverter}}" />
+                                                    <DataGridTextColumn Header="Local DateTime" Binding="{Binding LocalDateTime}" />
+                                                    <DataGridTextColumn Header="Locale" Binding="{Binding Locale}" />
+                                                    <DataGridTextColumn Header="Country Code" Binding="{Binding CountryCode}" />
+                                                    <DataGridTextColumn Header="Install Date" Binding="{Binding InstallDate}" />
+                                                    <DataGridTextColumn Header="Last Boot Up Time" Binding="{Binding LastBootUpTime}" />
+                                                    <DataGridTextColumn Header="System Directory" Binding="{Binding SystemDirectory}" />
+                                                    <DataGridTextColumn Header="System Drive" Binding="{Binding SystemDrive}" />
+                                                    <DataGridTextColumn Header="Windows Directory" Binding="{Binding WindowsDirectory}" />
+                                                    <DataGridTextColumn Header="Max Numer Of Processes" Binding="{Binding MaxNumerOfProcesses}" />
+                                                    <DataGridTextColumn Header="Max Process Memory Size" Binding="{Binding MaxProcessMemorySize, Converter={StaticResource UnitValueToStringConverter}}" />
+                                                </DataGrid.Columns>
+                                            </DataGrid>
+                                        </StackPanel>
 
-                                        </Expander>
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
-                        </Expander.Content>
-                    </Expander>
-                </StackPanel>
+                                    </Expander.Content>
+                                </Expander>
+                                <Expander>
+                                    <Expander.Header>
+                                        <TextBlock Text="BIOS" FontWeight="Bold" FontSize="15"/>
+                                    </Expander.Header>
+                                    <Expander.Style>
+                                        <Style TargetType="Expander">
+                                            <Setter Property="IsExpanded" Value="False" />
+                                        </Style>
+                                    </Expander.Style>
+                                    <Expander.Content>
+                                        <StackPanel Margin="10,4,0,0">
+                                            <Label FontFamily = "Verdana" Content="Basic BIOS Info" FontSize="12" FontWeight="Bold"/>
+                                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Bios}" ColumnWidth="*">
+                                                <DataGrid.Columns>
+                                                    <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
+                                                    <DataGridTextColumn Header="Manufacturer" Binding="{Binding Manufacturer}" />
+                                                    <DataGridTextColumn Header="Build Number" Binding="{Binding BuildNumber}" />
+                                                    <DataGridTextColumn Header="Release Date" Binding="{Binding ReleaseDate}" />
+                                                    <DataGridTextColumn Header="Serial Number" Binding="{Binding SerialNumber}" />
+                                                </DataGrid.Columns>
+                                            </DataGrid>
+                                            <Label FontFamily = "Verdana" Content="Additional BIOS Info" FontSize="12" FontWeight="Bold"/>
+                                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Bios}" ColumnWidth="*">
+                                                <DataGrid.Columns>
+                                                    <DataGridTextColumn Header="Embedded Controller Major Version" Binding="{Binding EmbeddedControllerMajorVersion}" />
+                                                    <DataGridTextColumn Header="Embedded Controller Minor Version" Binding="{Binding EmbeddedControllerMinorVersion}" />
+                                                    <DataGridTextColumn Header="SMBIOS BIOS Version" Binding="{Binding SMBIOSBIOSVersion}" />
+                                                    <DataGridTextColumn Header="SMBIOS Major Version" Binding="{Binding SMBIOSMajorVersion}" />
+                                                    <DataGridTextColumn Header="SMBIOS Minor Version" Binding="{Binding SMBIOSMinorVersion}" />
+                                                    <DataGridTextColumn Header="SMBIOS Present" Binding="{Binding SMBIOSPresent}" />
+                                                    <DataGridTextColumn Header="System Bios Major Version" Binding="{Binding SystemBiosMajorVersion}" />
+                                                    <DataGridTextColumn Header="System Bios Minor Version" Binding="{Binding SystemBiosMinorVersion}" />
+                                                </DataGrid.Columns>
+                                            </DataGrid>
+                                        </StackPanel>
+
+                                    </Expander.Content>
+                                </Expander>
+
+
+                            </StackPanel>
+
+                        </StackPanel>
+                        <StackPanel>
+                            <Label FontFamily = "Verdana" Content="Additional Machine Info" FontSize="18" FontWeight="Bold"/>
+
+                            <StackPanel Orientation="Vertical">
+
+                                <Expander>
+                                    <Expander.Header>
+                                        <TextBlock Text="Installed programs" FontWeight="Bold" FontSize="15"/>
+                                    </Expander.Header>
+                                    <Expander.Style>
+                                        <Style TargetType="Expander">
+                                            <Setter Property="IsExpanded" Value="True" />
+                                        </Style>
+                                    </Expander.Style>
+                                    <Expander.Content>
+                                        <StackPanel Margin="10,4,0,0">
+                                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding InstalledProgram}" ColumnWidth="*">
+                                                <DataGrid.Columns>
+                                                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                                                    <DataGridTextColumn Header="Version" Binding="{Binding Version}" />
+                                                    <DataGridTextColumn Header="InstallDate" Binding="{Binding InstallDate}" />
+                                                    <DataGridTextColumn Header="InstallLocation" Binding="{Binding InstallLocation}" />
+                                                </DataGrid.Columns>
+                                            </DataGrid>
+                                        </StackPanel>
+                                    </Expander.Content>
+
+                                </Expander>
+                                <Expander>
+                                    <Expander.Header>
+                                        <TextBlock Text="Microsoft Updates" FontWeight="Bold" FontSize="15"/>
+                                    </Expander.Header>
+                                    <Expander.Style>
+                                        <Style TargetType="Expander">
+                                            <Setter Property="IsExpanded" Value="True" />
+                                        </Style>
+                                    </Expander.Style>
+                                    <Expander.Content>
+                                        <StackPanel Margin="10,4,0,0">
+                                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding MicrosoftWindowsUpdate}" ColumnWidth="*">
+                                                <DataGrid.Columns>
+                                                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                                                    <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
+                                                    <DataGridTextColumn Header="CSName" Binding="{Binding CSName}" />
+                                                    <DataGridTextColumn Header="InstallDate" Binding="{Binding InstallDate}" />
+                                                    <DataGridTextColumn Header="InstalledBy" Binding="{Binding InstalledBy}" />
+                                                    <DataGridTextColumn Header="InstalledOn" Binding="{Binding InstalledOn}" />
+                                                    <DataGridTextColumn Header="ServicePackInEffect" Binding="{Binding ServicePackInEffect}" />
+                                                    <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
+                                                    <DataGridTextColumn Header="HotFixID" Binding="{Binding HotFixID}" />
+                                                    <DataGridTextColumn Header="FixComments" Binding="{Binding FixComments}" />
+                                                    <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
+                                                </DataGrid.Columns>
+                                            </DataGrid>
+                                        </StackPanel>
+                                    </Expander.Content>
+
+                                </Expander>
+                                <Expander>
+                                    <Expander.Header>
+                                        <TextBlock Text="Startup Commands" FontWeight="Bold" FontSize="15"/>
+                                    </Expander.Header>
+                                    <Expander.Style>
+                                        <Style TargetType="Expander">
+                                            <Setter Property="IsExpanded" Value="True" />
+                                        </Style>
+                                    </Expander.Style>
+                                    <Expander.Content>
+                                        <StackPanel Margin="10,4,0,0">
+                                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding StartupCommand}" ColumnWidth="*">
+                                                <DataGrid.Columns>
+                                                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                                                    <DataGridTextColumn Header="Command" Binding="{Binding Command}" />
+                                                    <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
+                                                    <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
+                                                    <DataGridTextColumn Header="Location" Binding="{Binding Location}" />
+                                                    <DataGridTextColumn Header="SettingID" Binding="{Binding SettingID}" />
+                                                    <DataGridTextColumn Header="User" Binding="{Binding User}" />
+                                                    <DataGridTextColumn Header="UserSID" Binding="{Binding UserSID}" />
+                                                </DataGrid.Columns>
+                                            </DataGrid>
+                                        </StackPanel>
+                                    </Expander.Content>
+
+                                </Expander>
+                                <Expander>
+                                    <Expander.Header>
+                                        <TextBlock Text="Local Users" FontWeight="Bold" FontSize="15"/>
+                                    </Expander.Header>
+                                    <Expander.Style>
+                                        <Style TargetType="Expander">
+                                            <Setter Property="IsExpanded" Value="True" />
+                                        </Style>
+                                    </Expander.Style>
+                                    <Expander.Content>
+                                        <StackPanel Margin="10,4,0,0">
+                                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding LocalUser}" ColumnWidth="*">
+                                                <DataGrid.Columns>
+                                                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                                                    <DataGridTextColumn Header="Domain" Binding="{Binding Domain}" />
+                                                    <DataGridTextColumn Header="FullName" Binding="{Binding FullName}" />
+                                                    <DataGridTextColumn Header="SID" Binding="{Binding SID}" />
+                                                    <DataGridTextColumn Header="SIDType" Binding="{Binding SIDType}" />
+                                                    <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
+                                                    <DataGridTextColumn Header="Descritption" Binding="{Binding Descritption}" />
+                                                    <DataGridTextColumn Header="PasswordChangeable" Binding="{Binding PasswordChangeable}" />
+                                                    <DataGridTextColumn Header="PasswordExpires" Binding="{Binding PasswordExpires}" />
+                                                    <DataGridTextColumn Header="PasswordRequired" Binding="{Binding PasswordRequired}" />
+                                                </DataGrid.Columns>
+                                            </DataGrid>
+                                        </StackPanel>
+                                    </Expander.Content>
+
+                                </Expander>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
             </TabItem>
-            <TabItem Header="Hardware Static">
-                <StackPanel>
-                    <Button Content="Refresh hardware static data" Command="{Binding LoadHardwareStaticDataCommand}" HorizontalAlignment="Right"/>
-                    <!--<Label FontFamily = "Verdana" Content="Processor Info" FontSize="18" FontWeight="Bold"/>
+            <TabItem Header="Software Dynamic">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <StackPanel>
+                        <Button Content="Start windows process dynamic data" Command="{Binding LoadWindowsProcessDynamicDataCommand}" HorizontalAlignment="Right"/>
                         <Expander>
                             <Expander.Header>
-                                <TextBlock Text="Processor Basic Info" FontWeight="Bold" FontSize="15"/>
-                            </Expander.Header>
-                            <Expander.Style>
-                                <Style TargetType="Expander">
-                                    <Setter Property="IsExpanded" Value="False" />
-                                </Style>
-                            </Expander.Style>
-                            <Expander.Content>
-                                <StackPanel Margin="10,4,0,0">
-                                    <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding ProcessorStatic}" ColumnWidth="*" Margin="0,0,39,0"
-                                        HorizontalScrollBarVisibility="Auto"
-                                        VerticalScrollBarVisibility="Auto"
-                                        ScrollViewer.CanContentScroll="True" MaxHeight="500">
-                                        <DataGrid.Columns>
-                                            <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
-                                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                                            <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
-                                            <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
-                                            <DataGridTextColumn Header="Address Width" Binding="{Binding AddressWidth, Converter={StaticResource UnitValueToStringConverter}}" />
-                                            <DataGridTextColumn Header="Architecture" Binding="{Binding Architecture}" />
-                                            <DataGridTextColumn Header="Data Width" Binding="{Binding DataWidth, Converter={StaticResource UnitValueToStringConverter}}" />
-                                            <DataGridTextColumn Header="Bus Speed" Binding="{Binding BusSpeed, Converter={StaticResource UnitValueToStringConverter}}" />
-                                            <DataGridTextColumn Header="Manufacturer" Binding="{Binding Manufacturer}" />
-                                            <DataGridTextColumn Header="Max Clock Speed" Binding="{Binding MaxClockSpeed, Converter={StaticResource UnitValueToStringConverter}}" />
-                                            <DataGridTextColumn Header="Manufacturer" Binding="{Binding Manufacturer}" />
-                                            <DataGridTextColumn Header="NumberOfCores" Binding="{Binding NumberOfCores}" />
-                                            <DataGridTextColumn Header="NumberOfLogicalProcessors" Binding="{Binding NumberOfLogicalProcessors}" />
-                                            <DataGridTextColumn Header="ProcessorID" Binding="{Binding ProcessorID}" />
-                                            <DataGridTextColumn Header="SerialNumber" Binding="{Binding SerialNumber}" />
-                                            <DataGridTextColumn Header="SocketDesignation" Binding="{Binding SocketDesignation}" />
-                                            <DataGridTextColumn Header="Stepping" Binding="{Binding Stepping}" />
-                                            <DataGridTextColumn Header="ThreadCount" Binding="{Binding ThreadCount}" />
-                                            <DataGridTextColumn Header="UniqueId" Binding="{Binding UniqueId}" />
-                                        </DataGrid.Columns>
-                                    </DataGrid>
-                                </StackPanel>
-                            </Expander.Content>
-                        </Expander>
-                        <Expander>
-                            <Expander.Header>
-                                <TextBlock Text="Processor Cache" FontWeight="Bold" FontSize="15"/>
-                            </Expander.Header>
-                            <Expander.Style>
-                                <Style TargetType="Expander">
-                                    <Setter Property="IsExpanded" Value="False" />
-                                </Style>
-                            </Expander.Style>
-                            <Expander.Content>
-                                <StackPanel Margin="10,4,0,0">
-                                    <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding ProcessorCache}" ColumnWidth="*" Margin="0,0,39,0"
-                                        HorizontalScrollBarVisibility="Auto"
-                                        VerticalScrollBarVisibility="Auto"
-                                        ScrollViewer.CanContentScroll="True" MaxHeight="500">
-                                        <DataGrid.Columns>
-                                            <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
-                                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                                            <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
-                                            <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
-                                            <DataGridTextColumn Header="Speed" Binding="{Binding Speed, Converter={StaticResource UnitValueToStringConverter}}" />
-                                            <DataGridTextColumn Header="Size" Binding="{Binding Size, Converter={StaticResource UnitValueToStringConverter}}" />
-                                            <DataGridTextColumn Header="Level" Binding="{Binding Level}" />
-                                        </DataGrid.Columns>
-                                    </DataGrid>
-                                </StackPanel>
-                            </Expander.Content>
-                        </Expander>
-                    </StackPanel>
-                    <Label FontFamily = "Verdana" Content="Memory Info" FontSize="18" FontWeight="Bold"/>
-                    <StackPanel>
-                        <Expander>
-                            <Expander.Header>
-                                <TextBlock Text="Memory" FontWeight="Bold" FontSize="15"/>
-                            </Expander.Header>
-                            <Expander.Style>
-                                <Style TargetType="Expander">
-                                    <Setter Property="IsExpanded" Value="False" />
-                                </Style>
-                            </Expander.Style>
-                            <Expander.Content>
-                                <StackPanel Margin="10,4,0,0">
-                                    <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Memory}" ColumnWidth="*" Margin="0,0,39,0"
-                                        HorizontalScrollBarVisibility="Auto"
-                                        VerticalScrollBarVisibility="Auto"
-                                        ScrollViewer.CanContentScroll="True" MaxHeight="500">
-                                        <DataGrid.Columns>
-                                            <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
-                                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                                            <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
-                                            <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
-                                            <DataGridTextColumn Header="BankLabel" Binding="{Binding BankLabel}" />
-                                            <DataGridTextColumn Header="Capacity" Binding="{Binding Capacity, Converter={StaticResource UnitValueToStringConverter}}" />
-                                            <DataGridTextColumn Header="ConfiguredClockSpeed" Binding="{Binding ConfiguredClockSpeed, Converter={StaticResource UnitValueToStringConverter}}" />
-                                            <DataGridTextColumn Header="ConfiguredVoltage" Binding="{Binding ConfiguredVoltage, Converter={StaticResource UnitValueToStringConverter}}" />
-                                            <DataGridTextColumn Header="DataWidth" Binding="{Binding DataWidth, Converter={StaticResource UnitValueToStringConverter}}" />
-                                            <DataGridTextColumn Header="DeviceLocator" Binding="{Binding DeviceLocator}" />
-                                            <DataGridTextColumn Header="Manufacturer" Binding="{Binding Manufacturer}" />
-                                            <DataGridTextColumn Header="MemoryType" Binding="{Binding MemoryType}" />
-                                            <DataGridTextColumn Header="PartNumber" Binding="{Binding PartNumber}" />
-                                            <DataGridTextColumn Header="SerialNumber" Binding="{Binding SerialNumber}" />
-                                            <DataGridTextColumn Header="MaxVoltage" Binding="{Binding MaxVoltage, Converter={StaticResource UnitValueToStringConverter}}" />
-                                            <DataGridTextColumn Header="MinVoltage" Binding="{Binding MinVoltage, Converter={StaticResource UnitValueToStringConverter}}" />
-                                            <DataGridTextColumn Header="TotalWidth" Binding="{Binding TotalWidth, Converter={StaticResource UnitValueToStringConverter}}" />
-                                        </DataGrid.Columns>
-                                    </DataGrid>
-                                </StackPanel>
-                            </Expander.Content>
-                        </Expander>
-                    </StackPanel>
-                    <Label FontFamily = "Verdana" Content="Base Board Info" FontSize="18" FontWeight="Bold"/>
-                    <StackPanel>
-                        <Expander>
-                            <Expander.Header>
-                                <TextBlock Text="Bae Board" FontWeight="Bold" FontSize="15"/>
-                            </Expander.Header>
-                            <Expander.Style>
-                                <Style TargetType="Expander">
-                                    <Setter Property="IsExpanded" Value="False" />
-                                </Style>
-                            </Expander.Style>
-                            <Expander.Content>
-                                <StackPanel Margin="10,4,0,0">
-                                    <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding BaseBoard}" ColumnWidth="*" Margin="0,0,39,0"
-                                        HorizontalScrollBarVisibility="Auto"
-                                        VerticalScrollBarVisibility="Auto"
-                                        ScrollViewer.CanContentScroll="True" MaxHeight="500">
-                                        <DataGrid.Columns>
-                                            <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
-                                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                                            <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
-                                            <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
-                                            <DataGridTextColumn Header="Manufacturer" Binding="{Binding Manufacturer}" />
-                                            <DataGridTextColumn Header="Model" Binding="{Binding Model}" />
-                                            <DataGridTextColumn Header="PartNumber" Binding="{Binding PartNumber}" />
-                                            <DataGridTextColumn Header="Product" Binding="{Binding Product}" />
-                                            <DataGridTextColumn Header="SerialNumber" Binding="{Binding SerialNumber}" />
-                                            <DataGridTextColumn Header="Version" Binding="{Binding Version}" />
-                                        </DataGrid.Columns>
-                                    </DataGrid>
-                                </StackPanel>
-                            </Expander.Content>
-                        </Expander>
-                    </StackPanel>
-                    <Label FontFamily = "Verdana" Content="Video Info" FontSize="18" FontWeight="Bold"/>
-                    <StackPanel>
-                        <Expander>
-                            <Expander.Header>
-                                <TextBlock Text="Video" FontWeight="Bold" FontSize="15"/>
-                            </Expander.Header>
-                            <Expander.Style>
-                                <Style TargetType="Expander">
-                                    <Setter Property="IsExpanded" Value="False" />
-                                </Style>
-                            </Expander.Style>
-                            <Expander.Content>
-                                <StackPanel Margin="10,4,0,0">
-                                    <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding VideoController}" ColumnWidth="*" Margin="0,0,39,0"
-                                        HorizontalScrollBarVisibility="Auto"
-                                        VerticalScrollBarVisibility="Auto"
-                                        ScrollViewer.CanContentScroll="True" MaxHeight="500">
-                                        <DataGrid.Columns>
-                                            <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
-                                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                                            <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
-                                            <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
-                                            <DataGridTextColumn Header="AdapterCompatibility" Binding="{Binding AdapterCompatibility}" />
-                                            <DataGridTextColumn Header="AdapterDACType" Binding="{Binding AdapterDACType}" />
-                                            <DataGridTextColumn Header="AdapterRAM" Binding="{Binding AdapterRAM, Converter={StaticResource UnitValueToStringConverter}}" />
-                                            <DataGridTextColumn Header="CurrentBitsPerPixel" Binding="{Binding CurrentBitsPerPixel, Converter={StaticResource UnitValueToStringConverter}}" />
-                                            <DataGridTextColumn Header="CurrentHorizontalResolution" Binding="{Binding CurrentHorizontalResolution, Converter={StaticResource UnitValueToStringConverter}}" />
-                                            <DataGridTextColumn Header="CurrentRefreshRate" Binding="{Binding CurrentRefreshRate, Converter={StaticResource UnitValueToStringConverter}}" />
-                                            <DataGridTextColumn Header="CurrentVerticalResolution" Binding="{Binding CurrentVerticalResolution, Converter={StaticResource UnitValueToStringConverter}}" />
-                                            <DataGridTextColumn Header="CurrentNumberOfColors" Binding="{Binding CurrentNumberOfColors}" />
-                                            <DataGridTextColumn Header="DeviceID" Binding="{Binding DeviceID}" />
-                                            <DataGridTextColumn Header="DriverVersion" Binding="{Binding DriverVersion}" />
-                                            <DataGridTextColumn Header="VideoModeDescription" Binding="{Binding VideoModeDescription}" />
-                                            <DataGridTextColumn Header="VideoProcessor" Binding="{Binding VideoProcessor}" />
-                                        </DataGrid.Columns>
-                                    </DataGrid>
-                                </StackPanel>
-                            </Expander.Content>
-                        </Expander>
-                    </StackPanel>
-                    <Label FontFamily = "Verdana" Content="Network Adapter Info" FontSize="18" FontWeight="Bold"/>
-                    <StackPanel>
-                        <Expander>
-                            <Expander.Header>
-                                <TextBlock Text="Network Adapter" FontWeight="Bold" FontSize="15"/>
-                            </Expander.Header>
-                            <Expander.Style>
-                                <Style TargetType="Expander">
-                                    <Setter Property="IsExpanded" Value="False" />
-                                </Style>
-                            </Expander.Style>
-                            <Expander.Content>
-                                <StackPanel Margin="10,4,0,0">
-                                    <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding NetworkAdapter}" ColumnWidth="*" Margin="0,0,39,0"
-                                        HorizontalScrollBarVisibility="Auto"
-                                        VerticalScrollBarVisibility="Auto"
-                                        ScrollViewer.CanContentScroll="True" MaxHeight="500">
-                                        <DataGrid.Columns>
-                                            <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
-                                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                                            <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
-                                            <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
-                                            <DataGridTextColumn Header="ActiveMaximumTransmissionUnit" Binding="{Binding ActiveMaximumTransmissionUnit, Converter={StaticResource UnitValueToStringConverter}}" />
-                                            <DataGridTextColumn Header="ComponentID" Binding="{Binding ComponentID}" />
-                                            <DataGridTextColumn Header="ConnectorPresent" Binding="{Binding ConnectorPresent}" />
-                                            <DataGridTextColumn Header="DeviceID" Binding="{Binding DeviceID}" />
-                                            <DataGridTextColumn Header="DeviceName" Binding="{Binding DeviceName}" />
-                                            <DataGridTextColumn Header="DriverDate" Binding="{Binding DriverDate}" />
-                                            <DataGridTextColumn Header="DriverDescription" Binding="{Binding DriverDescription}" />
-                                            <DataGridTextColumn Header="DriverName" Binding="{Binding DriverName}" />
-                                            <DataGridTextColumn Header="DriverProvider" Binding="{Binding DriverProvider}" />
-                                            <DataGridTextColumn Header="DriverVersionString" Binding="{Binding DriverVersionString}" />
-                                            <DataGridTextColumn Header="InterfaceDescription" Binding="{Binding InterfaceDescription}" />
-                                            <DataGridTextColumn Header="InterfaceName" Binding="{Binding InterfaceName}" />
-                                            <DataGridTextColumn Header="NdisMedium" Binding="{Binding NdisMedium}" />
-                                            <DataGridTextColumn Header="NdisPhysicalMedium" Binding="{Binding NdisPhysicalMedium}" />
-                                            <DataGridTextColumn Header="PermanentAddress" Binding="{Binding PermanentAddress}" />
-                                            <DataGridTextColumn Header="Virtual" Binding="{Binding Virtual}" />
-                                        </DataGrid.Columns>
-                                    </DataGrid>
-                                </StackPanel>
-                            </Expander.Content>
-                        </Expander>
-                    </StackPanel>
-                    <Label FontFamily = "Verdana" Content="Plug and Play Info" FontSize="18" FontWeight="Bold"/>
-                    <StackPanel>
-                        <Expander>
-                            <Expander.Header>
-                                <TextBlock Text="Plug and Play" FontWeight="Bold" FontSize="15"/>
-                            </Expander.Header>
-                            <Expander.Style>
-                                <Style TargetType="Expander">
-                                    <Setter Property="IsExpanded" Value="False" />
-                                </Style>
-                            </Expander.Style>
-                            <Expander.Content>
-                                <StackPanel Margin="10,4,0,0">
-                                    <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding PnPEntity}" ColumnWidth="*" Margin="0,0,39,0"
-                                        HorizontalScrollBarVisibility="Auto"
-                                        VerticalScrollBarVisibility="Auto"
-                                        ScrollViewer.CanContentScroll="True" MaxHeight="500">
-                                        <DataGrid.Columns>
-                                            <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
-                                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                                            <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
-                                            <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
-                                            <DataGridTextColumn Header="DeviceID" Binding="{Binding DeviceID}" />
-                                            <DataGridTextColumn Header="Manufacturer" Binding="{Binding Manufacturer}" />
-                                        </DataGrid.Columns>
-                                    </DataGrid>
-                                </StackPanel>
-                            </Expander.Content>
-                        </Expander>
-                    </StackPanel>
-                    <Label FontFamily = "Verdana" Content="CDROM Info" FontSize="18" FontWeight="Bold"/>
-                    <StackPanel>
-                        <Expander>
-                            <Expander.Header>
-                                <TextBlock Text="CDROM" FontWeight="Bold" FontSize="15"/>
-                            </Expander.Header>
-                            <Expander.Style>
-                                <Style TargetType="Expander">
-                                    <Setter Property="IsExpanded" Value="False" />
-                                </Style>
-                            </Expander.Style>
-                            <Expander.Content>
-                                <StackPanel Margin="10,4,0,0">
-                                    <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding CDROMDrive}" ColumnWidth="*" Margin="0,0,39,0"
-                                        HorizontalScrollBarVisibility="Auto"
-                                        VerticalScrollBarVisibility="Auto"
-                                        ScrollViewer.CanContentScroll="True" MaxHeight="500">
-                                        <DataGrid.Columns>
-                                            <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
-                                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                                            <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
-                                            <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
-                                            <DataGridTextColumn Header="DeviceID" Binding="{Binding DeviceID}" />
-                                            <DataGridTextColumn Header="Drive" Binding="{Binding Drive}" />
-                                            <DataGridTextColumn Header="MediaType" Binding="{Binding MediaType}" />
-                                        </DataGrid.Columns>
-                                    </DataGrid>
-                                </StackPanel>
-                            </Expander.Content>
-                        </Expander>
-                    </StackPanel>
-                    <Label FontFamily = "Verdana" Content="Fan Info" FontSize="18" FontWeight="Bold"/>
-                    <StackPanel>
-                        <Expander>
-                            <Expander.Header>
-                                <TextBlock Text="Fan" FontWeight="Bold" FontSize="15"/>
-                            </Expander.Header>
-                            <Expander.Style>
-                                <Style TargetType="Expander">
-                                    <Setter Property="IsExpanded" Value="False" />
-                                </Style>
-                            </Expander.Style>
-                            <Expander.Content>
-                                <StackPanel Margin="10,4,0,0">
-                                    <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Fan}" ColumnWidth="*" Margin="0,0,39,0"
-                                        HorizontalScrollBarVisibility="Auto"
-                                        VerticalScrollBarVisibility="Auto"
-                                        ScrollViewer.CanContentScroll="True" MaxHeight="500">
-                                        <DataGrid.Columns>
-                                            <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
-                                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                                            <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
-                                            <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
-                                        </DataGrid.Columns>
-                                    </DataGrid>
-                                </StackPanel>
-                            </Expander.Content>
-                        </Expander>
-                    </StackPanel>
-                    <Label FontFamily = "Verdana" Content="Battery Info" FontSize="18" FontWeight="Bold"/>
-                    <StackPanel>
-                        <Expander>
-                            <Expander.Header>
-                                <TextBlock Text="Battery" FontWeight="Bold" FontSize="15"/>
-                            </Expander.Header>
-                            <Expander.Style>
-                                <Style TargetType="Expander">
-                                    <Setter Property="IsExpanded" Value="False" />
-                                </Style>
-                            </Expander.Style>
-                            <Expander.Content>
-                                <StackPanel Margin="10,4,0,0">
-                                    <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Battery}" ColumnWidth="*" Margin="0,0,39,0"
-                                        HorizontalScrollBarVisibility="Auto"
-                                        VerticalScrollBarVisibility="Auto"
-                                        ScrollViewer.CanContentScroll="True" MaxHeight="500">
-                                        <DataGrid.Columns>
-                                            <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
-                                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                                            <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
-                                            <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
-                                            <DataGridTextColumn Header="BatteryStatus" Binding="{Binding BatteryStatus}" />
-                                            <DataGridTextColumn Header="DeviceID" Binding="{Binding DeviceID}" />
-                                            <DataGridTextColumn Header="DesignCapacity" Binding="{Binding DesignCapacity, Converter={StaticResource UnitValueToStringConverter}}" />
-                                            <DataGridTextColumn Header="FullChargeCapacity" Binding="{Binding FullChargeCapacity, Converter={StaticResource UnitValueToStringConverter}}" />
-                                        </DataGrid.Columns>
-                                    </DataGrid>
-                                </StackPanel>
-                            </Expander.Content>
-                        </Expander>
-                    </StackPanel>
-                    <Label FontFamily = "Verdana" Content="Printer Info" FontSize="18" FontWeight="Bold"/>
-                    <StackPanel>
-                        <Expander>
-                            <Expander.Header>
-                                <TextBlock Text="Printer" FontWeight="Bold" FontSize="15"/>
-                            </Expander.Header>
-                            <Expander.Style>
-                                <Style TargetType="Expander">
-                                    <Setter Property="IsExpanded" Value="False" />
-                                </Style>
-                            </Expander.Style>
-                            <Expander.Content>
-                                <StackPanel Margin="10,4,0,0">
-                                    <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Printer}" ColumnWidth="*" Margin="0,0,39,0"
-                                        HorizontalScrollBarVisibility="Auto"
-                                        VerticalScrollBarVisibility="Auto"
-                                        ScrollViewer.CanContentScroll="True" MaxHeight="500">
-                                        <DataGrid.Columns>
-                                            <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
-                                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                                            <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
-                                            <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
-                                            <DataGridTextColumn Header="AveragePagesPerMinute" Binding="{Binding AveragePagesPerMinute}" />
-                                            <DataGridTextColumn Header="Default" Binding="{Binding Default}" />
-                                            <DataGridTextColumn Header="DeviceID" Binding="{Binding DeviceID}" />
-                                            <DataGridTextColumn Header="PortName" Binding="{Binding PortName}" />
-                                            <DataGridTextColumn Header="PrintProcessor" Binding="{Binding PrintProcessor}" />
-                                        </DataGrid.Columns>
-                                    </DataGrid>
-                                </StackPanel>
-                            </Expander.Content>
-                        </Expander>
-                    </StackPanel>-->
-                    <Label FontFamily = "Verdana" Content="Storage Info" FontSize="18" FontWeight="Bold"/>
-                    <StackPanel>
-                        <Expander>
-                            <Expander.Header>
-                                <TextBlock Text="Storage Data" FontWeight="ExtraBlack" FontSize="15"/>
+                                <TextBlock Text="Windows process" FontWeight="Bold" FontSize="15"/>
                             </Expander.Header>
                             <Expander.Style>
                                 <Style TargetType="Expander">
@@ -889,80 +400,651 @@
                                 </Style>
                             </Expander.Style>
                             <Expander.Content>
-                                <ItemsControl ItemsSource="{Binding Storage}">
+                                <StackPanel Margin="10,4,0,0">
+                                    <Label FontFamily = "Verdana" Content="List of windows processes" FontSize="12" FontWeight="Bold"/>
+                                    <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding WindowsProcess}" ColumnWidth="*" Margin="0,0,39,0"
+                                        HorizontalScrollBarVisibility="Auto"
+                                        VerticalScrollBarVisibility="Auto"
+                                        ScrollViewer.CanContentScroll="True" MaxHeight="500">
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                                            <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
+                                            <DataGridTextColumn Header="User Name" Binding="{Binding UserName}" />
+                                            <DataGridTextColumn Header="PeakPagedMemorySize64" Binding="{Binding PeakPagedMemorySize64,Converter={StaticResource UnitValueToStringConverter}}" />
+                                            <DataGridTextColumn Header="PeakVirtualMemorySize64" Binding="{Binding PeakVirtualMemorySize64, Converter={StaticResource UnitValueToStringConverter}}" />
+                                            <DataGridTextColumn Header="PeakMemorySize" Binding="{Binding PeakMemorySize, Converter={StaticResource UnitValueToStringConverter}}" />
+                                            <DataGridTextColumn Header="PagedMemorySize64" Binding="{Binding PagedMemorySize64, Converter={StaticResource UnitValueToStringConverter}}" />
+                                            <DataGridTextColumn Header="VirtualMemorySize64" Binding="{Binding VirtualMemorySize64, Converter={StaticResource UnitValueToStringConverter}}" />
+                                            <DataGridTextColumn Header="MemorySize" Binding="{Binding MemorySize, Converter={StaticResource UnitValueToStringConverter}}" />
+                                            <DataGridTextColumn Header="SessionId" Binding="{Binding SessionId}" />
+                                            <DataGridTextColumn Header="StartTime" Binding="{Binding StartTime}" />
+                                            <DataGridTextColumn Header="BasePriority" Binding="{Binding BasePriority}" />
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                </StackPanel>
+                            </Expander.Content>
+                        </Expander>
+                        <Button Content="Start windows service dynamic data" Command="{Binding LoadWindowsServiceDynamicDataCommand}" HorizontalAlignment="Right"/>
+                        <Expander>
+                            <Expander.Header>
+                                <TextBlock Text="Windows services" FontWeight="Bold" FontSize="15"/>
+                            </Expander.Header>
+                            <Expander.Style>
+                                <Style TargetType="Expander">
+                                    <Setter Property="IsExpanded" Value="True" />
+                                </Style>
+                            </Expander.Style>
+                            <Expander.Content>
+                                <StackPanel Margin="10,4,0,0">
+                                    <Label FontFamily = "Verdana" Content="List of windows services" FontSize="12" FontWeight="Bold"/>
+                                    <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding WindowsService}" ColumnWidth="*" Margin="0,0,39,0"
+                                        HorizontalScrollBarVisibility="Auto"
+                                        VerticalScrollBarVisibility="Auto"
+                                        ScrollViewer.CanContentScroll="True" MaxHeight="500">
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="Service Name" Binding="{Binding ServiceName}" />
+                                            <DataGridTextColumn Header="Display Name" Binding="{Binding DisplayName}" />
+                                            <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
+                                            <DataGridTextColumn Header="Start Type" Binding="{Binding StartType}" />
+                                            <DataGridTextColumn Header="ServiceType" Binding="{Binding ServiceType}" />
+                                            <DataGridTextColumn Header="CanPauseAndContinue" Binding="{Binding CanPauseAndContinue}" />
+                                            <DataGridTextColumn Header="CanShutdown" Binding="{Binding CanShutdown}" />
+                                            <DataGridTextColumn Header="CanStop" Binding="{Binding CanStop}" />
+                                        </DataGrid.Columns>
+                                    </DataGrid>
+                                </StackPanel>
+                            </Expander.Content>
+                        </Expander>
+                        <Button Content="Start windows logs dynamic data" Command="{Binding LoadWindowsLogDynamicDataCommand}" HorizontalAlignment="Right"/>
+                        <Expander>
+                            <Expander.Header>
+                                <TextBlock Text="Windows Logs" FontWeight="ExtraBlack" FontSize="15"/>
+                            </Expander.Header>
+                            <Expander.Style>
+                                <Style TargetType="Expander">
+                                    <Setter Property="IsExpanded" Value="True" />
+                                </Style>
+                            </Expander.Style>
+                            <Expander.Content>
+                                <ItemsControl ItemsSource="{Binding WindowsLog}">
                                     <ItemsControl.ItemTemplate>
                                         <DataTemplate>
-                                            <StackPanel Orientation="Vertical">
-                                                <Expander Header="{Binding Disk.FriendlyName}" FontWeight="Bold" FontSize="12">
-                                                    <WrapPanel  Orientation="Horizontal">
-                                                        <WrapPanel.Resources>
-                                                            <Style TargetType="{x:Type TextBox}">
-                                                                <Setter Property="Margin" Value="0,10,0,0"/>
-                                                            </Style>
-                                                        </WrapPanel.Resources>
-                                                        <TextBlock Text="{Binding Disk.Caption}"/>
-                                                        <TextBlock Text="{Binding Disk.Name}" />
-                                                        <TextBlock Text="{Binding Disk.Description}" />
-                                                        <TextBlock Text="{Binding Disk.Status}" />
-                                                        <TextBlock Text="{Binding Disk.BootFromDisk}" />
-                                                        <TextBlock Text="{Binding Disk.AllocatedSize, Converter={StaticResource UnitValueToStringConverter}}" />
-                                                        <TextBlock Text="{Binding Disk.BusType}" />
-                                                        <TextBlock Text="{Binding Disk.FirmwareVersion}" />
-                                                        <TextBlock Text="{Binding Disk.FriendlyName}" />
-                                                        <TextBlock Text="{Binding Disk.HealthStatus}" />
-                                                        <TextBlock Text="{Binding Disk.IsBoot}" />
-                                                        <TextBlock Text="{Binding Disk.IsClustered}" />
-                                                        <TextBlock Text="{Binding Disk.IsOffline}" />
-                                                        <TextBlock Text="{Binding Disk.IsReadOnly}" />
-                                                        <TextBlock Text="{Binding Disk.IsSystem}" />
-                                                        <TextBlock Text="{Binding Disk.LargestFreeExtent, Converter={StaticResource UnitValueToStringConverter}}" />
-                                                        <TextBlock Text="{Binding Disk.LogicalSectorSize, Converter={StaticResource UnitValueToStringConverter}}" />
-                                                        <TextBlock Text="{Binding Disk.Location}" />
-                                                        <TextBlock Text="{Binding Disk.Manufacturer}" />
-                                                        <TextBlock Text="{Binding Disk.Model}" />
-                                                        <TextBlock Text="{Binding Disk.Number}" />
-                                                        <TextBlock Text="{Binding Disk.NumberOfPartitions}" />
-                                                        <TextBlock Text="{Binding Disk.ObjectId}" />
-                                                        <TextBlock Text="{Binding Disk.OfflineReason}" />
-                                                        <TextBlock Text="{Binding Disk.PartitionStyle}" />
-                                                        <TextBlock Text="{Binding Disk.Path}" />
-                                                        <TextBlock Text="{Binding Disk.PhysicalSectorSize, Converter={StaticResource UnitValueToStringConverter}}" />
-                                                        <TextBlock Text="{Binding Disk.Size, Converter={StaticResource UnitValueToStringConverter}}" />
-                                                        <TextBlock Text="{Binding Disk.UniqueId}" />
-                                                        <TextBlock Text="{Binding Disk.Signature}" />
-                                                        <TextBlock Text="{Binding Disk.SerialNumber}" />
-                                                    </WrapPanel>
-                                                </Expander>
-                                                <Expander Header="SMARTData Analyst" FontWeight="Bold" FontSize="12">
-                                                    <StackPanel Orientation="Vertical">
-                                                        <TextBlock Text="PredictFailure?"/>
-                                                        <TextBlock Text="{Binding SMARTData.PredictFailure}"/>
-                                                        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding SMARTData.Attributes}" ColumnWidth="*" Margin="0,0,39,0"
-                                                                HorizontalScrollBarVisibility="Auto"
-                                                                VerticalScrollBarVisibility="Auto"
-                                                                ScrollViewer.CanContentScroll="True" MaxHeight="500">
-                                                            <DataGrid.Columns>
-                                                                <DataGridTextColumn Header="Attribute Id" Binding="{Binding Key}" />
-                                                                <DataGridTextColumn Header="AttributeName" Binding="{Binding Value.AttributeName}" />
-                                                                <DataGridTextColumn Header="Current" Binding="{Binding Value.Current}" />
-                                                                <DataGridTextColumn Header="Worst" Binding="{Binding Value.Worst}" />
-                                                                <DataGridTextColumn Header="Threshold" Binding="{Binding Value.Threshold}" />
-                                                                <DataGridTextColumn Header="Raw" Binding="{Binding Value.Raw}" />
-                                                                <DataGridTextColumn Header="RawIdeal" Binding="{Binding Value.RawIdeal}" />
-                                                                <DataGridTextColumn Header="IsCriticalAttribute" Binding="{Binding Value.IsCriticalAttribute}" />
-                                                                <DataGridTextColumn Header="Status" Binding="{Binding Value.Status}" />
-                                                            </DataGrid.Columns>
-                                                        </DataGrid>
-                                                    </StackPanel>
-                                                </Expander>
-                                            </StackPanel>
+                                            <Expander Header="{Binding LogDisplayName}" FontWeight="Bold" FontSize="12">
+                                                <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Entries}" ColumnWidth="*" Margin="0,0,39,0"
+                                        HorizontalScrollBarVisibility="Auto"
+                                        VerticalScrollBarVisibility="Auto"
+                                        ScrollViewer.CanContentScroll="True" MaxHeight="500">
+                                                    <DataGrid.Columns>
+                                                        <DataGridTextColumn Header="Machine Name" Binding="{Binding MachineName}" />
+                                                        <DataGridTextColumn Header="Category" Binding="{Binding Category}" />
+                                                        <DataGridTextColumn Header="Category Number" Binding="{Binding CategoryNumber}" />
+                                                        <DataGridTextColumn Header="Entry Type" Binding="{Binding EntryType}" />
+                                                        <DataGridTextColumn Header="Message" Binding="{Binding Message}" />
+                                                        <DataGridTextColumn Header="Source" Binding="{Binding Source}" />
+                                                        <DataGridTextColumn Header="Time Generated" Binding="{Binding TimeGenerated}" />
+                                                        <DataGridTextColumn Header="User Name" Binding="{Binding UserName}" />
+                                                    </DataGrid.Columns>
+                                                </DataGrid>
+
+                                            </Expander>
                                         </DataTemplate>
                                     </ItemsControl.ItemTemplate>
                                 </ItemsControl>
                             </Expander.Content>
                         </Expander>
                     </StackPanel>
-                </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Header="Hardware Static">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
+                    <StackPanel>
+                        <Button Content="Refresh hardware static data" Command="{Binding LoadHardwareStaticDataCommand}" HorizontalAlignment="Right"/>
+                        <Label FontFamily = "Verdana" Content="Processor Info" FontSize="18" FontWeight="Bold"/>
+                        <StackPanel>
+                            <Expander>
+                                <Expander.Header>
+                                    <TextBlock Text="Processor Basic Info" FontWeight="Bold" FontSize="15"/>
+                                </Expander.Header>
+                                <Expander.Style>
+                                    <Style TargetType="Expander">
+                                        <Setter Property="IsExpanded" Value="False" />
+                                    </Style>
+                                </Expander.Style>
+                                <Expander.Content>
+                                    <StackPanel Margin="10,4,0,0">
+                                        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding ProcessorStatic}" ColumnWidth="*" Margin="0,0,39,0"
+                                        HorizontalScrollBarVisibility="Auto">
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
+                                                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                                                <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
+                                                <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
+                                                <DataGridTextColumn Header="Address Width" Binding="{Binding AddressWidth, Converter={StaticResource UnitValueToStringConverter}}" />
+                                                <DataGridTextColumn Header="Architecture" Binding="{Binding Architecture}" />
+                                                <DataGridTextColumn Header="Data Width" Binding="{Binding DataWidth, Converter={StaticResource UnitValueToStringConverter}}" />
+                                                <DataGridTextColumn Header="Bus Speed" Binding="{Binding BusSpeed, Converter={StaticResource UnitValueToStringConverter}}" />
+                                                <DataGridTextColumn Header="Manufacturer" Binding="{Binding Manufacturer}" />
+                                                <DataGridTextColumn Header="Max Clock Speed" Binding="{Binding MaxClockSpeed, Converter={StaticResource UnitValueToStringConverter}}" />
+                                                <DataGridTextColumn Header="Manufacturer" Binding="{Binding Manufacturer}" />
+                                                <DataGridTextColumn Header="NumberOfCores" Binding="{Binding NumberOfCores}" />
+                                                <DataGridTextColumn Header="NumberOfLogicalProcessors" Binding="{Binding NumberOfLogicalProcessors}" />
+                                                <DataGridTextColumn Header="ProcessorID" Binding="{Binding ProcessorID}" />
+                                                <DataGridTextColumn Header="SerialNumber" Binding="{Binding SerialNumber}" />
+                                                <DataGridTextColumn Header="SocketDesignation" Binding="{Binding SocketDesignation}" />
+                                                <DataGridTextColumn Header="Stepping" Binding="{Binding Stepping}" />
+                                                <DataGridTextColumn Header="ThreadCount" Binding="{Binding ThreadCount}" />
+                                                <DataGridTextColumn Header="UniqueId" Binding="{Binding UniqueId}" />
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                    </StackPanel>
+                                </Expander.Content>
+                            </Expander>
+                            <Expander>
+                                <Expander.Header>
+                                    <TextBlock Text="Processor Cache" FontWeight="Bold" FontSize="15"/>
+                                </Expander.Header>
+                                <Expander.Style>
+                                    <Style TargetType="Expander">
+                                        <Setter Property="IsExpanded" Value="False" />
+                                    </Style>
+                                </Expander.Style>
+                                <Expander.Content>
+                                    <StackPanel Margin="10,4,0,0">
+                                        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding ProcessorCache}" ColumnWidth="*" Margin="0,0,39,0"
+                                        HorizontalScrollBarVisibility="Auto">
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
+                                                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                                                <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
+                                                <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
+                                                <DataGridTextColumn Header="Speed" Binding="{Binding Speed, Converter={StaticResource UnitValueToStringConverter}}" />
+                                                <DataGridTextColumn Header="Size" Binding="{Binding Size, Converter={StaticResource UnitValueToStringConverter}}" />
+                                                <DataGridTextColumn Header="Level" Binding="{Binding Level}" />
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                    </StackPanel>
+                                </Expander.Content>
+                            </Expander>
+                        </StackPanel>
+                        <Label FontFamily = "Verdana" Content="Memory Info" FontSize="18" FontWeight="Bold"/>
+                        <StackPanel>
+                            <Expander>
+                                <Expander.Header>
+                                    <TextBlock Text="Memory" FontWeight="Bold" FontSize="15"/>
+                                </Expander.Header>
+                                <Expander.Style>
+                                    <Style TargetType="Expander">
+                                        <Setter Property="IsExpanded" Value="False" />
+                                    </Style>
+                                </Expander.Style>
+                                <Expander.Content>
+                                    <StackPanel Margin="10,4,0,0">
+                                        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Memory}" ColumnWidth="*" Margin="0,0,39,0"
+                                        HorizontalScrollBarVisibility="Auto">
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
+                                                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                                                <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
+                                                <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
+                                                <DataGridTextColumn Header="BankLabel" Binding="{Binding BankLabel}" />
+                                                <DataGridTextColumn Header="Capacity" Binding="{Binding Capacity, Converter={StaticResource UnitValueToStringConverter}}" />
+                                                <DataGridTextColumn Header="ConfiguredClockSpeed" Binding="{Binding ConfiguredClockSpeed, Converter={StaticResource UnitValueToStringConverter}}" />
+                                                <DataGridTextColumn Header="ConfiguredVoltage" Binding="{Binding ConfiguredVoltage, Converter={StaticResource UnitValueToStringConverter}}" />
+                                                <DataGridTextColumn Header="DataWidth" Binding="{Binding DataWidth, Converter={StaticResource UnitValueToStringConverter}}" />
+                                                <DataGridTextColumn Header="DeviceLocator" Binding="{Binding DeviceLocator}" />
+                                                <DataGridTextColumn Header="Manufacturer" Binding="{Binding Manufacturer}" />
+                                                <DataGridTextColumn Header="MemoryType" Binding="{Binding MemoryType}" />
+                                                <DataGridTextColumn Header="PartNumber" Binding="{Binding PartNumber}" />
+                                                <DataGridTextColumn Header="SerialNumber" Binding="{Binding SerialNumber}" />
+                                                <DataGridTextColumn Header="MaxVoltage" Binding="{Binding MaxVoltage, Converter={StaticResource UnitValueToStringConverter}}" />
+                                                <DataGridTextColumn Header="MinVoltage" Binding="{Binding MinVoltage, Converter={StaticResource UnitValueToStringConverter}}" />
+                                                <DataGridTextColumn Header="TotalWidth" Binding="{Binding TotalWidth, Converter={StaticResource UnitValueToStringConverter}}" />
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                    </StackPanel>
+                                </Expander.Content>
+                            </Expander>
+                        </StackPanel>
+                        <Label FontFamily = "Verdana" Content="Storage Info" FontSize="18" FontWeight="Bold"/>
+                        <StackPanel>
+                            <Expander>
+                                <Expander.Header>
+                                    <TextBlock Text="Storage Data" FontWeight="ExtraBlack" FontSize="15"/>
+                                </Expander.Header>
+                                <Expander.Style>
+                                    <Style TargetType="Expander">
+                                        <Setter Property="IsExpanded" Value="True" />
+                                    </Style>
+                                </Expander.Style>
+                                <Expander.Content>
+                                    <ItemsControl ItemsSource="{Binding Storage}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Vertical">
+                                                    <Expander Header="{Binding Disk.FriendlyName}" FontWeight="Bold" FontSize="12">
+                                                        <WrapPanel  Orientation="Horizontal">
+                                                            <WrapPanel.Resources>
+                                                                <Style TargetType="{x:Type TextBox}">
+                                                                    <Setter Property="Margin" Value="0,10,0,0"/>
+                                                                </Style>
+                                                            </WrapPanel.Resources>
+                                                            <TextBlock Text="{Binding Disk.Caption}"/>
+                                                            <TextBlock Text="{Binding Disk.Name}" />
+                                                            <TextBlock Text="{Binding Disk.Description}" />
+                                                            <TextBlock Text="{Binding Disk.Status}" />
+                                                            <TextBlock Text="{Binding Disk.BootFromDisk}" />
+                                                            <TextBlock Text="{Binding Disk.AllocatedSize, Converter={StaticResource UnitValueToStringConverter}}" />
+                                                            <TextBlock Text="{Binding Disk.BusType}" />
+                                                            <TextBlock Text="{Binding Disk.FirmwareVersion}" />
+                                                            <TextBlock Text="{Binding Disk.FriendlyName}" />
+                                                            <TextBlock Text="{Binding Disk.HealthStatus}" />
+                                                            <TextBlock Text="{Binding Disk.IsBoot}" />
+                                                            <TextBlock Text="{Binding Disk.IsClustered}" />
+                                                            <TextBlock Text="{Binding Disk.IsOffline}" />
+                                                            <TextBlock Text="{Binding Disk.IsReadOnly}" />
+                                                            <TextBlock Text="{Binding Disk.IsSystem}" />
+                                                            <TextBlock Text="{Binding Disk.LargestFreeExtent, Converter={StaticResource UnitValueToStringConverter}}" />
+                                                            <TextBlock Text="{Binding Disk.LogicalSectorSize, Converter={StaticResource UnitValueToStringConverter}}" />
+                                                            <TextBlock Text="{Binding Disk.Location}" />
+                                                            <TextBlock Text="{Binding Disk.Manufacturer}" />
+                                                            <TextBlock Text="{Binding Disk.Model}" />
+                                                            <TextBlock Text="{Binding Disk.Number}" />
+                                                            <TextBlock Text="{Binding Disk.NumberOfPartitions}" />
+                                                            <TextBlock Text="{Binding Disk.ObjectId}" />
+                                                            <TextBlock Text="{Binding Disk.OfflineReason}" />
+                                                            <TextBlock Text="{Binding Disk.PartitionStyle}" />
+                                                            <TextBlock Text="{Binding Disk.Path}" />
+                                                            <TextBlock Text="{Binding Disk.PhysicalSectorSize, Converter={StaticResource UnitValueToStringConverter}}" />
+                                                            <TextBlock Text="{Binding Disk.Size, Converter={StaticResource UnitValueToStringConverter}}" />
+                                                            <TextBlock Text="{Binding Disk.UniqueId}" />
+                                                            <TextBlock Text="{Binding Disk.Signature}" />
+                                                            <TextBlock Text="{Binding Disk.SerialNumber}" />
+                                                        </WrapPanel>
+                                                    </Expander>
+                                                    <Expander Header="SMARTData Analyst" FontWeight="Bold" FontSize="12">
+                                                        <StackPanel Orientation="Vertical">
+                                                            <TextBlock Text="PredictFailure?"/>
+                                                            <TextBlock Text="{Binding SMARTData.PredictFailure}"/>
+                                                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding SMARTData.Attributes}" ColumnWidth="*" Margin="0,0,39,0"
+                                                                    HorizontalScrollBarVisibility="Auto">
+                                                                <DataGrid.Columns>
+                                                                    <DataGridTextColumn Header="Attribute Id" Binding="{Binding Key}" />
+                                                                    <DataGridTextColumn Header="AttributeName" Binding="{Binding Value.AttributeName}" />
+                                                                    <DataGridTextColumn Header="Current" Binding="{Binding Value.Current}" />
+                                                                    <DataGridTextColumn Header="Worst" Binding="{Binding Value.Worst}" />
+                                                                    <DataGridTextColumn Header="Threshold" Binding="{Binding Value.Threshold}" />
+                                                                    <DataGridTextColumn Header="Raw" Binding="{Binding Value.Raw}" />
+                                                                    <DataGridTextColumn Header="RawIdeal" Binding="{Binding Value.RawIdeal}" />
+                                                                    <DataGridTextColumn Header="IsCriticalAttribute" Binding="{Binding Value.IsCriticalAttribute}" />
+                                                                    <DataGridTextColumn Header="Status" Binding="{Binding Value.Status}" />
+                                                                </DataGrid.Columns>
+                                                            </DataGrid>
+                                                        </StackPanel>
+                                                    </Expander>
+                                                    <Expander Header="Partitons" FontWeight="Bold" FontSize="12">
+                                                        <StackPanel>
+                                                            <Border BorderBrush="Black" BorderThickness="1">
+                                                                <Border.Resources>
+                                                                    <Style x:Key="TextBlockStyle" TargetType="{x:Type TextBlock}">
+                                                                        <Setter Property="Margin" Value="3 0 3 0"/>
+                                                                    </Style>
+                                                                    <Style x:Key="TextBlockBoldStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource TextBlockStyle}">
+                                                                        <Setter Property="FontWeight" Value="Bold"/>
+                                                                    </Style>
+                                                                </Border.Resources>
+                                                                <Grid Grid.IsSharedSizeScope="True">
+                                                                    <Grid.RowDefinitions>
+                                                                        <RowDefinition Height="Auto"/>
+                                                                        <RowDefinition/>
+                                                                    </Grid.RowDefinitions>
+
+                                                                    <!-- Column headers -->
+                                                                    <TreeViewItem Grid.Row="0" BorderThickness="1">
+                                                                        <TreeViewItem.Header>
+                                                                            <Grid>
+                                                                                <Grid.ColumnDefinitions>
+                                                                                    <ColumnDefinition SharedSizeGroup="PartitionNumber"/>
+                                                                                    <!-- Placeholders for two columns of ToggleButton -->
+                                                                                    <ColumnDefinition SharedSizeGroup="Toggle"/>
+                                                                                    <ColumnDefinition SharedSizeGroup="Toggle"/>
+                                                                                    <ColumnDefinition SharedSizeGroup="DiskId"/>
+                                                                                    <ColumnDefinition SharedSizeGroup="ObjectIdAsPartition"/>
+                                                                                </Grid.ColumnDefinitions>
+                                                                                <TextBlock Grid.Column="0" Text="PartitionNumber" Style="{StaticResource TextBlockBoldStyle}"/>
+                                                                                <!-- Empty TreeViewItem to measure the size of its ToggleButton into the "Toggle" group-->
+                                                                                <TreeViewItem Grid.Column="1" Padding="0"/>
+                                                                                <TextBlock Grid.Column="3" Text="DiskId" Style="{StaticResource TextBlockBoldStyle}"/>
+                                                                                <TextBlock Grid.Column="4" Text="ObjectIdAsPartition" Style="{StaticResource TextBlockBoldStyle}"/>
+                                                                            </Grid>
+                                                                        </TreeViewItem.Header>
+                                                                    </TreeViewItem>
+
+                                                                    <!-- Data rows -->
+                                                                    <TreeView Grid.Row="1" ItemsSource="{Binding Partition}" BorderBrush="Gray" BorderThickness="0 1 0 0">
+                                                                        <TreeView.ItemTemplate>
+
+                                                                            <!-- Level 0 template leaves space for 2 child "Toggle" levels -->
+                                                                            <HierarchicalDataTemplate ItemsSource="{Binding Partitions}">
+                                                                                <Grid>
+                                                                                    <Grid.ColumnDefinitions>
+                                                                                        <ColumnDefinition SharedSizeGroup="PartitionNumber"/>
+                                                                                        <ColumnDefinition SharedSizeGroup="Toggle"/>
+                                                                                        <ColumnDefinition SharedSizeGroup="Toggle"/>
+                                                                                        <ColumnDefinition SharedSizeGroup="DiskId"/>
+                                                                                        <ColumnDefinition SharedSizeGroup="ObjectIdAsPartition"/>
+                                                                                    </Grid.ColumnDefinitions>
+                                                                                    <TextBlock Grid.Column="0" Text="{Binding PartitionNumber}" Style="{StaticResource TextBlockStyle}" />
+                                                                                    <TextBlock Grid.Column="3" Text="{Binding DiskId}" Style="{StaticResource TextBlockStyle}" />
+                                                                                    <TextBlock Grid.Column="4" Text="{Binding ObjectIdAsPartition}" Style="{StaticResource TextBlockStyle}" />
+                                                                                </Grid>
+
+                                                                                <!-- Level 1 template leaves space for 1 child "Toggle" level -->
+                                                                                <HierarchicalDataTemplate.ItemTemplate>
+                                                                                    <HierarchicalDataTemplate ItemsSource="{Binding Partitions}">
+                                                                                        <Grid>
+                                                                                            <Grid.ColumnDefinitions>
+                                                                                                <ColumnDefinition SharedSizeGroup="PartitionNumber"/>
+                                                                                                <ColumnDefinition/>
+                                                                                                <ColumnDefinition SharedSizeGroup="Toggle"/>
+                                                                                                <ColumnDefinition SharedSizeGroup="DiskId"/>
+                                                                                                <ColumnDefinition SharedSizeGroup="ObjectIdAsPartition"/>
+                                                                                            </Grid.ColumnDefinitions>
+                                                                                            <TextBlock Grid.Column="0" Text="{Binding PartitionNumber}" Style="{StaticResource TextBlockStyle}"/>
+                                                                                            <TextBlock Grid.Column="3" Text="{Binding DiskId}" Style="{StaticResource TextBlockStyle}" />
+                                                                                            <TextBlock Grid.Column="4" Text="{Binding ObjectIdAsPartition}" Style="{StaticResource TextBlockStyle}" />
+                                                                                        </Grid>
+
+                                                                                        <!-- Level 2 template has no children -->
+                                                                                        <HierarchicalDataTemplate.ItemTemplate>
+                                                                                            <HierarchicalDataTemplate ItemsSource="{Binding Partitions}">
+                                                                                                <Grid>
+                                                                                                    <Grid.ColumnDefinitions>
+                                                                                                        <ColumnDefinition SharedSizeGroup="PartitionNumber"/>
+                                                                                                        <ColumnDefinition/>
+                                                                                                        <ColumnDefinition/>
+                                                                                                        <ColumnDefinition SharedSizeGroup="DiskId"/>
+                                                                                                        <ColumnDefinition SharedSizeGroup="ObjectIdAsPartition"/>
+                                                                                                    </Grid.ColumnDefinitions>
+                                                                                                    <TextBlock Grid.Column="0" Text="{Binding PartitionNumber}" Style="{StaticResource TextBlockStyle}" />
+                                                                                                    <TextBlock Grid.Column="3" Text="{Binding DiskId}" Style="{StaticResource TextBlockStyle}" />
+                                                                                                    <TextBlock Grid.Column="4" Text="{Binding ObjectIdAsPartition}" Style="{StaticResource TextBlockStyle}" />
+                                                                                                </Grid>
+                                                                                            </HierarchicalDataTemplate>
+                                                                                        </HierarchicalDataTemplate.ItemTemplate>
+                                                                                    </HierarchicalDataTemplate>
+                                                                                </HierarchicalDataTemplate.ItemTemplate>
+                                                                            </HierarchicalDataTemplate>
+                                                                        </TreeView.ItemTemplate>
+                                                                    </TreeView>
+                                                                </Grid>
+                                                            </Border>
+                                                        </StackPanel>
+                                                    </Expander>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </Expander.Content>
+                            </Expander>
+                        </StackPanel>
+                        <Label FontFamily = "Verdana" Content="Base Board Info" FontSize="18" FontWeight="Bold"/>
+                        <StackPanel>
+                            <Expander>
+                                <Expander.Header>
+                                    <TextBlock Text="Base Board" FontWeight="Bold" FontSize="15"/>
+                                </Expander.Header>
+                                <Expander.Style>
+                                    <Style TargetType="Expander">
+                                        <Setter Property="IsExpanded" Value="False" />
+                                    </Style>
+                                </Expander.Style>
+                                <Expander.Content>
+                                    <StackPanel Margin="10,4,0,0">
+                                        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding BaseBoard}" ColumnWidth="*" Margin="0,0,39,0"
+                                        HorizontalScrollBarVisibility="Auto">
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
+                                                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                                                <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
+                                                <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
+                                                <DataGridTextColumn Header="Manufacturer" Binding="{Binding Manufacturer}" />
+                                                <DataGridTextColumn Header="Model" Binding="{Binding Model}" />
+                                                <DataGridTextColumn Header="PartNumber" Binding="{Binding PartNumber}" />
+                                                <DataGridTextColumn Header="Product" Binding="{Binding Product}" />
+                                                <DataGridTextColumn Header="SerialNumber" Binding="{Binding SerialNumber}" />
+                                                <DataGridTextColumn Header="Version" Binding="{Binding Version}" />
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                    </StackPanel>
+                                </Expander.Content>
+                            </Expander>
+                        </StackPanel>
+                        <Label FontFamily = "Verdana" Content="Video Info" FontSize="18" FontWeight="Bold"/>
+                        <StackPanel>
+                            <Expander>
+                                <Expander.Header>
+                                    <TextBlock Text="Video" FontWeight="Bold" FontSize="15"/>
+                                </Expander.Header>
+                                <Expander.Style>
+                                    <Style TargetType="Expander">
+                                        <Setter Property="IsExpanded" Value="False" />
+                                    </Style>
+                                </Expander.Style>
+                                <Expander.Content>
+                                    <StackPanel Margin="10,4,0,0">
+                                        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding VideoController}" ColumnWidth="*" Margin="0,0,39,0"
+                                        HorizontalScrollBarVisibility="Auto">
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
+                                                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                                                <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
+                                                <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
+                                                <DataGridTextColumn Header="AdapterCompatibility" Binding="{Binding AdapterCompatibility}" />
+                                                <DataGridTextColumn Header="AdapterDACType" Binding="{Binding AdapterDACType}" />
+                                                <DataGridTextColumn Header="AdapterRAM" Binding="{Binding AdapterRAM, Converter={StaticResource UnitValueToStringConverter}}" />
+                                                <DataGridTextColumn Header="CurrentBitsPerPixel" Binding="{Binding CurrentBitsPerPixel, Converter={StaticResource UnitValueToStringConverter}}" />
+                                                <DataGridTextColumn Header="CurrentHorizontalResolution" Binding="{Binding CurrentHorizontalResolution, Converter={StaticResource UnitValueToStringConverter}}" />
+                                                <DataGridTextColumn Header="CurrentRefreshRate" Binding="{Binding CurrentRefreshRate, Converter={StaticResource UnitValueToStringConverter}}" />
+                                                <DataGridTextColumn Header="CurrentVerticalResolution" Binding="{Binding CurrentVerticalResolution, Converter={StaticResource UnitValueToStringConverter}}" />
+                                                <DataGridTextColumn Header="CurrentNumberOfColors" Binding="{Binding CurrentNumberOfColors}" />
+                                                <DataGridTextColumn Header="DeviceID" Binding="{Binding DeviceID}" />
+                                                <DataGridTextColumn Header="DriverVersion" Binding="{Binding DriverVersion}" />
+                                                <DataGridTextColumn Header="VideoModeDescription" Binding="{Binding VideoModeDescription}" />
+                                                <DataGridTextColumn Header="VideoProcessor" Binding="{Binding VideoProcessor}" />
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                    </StackPanel>
+                                </Expander.Content>
+                            </Expander>
+                        </StackPanel>
+                        <Label FontFamily = "Verdana" Content="Network Adapter Info" FontSize="18" FontWeight="Bold"/>
+                        <StackPanel>
+                            <Expander>
+                                <Expander.Header>
+                                    <TextBlock Text="Network Adapter" FontWeight="Bold" FontSize="15"/>
+                                </Expander.Header>
+                                <Expander.Style>
+                                    <Style TargetType="Expander">
+                                        <Setter Property="IsExpanded" Value="False" />
+                                    </Style>
+                                </Expander.Style>
+                                <Expander.Content>
+                                    <StackPanel Margin="10,4,0,0">
+                                        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding NetworkAdapter}" ColumnWidth="*" Margin="0,0,39,0"
+                                        HorizontalScrollBarVisibility="Auto">
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
+                                                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                                                <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
+                                                <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
+                                                <DataGridTextColumn Header="ActiveMaximumTransmissionUnit" Binding="{Binding ActiveMaximumTransmissionUnit, Converter={StaticResource UnitValueToStringConverter}}" />
+                                                <DataGridTextColumn Header="ComponentID" Binding="{Binding ComponentID}" />
+                                                <DataGridTextColumn Header="ConnectorPresent" Binding="{Binding ConnectorPresent}" />
+                                                <DataGridTextColumn Header="DeviceID" Binding="{Binding DeviceID}" />
+                                                <DataGridTextColumn Header="DeviceName" Binding="{Binding DeviceName}" />
+                                                <DataGridTextColumn Header="DriverDate" Binding="{Binding DriverDate}" />
+                                                <DataGridTextColumn Header="DriverDescription" Binding="{Binding DriverDescription}" />
+                                                <DataGridTextColumn Header="DriverName" Binding="{Binding DriverName}" />
+                                                <DataGridTextColumn Header="DriverProvider" Binding="{Binding DriverProvider}" />
+                                                <DataGridTextColumn Header="DriverVersionString" Binding="{Binding DriverVersionString}" />
+                                                <DataGridTextColumn Header="InterfaceDescription" Binding="{Binding InterfaceDescription}" />
+                                                <DataGridTextColumn Header="InterfaceName" Binding="{Binding InterfaceName}" />
+                                                <DataGridTextColumn Header="NdisMedium" Binding="{Binding NdisMedium}" />
+                                                <DataGridTextColumn Header="NdisPhysicalMedium" Binding="{Binding NdisPhysicalMedium}" />
+                                                <DataGridTextColumn Header="PermanentAddress" Binding="{Binding PermanentAddress}" />
+                                                <DataGridTextColumn Header="Virtual" Binding="{Binding Virtual}" />
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                    </StackPanel>
+                                </Expander.Content>
+                            </Expander>
+                        </StackPanel>
+                        <Label FontFamily = "Verdana" Content="Plug and Play Info" FontSize="18" FontWeight="Bold"/>
+                        <StackPanel>
+                            <Expander>
+                                <Expander.Header>
+                                    <TextBlock Text="Plug and Play" FontWeight="Bold" FontSize="15"/>
+                                </Expander.Header>
+                                <Expander.Style>
+                                    <Style TargetType="Expander">
+                                        <Setter Property="IsExpanded" Value="False" />
+                                    </Style>
+                                </Expander.Style>
+                                <Expander.Content>
+                                    <StackPanel Margin="10,4,0,0">
+                                        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding PnPEntity}" ColumnWidth="*" Margin="0,0,39,0"
+                                        HorizontalScrollBarVisibility="Auto">
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
+                                                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                                                <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
+                                                <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
+                                                <DataGridTextColumn Header="DeviceID" Binding="{Binding DeviceID}" />
+                                                <DataGridTextColumn Header="Manufacturer" Binding="{Binding Manufacturer}" />
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                    </StackPanel>
+                                </Expander.Content>
+                            </Expander>
+                        </StackPanel>
+                        <Label FontFamily = "Verdana" Content="CDROM Info" FontSize="18" FontWeight="Bold"/>
+                        <StackPanel>
+                            <Expander>
+                                <Expander.Header>
+                                    <TextBlock Text="CDROM" FontWeight="Bold" FontSize="15"/>
+                                </Expander.Header>
+                                <Expander.Style>
+                                    <Style TargetType="Expander">
+                                        <Setter Property="IsExpanded" Value="False" />
+                                    </Style>
+                                </Expander.Style>
+                                <Expander.Content>
+                                    <StackPanel Margin="10,4,0,0">
+                                        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding CDROMDrive}" ColumnWidth="*" Margin="0,0,39,0"
+                                        HorizontalScrollBarVisibility="Auto">
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
+                                                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                                                <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
+                                                <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
+                                                <DataGridTextColumn Header="DeviceID" Binding="{Binding DeviceID}" />
+                                                <DataGridTextColumn Header="Drive" Binding="{Binding Drive}" />
+                                                <DataGridTextColumn Header="MediaType" Binding="{Binding MediaType}" />
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                    </StackPanel>
+                                </Expander.Content>
+                            </Expander>
+                        </StackPanel>
+                        <Label FontFamily = "Verdana" Content="Fan Info" FontSize="18" FontWeight="Bold"/>
+                        <StackPanel>
+                            <Expander>
+                                <Expander.Header>
+                                    <TextBlock Text="Fan" FontWeight="Bold" FontSize="15"/>
+                                </Expander.Header>
+                                <Expander.Style>
+                                    <Style TargetType="Expander">
+                                        <Setter Property="IsExpanded" Value="False" />
+                                    </Style>
+                                </Expander.Style>
+                                <Expander.Content>
+                                    <StackPanel Margin="10,4,0,0">
+                                        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Fan}" ColumnWidth="*" Margin="0,0,39,0"
+                                        HorizontalScrollBarVisibility="Auto">
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
+                                                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                                                <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
+                                                <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                    </StackPanel>
+                                </Expander.Content>
+                            </Expander>
+                        </StackPanel>
+                        <Label FontFamily = "Verdana" Content="Battery Info" FontSize="18" FontWeight="Bold"/>
+                        <StackPanel>
+                            <Expander>
+                                <Expander.Header>
+                                    <TextBlock Text="Battery" FontWeight="Bold" FontSize="15"/>
+                                </Expander.Header>
+                                <Expander.Style>
+                                    <Style TargetType="Expander">
+                                        <Setter Property="IsExpanded" Value="False" />
+                                    </Style>
+                                </Expander.Style>
+                                <Expander.Content>
+                                    <StackPanel Margin="10,4,0,0">
+                                        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Battery}" ColumnWidth="*" Margin="0,0,39,0"
+                                        HorizontalScrollBarVisibility="Auto">
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
+                                                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                                                <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
+                                                <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
+                                                <DataGridTextColumn Header="BatteryStatus" Binding="{Binding BatteryStatus}" />
+                                                <DataGridTextColumn Header="DeviceID" Binding="{Binding DeviceID}" />
+                                                <DataGridTextColumn Header="DesignCapacity" Binding="{Binding DesignCapacity, Converter={StaticResource UnitValueToStringConverter}}" />
+                                                <DataGridTextColumn Header="FullChargeCapacity" Binding="{Binding FullChargeCapacity, Converter={StaticResource UnitValueToStringConverter}}" />
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                    </StackPanel>
+                                </Expander.Content>
+                            </Expander>
+                        </StackPanel>
+                        <Label FontFamily = "Verdana" Content="Printer Info" FontSize="18" FontWeight="Bold"/>
+                        <StackPanel>
+                            <Expander>
+                                <Expander.Header>
+                                    <TextBlock Text="Printer" FontWeight="Bold" FontSize="15"/>
+                                </Expander.Header>
+                                <Expander.Style>
+                                    <Style TargetType="Expander">
+                                        <Setter Property="IsExpanded" Value="False" />
+                                    </Style>
+                                </Expander.Style>
+                                <Expander.Content>
+                                    <StackPanel Margin="10,4,0,0">
+                                        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Printer}" ColumnWidth="*" Margin="0,0,39,0"
+                                        HorizontalScrollBarVisibility="Auto">
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
+                                                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                                                <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
+                                                <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
+                                                <DataGridTextColumn Header="AveragePagesPerMinute" Binding="{Binding AveragePagesPerMinute}" />
+                                                <DataGridTextColumn Header="Default" Binding="{Binding Default}" />
+                                                <DataGridTextColumn Header="DeviceID" Binding="{Binding DeviceID}" />
+                                                <DataGridTextColumn Header="PortName" Binding="{Binding PortName}" />
+                                                <DataGridTextColumn Header="PrintProcessor" Binding="{Binding PrintProcessor}" />
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                    </StackPanel>
+                                </Expander.Content>
+                            </Expander>
+                        </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
             </TabItem>
             <TabItem Header="Hardware Dynamic" />
         </TabControl>
