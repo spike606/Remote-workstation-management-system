@@ -8,6 +8,7 @@ using System.Threading.Tasks.Dataflow;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.CommandWpf;
 using Microsoft.VisualStudio.Language.Intellisense;
+using SystemManagament.Client.WPF.Comparer;
 using SystemManagament.Client.WPF.Extensions;
 using SystemManagament.Client.WPF.ViewModel.Commands;
 using SystemManagament.Client.WPF.ViewModel.Commands.Abstract;
@@ -34,7 +35,7 @@ namespace SystemManagament.Client.WPF.Factories
                 {
                     // Set the task.
                     var neverEndingTask = new TPLFactory().CreateNeverEndingTask(
-                        (now, ct) => this.wcfClient.ReadWindowsProcessDynamicDataAsync(windowsProcesses).WithCancellation(ct),
+                        (now, ct) => this.wcfClient.ReadWindowsProcessDynamicDataAsync(windowsProcesses, ct),
                         cancellationToken);
 
                     // Start the task. Post the time.
@@ -59,7 +60,7 @@ namespace SystemManagament.Client.WPF.Factories
                 {
                     // Set the task.
                     var neverEndingTask = new TPLFactory().CreateNeverEndingTask(
-                        (now, ct) => this.wcfClient.ReadWindowsServiceDynamicDataAsync(windowsService).WithCancellation(ct),
+                        (now, ct) => this.wcfClient.ReadWindowsServiceDynamicDataAsync(windowsService, ct),
                         cancellationToken);
 
                     // Start the task. Post the time.
@@ -82,10 +83,15 @@ namespace SystemManagament.Client.WPF.Factories
             {
                 return await Task.Run(async () =>
                 {
-                    var result = await this.wcfClient.ReadWindowsLogDynamicDataAsync(windowsLog)
+                    var result = await this.wcfClient.ReadWindowsLogDynamicDataAsync()
                         .WithCancellation(cancellationToken)
                         // Following statements will be processed in the same thread, won't use caught context (UI)
                         .ConfigureAwait(false);
+
+                    if (!cancellationToken.IsCancellationRequested)
+                    {
+                        windowsLog.ReplaceRange(result, new WindowsLogComparer());
+                    }
 
                     return result;
                 });
@@ -137,18 +143,21 @@ namespace SystemManagament.Client.WPF.Factories
                 // Following statements will be processed in the same thread, won't use caught context (UI)
                 .ConfigureAwait(false);
 
-                processorStatic.ReplaceRange(result.Processor);
-                processorCache.ReplaceRange(result.ProcessorCache);
-                memoryItems.ReplaceRange(result.Memory);
-                baseBoard.ReplaceRange(result.BaseBoard);
-                videoController.ReplaceRange(result.VideoController);
-                networkAdapter.ReplaceRange(result.NetworkAdapter);
-                pnPEntity.ReplaceRange(result.PnPEntity);
-                cDROMDrive.ReplaceRange(result.CDROMDrive);
-                fan.ReplaceRange(result.Fan);
-                printer.ReplaceRange(result.Printer);
-                battery.ReplaceRange(result.Battery);
-                storage.ReplaceRange(result.Storage);
+                if (!cancellationToken.IsCancellationRequested)
+                {
+                    processorStatic.ReplaceRange(result.Processor);
+                    processorCache.ReplaceRange(result.ProcessorCache);
+                    memoryItems.ReplaceRange(result.Memory);
+                    baseBoard.ReplaceRange(result.BaseBoard);
+                    videoController.ReplaceRange(result.VideoController);
+                    networkAdapter.ReplaceRange(result.NetworkAdapter);
+                    pnPEntity.ReplaceRange(result.PnPEntity);
+                    cDROMDrive.ReplaceRange(result.CDROMDrive);
+                    fan.ReplaceRange(result.Fan);
+                    printer.ReplaceRange(result.Printer);
+                    battery.ReplaceRange(result.Battery);
+                    storage.ReplaceRange(result.Storage);
+                }
 
                 return result;
             });
@@ -174,15 +183,18 @@ namespace SystemManagament.Client.WPF.Factories
                     // Following statements will be processed in the same thread, won't use caught context (UI)
                     .ConfigureAwait(false);
 
-                    currentUser.ReplaceRange(result.CurrentUser);
-                    currentUserClaims.ReplaceRange(result.CurrentUser.First().Claims);
-                    currentUserGroups.ReplaceRange(result.CurrentUser.First().Groups);
-                    operatingSystem.ReplaceRange(result.OperatingSystem);
-                    bios.ReplaceRange(result.Bios);
-                    installedProgram.ReplaceRange(result.InstalledProgram);
-                    microsoftWindowsUpdate.ReplaceRange(result.MicrosoftWindowsUpdate);
-                    startupCommand.ReplaceRange(result.StartupCommand);
-                    localUser.ReplaceRange(result.LocalUser);
+                    if (!cancellationToken.IsCancellationRequested)
+                    {
+                        currentUser.ReplaceRange(result.CurrentUser);
+                        currentUserClaims.ReplaceRange(result.CurrentUser.First().Claims);
+                        currentUserGroups.ReplaceRange(result.CurrentUser.First().Groups);
+                        operatingSystem.ReplaceRange(result.OperatingSystem);
+                        bios.ReplaceRange(result.Bios);
+                        installedProgram.ReplaceRange(result.InstalledProgram);
+                        microsoftWindowsUpdate.ReplaceRange(result.MicrosoftWindowsUpdate);
+                        startupCommand.ReplaceRange(result.StartupCommand);
+                        localUser.ReplaceRange(result.LocalUser);
+                    }
 
                     return result;
                 });

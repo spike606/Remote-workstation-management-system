@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.Language.Intellisense;
 using SystemManagament.Client.WPF.Extensions;
@@ -11,7 +12,7 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
 {
     public interface IWcfClient
     {
-        Task<WindowsProcess[]> ReadWindowsProcessDynamicDataAsync(WpfObservableRangeCollection<WindowsProcess> windowsProcessDynamicObservableCollection);
+        Task<WindowsProcess[]> ReadWindowsProcessDynamicDataAsync(WpfObservableRangeCollection<WindowsProcess> windowsProcessDynamicObservableCollection, CancellationToken cancelattionToken);
 
         Task<HardwareStaticData> ReadHardwareStaticDataAsync();
 
@@ -19,8 +20,10 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
 
         Task<SoftwareStaticData> ReadSoftwareStaticDataAsync();
 
-        Task<WindowsService[]> ReadWindowsServiceDynamicDataAsync(WpfObservableRangeCollection<WindowsService> windowsServiceDynamicObservableCollection);
+        Task<WindowsService[]> ReadWindowsServiceDynamicDataAsync(
+            WpfObservableRangeCollection<WindowsService> windowsServiceDynamicObservableCollection,
+            CancellationToken cancellationToken);
 
-        Task<WindowsLog[]> ReadWindowsLogDynamicDataAsync(WpfObservableRangeCollection<WindowsLog> windowsLogDynamicObservableCollection);
+        Task<WindowsLog[]> ReadWindowsLogDynamicDataAsync();
     }
 }

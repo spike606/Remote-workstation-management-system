@@ -115,8 +115,8 @@
                         <Label FontFamily = "Verdana" Content="Basic Machine Info" FontSize="18" FontWeight="Bold"/>
                         <StackPanel>
                             <Button Content="Refresh software static data" Command="{Binding LoadSoftwareStaticDataCommand}" HorizontalAlignment="Right"/>
+                            <Button Content="Cancel" Command="{Binding LoadSoftwareStaticDataCommand.CancelCommand}" HorizontalAlignment="Right"/>
                             <StackPanel Orientation="Vertical">
-
                                 <Expander>
                                     <Expander.Header>
                                         <TextBlock Text="Current User Info" FontWeight="Bold" FontSize="15"/>
@@ -390,6 +390,7 @@
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <StackPanel>
                         <Button Content="Start windows process dynamic data" Command="{Binding LoadWindowsProcessDynamicDataCommand}" HorizontalAlignment="Right"/>
+                        <Button Content="Stop windows process dynamic data" Command="{Binding LoadWindowsProcessDynamicDataCommand.CancelCommand}" HorizontalAlignment="Right"/>
                         <Expander>
                             <Expander.Header>
                                 <TextBlock Text="Windows process" FontWeight="Bold" FontSize="15"/>
@@ -425,6 +426,7 @@
                             </Expander.Content>
                         </Expander>
                         <Button Content="Start windows service dynamic data" Command="{Binding LoadWindowsServiceDynamicDataCommand}" HorizontalAlignment="Right"/>
+                        <Button Content="Stop windows service dynamic data" Command="{Binding LoadWindowsServiceDynamicDataCommand.CancelCommand}" HorizontalAlignment="Right"/>
                         <Expander>
                             <Expander.Header>
                                 <TextBlock Text="Windows services" FontWeight="Bold" FontSize="15"/>
@@ -456,6 +458,7 @@
                             </Expander.Content>
                         </Expander>
                         <Button Content="Start windows logs dynamic data" Command="{Binding LoadWindowsLogDynamicDataCommand}" HorizontalAlignment="Right"/>
+                        <Button Content="Stop windows logs dynamic data" Command="{Binding LoadWindowsLogDynamicDataCommand.CancelCommand}" HorizontalAlignment="Right"/>
                         <Expander>
                             <Expander.Header>
                                 <TextBlock Text="Windows Logs" FontWeight="ExtraBlack" FontSize="15"/>
@@ -499,6 +502,7 @@
                 <ScrollViewer VerticalScrollBarVisibility="Auto" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
                     <StackPanel>
                         <Button Content="Refresh hardware static data" Command="{Binding LoadHardwareStaticDataCommand}" HorizontalAlignment="Right"/>
+                        <Button Content="Cancel" Command="{Binding LoadHardwareStaticDataCommand.CancelCommand}" HorizontalAlignment="Right"/>
                         <Label FontFamily = "Verdana" Content="Processor Info" FontSize="18" FontWeight="Bold"/>
                         <StackPanel>
                             <Expander>

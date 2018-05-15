@@ -17,43 +17,76 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
         public WorkstationMonitorServiceClient WorkstationMonitorServiceClient { get; set; }
             = new WorkstationMonitorServiceClient("NetTcpBinding_IWorkstationMonitorService");
 
-        public async Task<WindowsProcess[]> ReadWindowsProcessDynamicDataAsync(WpfObservableRangeCollection<WindowsProcess> windowsProcessDynamicObservableCollection)
+        public async Task<WindowsProcess[]> ReadWindowsProcessDynamicDataAsync(
+            WpfObservableRangeCollection<WindowsProcess> windowsProcessDynamicObservableCollection,
+            CancellationToken cancellationToken)
         {
-            var result = await this.WorkstationMonitorServiceClient.ReadWindowsProcessDynamicDataAsync();
-            windowsProcessDynamicObservableCollection.ReplaceRange(result, new WindowsProcessComparer());
-            return result;
+            using (var client = this.GetNewWorkstationMonitorServiceClient())
+            {
+                var result = await client.ReadWindowsProcessDynamicDataAsync();
+                if (!cancellationToken.IsCancellationRequested)
+                {
+                    windowsProcessDynamicObservableCollection.ReplaceRange(result, new WindowsProcessComparer());
+                }
+
+                return result;
+            }
         }
 
         public async Task<HardwareStaticData> ReadHardwareStaticDataAsync()
         {
-            return await this.WorkstationMonitorServiceClient.ReadHardwareStaticDataAsync();
+            using (var client = this.GetNewWorkstationMonitorServiceClient())
+            {
+                return await client.ReadHardwareStaticDataAsync();
+            }
         }
 
         public async Task<ProcessorDynamic[]> ReadProcessorDynamicDataAsync(ObservableRangeCollection<ProcessorDynamic> processorDynamicObservableCollection)
         {
-            var result = await this.WorkstationMonitorServiceClient.ReadProcessorDynamicDataAsync();
-            processorDynamicObservableCollection.ReplaceRange(result);
+            using (var client = this.GetNewWorkstationMonitorServiceClient())
+            {
+                var result = await client.ReadProcessorDynamicDataAsync();
+                processorDynamicObservableCollection.ReplaceRange(result);
 
-            return result;
+                return result;
+            }
         }
 
         public async Task<SoftwareStaticData> ReadSoftwareStaticDataAsync()
         {
-            return await this.WorkstationMonitorServiceClient.ReadSoftwareStaticDataAsync();
+            using (var client = this.GetNewWorkstationMonitorServiceClient())
+            {
+                return await client.ReadSoftwareStaticDataAsync();
+            }
         }
 
-        public async Task<WindowsService[]> ReadWindowsServiceDynamicDataAsync(WpfObservableRangeCollection<WindowsService> windowsServiceDynamicObservableCollection)
+        public async Task<WindowsService[]> ReadWindowsServiceDynamicDataAsync(
+            WpfObservableRangeCollection<WindowsService> windowsServiceDynamicObservableCollection,
+            CancellationToken cancellationToken)
         {
-            var result = await this.WorkstationMonitorServiceClient.ReadWindowsServiceDynamicDataAsync();
-            windowsServiceDynamicObservableCollection.ReplaceRange(result, new WindowsServiceComparer());
-            return result;
+            using (var client = this.GetNewWorkstationMonitorServiceClient())
+            {
+                var result = await client.ReadWindowsServiceDynamicDataAsync();
+                if (!cancellationToken.IsCancellationRequested)
+                {
+                    windowsServiceDynamicObservableCollection.ReplaceRange(result, new WindowsServiceComparer());
+                }
+
+                return result;
+            }
         }
 
-        public async Task<WindowsLog[]> ReadWindowsLogDynamicDataAsync(WpfObservableRangeCollection<WindowsLog> windowsLogDynamicObservableCollection)
+        public async Task<WindowsLog[]> ReadWindowsLogDynamicDataAsync()
         {
-            var result = await this.WorkstationMonitorServiceClient.ReadWindowsLogDynamicDataAsync();
-            windowsLogDynamicObservableCollection.ReplaceRange(result, new WindowsLogComparer());
-            return result;
+            using (var client = this.GetNewWorkstationMonitorServiceClient())
+            {
+                return await client.ReadWindowsLogDynamicDataAsync();
+            }
+        }
+
+        private WorkstationMonitorServiceClient GetNewWorkstationMonitorServiceClient()
+        {
+            return new WorkstationMonitorServiceClient("NetTcpBinding_IWorkstationMonitorService");
         }
     }
 }
