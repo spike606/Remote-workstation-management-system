@@ -8,7 +8,8 @@
         mc:Ignorable="d"
         xmlns:converters="clr-namespace:SystemManagament.Client.WPF.Converters"
         xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
-        d:DesignHeight="500" d:DesignWidth="700">
+        d:DesignHeight="500" d:DesignWidth="700"             
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf">
 
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
@@ -1058,7 +1059,18 @@
                         </StackPanel>
                     </ScrollViewer>
                 </TabItem>
-            <TabItem Header="Hardware Dynamic"/>
+            <TabItem Header="Hardware Dynamic">
+                <Grid>
+                    <lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Right" >
+                        <lvc:CartesianChart.AxisY>
+                            <lvc:Axis Title="Sales" LabelFormatter="{Binding YFormatter}"></lvc:Axis>
+                        </lvc:CartesianChart.AxisY>
+                        <lvc:CartesianChart.AxisX>
+                            <lvc:Axis Title="Month" Labels="{Binding Labels}"></lvc:Axis>
+                        </lvc:CartesianChart.AxisX>
+                    </lvc:CartesianChart>
+                </Grid>
+            </TabItem>
 
         </dragablz:TabablzControl>
     </Grid>

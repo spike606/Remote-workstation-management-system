@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
+using LiveCharts;
+using LiveCharts.Wpf;
 using Microsoft.VisualStudio.Language.Intellisense;
 using SystemManagament.Client.WPF.Extensions;
 using SystemManagament.Client.WPF.Factories;
@@ -19,6 +21,9 @@ namespace SystemManagament.Client.WPF.ViewModel
     {
         private IWcfClient wcfClient;
         private ICommandFactory commandFactory;
+
+        public SeriesCollection SeriesCollection { get; set; }
+
 
         private WpfObservableRangeCollection<WindowsProcess> windowsProcess = new WpfObservableRangeCollection<WindowsProcess>();
         private WpfObservableRangeCollection<WindowsService> windowsService = new WpfObservableRangeCollection<WindowsService>();
@@ -55,6 +60,27 @@ namespace SystemManagament.Client.WPF.ViewModel
             this.commandFactory = commandFactory;
 
             this.InitializeCommands();
+            this.SeriesCollection = new SeriesCollection
+            {
+                new LineSeries
+                {
+                    Title = "Series 1",
+                    Values = new ChartValues<double> { 4, 6, 5, 2 ,4 }
+                },
+                new LineSeries
+                {
+                    Title = "Series 2",
+                    Values = new ChartValues<double> { 6, 7, 3, 4 ,6 },
+                    PointGeometry = null
+                },
+                new LineSeries
+                {
+                    Title = "Series 3",
+                    Values = new ChartValues<double> { 4,2,7,2,7 },
+                    PointGeometry = DefaultGeometries.Square,
+                    PointGeometrySize = 15
+                }
+            };
         }
 
         public IAsyncCommand LoadWindowsProcessDynamicDataCommand { get; private set; }
