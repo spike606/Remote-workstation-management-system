@@ -355,8 +355,8 @@
                                 </StackPanel>
                             </StackPanel>
                         </StackPanel>
-                    </ScrollViewer>
-                </TabItem>
+                </ScrollViewer>
+            </TabItem>
             <TabItem Header="Software Dynamic">
                     <ScrollViewer VerticalScrollBarVisibility="Auto">
                         <StackPanel>
@@ -1022,51 +1022,20 @@
                     </ScrollViewer>
                 </TabItem>
             <TabItem Header="Hardware Dynamic">
-                <StackPanel>
-                    <Button Content="Start dynamic data" Command="{Binding LoadHardwareDynamicDataCommand}" HorizontalAlignment="Right"/>
-                    <Button Content="Stop dynamic data" Command="{Binding LoadHardwareDynamicDataCommand.CancelCommand}" HorizontalAlignment="Right"/>
-                    <Grid>
-                        <StackPanel Background="White">
-                            <ItemsControl ItemsSource="{Binding DynamicChartViewModelProcessorClock}">
-                                <ItemsControl.ItemTemplate>
-                                        <DataTemplate>
-                                        <Grid Height="Auto">
-                                            <TextBlock Text="{Binding ChartName}"></TextBlock>
-                                            <!--Here we disable tooltips and hovering to get a better performance-->
-                                            <lvc:CartesianChart AnimationsSpeed="0:0:0.5" Hoverable="False" DataTooltip="{x:Null}"
-                                                                Height="500" Width="800">
-                                                <lvc:CartesianChart.Series>
-                                                    <lvc:LineSeries Values="{Binding Collection}" 
-                                                        PointGeometry="{x:Null}" 
-                                                        LineSmoothness="1"
-                                                        StrokeThickness="6" 
-                                                        Stroke="#F34336"
-                                                        Fill="Transparent"/>
-                                                </lvc:CartesianChart.Series>
-                                                <lvc:CartesianChart.AxisX>
-                                                    <lvc:Axis LabelFormatter="{Binding DateTimeFormatter}" 
-                                                      MaxValue="{Binding AxisMax}" 
-                                                      MinValue="{Binding AxisMin}"
-                                                      Unit="{Binding AxisUnit}">
-                                                        <lvc:Axis.Separator>
-                                                            <lvc:Separator Step="{Binding AxisStep}" />
-                                                        </lvc:Axis.Separator>
-                                                    </lvc:Axis>
-                                                </lvc:CartesianChart.AxisX>
-                                                <lvc:CartesianChart.AxisY>
-                                                    <lvc:Axis MaxValue="100"
-                                                              MinValue="0"
-                                                              Title="time"
-                                                              />
-                                                </lvc:CartesianChart.AxisY>
-                                            </lvc:CartesianChart>
-                                        </Grid>
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
-                        </StackPanel>
-                    </Grid>
-                    <!--<StackPanel Height="500">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
+                    <StackPanel>
+                        <Button Content="Start dynamic data" Command="{Binding LoadHardwareDynamicDataCommand}" HorizontalAlignment="Right"/>
+                        <Button Content="Stop dynamic data" Command="{Binding LoadHardwareDynamicDataCommand.CancelCommand}" HorizontalAlignment="Right"/>
+                        <Grid>
+                                <ItemsControl ItemsSource="{Binding DynamicChartViewModelProcessorClock}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate DataType="{x:Type viewModel:DynamicChartViewModel}">
+                                            <views:DynamicChart DataContext="{Binding}"></views:DynamicChart>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                        </Grid>
+                        <!--<StackPanel Height="500">
                         <lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Right" Height="400">
                             <lvc:CartesianChart.AxisY>
                                 <lvc:Axis Title="Sales" LabelFormatter="{Binding YFormatter}"></lvc:Axis>
@@ -1077,7 +1046,9 @@
                         </lvc:CartesianChart>
                     </StackPanel>-->
 
-                </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
+
 
 
             </TabItem>

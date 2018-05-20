@@ -37,20 +37,23 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
                 {
                     //hardwareDynamicObservableCollection.ReplaceRange(result, new WindowsServiceComparer());
 
-                    //foreach (var processor in result.Processor)
-                    //{
-                    //    foreach (var clock in processor.Clock)
-                    //    {
-                    var clock = result.Processor.First().Load.First();
+                    foreach (var processor in result.Processor)
+                    {
+                        foreach (var clock in processor.Load)
+                        {
+                            //var clock = result.Processor.First().Load.First();
                             if (!dynamicChartViewModelProcessorClock
                                 .Any(x => x.ChartName == clock.SensorName))
                             {
-                        App.Current.Dispatcher.Invoke(DispatcherPriority.DataBind, (Action)(() => dynamicChartViewModelProcessorClock.Add(
-                            new DynamicChartViewModel(clock.SensorName, clock.SensorName))));
+                                App.Current.Dispatcher.Invoke(
+                                    DispatcherPriority.DataBind,
+                                    (Action)(() => dynamicChartViewModelProcessorClock.Add(
+                                    new DynamicChartViewModel(clock.SensorName, clock.SensorName))));
 
-                    }
+                            }
 
-                            var chart = dynamicChartViewModelProcessorClock.Single(x => x.ChartName == clock.SensorName);
+                            var chart = dynamicChartViewModelProcessorClock
+                                .Single(x => x.ChartName == clock.SensorName);
                             chart.Collection.Add(new MeasureModel()
                             {
                                 Value = double.Parse(clock.Value),
@@ -58,8 +61,8 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
                             });
 
                             chart.SetAxisLimits(DateTime.Now);
-                    //    }
-                    //}
+                        }
+                    }
                 }
 
                 return result;

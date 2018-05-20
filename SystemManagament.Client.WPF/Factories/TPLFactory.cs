@@ -11,7 +11,7 @@ namespace SystemManagament.Client.WPF.Factories
 {
     public class TPLFactory : ITPLFactory
     {
-        private readonly int betweenCallsDelayInSeconds = 1;
+        private readonly int betweenCallsDelayInSeconds = 2;
 
         public ITargetBlock<DateTimeOffset> CreateNeverEndingTask(
             Func<DateTimeOffset, CancellationToken, Task> action,

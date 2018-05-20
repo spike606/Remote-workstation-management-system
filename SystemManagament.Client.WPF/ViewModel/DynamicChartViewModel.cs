@@ -62,7 +62,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             DateTimeFormatter = value => value % 100000000 == 0 ? new DateTime((long)value).ToString("mm:ss") : string.Empty;
 
             //AxisStep forces the distance between each separator in the X axis
-            AxisStep = TimeSpan.FromSeconds(1).Ticks;
+            AxisStep = TimeSpan.FromSeconds(2).Ticks;
             //AxisUnit forces lets the axis know that we are plotting seconds
             //this is not always necessary, but it can prevent wrong labeling
             AxisUnit = TimeSpan.TicksPerSecond;
