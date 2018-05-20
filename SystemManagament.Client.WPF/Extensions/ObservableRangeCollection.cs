@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 
 namespace SystemManagament.Client.WPF.Extensions
 {
@@ -16,6 +17,7 @@ namespace SystemManagament.Client.WPF.Extensions
     /// implementing INotifyCollectionChanged to notify listeners
     /// when items get added, removed or the whole list is refreshed.
     /// </summary>
+    [SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1119:StatementMustNotUseUnnecessaryParenthesis", Justification = "Reviewed.")]
     public class ObservableRangeCollection<T> : ObservableCollection<T>
     {
         //------------------------------------------------------
@@ -35,7 +37,9 @@ namespace SystemManagament.Client.WPF.Extensions
         /// <summary>
         /// Initializes a new instance of ObservableCollection that is empty and has default initial capacity.
         /// </summary>
-        public ObservableRangeCollection() { }
+        public ObservableRangeCollection()
+        {
+        }
 
         /// <summary>
         /// Initializes a new instance of the ObservableCollection class that contains
@@ -49,7 +53,9 @@ namespace SystemManagament.Client.WPF.Extensions
         /// </remarks>
         /// <exception cref="ArgumentNullException"> collection is a null reference </exception>
         public ObservableRangeCollection(IEnumerable<T> collection)
-            : base(collection) { }
+            : base(collection)
+        {
+        }
 
         /// <summary>
         /// Initializes a new instance of the ObservableCollection class
@@ -62,7 +68,9 @@ namespace SystemManagament.Client.WPF.Extensions
         /// </remarks>
         /// <exception cref="ArgumentNullException"> list is a null reference </exception>
         public ObservableRangeCollection(List<T> list)
-            : base(list) { }
+            : base(list)
+        {
+        }
 
         //------------------------------------------------------
         //
@@ -605,6 +613,7 @@ namespace SystemManagament.Client.WPF.Extensions
                 this.deferredEvents.Add(e);
                 return;
             }
+
             base.OnCollectionChanged(e);
         }
 
@@ -711,6 +720,7 @@ namespace SystemManagament.Client.WPF.Extensions
     /// <remarks>
     /// To be kept outside <see cref="ObservableCollection{T}"/>, since otherwise, a new instance will be created for each generic type used.
     /// </remarks>
+    [SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1402:FileMayOnlyContainASingleType", Justification = "Reviewed.")]
     internal static class EventArgsCache
     {
         internal static readonly PropertyChangedEventArgs CountPropertyChanged = new PropertyChangedEventArgs("Count");

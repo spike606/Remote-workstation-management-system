@@ -27,8 +27,6 @@ namespace SystemManagament.Client.WPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        private WorkstationMonitorServiceClient client;
-
         public MainWindow()
         {
             this.InitializeComponent();

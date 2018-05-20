@@ -18,7 +18,7 @@ namespace SystemManagament.Client.WPF.Comparer
                 && x.ServiceName == y.ServiceName
                 && x.ServiceType == y.ServiceType
                 && x.StartType == y.StartType
-                && x.Status == y.Status; 
+                && x.Status == y.Status;
         }
 
         public int GetHashCode(WindowsService obj)

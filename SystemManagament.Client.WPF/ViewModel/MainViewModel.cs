@@ -33,7 +33,7 @@ namespace SystemManagament.Client.WPF.ViewModel
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
-        public ObservableCollection<WorkStationViewModel> viewModelTabs = new ObservableCollection<WorkStationViewModel>();
+        private ObservableCollection<WorkStationViewModel> viewModelTabs = new ObservableCollection<WorkStationViewModel>();
 
         private IWcfClient wcfClient;
         private ICommandFactory commandFactory;
@@ -53,13 +53,6 @@ namespace SystemManagament.Client.WPF.ViewModel
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
-
-        private void InitializeCommands()
-        {
-            this.NewTab = new RelayCommand(this.CreateNewTab);
-            this.Exit = new RelayCommand(this.CloseApplication);
-
-        }
 
         public ObservableCollection<WorkStationViewModel> ViewModelTabs
         {
@@ -82,6 +75,12 @@ namespace SystemManagament.Client.WPF.ViewModel
         ////{
         ////    // Code runs "for real"
         ////}
+
+        private void InitializeCommands()
+        {
+            this.NewTab = new RelayCommand(this.CreateNewTab);
+            this.Exit = new RelayCommand(this.CloseApplication);
+        }
 
         private void CreateNewTab()
         {

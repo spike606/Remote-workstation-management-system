@@ -13,27 +13,29 @@
             <!--Here we disable tooltips and hovering to get a better performance-->
             <lvc:CartesianChart DisableAnimations="True" Hoverable="False" DataTooltip="{x:Null}"
                                                                 Height="500" Width="800">
-                <lvc:CartesianChart.Series>
+                <!--<lvc:CartesianChart.Series>
                     <lvc:LineSeries Values="{Binding Collection}" 
                                                         PointGeometry="{x:Null}" 
                                                         LineSmoothness="1"
                                                         StrokeThickness="6" 
                                                         Stroke="#F34336"
                                                         Fill="Transparent"/>
-                </lvc:CartesianChart.Series>
-                <lvc:CartesianChart.AxisX>
-                    <lvc:Axis LabelFormatter="{Binding DateTimeFormatter}" 
+                </lvc:CartesianChart.Series>-->
+                <lvc:CartesianChart Series="{Binding SeriesCollection}">
+                    <lvc:CartesianChart.AxisX>
+                        <lvc:Axis LabelFormatter="{Binding DateTimeFormatter}" 
                                                       MaxValue="{Binding AxisMax}" 
                                                       MinValue="{Binding AxisMin}"
                                                       Unit="{Binding AxisUnit}">
-                        <lvc:Axis.Separator>
-                            <lvc:Separator Step="{Binding AxisStep}" />
-                        </lvc:Axis.Separator>
-                    </lvc:Axis>
-                </lvc:CartesianChart.AxisX>
-                <lvc:CartesianChart.AxisY>
-                    <lvc:Axis MaxValue="5000" MinValue="0" Title="time"/>
-                </lvc:CartesianChart.AxisY>
+                            <lvc:Axis.Separator>
+                                <lvc:Separator Step="{Binding AxisStep}" />
+                            </lvc:Axis.Separator>
+                        </lvc:Axis>
+                    </lvc:CartesianChart.AxisX>
+                    <lvc:CartesianChart.AxisY>
+                        <lvc:Axis MaxValue="100" MinValue="0" Title="time"/>
+                    </lvc:CartesianChart.AxisY>
+                </lvc:CartesianChart>
             </lvc:CartesianChart>
         </Grid>
     </StackPanel>

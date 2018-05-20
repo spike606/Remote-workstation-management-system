@@ -24,15 +24,9 @@ namespace SystemManagament.Client.WPF
 {
     public partial class WorkStationTabView : UserControl
     {
-
         public WorkStationTabView()
         {
             this.InitializeComponent();
-        }
-
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
 
         private void ScrollViewer_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
