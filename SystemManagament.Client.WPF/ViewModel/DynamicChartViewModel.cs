@@ -5,10 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Threading;
 using GalaSoft.MvvmLight;
 using LiveCharts;
 using LiveCharts.Configurations;
 using LiveCharts.Wpf;
+using SystemManagament.Client.WPF.Extensions;
+using SystemManagament.Client.WPF.WorkstationMonitorServiceReference;
 
 namespace SystemManagament.Client.WPF.ViewModel
 {
