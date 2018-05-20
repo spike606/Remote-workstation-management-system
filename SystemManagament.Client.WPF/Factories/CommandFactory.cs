@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 using System.Threading.Tasks.Dataflow;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.CommandWpf;
+using LiveCharts.Wpf;
 using Microsoft.VisualStudio.Language.Intellisense;
 using SystemManagament.Client.WPF.Comparer;
 using SystemManagament.Client.WPF.Extensions;
+using SystemManagament.Client.WPF.ViewModel;
 using SystemManagament.Client.WPF.ViewModel.Commands;
 using SystemManagament.Client.WPF.ViewModel.Commands.Abstract;
 using SystemManagament.Client.WPF.ViewModel.Wcf;
@@ -98,25 +100,31 @@ namespace SystemManagament.Client.WPF.Factories
             });
         }
 
-        public IAsyncCommand CreateProcessorDynamicDataCommand(WpfObservableRangeCollection<ProcessorDynamic> processorDynamic)
+        public IAsyncCommand CreateHardwareDynamicDataCommand(
+            WpfObservableRangeCollection<HardwareDynamicData> hardwareDynamic,
+            WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorClock)
         {
             return new AsyncCommand<bool>(async (cancellationToken) =>
             {
-                return await Task.Run(() =>
+                return await Task.Run(async () =>
                 {
                     // Set the task.
                     var neverEndingTask = new TPLFactory().CreateNeverEndingTask(
-                        (now, ct) => this.wcfClient.ReadProcessorDynamicDataAsync(processorDynamic).WithCancellation(ct),
+                        (now, ct) => this.wcfClient.ReadHardwareDynamicDataAsync(
+                            hardwareDynamic,
+                            dynamicChartViewModelProcessorClock,
+                            ct),
                         cancellationToken);
 
                     // Start the task. Post the time.
                     var result = neverEndingTask.Post(DateTimeOffset.Now);
 
                     // if cancel was not requested task is still ongoing
-                    //while (!cancellationToken.IsCancellationRequested)
-                    //{
-                    //    await Task.Delay(this.neverEndingCommandDelayInMiliSeconds);
-                    //}
+                    while (!cancellationToken.IsCancellationRequested)
+                    {
+                        await Task.Delay(this.neverEndingCommandDelayInMiliSeconds);
+                    }
+
                     return result;
                 });
             });

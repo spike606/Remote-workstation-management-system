@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:mainView="clr-namespace:SystemManagament.Client.WPF"
+        xmlns:views="clr-namespace:SystemManagament.Client.WPF"
         xmlns:viewModel="clr-namespace:SystemManagament.Client.WPF.ViewModel"
         mc:Ignorable="d"
         xmlns:converters="clr-namespace:SystemManagament.Client.WPF.Converters"
@@ -40,9 +40,6 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
-                        <Button Content="Load processor dynamic" Command="{Binding LoadProcessorDynamicDataCommand}"
-                    HorizontalAlignment="Stretch" Grid.Row="0"/>
-                        <Button Command="{Binding LoadProcessorDynamicDataCommand.CancelCommand}" Content="Cancel" Grid.Row="1"/>
                         <Button Content="Load process dynamic" Command="{Binding LoadWindowsProcessDynamicDataCommand}"
                     HorizontalAlignment="Stretch" Grid.Row="2"/>
                         <Button Command="{Binding LoadWindowsProcessDynamicDataCommand.CancelCommand}" Content="Cancel" Grid.Row="3"/>
@@ -53,41 +50,6 @@
                         <Button Content="Clear data" Command="{Binding ClearDataCommand}"
                     HorizontalAlignment="Stretch" Grid.Row="6" />
 
-                        <ListView ItemsSource="{Binding Items}" Grid.Row="7">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <StackPanel>
-                                        <TextBlock Text="{Binding Name}"/>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
-
-                        <ListView ItemsSource="{Binding MemoryItems}" Grid.Row="8">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <StackPanel>
-                                        <TextBlock Text="{Binding Manufacturer}"/>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
-
-                        <ListView ItemsSource="{Binding ProcessorItems}" Grid.Row="9">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <ListView ItemsSource="{Binding Load}">
-                                        <ListView.ItemTemplate>
-                                            <DataTemplate>
-                                                <StackPanel>
-                                                    <TextBlock Text="{Binding Value}"/>
-                                                </StackPanel>
-                                            </DataTemplate>
-                                        </ListView.ItemTemplate>
-                                    </ListView>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
 
                         <Grid Visibility="{Binding LoadHardwareStaticDataCommand.Execution,
                     Converter={StaticResource NullToVisibilityConverter}}">
@@ -1060,18 +1022,67 @@
                     </ScrollViewer>
                 </TabItem>
             <TabItem Header="Hardware Dynamic">
-                <Grid>
-                    <lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Right" >
-                        <lvc:CartesianChart.AxisY>
-                            <lvc:Axis Title="Sales" LabelFormatter="{Binding YFormatter}"></lvc:Axis>
-                        </lvc:CartesianChart.AxisY>
-                        <lvc:CartesianChart.AxisX>
-                            <lvc:Axis Title="Month" Labels="{Binding Labels}"></lvc:Axis>
-                        </lvc:CartesianChart.AxisX>
-                    </lvc:CartesianChart>
-                </Grid>
+                <StackPanel>
+                    <Button Content="Start dynamic data" Command="{Binding LoadHardwareDynamicDataCommand}" HorizontalAlignment="Right"/>
+                    <Button Content="Stop dynamic data" Command="{Binding LoadHardwareDynamicDataCommand.CancelCommand}" HorizontalAlignment="Right"/>
+                    <Grid>
+                        <StackPanel Background="White">
+                            <ItemsControl ItemsSource="{Binding DynamicChartViewModelProcessorClock}">
+                                <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                        <Grid Height="Auto">
+                                            <TextBlock Text="{Binding ChartName}"></TextBlock>
+                                            <!--Here we disable tooltips and hovering to get a better performance-->
+                                            <lvc:CartesianChart AnimationsSpeed="0:0:0.5" Hoverable="False" DataTooltip="{x:Null}"
+                                                                Height="500" Width="800">
+                                                <lvc:CartesianChart.Series>
+                                                    <lvc:LineSeries Values="{Binding Collection}" 
+                                                        PointGeometry="{x:Null}" 
+                                                        LineSmoothness="1"
+                                                        StrokeThickness="6" 
+                                                        Stroke="#F34336"
+                                                        Fill="Transparent"/>
+                                                </lvc:CartesianChart.Series>
+                                                <lvc:CartesianChart.AxisX>
+                                                    <lvc:Axis LabelFormatter="{Binding DateTimeFormatter}" 
+                                                      MaxValue="{Binding AxisMax}" 
+                                                      MinValue="{Binding AxisMin}"
+                                                      Unit="{Binding AxisUnit}">
+                                                        <lvc:Axis.Separator>
+                                                            <lvc:Separator Step="{Binding AxisStep}" />
+                                                        </lvc:Axis.Separator>
+                                                    </lvc:Axis>
+                                                </lvc:CartesianChart.AxisX>
+                                                <lvc:CartesianChart.AxisY>
+                                                    <lvc:Axis MaxValue="100"
+                                                              MinValue="0"
+                                                              Title="time"
+                                                              />
+                                                </lvc:CartesianChart.AxisY>
+                                            </lvc:CartesianChart>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+                    </Grid>
+                    <!--<StackPanel Height="500">
+                        <lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Right" Height="400">
+                            <lvc:CartesianChart.AxisY>
+                                <lvc:Axis Title="Sales" LabelFormatter="{Binding YFormatter}"></lvc:Axis>
+                            </lvc:CartesianChart.AxisY>
+                            <lvc:CartesianChart.AxisX>
+                                <lvc:Axis Title="Month" Labels="{Binding Labels}"></lvc:Axis>
+                            </lvc:CartesianChart.AxisX>
+                        </lvc:CartesianChart>
+                    </StackPanel>-->
+
+                </StackPanel>
+
+
             </TabItem>
 
         </dragablz:TabablzControl>
+
     </Grid>
 </UserControl>

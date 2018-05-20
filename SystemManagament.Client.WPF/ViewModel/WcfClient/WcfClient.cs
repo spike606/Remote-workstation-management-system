@@ -5,6 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Threading;
+using LiveCharts;
+using LiveCharts.Wpf;
 using Microsoft.VisualStudio.Language.Intellisense;
 using SystemManagament.Client.WPF.Comparer;
 using SystemManagament.Client.WPF.Extensions;
@@ -14,8 +17,62 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
 {
     public class WcfClient : IWcfClient
     {
-        public WorkstationMonitorServiceClient WorkstationMonitorServiceClient { get; set; }
-            = new WorkstationMonitorServiceClient("NetTcpBinding_IWorkstationMonitorService");
+        public async Task<HardwareStaticData> ReadHardwareStaticDataAsync()
+        {
+            using (var client = this.GetNewWorkstationMonitorServiceClient())
+            {
+                return await client.ReadHardwareStaticDataAsync();
+            }
+        }
+
+        public async Task<HardwareDynamicData> ReadHardwareDynamicDataAsync(
+            WpfObservableRangeCollection<HardwareDynamicData> hardwareDynamicObservableCollection,
+            WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorClock,
+            CancellationToken cancellationToken)
+        {
+            using (var client = this.GetNewWorkstationMonitorServiceClient())
+            {
+                var result = await client.ReadHardwareDynamicDataAsync();
+                if (!cancellationToken.IsCancellationRequested)
+                {
+                    //hardwareDynamicObservableCollection.ReplaceRange(result, new WindowsServiceComparer());
+
+                    //foreach (var processor in result.Processor)
+                    //{
+                    //    foreach (var clock in processor.Clock)
+                    //    {
+                    var clock = result.Processor.First().Load.First();
+                            if (!dynamicChartViewModelProcessorClock
+                                .Any(x => x.ChartName == clock.SensorName))
+                            {
+                        App.Current.Dispatcher.Invoke(DispatcherPriority.DataBind, (Action)(() => dynamicChartViewModelProcessorClock.Add(
+                            new DynamicChartViewModel(clock.SensorName, clock.SensorName))));
+
+                    }
+
+                            var chart = dynamicChartViewModelProcessorClock.Single(x => x.ChartName == clock.SensorName);
+                            chart.Collection.Add(new MeasureModel()
+                            {
+                                Value = double.Parse(clock.Value),
+                                DateTime = DateTime.Now
+                            });
+
+                            chart.SetAxisLimits(DateTime.Now);
+                    //    }
+                    //}
+                }
+
+                return result;
+            }
+        }
+
+        public async Task<SoftwareStaticData> ReadSoftwareStaticDataAsync()
+        {
+            using (var client = this.GetNewWorkstationMonitorServiceClient())
+            {
+                return await client.ReadSoftwareStaticDataAsync();
+            }
+        }
 
         public async Task<WindowsProcess[]> ReadWindowsProcessDynamicDataAsync(
             WpfObservableRangeCollection<WindowsProcess> windowsProcessDynamicObservableCollection,
@@ -30,33 +87,6 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
                 }
 
                 return result;
-            }
-        }
-
-        public async Task<HardwareStaticData> ReadHardwareStaticDataAsync()
-        {
-            using (var client = this.GetNewWorkstationMonitorServiceClient())
-            {
-                return await client.ReadHardwareStaticDataAsync();
-            }
-        }
-
-        public async Task<ProcessorDynamic[]> ReadProcessorDynamicDataAsync(ObservableRangeCollection<ProcessorDynamic> processorDynamicObservableCollection)
-        {
-            using (var client = this.GetNewWorkstationMonitorServiceClient())
-            {
-                var result = await client.ReadProcessorDynamicDataAsync();
-                processorDynamicObservableCollection.ReplaceRange(result);
-
-                return result;
-            }
-        }
-
-        public async Task<SoftwareStaticData> ReadSoftwareStaticDataAsync()
-        {
-            using (var client = this.GetNewWorkstationMonitorServiceClient())
-            {
-                return await client.ReadSoftwareStaticDataAsync();
             }
         }
 

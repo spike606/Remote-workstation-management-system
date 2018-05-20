@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using LiveCharts.Wpf;
 using Microsoft.VisualStudio.Language.Intellisense;
 using SystemManagament.Client.WPF.Extensions;
+using SystemManagament.Client.WPF.ViewModel;
 using SystemManagament.Client.WPF.ViewModel.Commands.Abstract;
 using SystemManagament.Client.WPF.WorkstationMonitorServiceReference;
 
@@ -18,8 +20,6 @@ namespace SystemManagament.Client.WPF.Factories
         IAsyncCommand CreateWindowsLogDynamicDataCommand(WpfObservableRangeCollection<WindowsLog> windowsLog);
 
         IAsyncCommand CreateWindowsServiceDynamicDataCommand(WpfObservableRangeCollection<WindowsService> windowsService);
-
-        IAsyncCommand CreateProcessorDynamicDataCommand(WpfObservableRangeCollection<ProcessorDynamic> processorDynamic);
 
         IAsyncCommand CreateHardwareStaticDataCommand(
             WpfObservableRangeCollection<ProcessorStatic> processorStatic,
@@ -47,5 +47,9 @@ namespace SystemManagament.Client.WPF.Factories
             WpfObservableRangeCollection<LocalUser> localUser);
 
         ICommand CreateClearDataCommand(Action clearData);
+
+        IAsyncCommand CreateHardwareDynamicDataCommand(
+            WpfObservableRangeCollection<HardwareDynamicData> hardwareDynamic,
+            WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorClock);
     }
 }

@@ -24,12 +24,12 @@ namespace SystemManagament.Client.WPF.ViewModel
 
         public SeriesCollection SeriesCollection { get; set; }
 
-
         private WpfObservableRangeCollection<WindowsProcess> windowsProcess = new WpfObservableRangeCollection<WindowsProcess>();
         private WpfObservableRangeCollection<WindowsService> windowsService = new WpfObservableRangeCollection<WindowsService>();
         private WpfObservableRangeCollection<WindowsLog> windowsLog = new WpfObservableRangeCollection<WindowsLog>();
 
-        private WpfObservableRangeCollection<ProcessorDynamic> processorDynamic = new WpfObservableRangeCollection<ProcessorDynamic>();
+        private WpfObservableRangeCollection<HardwareDynamicData> hardwareDynamic = new WpfObservableRangeCollection<HardwareDynamicData>();
+        private WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorClock = new WpfObservableRangeCollection<DynamicChartViewModel>();
 
         private WpfObservableRangeCollection<ProcessorStatic> processorStatic = new WpfObservableRangeCollection<ProcessorStatic>();
         private WpfObservableRangeCollection<ProcessorCache> processorCache = new WpfObservableRangeCollection<ProcessorCache>();
@@ -89,9 +89,9 @@ namespace SystemManagament.Client.WPF.ViewModel
 
         public IAsyncCommand LoadWindowsLogDynamicDataCommand { get; private set; }
 
-        public IAsyncCommand LoadHardwareStaticDataCommand { get; private set; }
+        public IAsyncCommand LoadHardwareDynamicDataCommand { get; private set; }
 
-        public IAsyncCommand LoadProcessorDynamicDataCommand { get; private set; }
+        public IAsyncCommand LoadHardwareStaticDataCommand { get; private set; }
 
         public IAsyncCommand LoadSoftwareStaticDataCommand { get; private set; }
 
@@ -136,16 +136,29 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
-        public WpfObservableRangeCollection<ProcessorDynamic> ProcessorDynamic
+        public WpfObservableRangeCollection<HardwareDynamicData> HardwareDynamic
         {
             get
             {
-                return this.processorDynamic;
+                return this.hardwareDynamic;
             }
 
             private set
             {
-                this.Set(() => this.ProcessorDynamic, ref this.processorDynamic, value);
+                this.Set(() => this.HardwareDynamic, ref this.hardwareDynamic, value);
+            }
+        }
+
+        public WpfObservableRangeCollection<DynamicChartViewModel> DynamicChartViewModelProcessorClock
+        {
+            get
+            {
+                return this.dynamicChartViewModelProcessorClock;
+            }
+
+            private set
+            {
+                this.Set(() => this.DynamicChartViewModelProcessorClock, ref this.dynamicChartViewModelProcessorClock, value);
             }
         }
 
@@ -428,6 +441,9 @@ namespace SystemManagament.Client.WPF.ViewModel
             this.LoadWindowsProcessDynamicDataCommand = this.commandFactory.CreateWindowsProcessDynamicDataCommand(this.WindowsProcess);
             this.LoadWindowsServiceDynamicDataCommand = this.commandFactory.CreateWindowsServiceDynamicDataCommand(this.WindowsService);
             this.LoadWindowsLogDynamicDataCommand = this.commandFactory.CreateWindowsLogDynamicDataCommand(this.WindowsLog);
+            this.LoadHardwareDynamicDataCommand = this.commandFactory.CreateHardwareDynamicDataCommand(
+                this.HardwareDynamic,
+                this.DynamicChartViewModelProcessorClock);
             this.LoadHardwareStaticDataCommand = this.commandFactory.CreateHardwareStaticDataCommand(
                 this.ProcessorStatic,
                 this.ProcessorCache,
@@ -442,7 +458,6 @@ namespace SystemManagament.Client.WPF.ViewModel
                 this.Battery,
                 this.Storage);
 
-            this.LoadProcessorDynamicDataCommand = this.commandFactory.CreateProcessorDynamicDataCommand(this.ProcessorDynamic);
             this.LoadSoftwareStaticDataCommand = this.commandFactory.CreateSoftwareStaticDataCommand(
                 this.CurrentUser,
                 this.CurrentUserClaims,

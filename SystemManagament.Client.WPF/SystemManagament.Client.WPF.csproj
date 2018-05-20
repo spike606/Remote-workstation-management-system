@@ -136,6 +136,10 @@
     <Compile Include="Factories\ICommandFactory.cs" />
     <Compile Include="Factories\ITPLFactory.cs" />
     <Compile Include="Factories\TPLFactory.cs" />
+    <Compile Include="DynamicChart.xaml.cs">
+      <DependentUpon>DynamicChart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\DynamicChartViewModel.cs" />
     <Compile Include="ViewModel\WorkStationViewModel.cs" />
     <Compile Include="WorkStationTabView.xaml.cs">
       <DependentUpon>WorkStationTabView.xaml</DependentUpon>
@@ -149,6 +153,10 @@
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="ViewModel\WcfClient\WcfClient.cs" />
     <Compile Include="ViewModel\WcfClient\IWcfClient.cs" />
+    <Page Include="DynamicChart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WorkStationTabView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

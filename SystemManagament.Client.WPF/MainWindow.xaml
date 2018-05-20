@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:tabs="clr-namespace:SystemManagament.Client.WPF"
+        xmlns:views="clr-namespace:SystemManagament.Client.WPF"
         xmlns:viewModel="clr-namespace:SystemManagament.Client.WPF.ViewModel"
         mc:Ignorable="d"        
         xmlns:converters="clr-namespace:SystemManagament.Client.WPF.Converters"
@@ -53,7 +53,7 @@
                 </dragablz:TabablzControl.InterTabController>
                 <dragablz:TabablzControl.ContentTemplate>
                     <DataTemplate DataType="{x:Type viewModel:WorkStationViewModel}" >
-                        <tabs:WorkStationTabView DataContext="{Binding}"></tabs:WorkStationTabView>
+                    <views:WorkStationTabView DataContext="{Binding}"></views:WorkStationTabView>
                     </DataTemplate>
                 </dragablz:TabablzControl.ContentTemplate>
             </dragablz:TabablzControl>
