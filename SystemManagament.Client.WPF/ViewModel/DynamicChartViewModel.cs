@@ -93,6 +93,10 @@ namespace SystemManagament.Client.WPF.ViewModel
 
         public double AxisUnit { get; set; }
 
+        public double AxisYMin { get; set; }
+
+        public double AxisYMax { get; set; }
+
         public void SetAxisLimits(DateTime now)
         {
             this.AxisMax = now.Ticks + TimeSpan.FromSeconds(5).Ticks; // lets force the axis to be 5 second ahead

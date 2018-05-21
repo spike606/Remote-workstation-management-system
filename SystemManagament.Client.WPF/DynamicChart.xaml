@@ -11,17 +11,9 @@
         <Grid>
             <TextBlock Text="{Binding ChartName}"></TextBlock>
             <!--Here we disable tooltips and hovering to get a better performance-->
-            <lvc:CartesianChart DisableAnimations="True" Hoverable="False" DataTooltip="{x:Null}"
-                                                                Height="500" Width="800">
-                <!--<lvc:CartesianChart.Series>
-                    <lvc:LineSeries Values="{Binding Collection}" 
-                                                        PointGeometry="{x:Null}" 
-                                                        LineSmoothness="1"
-                                                        StrokeThickness="6" 
-                                                        Stroke="#F34336"
-                                                        Fill="Transparent"/>
-                </lvc:CartesianChart.Series>-->
-                <lvc:CartesianChart Series="{Binding SeriesCollection}">
+            <lvc:CartesianChart Series="{Binding SeriesCollection}"
+                                DisableAnimations="True" Hoverable="False"
+                                DataTooltip="{x:Null}" Height="300" Width="500" LegendLocation="Right">
                     <lvc:CartesianChart.AxisX>
                         <lvc:Axis LabelFormatter="{Binding DateTimeFormatter}" 
                                                       MaxValue="{Binding AxisMax}" 
@@ -33,10 +25,12 @@
                         </lvc:Axis>
                     </lvc:CartesianChart.AxisX>
                     <lvc:CartesianChart.AxisY>
-                        <lvc:Axis MaxValue="100" MinValue="0" Title="time"/>
+                        <lvc:Axis MaxValue="{Binding AxisYMax}" MinValue="{Binding AxisYMin}" Title="time"/>
                     </lvc:CartesianChart.AxisY>
+                    <lvc:CartesianChart.ChartLegend>
+                        <lvc:DefaultLegend BulletSize="20" Background="Red"/>
+                    </lvc:CartesianChart.ChartLegend>
                 </lvc:CartesianChart>
-            </lvc:CartesianChart>
         </Grid>
     </StackPanel>
 </UserControl>

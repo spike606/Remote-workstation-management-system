@@ -51,6 +51,11 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
                         {
                             this.dynamicChartHelper.DrawDynamicChartForSensor(dynamicChartViewModelProcessorClock, load);
                         }
+
+                        foreach (var clock in processor.Clock)
+                        {
+                            this.dynamicChartHelper.DrawDynamicChartForSensor(dynamicChartViewModelProcessorClock, clock);
+                        }
                     }
                 }
 
