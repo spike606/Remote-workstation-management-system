@@ -11,7 +11,7 @@ using SystemManagament.Client.WPF.WorkstationMonitorServiceReference;
 
 namespace SystemManagament.Client.WPF.ViewModel.Helpers
 {
-    public class DynamicChartHelper : IDynamicChartHelper
+    public class DynamicDataHelper : IDynamicDataHelper
     {
         public void DrawDynamicChartForSensor(WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModel, Sensor sensor)
         {
@@ -26,19 +26,43 @@ namespace SystemManagament.Client.WPF.ViewModel.Helpers
             chartViewModel.SetAxisLimits(DateTime.Now);
         }
 
-        private DynamicChartViewModel GetOrCreateNewChartIfNotExists(WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModel, Sensor sensor)
+        public void DrawDynamicDataForSensor(WpfObservableRangeCollection<DynamicDataViewModel> dynamicDataViewModel, Sensor sensor)
         {
-            DynamicChartViewModel chartViewModel = null;
-            if (!dynamicChartViewModel
-                .Any(x => x.ChartName == sensor.SensorType))
+            DynamicDataViewModel dataViewModel = this.GetOrCreateNewDynamicDataViewIfNotExists(dynamicDataViewModel, sensor);
+            this.AddNewValuesToDynamicDataView(dataViewModel, sensor);
+        }
+
+        private void AddNewValuesToDynamicDataView(DynamicDataViewModel dataViewModel, Sensor sensor)
+        {
+            DynamicDataLabel dynamiDataLabel = dataViewModel.DynamicData
+                .Where(ddl => ddl.Name == sensor.SensorName)
+                .SingleOrDefault();
+
+            if (dynamiDataLabel == null)
             {
-                chartViewModel = new DynamicChartViewModel(sensor.SensorType, sensor.SensorType);
-                this.InvokeInUIThread((Action)(() => dynamicChartViewModel.Add(chartViewModel)));
+                dataViewModel.DynamicData.Add(new DynamicDataLabel()
+                {
+                    Name = sensor.SensorName,
+                    Value = sensor.Value,
+                    Unit = sensor.Unit
+                });
             }
             else
             {
-                chartViewModel = dynamicChartViewModel
-                    .Single(x => x.ChartName == sensor.SensorType);
+                dynamiDataLabel.Value = sensor.Value;
+            }
+        }
+
+        private DynamicChartViewModel GetOrCreateNewChartIfNotExists(WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModel, Sensor sensor)
+        {
+            DynamicChartViewModel chartViewModel = dynamicChartViewModel
+                    .Where(x => x.ChartName == sensor.SensorType)
+                    .SingleOrDefault();
+
+            if (chartViewModel == null)
+            {
+                chartViewModel = new DynamicChartViewModel(sensor.SensorType, sensor.SensorType);
+                this.InvokeInUIThread((Action)(() => dynamicChartViewModel.Add(chartViewModel)));
             }
 
             return chartViewModel;
@@ -105,6 +129,21 @@ namespace SystemManagament.Client.WPF.ViewModel.Helpers
                 Value = double.Parse(sensor.Value),
                 DateTime = DateTime.Now
             });
+        }
+
+        private DynamicDataViewModel GetOrCreateNewDynamicDataViewIfNotExists(WpfObservableRangeCollection<DynamicDataViewModel> dynamicDataViewModel, Sensor sensor)
+        {
+            DynamicDataViewModel dataViewModel = dynamicDataViewModel
+                    .Where(x => x.ViewName == sensor.SensorType)
+                    .SingleOrDefault();
+
+            if (dataViewModel == null)
+            {
+                dataViewModel = new DynamicDataViewModel(sensor.SensorType);
+                this.InvokeInUIThread((Action)(() => dynamicDataViewModel.Add(dataViewModel)));
+            }
+
+            return dataViewModel;
         }
     }
 }

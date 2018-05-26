@@ -1040,7 +1040,16 @@
                                 <Expander.Content>
                                     <StackPanel Margin="10,4,0,0">
                                         <Grid>
-                                            <ItemsControl ItemsSource="{Binding DynamicChartViewModelProcessorClock}">
+                                            <ItemsControl ItemsSource="{Binding DynamicDataViewModelProcessorClock}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate DataType="{x:Type viewModel:DynamicDataViewModel}">
+                                                        <views:DynamicData DataContext="{Binding}"></views:DynamicData>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </Grid>
+                                        <Grid>
+                                            <ItemsControl ItemsSource="{Binding DynamicChartViewModelProcessorLoad}">
                                                 <ItemsControl.ItemTemplate>
                                                     <DataTemplate DataType="{x:Type viewModel:DynamicChartViewModel}">
                                                         <views:DynamicChart DataContext="{Binding}"></views:DynamicChart>

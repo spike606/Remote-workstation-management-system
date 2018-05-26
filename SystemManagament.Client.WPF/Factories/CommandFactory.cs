@@ -102,9 +102,10 @@ namespace SystemManagament.Client.WPF.Factories
 
         public IAsyncCommand CreateHardwareDynamicDataCommand(
             WpfObservableRangeCollection<HardwareDynamicData> hardwareDynamic,
-            WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorClock,
+            WpfObservableRangeCollection<DynamicDataViewModel> dynamicDataViewModelProcessorClock,
             WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorPower,
-            WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorTemp)
+            WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorTemp,
+            WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorLoad)
         {
             return new AsyncCommand<bool>(async (cancellationToken) =>
             {
@@ -114,9 +115,10 @@ namespace SystemManagament.Client.WPF.Factories
                     var neverEndingTask = new TPLFactory().CreateNeverEndingTask(
                         (now, ct) => this.wcfClient.ReadHardwareDynamicDataAsync(
                             hardwareDynamic,
-                            dynamicChartViewModelProcessorClock,
+                            dynamicDataViewModelProcessorClock,
                             dynamicChartViewModelProcessorPower,
                             dynamicChartViewModelProcessorTemp,
+                            dynamicChartViewModelProcessorLoad,
                             ct),
                         cancellationToken);
 

@@ -20,11 +20,11 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
     [SuppressMessage("StyleCop.CSharp.ReadabilityRules", "SA1118:ParameterMustNotSpanMultipleLines", Justification = "Reviewed.")]
     public class WcfClient : IWcfClient
     {
-        private IDynamicChartHelper dynamicChartHelper;
+        private IDynamicDataHelper dynamicDataHelper;
 
-        public WcfClient(IDynamicChartHelper dynamicChartHelper)
+        public WcfClient(IDynamicDataHelper dynamicDataHelper)
         {
-            this.dynamicChartHelper = dynamicChartHelper;
+            this.dynamicDataHelper = dynamicDataHelper;
         }
 
         public async Task<HardwareStaticData> ReadHardwareStaticDataAsync()
@@ -37,9 +37,10 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
 
         public async Task<HardwareDynamicData> ReadHardwareDynamicDataAsync(
             WpfObservableRangeCollection<HardwareDynamicData> hardwareDynamicObservableCollection,
-            WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorClock,
+            WpfObservableRangeCollection<DynamicDataViewModel> dynamicDataViewModelProcessorClock,
             WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorPower,
             WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorTemp,
+            WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorLoad,
             CancellationToken cancellationToken)
         {
             using (var client = this.GetNewWorkstationMonitorServiceClient())
@@ -51,23 +52,22 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
                     {
                         foreach (var load in processor.Load)
                         {
-                            this.dynamicChartHelper.DrawDynamicChartForSensor(dynamicChartViewModelProcessorClock, load);
+                            this.dynamicDataHelper.DrawDynamicChartForSensor(dynamicChartViewModelProcessorLoad, load);
                         }
 
-                        //TODO: Create as label clock always only as label
-                        //foreach (var clock in processor.Clock)
-                        //{
-                        //    this.dynamicChartHelper.DrawDynamicChartForSensor(dynamicChartViewModelProcessorClock, clock);
-                        //}
+                        foreach (var clock in processor.Clock)
+                        {
+                            this.dynamicDataHelper.DrawDynamicDataForSensor(dynamicDataViewModelProcessorClock, clock);
+                        }
 
                         foreach (var power in processor.Power)
                         {
-                            this.dynamicChartHelper.DrawDynamicChartForSensor(dynamicChartViewModelProcessorPower, power);
+                            this.dynamicDataHelper.DrawDynamicChartForSensor(dynamicChartViewModelProcessorPower, power);
                         }
 
                         foreach (var temperature in processor.Temperature)
                         {
-                            this.dynamicChartHelper.DrawDynamicChartForSensor(dynamicChartViewModelProcessorTemp, temperature);
+                            this.dynamicDataHelper.DrawDynamicChartForSensor(dynamicChartViewModelProcessorTemp, temperature);
                         }
 
                     }

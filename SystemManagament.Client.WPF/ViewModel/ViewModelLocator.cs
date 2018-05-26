@@ -48,7 +48,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             SimpleIoc.Default.Register<WorkStationViewModel>();
             SimpleIoc.Default.Register<IWcfClient, WcfClient>();
             SimpleIoc.Default.Register<ICommandFactory, CommandFactory>();
-            SimpleIoc.Default.Register<IDynamicChartHelper, DynamicChartHelper>();
+            SimpleIoc.Default.Register<IDynamicDataHelper, DynamicDataHelper>();
         }
 
         public MainViewModel Main

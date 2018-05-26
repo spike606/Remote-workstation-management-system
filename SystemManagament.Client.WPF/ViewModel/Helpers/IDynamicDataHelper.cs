@@ -8,10 +8,14 @@ using SystemManagament.Client.WPF.WorkstationMonitorServiceReference;
 
 namespace SystemManagament.Client.WPF.ViewModel.Helpers
 {
-    public interface IDynamicChartHelper
+    public interface IDynamicDataHelper
     {
         void DrawDynamicChartForSensor(
             WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModel,
+            Sensor sensor);
+
+        void DrawDynamicDataForSensor(
+            WpfObservableRangeCollection<DynamicDataViewModel> dynamicDataViewModel,
             Sensor sensor);
     }
 }

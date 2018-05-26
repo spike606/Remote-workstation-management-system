@@ -13,6 +13,10 @@
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height=".50*"></RowDefinition>
             </Grid.RowDefinitions>
+            <!--<Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>-->
             <TextBlock Grid.Row="0" TextAlignment="Center" Padding="10, 10, 0, 5" Foreground="Black" FontSize="18" Text="{Binding ChartName}"></TextBlock>
             <!--Here we disable tooltips and hovering to get a better performance-->
             <lvc:CartesianChart Grid.Row="1" Series="{Binding SeriesCollection}"

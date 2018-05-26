@@ -27,11 +27,10 @@ namespace SystemManagament.Client.WPF.ViewModel
         private WpfObservableRangeCollection<WindowsLog> windowsLog = new WpfObservableRangeCollection<WindowsLog>();
 
         private WpfObservableRangeCollection<HardwareDynamicData> hardwareDynamic = new WpfObservableRangeCollection<HardwareDynamicData>();
-        private WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorClock = new WpfObservableRangeCollection<DynamicChartViewModel>();
         private WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorPower = new WpfObservableRangeCollection<DynamicChartViewModel>();
         private WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorTemp = new WpfObservableRangeCollection<DynamicChartViewModel>();
-        private WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorVoltage = new WpfObservableRangeCollection<DynamicChartViewModel>();
-        private WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorFan = new WpfObservableRangeCollection<DynamicChartViewModel>();
+        private WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorLoad = new WpfObservableRangeCollection<DynamicChartViewModel>();
+        private WpfObservableRangeCollection<DynamicDataViewModel> dynamicDataViewModelProcessorClock = new WpfObservableRangeCollection<DynamicDataViewModel>();
 
         private WpfObservableRangeCollection<ProcessorStatic> processorStatic = new WpfObservableRangeCollection<ProcessorStatic>();
         private WpfObservableRangeCollection<ProcessorCache> processorCache = new WpfObservableRangeCollection<ProcessorCache>();
@@ -130,16 +129,16 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
-        public WpfObservableRangeCollection<DynamicChartViewModel> DynamicChartViewModelProcessorClock
+        public WpfObservableRangeCollection<DynamicDataViewModel> DynamicDataViewModelProcessorClock
         {
             get
             {
-                return this.dynamicChartViewModelProcessorClock;
+                return this.dynamicDataViewModelProcessorClock;
             }
 
             private set
             {
-                this.Set(() => this.DynamicChartViewModelProcessorClock, ref this.dynamicChartViewModelProcessorClock, value);
+                this.Set(() => this.DynamicDataViewModelProcessorClock, ref this.dynamicDataViewModelProcessorClock, value);
             }
         }
 
@@ -153,6 +152,19 @@ namespace SystemManagament.Client.WPF.ViewModel
             private set
             {
                 this.Set(() => this.DynamicChartViewModelProcessorPower, ref this.dynamicChartViewModelProcessorPower, value);
+            }
+        }
+
+        public WpfObservableRangeCollection<DynamicChartViewModel> DynamicChartViewModelProcessorLoad
+        {
+            get
+            {
+                return this.dynamicChartViewModelProcessorLoad;
+            }
+
+            private set
+            {
+                this.Set(() => this.DynamicChartViewModelProcessorLoad, ref this.dynamicChartViewModelProcessorLoad, value);
             }
         }
 
@@ -450,9 +462,10 @@ namespace SystemManagament.Client.WPF.ViewModel
             this.LoadWindowsLogDynamicDataCommand = this.commandFactory.CreateWindowsLogDynamicDataCommand(this.WindowsLog);
             this.LoadHardwareDynamicDataCommand = this.commandFactory.CreateHardwareDynamicDataCommand(
                 this.HardwareDynamic,
-                this.DynamicChartViewModelProcessorClock,
-                this.dynamicChartViewModelProcessorPower,
-                this.dynamicChartViewModelProcessorTemp);
+                this.DynamicDataViewModelProcessorClock,
+                this.DynamicChartViewModelProcessorPower,
+                this.DynamicChartViewModelProcessorTemp,
+                this.DynamicChartViewModelProcessorLoad);
 
             this.LoadHardwareStaticDataCommand = this.commandFactory.CreateHardwareStaticDataCommand(
                 this.ProcessorStatic,
