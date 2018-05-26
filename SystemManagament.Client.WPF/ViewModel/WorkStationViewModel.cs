@@ -32,6 +32,10 @@ namespace SystemManagament.Client.WPF.ViewModel
         private WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorLoad = new WpfObservableRangeCollection<DynamicChartViewModel>();
         private WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorClock = new WpfObservableRangeCollection<DynamicChartViewModel>();
 
+        private WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelStorage = new WpfObservableRangeCollection<DynamicChartViewModel>();
+        //private WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorClock = new WpfObservableRangeCollection<DynamicChartViewModel>();
+        //private WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorClock = new WpfObservableRangeCollection<DynamicChartViewModel>();
+
         private WpfObservableRangeCollection<ProcessorStatic> processorStatic = new WpfObservableRangeCollection<ProcessorStatic>();
         private WpfObservableRangeCollection<ProcessorCache> processorCache = new WpfObservableRangeCollection<ProcessorCache>();
         private WpfObservableRangeCollection<Memory> memory = new WpfObservableRangeCollection<Memory>();

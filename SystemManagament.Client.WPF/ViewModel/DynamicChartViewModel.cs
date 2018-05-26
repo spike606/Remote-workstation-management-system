@@ -22,9 +22,10 @@ namespace SystemManagament.Client.WPF.ViewModel
         private long timeLabelModulo = 100000000L;
         private WpfObservableRangeCollection<DynamicDataLabel> dynamicData = new WpfObservableRangeCollection<DynamicDataLabel>();
 
-        public DynamicChartViewModel(string chartName, string chartTitle)
+        public DynamicChartViewModel(string chartName, string hardwareName)
         {
             this.ChartName = chartName;
+            this.HardwareName = hardwareName;
             this.ChartValuesDictionary = new Dictionary<string, ChartValues<MeasureModel>>();
             //the values property will store our values array
             this.SeriesCollection = new SeriesCollection();
@@ -55,6 +56,8 @@ namespace SystemManagament.Client.WPF.ViewModel
         public new event PropertyChangedEventHandler PropertyChanged;
 
         public string ChartName { get; set; }
+
+        public string HardwareName { get; set; }
 
         public SeriesCollection SeriesCollection { get; set; }
 

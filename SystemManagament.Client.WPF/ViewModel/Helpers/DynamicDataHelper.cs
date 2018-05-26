@@ -13,9 +13,12 @@ namespace SystemManagament.Client.WPF.ViewModel.Helpers
 {
     public class DynamicDataHelper : IDynamicDataHelper
     {
-        public void DrawDynamicChartForSensor(WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModel, Sensor sensor)
+        public void DrawDynamicChartForHardwareSensor(
+            WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModel,
+            Sensor sensor,
+            string hardwareName)
         {
-            DynamicChartViewModel chartViewModel = this.GetOrCreateNewChartIfNotExists(dynamicChartViewModel, sensor);
+            DynamicChartViewModel chartViewModel = this.GetOrCreateNewChartIfNotExists(dynamicChartViewModel, sensor, hardwareName);
 
             this.AddNewValuesToDynamicViewLabels(chartViewModel, sensor);
 
@@ -49,15 +52,18 @@ namespace SystemManagament.Client.WPF.ViewModel.Helpers
             }
         }
 
-        private DynamicChartViewModel GetOrCreateNewChartIfNotExists(WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModel, Sensor sensor)
+        private DynamicChartViewModel GetOrCreateNewChartIfNotExists(
+            WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModel,
+            Sensor sensor,
+            string hardwareName)
         {
             DynamicChartViewModel chartViewModel = dynamicChartViewModel
-                    .Where(x => x.ChartName == sensor.SensorType)
+                    .Where(x => x.ChartName == sensor.SensorType && x.HardwareName == hardwareName)
                     .SingleOrDefault();
 
             if (chartViewModel == null)
             {
-                chartViewModel = new DynamicChartViewModel(sensor.SensorType, sensor.SensorType);
+                chartViewModel = new DynamicChartViewModel(sensor.SensorType, hardwareName);
                 this.InvokeInUIThread((Action)(() => dynamicChartViewModel.Add(chartViewModel)));
             }
 

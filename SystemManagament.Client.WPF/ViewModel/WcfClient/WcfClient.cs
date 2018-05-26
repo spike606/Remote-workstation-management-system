@@ -52,22 +52,22 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
                     {
                         foreach (var load in processor.Load)
                         {
-                            this.dynamicDataHelper.DrawDynamicChartForSensor(dynamicChartViewModelProcessorLoad, load);
+                            this.dynamicDataHelper.DrawDynamicChartForHardwareSensor(dynamicChartViewModelProcessorLoad, load, processor.Name);
                         }
 
                         foreach (var clock in processor.Clock)
                         {
-                            this.dynamicDataHelper.DrawDynamicChartForSensor(dynamicChartViewModelProcessorClock, clock);
+                            this.dynamicDataHelper.DrawDynamicChartForHardwareSensor(dynamicChartViewModelProcessorClock, clock, processor.Name);
                         }
 
                         foreach (var power in processor.Power)
                         {
-                            this.dynamicDataHelper.DrawDynamicChartForSensor(dynamicChartViewModelProcessorPower, power);
+                            this.dynamicDataHelper.DrawDynamicChartForHardwareSensor(dynamicChartViewModelProcessorPower, power, processor.Name);
                         }
 
                         foreach (var temperature in processor.Temperature)
                         {
-                            this.dynamicDataHelper.DrawDynamicChartForSensor(dynamicChartViewModelProcessorTemp, temperature);
+                            this.dynamicDataHelper.DrawDynamicChartForHardwareSensor(dynamicChartViewModelProcessorTemp, temperature, processor.Name);
                         }
 
                     }
