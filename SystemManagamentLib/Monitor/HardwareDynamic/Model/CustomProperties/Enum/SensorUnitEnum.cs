@@ -16,6 +16,8 @@ namespace SystemManagament.Monitor.HardwareDynamic.Model.CustomProperties.Enum
         Percentage,
         [EnumDescription("W")]
         Watt,
+        [EnumDescription("MB")]
+        MegaByte,
         [EnumDescription("GB")]
         GigaByte,
         RPM,

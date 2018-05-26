@@ -1107,18 +1107,78 @@
                                                 </ItemsControl.ItemTemplate>
                                             </ItemsControl>
                                         </Grid>
-                                        <!--<Grid>
-                                            <ItemsControl ItemsSource="{Binding DynamicChartViewModelProcessorPower}">
-                                                <ItemsControl.ItemTemplate>
-                                                    <DataTemplate DataType="{x:Type viewModel:DynamicChartViewModel}">
-                                                        <views:DynamicChart DataContext="{Binding}"></views:DynamicChart>
-                                                    </DataTemplate>
-                                                </ItemsControl.ItemTemplate>
-                                            </ItemsControl>
-                                        </Grid>-->
                                     </StackPanel>
                                 </Expander.Content>
                             </Expander>
+                            <Expander>
+                                <Expander.Header>
+                                    <TextBlock Text="GPU" FontWeight="Bold" FontSize="15"/>
+                                </Expander.Header>
+                                <Expander.Style>
+                                    <Style TargetType="Expander">
+                                        <Setter Property="IsExpanded" Value="False" />
+                                    </Style>
+                                </Expander.Style>
+                                <Expander.Content>
+                                    <StackPanel Margin="10,4,0,0">
+                                        <Grid>
+                                            <ItemsControl ItemsSource="{Binding DynamicChartViewModelGPULoad}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate DataType="{x:Type viewModel:DynamicLineChartViewModel}">
+                                                        <views:DynamicLineChart DataContext="{Binding}"></views:DynamicLineChart>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </Grid>
+                                        <Grid>
+                                            <ItemsControl ItemsSource="{Binding DynamicChartViewModelGPUTemp}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate DataType="{x:Type viewModel:DynamicLineChartViewModel}">
+                                                        <views:DynamicLineChart DataContext="{Binding}"></views:DynamicLineChart>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </Grid>
+                                        <Grid>
+                                            <ItemsControl ItemsSource="{Binding DynamicChartViewModelGPUClock}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate DataType="{x:Type viewModel:DynamicLineChartViewModel}">
+                                                        <views:DynamicLineChart DataContext="{Binding}"></views:DynamicLineChart>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </Grid>
+                                        <Grid>
+                                            <ItemsControl ItemsSource="{Binding DynamicChartViewModelGPUData}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate DataType="{x:Type viewModel:DynamicPieChartViewModel}">
+                                                        <views:DynamicPieChart DataContext="{Binding}"></views:DynamicPieChart>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </Grid>
+                                        <Grid>
+                                            <ItemsControl ItemsSource="{Binding DynamicChartViewModelGPUVoltage}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate DataType="{x:Type viewModel:DynamicLineChartViewModel}">
+                                                        <views:DynamicLineChart DataContext="{Binding}"></views:DynamicLineChart>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </Grid>
+                                        <Grid>
+                                            <ItemsControl ItemsSource="{Binding DynamicChartViewModelGPUFan}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate DataType="{x:Type viewModel:DynamicLineChartViewModel}">
+                                                        <views:DynamicLineChart DataContext="{Binding}"></views:DynamicLineChart>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </Grid>
+                                    </StackPanel>
+                                </Expander.Content>
+                            </Expander>
+
                         </StackPanel>
 
 

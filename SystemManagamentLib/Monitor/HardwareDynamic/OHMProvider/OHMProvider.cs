@@ -62,8 +62,10 @@ namespace SystemManagament.Monitor.HardwareDynamic.OHMProvider
                         hardwareDynamicComponent.Clock.Add(this.ExtractDataFromSpecificSensor(sensor, SensorUnit.MHZ));
                         break;
                     case SensorType.Data:
-                    case SensorType.SmallData:
                         hardwareDynamicComponent.Data.Add(this.ExtractDataFromSpecificSensor(sensor, SensorUnit.GigaByte));
+                        break;
+                    case SensorType.SmallData:
+                        hardwareDynamicComponent.Data.Add(this.ExtractDataFromSpecificSensor(sensor, SensorUnit.MegaByte));
                         break;
                     case SensorType.Temperature:
                         hardwareDynamicComponent.Temperature.Add(this.ExtractDataFromSpecificSensor(sensor, SensorUnit.Celcius));

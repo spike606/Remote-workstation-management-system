@@ -127,6 +127,11 @@
     <Compile Include="Comparer\WindowsLogComparer.cs" />
     <Compile Include="Comparer\WindowsProcessComparer.cs" />
     <Compile Include="Comparer\WindowsServiceComparer.cs" />
+    <Compile Include="Connected Services\WorkstationMonitorServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Converters\NullToVisibilityConverter.cs" />
     <Compile Include="Converters\UnitValueToStringConverter.cs" />
     <Compile Include="DynamicPieChart.xaml.cs">
@@ -181,11 +186,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Connected Services\WorkstationMonitorServiceReference\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -234,16 +234,16 @@
     <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService15.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService151.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService152.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService153.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService16.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService17.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService18.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService19.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService2.xsd">
@@ -283,6 +283,11 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\Newtonsoft.Json.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\WorkstationMonitorServiceReference\" />
   </ItemGroup>
   <ItemGroup>
@@ -299,11 +304,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\Newtonsoft.Json.dll" />
-    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
-    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

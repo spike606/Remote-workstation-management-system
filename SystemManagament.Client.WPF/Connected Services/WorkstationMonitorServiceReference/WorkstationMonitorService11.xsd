@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components.Abstract" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components.Abstract" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd13" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.CustomProperties" />
-  <xs:complexType name="HardwareDynamicComponent">
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components" />
+  <xs:complexType name="HardwareDynamicData">
     <xs:sequence>
-      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.CustomProperties" minOccurs="0" name="Clock" nillable="true" type="q1:ArrayOfSensor" />
-      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.CustomProperties" minOccurs="0" name="Control" nillable="true" type="q2:ArrayOfSensor" />
-      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.CustomProperties" minOccurs="0" name="Data" nillable="true" type="q3:ArrayOfSensor" />
-      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.CustomProperties" minOccurs="0" name="Fan" nillable="true" type="q4:ArrayOfSensor" />
-      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.CustomProperties" minOccurs="0" name="Load" nillable="true" type="q5:ArrayOfSensor" />
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.CustomProperties" minOccurs="0" name="Power" nillable="true" type="q6:ArrayOfSensor" />
-      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.CustomProperties" minOccurs="0" name="Temperature" nillable="true" type="q7:ArrayOfSensor" />
-      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.CustomProperties" minOccurs="0" name="Voltage" nillable="true" type="q8:ArrayOfSensor" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components" minOccurs="0" name="Disk" nillable="true" type="q1:ArrayOfDiskDynamic" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components" minOccurs="0" name="MainBoard" nillable="true" type="q2:ArrayOfMainBoardDynamic" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components" minOccurs="0" name="Memory" nillable="true" type="q3:ArrayOfMemoryDynamic" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components" minOccurs="0" name="Processor" nillable="true" type="q4:ArrayOfProcessorDynamic" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components" minOccurs="0" name="VideoController" nillable="true" type="q5:ArrayOfVideoControllerDynamic" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="HardwareDynamicComponent" nillable="true" type="tns:HardwareDynamicComponent" />
+  <xs:element name="HardwareDynamicData" nillable="true" type="tns:HardwareDynamicData" />
 </xs:schema>

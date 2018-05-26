@@ -18,6 +18,12 @@ namespace SystemManagament.Client.WPF.ViewModel.Helpers
             Sensor sensor,
             string hardwareName)
         {
+            // In case of "No Value" returned from SystemManagamentLib do not generate charts
+            if (sensor.Value == "No value")
+            {
+                return;
+            }
+
             DynamicLineChartViewModel chartViewModel = this.GetOrCreateNewLineChartIfNotExists(dynamicChartViewModel, sensor, hardwareName);
 
             this.AddNewValuesToDynamicViewLabels(chartViewModel, sensor);
@@ -36,9 +42,21 @@ namespace SystemManagament.Client.WPF.ViewModel.Helpers
             Sensor sensor,
             string hardwareName)
         {
-            DynamicPieChartViewModel chartViewModel = this.GetOrCreateNewPieChartIfNotExists(dynamicChartViewModel, sensor, hardwareName);
+            if (sensor.Value == "No value")
+            {
+                return;
+            }
 
+            DynamicPieChartViewModel chartViewModel = this.GetOrCreateNewPieChartIfNotExists(dynamicChartViewModel, sensor, hardwareName);
             this.AddNewValuesToDynamicViewLabels(chartViewModel, sensor);
+
+            // In case of "SmallData" sensor type, Open Hardware Monitor returns also total amount of data
+            // which is not requested by view
+            if (sensor.SensorType == "SmallData" && sensor.SensorName.ToLower().Contains("total"))
+            {
+                return;
+            }
+
             this.AddNewPieChartSliceIfNotExists(sensor, chartViewModel);
             this.RefreshValueInPieSeries(sensor, chartViewModel);
 
@@ -58,6 +76,7 @@ namespace SystemManagament.Client.WPF.ViewModel.Helpers
                 this.AddNewPieChartSliceIfNotExists(notUsedMemoryMockedSensor, chartViewModel);
                 this.AddNewValuesToDynamicViewLabels(chartViewModel, notUsedMemoryMockedSensor);
             }
+
         }
 
         private DynamicLineChartViewModel GetOrCreateNewLineChartIfNotExists(

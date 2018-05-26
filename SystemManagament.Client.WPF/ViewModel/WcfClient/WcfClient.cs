@@ -43,6 +43,13 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
             WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelProcessorLoad,
             WpfObservableRangeCollection<DynamicPieChartViewModel> dynamicChartViewModelDiskLoad,
             WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelDiskTemp,
+            WpfObservableRangeCollection<DynamicPieChartViewModel> dynamicChartViewModelMemoryData,
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelGPULoad,
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelGPUTemp,
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelGPUClock,
+            WpfObservableRangeCollection<DynamicPieChartViewModel> dynamicChartViewModelGPUData,
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelGPUVoltage,
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelGPUFan,
             CancellationToken cancellationToken)
         {
             using (var client = this.GetNewWorkstationMonitorServiceClient())
@@ -83,6 +90,47 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
                         foreach (var temperature in disk.Temperature)
                         {
                             this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelDiskTemp, temperature, disk.Name);
+                        }
+                    }
+
+                    foreach (var memory in result.Memory)
+                    {
+                        foreach (var data in memory.Data)
+                        {
+                            this.dynamicDataHelper.DrawDynamicPieChartForHardwareSensor(dynamicChartViewModelDiskLoad, data, memory.Name);
+                        }
+                    }
+
+                    foreach (var gpu in result.VideoController)
+                    {
+                        foreach (var load in gpu.Load)
+                        {
+                            this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelGPULoad, load, gpu.Name);
+                        }
+
+                        foreach (var temperature in gpu.Temperature)
+                        {
+                            this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelGPUTemp, temperature, gpu.Name);
+                        }
+
+                        foreach (var clock in gpu.Clock)
+                        {
+                            this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelGPUClock, clock, gpu.Name);
+                        }
+
+                        foreach (var data in gpu.Data)
+                        {
+                            this.dynamicDataHelper.DrawDynamicPieChartForHardwareSensor(dynamicChartViewModelGPUData, data, gpu.Name);
+                        }
+
+                        foreach (var voltage in gpu.Voltage)
+                        {
+                            this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelGPUVoltage, voltage, gpu.Name);
+                        }
+
+                        foreach (var fan in gpu.Fan)
+                        {
+                            this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelGPUFan, fan, gpu.Name);
                         }
                     }
                 }

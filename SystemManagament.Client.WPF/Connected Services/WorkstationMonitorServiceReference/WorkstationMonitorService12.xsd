@@ -1,90 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareDynamic.Model.Components" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareDynamic.Model.Components" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" />
-  <xs:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareDynamic.Model.Components.Duplicate" />
-  <xs:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-  <xs:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:complexType name="ArrayOfWindowsLog">
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components.Abstract" />
+  <xs:complexType name="ArrayOfDiskDynamic">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="WindowsLog" nillable="true" type="tns:WindowsLog" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DiskDynamic" nillable="true" type="tns:DiskDynamic" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfWindowsLog" nillable="true" type="tns:ArrayOfWindowsLog" />
-  <xs:complexType name="WindowsLog">
+  <xs:element name="ArrayOfDiskDynamic" nillable="true" type="tns:ArrayOfDiskDynamic" />
+  <xs:complexType name="DiskDynamic">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components.Abstract" base="q1:HardwareDynamicComponent">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DiskDynamic" nillable="true" type="tns:DiskDynamic" />
+  <xs:complexType name="ArrayOfMainBoardDynamic">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Entries" nillable="true" type="tns:ArrayOfEventLogEntryDuplicate" />
-      <xs:element minOccurs="0" name="LogDisplayName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="LogName" nillable="true" type="xs:string" />
-      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="MaximumKilobytes" type="q1:UnitValue" />
-      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="MinimumRetentionDays" type="q2:UnitValue" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MainBoardDynamic" nillable="true" type="tns:MainBoardDynamic" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="WindowsLog" nillable="true" type="tns:WindowsLog" />
-  <xs:complexType name="ArrayOfEventLogEntryDuplicate">
+  <xs:element name="ArrayOfMainBoardDynamic" nillable="true" type="tns:ArrayOfMainBoardDynamic" />
+  <xs:complexType name="MainBoardDynamic">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components.Abstract" base="q2:HardwareDynamicComponent">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MainBoardDynamic" nillable="true" type="tns:MainBoardDynamic" />
+  <xs:complexType name="ArrayOfMemoryDynamic">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="EventLogEntryDuplicate" nillable="true" type="tns:EventLogEntryDuplicate" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MemoryDynamic" nillable="true" type="tns:MemoryDynamic" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfEventLogEntryDuplicate" nillable="true" type="tns:ArrayOfEventLogEntryDuplicate" />
-  <xs:complexType name="EventLogEntryDuplicate">
+  <xs:element name="ArrayOfMemoryDynamic" nillable="true" type="tns:ArrayOfMemoryDynamic" />
+  <xs:complexType name="MemoryDynamic">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components.Abstract" base="q3:HardwareDynamicComponent">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MemoryDynamic" nillable="true" type="tns:MemoryDynamic" />
+  <xs:complexType name="ArrayOfProcessorDynamic">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CategoryNumber" type="xs:short" />
-      <xs:element minOccurs="0" name="Data" nillable="true" type="xs:base64Binary" />
-      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareDynamic.Model.Components.Duplicate" minOccurs="0" name="EntryType" type="q3:EventLogEntryTypeDuplicate" />
-      <xs:element minOccurs="0" name="Index" type="xs:int" />
-      <xs:element minOccurs="0" name="InstanceId" type="xs:long" />
-      <xs:element minOccurs="0" name="MachineName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
-      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ReplacementStrings" nillable="true" type="q4:ArrayOfstring" />
-      <xs:element minOccurs="0" name="Source" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="TimeGenerated" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="TimeWritten" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProcessorDynamic" nillable="true" type="tns:ProcessorDynamic" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="EventLogEntryDuplicate" nillable="true" type="tns:EventLogEntryDuplicate" />
-  <xs:complexType name="ArrayOfWindowsProcess">
+  <xs:element name="ArrayOfProcessorDynamic" nillable="true" type="tns:ArrayOfProcessorDynamic" />
+  <xs:complexType name="ProcessorDynamic">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components.Abstract" base="q4:HardwareDynamicComponent">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProcessorDynamic" nillable="true" type="tns:ProcessorDynamic" />
+  <xs:complexType name="ArrayOfVideoControllerDynamic">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="WindowsProcess" nillable="true" type="tns:WindowsProcess" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VideoControllerDynamic" nillable="true" type="tns:VideoControllerDynamic" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfWindowsProcess" nillable="true" type="tns:ArrayOfWindowsProcess" />
-  <xs:complexType name="WindowsProcess">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="BasePriority" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
-      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="MemorySize" type="q5:UnitValue" />
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="PagedMemorySize64" type="q6:UnitValue" />
-      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="PeakMemorySize" type="q7:UnitValue" />
-      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="PeakPagedMemorySize64" type="q8:UnitValue" />
-      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="PeakVirtualMemorySize64" type="q9:UnitValue" />
-      <xs:element minOccurs="0" name="SessionId" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="TotalProcessorTime" type="ser:duration" />
-      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
-      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="VirtualMemorySize64" type="q10:UnitValue" />
-    </xs:sequence>
+  <xs:element name="ArrayOfVideoControllerDynamic" nillable="true" type="tns:ArrayOfVideoControllerDynamic" />
+  <xs:complexType name="VideoControllerDynamic">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic.Model.Components.Abstract" base="q5:HardwareDynamicComponent">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
-  <xs:element name="WindowsProcess" nillable="true" type="tns:WindowsProcess" />
-  <xs:complexType name="ArrayOfWindowsService">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="WindowsService" nillable="true" type="tns:WindowsService" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfWindowsService" nillable="true" type="tns:ArrayOfWindowsService" />
-  <xs:complexType name="WindowsService">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="CanPauseAndContinue" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CanShutdown" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CanStop" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="DisplayName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ServiceName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ServiceType" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="StartType" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="WindowsService" nillable="true" type="tns:WindowsService" />
+  <xs:element name="VideoControllerDynamic" nillable="true" type="tns:VideoControllerDynamic" />
 </xs:schema>

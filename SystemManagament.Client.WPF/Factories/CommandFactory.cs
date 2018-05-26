@@ -107,7 +107,14 @@ namespace SystemManagament.Client.WPF.Factories
             WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelProcessorTemp,
             WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelProcessorLoad,
             WpfObservableRangeCollection<DynamicPieChartViewModel> dynamicChartViewModelDiskLoad,
-            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelDiskTemp)
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelDiskTemp,
+            WpfObservableRangeCollection<DynamicPieChartViewModel> dynamicChartViewModelMemoryData,
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelGPULoad,
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelGPUTemp,
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelGPUClock,
+            WpfObservableRangeCollection<DynamicPieChartViewModel> dynamicChartViewModelGPUData,
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelGPUVoltage,
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelGPUFan)
         {
             return new AsyncCommand<bool>(async (cancellationToken) =>
             {
@@ -123,6 +130,13 @@ namespace SystemManagament.Client.WPF.Factories
                             dynamicChartViewModelProcessorLoad,
                             dynamicChartViewModelDiskLoad,
                             dynamicChartViewModelDiskTemp,
+                            dynamicChartViewModelMemoryData,
+                            dynamicChartViewModelGPULoad,
+                            dynamicChartViewModelGPUTemp,
+                            dynamicChartViewModelGPUClock,
+                            dynamicChartViewModelGPUData,
+                            dynamicChartViewModelGPUVoltage,
+                            dynamicChartViewModelGPUFan,
                             ct),
                         cancellationToken);
 

@@ -23,6 +23,13 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
             WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelProcessorLoad,
             WpfObservableRangeCollection<DynamicPieChartViewModel> dynamicChartViewModelStorageLoad,
             WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelStorageTemp,
+            WpfObservableRangeCollection<DynamicPieChartViewModel> dynamicChartViewModelMemoryData,
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelGPULoad,
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelGPUTemp,
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelGPUClock,
+            WpfObservableRangeCollection<DynamicPieChartViewModel> dynamicChartViewModelGPUData,
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelGPUVoltage,
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelGPUFan,
             CancellationToken cancellationToken);
 
         Task<SoftwareStaticData> ReadSoftwareStaticDataAsync();
