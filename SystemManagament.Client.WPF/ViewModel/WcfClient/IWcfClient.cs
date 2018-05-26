@@ -17,7 +17,7 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
 
         Task<HardwareDynamicData> ReadHardwareDynamicDataAsync(
             WpfObservableRangeCollection<HardwareDynamicData> hardwareDynamicObservableCollection,
-            WpfObservableRangeCollection<DynamicDataViewModel> dynamicDataViewModelProcessorClock,
+            WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorClock,
             WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorPower,
             WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorTemp,
             WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorLoad,

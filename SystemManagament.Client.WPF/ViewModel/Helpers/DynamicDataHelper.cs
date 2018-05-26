@@ -17,6 +17,8 @@ namespace SystemManagament.Client.WPF.ViewModel.Helpers
         {
             DynamicChartViewModel chartViewModel = this.GetOrCreateNewChartIfNotExists(dynamicChartViewModel, sensor);
 
+            this.AddNewValuesToDynamicViewLabels(chartViewModel, sensor);
+
             this.AddNewLineSeriesIfNotExists(sensor, chartViewModel);
 
             this.AdjustChartValuesRange(sensor, chartViewModel);
@@ -26,21 +28,15 @@ namespace SystemManagament.Client.WPF.ViewModel.Helpers
             chartViewModel.SetAxisLimits(DateTime.Now);
         }
 
-        public void DrawDynamicDataForSensor(WpfObservableRangeCollection<DynamicDataViewModel> dynamicDataViewModel, Sensor sensor)
+        private void AddNewValuesToDynamicViewLabels(DynamicChartViewModel chartViewModel, Sensor sensor)
         {
-            DynamicDataViewModel dataViewModel = this.GetOrCreateNewDynamicDataViewIfNotExists(dynamicDataViewModel, sensor);
-            this.AddNewValuesToDynamicDataView(dataViewModel, sensor);
-        }
-
-        private void AddNewValuesToDynamicDataView(DynamicDataViewModel dataViewModel, Sensor sensor)
-        {
-            DynamicDataLabel dynamiDataLabel = dataViewModel.DynamicData
+            DynamicDataLabel dynamiDataLabel = chartViewModel.DynamicData
                 .Where(ddl => ddl.Name == sensor.SensorName)
                 .SingleOrDefault();
 
             if (dynamiDataLabel == null)
             {
-                dataViewModel.DynamicData.Add(new DynamicDataLabel()
+                chartViewModel.DynamicData.Add(new DynamicDataLabel()
                 {
                     Name = sensor.SensorName,
                     Value = sensor.Value,
@@ -129,21 +125,6 @@ namespace SystemManagament.Client.WPF.ViewModel.Helpers
                 Value = double.Parse(sensor.Value),
                 DateTime = DateTime.Now
             });
-        }
-
-        private DynamicDataViewModel GetOrCreateNewDynamicDataViewIfNotExists(WpfObservableRangeCollection<DynamicDataViewModel> dynamicDataViewModel, Sensor sensor)
-        {
-            DynamicDataViewModel dataViewModel = dynamicDataViewModel
-                    .Where(x => x.ViewName == sensor.SensorType)
-                    .SingleOrDefault();
-
-            if (dataViewModel == null)
-            {
-                dataViewModel = new DynamicDataViewModel(sensor.SensorType);
-                this.InvokeInUIThread((Action)(() => dynamicDataViewModel.Add(dataViewModel)));
-            }
-
-            return dataViewModel;
         }
     }
 }

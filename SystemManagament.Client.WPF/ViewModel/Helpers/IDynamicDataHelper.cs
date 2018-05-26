@@ -13,9 +13,5 @@ namespace SystemManagament.Client.WPF.ViewModel.Helpers
         void DrawDynamicChartForSensor(
             WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModel,
             Sensor sensor);
-
-        void DrawDynamicDataForSensor(
-            WpfObservableRangeCollection<DynamicDataViewModel> dynamicDataViewModel,
-            Sensor sensor);
     }
 }

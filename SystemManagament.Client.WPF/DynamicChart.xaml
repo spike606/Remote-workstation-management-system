@@ -10,16 +10,39 @@
     <StackPanel Background="White">
         <Grid Margin="20, 20, 20, 20">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height=".50*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
-            <!--<Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>-->
-            <TextBlock Grid.Row="0" TextAlignment="Center" Padding="10, 10, 0, 5" Foreground="Black" FontSize="18" Text="{Binding ChartName}"></TextBlock>
-            <!--Here we disable tooltips and hovering to get a better performance-->
-            <lvc:CartesianChart Grid.Row="1" Series="{Binding SeriesCollection}"
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical" Grid.Row="2" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="2">
+                <TextBlock TextAlignment="Center" Foreground="Black" FontSize="18" Text="{Binding ChartName}"></TextBlock>
+
+                <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding DynamicData}" ColumnWidth="Auto"
+                                        HorizontalScrollBarVisibility="Auto" HorizontalContentAlignment="Center">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                        <DataGridTextColumn Header="Value" Binding="{Binding Value}" />
+                        <DataGridTextColumn Header="Unit" Binding="{Binding Unit}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+
+            <lvc:CartesianChart Grid.Row="2" Grid.RowSpan="6" Grid.Column="2"  Grid.ColumnSpan="6" Series="{Binding SeriesCollection}"
                                 DisableAnimations="True" Hoverable="False"
                                 DataTooltip="{x:Null}" Height="450" Width="800" LegendLocation="Right">
                     <lvc:CartesianChart.AxisX>

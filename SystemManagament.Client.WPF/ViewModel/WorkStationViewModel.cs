@@ -30,7 +30,7 @@ namespace SystemManagament.Client.WPF.ViewModel
         private WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorPower = new WpfObservableRangeCollection<DynamicChartViewModel>();
         private WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorTemp = new WpfObservableRangeCollection<DynamicChartViewModel>();
         private WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorLoad = new WpfObservableRangeCollection<DynamicChartViewModel>();
-        private WpfObservableRangeCollection<DynamicDataViewModel> dynamicDataViewModelProcessorClock = new WpfObservableRangeCollection<DynamicDataViewModel>();
+        private WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorClock = new WpfObservableRangeCollection<DynamicChartViewModel>();
 
         private WpfObservableRangeCollection<ProcessorStatic> processorStatic = new WpfObservableRangeCollection<ProcessorStatic>();
         private WpfObservableRangeCollection<ProcessorCache> processorCache = new WpfObservableRangeCollection<ProcessorCache>();
@@ -129,16 +129,16 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
-        public WpfObservableRangeCollection<DynamicDataViewModel> DynamicDataViewModelProcessorClock
+        public WpfObservableRangeCollection<DynamicChartViewModel> DynamicChartViewModelProcessorClock
         {
             get
             {
-                return this.dynamicDataViewModelProcessorClock;
+                return this.dynamicChartViewModelProcessorClock;
             }
 
             private set
             {
-                this.Set(() => this.DynamicDataViewModelProcessorClock, ref this.dynamicDataViewModelProcessorClock, value);
+                this.Set(() => this.DynamicChartViewModelProcessorClock, ref this.dynamicChartViewModelProcessorClock, value);
             }
         }
 
@@ -462,7 +462,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             this.LoadWindowsLogDynamicDataCommand = this.commandFactory.CreateWindowsLogDynamicDataCommand(this.WindowsLog);
             this.LoadHardwareDynamicDataCommand = this.commandFactory.CreateHardwareDynamicDataCommand(
                 this.HardwareDynamic,
-                this.DynamicDataViewModelProcessorClock,
+                this.DynamicChartViewModelProcessorClock,
                 this.DynamicChartViewModelProcessorPower,
                 this.DynamicChartViewModelProcessorTemp,
                 this.DynamicChartViewModelProcessorLoad);

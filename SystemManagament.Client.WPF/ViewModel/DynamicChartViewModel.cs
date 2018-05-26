@@ -20,6 +20,7 @@ namespace SystemManagament.Client.WPF.ViewModel
         private double axisMax;
         private double axisMin;
         private long timeLabelModulo = 100000000L;
+        private WpfObservableRangeCollection<DynamicDataLabel> dynamicData = new WpfObservableRangeCollection<DynamicDataLabel>();
 
         public DynamicChartViewModel(string chartName, string chartTitle)
         {
@@ -58,6 +59,19 @@ namespace SystemManagament.Client.WPF.ViewModel
         public SeriesCollection SeriesCollection { get; set; }
 
         public Dictionary<string, ChartValues<MeasureModel>> ChartValuesDictionary { get; set; }
+
+        public WpfObservableRangeCollection<DynamicDataLabel> DynamicData
+        {
+            get
+            {
+                return this.dynamicData;
+            }
+
+            private set
+            {
+                this.Set(() => this.DynamicData, ref this.dynamicData, value);
+            }
+        }
 
         public double AxisStep { get; set; }
 
@@ -121,5 +135,38 @@ namespace SystemManagament.Client.WPF.ViewModel
         public DateTime DateTime { get; set; }
 
         public double Value { get; set; }
+    }
+
+    public class DynamicDataLabel : INotifyPropertyChanged
+    {
+        private string value;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public string Name { get; set; }
+
+        public string Value
+        {
+            get
+            {
+                return this.value;
+            }
+
+            set
+            {
+                this.value = value;
+                this.OnPropertyChanged("Value");
+            }
+        }
+
+        public string Unit { get; set; }
+
+        protected virtual void OnPropertyChanged(string propertyName = null)
+        {
+            if (this.PropertyChanged != null)
+            {
+                this.PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
 }

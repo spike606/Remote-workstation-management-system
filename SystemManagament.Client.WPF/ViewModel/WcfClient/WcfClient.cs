@@ -37,7 +37,7 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
 
         public async Task<HardwareDynamicData> ReadHardwareDynamicDataAsync(
             WpfObservableRangeCollection<HardwareDynamicData> hardwareDynamicObservableCollection,
-            WpfObservableRangeCollection<DynamicDataViewModel> dynamicDataViewModelProcessorClock,
+            WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorClock,
             WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorPower,
             WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorTemp,
             WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorLoad,
@@ -57,7 +57,7 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
 
                         foreach (var clock in processor.Clock)
                         {
-                            this.dynamicDataHelper.DrawDynamicDataForSensor(dynamicDataViewModelProcessorClock, clock);
+                            this.dynamicDataHelper.DrawDynamicChartForSensor(dynamicChartViewModelProcessorClock, clock);
                         }
 
                         foreach (var power in processor.Power)
