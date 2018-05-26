@@ -38,6 +38,8 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
         public async Task<HardwareDynamicData> ReadHardwareDynamicDataAsync(
             WpfObservableRangeCollection<HardwareDynamicData> hardwareDynamicObservableCollection,
             WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorClock,
+            WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorPower,
+            WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorTemp,
             CancellationToken cancellationToken)
         {
             using (var client = this.GetNewWorkstationMonitorServiceClient())
@@ -52,11 +54,22 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
                             this.dynamicChartHelper.DrawDynamicChartForSensor(dynamicChartViewModelProcessorClock, load);
                         }
 
-                        //TODO: Create as label
+                        //TODO: Create as label clock always only as label
                         //foreach (var clock in processor.Clock)
                         //{
                         //    this.dynamicChartHelper.DrawDynamicChartForSensor(dynamicChartViewModelProcessorClock, clock);
                         //}
+
+                        foreach (var power in processor.Power)
+                        {
+                            this.dynamicChartHelper.DrawDynamicChartForSensor(dynamicChartViewModelProcessorPower, power);
+                        }
+
+                        foreach (var temperature in processor.Temperature)
+                        {
+                            this.dynamicChartHelper.DrawDynamicChartForSensor(dynamicChartViewModelProcessorTemp, temperature);
+                        }
+
                     }
                 }
 

@@ -18,6 +18,8 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
         Task<HardwareDynamicData> ReadHardwareDynamicDataAsync(
             WpfObservableRangeCollection<HardwareDynamicData> hardwareDynamicObservableCollection,
             WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorClock,
+            WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorPower,
+            WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorTemp,
             CancellationToken cancellationToken);
 
         Task<SoftwareStaticData> ReadSoftwareStaticDataAsync();

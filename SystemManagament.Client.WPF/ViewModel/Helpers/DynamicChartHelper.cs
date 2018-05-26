@@ -79,12 +79,23 @@ namespace SystemManagament.Client.WPF.ViewModel.Helpers
                     chartViewModel.AxisYMax = 3500;// double.Parse(sensor.MaxValue) + 200;
                     chartViewModel.AxisYMin = 0;
                     break;
-
+                case "Power":
+                    chartViewModel.AxisYMax = double.Parse(sensor.MaxValue) > chartViewModel.AxisYMax ?
+                        double.Parse(sensor.MaxValue) : chartViewModel.AxisYMax + 2; //2 is a bufor for better readibility
+                    chartViewModel.AxisYMin = 0;
+                    chartViewModel.AxisXTitle = "Time";
+                    chartViewModel.AxisYTitle = "Power";
+                    break;
+                case "Temperature":
+                    chartViewModel.AxisYMax = double.Parse(sensor.MaxValue) > chartViewModel.AxisYMax ?
+                        double.Parse(sensor.MaxValue) : chartViewModel.AxisYMax + 5; //5 is a bufor for better readibility
+                    chartViewModel.AxisYMin = 0;
+                    chartViewModel.AxisXTitle = "Time";
+                    chartViewModel.AxisYTitle = "Temperature";
+                    break;
                 default:
                     break;
             }
-
-
         }
 
         private void AddNewValuesToLineSeries(Sensor sensor, DynamicChartViewModel chartViewModel)

@@ -50,6 +50,8 @@ namespace SystemManagament.Client.WPF.Factories
 
         IAsyncCommand CreateHardwareDynamicDataCommand(
             WpfObservableRangeCollection<HardwareDynamicData> hardwareDynamic,
-            WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorClock);
+            WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorClock,
+            WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorPower,
+            WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorTemp);
     }
 }

@@ -28,6 +28,10 @@ namespace SystemManagament.Client.WPF.ViewModel
 
         private WpfObservableRangeCollection<HardwareDynamicData> hardwareDynamic = new WpfObservableRangeCollection<HardwareDynamicData>();
         private WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorClock = new WpfObservableRangeCollection<DynamicChartViewModel>();
+        private WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorPower = new WpfObservableRangeCollection<DynamicChartViewModel>();
+        private WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorTemp = new WpfObservableRangeCollection<DynamicChartViewModel>();
+        private WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorVoltage = new WpfObservableRangeCollection<DynamicChartViewModel>();
+        private WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorFan = new WpfObservableRangeCollection<DynamicChartViewModel>();
 
         private WpfObservableRangeCollection<ProcessorStatic> processorStatic = new WpfObservableRangeCollection<ProcessorStatic>();
         private WpfObservableRangeCollection<ProcessorCache> processorCache = new WpfObservableRangeCollection<ProcessorCache>();
@@ -136,6 +140,32 @@ namespace SystemManagament.Client.WPF.ViewModel
             private set
             {
                 this.Set(() => this.DynamicChartViewModelProcessorClock, ref this.dynamicChartViewModelProcessorClock, value);
+            }
+        }
+
+        public WpfObservableRangeCollection<DynamicChartViewModel> DynamicChartViewModelProcessorPower
+        {
+            get
+            {
+                return this.dynamicChartViewModelProcessorPower;
+            }
+
+            private set
+            {
+                this.Set(() => this.DynamicChartViewModelProcessorPower, ref this.dynamicChartViewModelProcessorPower, value);
+            }
+        }
+
+        public WpfObservableRangeCollection<DynamicChartViewModel> DynamicChartViewModelProcessorTemp
+        {
+            get
+            {
+                return this.dynamicChartViewModelProcessorTemp;
+            }
+
+            private set
+            {
+                this.Set(() => this.DynamicChartViewModelProcessorTemp, ref this.dynamicChartViewModelProcessorTemp, value);
             }
         }
 
@@ -420,7 +450,10 @@ namespace SystemManagament.Client.WPF.ViewModel
             this.LoadWindowsLogDynamicDataCommand = this.commandFactory.CreateWindowsLogDynamicDataCommand(this.WindowsLog);
             this.LoadHardwareDynamicDataCommand = this.commandFactory.CreateHardwareDynamicDataCommand(
                 this.HardwareDynamic,
-                this.DynamicChartViewModelProcessorClock);
+                this.DynamicChartViewModelProcessorClock,
+                this.dynamicChartViewModelProcessorPower,
+                this.dynamicChartViewModelProcessorTemp);
+
             this.LoadHardwareStaticDataCommand = this.commandFactory.CreateHardwareStaticDataCommand(
                 this.ProcessorStatic,
                 this.ProcessorCache,
