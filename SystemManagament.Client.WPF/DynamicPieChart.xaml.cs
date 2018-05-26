@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace SystemManagament.Client.WPF
 {
     /// <summary>
-    /// Interaction logic for DynamicChart.xaml
+    /// Interaction logic for DynamicPieChart.xaml
     /// </summary>
-    public partial class DynamicChart : UserControl
+    public partial class DynamicPieChart : UserControl
     {
-        public DynamicChart()
+        public DynamicPieChart()
         {
             this.InitializeComponent();
         }

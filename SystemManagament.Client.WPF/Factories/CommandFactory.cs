@@ -102,10 +102,12 @@ namespace SystemManagament.Client.WPF.Factories
 
         public IAsyncCommand CreateHardwareDynamicDataCommand(
             WpfObservableRangeCollection<HardwareDynamicData> hardwareDynamic,
-            WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorClock,
-            WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorPower,
-            WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorTemp,
-            WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorLoad)
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelProcessorClock,
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelProcessorPower,
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelProcessorTemp,
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelProcessorLoad,
+            WpfObservableRangeCollection<DynamicPieChartViewModel> dynamicChartViewModelDiskLoad,
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelDiskTemp)
         {
             return new AsyncCommand<bool>(async (cancellationToken) =>
             {
@@ -119,6 +121,8 @@ namespace SystemManagament.Client.WPF.Factories
                             dynamicChartViewModelProcessorPower,
                             dynamicChartViewModelProcessorTemp,
                             dynamicChartViewModelProcessorLoad,
+                            dynamicChartViewModelDiskLoad,
+                            dynamicChartViewModelDiskTemp,
                             ct),
                         cancellationToken);
 

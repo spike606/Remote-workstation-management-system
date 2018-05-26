@@ -10,9 +10,14 @@ namespace SystemManagament.Client.WPF.ViewModel.Helpers
 {
     public interface IDynamicDataHelper
     {
-        void DrawDynamicChartForHardwareSensor(
-            WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModel,
+        void DrawDynamicLineChartForHardwareSensor(
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModel,
             Sensor sensor,
             string hardwareName);
+
+        void DrawDynamicPieChartForHardwareSensor(
+            WpfObservableRangeCollection<DynamicPieChartViewModel> dynamicChartViewModelDiskLoad,
+            Sensor load,
+            string name);
     }
 }

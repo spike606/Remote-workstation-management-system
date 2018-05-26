@@ -15,17 +15,18 @@ using SystemManagament.Client.WPF.WorkstationMonitorServiceReference;
 
 namespace SystemManagament.Client.WPF.ViewModel
 {
-    public class DynamicChartViewModel : ViewModelBase, INotifyPropertyChanged
+    public class DynamicLineChartViewModel : ViewModelBase, INotifyPropertyChanged
     {
         private double axisMax;
         private double axisMin;
         private long timeLabelModulo = 100000000L;
         private WpfObservableRangeCollection<DynamicDataLabel> dynamicData = new WpfObservableRangeCollection<DynamicDataLabel>();
 
-        public DynamicChartViewModel(string chartName, string hardwareName)
+        public DynamicLineChartViewModel(string chartName, string hardwareName)
         {
             this.ChartName = chartName;
             this.HardwareName = hardwareName;
+            this.SectionName = this.ChartName + " - " + this.HardwareName;
             this.ChartValuesDictionary = new Dictionary<string, ChartValues<MeasureModel>>();
             //the values property will store our values array
             this.SeriesCollection = new SeriesCollection();
@@ -54,6 +55,8 @@ namespace SystemManagament.Client.WPF.ViewModel
         }
 
         public new event PropertyChangedEventHandler PropertyChanged;
+
+        public string SectionName { get; set; }
 
         public string ChartName { get; set; }
 
@@ -138,38 +141,5 @@ namespace SystemManagament.Client.WPF.ViewModel
         public DateTime DateTime { get; set; }
 
         public double Value { get; set; }
-    }
-
-    public class DynamicDataLabel : INotifyPropertyChanged
-    {
-        private string value;
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public string Name { get; set; }
-
-        public string Value
-        {
-            get
-            {
-                return this.value;
-            }
-
-            set
-            {
-                this.value = value;
-                this.OnPropertyChanged("Value");
-            }
-        }
-
-        public string Unit { get; set; }
-
-        protected virtual void OnPropertyChanged(string propertyName = null)
-        {
-            if (this.PropertyChanged != null)
-            {
-                this.PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
     }
 }

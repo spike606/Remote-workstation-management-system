@@ -13,12 +13,12 @@ namespace SystemManagament.Client.WPF.ViewModel.Helpers
 {
     public class DynamicDataHelper : IDynamicDataHelper
     {
-        public void DrawDynamicChartForHardwareSensor(
-            WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModel,
+        public void DrawDynamicLineChartForHardwareSensor(
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModel,
             Sensor sensor,
             string hardwareName)
         {
-            DynamicChartViewModel chartViewModel = this.GetOrCreateNewChartIfNotExists(dynamicChartViewModel, sensor, hardwareName);
+            DynamicLineChartViewModel chartViewModel = this.GetOrCreateNewLineChartIfNotExists(dynamicChartViewModel, sensor, hardwareName);
 
             this.AddNewValuesToDynamicViewLabels(chartViewModel, sensor);
 
@@ -31,7 +31,72 @@ namespace SystemManagament.Client.WPF.ViewModel.Helpers
             chartViewModel.SetAxisLimits(DateTime.Now);
         }
 
-        private void AddNewValuesToDynamicViewLabels(DynamicChartViewModel chartViewModel, Sensor sensor)
+        public void DrawDynamicPieChartForHardwareSensor(
+            WpfObservableRangeCollection<DynamicPieChartViewModel> dynamicChartViewModel,
+            Sensor sensor,
+            string hardwareName)
+        {
+            DynamicPieChartViewModel chartViewModel = this.GetOrCreateNewPieChartIfNotExists(dynamicChartViewModel, sensor, hardwareName);
+
+            this.AddNewValuesToDynamicViewLabels(chartViewModel, sensor);
+            this.AddNewPieChartSliceIfNotExists(sensor, chartViewModel);
+            this.RefreshValueInPieSeries(sensor, chartViewModel);
+
+            // Open Hardware Monitor defines load for hard disk as "Used Space" abd does not provide "Free Memoery Space"
+            // In order to display it as pie chart we need to define mocked sensor - "Not Used Space"
+            // to calculate not used memory part
+            if (sensor.SensorType == "Load" && sensor.Unit == "%" && sensor.SensorName == "Used Space")
+            {
+                Sensor notUsedMemoryMockedSensor = new Sensor()
+                {
+                    Unit = "%",
+                    SensorName = "Not Used Space",
+                    SensorType = "Load",
+                    Value = (100d - double.Parse(sensor.Value)).ToString()
+                };
+
+                this.AddNewPieChartSliceIfNotExists(notUsedMemoryMockedSensor, chartViewModel);
+                this.AddNewValuesToDynamicViewLabels(chartViewModel, notUsedMemoryMockedSensor);
+            }
+        }
+
+        private DynamicLineChartViewModel GetOrCreateNewLineChartIfNotExists(
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModel,
+            Sensor sensor,
+            string hardwareName)
+        {
+            DynamicLineChartViewModel chartViewModel = dynamicChartViewModel
+                    .Where(x => x.ChartName == sensor.SensorType && x.HardwareName == hardwareName)
+                    .SingleOrDefault();
+
+            if (chartViewModel == null)
+            {
+                chartViewModel = new DynamicLineChartViewModel(sensor.SensorType, hardwareName);
+                this.InvokeInUIThread((Action)(() => dynamicChartViewModel.Add(chartViewModel)));
+            }
+
+            return chartViewModel;
+        }
+
+        private DynamicPieChartViewModel GetOrCreateNewPieChartIfNotExists(
+            WpfObservableRangeCollection<DynamicPieChartViewModel> dynamicChartViewModel,
+            Sensor sensor,
+            string hardwareName)
+        {
+            DynamicPieChartViewModel chartViewModel = dynamicChartViewModel
+                    .Where(x => x.ChartName == sensor.SensorType && x.HardwareName == hardwareName)
+                    .SingleOrDefault();
+
+            if (chartViewModel == null)
+            {
+                chartViewModel = new DynamicPieChartViewModel(sensor.SensorType, hardwareName);
+                this.InvokeInUIThread((Action)(() => dynamicChartViewModel.Add(chartViewModel)));
+            }
+
+            return chartViewModel;
+        }
+
+        private void AddNewValuesToDynamicViewLabels(DynamicLineChartViewModel chartViewModel, Sensor sensor)
         {
             DynamicDataLabel dynamiDataLabel = chartViewModel.DynamicData
                 .Where(ddl => ddl.Name == sensor.SensorName)
@@ -52,22 +117,25 @@ namespace SystemManagament.Client.WPF.ViewModel.Helpers
             }
         }
 
-        private DynamicChartViewModel GetOrCreateNewChartIfNotExists(
-            WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModel,
-            Sensor sensor,
-            string hardwareName)
+        private void AddNewValuesToDynamicViewLabels(DynamicPieChartViewModel chartViewModel, Sensor sensor)
         {
-            DynamicChartViewModel chartViewModel = dynamicChartViewModel
-                    .Where(x => x.ChartName == sensor.SensorType && x.HardwareName == hardwareName)
-                    .SingleOrDefault();
+            DynamicDataLabel dynamiDataLabel = chartViewModel.DynamicData
+                .Where(ddl => ddl.Name == sensor.SensorName)
+                .SingleOrDefault();
 
-            if (chartViewModel == null)
+            if (dynamiDataLabel == null)
             {
-                chartViewModel = new DynamicChartViewModel(sensor.SensorType, hardwareName);
-                this.InvokeInUIThread((Action)(() => dynamicChartViewModel.Add(chartViewModel)));
+                chartViewModel.DynamicData.Add(new DynamicDataLabel()
+                {
+                    Name = sensor.SensorName,
+                    Value = sensor.Value,
+                    Unit = sensor.Unit
+                });
             }
-
-            return chartViewModel;
+            else
+            {
+                dynamiDataLabel.Value = sensor.Value;
+            }
         }
 
         private void InvokeInUIThread(Action action)
@@ -75,7 +143,7 @@ namespace SystemManagament.Client.WPF.ViewModel.Helpers
             App.Current.Dispatcher.Invoke(DispatcherPriority.DataBind, action);
         }
 
-        private void AddNewLineSeriesIfNotExists(Sensor sensor, DynamicChartViewModel chartViewModel)
+        private void AddNewLineSeriesIfNotExists(Sensor sensor, DynamicLineChartViewModel chartViewModel)
         {
             this.InvokeInUIThread((Action)(() =>
             {
@@ -91,7 +159,27 @@ namespace SystemManagament.Client.WPF.ViewModel.Helpers
             }));
         }
 
-        private void AdjustChartValuesRange(Sensor sensor, DynamicChartViewModel chartViewModel)
+        private void AddNewPieChartSliceIfNotExists(Sensor sensor, DynamicPieChartViewModel chartViewModel)
+        {
+            this.InvokeInUIThread((Action)(() =>
+            {
+                if (!chartViewModel.SeriesCollection.Any(x => x.Title == sensor.SensorName))
+                {
+                    PieSeries pieSeries = new PieSeries()
+                    {
+                        Title = sensor.SensorName,
+                        LabelPoint = chartViewModel.PointLabel,
+                        DataLabels = true
+                    };
+
+                    chartViewModel.PieValuesDictionary.Add(sensor.SensorName, new ChartValues<double> { double.Parse(sensor.Value) });
+                    pieSeries.Values = chartViewModel.PieValuesDictionary[sensor.SensorName];
+                    chartViewModel.SeriesCollection.Add(pieSeries);
+                }
+            }));
+        }
+
+        private void AdjustChartValuesRange(Sensor sensor, DynamicLineChartViewModel chartViewModel)
         {
             switch (sensor.SensorType)
             {
@@ -124,13 +212,18 @@ namespace SystemManagament.Client.WPF.ViewModel.Helpers
             }
         }
 
-        private void AddNewValuesToLineSeries(Sensor sensor, DynamicChartViewModel chartViewModel)
+        private void AddNewValuesToLineSeries(Sensor sensor, DynamicLineChartViewModel chartViewModel)
         {
             chartViewModel.ChartValuesDictionary[sensor.SensorName].Add(new MeasureModel()
             {
                 Value = double.Parse(sensor.Value),
                 DateTime = DateTime.Now
             });
+        }
+
+        private void RefreshValueInPieSeries(Sensor sensor, DynamicPieChartViewModel chartViewModel)
+        {
+            chartViewModel.PieValuesDictionary[sensor.SensorName] = new ChartValues<double> { double.Parse(sensor.Value) };
         }
     }
 }

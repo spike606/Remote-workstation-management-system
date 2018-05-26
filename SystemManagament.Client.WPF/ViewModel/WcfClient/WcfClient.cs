@@ -37,10 +37,12 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
 
         public async Task<HardwareDynamicData> ReadHardwareDynamicDataAsync(
             WpfObservableRangeCollection<HardwareDynamicData> hardwareDynamicObservableCollection,
-            WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorClock,
-            WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorPower,
-            WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorTemp,
-            WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorLoad,
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelProcessorClock,
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelProcessorPower,
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelProcessorTemp,
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelProcessorLoad,
+            WpfObservableRangeCollection<DynamicPieChartViewModel> dynamicChartViewModelDiskLoad,
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelDiskTemp,
             CancellationToken cancellationToken)
         {
             using (var client = this.GetNewWorkstationMonitorServiceClient())
@@ -52,24 +54,36 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
                     {
                         foreach (var load in processor.Load)
                         {
-                            this.dynamicDataHelper.DrawDynamicChartForHardwareSensor(dynamicChartViewModelProcessorLoad, load, processor.Name);
+                            this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelProcessorLoad, load, processor.Name);
                         }
 
                         foreach (var clock in processor.Clock)
                         {
-                            this.dynamicDataHelper.DrawDynamicChartForHardwareSensor(dynamicChartViewModelProcessorClock, clock, processor.Name);
+                            this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelProcessorClock, clock, processor.Name);
                         }
 
                         foreach (var power in processor.Power)
                         {
-                            this.dynamicDataHelper.DrawDynamicChartForHardwareSensor(dynamicChartViewModelProcessorPower, power, processor.Name);
+                            this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelProcessorPower, power, processor.Name);
                         }
 
                         foreach (var temperature in processor.Temperature)
                         {
-                            this.dynamicDataHelper.DrawDynamicChartForHardwareSensor(dynamicChartViewModelProcessorTemp, temperature, processor.Name);
+                            this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelProcessorTemp, temperature, processor.Name);
+                        }
+                    }
+
+                    foreach (var disk in result.Disk)
+                    {
+                        foreach (var load in disk.Load)
+                        {
+                            this.dynamicDataHelper.DrawDynamicPieChartForHardwareSensor(dynamicChartViewModelDiskLoad, load, disk.Name);
                         }
 
+                        foreach (var temperature in disk.Temperature)
+                        {
+                            this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelDiskTemp, temperature, disk.Name);
+                        }
                     }
                 }
 

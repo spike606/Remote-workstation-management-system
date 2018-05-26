@@ -27,14 +27,14 @@ namespace SystemManagament.Client.WPF.ViewModel
         private WpfObservableRangeCollection<WindowsLog> windowsLog = new WpfObservableRangeCollection<WindowsLog>();
 
         private WpfObservableRangeCollection<HardwareDynamicData> hardwareDynamic = new WpfObservableRangeCollection<HardwareDynamicData>();
-        private WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorPower = new WpfObservableRangeCollection<DynamicChartViewModel>();
-        private WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorTemp = new WpfObservableRangeCollection<DynamicChartViewModel>();
-        private WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorLoad = new WpfObservableRangeCollection<DynamicChartViewModel>();
-        private WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorClock = new WpfObservableRangeCollection<DynamicChartViewModel>();
+        private WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelProcessorPower = new WpfObservableRangeCollection<DynamicLineChartViewModel>();
+        private WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelProcessorTemp = new WpfObservableRangeCollection<DynamicLineChartViewModel>();
+        private WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelProcessorLoad = new WpfObservableRangeCollection<DynamicLineChartViewModel>();
+        private WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelProcessorClock = new WpfObservableRangeCollection<DynamicLineChartViewModel>();
 
-        private WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelStorage = new WpfObservableRangeCollection<DynamicChartViewModel>();
-        //private WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorClock = new WpfObservableRangeCollection<DynamicChartViewModel>();
-        //private WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelProcessorClock = new WpfObservableRangeCollection<DynamicChartViewModel>();
+        private WpfObservableRangeCollection<DynamicPieChartViewModel> dynamicChartViewModelDiskLoad = new WpfObservableRangeCollection<DynamicPieChartViewModel>();
+        private WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelDiskTemp = new WpfObservableRangeCollection<DynamicLineChartViewModel>();
+        //private WpfObservableRangeCollection<DynamicChartViewModel> dynamicChartViewModelStorageData = new WpfObservableRangeCollection<DynamicChartViewModel>();
 
         private WpfObservableRangeCollection<ProcessorStatic> processorStatic = new WpfObservableRangeCollection<ProcessorStatic>();
         private WpfObservableRangeCollection<ProcessorCache> processorCache = new WpfObservableRangeCollection<ProcessorCache>();
@@ -133,7 +133,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
-        public WpfObservableRangeCollection<DynamicChartViewModel> DynamicChartViewModelProcessorClock
+        public WpfObservableRangeCollection<DynamicLineChartViewModel> DynamicChartViewModelProcessorClock
         {
             get
             {
@@ -146,7 +146,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
-        public WpfObservableRangeCollection<DynamicChartViewModel> DynamicChartViewModelProcessorPower
+        public WpfObservableRangeCollection<DynamicLineChartViewModel> DynamicChartViewModelProcessorPower
         {
             get
             {
@@ -159,7 +159,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
-        public WpfObservableRangeCollection<DynamicChartViewModel> DynamicChartViewModelProcessorLoad
+        public WpfObservableRangeCollection<DynamicLineChartViewModel> DynamicChartViewModelProcessorLoad
         {
             get
             {
@@ -172,7 +172,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
-        public WpfObservableRangeCollection<DynamicChartViewModel> DynamicChartViewModelProcessorTemp
+        public WpfObservableRangeCollection<DynamicLineChartViewModel> DynamicChartViewModelProcessorTemp
         {
             get
             {
@@ -182,6 +182,32 @@ namespace SystemManagament.Client.WPF.ViewModel
             private set
             {
                 this.Set(() => this.DynamicChartViewModelProcessorTemp, ref this.dynamicChartViewModelProcessorTemp, value);
+            }
+        }
+
+        public WpfObservableRangeCollection<DynamicPieChartViewModel> DynamicChartViewModelDiskLoad
+        {
+            get
+            {
+                return this.dynamicChartViewModelDiskLoad;
+            }
+
+            private set
+            {
+                this.Set(() => this.DynamicChartViewModelDiskLoad, ref this.dynamicChartViewModelDiskLoad, value);
+            }
+        }
+
+        public WpfObservableRangeCollection<DynamicLineChartViewModel> DynamicChartViewModelDiskTemp
+        {
+            get
+            {
+                return this.dynamicChartViewModelDiskTemp;
+            }
+
+            private set
+            {
+                this.Set(() => this.DynamicChartViewModelDiskTemp, ref this.dynamicChartViewModelDiskTemp, value);
             }
         }
 
@@ -469,7 +495,9 @@ namespace SystemManagament.Client.WPF.ViewModel
                 this.DynamicChartViewModelProcessorClock,
                 this.DynamicChartViewModelProcessorPower,
                 this.DynamicChartViewModelProcessorTemp,
-                this.DynamicChartViewModelProcessorLoad);
+                this.DynamicChartViewModelProcessorLoad,
+                this.DynamicChartViewModelDiskLoad,
+                this.DynamicChartViewModelDiskTemp);
 
             this.LoadHardwareStaticDataCommand = this.commandFactory.CreateHardwareStaticDataCommand(
                 this.ProcessorStatic,

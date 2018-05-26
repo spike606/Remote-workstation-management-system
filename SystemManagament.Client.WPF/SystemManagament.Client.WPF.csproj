@@ -129,6 +129,9 @@
     <Compile Include="Comparer\WindowsServiceComparer.cs" />
     <Compile Include="Converters\NullToVisibilityConverter.cs" />
     <Compile Include="Converters\UnitValueToStringConverter.cs" />
+    <Compile Include="DynamicPieChart.xaml.cs">
+      <DependentUpon>DynamicPieChart.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Extensions\ObservableRangeCollection.cs" />
     <Compile Include="Extensions\TaskExtension.cs" />
     <Compile Include="Extensions\WpfObservableRangeCollection.cs" />
@@ -136,12 +139,15 @@
     <Compile Include="Factories\ICommandFactory.cs" />
     <Compile Include="Factories\ITPLFactory.cs" />
     <Compile Include="Factories\TPLFactory.cs" />
-    <Compile Include="DynamicChart.xaml.cs">
-      <DependentUpon>DynamicChart.xaml</DependentUpon>
+    <Compile Include="DynamicLineChart.xaml.cs">
+      <DependentUpon>DynamicLineChart.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\DynamicChartViewModel.cs" />
+    <Compile Include="ViewModel\DynamicDataLabel.cs" />
+    <Compile Include="ViewModel\DynamicLineChartViewModel.cs" />
+    <Compile Include="ViewModel\DynamicPieChartViewModel.cs" />
     <Compile Include="ViewModel\Helpers\DynamicDataHelper.cs" />
     <Compile Include="ViewModel\Helpers\IDynamicDataHelper.cs" />
+    <Compile Include="ViewModel\SliceData.cs" />
     <Compile Include="ViewModel\WorkStationViewModel.cs" />
     <Compile Include="WorkStationTabView.xaml.cs">
       <DependentUpon>WorkStationTabView.xaml</DependentUpon>
@@ -155,7 +161,11 @@
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="ViewModel\WcfClient\WcfClient.cs" />
     <Compile Include="ViewModel\WcfClient\IWcfClient.cs" />
-    <Page Include="DynamicChart.xaml">
+    <Page Include="DynamicPieChart.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DynamicLineChart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
