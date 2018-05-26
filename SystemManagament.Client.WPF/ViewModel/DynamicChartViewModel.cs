@@ -97,10 +97,14 @@ namespace SystemManagament.Client.WPF.ViewModel
 
         public double AxisYMax { get; set; }
 
+        public string AxisXTitle { get; set; }
+
+        public string AxisYTitle { get; set; }
+
         public void SetAxisLimits(DateTime now)
         {
             this.AxisMax = now.Ticks + TimeSpan.FromSeconds(5).Ticks; // lets force the axis to be 5 second ahead
-            this.AxisMin = now.Ticks - TimeSpan.FromSeconds(100).Ticks; // and 100 seconds behind
+            this.AxisMin = now.Ticks - TimeSpan.FromSeconds(50).Ticks; // and 100 seconds behind
         }
 
         protected virtual void OnPropertyChanged(string propertyName = null)

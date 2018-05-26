@@ -72,6 +72,8 @@ namespace SystemManagament.Client.WPF.ViewModel.Helpers
                 case "Load":
                     chartViewModel.AxisYMax = 100;
                     chartViewModel.AxisYMin = 0;
+                    chartViewModel.AxisXTitle = "Time";
+                    chartViewModel.AxisYTitle = "Load";
                     break;
                 case "Clock":
                     chartViewModel.AxisYMax = 3500;// double.Parse(sensor.MaxValue) + 200;
