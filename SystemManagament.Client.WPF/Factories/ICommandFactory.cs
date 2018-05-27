@@ -62,6 +62,9 @@ namespace SystemManagament.Client.WPF.Factories
             WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelGPUClock,
             WpfObservableRangeCollection<DynamicPieChartViewModel> dynamicChartViewModelGPUData,
             WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelGPUVoltage,
-            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelGPUFan);
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelGPUFan,
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelMainBoardTemp,
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelMainBoardFan,
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelMainBoardVoltage);
     }
 }

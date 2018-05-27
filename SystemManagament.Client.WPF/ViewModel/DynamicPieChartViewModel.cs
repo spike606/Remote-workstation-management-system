@@ -15,7 +15,7 @@ using SystemManagament.Client.WPF.WorkstationMonitorServiceReference;
 
 namespace SystemManagament.Client.WPF.ViewModel
 {
-    public class DynamicPieChartViewModel : ViewModelBase, INotifyPropertyChanged
+    public class DynamicPieChartViewModel : ViewModelBase
     {
         private WpfObservableRangeCollection<DynamicDataLabel> dynamicData = new WpfObservableRangeCollection<DynamicDataLabel>();
 
@@ -31,7 +31,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             this.PieValuesDictionary = new Dictionary<string, ChartValues<double>>();
         }
 
-        public new event PropertyChangedEventHandler PropertyChanged;
+        public Dictionary<string, ChartValues<double>> PieValuesDictionary { get; set; }
 
         public string SectionName { get; set; }
 
@@ -40,8 +40,6 @@ namespace SystemManagament.Client.WPF.ViewModel
         public string HardwareName { get; set; }
 
         public SeriesCollection SeriesCollection { get; set; }
-
-        public Dictionary<string, ChartValues<double>> PieValuesDictionary { get; set; }
 
         public Func<ChartPoint, string> PointLabel { get; set; }
 
@@ -57,6 +55,5 @@ namespace SystemManagament.Client.WPF.ViewModel
                 this.Set(() => this.DynamicData, ref this.dynamicData, value);
             }
         }
-
     }
 }

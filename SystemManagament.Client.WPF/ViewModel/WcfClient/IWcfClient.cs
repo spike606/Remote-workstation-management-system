@@ -30,6 +30,9 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
             WpfObservableRangeCollection<DynamicPieChartViewModel> dynamicChartViewModelGPUData,
             WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelGPUVoltage,
             WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelGPUFan,
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelMainBoardTemp,
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelMainBoardFan,
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelMainBoardVoltage,
             CancellationToken cancellationToken);
 
         Task<SoftwareStaticData> ReadSoftwareStaticDataAsync();

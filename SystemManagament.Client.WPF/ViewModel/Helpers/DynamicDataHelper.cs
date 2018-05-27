@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -70,13 +71,13 @@ namespace SystemManagament.Client.WPF.ViewModel.Helpers
                     Unit = "%",
                     SensorName = "Not Used Space",
                     SensorType = "Load",
-                    Value = (100d - double.Parse(sensor.Value)).ToString()
+                    Value = (100d - double.Parse(sensor.Value)).ToString(),
                 };
 
-                this.AddNewPieChartSliceIfNotExists(notUsedMemoryMockedSensor, chartViewModel);
                 this.AddNewValuesToDynamicViewLabels(chartViewModel, notUsedMemoryMockedSensor);
+                this.AddNewPieChartSliceIfNotExists(notUsedMemoryMockedSensor, chartViewModel);
+                this.RefreshValueInPieSeries(notUsedMemoryMockedSensor, chartViewModel);
             }
-
         }
 
         private DynamicLineChartViewModel GetOrCreateNewLineChartIfNotExists(
@@ -191,7 +192,7 @@ namespace SystemManagament.Client.WPF.ViewModel.Helpers
                         DataLabels = true
                     };
 
-                    chartViewModel.PieValuesDictionary.Add(sensor.SensorName, new ChartValues<double> { double.Parse(sensor.Value) });
+                    chartViewModel.PieValuesDictionary.Add(sensor.SensorName, new ChartValues<double>());
                     pieSeries.Values = chartViewModel.PieValuesDictionary[sensor.SensorName];
                     chartViewModel.SeriesCollection.Add(pieSeries);
                 }
@@ -242,7 +243,12 @@ namespace SystemManagament.Client.WPF.ViewModel.Helpers
 
         private void RefreshValueInPieSeries(Sensor sensor, DynamicPieChartViewModel chartViewModel)
         {
-            chartViewModel.PieValuesDictionary[sensor.SensorName] = new ChartValues<double> { double.Parse(sensor.Value) };
+            if (chartViewModel.PieValuesDictionary[sensor.SensorName].Any())
+            {
+                chartViewModel.PieValuesDictionary[sensor.SensorName].RemoveAt(0);
+            }
+
+            chartViewModel.PieValuesDictionary[sensor.SensorName].Insert(0, double.Parse(sensor.Value));
         }
     }
 }

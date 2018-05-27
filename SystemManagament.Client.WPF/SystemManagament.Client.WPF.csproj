@@ -152,7 +152,6 @@
     <Compile Include="ViewModel\DynamicPieChartViewModel.cs" />
     <Compile Include="ViewModel\Helpers\DynamicDataHelper.cs" />
     <Compile Include="ViewModel\Helpers\IDynamicDataHelper.cs" />
-    <Compile Include="ViewModel\SliceData.cs" />
     <Compile Include="ViewModel\WorkStationViewModel.cs" />
     <Compile Include="WorkStationTabView.xaml.cs">
       <DependentUpon>WorkStationTabView.xaml</DependentUpon>

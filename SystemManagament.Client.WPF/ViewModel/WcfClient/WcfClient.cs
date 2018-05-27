@@ -50,6 +50,9 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
             WpfObservableRangeCollection<DynamicPieChartViewModel> dynamicChartViewModelGPUData,
             WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelGPUVoltage,
             WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelGPUFan,
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelMainBoardTemp,
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelMainBoardFan,
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelMainBoardVoltage,
             CancellationToken cancellationToken)
         {
             using (var client = this.GetNewWorkstationMonitorServiceClient())
@@ -97,7 +100,7 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
                     {
                         foreach (var data in memory.Data)
                         {
-                            this.dynamicDataHelper.DrawDynamicPieChartForHardwareSensor(dynamicChartViewModelDiskLoad, data, memory.Name);
+                            this.dynamicDataHelper.DrawDynamicPieChartForHardwareSensor(dynamicChartViewModelMemoryData, data, memory.Name);
                         }
                     }
 
@@ -131,6 +134,24 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
                         foreach (var fan in gpu.Fan)
                         {
                             this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelGPUFan, fan, gpu.Name);
+                        }
+                    }
+
+                    foreach (var mainBoard in result.MainBoard)
+                    {
+                        foreach (var temperature in mainBoard.Temperature)
+                        {
+                            this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelMainBoardTemp, temperature, mainBoard.Name);
+                        }
+
+                        foreach (var fan in mainBoard.Fan)
+                        {
+                            this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelMainBoardFan, fan, mainBoard.Name);
+                        }
+
+                        foreach (var voltage in mainBoard.Voltage)
+                        {
+                            this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelMainBoardVoltage, voltage, mainBoard.Name);
                         }
                     }
                 }

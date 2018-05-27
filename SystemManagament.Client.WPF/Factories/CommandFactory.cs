@@ -114,7 +114,10 @@ namespace SystemManagament.Client.WPF.Factories
             WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelGPUClock,
             WpfObservableRangeCollection<DynamicPieChartViewModel> dynamicChartViewModelGPUData,
             WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelGPUVoltage,
-            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelGPUFan)
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelGPUFan,
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelMainBoardTemp,
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelMainBoardFan,
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelMainBoardVoltage)
         {
             return new AsyncCommand<bool>(async (cancellationToken) =>
             {
@@ -137,6 +140,9 @@ namespace SystemManagament.Client.WPF.Factories
                             dynamicChartViewModelGPUData,
                             dynamicChartViewModelGPUVoltage,
                             dynamicChartViewModelGPUFan,
+                            dynamicChartViewModelMainBoardTemp,
+                            dynamicChartViewModelMainBoardFan,
+                            dynamicChartViewModelMainBoardVoltage,
                             ct),
                         cancellationToken);
 

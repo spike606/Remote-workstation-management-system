@@ -44,6 +44,10 @@ namespace SystemManagament.Client.WPF.ViewModel
         private WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelGPUVoltage = new WpfObservableRangeCollection<DynamicLineChartViewModel>();
         private WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelGPUFan = new WpfObservableRangeCollection<DynamicLineChartViewModel>();
 
+        private WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelMainBoardTemp = new WpfObservableRangeCollection<DynamicLineChartViewModel>();
+        private WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelMainBoardFan = new WpfObservableRangeCollection<DynamicLineChartViewModel>();
+        private WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelMainBoardVoltage = new WpfObservableRangeCollection<DynamicLineChartViewModel>();
+
         private WpfObservableRangeCollection<ProcessorStatic> processorStatic = new WpfObservableRangeCollection<ProcessorStatic>();
         private WpfObservableRangeCollection<ProcessorCache> processorCache = new WpfObservableRangeCollection<ProcessorCache>();
         private WpfObservableRangeCollection<Memory> memory = new WpfObservableRangeCollection<Memory>();
@@ -307,6 +311,45 @@ namespace SystemManagament.Client.WPF.ViewModel
             private set
             {
                 this.Set(() => this.DynamicChartViewModelGPUFan, ref this.dynamicChartViewModelGPUFan, value);
+            }
+        }
+
+        public WpfObservableRangeCollection<DynamicLineChartViewModel> DynamicChartViewModelMainBoardTemp
+        {
+            get
+            {
+                return this.dynamicChartViewModelMainBoardTemp;
+            }
+
+            private set
+            {
+                this.Set(() => this.DynamicChartViewModelMainBoardTemp, ref this.dynamicChartViewModelMainBoardTemp, value);
+            }
+        }
+
+        public WpfObservableRangeCollection<DynamicLineChartViewModel> DynamicChartViewModelMainBoardFan
+        {
+            get
+            {
+                return this.dynamicChartViewModelMainBoardFan;
+            }
+
+            private set
+            {
+                this.Set(() => this.DynamicChartViewModelMainBoardFan, ref this.dynamicChartViewModelMainBoardFan, value);
+            }
+        }
+
+        public WpfObservableRangeCollection<DynamicLineChartViewModel> DynamicChartViewModelMainBoardVoltage
+        {
+            get
+            {
+                return this.dynamicChartViewModelMainBoardVoltage;
+            }
+
+            private set
+            {
+                this.Set(() => this.DynamicChartViewModelMainBoardVoltage, ref this.dynamicChartViewModelMainBoardVoltage, value);
             }
         }
 
@@ -603,7 +646,10 @@ namespace SystemManagament.Client.WPF.ViewModel
                 this.DynamicChartViewModelGPUClock,
                 this.DynamicChartViewModelGPUData,
                 this.DynamicChartViewModelGPUVoltage,
-                this.DynamicChartViewModelGPUFan);
+                this.DynamicChartViewModelGPUFan,
+                this.DynamicChartViewModelMainBoardTemp,
+                this.DynamicChartViewModelMainBoardFan,
+                this.DynamicChartViewModelMainBoardVoltage);
 
             this.LoadHardwareStaticDataCommand = this.commandFactory.CreateHardwareStaticDataCommand(
                 this.ProcessorStatic,

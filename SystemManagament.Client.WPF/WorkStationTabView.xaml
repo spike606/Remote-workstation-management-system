@@ -1178,7 +1178,70 @@
                                     </StackPanel>
                                 </Expander.Content>
                             </Expander>
-
+                            <Expander>
+                                <Expander.Header>
+                                    <TextBlock Text="Memory" FontWeight="Bold" FontSize="15"/>
+                                </Expander.Header>
+                                <Expander.Style>
+                                    <Style TargetType="Expander">
+                                        <Setter Property="IsExpanded" Value="False" />
+                                    </Style>
+                                </Expander.Style>
+                                <Expander.Content>
+                                    <StackPanel Margin="10,4,0,0">
+                                        <Grid>
+                                            <ItemsControl ItemsSource="{Binding DynamicChartViewModelMemoryData}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate DataType="{x:Type viewModel:DynamicPieChartViewModel}">
+                                                        <views:DynamicPieChart DataContext="{Binding}"></views:DynamicPieChart>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </Grid>
+                                    </StackPanel>
+                                </Expander.Content>
+                            </Expander>
+                            <Expander>
+                                <Expander.Header>
+                                    <TextBlock Text="MainBoard" FontWeight="Bold" FontSize="15"/>
+                                </Expander.Header>
+                                <Expander.Style>
+                                    <Style TargetType="Expander">
+                                        <Setter Property="IsExpanded" Value="False" />
+                                    </Style>
+                                </Expander.Style>
+                                <Expander.Content>
+                                    <StackPanel Margin="10,4,0,0">
+                                        <Grid>
+                                            <ItemsControl ItemsSource="{Binding DynamicChartViewModelMainBoardTemp}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate DataType="{x:Type viewModel:DynamicPieChartViewModel}">
+                                                        <views:DynamicLineChart DataContext="{Binding}"></views:DynamicLineChart>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </Grid>
+                                        <Grid>
+                                            <ItemsControl ItemsSource="{Binding DynamicChartViewModelMainBoardFan}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate DataType="{x:Type viewModel:DynamicPieChartViewModel}">
+                                                        <views:DynamicLineChart DataContext="{Binding}"></views:DynamicLineChart>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </Grid>
+                                        <Grid>
+                                            <ItemsControl ItemsSource="{Binding DynamicChartViewModelMainBoardVoltage}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate DataType="{x:Type viewModel:DynamicPieChartViewModel}">
+                                                        <views:DynamicLineChart DataContext="{Binding}"></views:DynamicLineChart>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                        </Grid>
+                                    </StackPanel>
+                                </Expander.Content>
+                            </Expander>
                         </StackPanel>
 
 
