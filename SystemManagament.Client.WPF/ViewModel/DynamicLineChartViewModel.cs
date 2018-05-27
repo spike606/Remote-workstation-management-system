@@ -19,7 +19,6 @@ namespace SystemManagament.Client.WPF.ViewModel
     {
         private double axisMax;
         private double axisMin;
-        private long timeLabelModulo = 100000000L;
         private WpfObservableRangeCollection<DynamicDataLabel> dynamicData = new WpfObservableRangeCollection<DynamicDataLabel>();
 
         public DynamicLineChartViewModel(string chartName, string hardwareName)
@@ -32,7 +31,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             this.SeriesCollection = new SeriesCollection();
 
             var mapper = Mappers.Xy<MeasureModel>()
-                .X(model => model.DateTime.Ticks)//use DateTime.Ticks as X
+                .X(model => model.DateTime.Ticks) //use DateTime.Ticks as X
                 .Y(model => model.Value);           //use the value property as Y
 
             //lets save the mapper globally.
@@ -41,12 +40,11 @@ namespace SystemManagament.Client.WPF.ViewModel
             //lets set how to display the X Labels
             this.DateTimeFormatter = value =>
             {
-                bool shouldBeDisplayed = value % this.timeLabelModulo == 0;
-                return shouldBeDisplayed ? new DateTime((long)value).ToString("mm:ss") : string.Empty;
+                return new DateTime((long)value).ToString("mm:ss");
             };
 
             //AxisStep forces the distance between each separator in the X axis
-            this.AxisStep = TimeSpan.FromSeconds(2).Ticks;
+            this.AxisStep = TimeSpan.FromSeconds(5).Ticks;
             //AxisUnit forces lets the axis know that we are plotting seconds
             //this is not always necessary, but it can prevent wrong labeling
             this.AxisUnit = TimeSpan.TicksPerSecond;
