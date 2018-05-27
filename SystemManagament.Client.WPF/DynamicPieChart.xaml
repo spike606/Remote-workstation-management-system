@@ -11,11 +11,6 @@
         <Expander.Header>
             <TextBlock Text="{Binding SectionName}" FontWeight="Bold" FontSize="16"/>
         </Expander.Header>
-        <Expander.Style>
-            <Style TargetType="Expander">
-                <Setter Property="IsExpanded" Value="False" />
-            </Style>
-        </Expander.Style>
         <Expander.Content>
             <StackPanel Background="White">
                 <Grid Margin="20, 20, 20, 20">
@@ -55,6 +50,9 @@
 
                     <lvc:PieChart LegendLocation="Bottom" Hoverable="False" DataTooltip="{x:Null}" Series="{Binding SeriesCollection}"
                                   Height="450" Width="800" Grid.Row="2" Grid.RowSpan="6" Grid.Column="2"  Grid.ColumnSpan="6" >
+                        <lvc:PieChart.ChartLegend >
+                            <lvc:DefaultLegend Foreground="Black"/>
+                        </lvc:PieChart.ChartLegend>
                     </lvc:PieChart>
                 </Grid>
             </StackPanel>

@@ -6,16 +6,12 @@
              xmlns:local="clr-namespace:SystemManagament.Client.WPF"
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="500">
+             d:DesignHeight="300" d:DesignWidth="500"
+            xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz">
     <Expander>
         <Expander.Header>
             <TextBlock Text="{Binding SectionName}" FontWeight="Bold" FontSize="16"/>
         </Expander.Header>
-        <Expander.Style>
-            <Style TargetType="Expander">
-                <Setter Property="IsExpanded" Value="False" />
-            </Style>
-        </Expander.Style>
         <Expander.Content>
             <StackPanel Background="White">
                 <Grid Margin="20, 20, 20, 20">
@@ -77,7 +73,7 @@
                             </lvc:Axis>
                         </lvc:CartesianChart.AxisY>
                         <lvc:CartesianChart.ChartLegend>
-                            <lvc:DefaultLegend BulletSize="20" Background="Red" />
+                            <lvc:DefaultLegend Foreground="Black"/>
                         </lvc:CartesianChart.ChartLegend>
                     </lvc:CartesianChart>
                 </Grid>

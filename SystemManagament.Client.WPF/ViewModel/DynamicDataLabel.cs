@@ -11,10 +11,24 @@ namespace SystemManagament.Client.WPF.ViewModel
     public class DynamicDataLabel : INotifyPropertyChanged
     {
         private string value;
+        private string name;
+        private string unit;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public string Name { get; set; }
+        public string Name
+        {
+            get
+            {
+                return this.name;
+            }
+
+            set
+            {
+                this.name = value;
+                this.OnPropertyChanged("Name");
+            }
+        }
 
         public string Value
         {
@@ -30,7 +44,19 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
-        public string Unit { get; set; }
+        public string Unit
+        {
+            get
+            {
+                return this.unit;
+            }
+
+            set
+            {
+                this.unit = value;
+                this.OnPropertyChanged("Unit");
+            }
+        }
 
         protected virtual void OnPropertyChanged(string propertyName = null)
         {

@@ -1024,19 +1024,25 @@
             <TabItem Header="Hardware Dynamic">
                 <ScrollViewer VerticalScrollBarVisibility="Auto" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">
                     <StackPanel>
-                        <Button Content="Start dynamic data" Command="{Binding LoadHardwareDynamicDataCommand}" HorizontalAlignment="Right"/>
-                        <Button Content="Stop dynamic data" Command="{Binding LoadHardwareDynamicDataCommand.CancelCommand}" HorizontalAlignment="Right"/>
-
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="4*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Button Content="Start dynamic data" Command="{Binding LoadHardwareDynamicDataCommand}" 
+                                    HorizontalAlignment="Stretch" Grid.Row="0" Grid.Column="0"/>
+                            <Button Content="Stop dynamic data" Command="{Binding LoadHardwareDynamicDataCommand.CancelCommand}"
+                                    HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="0"/>
+                        </Grid>
                         <StackPanel>
-                            <Expander>
+                            <Expander HorizontalAlignment="Stretch" IsExpanded="False" Foreground="White">
                                 <Expander.Header>
-                                    <TextBlock Text="Processor" FontWeight="Bold" FontSize="15"/>
+                                    <TextBlock Text="Processor" HorizontalAlignment="Center" FontWeight="Bold" FontSize="15"/>
                                 </Expander.Header>
-                                <Expander.Style>
-                                    <Style TargetType="Expander">
-                                        <Setter Property="IsExpanded" Value="False" />
-                                    </Style>
-                                </Expander.Style>
                                 <Expander.Content>
                                     <StackPanel Margin="10,4,0,0">
                                         <Grid>
@@ -1078,15 +1084,10 @@
                                     </StackPanel>
                                 </Expander.Content>
                             </Expander>
-                            <Expander>
+                            <Expander HorizontalAlignment="Stretch" IsExpanded="False" Foreground="White">
                                 <Expander.Header>
-                                    <TextBlock Text="Disk" FontWeight="Bold" FontSize="15"/>
+                                    <TextBlock Text="Disk" HorizontalAlignment="Center" FontWeight="Bold" FontSize="15"/>
                                 </Expander.Header>
-                                <Expander.Style>
-                                    <Style TargetType="Expander">
-                                        <Setter Property="IsExpanded" Value="False" />
-                                    </Style>
-                                </Expander.Style>
                                 <Expander.Content>
                                     <StackPanel Margin="10,4,0,0">
                                         <Grid>
@@ -1110,15 +1111,10 @@
                                     </StackPanel>
                                 </Expander.Content>
                             </Expander>
-                            <Expander>
+                            <Expander HorizontalAlignment="Stretch" IsExpanded="False" Foreground="White">
                                 <Expander.Header>
-                                    <TextBlock Text="GPU" FontWeight="Bold" FontSize="15"/>
+                                    <TextBlock Text="GPU" HorizontalAlignment="Center" FontWeight="Bold" FontSize="15"/>
                                 </Expander.Header>
-                                <Expander.Style>
-                                    <Style TargetType="Expander">
-                                        <Setter Property="IsExpanded" Value="False" />
-                                    </Style>
-                                </Expander.Style>
                                 <Expander.Content>
                                     <StackPanel Margin="10,4,0,0">
                                         <Grid>
@@ -1178,15 +1174,10 @@
                                     </StackPanel>
                                 </Expander.Content>
                             </Expander>
-                            <Expander>
+                            <Expander HorizontalAlignment="Stretch" IsExpanded="False" Foreground="White">
                                 <Expander.Header>
-                                    <TextBlock Text="Memory" FontWeight="Bold" FontSize="15"/>
+                                    <TextBlock Text="Memory" HorizontalAlignment="Center" FontWeight="Bold" FontSize="15"/>
                                 </Expander.Header>
-                                <Expander.Style>
-                                    <Style TargetType="Expander">
-                                        <Setter Property="IsExpanded" Value="False" />
-                                    </Style>
-                                </Expander.Style>
                                 <Expander.Content>
                                     <StackPanel Margin="10,4,0,0">
                                         <Grid>
@@ -1201,15 +1192,10 @@
                                     </StackPanel>
                                 </Expander.Content>
                             </Expander>
-                            <Expander>
+                            <Expander HorizontalAlignment="Stretch" IsExpanded="False" Foreground="White">
                                 <Expander.Header>
-                                    <TextBlock Text="MainBoard" FontWeight="Bold" FontSize="15"/>
+                                    <TextBlock Text="MainBoard" HorizontalAlignment="Center" FontWeight="Bold" FontSize="15"/>
                                 </Expander.Header>
-                                <Expander.Style>
-                                    <Style TargetType="Expander">
-                                        <Setter Property="IsExpanded" Value="False" />
-                                    </Style>
-                                </Expander.Style>
                                 <Expander.Content>
                                     <StackPanel Margin="10,4,0,0">
                                         <Grid>
@@ -1243,14 +1229,8 @@
                                 </Expander.Content>
                             </Expander>
                         </StackPanel>
-
-
-
                     </StackPanel>
                 </ScrollViewer>
-
-
-
             </TabItem>
         </dragablz:TabablzControl>
     </Grid>

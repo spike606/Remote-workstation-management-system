@@ -124,16 +124,16 @@ namespace SystemManagament.Client.WPF.ViewModel.Helpers
 
             if (dynamiDataLabel == null)
             {
-                chartViewModel.DynamicData.Add(new DynamicDataLabel()
+                this.InvokeInUIThread((Action)(() => chartViewModel.DynamicData.Add(new DynamicDataLabel()
                 {
                     Name = sensor.SensorName,
                     Value = sensor.Value,
                     Unit = sensor.Unit
-                });
+                })));
             }
             else
             {
-                dynamiDataLabel.Value = sensor.Value;
+                this.InvokeInUIThread((Action)(() => dynamiDataLabel.Value = sensor.Value));
             }
         }
 
@@ -145,16 +145,16 @@ namespace SystemManagament.Client.WPF.ViewModel.Helpers
 
             if (dynamiDataLabel == null)
             {
-                chartViewModel.DynamicData.Add(new DynamicDataLabel()
+                this.InvokeInUIThread((Action)(() => chartViewModel.DynamicData.Add(new DynamicDataLabel()
                 {
                     Name = sensor.SensorName,
                     Value = sensor.Value,
                     Unit = sensor.Unit
-                });
+                })));
             }
             else
             {
-                dynamiDataLabel.Value = sensor.Value;
+                this.InvokeInUIThread((Action)(() => dynamiDataLabel.Value = sensor.Value));
             }
         }
 
