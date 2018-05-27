@@ -62,14 +62,14 @@
                                                           MinValue="{Binding AxisMin}"
                                                           Unit="{Binding AxisUnit}"
                                                           Title="{Binding AxisXTitle}"
-                                                            FontSize="15" Margin="5 5 5 5">
+                                                            FontSize="12" Margin="5 5 5 5">
                                 <lvc:Axis.Separator>
                                     <lvc:Separator Step="{Binding AxisStep}"/>
                                 </lvc:Axis.Separator>
                             </lvc:Axis>
                         </lvc:CartesianChart.AxisX>
                         <lvc:CartesianChart.AxisY>
-                            <lvc:Axis MaxValue="{Binding AxisYMax}" MinValue="{Binding AxisYMin}" Title="{Binding AxisYTitle}" FontSize="15" Margin="5 5 5 5"/>
+                            <lvc:Axis MaxValue="{Binding AxisYMax}" MinValue="{Binding AxisYMin}" Title="{Binding AxisYTitle}" FontSize="12"/>
                         </lvc:CartesianChart.AxisY>
                         <lvc:CartesianChart.ChartLegend>
                             <lvc:DefaultLegend BulletSize="20" Background="Red" />
