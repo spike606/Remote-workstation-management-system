@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="500"
             xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz">
-    <Expander>
+    <Expander HorizontalAlignment="Stretch" IsExpanded="False" Foreground="White" Background="Teal" BorderThickness="1">
         <Expander.Header>
             <TextBlock Text="{Binding SectionName}" FontWeight="Bold" FontSize="16"/>
         </Expander.Header>

@@ -1026,22 +1026,29 @@
                     <StackPanel>
                         <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"></ColumnDefinition>
-                                <ColumnDefinition Width="4*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <Button Content="Start dynamic data" Command="{Binding LoadHardwareDynamicDataCommand}" 
-                                    HorizontalAlignment="Stretch" Grid.Row="0" Grid.Column="0"/>
+                                    HorizontalAlignment="Stretch" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3"/>
                             <Button Content="Stop dynamic data" Command="{Binding LoadHardwareDynamicDataCommand.CancelCommand}"
-                                    HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="0"/>
+                                    HorizontalAlignment="Stretch" Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="3"/>
                         </Grid>
                         <StackPanel>
-                            <Expander HorizontalAlignment="Stretch" IsExpanded="False" Foreground="White">
+                            <Expander HorizontalAlignment="Stretch" IsExpanded="False" Foreground="White" Background="SlateGray" BorderThickness="2">
                                 <Expander.Header>
-                                    <TextBlock Text="Processor" HorizontalAlignment="Center" FontWeight="Bold" FontSize="15"/>
+                                    <TextBlock Text="Processor" HorizontalAlignment="Center" FontWeight="Bold" FontSize="18"/>
                                 </Expander.Header>
                                 <Expander.Content>
                                     <StackPanel Margin="10,4,0,0">
@@ -1084,9 +1091,9 @@
                                     </StackPanel>
                                 </Expander.Content>
                             </Expander>
-                            <Expander HorizontalAlignment="Stretch" IsExpanded="False" Foreground="White">
+                            <Expander HorizontalAlignment="Stretch" IsExpanded="False" Foreground="White" Background="DimGray" BorderThickness="2">
                                 <Expander.Header>
-                                    <TextBlock Text="Disk" HorizontalAlignment="Center" FontWeight="Bold" FontSize="15"/>
+                                    <TextBlock Text="Disk" HorizontalAlignment="Center" FontWeight="Bold" FontSize="18"/>
                                 </Expander.Header>
                                 <Expander.Content>
                                     <StackPanel Margin="10,4,0,0">
@@ -1111,9 +1118,9 @@
                                     </StackPanel>
                                 </Expander.Content>
                             </Expander>
-                            <Expander HorizontalAlignment="Stretch" IsExpanded="False" Foreground="White">
+                            <Expander HorizontalAlignment="Stretch" IsExpanded="False" Foreground="White" Background="SlateGray" BorderThickness="2">
                                 <Expander.Header>
-                                    <TextBlock Text="GPU" HorizontalAlignment="Center" FontWeight="Bold" FontSize="15"/>
+                                    <TextBlock Text="GPU" HorizontalAlignment="Center" FontWeight="Bold" FontSize="18"/>
                                 </Expander.Header>
                                 <Expander.Content>
                                     <StackPanel Margin="10,4,0,0">
@@ -1174,9 +1181,9 @@
                                     </StackPanel>
                                 </Expander.Content>
                             </Expander>
-                            <Expander HorizontalAlignment="Stretch" IsExpanded="False" Foreground="White">
+                            <Expander HorizontalAlignment="Stretch" IsExpanded="False" Foreground="White" Background="DimGray" BorderThickness="2">
                                 <Expander.Header>
-                                    <TextBlock Text="Memory" HorizontalAlignment="Center" FontWeight="Bold" FontSize="15"/>
+                                    <TextBlock Text="Memory" HorizontalAlignment="Center" FontWeight="Bold" FontSize="18"/>
                                 </Expander.Header>
                                 <Expander.Content>
                                     <StackPanel Margin="10,4,0,0">
@@ -1192,9 +1199,9 @@
                                     </StackPanel>
                                 </Expander.Content>
                             </Expander>
-                            <Expander HorizontalAlignment="Stretch" IsExpanded="False" Foreground="White">
+                            <Expander HorizontalAlignment="Stretch" IsExpanded="False" Foreground="White" Background="SlateGray" BorderThickness="2">
                                 <Expander.Header>
-                                    <TextBlock Text="MainBoard" HorizontalAlignment="Center" FontWeight="Bold" FontSize="15"/>
+                                    <TextBlock Text="MainBoard" HorizontalAlignment="Center" FontWeight="Bold" FontSize="18"/>
                                 </Expander.Header>
                                 <Expander.Content>
                                     <StackPanel Margin="10,4,0,0">
