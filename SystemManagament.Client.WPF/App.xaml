@@ -8,6 +8,7 @@
              xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz">
     <Application.Resources>
+
         <ResourceDictionary>
             <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:SystemManagament.Client.WPF.ViewModel" />
 
@@ -70,17 +71,43 @@
                     <!-- include a single secondary accent color (and the associated forecolour) -->
                     <SolidColorBrush x:Key="SecondaryAccentBrush" Color="{StaticResource Accent200}"/>
                     <SolidColorBrush x:Key="SecondaryAccentForegroundBrush" Color="{StaticResource Accent200Foreground}"/>
-
                     <Style TargetType="{x:Type DataGrid}" BasedOn="{StaticResource MaterialDesignDataGrid}">
                         <Setter Property="IsReadOnly" Value="True" />
+                        <Setter Property="SelectionMode" Value="Single" />
+                        <Setter Property="ClipboardCopyMode" Value="IncludeHeader" />
                         <Setter Property="CanUserAddRows" Value="False" />
                         <Setter Property="CanUserDeleteRows" Value="False" />
                         <Setter Property="AutoGenerateColumns" Value="False" />
                         <Setter Property="ColumnWidth" Value="*" />
-                        <Setter Property="HorizontalScrollBarVisibility" Value="Auto" />
+                        <Setter Property="HorizontalScrollBarVisibility" Value="Disabled" />
                         <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
                         <Setter Property="ScrollViewer.CanContentScroll" Value="True" />
                         <Setter Property="MaxHeight" Value="500" />
+                        <Setter Property="HorizontalGridLinesBrush" Value="White" />
+                        <Setter Property="VerticalGridLinesBrush" Value="White" />
+                        <Setter Property="GridLinesVisibility" Value="All" />
+                        <Setter Property="HorizontalAlignment" Value="Stretch" />
+                    </Style>
+                    <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
+                        <Setter Property="FontWeight"  Value="Bold" />
+                        <Setter Property="FontSize"  Value="14" />
+                        <Setter Property="HorizontalAlignment" Value="Stretch" />
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        <Setter Property="SeparatorVisibility" Value="Visible" />
+                        <Setter Property="SeparatorBrush" Value="White" />
+                        <Setter Property="BorderBrush" Value="White" />
+                        <Setter Property="BorderThickness" Value="2" />
+                        <!-- Add when bug in material design will be resolved -->
+                        <!--<Setter Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <TextBlock TextWrapping="Wrap" Text="{Binding}"></TextBlock>
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>-->
+                    </Style>
+                    <Style x:Key="WrappedColumnCellStyle" TargetType="{x:Type TextBlock}">
+                        <Setter Property="TextWrapping" Value="Wrap"/>
                     </Style>
                 </ResourceDictionary>
 
