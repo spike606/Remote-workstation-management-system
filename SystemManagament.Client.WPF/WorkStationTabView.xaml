@@ -16,6 +16,7 @@
         <converters:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
         <converters:UnitValueToStringConverter x:Key="UnitValueToStringConverter"/>
     </UserControl.Resources>
+
     <Grid>
         <dragablz:TabablzControl TabStripPlacement="Left">
             <dragablz:TabablzControl.ItemContainerStyle>
@@ -106,8 +107,7 @@
                         <Button Content="Cancel" Command="{Binding LoadSoftwareStaticDataCommand.CancelCommand}" 
                         HorizontalAlignment="Stretch" BorderThickness="2" Foreground="OrangeRed"/>
                     </Grid>
-                    <ScrollViewer VerticalScrollBarVisibility="Auto" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel"
-                                      Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10">
                         <StackPanel>
                             <Label FontFamily = "Verdana" Content="Basic Machine Info" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
                             <StackPanel Orientation="Vertical">
@@ -118,7 +118,7 @@
                                     <Expander.Content>
                                         <StackPanel Margin="10,4,0,0">
                                             <Label FontFamily = "Verdana" Content="Basic User Info" FontSize="12" FontWeight="Bold"/>
-                                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding CurrentUser}" ColumnWidth="*">
+                                            <DataGrid ItemsSource="{Binding CurrentUser}">
                                                 <DataGrid.Columns>
                                                     <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
                                                     <DataGridTextColumn Header="AuthenticationType" Binding="{Binding AuthenticationType}" />
@@ -126,7 +126,7 @@
                                             </DataGrid>
 
                                             <Label FontFamily = "Verdana" Content="User Claims" FontSize="12" FontWeight="Bold"/>
-                                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding CurrentUserClaims}" ColumnWidth="*">
+                                            <DataGrid ItemsSource="{Binding CurrentUserClaims}">
                                                 <DataGrid.Columns>
                                                     <DataGridTextColumn Header="Type" Binding="{Binding Type}" />
                                                     <DataGridTextColumn Header="OriginalIssuer" Binding="{Binding OriginalIssuer}" />
@@ -137,7 +137,7 @@
                                             </DataGrid>
 
                                             <Label FontFamily = "Verdana" Content="User Groups" FontSize="12" FontWeight="Bold"/>
-                                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding CurrentUserGroups}" ColumnWidth="*">
+                                            <DataGrid ItemsSource="{Binding CurrentUserGroups}">
                                                 <DataGrid.Columns>
                                                     <DataGridTextColumn Header="Value" Binding="{Binding Value}" />
                                                 </DataGrid.Columns>
@@ -175,7 +175,7 @@
                                     <Expander.Content>
                                         <StackPanel Margin="10,4,0,0">
                                             <Label FontFamily = "Verdana" Content="Basic OS Info" FontSize="14" FontWeight="Bold"/>
-                                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding OperatingSystem}" ColumnWidth="*">
+                                            <DataGrid ItemsSource="{Binding OperatingSystem}">
                                                 <DataGrid.Columns>
                                                     <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
                                                     <DataGridTextColumn Header="Organization" Binding="{Binding Organization}" />
@@ -189,7 +189,7 @@
                                                 </DataGrid.Columns>
                                             </DataGrid>
                                             <Label FontFamily = "Verdana" Content="Additional OS Info" FontSize="14" FontWeight="Bold"/>
-                                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding OperatingSystem}" ColumnWidth="*">
+                                            <DataGrid ItemsSource="{Binding OperatingSystem}">
                                                 <DataGrid.Columns>
                                                     <DataGridTextColumn Header="CurrentTimeZone" Binding="{Binding CurrentTimeZone, Converter={StaticResource UnitValueToStringConverter}}" />
                                                     <DataGridTextColumn Header="Local DateTime" Binding="{Binding LocalDateTime}" />
@@ -214,7 +214,7 @@
                                     <Expander.Content>
                                         <StackPanel Margin="10,4,0,0">
                                             <Label FontFamily = "Verdana" Content="Basic BIOS Info" FontSize="14" FontWeight="Bold"/>
-                                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Bios}" ColumnWidth="*">
+                                            <DataGrid ItemsSource="{Binding Bios}">
                                                 <DataGrid.Columns>
                                                     <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
                                                     <DataGridTextColumn Header="Manufacturer" Binding="{Binding Manufacturer}" />
@@ -224,7 +224,7 @@
                                                 </DataGrid.Columns>
                                             </DataGrid>
                                             <Label FontFamily = "Verdana" Content="Additional BIOS Info" FontSize="14" FontWeight="Bold"/>
-                                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Bios}" ColumnWidth="*">
+                                            <DataGrid ItemsSource="{Binding Bios}">
                                                 <DataGrid.Columns>
                                                     <DataGridTextColumn Header="Embedded Controller Major Version" Binding="{Binding EmbeddedControllerMajorVersion}" />
                                                     <DataGridTextColumn Header="Embedded Controller Minor Version" Binding="{Binding EmbeddedControllerMinorVersion}" />
@@ -248,7 +248,7 @@
                                     </Expander.Header>
                                     <Expander.Content>
                                         <StackPanel Margin="10,4,0,0">
-                                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding InstalledProgram}" ColumnWidth="*">
+                                            <DataGrid ItemsSource="{Binding InstalledProgram}">
                                                 <DataGrid.Columns>
                                                     <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
                                                     <DataGridTextColumn Header="Version" Binding="{Binding Version}" />
@@ -265,7 +265,7 @@
                                     </Expander.Header>
                                     <Expander.Content>
                                         <StackPanel Margin="10,4,0,0">
-                                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding MicrosoftWindowsUpdate}" ColumnWidth="*">
+                                            <DataGrid ItemsSource="{Binding MicrosoftWindowsUpdate}">
                                                 <DataGrid.Columns>
                                                     <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
                                                     <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
@@ -289,7 +289,7 @@
                                     </Expander.Header>
                                     <Expander.Content>
                                         <StackPanel Margin="10,4,0,0">
-                                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding StartupCommand}" ColumnWidth="*">
+                                            <DataGrid ItemsSource="{Binding StartupCommand}">
                                                 <DataGrid.Columns>
                                                     <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
                                                     <DataGridTextColumn Header="Command" Binding="{Binding Command}" />
@@ -311,7 +311,7 @@
                                     </Expander.Header>
                                     <Expander.Content>
                                         <StackPanel Margin="10,4,0,0">
-                                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding LocalUser}" ColumnWidth="*">
+                                            <DataGrid ItemsSource="{Binding LocalUser}">
                                                 <DataGrid.Columns>
                                                     <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
                                                     <DataGridTextColumn Header="Domain" Binding="{Binding Domain}" />
@@ -350,10 +350,7 @@
                                 <Expander.Content>
                                     <StackPanel Margin="10,4,0,0">
                                         <Label FontFamily = "Verdana" Content="List of windows processes" FontSize="12" FontWeight="Bold"/>
-                                        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding WindowsProcess}" ColumnWidth="*" Margin="0,0,39,0"
-                                        HorizontalScrollBarVisibility="Auto"
-                                        VerticalScrollBarVisibility="Auto"
-                                        ScrollViewer.CanContentScroll="True" MaxHeight="500">
+                                        <DataGrid ItemsSource="{Binding WindowsProcess}" Margin="0,0,39,0">
                                             <DataGrid.Columns>
                                                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
                                                 <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
@@ -386,10 +383,7 @@
                                 <Expander.Content>
                                     <StackPanel Margin="10,4,0,0">
                                         <Label FontFamily = "Verdana" Content="List of windows services" FontSize="12" FontWeight="Bold"/>
-                                        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding WindowsService}" ColumnWidth="*" Margin="0,0,39,0"
-                                        HorizontalScrollBarVisibility="Auto"
-                                        VerticalScrollBarVisibility="Auto"
-                                        ScrollViewer.CanContentScroll="True" MaxHeight="500">
+                                        <DataGrid ItemsSource="{Binding WindowsService}" Margin="0,0,39,0">
                                             <DataGrid.Columns>
                                                 <DataGridTextColumn Header="Service Name" Binding="{Binding ServiceName}" />
                                                 <DataGridTextColumn Header="Display Name" Binding="{Binding DisplayName}" />
@@ -420,10 +414,7 @@
                                         <ItemsControl.ItemTemplate>
                                             <DataTemplate>
                                                 <Expander Header="{Binding LogDisplayName}" FontWeight="Bold" FontSize="12">
-                                                    <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Entries}" ColumnWidth="*" Margin="0,0,39,0"
-                                        HorizontalScrollBarVisibility="Auto"
-                                        VerticalScrollBarVisibility="Auto"
-                                        ScrollViewer.CanContentScroll="True" MaxHeight="500">
+                                                    <DataGrid ItemsSource="{Binding Entries}" Margin="0,0,39,0">
                                                         <DataGrid.Columns>
                                                             <DataGridTextColumn Header="Machine Name" Binding="{Binding MachineName}" />
                                                             <DataGridTextColumn Header="Category" Binding="{Binding Category}" />
@@ -463,8 +454,7 @@
                                     </Expander.Style>
                                     <Expander.Content>
                                         <StackPanel Margin="10,4,0,0">
-                                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding ProcessorStatic}" ColumnWidth="*" Margin="0,0,39,0"
-                                        HorizontalScrollBarVisibility="Auto">
+                                            <DataGrid ItemsSource="{Binding ProcessorStatic}" Margin="0,0,39,0">
                                                 <DataGrid.Columns>
                                                     <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
                                                     <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
@@ -501,8 +491,7 @@
                                     </Expander.Style>
                                     <Expander.Content>
                                         <StackPanel Margin="10,4,0,0">
-                                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding ProcessorCache}" ColumnWidth="*" Margin="0,0,39,0"
-                                        HorizontalScrollBarVisibility="Auto">
+                                            <DataGrid ItemsSource="{Binding ProcessorCache}" Margin="0,0,39,0">
                                                 <DataGrid.Columns>
                                                     <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
                                                     <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
@@ -530,8 +519,7 @@
                                     </Expander.Style>
                                     <Expander.Content>
                                         <StackPanel Margin="10,4,0,0">
-                                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Memory}" ColumnWidth="*" Margin="0,0,39,0"
-                                        HorizontalScrollBarVisibility="Auto">
+                                            <DataGrid ItemsSource="{Binding Memory}" Margin="0,0,39,0">
                                                 <DataGrid.Columns>
                                                     <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
                                                     <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
@@ -616,8 +604,7 @@
                                                             <StackPanel Orientation="Vertical">
                                                                 <TextBlock Text="PredictFailure?"/>
                                                                 <TextBlock Text="{Binding SMARTData.PredictFailure}"/>
-                                                                <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding SMARTData.Attributes}" ColumnWidth="*" Margin="0,0,39,0"
-                                                                    HorizontalScrollBarVisibility="Auto">
+                                                                <DataGrid ItemsSource="{Binding SMARTData.Attributes}" Margin="0,0,39,0">
                                                                     <DataGrid.Columns>
                                                                         <DataGridTextColumn Header="Attribute Id" Binding="{Binding Key}" />
                                                                         <DataGridTextColumn Header="AttributeName" Binding="{Binding Value.AttributeName}" />
@@ -751,8 +738,7 @@
                                     </Expander.Style>
                                     <Expander.Content>
                                         <StackPanel Margin="10,4,0,0">
-                                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding BaseBoard}" ColumnWidth="*" Margin="0,0,39,0"
-                                        HorizontalScrollBarVisibility="Auto">
+                                            <DataGrid ItemsSource="{Binding BaseBoard}" Margin="0,0,39,0">
                                                 <DataGrid.Columns>
                                                     <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
                                                     <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
@@ -783,8 +769,7 @@
                                     </Expander.Style>
                                     <Expander.Content>
                                         <StackPanel Margin="10,4,0,0">
-                                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding VideoController}" ColumnWidth="*" Margin="0,0,39,0"
-                                        HorizontalScrollBarVisibility="Auto">
+                                            <DataGrid ItemsSource="{Binding VideoController}" Margin="0,0,39,0">
                                                 <DataGrid.Columns>
                                                     <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
                                                     <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
@@ -821,8 +806,7 @@
                                     </Expander.Style>
                                     <Expander.Content>
                                         <StackPanel Margin="10,4,0,0">
-                                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding NetworkAdapter}" ColumnWidth="*" Margin="0,0,39,0"
-                                        HorizontalScrollBarVisibility="Auto">
+                                            <DataGrid ItemsSource="{Binding NetworkAdapter}" Margin="0,0,39,0">
                                                 <DataGrid.Columns>
                                                     <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
                                                     <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
@@ -863,8 +847,7 @@
                                     </Expander.Style>
                                     <Expander.Content>
                                         <StackPanel Margin="10,4,0,0">
-                                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding PnPEntity}" ColumnWidth="*" Margin="0,0,39,0"
-                                        HorizontalScrollBarVisibility="Auto">
+                                            <DataGrid ItemsSource="{Binding PnPEntity}" Margin="0,0,39,0">
                                                 <DataGrid.Columns>
                                                     <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
                                                     <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
@@ -891,8 +874,7 @@
                                     </Expander.Style>
                                     <Expander.Content>
                                         <StackPanel Margin="10,4,0,0">
-                                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding CDROMDrive}" ColumnWidth="*" Margin="0,0,39,0"
-                                        HorizontalScrollBarVisibility="Auto">
+                                            <DataGrid ItemsSource="{Binding CDROMDrive}" Margin="0,0,39,0">
                                                 <DataGrid.Columns>
                                                     <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
                                                     <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
@@ -920,8 +902,7 @@
                                     </Expander.Style>
                                     <Expander.Content>
                                         <StackPanel Margin="10,4,0,0">
-                                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Fan}" ColumnWidth="*" Margin="0,0,39,0"
-                                        HorizontalScrollBarVisibility="Auto">
+                                            <DataGrid ItemsSource="{Binding Fan}" Margin="0,0,39,0">
                                                 <DataGrid.Columns>
                                                     <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
                                                     <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
@@ -946,8 +927,7 @@
                                     </Expander.Style>
                                     <Expander.Content>
                                         <StackPanel Margin="10,4,0,0">
-                                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Battery}" ColumnWidth="*" Margin="0,0,39,0"
-                                        HorizontalScrollBarVisibility="Auto">
+                                            <DataGrid ItemsSource="{Binding Battery}" Margin="0,0,39,0">
                                                 <DataGrid.Columns>
                                                     <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
                                                     <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
@@ -976,8 +956,7 @@
                                     </Expander.Style>
                                     <Expander.Content>
                                         <StackPanel Margin="10,4,0,0">
-                                            <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Printer}" ColumnWidth="*" Margin="0,0,39,0"
-                                        HorizontalScrollBarVisibility="Auto">
+                                            <DataGrid ItemsSource="{Binding Printer}" Margin="0,0,39,0">
                                                 <DataGrid.Columns>
                                                     <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" />
                                                     <DataGridTextColumn Header="Name" Binding="{Binding Name}" />

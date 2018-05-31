@@ -70,6 +70,18 @@
                     <!-- include a single secondary accent color (and the associated forecolour) -->
                     <SolidColorBrush x:Key="SecondaryAccentBrush" Color="{StaticResource Accent200}"/>
                     <SolidColorBrush x:Key="SecondaryAccentForegroundBrush" Color="{StaticResource Accent200Foreground}"/>
+
+                    <Style TargetType="{x:Type DataGrid}" BasedOn="{StaticResource MaterialDesignDataGrid}">
+                        <Setter Property="IsReadOnly" Value="True" />
+                        <Setter Property="CanUserAddRows" Value="False" />
+                        <Setter Property="CanUserDeleteRows" Value="False" />
+                        <Setter Property="AutoGenerateColumns" Value="False" />
+                        <Setter Property="ColumnWidth" Value="*" />
+                        <Setter Property="HorizontalScrollBarVisibility" Value="Auto" />
+                        <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
+                        <Setter Property="ScrollViewer.CanContentScroll" Value="True" />
+                        <Setter Property="MaxHeight" Value="500" />
+                    </Style>
                 </ResourceDictionary>
 
                 <!-- Include the Dragablz Material Design style -->
@@ -124,7 +136,11 @@
                 <!--Also add the base theme, this is required always-->
                 <ResourceDictionary Source="pack://application:,,,/LiveCharts.Wpf;component/Themes/base.xaml" />
                 <!-- LIVE CHARTS END-->
+                
+                
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
+        
     </Application.Resources>
+    
 </Application>

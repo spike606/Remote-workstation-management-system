@@ -15,18 +15,20 @@
         TextElement.FontSize="14"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz">
-        
+
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
         <converters:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
         <!--<Style TargetType="{x:Type dragablz:DragablzItem}" BasedOn="{StaticResource MaterialDesignDragableTabItemVerticalStyle}">
             <Setter Property="Width" Value="130"/>
         </Style>-->
+
     </Window.Resources>
 
     <!--<ScrollViewer VerticalScrollBarVisibility="Auto" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel">-->
         <DockPanel>
-            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5 5 5 10" >
+
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5 5 5 10" >
                 <Menu HorizontalAlignment = "Left" VerticalAlignment = "Top" >
                     <MenuItem Header = "Manage">
                         <MenuItem Header = "Connect..." HorizontalAlignment = "Left" Width = "150" Command="{Binding NewTab}"/>
