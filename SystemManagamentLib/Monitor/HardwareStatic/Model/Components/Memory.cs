@@ -73,7 +73,7 @@ namespace SystemManagament.Monitor.HardwareStatic.Model.Components
                 memory.Caption = managementObject[ConstString.COMPONENT_CAPTION].TryGetStringValue();
                 memory.ConfiguredClockSpeed = managementObject[ConstString.MEMORY_CONFIGURED_CLOCK_SPEED].TryGetUnitValue(Unit.MHZ);
                 memory.ConfiguredVoltage = managementObject[ConstString.MEMORY_CONFIGURED_VOLTAGE].TryGetUnitValue(Unit.MV);
-                memory.DataWidth = managementObject[ConstString.MEMORY_DATA_WIDTH].TryGetUnitValue(Unit.MV);
+                memory.DataWidth = managementObject[ConstString.MEMORY_DATA_WIDTH].TryGetUnitValue(Unit.BIT);
                 memory.Description = managementObject[ConstString.COMPONENT_DESCRIPTION].TryGetStringValue();
                 memory.DeviceLocator = managementObject[ConstString.MEMORY_DEVICE_LOCATOR].TryGetStringValue();
                 memory.Manufacturer = managementObject[ConstString.MEMORY_MANUFACTURER].TryGetStringValue();
@@ -93,7 +93,7 @@ namespace SystemManagament.Monitor.HardwareStatic.Model.Components
                 memory.PartNumber = managementObject[ConstString.MEMORY_PART_NUMBER].TryGetStringValue();
                 memory.SerialNumber = managementObject[ConstString.MEMORY_SERIAL_NUMBER].TryGetStringValue();
                 memory.Status = managementObject[ConstString.COMPONENT_STATUS].TryGetStringValue();
-                memory.TotalWidth = managementObject[ConstString.MEMORY_TOTAL_WIDTH].TryGetUnitValue(Unit.MV);
+                memory.TotalWidth = managementObject[ConstString.MEMORY_TOTAL_WIDTH].TryGetUnitValue(Unit.BIT);
 
                 staticData.Add(memory);
             }

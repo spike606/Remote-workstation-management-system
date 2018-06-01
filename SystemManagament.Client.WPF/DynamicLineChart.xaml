@@ -42,9 +42,9 @@
                         <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding DynamicData}" ColumnWidth="Auto"
                                             HorizontalScrollBarVisibility="Auto" HorizontalContentAlignment="Center">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                                <DataGridTextColumn Header="Value" Binding="{Binding Value}" />
-                                <DataGridTextColumn Header="Unit" Binding="{Binding Unit}" />
+                                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                <DataGridTextColumn Header="Value" Binding="{Binding Value}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                <DataGridTextColumn Header="Unit" Binding="{Binding Unit}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </StackPanel>

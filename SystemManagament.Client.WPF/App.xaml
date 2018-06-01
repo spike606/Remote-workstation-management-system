@@ -96,7 +96,7 @@
                         <Setter Property="SeparatorVisibility" Value="Visible" />
                         <Setter Property="SeparatorBrush" Value="White" />
                         <Setter Property="BorderBrush" Value="White" />
-                        <Setter Property="BorderThickness" Value="2" />
+                        <Setter Property="BorderThickness" Value="1" />
                         <!-- Add when bug in material design will be resolved -->
                         <!--<Setter Property="ContentTemplate">
                             <Setter.Value>
