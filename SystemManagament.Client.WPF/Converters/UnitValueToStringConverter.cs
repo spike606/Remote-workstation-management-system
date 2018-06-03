@@ -12,10 +12,34 @@ namespace SystemManagament.Client.WPF.Converters
 {
     public sealed class UnitValueToStringConverter : IValueConverter
     {
+        private string valueFormat = "0.0000";
+
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var unitValueObject = (UnitValue)value;
-            return unitValueObject.Value + " " + unitValueObject.Unit;
+
+            var objectValue = unitValueObject.Value;
+            var unit = unitValueObject.Unit;
+
+            if (unit == "Byte" && double.Parse(objectValue) >= 1024)
+            {
+                objectValue = (double.Parse(objectValue) / 1024).ToString(this.valueFormat);
+                unit = "kB";
+            }
+
+            if (unit == "kB" && double.Parse(objectValue) >= 1024)
+            {
+                objectValue = (double.Parse(objectValue) / 1024).ToString(this.valueFormat);
+                unit = "MB";
+            }
+
+            if (unit == "MB" && double.Parse(objectValue) >= 4096)
+            {
+                objectValue = (double.Parse(objectValue) / 1024).ToString(this.valueFormat);
+                unit = "GB";
+            }
+
+            return objectValue + " " + unit;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

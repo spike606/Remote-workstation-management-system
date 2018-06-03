@@ -358,7 +358,7 @@
                                                     <DataGridTextColumn Header="Install Date" Binding="{Binding InstallDate}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
                                                     <DataGridTextColumn Header="Installed By" Binding="{Binding InstalledBy}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
                                                     <DataGridTextColumn Header="Installed On" Binding="{Binding InstalledOn}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="Service Pack In Effect" Binding="{Binding ServicePackInEffect}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                                    <DataGridTextColumn Header="Service Pack&#x0a;In Effect" Binding="{Binding ServicePackInEffect}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
                                                     <DataGridTextColumn Header="Status" Binding="{Binding Status}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
                                                     <DataGridTextColumn Header="HotFix ID" Binding="{Binding HotFixID}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
                                                     <DataGridTextColumn Header="Fix Comments" Binding="{Binding FixComments}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
@@ -428,11 +428,11 @@
                         <Grid Margin="20,0,20,0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
                             <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
                             <RowDefinition Height="*"></RowDefinition>
-                            <RowDefinition Height="*"></RowDefinition>
-                            <RowDefinition Height="*"></RowDefinition>
-                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -456,18 +456,17 @@
                         </Grid>
                         <Expander Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" HorizontalAlignment="Stretch" IsExpanded="False"
                                   Foreground="White" Background="DimGray" BorderThickness="2">
-                                <Expander.Header>
+                            <Expander.Header>
                                 <TextBlock Text="Windows process" FontWeight="Bold" FontSize="18"/>
                             </Expander.Header>
                             <Expander.Content>
                                 <StackPanel Margin="10,4,0,0">
-                                    <Label FontFamily = "Verdana" Content="List of windows processes" FontSize="12" FontWeight="Bold"/>
                                     <DataGrid ItemsSource="{Binding WindowsProcess}">
                                         <DataGrid.Columns>
                                         <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
                                         <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
                                         <DataGridTextColumn Header="User&#x0a;Name" Binding="{Binding UserName}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                        <DataGridTextColumn Header="Peak&#x0a;Paged&#x0a;Memory&#x0a;Size 64" Binding="{Binding PeakPagedMemorySize64,Converter={StaticResource UnitValueToStringConverter}}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                        <DataGridTextColumn Header="Peak&#x0a;Paged&#x0a;Memory&#x0a;Size 64" Binding="{Binding PeakPagedMemorySize64,Converter={StaticResource UnitValueToStringConverter}}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" SortMemberPath="PeakPagedMemorySize64.Value"/>
                                         <DataGridTextColumn Header="Peak&#x0a;Virtual&#x0a;Memory&#x0a;Size 64" Binding="{Binding PeakVirtualMemorySize64, Converter={StaticResource UnitValueToStringConverter}}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
                                         <DataGridTextColumn Header="Peak&#x0a;Memory&#x0a;Size" Binding="{Binding PeakMemorySize, Converter={StaticResource UnitValueToStringConverter}}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
                                         <DataGridTextColumn Header="Paged&#x0a;Memory&#x0a;Size 64" Binding="{Binding PagedMemorySize64, Converter={StaticResource UnitValueToStringConverter}}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
@@ -496,7 +495,6 @@
                             </Expander.Header>
                             <Expander.Content>
                                 <StackPanel Margin="10,4,0,0">
-                                    <Label FontFamily = "Verdana" Content="List of windows services" FontSize="12" FontWeight="Bold"/>
                                     <DataGrid ItemsSource="{Binding WindowsService}">
                                         <DataGrid.Columns>
                                         <DataGridTextColumn Header="Service Name" Binding="{Binding ServiceName}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
@@ -807,16 +805,16 @@
                                                                     <Label FontFamily = "Verdana" Content="Partitions" FontSize="15" FontWeight="Bold"/>
                                                                     <StackPanel>
                                                                         <!-- TreeGrid "Control" -->
-                                                                        <Border BorderBrush="Black" BorderThickness="1">
+                                                                        <Border BorderBrush="Black" BorderThickness="1" Visibility="Visible">
                                                                             <!-- Resources -->
-                                                                            <!--<Border.Resources>
+                                                                            <Border.Resources>
                                                                                 <Style x:Key="TextBlockStyle" TargetType="{x:Type TextBlock}">
                                                                                     <Setter Property="Margin" Value="3 0 3 0"/>
                                                                                 </Style>
                                                                                 <Style x:Key="TextBlockBoldStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource TextBlockStyle}">
                                                                                     <Setter Property="FontWeight" Value="Bold"/>
                                                                                 </Style>
-                                                                            </Border.Resources>-->
+                                                                            </Border.Resources>
                                                                             <!-- Content -->
                                                                             <Grid Grid.IsSharedSizeScope="True">
                                                                                 <Grid.RowDefinitions>
@@ -824,7 +822,7 @@
                                                                                     <RowDefinition/>
                                                                                 </Grid.RowDefinitions>
                                                                                 <!-- Column headers -->
-                                                                                <TreeViewItem Grid.Row="0" BorderThickness="1">
+                                                                                <TreeViewItem Grid.Row="0" BorderThickness="4" BorderBrush="Black">
                                                                                     <TreeViewItem.Header>
                                                                                         <Grid>
                                                                                             <Grid.ColumnDefinitions>
@@ -832,11 +830,10 @@
                                                                                                 <!--Placeholders for two columns of ToggleButton-->
                                                                                                 <ColumnDefinition SharedSizeGroup="Toggle"/>
                                                                                                 <ColumnDefinition SharedSizeGroup="Toggle"/>
-                                                                                                <ColumnDefinition SharedSizeGroup="DiskId"/>
                                                                                                 <ColumnDefinition SharedSizeGroup="DiskNumber"/>
-                                                                                                <!--<ColumnDefinition SharedSizeGroup="DriveLetter"/>
+                                                                                                <ColumnDefinition SharedSizeGroup="DriveLetter"/>
                                                                                                 <ColumnDefinition SharedSizeGroup="MbrType"/>
-                                                                                                <ColumnDefinition SharedSizeGroup="ObjectIdAsPartition"/>
+                                                                                                <!--<ColumnDefinition SharedSizeGroup="ObjectIdAsPartition"/>
                                                                                                 <ColumnDefinition SharedSizeGroup="SizeAsPartition"/>
                                                                                                 <ColumnDefinition SharedSizeGroup="Offset"/>
                                                                                                 <ColumnDefinition SharedSizeGroup="IsActive"/>
@@ -847,14 +844,13 @@
                                                                                                 <ColumnDefinition SharedSizeGroup="IsShadowCopy"/>
                                                                                                 <ColumnDefinition SharedSizeGroup="IsSystem"/>-->
                                                                                             </Grid.ColumnDefinitions>
-                                                                                            <TextBlock Grid.Column="0" Text="PartitionNumber"/>
+                                                                                            <TextBlock Grid.Column="0" Text="PartitionNumber" Style="{StaticResource TextBlockStyle}" TextWrapping="WrapWithOverflow"/>
                                                                                             <!-- Empty TreeViewItem to measure the size of its ToggleButton into the "Toggle" group-->
                                                                                             <TreeViewItem Grid.Column="1" Padding="0"/>
-                                                                                            <TextBlock Grid.Column="3" Text="DiskId" />
-                                                                                            <TextBlock Grid.Column="4" Text="DiskNumber"/>
-                                                                                            <!--<TextBlock Grid.Column="6" Text="DriveLetter"/>
-                                                                                            <TextBlock Grid.Column="7" Text="MbrType"/>
-                                                                                            <TextBlock Grid.Column="8" Text="ObjectIdAsPartition"/>
+                                                                                            <TextBlock Grid.Column="3" Text="DiskNumber" Style="{StaticResource TextBlockStyle}" TextWrapping="WrapWithOverflow"/>
+                                                                                            <TextBlock Grid.Column="4" Text="DriveLetter" Style="{StaticResource TextBlockStyle}" TextWrapping="WrapWithOverflow"/>
+                                                                                            <TextBlock Grid.Column="5" Text="MbrType" Style="{StaticResource TextBlockStyle}" TextWrapping="WrapWithOverflow"/>
+                                                                                            <!--<TextBlock Grid.Column="8" Text="ObjectIdAsPartition"/>
                                                                                             <TextBlock Grid.Column="9" Text="SizeAsPartition"/>
                                                                                             <TextBlock Grid.Column="10" Text="Offset" />
                                                                                             <TextBlock Grid.Column="11" Text="IsActive"/>
@@ -868,7 +864,7 @@
                                                                                     </TreeViewItem.Header>
                                                                                 </TreeViewItem>
                                                                                 <!-- Data rows -->
-                                                                                <TreeView Grid.Row="1" ItemsSource="{Binding Partition}" BorderBrush="Gray" BorderThickness="0 1 0 0">
+                                                                                <TreeView Grid.Row="1" ItemsSource="{Binding Partition}" BorderBrush="Gray" BorderThickness="1 1 1 1">
                                                                                     <TreeView.ItemTemplate>
                                                                                         <!-- Level 0 template leaves space for 2 child "Toggle" levels -->
                                                                                         <HierarchicalDataTemplate ItemsSource="{Binding Partitions}">
@@ -878,11 +874,10 @@
                                                                                                     <!--Placeholders for two columns of ToggleButton-->
                                                                                                     <ColumnDefinition SharedSizeGroup="Toggle"/>
                                                                                                     <ColumnDefinition SharedSizeGroup="Toggle"/>
-                                                                                                    <ColumnDefinition SharedSizeGroup="DiskId"/>
                                                                                                     <ColumnDefinition SharedSizeGroup="DiskNumber"/>
-                                                                                                    <!--<ColumnDefinition SharedSizeGroup="DriveLetter"/>
+                                                                                                    <ColumnDefinition SharedSizeGroup="DriveLetter"/>
                                                                                                     <ColumnDefinition SharedSizeGroup="MbrType"/>
-                                                                                                    <ColumnDefinition SharedSizeGroup="ObjectIdAsPartition"/>
+                                                                                                    <!--<ColumnDefinition SharedSizeGroup="ObjectIdAsPartition"/>
                                                                                                     <ColumnDefinition SharedSizeGroup="SizeAsPartition"/>
                                                                                                     <ColumnDefinition SharedSizeGroup="Offset"/>
                                                                                                     <ColumnDefinition SharedSizeGroup="IsActive"/>
@@ -893,14 +888,12 @@
                                                                                                     <ColumnDefinition SharedSizeGroup="IsShadowCopy"/>
                                                                                                     <ColumnDefinition SharedSizeGroup="IsSystem"/>-->
                                                                                                 </Grid.ColumnDefinitions>
-                                                                                                <TextBlock Grid.Column="0" Text="{Binding PartitionNumber}" />
+                                                                                                <TextBlock Grid.Column="0" Text="{Binding PartitionNumber}" Style="{StaticResource TextBlockStyle}" />
                                                                                                 <!-- Empty TreeViewItem to measure the size of its ToggleButton into the "Toggle" group-->
-                                                                                                <TreeViewItem Grid.Column="1" Padding="0"/>
-                                                                                                <TextBlock Grid.Column="3" Text="{Binding DiskId}" TextWrapping="WrapWithOverflow"/>
-                                                                                                <TextBlock Grid.Column="4" Text="{Binding DiskNumber}" TextWrapping="WrapWithOverflow"/>
-                                                                                                <!--<TextBlock Grid.Column="6" Text="{Binding DriveLetter}" TextWrapping="WrapWithOverflow"/>
-                                                                                                <TextBlock Grid.Column="7" Text="{Binding MbrType}" TextWrapping="WrapWithOverflow"/>
-                                                                                                <TextBlock Grid.Column="8" Text="{Binding ObjectIdAsPartition}" TextWrapping="WrapWithOverflow"/>
+                                                                                                <TextBlock Grid.Column="3" Text="{Binding DiskNumber}" TextWrapping="WrapWithOverflow" Style="{StaticResource TextBlockStyle}" />
+                                                                                                <TextBlock Grid.Column="4" Text="{Binding DriveLetter}" TextWrapping="WrapWithOverflow" Style="{StaticResource TextBlockStyle}" />
+                                                                                                <TextBlock Grid.Column="5" Text="{Binding MbrType}" TextWrapping="WrapWithOverflow" Style="{StaticResource TextBlockStyle}" />
+                                                                                                <!--<TextBlock Grid.Column="8" Text="{Binding ObjectIdAsPartition}" TextWrapping="WrapWithOverflow"/>
                                                                                                 <TextBlock Grid.Column="9" Text="{Binding SizeAsPartition}"  TextWrapping="WrapWithOverflow"/>
                                                                                                 <TextBlock Grid.Column="10" Text="{Binding Offset}" TextWrapping="WrapWithOverflow"/>
                                                                                                 <TextBlock Grid.Column="11" Text="{Binding IsActive}" TextWrapping="WrapWithOverflow"/>
@@ -917,34 +910,41 @@
                                                                                                 <HierarchicalDataTemplate ItemsSource="{Binding Partitions}">
                                                                                                     <Grid>
                                                                                                         <Grid.ColumnDefinitions>
-                                                                                                            <ColumnDefinition SharedSizeGroup="PartitionNumber"/>
-                                                                                                            <ColumnDefinition/>
-                                                                                                            <ColumnDefinition SharedSizeGroup="Toggle"/>
-                                                                                                            <ColumnDefinition SharedSizeGroup="DiskId"/>
-                                                                                                            <ColumnDefinition SharedSizeGroup="ObjectIdAsPartition"/>
+                                                                                                            <ColumnDefinition SharedSizeGroup="PartitionNumber" Width="*"/>
+                                                                                                            <ColumnDefinition SharedSizeGroup="Toggle" Width="*"/>
+                                                                                                            <ColumnDefinition />
+                                                                                                            <ColumnDefinition SharedSizeGroup="DiskNumber" Width="*"/>
+                                                                                                            <ColumnDefinition SharedSizeGroup="DriveLetter" Width="*"/>
+                                                                                                            <ColumnDefinition SharedSizeGroup="MbrType" Width="*"/>
                                                                                                         </Grid.ColumnDefinitions>
-                                                                                                        <TextBlock Grid.Column="0" Text="{Binding PartitionNumber}"  TextWrapping="WrapWithOverflow"/>
-                                                                                                        <TextBlock Grid.Column="3" Text="{Binding DiskId}"   TextWrapping="WrapWithOverflow"/>
-                                                                                                        <TextBlock Grid.Column="4" Text="{Binding DiskNumber}"  TextWrapping="WrapWithOverflow"/>
+                                                                                                        <TextBlock Grid.Column="0" Text="{Binding PartitionNumber}"  TextWrapping="WrapWithOverflow" Style="{StaticResource TextBlockStyle}" />
+                                                                                                        <!-- Row with empty text needed in order to align columns in right order with above column - this should not be required but without it, alignment will be wrong
+                                                                                                         probably column definition without content is ignored -->
+                                                                                                        <TextBlock Grid.Column="2" Text="   "  TextWrapping="WrapWithOverflow" Style="{StaticResource TextBlockStyle}" />
+                                                                                                        <TextBlock Grid.Column="3" Text="{Binding DiskNumber}"  TextWrapping="WrapWithOverflow" Style="{StaticResource TextBlockStyle}" />
+                                                                                                        <TextBlock Grid.Column="4" Text="{Binding DriveLetter}" TextWrapping="WrapWithOverflow" Style="{StaticResource TextBlockStyle}" />
+                                                                                                        <TextBlock Grid.Column="5" Text="{Binding MbrType}" TextWrapping="WrapWithOverflow" Style="{StaticResource TextBlockStyle}" />
                                                                                                     </Grid>
 
                                                                                                     <!--Level 2 template has no children-->
-                                                                                                    <!--<HierarchicalDataTemplate.ItemTemplate>
+                                                                                                    <HierarchicalDataTemplate.ItemTemplate>
                                                                                                         <HierarchicalDataTemplate ItemsSource="{Binding Partitions}">
                                                                                                             <Grid>
                                                                                                                 <Grid.ColumnDefinitions>
                                                                                                                     <ColumnDefinition SharedSizeGroup="PartitionNumber"/>
                                                                                                                     <ColumnDefinition/>
                                                                                                                     <ColumnDefinition/>
-                                                                                                                    <ColumnDefinition SharedSizeGroup="DiskId"/>
-                                                                                                                    <ColumnDefinition SharedSizeGroup="ObjectIdAsPartition"/>
+                                                                                                                    <ColumnDefinition SharedSizeGroup="DiskNumber"/>
+                                                                                                                    <ColumnDefinition SharedSizeGroup="DriveLetter"/>
+                                                                                                                    <ColumnDefinition SharedSizeGroup="MbrType"/>
                                                                                                                 </Grid.ColumnDefinitions>
-                                                                                                                <TextBlock Grid.Column="0" Text="{Binding PartitionNumber}" Style="{StaticResource TextBlockStyle}" />
-                                                                                                                <TextBlock Grid.Column="3" Text="{Binding DiskId}" Style="{StaticResource TextBlockStyle}" />
-                                                                                                                <TextBlock Grid.Column="4" Text="{Binding ObjectIdAsPartition}" Style="{StaticResource TextBlockStyle}" />
+                                                                                                                <TextBlock Grid.Column="0" Text="{Binding PartitionNumber}"  TextWrapping="WrapWithOverflow" Style="{StaticResource TextBlockStyle}" />
+                                                                                                                <TextBlock Grid.Column="3" Text="{Binding DiskNumber}"  TextWrapping="WrapWithOverflow" Style="{StaticResource TextBlockStyle}" />
+                                                                                                                <TextBlock Grid.Column="4" Text="{Binding DriveLetter}" TextWrapping="WrapWithOverflow" Style="{StaticResource TextBlockStyle}" />
+                                                                                                                <TextBlock Grid.Column="5" Text="{Binding MbrType}" TextWrapping="WrapWithOverflow" Style="{StaticResource TextBlockStyle}" />
                                                                                                             </Grid>
                                                                                                         </HierarchicalDataTemplate>
-                                                                                                    </HierarchicalDataTemplate.ItemTemplate>-->
+                                                                                                    </HierarchicalDataTemplate.ItemTemplate>
                                                                                                 </HierarchicalDataTemplate>
                                                                                             </HierarchicalDataTemplate.ItemTemplate>
                                                                                         </HierarchicalDataTemplate>
@@ -998,7 +998,6 @@
                                 </Expander.Header>
                                 <Expander.Content>
                                     <StackPanel Margin="10,4,0,0">
-                                        <Label FontFamily = "Verdana" Content="Basic Processor Info" FontSize="16" FontWeight="Bold"/>
                                         <Grid Background="DimGray">
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="*"></RowDefinition>
