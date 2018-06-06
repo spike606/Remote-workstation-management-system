@@ -121,6 +121,12 @@
     <Compile Include="Monitor\SoftwareDynamic\Model\Components\Duplicate\EventLogEntryTypeDuplicate.cs" />
     <Compile Include="Monitor\SoftwareStatic\Model\Components\Duplicate\ClaimDuplicate.cs" />
     <Compile Include="Monitor\SoftwareStatic\Model\Components\Duplicate\GroupDuplicate.cs" />
+    <Compile Include="Shared\CustomProperties\UnitIntValue.cs" />
+    <Compile Include="Shared\CustomProperties\UnitLongValue.cs" />
+    <Compile Include="Shared\CustomProperties\UnitShortValue.cs" />
+    <Compile Include="Shared\CustomProperties\UnitUIntValue.cs" />
+    <Compile Include="Shared\CustomProperties\UnitULongValue.cs" />
+    <Compile Include="Shared\CustomProperties\UnitUShortValue.cs" />
     <Compile Include="Shared\OperationStatus.cs" />
     <Compile Include="Control\ProcessClient\IProcessClient.cs" />
     <Compile Include="Control\ProcessClient\ProcessClient.cs" />
@@ -182,7 +188,6 @@
     <Compile Include="Shared\CustomProperties\Enums\ProcessorEnum.cs" />
     <Compile Include="Shared\CustomProperties\SmartDataAttribute.cs" />
     <Compile Include="Shared\CustomProperties\Unit.cs" />
-    <Compile Include="Shared\CustomProperties\UnitValue.cs" />
     <Compile Include="Monitor\HardwareStatic\Model\HardwareStaticData.cs" />
     <Compile Include="Shared\ConstString.cs" />
     <Compile Include="Shared\DateTimeHelper.cs" />

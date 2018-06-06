@@ -18,10 +18,10 @@ namespace SystemManagament.Monitor.HardwareStatic.Model.Components
     {
         // based on docs: https://msdn.microsoft.com/en-us/library/aa394080(v=vs.85).aspx
         [DataMember]
-        public UnitValue Speed { get; private set; }
+        public UnitUIntValue Speed { get; private set; }
 
         [DataMember]
-        public UnitValue Size { get; private set; }
+        public UnitUIntValue Size { get; private set; }
 
         [DataMember]
         public string Level { get; private set; }
@@ -41,8 +41,8 @@ namespace SystemManagament.Monitor.HardwareStatic.Model.Components
                 processorCache.Caption = managementObject[ConstString.COMPONENT_CAPTION].TryGetStringValue();
                 processorCache.Description = managementObject[ConstString.COMPONENT_DESCRIPTION].TryGetStringValue();
                 processorCache.Level = ((CacheLevelEnum)((ushort)managementObject[ConstString.PROCESSOR_CACHE_LEVEL])).ToString();
-                processorCache.Size = managementObject[ConstString.PROCESSOR_CACHE_SIZE].TryGetUnitValue(Unit.KB);
-                processorCache.Speed = managementObject[ConstString.PROCESSOR_CACHE_SPEED].TryGetUnitValue(Unit.MHZ);
+                processorCache.Size = managementObject[ConstString.PROCESSOR_CACHE_SIZE].TryGetUnitUIntValue(Unit.KB);
+                processorCache.Speed = managementObject[ConstString.PROCESSOR_CACHE_SPEED].TryGetUnitUIntValue(Unit.MHZ);
                 processorCache.Status = managementObject[ConstString.COMPONENT_STATUS].TryGetStringValue();
                 processorCache.Name = managementObject[ConstString.COMPONENT_NAME].TryGetStringValue();
 

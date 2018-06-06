@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SystemManagament.Client.WPF.Extensions;
-using SystemManagament.Client.WPF.WorkstationMonitorServiceReference;
+using SystemManagament.Client.WPF.WorkstationMonitorService;
 
 namespace SystemManagament.Client.WPF.ViewModel.Helpers
 {

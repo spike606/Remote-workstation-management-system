@@ -17,9 +17,9 @@ namespace SystemManagament.Monitor.HardwareStatic.Model.Components
     [DataContract]
     public class NetworkAdapter : HardwareStaticComponent, IHardwareStaticComponent<NetworkAdapter>
     {
-        // based on docs: https://msdn.microsoft.com/en-us/library/aa394216(v=vs.85).aspx
+        // based on docs: https://msdn.microsoft.com/en-us/library/hh968170(v=vs.85).aspx
         [DataMember]
-        public UnitValue ActiveMaximumTransmissionUnit { get; private set; }
+        public UnitULongValue ActiveMaximumTransmissionUnit { get; private set; }
 
         [DataMember]
         public string ComponentID { get; private set; }
@@ -78,7 +78,7 @@ namespace SystemManagament.Monitor.HardwareStatic.Model.Components
             foreach (var managementObject in managementObjectList)
             {
                 NetworkAdapter networkAdapter = new NetworkAdapter();
-                networkAdapter.ActiveMaximumTransmissionUnit = managementObject[ConstString.NETWORK_ADAPTER_MAXIMUM_MTU].TryGetUnitValue(Unit.B);
+                networkAdapter.ActiveMaximumTransmissionUnit = managementObject[ConstString.NETWORK_ADAPTER_MAXIMUM_MTU].TryGetUnitULongValue(Unit.B);
                 networkAdapter.Caption = managementObject[ConstString.COMPONENT_CAPTION].TryGetStringValue();
                 networkAdapter.ComponentID = managementObject[ConstString.NETWORK_ADAPTER_COMPONENT_ID].TryGetStringValue();
                 networkAdapter.ConnectorPresent = managementObject[ConstString.NETWORK_ADAPTER_CONNECTOR_PRESENT].TryGetStringValue();

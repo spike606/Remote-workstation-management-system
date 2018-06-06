@@ -11,7 +11,7 @@ using LiveCharts;
 using LiveCharts.Configurations;
 using LiveCharts.Wpf;
 using SystemManagament.Client.WPF.Extensions;
-using SystemManagament.Client.WPF.WorkstationMonitorServiceReference;
+using SystemManagament.Client.WPF.WorkstationMonitorService;
 
 namespace SystemManagament.Client.WPF.ViewModel
 {

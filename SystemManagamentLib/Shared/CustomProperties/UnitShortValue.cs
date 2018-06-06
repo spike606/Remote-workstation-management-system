@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 namespace SystemManagament.Monitor.HardwareStatic.Model.CustomProperties
 {
     [DataContract]
-    public struct UnitValue
+    public struct UnitShortValue
     {
         [DataMember]
         public string Unit;
 
         [DataMember]
-        public string Value;
+        public short? Value;
 
-        public UnitValue(string unit, string value = "")
+        public UnitShortValue(string unit, short? value = null)
         {
             this.Unit = unit;
             this.Value = value;

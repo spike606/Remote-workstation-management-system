@@ -57,13 +57,13 @@ namespace SystemManagament.Monitor.HardwareStatic.Model.Components
         public string ObjectId { get; set; }
 
         [DataMember]
-        public UnitValue Offset { get; set; }
+        public UnitULongValue Offset { get; set; }
 
         [DataMember]
         public string PartitionNumber { get; set; }
 
         [DataMember]
-        public UnitValue Size { get; set; }
+        public UnitULongValue Size { get; set; }
 
         public List<DiskPartition> ExtractData(List<ManagementObject> managementObjectList)
         {
@@ -88,9 +88,9 @@ namespace SystemManagament.Monitor.HardwareStatic.Model.Components
                 diskPartition.Name = string.Empty;
                 diskPartition.NoDefaultDriveLetter = managementObject[ConstString.DISK_PARTITION_NO_DEFAULT_DRIVE_LETTER].TryGetStringValue();
                 diskPartition.ObjectId = managementObject[ConstString.DISK_PARTITION_OBJECT_ID].TryGetStringValue();
-                diskPartition.Offset = managementObject[ConstString.DISK_PARTITION_OFFSET].TryGetUnitValue(Unit.B);
+                diskPartition.Offset = managementObject[ConstString.DISK_PARTITION_OFFSET].TryGetUnitULongValue(Unit.B);
                 diskPartition.PartitionNumber = managementObject[ConstString.DISK_PARTITION_PARTITION_NUMBER].TryGetStringValue();
-                diskPartition.Size = managementObject[ConstString.DISK_PARTITION_SIZE].TryGetUnitValue(Unit.B);
+                diskPartition.Size = managementObject[ConstString.DISK_PARTITION_SIZE].TryGetUnitULongValue(Unit.B);
                 diskPartition.Status = string.Empty;
 
                 staticData.Add(diskPartition);

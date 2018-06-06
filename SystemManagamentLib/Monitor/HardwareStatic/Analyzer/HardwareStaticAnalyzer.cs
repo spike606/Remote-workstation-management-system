@@ -287,16 +287,26 @@ namespace SystemManagament.Monitor.HardwareStatic.Analyzer
 
                 foreach (var extendedPartition in extendedPartitionsForStorage)
                 {
-                    var lowerRangeForExtendedPartition = long.Parse(extendedPartition.Offset.Value);
-                    var upperRangeForExtendedPartition = lowerRangeForExtendedPartition + long.Parse(extendedPartition.SizeAsPartition.Value);
+                    var lowerRangeForExtendedPartition = extendedPartition.Offset.Value;
+                    var upperRangeForExtendedPartition = lowerRangeForExtendedPartition + extendedPartition.SizeAsPartition.Value;
+
+                    if (lowerRangeForExtendedPartition == null || upperRangeForExtendedPartition == null)
+                    {
+                        continue;
+                    }
 
                     var partitionsOnDisk = storage.Partition
                         .Where(x => !extendedPartitionsForStorage.Any(y => y.PartitionNumber == x.PartitionNumber)).ToList();
 
                     foreach (var partition in partitionsOnDisk)
                     {
-                        var lowerRange = long.Parse(partition.Offset.Value);
-                        var upperRange = lowerRange + long.Parse(partition.SizeAsPartition.Value);
+                        var lowerRange = partition.Offset.Value;
+                        var upperRange = lowerRange + partition.SizeAsPartition.Value;
+
+                        if (lowerRange == null || upperRange == null)
+                        {
+                            continue;
+                        }
 
                         if (lowerRange >= lowerRangeForExtendedPartition && upperRange <= upperRangeForExtendedPartition)
                         {

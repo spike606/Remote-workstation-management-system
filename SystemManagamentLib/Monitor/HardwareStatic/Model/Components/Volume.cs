@@ -43,10 +43,10 @@ namespace SystemManagament.Monitor.HardwareStatic.Model.Components
         public string Path { get; set; }
 
         [DataMember]
-        public UnitValue Size { get; set; }
+        public UnitULongValue Size { get; set; }
 
         [DataMember]
-        public UnitValue SizeRemaining { get; set; }
+        public UnitULongValue SizeRemaining { get; set; }
 
         [DataMember]
         public string UniqueId { get; set; }
@@ -95,8 +95,8 @@ namespace SystemManagament.Monitor.HardwareStatic.Model.Components
                 volume.Name = string.Empty;
                 volume.ObjectId = managementObject[ConstString.VOLUME_OBJECT_ID].TryGetStringValue();
                 volume.Path = managementObject[ConstString.VOLUME_PATH].TryGetStringValue();
-                volume.Size = managementObject[ConstString.VOLUME_SIZE].TryGetUnitValue(Unit.B);
-                volume.SizeRemaining = managementObject[ConstString.VOLUME_SIZE_REMAINING].TryGetUnitValue(Unit.B);
+                volume.Size = managementObject[ConstString.VOLUME_SIZE].TryGetUnitULongValue(Unit.B);
+                volume.SizeRemaining = managementObject[ConstString.VOLUME_SIZE_REMAINING].TryGetUnitULongValue(Unit.B);
                 volume.Status = string.Empty;
                 volume.UniqueId = managementObject[ConstString.VOLUME_UNIQUE_ID].TryGetStringValue();
                 staticData.Add(volume);

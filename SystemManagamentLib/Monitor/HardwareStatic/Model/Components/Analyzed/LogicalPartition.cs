@@ -54,13 +54,13 @@ namespace SystemManagament.Monitor.HardwareStatic.Model.Components.Analyzed
         public string ObjectIdAsPartition { get; set; }
 
         [DataMember]
-        public UnitValue Offset { get; set; }
+        public UnitULongValue Offset { get; set; }
 
         [DataMember]
         public string PartitionNumber { get; set; }
 
         [DataMember]
-        public UnitValue SizeAsPartition { get; set; }
+        public UnitULongValue SizeAsPartition { get; set; }
 
         [DataMember]
         public List<LogicalPartition> Partitions { get; set; } = new List<LogicalPartition>();

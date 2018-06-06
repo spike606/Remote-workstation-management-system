@@ -23,22 +23,22 @@ namespace SystemManagament.Monitor.HardwareStatic.Model.Components
         public string AdapterDACType { get; private set; }
 
         [DataMember]
-        public UnitValue AdapterRAM { get; private set; }
+        public UnitUIntValue AdapterRAM { get; private set; }
 
         [DataMember]
-        public UnitValue CurrentBitsPerPixel { get; private set; }
+        public UnitUIntValue CurrentBitsPerPixel { get; private set; }
 
         [DataMember]
-        public UnitValue CurrentHorizontalResolution { get; private set; }
+        public UnitUIntValue CurrentHorizontalResolution { get; private set; }
 
         [DataMember]
         public string CurrentNumberOfColors { get; private set; }
 
         [DataMember]
-        public UnitValue CurrentRefreshRate { get; private set; }
+        public UnitUIntValue CurrentRefreshRate { get; private set; }
 
         [DataMember]
-        public UnitValue CurrentVerticalResolution { get; private set; }
+        public UnitUIntValue CurrentVerticalResolution { get; private set; }
 
         [DataMember]
         public string DeviceID { get; private set; }
@@ -61,13 +61,13 @@ namespace SystemManagament.Monitor.HardwareStatic.Model.Components
                 VideoController videoController = new VideoController();
                 videoController.AdapterCompatibility = managementObject[ConstString.VIDEO_CONTROLLER_ADAPTER_COMPATIBILITY].TryGetStringValue();
                 videoController.AdapterDACType = managementObject[ConstString.VIDEO_CONTROLLER_ADAPTER_DAC_TYPE].TryGetStringValue();
-                videoController.AdapterRAM = managementObject[ConstString.VIDEO_CONTROLLER_ADAPTER_RAM].TryGetUnitValue(Unit.B);
+                videoController.AdapterRAM = managementObject[ConstString.VIDEO_CONTROLLER_ADAPTER_RAM].TryGetUnitUIntValue(Unit.B);
                 videoController.Caption = managementObject[ConstString.COMPONENT_CAPTION].TryGetStringValue();
-                videoController.CurrentBitsPerPixel = managementObject[ConstString.VIDEO_CONTROLLER_CURRENT_BITS_PER_PIXEL].TryGetUnitValue(Unit.BIT);
-                videoController.CurrentHorizontalResolution = managementObject[ConstString.VIDEO_CONTROLLER_CURRENT_HORIZONTAL_RESOLUTION].TryGetUnitValue(Unit.PX);
+                videoController.CurrentBitsPerPixel = managementObject[ConstString.VIDEO_CONTROLLER_CURRENT_BITS_PER_PIXEL].TryGetUnitUIntValue(Unit.BIT);
+                videoController.CurrentHorizontalResolution = managementObject[ConstString.VIDEO_CONTROLLER_CURRENT_HORIZONTAL_RESOLUTION].TryGetUnitUIntValue(Unit.PX);
                 videoController.CurrentNumberOfColors = managementObject[ConstString.VIDEO_CONTROLLER_CURRENT_NUMBER_OF_COLORS].TryGetStringValue();
-                videoController.CurrentRefreshRate = managementObject[ConstString.VIDEO_CONTROLLER_CURRENT_REFRESH_RATE].TryGetUnitValue(Unit.HZ);
-                videoController.CurrentVerticalResolution = managementObject[ConstString.VIDEO_CONTROLLER_CURRENT_VERTICAL_RESOLUTION].TryGetUnitValue(Unit.PX);
+                videoController.CurrentRefreshRate = managementObject[ConstString.VIDEO_CONTROLLER_CURRENT_REFRESH_RATE].TryGetUnitUIntValue(Unit.HZ);
+                videoController.CurrentVerticalResolution = managementObject[ConstString.VIDEO_CONTROLLER_CURRENT_VERTICAL_RESOLUTION].TryGetUnitUIntValue(Unit.PX);
                 videoController.Description = managementObject[ConstString.COMPONENT_DESCRIPTION].TryGetStringValue();
                 videoController.DeviceID = managementObject[ConstString.VIDEO_CONTROLLER_DEVICE_ID].TryGetStringValue();
                 videoController.DriverVersion = managementObject[ConstString.VIDEO_CONTROLLER_DRIVER_VERSION].TryGetStringValue();

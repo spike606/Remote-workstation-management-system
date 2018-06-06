@@ -23,10 +23,10 @@ namespace SystemManagament.Monitor.SoftwareDynamic.Model.Components
         public string LogDisplayName { get; internal set; }
 
         [DataMember]
-        public UnitValue MaximumKilobytes { get; internal set; }
+        public UnitLongValue MaximumKilobytes { get; internal set; }
 
         [DataMember]
-        public UnitValue MinimumRetentionDays { get; internal set; }
+        public UnitIntValue MinimumRetentionDays { get; internal set; }
 
         public List<WindowsLog> GetDynamicDataForSoftwareComponent(ISoftwareDynamicProvider softwareDynamicProvider)
         {

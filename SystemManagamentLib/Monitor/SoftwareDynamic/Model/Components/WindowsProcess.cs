@@ -30,25 +30,25 @@ namespace SystemManagament.Monitor.SoftwareDynamic.Model.Components
         public TimeSpan TotalProcessorTime { get; internal set; }
 
         [DataMember]
-        public UnitValue PeakPagedMemorySize64 { get; internal set; }
+        public UnitLongValue PeakPagedMemorySize64 { get; internal set; }
 
         [DataMember]
-        public UnitValue PeakVirtualMemorySize64 { get; internal set; }
+        public UnitLongValue PeakVirtualMemorySize64 { get; internal set; }
 
         [DataMember]
-        public UnitValue PeakMemorySize { get; internal set; }
+        public UnitLongValue PeakMemorySize { get; internal set; }
 
         [DataMember]
         public string SessionId { get; internal set; }
 
         [DataMember]
-        public UnitValue PagedMemorySize64 { get; internal set; }
+        public UnitLongValue PagedMemorySize64 { get; internal set; }
 
         [DataMember]
-        public UnitValue VirtualMemorySize64 { get; internal set; }
+        public UnitLongValue VirtualMemorySize64 { get; internal set; }
 
         [DataMember]
-        public UnitValue MemorySize { get; internal set; }
+        public UnitLongValue MemorySize { get; internal set; }
 
         [DataMember]
         public string UserName { get; internal set; }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="eStQhadv7T8GywAldWkDsDL584s=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="j2txkx0mW/14VY6oNEh9wCjccj8=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="netTcpBinding" name="NetTcpBinding_IWorkstationMonitorService1">
       <properties>
@@ -245,7 +245,7 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="WSHttpBinding_IWorkstationMonitorService" contract="WorkstationMonitorServiceReference.IWorkstationMonitorService" bindingType="wsHttpBinding" address="http://localhost:8000/WorkstationMonitorService" bindingConfiguration="WSHttpBinding_IWorkstationMonitorService">
+    <endpoint name="WSHttpBinding_IWorkstationMonitorService" contract="WorkstationMonitorService.IWorkstationMonitorService" bindingType="wsHttpBinding" address="http://localhost:8000/WorkstationMonitorService" bindingConfiguration="WSHttpBinding_IWorkstationMonitorService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://localhost:8000/WorkstationMonitorService</serializedValue>
@@ -260,7 +260,7 @@
           <serializedValue>WSHttpBinding_IWorkstationMonitorService</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>WorkstationMonitorServiceReference.IWorkstationMonitorService</serializedValue>
+          <serializedValue>WorkstationMonitorService.IWorkstationMonitorService</serializedValue>
         </property>
         <property path="/headers" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.AddressHeaderCollectionElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.AddressHeaderCollectionElement</serializedValue>
@@ -330,7 +330,7 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="NetTcpBinding_IWorkstationMonitorService1" contract="WorkstationMonitorServiceReference.IWorkstationMonitorService" bindingType="netTcpBinding" address="net.tcp://localhost:8001/WorkstationMonitorService" bindingConfiguration="NetTcpBinding_IWorkstationMonitorService1">
+    <endpoint name="NetTcpBinding_IWorkstationMonitorService" contract="WorkstationMonitorService.IWorkstationMonitorService" bindingType="netTcpBinding" address="net.tcp://localhost:8001/WorkstationMonitorService" bindingConfiguration="NetTcpBinding_IWorkstationMonitorService1">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>net.tcp://localhost:8001/WorkstationMonitorService</serializedValue>
@@ -345,7 +345,7 @@
           <serializedValue>NetTcpBinding_IWorkstationMonitorService1</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>WorkstationMonitorServiceReference.IWorkstationMonitorService</serializedValue>
+          <serializedValue>WorkstationMonitorService.IWorkstationMonitorService</serializedValue>
         </property>
         <property path="/headers" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.AddressHeaderCollectionElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.AddressHeaderCollectionElement</serializedValue>
@@ -405,7 +405,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>NetTcpBinding_IWorkstationMonitorService1</serializedValue>
+          <serializedValue>NetTcpBinding_IWorkstationMonitorService</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

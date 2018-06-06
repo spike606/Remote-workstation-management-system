@@ -15,7 +15,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -33,6 +33,46 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>..\SystemManagamentLib\RWMSSolutionRuleSet.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>..\SystemManagamentLib\RWMSSolutionRuleSet.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CommonServiceLocator, Version=2.0.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
@@ -127,13 +167,18 @@
     <Compile Include="Comparer\WindowsLogComparer.cs" />
     <Compile Include="Comparer\WindowsProcessComparer.cs" />
     <Compile Include="Comparer\WindowsServiceComparer.cs" />
-    <Compile Include="Connected Services\WorkstationMonitorServiceReference\Reference.cs">
+    <Compile Include="Connected Services\WorkstationMonitorService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Converters\NullToVisibilityConverter.cs" />
-    <Compile Include="Converters\UnitValueToStringConverter.cs" />
+    <Compile Include="Converters\UnitIntValueToStringConverter.cs" />
+    <Compile Include="Converters\UnitLongValueToStringConverter.cs" />
+    <Compile Include="Converters\UnitShortValueToStringConverter.cs" />
+    <Compile Include="Converters\UnitUIntValueToStringConverter.cs" />
+    <Compile Include="Converters\UnitULongValueToStringConverter.cs" />
+    <Compile Include="Converters\UnitUShortValueToStringConverter.cs" />
     <Compile Include="DynamicPieChart.xaml.cs">
       <DependentUpon>DynamicPieChart.xaml</DependentUpon>
     </Compile>
@@ -208,65 +253,104 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService.wsdl" />
-    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService.xsd">
+    <None Include="Connected Services\WorkstationMonitorService\SystemManagament.Client.WPF.WorkstationMonitorService.DiskDynamic.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WorkstationMonitorService\SystemManagament.Client.WPF.WorkstationMonitorService.HardwareDynamicData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WorkstationMonitorService\SystemManagament.Client.WPF.WorkstationMonitorService.HardwareStaticData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WorkstationMonitorService\SystemManagament.Client.WPF.WorkstationMonitorService.MainBoardDynamic.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WorkstationMonitorService\SystemManagament.Client.WPF.WorkstationMonitorService.MemoryDynamic.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WorkstationMonitorService\SystemManagament.Client.WPF.WorkstationMonitorService.OperationStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WorkstationMonitorService\SystemManagament.Client.WPF.WorkstationMonitorService.ProcessorDynamic.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WorkstationMonitorService\SystemManagament.Client.WPF.WorkstationMonitorService.SoftwareDynamicData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WorkstationMonitorService\SystemManagament.Client.WPF.WorkstationMonitorService.SoftwareStaticData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WorkstationMonitorService\SystemManagament.Client.WPF.WorkstationMonitorService.VideoControllerDynamic.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WorkstationMonitorService\SystemManagament.Client.WPF.WorkstationMonitorService.WindowsLog.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WorkstationMonitorService\SystemManagament.Client.WPF.WorkstationMonitorService.WindowsProcess.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WorkstationMonitorService\SystemManagament.Client.WPF.WorkstationMonitorService.WindowsService.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService.wsdl" />
+    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService1.xsd">
+    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService10.xsd">
+    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService10.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService11.xsd">
+    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService11.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService12.xsd">
+    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService12.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService13.xsd">
+    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService13.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService14.xsd">
+    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService14.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService15.xsd">
+    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService15.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService16.xsd">
+    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService16.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService17.xsd">
+    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService17.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService18.xsd">
+    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService18.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService19.xsd">
+    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService19.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService2.xsd">
+    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService3.xsd">
+    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService4.xsd">
+    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService4.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService5.xsd">
+    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService5.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService6.xsd">
+    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService6.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService7.xsd">
+    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService7.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService8.xsd">
+    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService8.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService9.xsd">
+    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService9.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
@@ -276,7 +360,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
@@ -287,19 +373,19 @@
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\WorkstationMonitorServiceReference\" />
+    <WCFMetadataStorage Include="Connected Services\WorkstationMonitorService\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\WorkstationMonitorServiceReference\WorkstationMonitorService.disco" />
+    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\WorkstationMonitorServiceReference\configuration91.svcinfo" />
+    <None Include="Connected Services\WorkstationMonitorService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\WorkstationMonitorServiceReference\configuration.svcinfo" />
+    <None Include="Connected Services\WorkstationMonitorService\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\WorkstationMonitorServiceReference\Reference.svcmap">
+    <None Include="Connected Services\WorkstationMonitorService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

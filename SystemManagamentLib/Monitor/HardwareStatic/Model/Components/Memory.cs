@@ -21,16 +21,16 @@ namespace SystemManagament.Monitor.HardwareStatic.Model.Components
         public string BankLabel { get; private set; }
 
         [DataMember]
-        public UnitValue Capacity { get; private set; }
+        public UnitULongValue Capacity { get; private set; }
 
         [DataMember]
-        public UnitValue ConfiguredClockSpeed { get; private set; }
+        public UnitUIntValue ConfiguredClockSpeed { get; private set; }
 
         [DataMember]
-        public UnitValue ConfiguredVoltage { get; private set; }
+        public UnitUIntValue ConfiguredVoltage { get; private set; }
 
         [DataMember]
-        public UnitValue DataWidth { get; private set; }
+        public UnitUShortValue DataWidth { get; private set; }
 
         [DataMember]
         public string DeviceLocator { get; private set; }
@@ -39,13 +39,13 @@ namespace SystemManagament.Monitor.HardwareStatic.Model.Components
         public string Manufacturer { get; private set; }
 
         [DataMember]
-        public UnitValue MaxVoltage { get; private set; }
+        public UnitUIntValue MaxVoltage { get; private set; }
 
         [DataMember]
         public string MemoryType { get; private set; }
 
         [DataMember]
-        public UnitValue MinVoltage { get; private set; }
+        public UnitUIntValue MinVoltage { get; private set; }
 
         [DataMember]
         public string PartNumber { get; private set; }
@@ -54,7 +54,7 @@ namespace SystemManagament.Monitor.HardwareStatic.Model.Components
         public string SerialNumber { get; private set; }
 
         [DataMember]
-        public UnitValue TotalWidth { get; private set; }
+        public UnitUShortValue TotalWidth { get; private set; }
 
         public List<ManagementObject> GetManagementObjectsForHardwareComponent(IWMIClient wMIClient)
         {
@@ -69,16 +69,16 @@ namespace SystemManagament.Monitor.HardwareStatic.Model.Components
             {
                 Memory memory = new Memory();
                 memory.BankLabel = managementObject[ConstString.MEMORY_BANK_LABEL].TryGetStringValue();
-                memory.Capacity = managementObject[ConstString.MEMORY_CAPACITY].TryGetUnitValue(Unit.B);
+                memory.Capacity = managementObject[ConstString.MEMORY_CAPACITY].TryGetUnitULongValue(Unit.B);
                 memory.Caption = managementObject[ConstString.COMPONENT_CAPTION].TryGetStringValue();
-                memory.ConfiguredClockSpeed = managementObject[ConstString.MEMORY_CONFIGURED_CLOCK_SPEED].TryGetUnitValue(Unit.MHZ);
-                memory.ConfiguredVoltage = managementObject[ConstString.MEMORY_CONFIGURED_VOLTAGE].TryGetUnitValue(Unit.MV);
-                memory.DataWidth = managementObject[ConstString.MEMORY_DATA_WIDTH].TryGetUnitValue(Unit.BIT);
+                memory.ConfiguredClockSpeed = managementObject[ConstString.MEMORY_CONFIGURED_CLOCK_SPEED].TryGetUnitUIntValue(Unit.MHZ);
+                memory.ConfiguredVoltage = managementObject[ConstString.MEMORY_CONFIGURED_VOLTAGE].TryGetUnitUIntValue(Unit.MV);
+                memory.DataWidth = managementObject[ConstString.MEMORY_DATA_WIDTH].TryGetUnitUShortValue(Unit.BIT);
                 memory.Description = managementObject[ConstString.COMPONENT_DESCRIPTION].TryGetStringValue();
                 memory.DeviceLocator = managementObject[ConstString.MEMORY_DEVICE_LOCATOR].TryGetStringValue();
                 memory.Manufacturer = managementObject[ConstString.MEMORY_MANUFACTURER].TryGetStringValue();
 
-                memory.MaxVoltage = managementObject[ConstString.MEMORY_MAX_VOLTAGE].TryGetUnitValue(Unit.MV);
+                memory.MaxVoltage = managementObject[ConstString.MEMORY_MAX_VOLTAGE].TryGetUnitUIntValue(Unit.MV);
                 if (managementObject[ConstString.MEMORY_MEMORY_TYPE] != null)
                 {
                     memory.MemoryType = ((MemoryTypeEnum)((ushort)managementObject[ConstString.MEMORY_MEMORY_TYPE])).ToString();
@@ -88,12 +88,12 @@ namespace SystemManagament.Monitor.HardwareStatic.Model.Components
                     memory.MemoryType = string.Empty;
                 }
 
-                memory.MinVoltage = managementObject[ConstString.MEMORY_MIN_VOLTAGE].TryGetUnitValue(Unit.MV);
+                memory.MinVoltage = managementObject[ConstString.MEMORY_MIN_VOLTAGE].TryGetUnitUIntValue(Unit.MV);
                 memory.Name = managementObject[ConstString.COMPONENT_NAME].TryGetStringValue();
                 memory.PartNumber = managementObject[ConstString.MEMORY_PART_NUMBER].TryGetStringValue();
                 memory.SerialNumber = managementObject[ConstString.MEMORY_SERIAL_NUMBER].TryGetStringValue();
                 memory.Status = managementObject[ConstString.COMPONENT_STATUS].TryGetStringValue();
-                memory.TotalWidth = managementObject[ConstString.MEMORY_TOTAL_WIDTH].TryGetUnitValue(Unit.BIT);
+                memory.TotalWidth = managementObject[ConstString.MEMORY_TOTAL_WIDTH].TryGetUnitUShortValue(Unit.BIT);
 
                 staticData.Add(memory);
             }

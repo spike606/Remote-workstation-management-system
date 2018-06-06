@@ -34,9 +34,9 @@
       <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract" base="q2:HardwareStaticComponent">
         <xs:sequence>
           <xs:element minOccurs="0" name="BatteryStatus" nillable="true" type="xs:string" />
-          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="DesignCapacity" type="q3:UnitValue" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="DesignCapacity" type="q3:UnitIntValue" />
           <xs:element minOccurs="0" name="DeviceID" nillable="true" type="xs:string" />
-          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="FullChargeCapacity" type="q4:UnitValue" />
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="FullChargeCapacity" type="q4:UnitIntValue" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -85,18 +85,18 @@
       <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract" base="q7:HardwareStaticComponent">
         <xs:sequence>
           <xs:element minOccurs="0" name="BankLabel" nillable="true" type="xs:string" />
-          <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="Capacity" type="q8:UnitValue" />
-          <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="ConfiguredClockSpeed" type="q9:UnitValue" />
-          <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="ConfiguredVoltage" type="q10:UnitValue" />
-          <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="DataWidth" type="q11:UnitValue" />
+          <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="Capacity" type="q8:UnitULongValue" />
+          <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="ConfiguredClockSpeed" type="q9:UnitUIntValue" />
+          <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="ConfiguredVoltage" type="q10:UnitUIntValue" />
+          <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="DataWidth" type="q11:UnitUShortValue" />
           <xs:element minOccurs="0" name="DeviceLocator" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Manufacturer" nillable="true" type="xs:string" />
-          <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="MaxVoltage" type="q12:UnitValue" />
+          <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="MaxVoltage" type="q12:UnitUIntValue" />
           <xs:element minOccurs="0" name="MemoryType" nillable="true" type="xs:string" />
-          <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="MinVoltage" type="q13:UnitValue" />
+          <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="MinVoltage" type="q13:UnitUIntValue" />
           <xs:element minOccurs="0" name="PartNumber" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="SerialNumber" nillable="true" type="xs:string" />
-          <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="TotalWidth" type="q14:UnitValue" />
+          <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="TotalWidth" type="q14:UnitUShortValue" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -112,7 +112,7 @@
     <xs:complexContent mixed="false">
       <xs:extension xmlns:q15="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract" base="q15:HardwareStaticComponent">
         <xs:sequence>
-          <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="ActiveMaximumTransmissionUnit" type="q16:UnitValue" />
+          <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="ActiveMaximumTransmissionUnit" type="q16:UnitULongValue" />
           <xs:element minOccurs="0" name="ComponentID" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="ConnectorPresent" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="DeviceID" nillable="true" type="xs:string" />
@@ -180,12 +180,12 @@
     <xs:complexContent mixed="false">
       <xs:extension xmlns:q19="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract" base="q19:HardwareStaticComponent">
         <xs:sequence>
-          <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="AddressWidth" type="q20:UnitValue" />
+          <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="AddressWidth" type="q20:UnitUShortValue" />
           <xs:element minOccurs="0" name="Architecture" nillable="true" type="xs:string" />
-          <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="BusSpeed" type="q21:UnitValue" />
-          <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="DataWidth" type="q22:UnitValue" />
+          <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="BusSpeed" type="q21:UnitUIntValue" />
+          <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="DataWidth" type="q22:UnitUShortValue" />
           <xs:element minOccurs="0" name="Manufacturer" nillable="true" type="xs:string" />
-          <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="MaxClockSpeed" type="q23:UnitValue" />
+          <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="MaxClockSpeed" type="q23:UnitUIntValue" />
           <xs:element minOccurs="0" name="NumberOfCores" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="NumberOfLogicalProcessors" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="ProcessorID" nillable="true" type="xs:string" />
@@ -210,8 +210,8 @@
       <xs:extension xmlns:q24="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract" base="q24:HardwareStaticComponent">
         <xs:sequence>
           <xs:element minOccurs="0" name="Level" nillable="true" type="xs:string" />
-          <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="Size" type="q25:UnitValue" />
-          <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="Speed" type="q26:UnitValue" />
+          <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="Size" type="q25:UnitUIntValue" />
+          <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="Speed" type="q26:UnitUIntValue" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -221,7 +221,7 @@
     <xs:complexContent mixed="false">
       <xs:extension xmlns:q27="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract" base="q27:HardwareStaticComponent">
         <xs:sequence>
-          <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="AllocatedSize" type="q28:UnitValue" />
+          <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="AllocatedSize" type="q28:UnitULongValue" />
           <xs:element minOccurs="0" name="BootFromDisk" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="BusType" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="FirmwareVersion" nillable="true" type="xs:string" />
@@ -232,9 +232,9 @@
           <xs:element minOccurs="0" name="IsOffline" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="IsReadOnly" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="IsSystem" nillable="true" type="xs:string" />
-          <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="LargestFreeExtent" type="q29:UnitValue" />
+          <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="LargestFreeExtent" type="q29:UnitULongValue" />
           <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
-          <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="LogicalSectorSize" type="q30:UnitValue" />
+          <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="LogicalSectorSize" type="q30:UnitUIntValue" />
           <xs:element minOccurs="0" name="Manufacturer" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Model" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
@@ -243,10 +243,10 @@
           <xs:element minOccurs="0" name="OfflineReason" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="PartitionStyle" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Path" nillable="true" type="xs:string" />
-          <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="PhysicalSectorSize" type="q31:UnitValue" />
+          <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="PhysicalSectorSize" type="q31:UnitUIntValue" />
           <xs:element minOccurs="0" name="SerialNumber" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Signature" nillable="true" type="xs:string" />
-          <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="Size" type="q32:UnitValue" />
+          <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="Size" type="q32:UnitULongValue" />
           <xs:element minOccurs="0" name="UniqueId" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:extension>
@@ -265,12 +265,12 @@
         <xs:sequence>
           <xs:element minOccurs="0" name="AdapterCompatibility" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="AdapterDACType" nillable="true" type="xs:string" />
-          <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="AdapterRAM" type="q34:UnitValue" />
-          <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="CurrentBitsPerPixel" type="q35:UnitValue" />
-          <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="CurrentHorizontalResolution" type="q36:UnitValue" />
+          <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="AdapterRAM" type="q34:UnitUIntValue" />
+          <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="CurrentBitsPerPixel" type="q35:UnitUIntValue" />
+          <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="CurrentHorizontalResolution" type="q36:UnitUIntValue" />
           <xs:element minOccurs="0" name="CurrentNumberOfColors" nillable="true" type="xs:string" />
-          <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="CurrentRefreshRate" type="q37:UnitValue" />
-          <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="CurrentVerticalResolution" type="q38:UnitValue" />
+          <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="CurrentRefreshRate" type="q37:UnitUIntValue" />
+          <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="CurrentVerticalResolution" type="q38:UnitUIntValue" />
           <xs:element minOccurs="0" name="DeviceID" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="DriverVersion" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="VideoModeDescription" nillable="true" type="xs:string" />

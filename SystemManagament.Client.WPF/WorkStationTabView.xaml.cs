@@ -18,7 +18,7 @@ using GalaSoft.MvvmLight.Ioc;
 using SystemManagament.Client.WPF.Factories;
 using SystemManagament.Client.WPF.ViewModel;
 using SystemManagament.Client.WPF.ViewModel.Wcf;
-using SystemManagament.Client.WPF.WorkstationMonitorServiceReference;
+using SystemManagament.Client.WPF.WorkstationMonitorService;
 
 namespace SystemManagament.Client.WPF
 {

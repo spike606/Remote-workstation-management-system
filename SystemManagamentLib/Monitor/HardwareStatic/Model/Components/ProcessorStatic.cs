@@ -18,22 +18,22 @@ namespace SystemManagament.Monitor.HardwareStatic.Model.Components
     {
         // based on docs: https://msdn.microsoft.com/en-us/library/aa394373(v=vs.85).aspx
         [DataMember]
-        public UnitValue AddressWidth { get; private set; }
+        public UnitUShortValue AddressWidth { get; private set; }
 
         [DataMember]
         public string Architecture { get; private set; }
 
         [DataMember]
-        public UnitValue DataWidth { get; private set; }
+        public UnitUShortValue DataWidth { get; private set; }
 
         [DataMember]
-        public UnitValue BusSpeed { get; private set; }
+        public UnitUIntValue BusSpeed { get; private set; }
 
         [DataMember]
         public string Manufacturer { get; private set; }
 
         [DataMember]
-        public UnitValue MaxClockSpeed { get; private set; }
+        public UnitUIntValue MaxClockSpeed { get; private set; }
 
         [DataMember]
         public string NumberOfCores { get; private set; }
@@ -71,7 +71,7 @@ namespace SystemManagament.Monitor.HardwareStatic.Model.Components
             foreach (var managementObject in managementObjectList)
             {
                 ProcessorStatic processor = new ProcessorStatic();
-                processor.AddressWidth = managementObject[ConstString.PROCESSOR_ADDRESS_WIDTH].TryGetUnitValue(Unit.BIT);
+                processor.AddressWidth = managementObject[ConstString.PROCESSOR_ADDRESS_WIDTH].TryGetUnitUShortValue(Unit.BIT);
 
                 if (managementObject[ConstString.PROCESSOR_ARCHITECTURE] != null)
                 {
@@ -83,11 +83,11 @@ namespace SystemManagament.Monitor.HardwareStatic.Model.Components
                 }
 
                 processor.Caption = managementObject[ConstString.COMPONENT_CAPTION].TryGetStringValue();
-                processor.DataWidth = managementObject[ConstString.PROCESSOR_DATA_WIDTH].TryGetUnitValue(Unit.BIT);
+                processor.DataWidth = managementObject[ConstString.PROCESSOR_DATA_WIDTH].TryGetUnitUShortValue(Unit.BIT);
                 processor.Description = managementObject[ConstString.COMPONENT_DESCRIPTION].TryGetStringValue();
-                processor.BusSpeed = managementObject[ConstString.PROCESSOR_BUS_SPEED].TryGetUnitValue(Unit.MHZ);
+                processor.BusSpeed = managementObject[ConstString.PROCESSOR_BUS_SPEED].TryGetUnitUIntValue(Unit.MHZ);
                 processor.Manufacturer = managementObject[ConstString.PROCESSOR_MANUFACTURER].TryGetStringValue();
-                processor.MaxClockSpeed = managementObject[ConstString.PROCESSOR_MAX_CLOCK_SPEED].TryGetUnitValue(Unit.MHZ);
+                processor.MaxClockSpeed = managementObject[ConstString.PROCESSOR_MAX_CLOCK_SPEED].TryGetUnitUIntValue(Unit.MHZ);
                 processor.Name = managementObject[ConstString.COMPONENT_NAME].TryGetStringValue();
                 processor.NumberOfCores = managementObject[ConstString.PROCESSOR_NUMBER_OF_CORES].TryGetStringValue();
                 processor.NumberOfLogicalProcessors = managementObject[ConstString.PROCESSOR_NUMBER_OF_LOGICAL_PROCESSORS].TryGetStringValue();

@@ -6,19 +6,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
-using SystemManagament.Client.WPF.WorkstationMonitorServiceReference;
+using SystemManagament.Client.WPF.WorkstationMonitorService;
 
 namespace SystemManagament.Client.WPF.Converters
 {
-    public sealed class UnitValueToStringConverter : IValueConverter
+    public sealed class UnitULongValueToStringConverter : IValueConverter
     {
         private string valueFormat = "0.0000";
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var unitValueObject = (UnitValue)value;
+            var unitValueObject = (UnitULongValue)value;
 
-            var objectValue = unitValueObject.Value;
+            if (unitValueObject.Value == null)
+            {
+                return "No data";
+            }
+
+            var objectValue = unitValueObject.Value.ToString();
             var unit = unitValueObject.Unit;
 
             if (unit == "Byte" && double.Parse(objectValue) >= 1024)

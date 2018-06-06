@@ -15,8 +15,8 @@
       <xs:element minOccurs="0" name="Entries" nillable="true" type="tns:ArrayOfEventLogEntryDuplicate" />
       <xs:element minOccurs="0" name="LogDisplayName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="LogName" nillable="true" type="xs:string" />
-      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="MaximumKilobytes" type="q1:UnitValue" />
-      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="MinimumRetentionDays" type="q2:UnitValue" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="MaximumKilobytes" type="q1:UnitLongValue" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="MinimumRetentionDays" type="q2:UnitIntValue" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="WindowsLog" nillable="true" type="tns:WindowsLog" />
@@ -54,17 +54,17 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="BasePriority" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
-      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="MemorySize" type="q5:UnitValue" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="MemorySize" type="q5:UnitLongValue" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="PagedMemorySize64" type="q6:UnitValue" />
-      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="PeakMemorySize" type="q7:UnitValue" />
-      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="PeakPagedMemorySize64" type="q8:UnitValue" />
-      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="PeakVirtualMemorySize64" type="q9:UnitValue" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="PagedMemorySize64" type="q6:UnitLongValue" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="PeakMemorySize" type="q7:UnitLongValue" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="PeakPagedMemorySize64" type="q8:UnitLongValue" />
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="PeakVirtualMemorySize64" type="q9:UnitLongValue" />
       <xs:element minOccurs="0" name="SessionId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
       <xs:element minOccurs="0" name="TotalProcessorTime" type="ser:duration" />
       <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
-      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="VirtualMemorySize64" type="q10:UnitValue" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="VirtualMemorySize64" type="q10:UnitLongValue" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="WindowsProcess" nillable="true" type="tns:WindowsProcess" />

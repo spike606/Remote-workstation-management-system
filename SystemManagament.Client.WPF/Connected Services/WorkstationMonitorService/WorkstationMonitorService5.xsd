@@ -52,10 +52,10 @@
       <xs:element minOccurs="0" name="MbrType" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="NoDefaultDriveLetter" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ObjectIdAsPartition" nillable="true" type="xs:string" />
-      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="Offset" type="q3:UnitValue" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="Offset" type="q3:UnitULongValue" />
       <xs:element minOccurs="0" name="PartitionNumber" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Partitions" nillable="true" type="tns:ArrayOfLogicalPartition" />
-      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="SizeAsPartition" type="q4:UnitValue" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="SizeAsPartition" type="q4:UnitULongValue" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="LogicalPartition" nillable="true" type="tns:LogicalPartition" />
@@ -70,8 +70,8 @@
           <xs:element minOccurs="0" name="HealthStatus" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="ObjectIdAsVolume" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Path" nillable="true" type="xs:string" />
-          <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="SizeAsVolume" type="q5:UnitValue" />
-          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="SizeRemaining" type="q6:UnitValue" />
+          <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="SizeAsVolume" type="q5:UnitULongValue" />
+          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="SizeRemaining" type="q6:UnitULongValue" />
           <xs:element minOccurs="0" name="UniqueId" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:extension>

@@ -21,13 +21,13 @@ namespace SystemManagament.Monitor.HardwareStatic.Model.Components
         public string BatteryStatus { get; private set; }
 
         [DataMember]
-        public UnitValue DesignCapacity { get; private set; }
+        public UnitIntValue DesignCapacity { get; private set; }
 
         [DataMember]
         public string DeviceID { get; private set; }
 
         [DataMember]
-        public UnitValue FullChargeCapacity { get; private set; }
+        public UnitIntValue FullChargeCapacity { get; private set; }
 
         public List<Battery> ExtractData(List<ManagementObject> managementObjectList)
         {
@@ -48,9 +48,9 @@ namespace SystemManagament.Monitor.HardwareStatic.Model.Components
 
                 battery.Caption = managementObject[ConstString.COMPONENT_CAPTION].TryGetStringValue();
                 battery.Description = managementObject[ConstString.COMPONENT_DESCRIPTION].TryGetStringValue();
-                battery.DesignCapacity = managementObject[ConstString.BATTERY_DESIGN_CAPACITY].TryGetUnitValue(Unit.MWH);
+                battery.DesignCapacity = managementObject[ConstString.BATTERY_DESIGN_CAPACITY].TryGetUnitIntValue(Unit.MWH);
                 battery.DeviceID = managementObject[ConstString.BATTERY_DEVICE_ID].TryGetStringValue();
-                battery.FullChargeCapacity = managementObject[ConstString.BATTERY_FULLY_CHARGE_CAPACITY].TryGetUnitValue(Unit.MWH);
+                battery.FullChargeCapacity = managementObject[ConstString.BATTERY_FULLY_CHARGE_CAPACITY].TryGetUnitIntValue(Unit.MWH);
                 battery.Name = managementObject[ConstString.COMPONENT_NAME].TryGetStringValue();
                 battery.Status = managementObject[ConstString.COMPONENT_STATUS].TryGetStringValue();
 

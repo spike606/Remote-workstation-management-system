@@ -34,10 +34,10 @@ namespace SystemManagament.Monitor.HardwareStatic.Model.Components.Analyzed
         public string Path { get; internal set; }
 
         [DataMember]
-        public UnitValue SizeAsVolume { get; internal set; }
+        public UnitULongValue SizeAsVolume { get; internal set; }
 
         [DataMember]
-        public UnitValue SizeRemaining { get; internal set; }
+        public UnitULongValue SizeRemaining { get; internal set; }
 
         [DataMember]
         public string UniqueId { get; internal set; }

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
+namespace SystemManagament.Client.WPF.WorkstationMonitorService {
     using System.Runtime.Serialization;
     using System;
     
@@ -24,13 +24,13 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsLog[] WindowsLogField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.WindowsLog[] WindowsLogField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsProcess[] WindowsProcessField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.WindowsProcess[] WindowsProcessField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsService[] WindowsServiceField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.WindowsService[] WindowsServiceField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -43,7 +43,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsLog[] WindowsLog {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.WindowsLog[] WindowsLog {
             get {
                 return this.WindowsLogField;
             }
@@ -56,7 +56,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsProcess[] WindowsProcess {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.WindowsProcess[] WindowsProcess {
             get {
                 return this.WindowsProcessField;
             }
@@ -69,7 +69,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsService[] WindowsService {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.WindowsService[] WindowsService {
             get {
                 return this.WindowsServiceField;
             }
@@ -102,7 +102,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.EventLogEntryDuplicate[] EntriesField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.EventLogEntryDuplicate[] EntriesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LogDisplayNameField;
@@ -111,10 +111,10 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         private string LogNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue MaximumKilobytesField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitLongValue MaximumKilobytesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue MinimumRetentionDaysField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitIntValue MinimumRetentionDaysField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -127,7 +127,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.EventLogEntryDuplicate[] Entries {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.EventLogEntryDuplicate[] Entries {
             get {
                 return this.EntriesField;
             }
@@ -166,7 +166,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue MaximumKilobytes {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitLongValue MaximumKilobytes {
             get {
                 return this.MaximumKilobytesField;
             }
@@ -179,7 +179,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue MinimumRetentionDays {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitIntValue MinimumRetentionDays {
             get {
                 return this.MinimumRetentionDaysField;
             }
@@ -218,22 +218,22 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         private string IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue MemorySizeField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitLongValue MemorySizeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue PagedMemorySize64Field;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitLongValue PagedMemorySize64Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue PeakMemorySizeField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitLongValue PeakMemorySizeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue PeakPagedMemorySize64Field;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitLongValue PeakPagedMemorySize64Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue PeakVirtualMemorySize64Field;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitLongValue PeakVirtualMemorySize64Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SessionIdField;
@@ -248,7 +248,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         private string UserNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue VirtualMemorySize64Field;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitLongValue VirtualMemorySize64Field;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -287,7 +287,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue MemorySize {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitLongValue MemorySize {
             get {
                 return this.MemorySizeField;
             }
@@ -313,7 +313,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue PagedMemorySize64 {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitLongValue PagedMemorySize64 {
             get {
                 return this.PagedMemorySize64Field;
             }
@@ -326,7 +326,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue PeakMemorySize {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitLongValue PeakMemorySize {
             get {
                 return this.PeakMemorySizeField;
             }
@@ -339,7 +339,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue PeakPagedMemorySize64 {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitLongValue PeakPagedMemorySize64 {
             get {
                 return this.PeakPagedMemorySize64Field;
             }
@@ -352,7 +352,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue PeakVirtualMemorySize64 {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitLongValue PeakVirtualMemorySize64 {
             get {
                 return this.PeakVirtualMemorySize64Field;
             }
@@ -417,7 +417,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue VirtualMemorySize64 {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitLongValue VirtualMemorySize64 {
             get {
                 return this.VirtualMemorySize64Field;
             }
@@ -599,10 +599,10 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UnitValue", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.M" +
+    [System.Runtime.Serialization.DataContractAttribute(Name="UnitLongValue", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.M" +
         "odel.CustomProperties")]
     [System.SerializableAttribute()]
-    public partial struct UnitValue : System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial struct UnitLongValue : System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -611,7 +611,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         private string UnitField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ValueField;
+        private System.Nullable<long> ValueField;
         
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -636,12 +636,73 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Value {
+        public System.Nullable<long> Value {
             get {
                 return this.ValueField;
             }
             set {
-                if ((object.ReferenceEquals(this.ValueField, value) != true)) {
+                if ((this.ValueField.Equals(value) != true)) {
+                    this.ValueField = value;
+                    this.RaisePropertyChanged("Value");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UnitIntValue", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.M" +
+        "odel.CustomProperties")]
+    [System.SerializableAttribute()]
+    public partial struct UnitIntValue : System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UnitField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> ValueField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Unit {
+            get {
+                return this.UnitField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UnitField, value) != true)) {
+                    this.UnitField = value;
+                    this.RaisePropertyChanged("Unit");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Value {
+            get {
+                return this.ValueField;
+            }
+            set {
+                if ((this.ValueField.Equals(value) != true)) {
                     this.ValueField = value;
                     this.RaisePropertyChanged("Value");
                 }
@@ -678,7 +739,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         private byte[] DataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.EventLogEntryTypeDuplicate EntryTypeField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.EventLogEntryTypeDuplicate EntryTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IndexField;
@@ -757,7 +818,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.EventLogEntryTypeDuplicate EntryType {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.EventLogEntryTypeDuplicate EntryType {
             get {
                 return this.EntryTypeField;
             }
@@ -931,25 +992,25 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Bios[] BiosField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.Bios[] BiosField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.CurrentUser[] CurrentUserField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.CurrentUser[] CurrentUserField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.InstalledProgram[] InstalledProgramField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.InstalledProgram[] InstalledProgramField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.LocalUser[] LocalUserField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.LocalUser[] LocalUserField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.MicrosoftWindowsUpdate[] MicrosoftWindowsUpdateField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.MicrosoftWindowsUpdate[] MicrosoftWindowsUpdateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.OS[] OperatingSystemField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.OS[] OperatingSystemField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.StartupCommand[] StartupCommandField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.StartupCommand[] StartupCommandField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -962,7 +1023,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Bios[] Bios {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.Bios[] Bios {
             get {
                 return this.BiosField;
             }
@@ -975,7 +1036,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.CurrentUser[] CurrentUser {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.CurrentUser[] CurrentUser {
             get {
                 return this.CurrentUserField;
             }
@@ -988,7 +1049,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.InstalledProgram[] InstalledProgram {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.InstalledProgram[] InstalledProgram {
             get {
                 return this.InstalledProgramField;
             }
@@ -1001,7 +1062,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.LocalUser[] LocalUser {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.LocalUser[] LocalUser {
             get {
                 return this.LocalUserField;
             }
@@ -1014,7 +1075,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.MicrosoftWindowsUpdate[] MicrosoftWindowsUpdate {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.MicrosoftWindowsUpdate[] MicrosoftWindowsUpdate {
             get {
                 return this.MicrosoftWindowsUpdateField;
             }
@@ -1027,7 +1088,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.OS[] OperatingSystem {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.OS[] OperatingSystem {
             get {
                 return this.OperatingSystemField;
             }
@@ -1040,7 +1101,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.StartupCommand[] StartupCommand {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.StartupCommand[] StartupCommand {
             get {
                 return this.StartupCommandField;
             }
@@ -1378,10 +1439,10 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         private string AuthenticationTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.ClaimDuplicate[] ClaimsField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.ClaimDuplicate[] ClaimsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.GroupDuplicate[] GroupsField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.GroupDuplicate[] GroupsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
@@ -1410,7 +1471,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.ClaimDuplicate[] Claims {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.ClaimDuplicate[] Claims {
             get {
                 return this.ClaimsField;
             }
@@ -1423,7 +1484,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.GroupDuplicate[] Groups {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.GroupDuplicate[] Groups {
             get {
                 return this.GroupsField;
             }
@@ -1977,13 +2038,13 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         private string CountryCodeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue CurrentTimeZoneField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitShortValue CurrentTimeZoneField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DescriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue EncryptionLevelField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitUIntValue EncryptionLevelField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime InstallDateField;
@@ -2001,7 +2062,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         private string MaxNumerOfProcessesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue MaxProcessMemorySizeField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitULongValue MaxProcessMemorySizeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
@@ -2125,7 +2186,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue CurrentTimeZone {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitShortValue CurrentTimeZone {
             get {
                 return this.CurrentTimeZoneField;
             }
@@ -2151,7 +2212,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue EncryptionLevel {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitUIntValue EncryptionLevel {
             get {
                 return this.EncryptionLevelField;
             }
@@ -2229,7 +2290,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue MaxProcessMemorySize {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitULongValue MaxProcessMemorySize {
             get {
                 return this.MaxProcessMemorySizeField;
             }
@@ -2726,6 +2787,189 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UnitShortValue", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.M" +
+        "odel.CustomProperties")]
+    [System.SerializableAttribute()]
+    public partial struct UnitShortValue : System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UnitField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<short> ValueField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Unit {
+            get {
+                return this.UnitField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UnitField, value) != true)) {
+                    this.UnitField = value;
+                    this.RaisePropertyChanged("Unit");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<short> Value {
+            get {
+                return this.ValueField;
+            }
+            set {
+                if ((this.ValueField.Equals(value) != true)) {
+                    this.ValueField = value;
+                    this.RaisePropertyChanged("Value");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UnitUIntValue", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.M" +
+        "odel.CustomProperties")]
+    [System.SerializableAttribute()]
+    public partial struct UnitUIntValue : System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UnitField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<uint> ValueField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Unit {
+            get {
+                return this.UnitField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UnitField, value) != true)) {
+                    this.UnitField = value;
+                    this.RaisePropertyChanged("Unit");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<uint> Value {
+            get {
+                return this.ValueField;
+            }
+            set {
+                if ((this.ValueField.Equals(value) != true)) {
+                    this.ValueField = value;
+                    this.RaisePropertyChanged("Value");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UnitULongValue", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.M" +
+        "odel.CustomProperties")]
+    [System.SerializableAttribute()]
+    public partial struct UnitULongValue : System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UnitField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<ulong> ValueField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Unit {
+            get {
+                return this.UnitField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UnitField, value) != true)) {
+                    this.UnitField = value;
+                    this.RaisePropertyChanged("Unit");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<ulong> Value {
+            get {
+                return this.ValueField;
+            }
+            set {
+                if ((this.ValueField.Equals(value) != true)) {
+                    this.ValueField = value;
+                    this.RaisePropertyChanged("Value");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="HardwareDynamicData", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic." +
         "Model")]
     [System.SerializableAttribute()]
@@ -2735,19 +2979,19 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.DiskDynamic[] DiskField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.DiskDynamic[] DiskField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.MainBoardDynamic[] MainBoardField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.MainBoardDynamic[] MainBoardField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.MemoryDynamic[] MemoryField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.MemoryDynamic[] MemoryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.ProcessorDynamic[] ProcessorField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.ProcessorDynamic[] ProcessorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.VideoControllerDynamic[] VideoControllerField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.VideoControllerDynamic[] VideoControllerField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -2760,7 +3004,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.DiskDynamic[] Disk {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.DiskDynamic[] Disk {
             get {
                 return this.DiskField;
             }
@@ -2773,7 +3017,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.MainBoardDynamic[] MainBoard {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.MainBoardDynamic[] MainBoard {
             get {
                 return this.MainBoardField;
             }
@@ -2786,7 +3030,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.MemoryDynamic[] Memory {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.MemoryDynamic[] Memory {
             get {
                 return this.MemoryField;
             }
@@ -2799,7 +3043,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.ProcessorDynamic[] Processor {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.ProcessorDynamic[] Processor {
             get {
                 return this.ProcessorField;
             }
@@ -2812,7 +3056,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.VideoControllerDynamic[] VideoController {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.VideoControllerDynamic[] VideoController {
             get {
                 return this.VideoControllerField;
             }
@@ -2839,7 +3083,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
     [System.Runtime.Serialization.DataContractAttribute(Name="DiskDynamic", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic." +
         "Model.Components")]
     [System.SerializableAttribute()]
-    public partial class DiskDynamic : SystemManagament.Client.WPF.WorkstationMonitorServiceReference.HardwareDynamicComponent {
+    public partial class DiskDynamic : SystemManagament.Client.WPF.WorkstationMonitorService.HardwareDynamicComponent {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2847,7 +3091,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
     [System.Runtime.Serialization.DataContractAttribute(Name="MainBoardDynamic", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic." +
         "Model.Components")]
     [System.SerializableAttribute()]
-    public partial class MainBoardDynamic : SystemManagament.Client.WPF.WorkstationMonitorServiceReference.HardwareDynamicComponent {
+    public partial class MainBoardDynamic : SystemManagament.Client.WPF.WorkstationMonitorService.HardwareDynamicComponent {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2855,7 +3099,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
     [System.Runtime.Serialization.DataContractAttribute(Name="MemoryDynamic", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic." +
         "Model.Components")]
     [System.SerializableAttribute()]
-    public partial class MemoryDynamic : SystemManagament.Client.WPF.WorkstationMonitorServiceReference.HardwareDynamicComponent {
+    public partial class MemoryDynamic : SystemManagament.Client.WPF.WorkstationMonitorService.HardwareDynamicComponent {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2863,7 +3107,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
     [System.Runtime.Serialization.DataContractAttribute(Name="ProcessorDynamic", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic." +
         "Model.Components")]
     [System.SerializableAttribute()]
-    public partial class ProcessorDynamic : SystemManagament.Client.WPF.WorkstationMonitorServiceReference.HardwareDynamicComponent {
+    public partial class ProcessorDynamic : SystemManagament.Client.WPF.WorkstationMonitorService.HardwareDynamicComponent {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2871,7 +3115,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
     [System.Runtime.Serialization.DataContractAttribute(Name="VideoControllerDynamic", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic." +
         "Model.Components")]
     [System.SerializableAttribute()]
-    public partial class VideoControllerDynamic : SystemManagament.Client.WPF.WorkstationMonitorServiceReference.HardwareDynamicComponent {
+    public partial class VideoControllerDynamic : SystemManagament.Client.WPF.WorkstationMonitorService.HardwareDynamicComponent {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2879,42 +3123,42 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
     [System.Runtime.Serialization.DataContractAttribute(Name="HardwareDynamicComponent", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareDynamic." +
         "Model.Components.Abstract")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.MainBoardDynamic))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.MemoryDynamic))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.ProcessorDynamic))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.VideoControllerDynamic))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.DiskDynamic))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorService.MainBoardDynamic))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorService.MemoryDynamic))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorService.ProcessorDynamic))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorService.VideoControllerDynamic))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorService.DiskDynamic))]
     public partial class HardwareDynamicComponent : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Sensor[] ClockField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.Sensor[] ClockField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Sensor[] ControlField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.Sensor[] ControlField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Sensor[] DataField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.Sensor[] DataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Sensor[] FanField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.Sensor[] FanField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Sensor[] LoadField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.Sensor[] LoadField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Sensor[] PowerField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.Sensor[] PowerField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Sensor[] TemperatureField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.Sensor[] TemperatureField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Sensor[] VoltageField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.Sensor[] VoltageField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -2927,7 +3171,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Sensor[] Clock {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.Sensor[] Clock {
             get {
                 return this.ClockField;
             }
@@ -2940,7 +3184,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Sensor[] Control {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.Sensor[] Control {
             get {
                 return this.ControlField;
             }
@@ -2953,7 +3197,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Sensor[] Data {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.Sensor[] Data {
             get {
                 return this.DataField;
             }
@@ -2966,7 +3210,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Sensor[] Fan {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.Sensor[] Fan {
             get {
                 return this.FanField;
             }
@@ -2979,7 +3223,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Sensor[] Load {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.Sensor[] Load {
             get {
                 return this.LoadField;
             }
@@ -3005,7 +3249,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Sensor[] Power {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.Sensor[] Power {
             get {
                 return this.PowerField;
             }
@@ -3018,7 +3262,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Sensor[] Temperature {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.Sensor[] Temperature {
             get {
                 return this.TemperatureField;
             }
@@ -3031,7 +3275,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Sensor[] Voltage {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.Sensor[] Voltage {
             get {
                 return this.VoltageField;
             }
@@ -3190,43 +3434,43 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.BaseBoard[] BaseBoardField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.BaseBoard[] BaseBoardField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Battery[] BatteryField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.Battery[] BatteryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.CDROMDrive[] CDROMDriveField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.CDROMDrive[] CDROMDriveField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Fan[] FanField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.Fan[] FanField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Memory[] MemoryField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.Memory[] MemoryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.NetworkAdapter[] NetworkAdapterField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.NetworkAdapter[] NetworkAdapterField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.PnPEntity[] PnPEntityField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.PnPEntity[] PnPEntityField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Printer[] PrinterField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.Printer[] PrinterField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.ProcessorStatic[] ProcessorField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.ProcessorStatic[] ProcessorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.ProcessorCache[] ProcessorCacheField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.ProcessorCache[] ProcessorCacheField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.SMARTData[] SMARTDataField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.SMARTData[] SMARTDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Storage[] StorageField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.Storage[] StorageField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.VideoController[] VideoControllerField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.VideoController[] VideoControllerField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -3239,7 +3483,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.BaseBoard[] BaseBoard {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.BaseBoard[] BaseBoard {
             get {
                 return this.BaseBoardField;
             }
@@ -3252,7 +3496,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Battery[] Battery {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.Battery[] Battery {
             get {
                 return this.BatteryField;
             }
@@ -3265,7 +3509,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.CDROMDrive[] CDROMDrive {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.CDROMDrive[] CDROMDrive {
             get {
                 return this.CDROMDriveField;
             }
@@ -3278,7 +3522,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Fan[] Fan {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.Fan[] Fan {
             get {
                 return this.FanField;
             }
@@ -3291,7 +3535,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Memory[] Memory {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.Memory[] Memory {
             get {
                 return this.MemoryField;
             }
@@ -3304,7 +3548,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.NetworkAdapter[] NetworkAdapter {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.NetworkAdapter[] NetworkAdapter {
             get {
                 return this.NetworkAdapterField;
             }
@@ -3317,7 +3561,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.PnPEntity[] PnPEntity {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.PnPEntity[] PnPEntity {
             get {
                 return this.PnPEntityField;
             }
@@ -3330,7 +3574,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Printer[] Printer {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.Printer[] Printer {
             get {
                 return this.PrinterField;
             }
@@ -3343,7 +3587,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.ProcessorStatic[] Processor {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.ProcessorStatic[] Processor {
             get {
                 return this.ProcessorField;
             }
@@ -3356,7 +3600,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.ProcessorCache[] ProcessorCache {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.ProcessorCache[] ProcessorCache {
             get {
                 return this.ProcessorCacheField;
             }
@@ -3369,7 +3613,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.SMARTData[] SMARTData {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.SMARTData[] SMARTData {
             get {
                 return this.SMARTDataField;
             }
@@ -3382,7 +3626,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Storage[] Storage {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.Storage[] Storage {
             get {
                 return this.StorageField;
             }
@@ -3395,7 +3639,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.VideoController[] VideoController {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.VideoController[] VideoController {
             get {
                 return this.VideoControllerField;
             }
@@ -3422,7 +3666,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
     [System.Runtime.Serialization.DataContractAttribute(Name="BaseBoard", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.M" +
         "odel.Components")]
     [System.SerializableAttribute()]
-    public partial class BaseBoard : SystemManagament.Client.WPF.WorkstationMonitorServiceReference.HardwareStaticComponent {
+    public partial class BaseBoard : SystemManagament.Client.WPF.WorkstationMonitorService.HardwareStaticComponent {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ManufacturerField;
@@ -3526,19 +3770,19 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
     [System.Runtime.Serialization.DataContractAttribute(Name="Battery", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.M" +
         "odel.Components")]
     [System.SerializableAttribute()]
-    public partial class Battery : SystemManagament.Client.WPF.WorkstationMonitorServiceReference.HardwareStaticComponent {
+    public partial class Battery : SystemManagament.Client.WPF.WorkstationMonitorService.HardwareStaticComponent {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string BatteryStatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue DesignCapacityField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitIntValue DesignCapacityField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DeviceIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue FullChargeCapacityField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitIntValue FullChargeCapacityField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string BatteryStatus {
@@ -3554,7 +3798,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue DesignCapacity {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitIntValue DesignCapacity {
             get {
                 return this.DesignCapacityField;
             }
@@ -3580,7 +3824,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue FullChargeCapacity {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitIntValue FullChargeCapacity {
             get {
                 return this.FullChargeCapacityField;
             }
@@ -3598,7 +3842,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
     [System.Runtime.Serialization.DataContractAttribute(Name="CDROMDrive", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.M" +
         "odel.Components")]
     [System.SerializableAttribute()]
-    public partial class CDROMDrive : SystemManagament.Client.WPF.WorkstationMonitorServiceReference.HardwareStaticComponent {
+    public partial class CDROMDrive : SystemManagament.Client.WPF.WorkstationMonitorService.HardwareStaticComponent {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DeviceIDField;
@@ -3654,7 +3898,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
     [System.Runtime.Serialization.DataContractAttribute(Name="Fan", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.M" +
         "odel.Components")]
     [System.SerializableAttribute()]
-    public partial class Fan : SystemManagament.Client.WPF.WorkstationMonitorServiceReference.HardwareStaticComponent {
+    public partial class Fan : SystemManagament.Client.WPF.WorkstationMonitorService.HardwareStaticComponent {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -3662,22 +3906,22 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
     [System.Runtime.Serialization.DataContractAttribute(Name="Memory", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.M" +
         "odel.Components")]
     [System.SerializableAttribute()]
-    public partial class Memory : SystemManagament.Client.WPF.WorkstationMonitorServiceReference.HardwareStaticComponent {
+    public partial class Memory : SystemManagament.Client.WPF.WorkstationMonitorService.HardwareStaticComponent {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string BankLabelField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue CapacityField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitULongValue CapacityField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue ConfiguredClockSpeedField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitUIntValue ConfiguredClockSpeedField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue ConfiguredVoltageField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitUIntValue ConfiguredVoltageField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue DataWidthField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitUShortValue DataWidthField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DeviceLocatorField;
@@ -3686,13 +3930,13 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         private string ManufacturerField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue MaxVoltageField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitUIntValue MaxVoltageField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string MemoryTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue MinVoltageField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitUIntValue MinVoltageField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PartNumberField;
@@ -3701,7 +3945,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         private string SerialNumberField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue TotalWidthField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitUShortValue TotalWidthField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string BankLabel {
@@ -3717,7 +3961,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue Capacity {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitULongValue Capacity {
             get {
                 return this.CapacityField;
             }
@@ -3730,7 +3974,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue ConfiguredClockSpeed {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitUIntValue ConfiguredClockSpeed {
             get {
                 return this.ConfiguredClockSpeedField;
             }
@@ -3743,7 +3987,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue ConfiguredVoltage {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitUIntValue ConfiguredVoltage {
             get {
                 return this.ConfiguredVoltageField;
             }
@@ -3756,7 +4000,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue DataWidth {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitUShortValue DataWidth {
             get {
                 return this.DataWidthField;
             }
@@ -3795,7 +4039,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue MaxVoltage {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitUIntValue MaxVoltage {
             get {
                 return this.MaxVoltageField;
             }
@@ -3821,7 +4065,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue MinVoltage {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitUIntValue MinVoltage {
             get {
                 return this.MinVoltageField;
             }
@@ -3860,7 +4104,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue TotalWidth {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitUShortValue TotalWidth {
             get {
                 return this.TotalWidthField;
             }
@@ -3878,10 +4122,10 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
     [System.Runtime.Serialization.DataContractAttribute(Name="NetworkAdapter", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.M" +
         "odel.Components")]
     [System.SerializableAttribute()]
-    public partial class NetworkAdapter : SystemManagament.Client.WPF.WorkstationMonitorServiceReference.HardwareStaticComponent {
+    public partial class NetworkAdapter : SystemManagament.Client.WPF.WorkstationMonitorService.HardwareStaticComponent {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue ActiveMaximumTransmissionUnitField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitULongValue ActiveMaximumTransmissionUnitField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ComponentIDField;
@@ -3929,7 +4173,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         private string VirtualField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue ActiveMaximumTransmissionUnit {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitULongValue ActiveMaximumTransmissionUnit {
             get {
                 return this.ActiveMaximumTransmissionUnitField;
             }
@@ -4142,7 +4386,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
     [System.Runtime.Serialization.DataContractAttribute(Name="PnPEntity", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.M" +
         "odel.Components")]
     [System.SerializableAttribute()]
-    public partial class PnPEntity : SystemManagament.Client.WPF.WorkstationMonitorServiceReference.HardwareStaticComponent {
+    public partial class PnPEntity : SystemManagament.Client.WPF.WorkstationMonitorService.HardwareStaticComponent {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DeviceIDField;
@@ -4182,7 +4426,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
     [System.Runtime.Serialization.DataContractAttribute(Name="Printer", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.M" +
         "odel.Components")]
     [System.SerializableAttribute()]
-    public partial class Printer : SystemManagament.Client.WPF.WorkstationMonitorServiceReference.HardwareStaticComponent {
+    public partial class Printer : SystemManagament.Client.WPF.WorkstationMonitorService.HardwareStaticComponent {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string AveragePagesPerMinuteField;
@@ -4270,25 +4514,25 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
     [System.Runtime.Serialization.DataContractAttribute(Name="ProcessorStatic", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.M" +
         "odel.Components")]
     [System.SerializableAttribute()]
-    public partial class ProcessorStatic : SystemManagament.Client.WPF.WorkstationMonitorServiceReference.HardwareStaticComponent {
+    public partial class ProcessorStatic : SystemManagament.Client.WPF.WorkstationMonitorService.HardwareStaticComponent {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue AddressWidthField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitUShortValue AddressWidthField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ArchitectureField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue BusSpeedField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitUIntValue BusSpeedField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue DataWidthField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitUShortValue DataWidthField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ManufacturerField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue MaxClockSpeedField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitUIntValue MaxClockSpeedField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NumberOfCoresField;
@@ -4315,7 +4559,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         private string UniqueIdField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue AddressWidth {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitUShortValue AddressWidth {
             get {
                 return this.AddressWidthField;
             }
@@ -4341,7 +4585,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue BusSpeed {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitUIntValue BusSpeed {
             get {
                 return this.BusSpeedField;
             }
@@ -4354,7 +4598,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue DataWidth {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitUShortValue DataWidth {
             get {
                 return this.DataWidthField;
             }
@@ -4380,7 +4624,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue MaxClockSpeed {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitUIntValue MaxClockSpeed {
             get {
                 return this.MaxClockSpeedField;
             }
@@ -4502,16 +4746,16 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
     [System.Runtime.Serialization.DataContractAttribute(Name="ProcessorCache", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.M" +
         "odel.Components")]
     [System.SerializableAttribute()]
-    public partial class ProcessorCache : SystemManagament.Client.WPF.WorkstationMonitorServiceReference.HardwareStaticComponent {
+    public partial class ProcessorCache : SystemManagament.Client.WPF.WorkstationMonitorService.HardwareStaticComponent {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LevelField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue SizeField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitUIntValue SizeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue SpeedField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitUIntValue SpeedField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Level {
@@ -4527,7 +4771,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue Size {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitUIntValue Size {
             get {
                 return this.SizeField;
             }
@@ -4540,7 +4784,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue Speed {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitUIntValue Speed {
             get {
                 return this.SpeedField;
             }
@@ -4564,7 +4808,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.Dictionary<int, SystemManagament.Client.WPF.WorkstationMonitorServiceReference.SmartDataAttribute> AttributesField;
+        private System.Collections.Generic.Dictionary<int, SystemManagament.Client.WPF.WorkstationMonitorService.SmartDataAttribute> AttributesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string InstanceNameField;
@@ -4583,7 +4827,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.Dictionary<int, SystemManagament.Client.WPF.WorkstationMonitorServiceReference.SmartDataAttribute> Attributes {
+        public System.Collections.Generic.Dictionary<int, SystemManagament.Client.WPF.WorkstationMonitorService.SmartDataAttribute> Attributes {
             get {
                 return this.AttributesField;
             }
@@ -4642,13 +4886,13 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Disk DiskField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.Disk DiskField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.LogicalPartition[] PartitionField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.LogicalPartition[] PartitionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.SMARTData SMARTDataField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.SMARTData SMARTDataField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -4661,7 +4905,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Disk Disk {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.Disk Disk {
             get {
                 return this.DiskField;
             }
@@ -4674,7 +4918,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.LogicalPartition[] Partition {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.LogicalPartition[] Partition {
             get {
                 return this.PartitionField;
             }
@@ -4687,7 +4931,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.SMARTData SMARTData {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.SMARTData SMARTData {
             get {
                 return this.SMARTDataField;
             }
@@ -4714,7 +4958,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
     [System.Runtime.Serialization.DataContractAttribute(Name="VideoController", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.M" +
         "odel.Components")]
     [System.SerializableAttribute()]
-    public partial class VideoController : SystemManagament.Client.WPF.WorkstationMonitorServiceReference.HardwareStaticComponent {
+    public partial class VideoController : SystemManagament.Client.WPF.WorkstationMonitorService.HardwareStaticComponent {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string AdapterCompatibilityField;
@@ -4723,22 +4967,22 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         private string AdapterDACTypeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue AdapterRAMField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitUIntValue AdapterRAMField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue CurrentBitsPerPixelField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitUIntValue CurrentBitsPerPixelField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue CurrentHorizontalResolutionField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitUIntValue CurrentHorizontalResolutionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CurrentNumberOfColorsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue CurrentRefreshRateField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitUIntValue CurrentRefreshRateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue CurrentVerticalResolutionField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitUIntValue CurrentVerticalResolutionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DeviceIDField;
@@ -4779,7 +5023,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue AdapterRAM {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitUIntValue AdapterRAM {
             get {
                 return this.AdapterRAMField;
             }
@@ -4792,7 +5036,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue CurrentBitsPerPixel {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitUIntValue CurrentBitsPerPixel {
             get {
                 return this.CurrentBitsPerPixelField;
             }
@@ -4805,7 +5049,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue CurrentHorizontalResolution {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitUIntValue CurrentHorizontalResolution {
             get {
                 return this.CurrentHorizontalResolutionField;
             }
@@ -4831,7 +5075,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue CurrentRefreshRate {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitUIntValue CurrentRefreshRate {
             get {
                 return this.CurrentRefreshRateField;
             }
@@ -4844,7 +5088,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue CurrentVerticalResolution {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitUIntValue CurrentVerticalResolution {
             get {
                 return this.CurrentVerticalResolutionField;
             }
@@ -4914,18 +5158,18 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
     [System.Runtime.Serialization.DataContractAttribute(Name="HardwareStaticComponent", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.M" +
         "odel.Components.Abstract")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Battery))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.CDROMDrive))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Fan))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Memory))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.NetworkAdapter))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.PnPEntity))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Printer))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.ProcessorStatic))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.ProcessorCache))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Disk))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.VideoController))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.BaseBoard))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorService.Battery))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorService.CDROMDrive))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorService.Fan))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorService.Memory))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorService.NetworkAdapter))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorService.PnPEntity))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorService.Printer))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorService.ProcessorStatic))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorService.ProcessorCache))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorService.Disk))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorService.VideoController))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorService.BaseBoard))]
     public partial class HardwareStaticComponent : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -5020,10 +5264,10 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
     [System.Runtime.Serialization.DataContractAttribute(Name="Disk", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.M" +
         "odel.Components")]
     [System.SerializableAttribute()]
-    public partial class Disk : SystemManagament.Client.WPF.WorkstationMonitorServiceReference.HardwareStaticComponent {
+    public partial class Disk : SystemManagament.Client.WPF.WorkstationMonitorService.HardwareStaticComponent {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue AllocatedSizeField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitULongValue AllocatedSizeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string BootFromDiskField;
@@ -5056,13 +5300,13 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         private string IsSystemField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue LargestFreeExtentField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitULongValue LargestFreeExtentField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LocationField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue LogicalSectorSizeField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitUIntValue LogicalSectorSizeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ManufacturerField;
@@ -5089,7 +5333,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         private string PathField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue PhysicalSectorSizeField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitUIntValue PhysicalSectorSizeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SerialNumberField;
@@ -5098,13 +5342,13 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         private string SignatureField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue SizeField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitULongValue SizeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string UniqueIdField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue AllocatedSize {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitULongValue AllocatedSize {
             get {
                 return this.AllocatedSizeField;
             }
@@ -5247,7 +5491,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue LargestFreeExtent {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitULongValue LargestFreeExtent {
             get {
                 return this.LargestFreeExtentField;
             }
@@ -5273,7 +5517,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue LogicalSectorSize {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitUIntValue LogicalSectorSize {
             get {
                 return this.LogicalSectorSizeField;
             }
@@ -5390,7 +5634,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue PhysicalSectorSize {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitUIntValue PhysicalSectorSize {
             get {
                 return this.PhysicalSectorSizeField;
             }
@@ -5429,7 +5673,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue Size {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitULongValue Size {
             get {
                 return this.SizeField;
             }
@@ -5451,6 +5695,67 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
                     this.UniqueIdField = value;
                     this.RaisePropertyChanged("UniqueId");
                 }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UnitUShortValue", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.M" +
+        "odel.CustomProperties")]
+    [System.SerializableAttribute()]
+    public partial struct UnitUShortValue : System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UnitField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<ushort> ValueField;
+        
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Unit {
+            get {
+                return this.UnitField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UnitField, value) != true)) {
+                    this.UnitField = value;
+                    this.RaisePropertyChanged("Unit");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<ushort> Value {
+            get {
+                return this.ValueField;
+            }
+            set {
+                if ((this.ValueField.Equals(value) != true)) {
+                    this.ValueField = value;
+                    this.RaisePropertyChanged("Value");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
     }
@@ -5481,7 +5786,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         private string RawIdealField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.SmartDataAttributeStatusEnum StatusField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.SmartDataAttributeStatusEnum StatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ThresholdField;
@@ -5565,7 +5870,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.SmartDataAttributeStatusEnum Status {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.SmartDataAttributeStatusEnum Status {
             get {
                 return this.StatusField;
             }
@@ -5636,7 +5941,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
     [System.Runtime.Serialization.DataContractAttribute(Name="LogicalPartition", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.M" +
         "odel.Components.Analyzed")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorServiceReference.Partition))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(SystemManagament.Client.WPF.WorkstationMonitorService.Partition))]
     public partial class LogicalPartition : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -5682,16 +5987,16 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         private string ObjectIdAsPartitionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue OffsetField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitULongValue OffsetField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PartitionNumberField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.LogicalPartition[] PartitionsField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.LogicalPartition[] PartitionsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue SizeAsPartitionField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitULongValue SizeAsPartitionField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -5873,7 +6178,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue Offset {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitULongValue Offset {
             get {
                 return this.OffsetField;
             }
@@ -5899,7 +6204,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.LogicalPartition[] Partitions {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.LogicalPartition[] Partitions {
             get {
                 return this.PartitionsField;
             }
@@ -5912,7 +6217,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue SizeAsPartition {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitULongValue SizeAsPartition {
             get {
                 return this.SizeAsPartitionField;
             }
@@ -5939,7 +6244,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
     [System.Runtime.Serialization.DataContractAttribute(Name="Partition", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.M" +
         "odel.Components.Analyzed")]
     [System.SerializableAttribute()]
-    public partial class Partition : SystemManagament.Client.WPF.WorkstationMonitorServiceReference.LogicalPartition {
+    public partial class Partition : SystemManagament.Client.WPF.WorkstationMonitorService.LogicalPartition {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DedupModeField;
@@ -5963,10 +6268,10 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         private string PathField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue SizeAsVolumeField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitULongValue SizeAsVolumeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue SizeRemainingField;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitULongValue SizeRemainingField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string UniqueIdField;
@@ -6063,7 +6368,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue SizeAsVolume {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitULongValue SizeAsVolume {
             get {
                 return this.SizeAsVolumeField;
             }
@@ -6076,7 +6381,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.UnitValue SizeRemaining {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitULongValue SizeRemaining {
             get {
                 return this.SizeRemainingField;
             }
@@ -6164,113 +6469,113 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WorkstationMonitorServiceReference.IWorkstationMonitorService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WorkstationMonitorService.IWorkstationMonitorService")]
     public interface IWorkstationMonitorService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadSoftwareDynamicData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadSoftwareDynamicDataResponse")]
-        SystemManagament.Client.WPF.WorkstationMonitorServiceReference.SoftwareDynamicData ReadSoftwareDynamicData();
+        SystemManagament.Client.WPF.WorkstationMonitorService.SoftwareDynamicData ReadSoftwareDynamicData();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadSoftwareDynamicData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadSoftwareDynamicDataResponse")]
-        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.SoftwareDynamicData> ReadSoftwareDynamicDataAsync();
+        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.SoftwareDynamicData> ReadSoftwareDynamicDataAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadSoftwareStaticData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadSoftwareStaticDataResponse")]
-        SystemManagament.Client.WPF.WorkstationMonitorServiceReference.SoftwareStaticData ReadSoftwareStaticData();
+        SystemManagament.Client.WPF.WorkstationMonitorService.SoftwareStaticData ReadSoftwareStaticData();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadSoftwareStaticData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadSoftwareStaticDataResponse")]
-        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.SoftwareStaticData> ReadSoftwareStaticDataAsync();
+        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.SoftwareStaticData> ReadSoftwareStaticDataAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadHardwareDynamicData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadHardwareDynamicDataResponse")]
-        SystemManagament.Client.WPF.WorkstationMonitorServiceReference.HardwareDynamicData ReadHardwareDynamicData();
+        SystemManagament.Client.WPF.WorkstationMonitorService.HardwareDynamicData ReadHardwareDynamicData();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadHardwareDynamicData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadHardwareDynamicDataResponse")]
-        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.HardwareDynamicData> ReadHardwareDynamicDataAsync();
+        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.HardwareDynamicData> ReadHardwareDynamicDataAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadHardwareStaticData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadHardwareStaticDataResponse")]
-        SystemManagament.Client.WPF.WorkstationMonitorServiceReference.HardwareStaticData ReadHardwareStaticData();
+        SystemManagament.Client.WPF.WorkstationMonitorService.HardwareStaticData ReadHardwareStaticData();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadHardwareStaticData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadHardwareStaticDataResponse")]
-        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.HardwareStaticData> ReadHardwareStaticDataAsync();
+        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.HardwareStaticData> ReadHardwareStaticDataAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadProcessorDynamicData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadProcessorDynamicDataResponse")]
-        SystemManagament.Client.WPF.WorkstationMonitorServiceReference.ProcessorDynamic[] ReadProcessorDynamicData();
+        SystemManagament.Client.WPF.WorkstationMonitorService.ProcessorDynamic[] ReadProcessorDynamicData();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadProcessorDynamicData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadProcessorDynamicDataResponse")]
-        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.ProcessorDynamic[]> ReadProcessorDynamicDataAsync();
+        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.ProcessorDynamic[]> ReadProcessorDynamicDataAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadMemoryDynamicData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadMemoryDynamicDataResponse")]
-        SystemManagament.Client.WPF.WorkstationMonitorServiceReference.MemoryDynamic[] ReadMemoryDynamicData();
+        SystemManagament.Client.WPF.WorkstationMonitorService.MemoryDynamic[] ReadMemoryDynamicData();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadMemoryDynamicData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadMemoryDynamicDataResponse")]
-        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.MemoryDynamic[]> ReadMemoryDynamicDataAsync();
+        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.MemoryDynamic[]> ReadMemoryDynamicDataAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadDiskDynamicData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadDiskDynamicDataResponse")]
-        SystemManagament.Client.WPF.WorkstationMonitorServiceReference.DiskDynamic[] ReadDiskDynamicData();
+        SystemManagament.Client.WPF.WorkstationMonitorService.DiskDynamic[] ReadDiskDynamicData();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadDiskDynamicData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadDiskDynamicDataResponse")]
-        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.DiskDynamic[]> ReadDiskDynamicDataAsync();
+        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.DiskDynamic[]> ReadDiskDynamicDataAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadMainBoardDynamicData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadMainBoardDynamicDataResponse")]
-        SystemManagament.Client.WPF.WorkstationMonitorServiceReference.MainBoardDynamic[] ReadMainBoardDynamicData();
+        SystemManagament.Client.WPF.WorkstationMonitorService.MainBoardDynamic[] ReadMainBoardDynamicData();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadMainBoardDynamicData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadMainBoardDynamicDataResponse")]
-        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.MainBoardDynamic[]> ReadMainBoardDynamicDataAsync();
+        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.MainBoardDynamic[]> ReadMainBoardDynamicDataAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadVideoControllerDynamicData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadVideoControllerDynamicDataRespo" +
             "nse")]
-        SystemManagament.Client.WPF.WorkstationMonitorServiceReference.VideoControllerDynamic[] ReadVideoControllerDynamicData();
+        SystemManagament.Client.WPF.WorkstationMonitorService.VideoControllerDynamic[] ReadVideoControllerDynamicData();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadVideoControllerDynamicData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadVideoControllerDynamicDataRespo" +
             "nse")]
-        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.VideoControllerDynamic[]> ReadVideoControllerDynamicDataAsync();
+        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.VideoControllerDynamic[]> ReadVideoControllerDynamicDataAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadWindowsServiceDynamicData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadWindowsServiceDynamicDataRespon" +
             "se")]
-        SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsService[] ReadWindowsServiceDynamicData();
+        SystemManagament.Client.WPF.WorkstationMonitorService.WindowsService[] ReadWindowsServiceDynamicData();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadWindowsServiceDynamicData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadWindowsServiceDynamicDataRespon" +
             "se")]
-        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsService[]> ReadWindowsServiceDynamicDataAsync();
+        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.WindowsService[]> ReadWindowsServiceDynamicDataAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadWindowsLogDynamicData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadWindowsLogDynamicDataResponse")]
-        SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsLog[] ReadWindowsLogDynamicData();
+        SystemManagament.Client.WPF.WorkstationMonitorService.WindowsLog[] ReadWindowsLogDynamicData();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadWindowsLogDynamicData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadWindowsLogDynamicDataResponse")]
-        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsLog[]> ReadWindowsLogDynamicDataAsync();
+        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.WindowsLog[]> ReadWindowsLogDynamicDataAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadWindowsProcessDynamicData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadWindowsProcessDynamicDataRespon" +
             "se")]
-        SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsProcess[] ReadWindowsProcessDynamicData();
+        SystemManagament.Client.WPF.WorkstationMonitorService.WindowsProcess[] ReadWindowsProcessDynamicData();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ReadWindowsProcessDynamicData", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ReadWindowsProcessDynamicDataRespon" +
             "se")]
-        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsProcess[]> ReadWindowsProcessDynamicDataAsync();
+        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.WindowsProcess[]> ReadWindowsProcessDynamicDataAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/TurnMachineOff", ReplyAction="http://tempuri.org/IWorkstationMonitorService/TurnMachineOffResponse")]
-        SystemManagament.Client.WPF.WorkstationMonitorServiceReference.OperationStatus TurnMachineOff();
+        SystemManagament.Client.WPF.WorkstationMonitorService.OperationStatus TurnMachineOff();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/TurnMachineOff", ReplyAction="http://tempuri.org/IWorkstationMonitorService/TurnMachineOffResponse")]
-        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.OperationStatus> TurnMachineOffAsync();
+        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.OperationStatus> TurnMachineOffAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/RestartMachine", ReplyAction="http://tempuri.org/IWorkstationMonitorService/RestartMachineResponse")]
-        SystemManagament.Client.WPF.WorkstationMonitorServiceReference.OperationStatus RestartMachine();
+        SystemManagament.Client.WPF.WorkstationMonitorService.OperationStatus RestartMachine();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/RestartMachine", ReplyAction="http://tempuri.org/IWorkstationMonitorService/RestartMachineResponse")]
-        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.OperationStatus> RestartMachineAsync();
+        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.OperationStatus> RestartMachineAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ForceLogOutUser", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ForceLogOutUserResponse")]
-        SystemManagament.Client.WPF.WorkstationMonitorServiceReference.OperationStatus ForceLogOutUser();
+        SystemManagament.Client.WPF.WorkstationMonitorService.OperationStatus ForceLogOutUser();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ForceLogOutUser", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ForceLogOutUserResponse")]
-        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.OperationStatus> ForceLogOutUserAsync();
+        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.OperationStatus> ForceLogOutUserAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IWorkstationMonitorServiceChannel : SystemManagament.Client.WPF.WorkstationMonitorServiceReference.IWorkstationMonitorService, System.ServiceModel.IClientChannel {
+    public interface IWorkstationMonitorServiceChannel : SystemManagament.Client.WPF.WorkstationMonitorService.IWorkstationMonitorService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class WorkstationMonitorServiceClient : System.ServiceModel.ClientBase<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.IWorkstationMonitorService>, SystemManagament.Client.WPF.WorkstationMonitorServiceReference.IWorkstationMonitorService {
+    public partial class WorkstationMonitorServiceClient : System.ServiceModel.ClientBase<SystemManagament.Client.WPF.WorkstationMonitorService.IWorkstationMonitorService>, SystemManagament.Client.WPF.WorkstationMonitorService.IWorkstationMonitorService {
         
         public WorkstationMonitorServiceClient() {
         }
@@ -6291,123 +6596,123 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.SoftwareDynamicData ReadSoftwareDynamicData() {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.SoftwareDynamicData ReadSoftwareDynamicData() {
             return base.Channel.ReadSoftwareDynamicData();
         }
         
-        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.SoftwareDynamicData> ReadSoftwareDynamicDataAsync() {
+        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.SoftwareDynamicData> ReadSoftwareDynamicDataAsync() {
             return base.Channel.ReadSoftwareDynamicDataAsync();
         }
         
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.SoftwareStaticData ReadSoftwareStaticData() {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.SoftwareStaticData ReadSoftwareStaticData() {
             return base.Channel.ReadSoftwareStaticData();
         }
         
-        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.SoftwareStaticData> ReadSoftwareStaticDataAsync() {
+        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.SoftwareStaticData> ReadSoftwareStaticDataAsync() {
             return base.Channel.ReadSoftwareStaticDataAsync();
         }
         
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.HardwareDynamicData ReadHardwareDynamicData() {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.HardwareDynamicData ReadHardwareDynamicData() {
             return base.Channel.ReadHardwareDynamicData();
         }
         
-        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.HardwareDynamicData> ReadHardwareDynamicDataAsync() {
+        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.HardwareDynamicData> ReadHardwareDynamicDataAsync() {
             return base.Channel.ReadHardwareDynamicDataAsync();
         }
         
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.HardwareStaticData ReadHardwareStaticData() {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.HardwareStaticData ReadHardwareStaticData() {
             return base.Channel.ReadHardwareStaticData();
         }
         
-        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.HardwareStaticData> ReadHardwareStaticDataAsync() {
+        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.HardwareStaticData> ReadHardwareStaticDataAsync() {
             return base.Channel.ReadHardwareStaticDataAsync();
         }
         
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.ProcessorDynamic[] ReadProcessorDynamicData() {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.ProcessorDynamic[] ReadProcessorDynamicData() {
             return base.Channel.ReadProcessorDynamicData();
         }
         
-        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.ProcessorDynamic[]> ReadProcessorDynamicDataAsync() {
+        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.ProcessorDynamic[]> ReadProcessorDynamicDataAsync() {
             return base.Channel.ReadProcessorDynamicDataAsync();
         }
         
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.MemoryDynamic[] ReadMemoryDynamicData() {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.MemoryDynamic[] ReadMemoryDynamicData() {
             return base.Channel.ReadMemoryDynamicData();
         }
         
-        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.MemoryDynamic[]> ReadMemoryDynamicDataAsync() {
+        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.MemoryDynamic[]> ReadMemoryDynamicDataAsync() {
             return base.Channel.ReadMemoryDynamicDataAsync();
         }
         
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.DiskDynamic[] ReadDiskDynamicData() {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.DiskDynamic[] ReadDiskDynamicData() {
             return base.Channel.ReadDiskDynamicData();
         }
         
-        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.DiskDynamic[]> ReadDiskDynamicDataAsync() {
+        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.DiskDynamic[]> ReadDiskDynamicDataAsync() {
             return base.Channel.ReadDiskDynamicDataAsync();
         }
         
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.MainBoardDynamic[] ReadMainBoardDynamicData() {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.MainBoardDynamic[] ReadMainBoardDynamicData() {
             return base.Channel.ReadMainBoardDynamicData();
         }
         
-        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.MainBoardDynamic[]> ReadMainBoardDynamicDataAsync() {
+        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.MainBoardDynamic[]> ReadMainBoardDynamicDataAsync() {
             return base.Channel.ReadMainBoardDynamicDataAsync();
         }
         
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.VideoControllerDynamic[] ReadVideoControllerDynamicData() {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.VideoControllerDynamic[] ReadVideoControllerDynamicData() {
             return base.Channel.ReadVideoControllerDynamicData();
         }
         
-        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.VideoControllerDynamic[]> ReadVideoControllerDynamicDataAsync() {
+        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.VideoControllerDynamic[]> ReadVideoControllerDynamicDataAsync() {
             return base.Channel.ReadVideoControllerDynamicDataAsync();
         }
         
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsService[] ReadWindowsServiceDynamicData() {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.WindowsService[] ReadWindowsServiceDynamicData() {
             return base.Channel.ReadWindowsServiceDynamicData();
         }
         
-        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsService[]> ReadWindowsServiceDynamicDataAsync() {
+        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.WindowsService[]> ReadWindowsServiceDynamicDataAsync() {
             return base.Channel.ReadWindowsServiceDynamicDataAsync();
         }
         
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsLog[] ReadWindowsLogDynamicData() {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.WindowsLog[] ReadWindowsLogDynamicData() {
             return base.Channel.ReadWindowsLogDynamicData();
         }
         
-        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsLog[]> ReadWindowsLogDynamicDataAsync() {
+        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.WindowsLog[]> ReadWindowsLogDynamicDataAsync() {
             return base.Channel.ReadWindowsLogDynamicDataAsync();
         }
         
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsProcess[] ReadWindowsProcessDynamicData() {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.WindowsProcess[] ReadWindowsProcessDynamicData() {
             return base.Channel.ReadWindowsProcessDynamicData();
         }
         
-        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.WindowsProcess[]> ReadWindowsProcessDynamicDataAsync() {
+        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.WindowsProcess[]> ReadWindowsProcessDynamicDataAsync() {
             return base.Channel.ReadWindowsProcessDynamicDataAsync();
         }
         
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.OperationStatus TurnMachineOff() {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.OperationStatus TurnMachineOff() {
             return base.Channel.TurnMachineOff();
         }
         
-        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.OperationStatus> TurnMachineOffAsync() {
+        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.OperationStatus> TurnMachineOffAsync() {
             return base.Channel.TurnMachineOffAsync();
         }
         
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.OperationStatus RestartMachine() {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.OperationStatus RestartMachine() {
             return base.Channel.RestartMachine();
         }
         
-        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.OperationStatus> RestartMachineAsync() {
+        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.OperationStatus> RestartMachineAsync() {
             return base.Channel.RestartMachineAsync();
         }
         
-        public SystemManagament.Client.WPF.WorkstationMonitorServiceReference.OperationStatus ForceLogOutUser() {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.OperationStatus ForceLogOutUser() {
             return base.Channel.ForceLogOutUser();
         }
         
-        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorServiceReference.OperationStatus> ForceLogOutUserAsync() {
+        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.OperationStatus> ForceLogOutUserAsync() {
             return base.Channel.ForceLogOutUserAsync();
         }
     }

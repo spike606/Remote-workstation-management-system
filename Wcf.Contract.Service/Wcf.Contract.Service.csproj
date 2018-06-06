@@ -91,7 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SystemManagamentLib\SystemManagamentLib.csproj">
-      <Project>{1D379DE8-C14E-4FE2-ABDD-F0BA86015C15}</Project>
+      <Project>{1d379de8-c14e-4fe2-abdd-f0ba86015c15}</Project>
       <Name>SystemManagamentLib</Name>
     </ProjectReference>
   </ItemGroup>

@@ -13,7 +13,7 @@ using Microsoft.VisualStudio.Language.Intellisense;
 using SystemManagament.Client.WPF.Comparer;
 using SystemManagament.Client.WPF.Extensions;
 using SystemManagament.Client.WPF.ViewModel.Helpers;
-using SystemManagament.Client.WPF.WorkstationMonitorServiceReference;
+using SystemManagament.Client.WPF.WorkstationMonitorService;
 
 namespace SystemManagament.Client.WPF.ViewModel.Wcf
 {

@@ -35,13 +35,13 @@ namespace SystemManagament.Monitor.SoftwareStatic.Model.Components
         public string CSName { get; set; }
 
         [DataMember]
-        public UnitValue CurrentTimeZone { get; set; }
+        public UnitShortValue CurrentTimeZone { get; set; }
 
         [DataMember]
         public string Description { get; set; }
 
         [DataMember]
-        public UnitValue EncryptionLevel { get; set; }
+        public UnitUIntValue EncryptionLevel { get; set; }
 
         [DataMember]
         public DateTime InstallDate { get; set; }
@@ -59,7 +59,7 @@ namespace SystemManagament.Monitor.SoftwareStatic.Model.Components
         public string MaxNumerOfProcesses { get; set; }
 
         [DataMember]
-        public UnitValue MaxProcessMemorySize { get; set; }
+        public UnitULongValue MaxProcessMemorySize { get; set; }
 
         [DataMember]
         public string Name { get; set; }
@@ -104,15 +104,15 @@ namespace SystemManagament.Monitor.SoftwareStatic.Model.Components
             operatingSystem.CountryCode = managementObject[ConstString.OS_COUNTRY_CODE].TryGetStringValue();
             operatingSystem.CDSVersion = managementObject[ConstString.OS_CSD_VERSION].TryGetStringValue();
             operatingSystem.CSName = managementObject[ConstString.COMPONENT_NAME].TryGetStringValue();
-            operatingSystem.CurrentTimeZone = managementObject[ConstString.OS_CURRENT_TIME_ZONE].TryGetUnitValue(Unit.Minutes);
+            operatingSystem.CurrentTimeZone = managementObject[ConstString.OS_CURRENT_TIME_ZONE].TryGetUnitShortValue(Unit.Minutes);
             operatingSystem.Description = managementObject[ConstString.COMPONENT_DESCRIPTION].TryGetStringValue();
-            operatingSystem.EncryptionLevel = managementObject[ConstString.OS_ENCRYPTION_LEVEL].TryGetUnitValue(Unit.BIT);
+            operatingSystem.EncryptionLevel = managementObject[ConstString.OS_ENCRYPTION_LEVEL].TryGetUnitUIntValue(Unit.BIT);
             operatingSystem.InstallDate = managementObject[ConstString.OS_INSTALL_DATE] != null ? ManagementDateTimeConverter.ToDateTime(managementObject[ConstString.OS_INSTALL_DATE].ToString()) : default(DateTime);
             operatingSystem.LastBootUpTime = managementObject[ConstString.OS_LAST_BOOT_UP_TIME] != null ? ManagementDateTimeConverter.ToDateTime(managementObject[ConstString.OS_LAST_BOOT_UP_TIME].ToString()) : default(DateTime);
             operatingSystem.LocalDateTime = managementObject[ConstString.OS_LOCALE_DATE_TIME] != null ? ManagementDateTimeConverter.ToDateTime(managementObject[ConstString.OS_LOCALE_DATE_TIME].ToString()) : default(DateTime);
             operatingSystem.Locale = managementObject[ConstString.OS_LOCALE].TryGetStringValue();
             operatingSystem.MaxNumerOfProcesses = managementObject[ConstString.OS_MAX_NUMBER_OF_PROCESSES].TryGetStringValue();
-            operatingSystem.MaxProcessMemorySize = managementObject[ConstString.OS_MAX_PROCESS_MEMORY_SIZE].TryGetUnitValue(Unit.KB);
+            operatingSystem.MaxProcessMemorySize = managementObject[ConstString.OS_MAX_PROCESS_MEMORY_SIZE].TryGetUnitULongValue(Unit.KB);
             operatingSystem.Name = managementObject[ConstString.COMPONENT_NAME].TryGetStringValue();
             operatingSystem.Organization = managementObject[ConstString.OS_ORGANIZATION].TryGetStringValue();
             operatingSystem.OSArchitecture = managementObject[ConstString.OS_ARCHITECTURE].TryGetStringValue();
