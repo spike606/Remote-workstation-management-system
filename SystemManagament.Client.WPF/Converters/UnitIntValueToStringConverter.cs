@@ -12,8 +12,6 @@ namespace SystemManagament.Client.WPF.Converters
 {
     public sealed class UnitIntValueToStringConverter : IValueConverter
     {
-        private string valueFormat = "0.0000";
-
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var unitValueObject = (UnitIntValue)value;

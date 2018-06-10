@@ -124,7 +124,7 @@ namespace SystemManagament.Client.WPF.ViewModel.Helpers
 
             if (dynamiDataLabel == null)
             {
-                this.InvokeInUIThread((Action)(() => chartViewModel.DynamicData.Add(new DynamicDataLabel()
+                this.BeginInvokeInUIThread((Action)(() => chartViewModel.DynamicData.Add(new DynamicDataLabel()
                 {
                     Name = sensor.SensorName,
                     Value = sensor.Value,
@@ -133,7 +133,7 @@ namespace SystemManagament.Client.WPF.ViewModel.Helpers
             }
             else
             {
-                this.InvokeInUIThread((Action)(() => dynamiDataLabel.Value = sensor.Value));
+                this.BeginInvokeInUIThread((Action)(() => dynamiDataLabel.Value = sensor.Value));
             }
         }
 
@@ -145,7 +145,7 @@ namespace SystemManagament.Client.WPF.ViewModel.Helpers
 
             if (dynamiDataLabel == null)
             {
-                this.InvokeInUIThread((Action)(() => chartViewModel.DynamicData.Add(new DynamicDataLabel()
+                this.BeginInvokeInUIThread((Action)(() => chartViewModel.DynamicData.Add(new DynamicDataLabel()
                 {
                     Name = sensor.SensorName,
                     Value = sensor.Value,
@@ -154,13 +154,18 @@ namespace SystemManagament.Client.WPF.ViewModel.Helpers
             }
             else
             {
-                this.InvokeInUIThread((Action)(() => dynamiDataLabel.Value = sensor.Value));
+                this.BeginInvokeInUIThread((Action)(() => dynamiDataLabel.Value = sensor.Value));
             }
         }
 
         private void InvokeInUIThread(Action action)
         {
             App.Current.Dispatcher.Invoke(DispatcherPriority.DataBind, action);
+        }
+
+        private void BeginInvokeInUIThread(Action action)
+        {
+            App.Current.Dispatcher.BeginInvoke(DispatcherPriority.DataBind, action);
         }
 
         private void AddNewLineSeriesIfNotExists(Sensor sensor, DynamicLineChartViewModel chartViewModel)

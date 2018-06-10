@@ -24,6 +24,9 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.RadioButton.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Expander.xaml" />
 
+                <!-- Include the Dragablz Material Design style -->
+                <ResourceDictionary Source="pack://application:,,,/Dragablz;component/Themes/materialdesign.xaml"/>
+                
                 <!-- primary color -->
                 <ResourceDictionary>
                     <!-- include your primary palette -->
@@ -82,11 +85,16 @@
                         <Setter Property="HorizontalScrollBarVisibility" Value="Disabled" />
                         <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
                         <Setter Property="ScrollViewer.CanContentScroll" Value="True" />
-                        <Setter Property="MaxHeight" Value="500" />
+                        <Setter Property="MaxHeight" Value="400" />
+                        <Setter Property="MaxWidth" Value="1300" />
+                        <Setter Property="MaxColumnWidth" Value="1300" />
                         <Setter Property="HorizontalGridLinesBrush" Value="White" />
                         <Setter Property="VerticalGridLinesBrush" Value="White" />
                         <Setter Property="GridLinesVisibility" Value="All" />
                         <Setter Property="HorizontalAlignment" Value="Stretch" />
+                        <Setter Property="BorderThickness" Value="1" />
+                        <Setter Property="EnableColumnVirtualization" Value="True" />
+                        <Setter Property="EnableRowVirtualization" Value="True" />
                     </Style>
                     <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
                         <Setter Property="FontWeight"  Value="Bold" />
@@ -96,7 +104,7 @@
                         <Setter Property="SeparatorVisibility" Value="Visible" />
                         <Setter Property="SeparatorBrush" Value="White" />
                         <Setter Property="BorderBrush" Value="White" />
-                        <Setter Property="BorderThickness" Value="1" />
+                        <Setter Property="BorderThickness" Value="2" />
                         <!-- Add when bug in material design will be resolved -->
                         <!--<Setter Property="ContentTemplate">
                             <Setter.Value>
@@ -112,8 +120,7 @@
                     </Style>
                 </ResourceDictionary>
 
-                <!-- Include the Dragablz Material Design style -->
-                <ResourceDictionary Source="pack://application:,,,/Dragablz;component/Themes/materialdesign.xaml"/>
+                
 
                 <ResourceDictionary>
                     <!--<Style TargetType="{x:Type dragablz:TabablzControl}" BasedOn="{StaticResource MaterialDesignTabablzControlStyle}">
@@ -167,6 +174,7 @@
                 
                 
             </ResourceDictionary.MergedDictionaries>
+
         </ResourceDictionary>
         
     </Application.Resources>

@@ -49,13 +49,15 @@
             <!--<StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
             <Button Command="{Binding NewTab}" Margin="0,0,12,0">New Tab</Button>
         </StackPanel>-->
-        <dragablz:TabablzControl DockPanel.Dock="Bottom" ItemsSource="{Binding ViewModelTabs}">
+        <dragablz:TabablzControl DockPanel.Dock="Bottom" ItemsSource="{Binding ViewModelTabs}" VirtualizingPanel.VirtualizationMode="Standard"
+                                 VirtualizingPanel.IsVirtualizing="True" FixedHeaderCount="100" ShowDefaultCloseButton="True">
                 <dragablz:TabablzControl.InterTabController>
                     <dragablz:InterTabController />
                 </dragablz:TabablzControl.InterTabController>
                 <dragablz:TabablzControl.ContentTemplate>
-                    <DataTemplate DataType="{x:Type viewModel:WorkStationViewModel}" >
-                    <views:WorkStationTabView DataContext="{Binding}"></views:WorkStationTabView>
+                    <DataTemplate DataType="{x:Type viewModel:WorkStationViewModel}">
+                    <views:WorkStationTabView DataContext="{Binding}" VirtualizingPanel.VirtualizationMode="Standard"
+                                 VirtualizingPanel.IsVirtualizing="True"></views:WorkStationTabView>
                     </DataTemplate>
                 </dragablz:TabablzControl.ContentTemplate>
             </dragablz:TabablzControl>

@@ -20,11 +20,11 @@
         <converters:UnitUShortValueToStringConverter x:Key="UnitUShortValueToStringConverter"/>
         <converters:UnitIntValueToStringConverter x:Key="UnitIntValueToStringConverter"/>
         <converters:UnitUIntValueToStringConverter x:Key="UnitUIntValueToStringConverter"/>
-
     </UserControl.Resources>
 
     <Grid>
-        <dragablz:TabablzControl TabStripPlacement="Left">
+        <dragablz:TabablzControl TabStripPlacement="Left" VirtualizingPanel.VirtualizationMode="Standard"
+                                 VirtualizingPanel.IsVirtualizing="True" FixedHeaderCount="50">
             <dragablz:TabablzControl.ItemContainerStyle>
                 <Style TargetType="{x:Type dragablz:DragablzItem}" BasedOn="{StaticResource MaterialDesignDragableTabItemVerticalStyle}">
                     <Setter Property="Width" Value="130" />
@@ -87,7 +87,10 @@
                         </Grid>
                     </Grid>
                 </TabItem>
-            <TabItem Header="Software Static">
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="User Info" Foreground="Black" />
+                </TabItem.Header>
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"></RowDefinition>
@@ -113,323 +116,534 @@
                         <Button Content="Cancel" Command="{Binding LoadSoftwareStaticDataCommand.CancelCommand}" 
                         HorizontalAlignment="Stretch" BorderThickness="2" Foreground="OrangeRed"/>
                     </Grid>
-                    <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10">
-                        <StackPanel Margin="20,0,20,0">
-                            <Label FontFamily = "Verdana" Content="Basic Machine Info" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
-                            <StackPanel Orientation="Vertical">
-                                <Expander HorizontalAlignment="Stretch" IsExpanded="False" Foreground="White" Background="DimGray" BorderThickness="2">
-                                    <Expander.Header>
-                                        <TextBlock Text="Current User Info" FontWeight="Bold" FontSize="18"/>
-                                    </Expander.Header>
-                                    <Expander.Content>
-                                        <StackPanel Margin="10,4,0,0">
-                                            <Label FontFamily = "Verdana" Content="Basic User Info" FontSize="16" FontWeight="Bold"/>
-                                            <Grid Background="SlateGray">
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition Height="*"></RowDefinition>
-                                                    <RowDefinition Height="*"></RowDefinition>
-                                                </Grid.RowDefinitions>
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                                </Grid.ColumnDefinitions>
-                                                <Label Content="Name:" Grid.Row="0" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
-                                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding CurrentUser[0].Name}" Grid.Row="0" Grid.Column="1"/>
-                                                <Label Content="Authentication Type:" Grid.Row="1" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
-                                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding CurrentUser[0].AuthenticationType}" Grid.Row="1" Grid.Column="1"/>
-                                            </Grid>
-                                            <Label FontFamily = "Verdana" Content="User Claims" FontSize="16" FontWeight="Bold"/>
-                                            <DataGrid ItemsSource="{Binding CurrentUserClaims}">
-                                                <DataGrid.Columns>
-                                                    <DataGridTextColumn Header="Type" Binding="{Binding Type}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="OriginalIssuer" Binding="{Binding OriginalIssuer}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="Issuer" Binding="{Binding Issuer}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="ValueType" Binding="{Binding ValueType}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="Value" Binding="{Binding Value}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                </DataGrid.Columns>
-                                            </DataGrid>
-
-                                            <Label FontFamily = "Verdana" Content="User Groups" FontSize="16" FontWeight="Bold"/>
-                                            <DataGrid ItemsSource="{Binding CurrentUserGroups}">
-                                                <DataGrid.Columns>
-                                                    <DataGridTextColumn Header="Value" Binding="{Binding Value}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                </DataGrid.Columns>
-                                            </DataGrid>
-
-
-
-                                            <!--TODO: For now don't use this way of displaying nested data, use later
-
-                                        <DataGrid ItemsSource="{Binding CurrentUser}" AutoGenerateColumns="False" Height="Auto" Width="Auto">
-                                            <DataGrid.RowDetailsTemplate>
-                                                <DataTemplate>
-                                                    <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Claims}">
-                                                        <Label FontFamily = "Verdana" Content="Claims info" FontSize="8"/>
-                                                        <DataGrid.Columns>
-                                                            <DataGridTextColumn Header="Value" Width="Auto" FontSize="16" Binding="{Binding Path=Value}" />
-                                                        </DataGrid.Columns>
-                                                    </DataGrid>
-                                                </DataTemplate>
-                                            </DataGrid.RowDetailsTemplate>
-
-                                            <DataGrid.Columns>
-                                                <DataGridTextColumn Header="Name" Width="Auto" FontSize="16"  Binding="{Binding Path=Name}" />
-                                                <DataGridTextColumn Header="AuthenticationType" Width="Auto" FontSize="16" Binding="{Binding Path=AuthenticationType}" />
-                                            </DataGrid.Columns>
-                                        </DataGrid>-->
-                                        </StackPanel>
-
-                                    </Expander.Content>
-                                </Expander>
-                                <Expander HorizontalAlignment="Stretch" IsExpanded="False" Foreground="White" Background="SlateGray" BorderThickness="2">
-                                    <Expander.Header>
-                                        <TextBlock Text="Operating System" FontWeight="Bold" FontSize="18"/>
-                                    </Expander.Header>
-                                    <Expander.Content>
-                                        <StackPanel Margin="10,4,0,0">
-                                            <Label FontFamily = "Verdana" Content="Basic OS Info" FontSize="16" FontWeight="Bold"/>
-                                            <Grid Background="DimGray">
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition Height="*"></RowDefinition>
-                                                    <RowDefinition Height="*"></RowDefinition>
-                                                    <RowDefinition Height="*"></RowDefinition>
-                                                    <RowDefinition Height="*"></RowDefinition>
-                                                    <RowDefinition Height="*"></RowDefinition>
-                                                </Grid.RowDefinitions>
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                                </Grid.ColumnDefinitions>
-                                                <Label Content="Caption:" Grid.Row="0" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
-                                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].Caption}" Grid.Row="0" Grid.Column="1"/>
-                                                <Label Content="Organization:" Grid.Row="1" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
-                                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].Organization}" Grid.Row="1" Grid.Column="1"/>
-                                                <Label Content="OS Architecture:" Grid.Row="2" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
-                                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].OSArchitecture}" Grid.Row="2" Grid.Column="1"/>
-                                                <Label Content="Version:" Grid.Row="3" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
-                                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].Version}" Grid.Row="3" Grid.Column="1"/>
-                                                <Label Content="Build Number:" Grid.Row="4" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
-                                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].BuildNumber}" Grid.Row="4" Grid.Column="1"/>
-                                                <Label Content="Build Type:" Grid.Row="0" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
-                                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].BuildType}" Grid.Row="0" Grid.Column="4"/>
-                                                <Label Content="Serial Number:" Grid.Row="1" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
-                                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].SerialNumber}" Grid.Row="1" Grid.Column="4"/>
-                                                <Label Content="Service Pack Major Version:" Grid.Row="2" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
-                                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].ServicePackMajorVersion}" Grid.Row="2" Grid.Column="4"/>
-                                                <Label Content="Service Pack Minor Version:" Grid.Row="3" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
-                                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].ServicePackMinorVersion}" Grid.Row="3" Grid.Column="4"/>
-                                            </Grid>
-
-                                            <Label FontFamily = "Verdana" Content="Additional OS Info" FontSize="16" FontWeight="Bold"/>
-                                            <Grid Background="DimGray">
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition Height="*"></RowDefinition>
-                                                    <RowDefinition Height="*"></RowDefinition>
-                                                    <RowDefinition Height="*"></RowDefinition>
-                                                    <RowDefinition Height="*"></RowDefinition>
-                                                    <RowDefinition Height="*"></RowDefinition>
-                                                    <RowDefinition Height="*"></RowDefinition>
-                                                </Grid.RowDefinitions>
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                                </Grid.ColumnDefinitions>
-                                                <Label Content="Current Time Zone:" Grid.Row="0" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
-                                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].CurrentTimeZone, Converter={StaticResource UnitShortValueToStringConverter}}" Grid.Row="0" Grid.Column="1"/>
-                                                <Label Content="Local DateTime:" Grid.Row="1" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
-                                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].LocalDateTime}" Grid.Row="1" Grid.Column="1"/>
-                                                <Label Content="Locale:" Grid.Row="2" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
-                                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].Locale}" Grid.Row="2" Grid.Column="1"/>
-                                                <Label Content="Country Code:" Grid.Row="3" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
-                                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].CountryCode}" Grid.Row="3" Grid.Column="1"/>
-                                                <Label Content="Install Date:" Grid.Row="4" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
-                                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].InstallDate}" Grid.Row="4" Grid.Column="1"/>
-                                                <Label Content="Last Boot Up Time:" Grid.Row="5" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
-                                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].LastBootUpTime}" Grid.Row="5" Grid.Column="1"/>
-                                                <Label Content="System Directory:" Grid.Row="0" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
-                                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].SystemDirectory}" Grid.Row="0" Grid.Column="4"/>
-                                                <Label Content="System Drive:" Grid.Row="1" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
-                                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].SystemDrive}" Grid.Row="1" Grid.Column="4"/>
-                                                <Label Content="Windows Directory:" Grid.Row="2" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
-                                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].WindowsDirectory}" Grid.Row="2" Grid.Column="4"/>
-                                                <Label Content="Max Numer Of Processes:" Grid.Row="3" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
-                                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].MaxNumerOfProcesses}" Grid.Row="3" Grid.Column="4"/>
-                                                <Label Content="Max Process Memory Size:" Grid.Row="4" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
-                                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].MaxProcessMemorySize, Converter={StaticResource UnitULongValueToStringConverter}}" Grid.Row="4" Grid.Column="4"/>
-                                            </Grid>
-                                        </StackPanel>
-                                    </Expander.Content>
-                                </Expander>
-                                <Expander HorizontalAlignment="Stretch" IsExpanded="False" Foreground="White" Background="DimGray" BorderThickness="2">
-                                    <Expander.Header>
-                                        <TextBlock Text="BIOS" FontWeight="Bold" FontSize="18"/>
-                                    </Expander.Header>
-                                    <Expander.Content>
-                                        <StackPanel Margin="10,4,0,0">
-                                            <Label FontFamily = "Verdana" Content="Basic BIOS Info" FontSize="14" FontWeight="Bold"/>
-                                            <Grid Background="SlateGray">
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition Height="*"></RowDefinition>
-                                                    <RowDefinition Height="*"></RowDefinition>
-                                                    <RowDefinition Height="*"></RowDefinition>
-                                                </Grid.RowDefinitions>
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                                </Grid.ColumnDefinitions>
-                                                <Label Content="Caption:" Grid.Row="0" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
-                                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].Caption}" Grid.Row="0" Grid.Column="1"/>
-                                                <Label Content="Manufacturer:" Grid.Row="1" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
-                                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].Manufacturer}" Grid.Row="1" Grid.Column="1"/>
-                                                <Label Content="BuildNumber:" Grid.Row="2" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
-                                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].BuildNumber}" Grid.Row="2" Grid.Column="1"/>
-                                                <Label Content="Release Date:" Grid.Row="0" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
-                                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].ReleaseDate}" Grid.Row="0" Grid.Column="3"/>
-                                                <Label Content="Serial Number:" Grid.Row="1" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
-                                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].SerialNumber}" Grid.Row="1" Grid.Column="3"/>
-                                              </Grid>
-                                            <Label FontFamily = "Verdana" Content="Additional BIOS Info" FontSize="14" FontWeight="Bold"/>
-                                            <Grid Background="SlateGray">
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition Height="*"></RowDefinition>
-                                                    <RowDefinition Height="*"></RowDefinition>
-                                                    <RowDefinition Height="*"></RowDefinition>
-                                                    <RowDefinition Height="*"></RowDefinition>
-                                                </Grid.RowDefinitions>
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                                </Grid.ColumnDefinitions>
-                                                <Label Content="Embedded Controller Major Version:" Grid.Row="0" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
-                                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].EmbeddedControllerMajorVersion}" Grid.Row="0" Grid.Column="1"/>
-                                                <Label Content="Embedded Controller Minor Version:" Grid.Row="1" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
-                                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].EmbeddedControllerMinorVersion}" Grid.Row="1" Grid.Column="1"/>
-                                                <Label Content="SMBIOS BIOS Version:" Grid.Row="2" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
-                                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].SMBIOSBIOSVersion}" Grid.Row="2" Grid.Column="1"/>
-                                                <Label Content="SMBIOS Major Version:" Grid.Row="3" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
-                                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].SMBIOSMajorVersion}" Grid.Row="3" Grid.Column="1"/>
-                                                <Label Content="SMBIOS Minor Version:" Grid.Row="0" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
-                                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].SMBIOSMinorVersion}" Grid.Row="0" Grid.Column="3"/>
-                                                <Label Content="SMBIOS Present:" Grid.Row="1" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
-                                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].SMBIOSPresent}" Grid.Row="1" Grid.Column="3"/>
-                                                <Label Content="System Bios Major Version:" Grid.Row="2" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
-                                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].SystemBiosMajorVersion}" Grid.Row="2" Grid.Column="3"/>
-                                                <Label Content="System Bios Minor Version:" Grid.Row="3" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
-                                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].SystemBiosMinorVersion}" Grid.Row="3" Grid.Column="3"/>
-                                            </Grid>
-                                        </StackPanel>
-                                    </Expander.Content>
-                                </Expander>
-                            </StackPanel>
-                            <Label FontFamily = "Verdana" Content="Additional Machine Info" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
-                            <StackPanel Orientation="Vertical">
-                                <Expander HorizontalAlignment="Stretch" IsExpanded="False" Foreground="White" Background="DimGray" BorderThickness="2">
-                                    <Expander.Header>
-                                        <TextBlock Text="Installed programs" FontWeight="Bold" FontSize="18"/>
-                                    </Expander.Header>
-                                    <Expander.Content>
-                                        <StackPanel Margin="10,4,0,0">
-                                            <DataGrid ItemsSource="{Binding InstalledProgram}">
-                                                <DataGrid.Columns>
-                                                    <DataGridTextColumn Header="Name" Binding="{Binding Name}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="Version" Binding="{Binding Version}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="Install Date" Binding="{Binding InstallDate}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="Install Location" Binding="{Binding InstallLocation}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                </DataGrid.Columns>
-                                            </DataGrid>
-                                        </StackPanel>
-                                    </Expander.Content>
-                                </Expander>
-                                <Expander HorizontalAlignment="Stretch" IsExpanded="False" Foreground="White" Background="SlateGray" BorderThickness="2">
-                                    <Expander.Header>
-                                        <TextBlock Text="Microsoft Updates" FontWeight="Bold" FontSize="18"/>
-                                    </Expander.Header>
-                                    <Expander.Content>
-                                        <StackPanel Margin="10,4,0,0">
-                                            <DataGrid ItemsSource="{Binding MicrosoftWindowsUpdate}">
-                                                <DataGrid.Columns>
-                                                    <DataGridTextColumn Header="Name" Binding="{Binding Name}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="Description" Binding="{Binding Description}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="CS Name" Binding="{Binding CSName}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="Install Date" Binding="{Binding InstallDate}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="Installed By" Binding="{Binding InstalledBy}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="Installed On" Binding="{Binding InstalledOn}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="Service Pack&#x0a;In Effect" Binding="{Binding ServicePackInEffect}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="Status" Binding="{Binding Status}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="HotFix ID" Binding="{Binding HotFixID}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="Fix Comments" Binding="{Binding FixComments}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                                </DataGrid.Columns>
-                                            </DataGrid>
-                                        </StackPanel>
-                                    </Expander.Content>
-                                </Expander>
-                                <Expander HorizontalAlignment="Stretch" IsExpanded="False" Foreground="White" Background="DimGray" BorderThickness="2">
-                                    <Expander.Header>
-                                        <TextBlock Text="Startup Commands" FontWeight="Bold" FontSize="18"/>
-                                    </Expander.Header>
-                                    <Expander.Content>
-                                        <StackPanel Margin="10,4,0,0">
-                                            <DataGrid ItemsSource="{Binding StartupCommand}">
-                                                <DataGrid.Columns>
-                                                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="Command" Binding="{Binding Command}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="Location" Binding="{Binding Location}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="Setting ID" Binding="{Binding SettingID}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="User" Binding="{Binding User}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="User SID" Binding="{Binding UserSID}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                </DataGrid.Columns>
-                                            </DataGrid>
-                                        </StackPanel>
-                                    </Expander.Content>
-
-                                </Expander>
-                                <Expander HorizontalAlignment="Stretch" IsExpanded="False" Foreground="White" Background="SlateGray" BorderThickness="2">
-                                    <Expander.Header>
-                                        <TextBlock Text="Local Users" FontWeight="Bold" FontSize="18"/>
-                                    </Expander.Header>
-                                    <Expander.Content>
-                                        <StackPanel Margin="10,4,0,0">
-                                            <DataGrid ItemsSource="{Binding LocalUser}">
-                                                <DataGrid.ContextMenu>
-                                                    <ContextMenu>
-                                                        <MenuItem Command="Copy" />
-                                                    </ContextMenu>
-                                                </DataGrid.ContextMenu>
-                                                <DataGrid.Columns>
-                                                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="0.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="Domain" Binding="{Binding Domain}"  Width="0.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="Full Name" Binding="{Binding FullName}"  Width="0.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="SID" Binding="{Binding SID}"  Width="0.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="SID Type" Binding="{Binding SIDType}"  Width="0.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="Caption" Binding="{Binding Caption}"  Width="0.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="Description" Binding="{Binding Descritption}"  Width="0.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="Password&#x0a;Changeable" Binding="{Binding PasswordChangeable}"  Width="0.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="Password&#x0a;Expires" Binding="{Binding PasswordExpires}"  Width="0.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="Password&#x0a;Required" Binding="{Binding PasswordRequired}"  Width="0.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                </DataGrid.Columns>
-                                            </DataGrid>
-                                        </StackPanel>
-                                    </Expander.Content>
-                                </Expander>
-                            </StackPanel>
+                    <StackPanel Margin="20,0,20,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" Orientation="Vertical">
+                        <Label FontFamily = "Verdana" Content="Current User Info" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <StackPanel Margin="10,0,0,0">
+                            <Label FontFamily = "Verdana" Content="Basic User Info" FontSize="16" FontWeight="Bold"/>
+                            <Grid Background="SlateGray">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="Name:" Grid.Row="0" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding CurrentUser[0].Name}" Grid.Row="0" Grid.Column="1"/>
+                                <Label Content="Authentication Type:" Grid.Row="1" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding CurrentUser[0].AuthenticationType}" Grid.Row="1" Grid.Column="1"/>
+                            </Grid>
+                            <Label FontFamily = "Verdana" Content="User Claims" FontSize="16" FontWeight="Bold"/>
+                            <DataGrid ItemsSource="{Binding CurrentUserClaims, IsAsync=True}">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Type" Binding="{Binding Type}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="OriginalIssuer" Binding="{Binding OriginalIssuer}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="Issuer" Binding="{Binding Issuer}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="ValueType" Binding="{Binding ValueType}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="Value" Binding="{Binding Value}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
                         </StackPanel>
-                    </ScrollViewer>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="User Groups" Foreground="Black" />
+                </TabItem.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
+                        <Button Content="Refresh software static data" Command="{Binding LoadSoftwareStaticDataCommand}" 
+                            HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange"/>
+                    </Grid>
+                    <Grid Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="3">
+                        <Button Content="Cancel" Command="{Binding LoadSoftwareStaticDataCommand.CancelCommand}" 
+                        HorizontalAlignment="Stretch" BorderThickness="2" Foreground="OrangeRed"/>
+                    </Grid>
+                    <StackPanel Margin="20,0,20,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" Orientation="Vertical">
+                        <Label FontFamily = "Verdana" Content="Current User Info" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <StackPanel Margin="10,0,0,0">
+                            <Label FontFamily = "Verdana" Content="User Groups" FontSize="16" FontWeight="Bold"/>
+                            <DataGrid ItemsSource="{Binding CurrentUserGroups, IsAsync=True}">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Value" Binding="{Binding Value}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="OS Info" Foreground="Black" />
+                </TabItem.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
+                        <Button Content="Refresh software static data" Command="{Binding LoadSoftwareStaticDataCommand}" 
+                            HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange"/>
+                    </Grid>
+                    <Grid Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="3">
+                        <Button Content="Cancel" Command="{Binding LoadSoftwareStaticDataCommand.CancelCommand}" 
+                        HorizontalAlignment="Stretch" BorderThickness="2" Foreground="OrangeRed"/>
+                    </Grid>
+                    <StackPanel Margin="20,0,20,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" Orientation="Vertical">
+                        <Label FontFamily = "Verdana" Content="Operating System Info" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <StackPanel Margin="10,0,0,0">
+                            <Label FontFamily = "Verdana" Content="Basic OS Info" FontSize="16" FontWeight="Bold"/>
+                            <Grid Background="DimGray">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="Caption:" Grid.Row="0" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].Caption}" Grid.Row="0" Grid.Column="1"/>
+                                <Label Content="Organization:" Grid.Row="1" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].Organization}" Grid.Row="1" Grid.Column="1"/>
+                                <Label Content="OS Architecture:" Grid.Row="2" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].OSArchitecture}" Grid.Row="2" Grid.Column="1"/>
+                                <Label Content="Version:" Grid.Row="3" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].Version}" Grid.Row="3" Grid.Column="1"/>
+                                <Label Content="Build Number:" Grid.Row="4" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].BuildNumber}" Grid.Row="4" Grid.Column="1"/>
+                                <Label Content="Build Type:" Grid.Row="0" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].BuildType}" Grid.Row="0" Grid.Column="4"/>
+                                <Label Content="Serial Number:" Grid.Row="1" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].SerialNumber}" Grid.Row="1" Grid.Column="4"/>
+                                <Label Content="Service Pack Major Version:" Grid.Row="2" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].ServicePackMajorVersion}" Grid.Row="2" Grid.Column="4"/>
+                                <Label Content="Service Pack Minor Version:" Grid.Row="3" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].ServicePackMinorVersion}" Grid.Row="3" Grid.Column="4"/>
+                            </Grid>
+
+                            <Label FontFamily = "Verdana" Content="Additional OS Info" FontSize="16" FontWeight="Bold"/>
+                            <Grid Background="DimGray">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="Current Time Zone:" Grid.Row="0" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].CurrentTimeZone, Converter={StaticResource UnitShortValueToStringConverter}}" Grid.Row="0" Grid.Column="1"/>
+                                <Label Content="Local DateTime:" Grid.Row="1" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].LocalDateTime}" Grid.Row="1" Grid.Column="1"/>
+                                <Label Content="Locale:" Grid.Row="2" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].Locale}" Grid.Row="2" Grid.Column="1"/>
+                                <Label Content="Country Code:" Grid.Row="3" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].CountryCode}" Grid.Row="3" Grid.Column="1"/>
+                                <Label Content="Install Date:" Grid.Row="4" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].InstallDate}" Grid.Row="4" Grid.Column="1"/>
+                                <Label Content="Last Boot Up Time:" Grid.Row="5" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].LastBootUpTime}" Grid.Row="5" Grid.Column="1"/>
+                                <Label Content="System Directory:" Grid.Row="0" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].SystemDirectory}" Grid.Row="0" Grid.Column="4"/>
+                                <Label Content="System Drive:" Grid.Row="1" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].SystemDrive}" Grid.Row="1" Grid.Column="4"/>
+                                <Label Content="Windows Directory:" Grid.Row="2" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].WindowsDirectory}" Grid.Row="2" Grid.Column="4"/>
+                                <Label Content="Max Numer Of Processes:" Grid.Row="3" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].MaxNumerOfProcesses}" Grid.Row="3" Grid.Column="4"/>
+                                <Label Content="Max Process Memory Size:" Grid.Row="4" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].MaxProcessMemorySize, Converter={StaticResource UnitULongValueToStringConverter}}" Grid.Row="4" Grid.Column="4"/>
+                            </Grid>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="BIOS" Foreground="Black" />
+                </TabItem.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
+                        <Button Content="Refresh software static data" Command="{Binding LoadSoftwareStaticDataCommand}" 
+                            HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange"/>
+                    </Grid>
+                    <Grid Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="3">
+                        <Button Content="Cancel" Command="{Binding LoadSoftwareStaticDataCommand.CancelCommand}" 
+                        HorizontalAlignment="Stretch" BorderThickness="2" Foreground="OrangeRed"/>
+                    </Grid>
+                    <StackPanel Margin="20,0,20,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" Orientation="Vertical">
+                        <Label FontFamily = "Verdana" Content="BIOS Info" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <StackPanel Margin="10,0,0,0">
+                            <Label FontFamily = "Verdana" Content="Basic BIOS Info" FontSize="14" FontWeight="Bold"/>
+                            <Grid Background="SlateGray">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="Caption:" Grid.Row="0" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].Caption}" Grid.Row="0" Grid.Column="1"/>
+                                <Label Content="Manufacturer:" Grid.Row="1" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].Manufacturer}" Grid.Row="1" Grid.Column="1"/>
+                                <Label Content="BuildNumber:" Grid.Row="2" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].BuildNumber}" Grid.Row="2" Grid.Column="1"/>
+                                <Label Content="Release Date:" Grid.Row="0" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].ReleaseDate}" Grid.Row="0" Grid.Column="3"/>
+                                <Label Content="Serial Number:" Grid.Row="1" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].SerialNumber}" Grid.Row="1" Grid.Column="3"/>
+                            </Grid>
+                            <Label FontFamily = "Verdana" Content="Additional BIOS Info" FontSize="14" FontWeight="Bold"/>
+                            <Grid Background="SlateGray">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label Content="Embedded Controller Major Version:" Grid.Row="0" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].EmbeddedControllerMajorVersion}" Grid.Row="0" Grid.Column="1"/>
+                                <Label Content="Embedded Controller Minor Version:" Grid.Row="1" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].EmbeddedControllerMinorVersion}" Grid.Row="1" Grid.Column="1"/>
+                                <Label Content="SMBIOS BIOS Version:" Grid.Row="2" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].SMBIOSBIOSVersion}" Grid.Row="2" Grid.Column="1"/>
+                                <Label Content="SMBIOS Major Version:" Grid.Row="3" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].SMBIOSMajorVersion}" Grid.Row="3" Grid.Column="1"/>
+                                <Label Content="SMBIOS Minor Version:" Grid.Row="0" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].SMBIOSMinorVersion}" Grid.Row="0" Grid.Column="3"/>
+                                <Label Content="SMBIOS Present:" Grid.Row="1" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].SMBIOSPresent}" Grid.Row="1" Grid.Column="3"/>
+                                <Label Content="System Bios Major Version:" Grid.Row="2" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].SystemBiosMajorVersion}" Grid.Row="2" Grid.Column="3"/>
+                                <Label Content="System Bios Minor Version:" Grid.Row="3" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
+                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].SystemBiosMinorVersion}" Grid.Row="3" Grid.Column="3"/>
+                            </Grid>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="Installed programs" Foreground="Black" />
+                </TabItem.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
+                        <Button Content="Refresh software static data" Command="{Binding LoadSoftwareStaticDataCommand}" 
+                            HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange"/>
+                    </Grid>
+                    <Grid Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="3">
+                        <Button Content="Cancel" Command="{Binding LoadSoftwareStaticDataCommand.CancelCommand}" 
+                        HorizontalAlignment="Stretch" BorderThickness="2" Foreground="OrangeRed"/>
+                    </Grid>
+                    <StackPanel Margin="20,0,20,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" Orientation="Vertical">
+                        <Label FontFamily = "Verdana" Content="Installed programs" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <StackPanel Margin="10,0,0,0">
+                            <DataGrid ItemsSource="{Binding InstalledProgram, IsAsync=True}">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Name" Binding="{Binding Name}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="Version" Binding="{Binding Version}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="Install Date" Binding="{Binding InstallDate}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="Install Location" Binding="{Binding InstallLocation}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="Startup" Foreground="Black" />
+                </TabItem.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
+                        <Button Content="Refresh software static data" Command="{Binding LoadSoftwareStaticDataCommand}" 
+                            HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange"/>
+                    </Grid>
+                    <Grid Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="3">
+                        <Button Content="Cancel" Command="{Binding LoadSoftwareStaticDataCommand.CancelCommand}" 
+                        HorizontalAlignment="Stretch" BorderThickness="2" Foreground="OrangeRed"/>
+                    </Grid>
+                    <StackPanel Margin="20,0,20,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" Orientation="Vertical">
+                        <Label FontFamily = "Verdana" Content="Startup Commands" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <StackPanel Margin="10,0,0,0">
+                            <DataGrid ItemsSource="{Binding StartupCommand, IsAsync=True}">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="Command" Binding="{Binding Command}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="Location" Binding="{Binding Location}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="Setting ID" Binding="{Binding SettingID}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="User" Binding="{Binding User}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="User SID" Binding="{Binding UserSID}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="Users" Foreground="Black" />
+                </TabItem.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
+                        <Button Content="Refresh software static data" Command="{Binding LoadSoftwareStaticDataCommand}" 
+                            HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange"/>
+                    </Grid>
+                    <Grid Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="3">
+                        <Button Content="Cancel" Command="{Binding LoadSoftwareStaticDataCommand.CancelCommand}" 
+                        HorizontalAlignment="Stretch" BorderThickness="2" Foreground="OrangeRed"/>
+                    </Grid>
+                    <StackPanel Margin="20,0,20,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" Orientation="Vertical">
+                        <Label FontFamily = "Verdana" Content="Local users" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <StackPanel Margin="10,0,0,0">
+                            <DataGrid ItemsSource="{Binding LocalUser, IsAsync=True}">
+                                <DataGrid.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Command="Copy" />
+                                    </ContextMenu>
+                                </DataGrid.ContextMenu>
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="0.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="Domain" Binding="{Binding Domain}"  Width="0.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="Full Name" Binding="{Binding FullName}"  Width="0.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="SID" Binding="{Binding SID}"  Width="0.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="SID Type" Binding="{Binding SIDType}"  Width="0.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="Caption" Binding="{Binding Caption}"  Width="0.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="Description" Binding="{Binding Descritption}"  Width="0.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="Password&#x0a;Changeable" Binding="{Binding PasswordChangeable}"  Width="0.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="Password&#x0a;Expires" Binding="{Binding PasswordExpires}"  Width="0.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="Password&#x0a;Required" Binding="{Binding PasswordRequired}"  Width="0.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="Microsoft Updates" Foreground="Black" />
+                </TabItem.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
+                        <Button Content="Refresh software static data" Command="{Binding LoadSoftwareStaticDataCommand}" 
+                            HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange"/>
+                    </Grid>
+                    <Grid Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="3">
+                        <Button Content="Cancel" Command="{Binding LoadSoftwareStaticDataCommand.CancelCommand}" 
+                        HorizontalAlignment="Stretch" BorderThickness="2" Foreground="OrangeRed"/>
+                    </Grid>
+                    <StackPanel Margin="20,0,20,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" Orientation="Vertical">
+                        <Label FontFamily = "Verdana" Content="Installed Microsoft Updates" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <StackPanel Margin="10,0,0,0">
+                            <DataGrid ItemsSource="{Binding MicrosoftWindowsUpdate, IsAsync=True}">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Name" Binding="{Binding Name}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="Description" Binding="{Binding Description}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="CS Name" Binding="{Binding CSName}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="Install Date" Binding="{Binding InstallDate}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="Installed By" Binding="{Binding InstalledBy}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="Installed On" Binding="{Binding InstalledOn}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="Service Pack&#x0a;In Effect" Binding="{Binding ServicePackInEffect}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="Status" Binding="{Binding Status}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="HotFix ID" Binding="{Binding HotFixID}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="Fix Comments" Binding="{Binding FixComments}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="Windows process" Foreground="Black" />
+                </TabItem.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
+                        <Button Content="Start windows processes monitor" Command="{Binding LoadWindowsProcessDynamicDataCommand}" 
+                                HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange"/>
+                    </Grid>
+                    <Grid Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="3">
+                        <Button Content="Stop windows processes monitor" Command="{Binding LoadWindowsProcessDynamicDataCommand.CancelCommand}" 
+                                HorizontalAlignment="Stretch" BorderThickness="2" Foreground="OrangeRed"/>
+                    </Grid>
+                    <StackPanel Margin="20,0,20,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" Orientation="Vertical">
+                        <Label FontFamily = "Verdana" Content="Windows processes" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <StackPanel Margin="10,0,0,0">
+                            <DataGrid ItemsSource="{Binding WindowsProcess, IsAsync=True}" ScrollViewer.CanContentScroll="True" MaxHeight="500">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="User&#x0a;Name" Binding="{Binding UserName}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="Peak&#x0a;Paged&#x0a;Memory&#x0a;Size 64"  Binding="{Binding PeakPagedMemorySize64, Converter={StaticResource UnitLongValueToStringConverter}}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" SortMemberPath="PeakPagedMemorySize64.Value"/>
+                                    <DataGridTextColumn Header="Peak&#x0a;Virtual&#x0a;Memory&#x0a;Size 64" Binding="{Binding PeakVirtualMemorySize64, Converter={StaticResource UnitLongValueToStringConverter}}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" SortMemberPath="PeakVirtualMemorySize64.Value"/>
+                                    <DataGridTextColumn Header="Peak&#x0a;Memory&#x0a;Size" Binding="{Binding PeakMemorySize, Converter={StaticResource UnitLongValueToStringConverter}}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" SortMemberPath="PeakMemorySize.Value"/>
+                                    <DataGridTextColumn Header="Paged&#x0a;Memory&#x0a;Size 64" Binding="{Binding PagedMemorySize64, Converter={StaticResource UnitLongValueToStringConverter}}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" SortMemberPath="PagedMemorySize64.Value"/>
+                                    <DataGridTextColumn Header="Virtual&#x0a;Memory&#x0a;Size 64" Binding="{Binding VirtualMemorySize64, Converter={StaticResource UnitLongValueToStringConverter}}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" SortMemberPath="VirtualMemorySize64.Value"/>
+                                    <DataGridTextColumn Header="Memory&#x0a;Size" Binding="{Binding MemorySize, Converter={StaticResource UnitLongValueToStringConverter}}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" SortMemberPath="MemorySize.Value"/>
+                                    <DataGridTextColumn Header="Session&#x0a;Id" Binding="{Binding SessionId}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="Start&#x0a;Time" Binding="{Binding StartTime}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="Base&#x0a;Priority" Binding="{Binding BasePriority}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </StackPanel>
+                    </StackPanel>
                 </Grid>
             </TabItem>
             <TabItem Header="Software Dynamic">
-                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <!--<ScrollViewer VerticalScrollBarVisibility="Auto">-->
                         <Grid Margin="20,0,20,0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"></RowDefinition>
@@ -466,7 +680,8 @@
                             </Expander.Header>
                             <Expander.Content>
                                 <StackPanel Margin="10,4,0,0">
-                                    <DataGrid ItemsSource="{Binding WindowsProcess}">
+                                <DataGrid ItemsSource="{Binding WindowsProcess}" VirtualizingPanel.VirtualizationMode="Recycling"
+                                        VirtualizingPanel.IsVirtualizing="True" ScrollViewer.CanContentScroll="True" MaxHeight="500"> 
                                         <DataGrid.Columns>
                                         <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
                                         <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
@@ -500,7 +715,8 @@
                             </Expander.Header>
                             <Expander.Content>
                                 <StackPanel Margin="10,4,0,0">
-                                    <DataGrid ItemsSource="{Binding WindowsService}">
+                                <DataGrid ItemsSource="{Binding WindowsService}" VirtualizingPanel.VirtualizationMode="Recycling"
+                                        VirtualizingPanel.IsVirtualizing="True" ScrollViewer.CanContentScroll="True" MaxHeight="500">
                                         <DataGrid.Columns>
                                         <DataGridTextColumn Header="Service Name" Binding="{Binding ServiceName}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
                                         <DataGridTextColumn Header="Display Name" Binding="{Binding DisplayName}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
@@ -554,7 +770,7 @@
                             </Expander.Content>
                         </Expander>
                     </Grid>
-                </ScrollViewer>
+                <!--</ScrollViewer>-->
             </TabItem>
             <TabItem Header="Hardware Static">
                 <Grid>

@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace SystemManagament.Client.WPF.ViewModel
 {
-
     public class DynamicDataLabel : INotifyPropertyChanged
     {
         private string value;

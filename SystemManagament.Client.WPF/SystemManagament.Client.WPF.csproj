@@ -13,6 +13,7 @@
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <DependsOnNETStandard>false</DependsOnNETStandard>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x64</PlatformTarget>
@@ -24,6 +25,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>..\SystemManagamentLib\RWMSSolutionRuleSet.ruleset</CodeAnalysisRuleSet>
+    <DependsOnNETStandard>false</DependsOnNETStandard>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +35,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DependsOnNETStandard>false</DependsOnNETStandard>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -43,6 +46,7 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>..\SystemManagamentLib\RWMSSolutionRuleSet.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
+    <DependsOnNETStandard>false</DependsOnNETStandard>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
@@ -53,6 +57,7 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
+    <DependsOnNETStandard>false</DependsOnNETStandard>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -63,6 +68,7 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>..\SystemManagamentLib\RWMSSolutionRuleSet.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
+    <DependsOnNETStandard>false</DependsOnNETStandard>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -73,13 +79,17 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
+    <DependsOnNETStandard>false</DependsOnNETStandard>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CommonServiceLocator, Version=2.0.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\CommonServiceLocator.2.0.2\lib\net45\CommonServiceLocator.dll</HintPath>
     </Reference>
-    <Reference Include="Dragablz, Version=0.0.3.203, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Dragablz.0.0.3.203\lib\net45\Dragablz.dll</HintPath>
+    <Reference Include="Dragablz, Version=0.0.3.201, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dragablz.0.0.3.201\lib\net45\Dragablz.dll</HintPath>
     </Reference>
     <Reference Include="GalaSoft.MvvmLight, Version=5.4.1.0, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.4.1\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
@@ -164,6 +174,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Comparer\BaseBoardStaticComparer.cs" />
+    <Compile Include="Comparer\BatteryStaticComparer.cs" />
+    <Compile Include="Comparer\BiosComparer.cs" />
+    <Compile Include="Comparer\CDROMDriveStaticComparer.cs" />
+    <Compile Include="Comparer\ClaimDuplicateComparer.cs" />
+    <Compile Include="Comparer\CurrentUserStaticComparer.cs" />
+    <Compile Include="Comparer\FanStaticComparer.cs" />
+    <Compile Include="Comparer\GroupDuplicateComparer.cs" />
+    <Compile Include="Comparer\InstalledProgramComparer.cs" />
+    <Compile Include="Comparer\LocalUserComparer.cs" />
+    <Compile Include="Comparer\MemoryStaticComparer.cs" />
+    <Compile Include="Comparer\MicrosoftWindowsUpdateComparer.cs" />
+    <Compile Include="Comparer\NetworkAdapterStaticComparer.cs" />
+    <Compile Include="Comparer\OSComparer.cs" />
+    <Compile Include="Comparer\PnPEntityStaticComparer.cs" />
+    <Compile Include="Comparer\PrinterStaticComparer.cs" />
+    <Compile Include="Comparer\ProcessorCacheStaticComparer.cs" />
+    <Compile Include="Comparer\ProcessorStaticComparer.cs" />
+    <Compile Include="Comparer\StartupCommandComparer.cs" />
+    <Compile Include="Comparer\VideoControllerStaticComparer.cs" />
     <Compile Include="Comparer\WindowsLogComparer.cs" />
     <Compile Include="Comparer\WindowsProcessComparer.cs" />
     <Compile Include="Comparer\WindowsServiceComparer.cs" />

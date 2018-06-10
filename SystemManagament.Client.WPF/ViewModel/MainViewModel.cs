@@ -53,7 +53,6 @@ namespace SystemManagament.Client.WPF.ViewModel
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
-
         public ObservableCollection<WorkStationViewModel> ViewModelTabs
         {
             get

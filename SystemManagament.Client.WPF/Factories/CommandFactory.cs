@@ -21,7 +21,7 @@ namespace SystemManagament.Client.WPF.Factories
 {
     public class CommandFactory : ICommandFactory
     {
-        private readonly int neverEndingCommandDelayInMiliSeconds = 200;
+        private readonly int neverEndingCommandDelayInMiliSeconds = 500;
         private IWcfClient wcfClient;
 
         public CommandFactory(IWcfClient wcfClient)
@@ -183,17 +183,17 @@ namespace SystemManagament.Client.WPF.Factories
 
                 if (!cancellationToken.IsCancellationRequested)
                 {
-                    processorStatic.ReplaceRange(result.Processor);
-                    processorCache.ReplaceRange(result.ProcessorCache);
-                    memoryItems.ReplaceRange(result.Memory);
-                    baseBoard.ReplaceRange(result.BaseBoard);
-                    videoController.ReplaceRange(result.VideoController);
-                    networkAdapter.ReplaceRange(result.NetworkAdapter);
-                    pnPEntity.ReplaceRange(result.PnPEntity);
-                    cDROMDrive.ReplaceRange(result.CDROMDrive);
-                    fan.ReplaceRange(result.Fan);
-                    printer.ReplaceRange(result.Printer);
-                    battery.ReplaceRange(result.Battery);
+                    processorStatic.ReplaceRange(result.Processor, new ProcessorStaticComparer());
+                    processorCache.ReplaceRange(result.ProcessorCache, new ProcessorCacheStaticComparer());
+                    memoryItems.ReplaceRange(result.Memory, new MemoryStaticComparer());
+                    baseBoard.ReplaceRange(result.BaseBoard, new BaseBoardStaticComparer());
+                    videoController.ReplaceRange(result.VideoController, new VideoControllerStaticComparer());
+                    networkAdapter.ReplaceRange(result.NetworkAdapter, new NetworkAdapterStaticComparer());
+                    pnPEntity.ReplaceRange(result.PnPEntity, new PnPEntityStaticComparer());
+                    cDROMDrive.ReplaceRange(result.CDROMDrive, new CDROMDriveStaticComparer());
+                    fan.ReplaceRange(result.Fan, new FanStaticComparer());
+                    printer.ReplaceRange(result.Printer, new PrinterStaticComparer());
+                    battery.ReplaceRange(result.Battery, new BatteryStaticComparer());
                     storage.ReplaceRange(result.Storage);
                 }
 
@@ -223,15 +223,15 @@ namespace SystemManagament.Client.WPF.Factories
 
                     if (!cancellationToken.IsCancellationRequested)
                     {
-                        currentUser.ReplaceRange(result.CurrentUser);
-                        currentUserClaims.ReplaceRange(result.CurrentUser.First().Claims);
-                        currentUserGroups.ReplaceRange(result.CurrentUser.First().Groups);
-                        operatingSystem.ReplaceRange(result.OperatingSystem);
-                        bios.ReplaceRange(result.Bios);
-                        installedProgram.ReplaceRange(result.InstalledProgram);
-                        microsoftWindowsUpdate.ReplaceRange(result.MicrosoftWindowsUpdate);
-                        startupCommand.ReplaceRange(result.StartupCommand);
-                        localUser.ReplaceRange(result.LocalUser);
+                        currentUser.ReplaceRange(result.CurrentUser, new CurrentUserStaticComparer());
+                        currentUserClaims.ReplaceRange(result.CurrentUser.First().Claims, new ClaimDuplicateComparer());
+                        currentUserGroups.ReplaceRange(result.CurrentUser.First().Groups, new GroupDuplicateComparer());
+                        operatingSystem.ReplaceRange(result.OperatingSystem, new OSComparer());
+                        bios.ReplaceRange(result.Bios, new BiosComparer());
+                        installedProgram.ReplaceRange(result.InstalledProgram, new InstalledProgramComparer());
+                        microsoftWindowsUpdate.ReplaceRange(result.MicrosoftWindowsUpdate, new MicrosoftWindowsUpdateComparer());
+                        startupCommand.ReplaceRange(result.StartupCommand, new StartupCommandComparer());
+                        localUser.ReplaceRange(result.LocalUser, new LocalUserComparer());
                     }
 
                     return result;
