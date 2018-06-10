@@ -21,7 +21,7 @@ namespace SystemManagament.Client.WPF.Factories
 {
     public class CommandFactory : ICommandFactory
     {
-        private readonly int neverEndingCommandDelayInMiliSeconds = 500;
+        private readonly int neverEndingCommandDelayInMiliSeconds = 300;
         private IWcfClient wcfClient;
 
         public CommandFactory(IWcfClient wcfClient)

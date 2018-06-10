@@ -136,7 +136,7 @@
                                 <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding CurrentUser[0].AuthenticationType}" Grid.Row="1" Grid.Column="1"/>
                             </Grid>
                             <Label FontFamily = "Verdana" Content="User Claims" FontSize="16" FontWeight="Bold"/>
-                            <DataGrid ItemsSource="{Binding CurrentUserClaims, IsAsync=True}">
+                            <DataGrid ItemsSource="{Binding CurrentUserClaims, IsAsync=True}" MaxHeight="400">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Type" Binding="{Binding Type}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
                                     <DataGridTextColumn Header="OriginalIssuer" Binding="{Binding OriginalIssuer}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
@@ -592,7 +592,7 @@
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="Windows process" Foreground="Black" />
+                    <TextBlock Text="Windows process" Foreground="BlueViolet" />
                 </TabItem.Header>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -622,7 +622,7 @@
                     <StackPanel Margin="20,0,20,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" Orientation="Vertical">
                         <Label FontFamily = "Verdana" Content="Windows processes" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
                         <StackPanel Margin="10,0,0,0">
-                            <DataGrid ItemsSource="{Binding WindowsProcess, IsAsync=True}" ScrollViewer.CanContentScroll="True" MaxHeight="500">
+                            <DataGrid ItemsSource="{Binding WindowsProcess, IsAsync=True}" ScrollViewer.CanContentScroll="True">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
                                     <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
@@ -642,16 +642,63 @@
                     </StackPanel>
                 </Grid>
             </TabItem>
-            <TabItem Header="Software Dynamic">
-                    <!--<ScrollViewer VerticalScrollBarVisibility="Auto">-->
-                        <Grid Margin="20,0,20,0">
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="Windows services" Foreground="BlueViolet" />
+                </TabItem.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
+                        <Button Content="Start windows services monitor" Command="{Binding LoadWindowsServiceDynamicDataCommand}" 
+                            HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange"/>
+                    </Grid>
+                    <Grid Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="3">
+                        <Button Content="Stop windows services monitor" Command="{Binding LoadWindowsServiceDynamicDataCommand.CancelCommand}" 
+                            HorizontalAlignment="Stretch" BorderThickness="2" Foreground="OrangeRed"/>
+                    </Grid>
+                    <StackPanel Margin="20,0,20,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" Orientation="Vertical">
+                        <Label FontFamily = "Verdana" Content="Windows services" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <StackPanel Margin="10,0,0,0">
+                            <DataGrid ItemsSource="{Binding WindowsService}" ScrollViewer.CanContentScroll="True">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Service Name" Binding="{Binding ServiceName}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="Display Name" Binding="{Binding DisplayName}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="Start Type" Binding="{Binding StartType}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="ServiceType" Binding="{Binding ServiceType}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="Can Pause&#x0a;And Continue" Binding="{Binding CanPauseAndContinue}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="Can Shutdown" Binding="{Binding CanShutdown}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="Can Stop" Binding="{Binding CanStop}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="Windows logs" Foreground="BlueViolet" />
+                </TabItem.Header>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="*"></RowDefinition>
                             <RowDefinition Height="Auto"></RowDefinition>
                             <RowDefinition Height="*"></RowDefinition>
-                            <RowDefinition Height="Auto"></RowDefinition>
-                            <RowDefinition Height="*"></RowDefinition>
-                            <RowDefinition Height="Auto"></RowDefinition>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -666,85 +713,16 @@
                             <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
-                            <Button Content="Start windows processes monitor" Command="{Binding LoadWindowsProcessDynamicDataCommand}" 
-                                HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange"/>
-                        </Grid>
-                        <Grid Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="3">
-                            <Button Content="Stop windows processes monitor" Command="{Binding LoadWindowsProcessDynamicDataCommand.CancelCommand}" 
-                                HorizontalAlignment="Stretch" BorderThickness="2" Foreground="OrangeRed"/>
-                        </Grid>
-                        <Expander Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" HorizontalAlignment="Stretch" IsExpanded="False"
-                                  Foreground="White" Background="DimGray" BorderThickness="2">
-                            <Expander.Header>
-                                <TextBlock Text="Windows process" FontWeight="Bold" FontSize="18"/>
-                            </Expander.Header>
-                            <Expander.Content>
-                                <StackPanel Margin="10,4,0,0">
-                                <DataGrid ItemsSource="{Binding WindowsProcess}" VirtualizingPanel.VirtualizationMode="Recycling"
-                                        VirtualizingPanel.IsVirtualizing="True" ScrollViewer.CanContentScroll="True" MaxHeight="500"> 
-                                        <DataGrid.Columns>
-                                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                        <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                        <DataGridTextColumn Header="User&#x0a;Name" Binding="{Binding UserName}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/> 
-                                        <DataGridTextColumn Header="Peak&#x0a;Paged&#x0a;Memory&#x0a;Size 64"  Binding="{Binding PeakPagedMemorySize64, Converter={StaticResource UnitLongValueToStringConverter}}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" SortMemberPath="PeakPagedMemorySize64.Value"/>
-                                        <DataGridTextColumn Header="Peak&#x0a;Virtual&#x0a;Memory&#x0a;Size 64" Binding="{Binding PeakVirtualMemorySize64, Converter={StaticResource UnitLongValueToStringConverter}}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" SortMemberPath="PeakVirtualMemorySize64.Value"/>
-                                        <DataGridTextColumn Header="Peak&#x0a;Memory&#x0a;Size" Binding="{Binding PeakMemorySize, Converter={StaticResource UnitLongValueToStringConverter}}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" SortMemberPath="PeakMemorySize.Value"/>
-                                        <DataGridTextColumn Header="Paged&#x0a;Memory&#x0a;Size 64" Binding="{Binding PagedMemorySize64, Converter={StaticResource UnitLongValueToStringConverter}}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" SortMemberPath="PagedMemorySize64.Value"/>
-                                        <DataGridTextColumn Header="Virtual&#x0a;Memory&#x0a;Size 64" Binding="{Binding VirtualMemorySize64, Converter={StaticResource UnitLongValueToStringConverter}}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" SortMemberPath="VirtualMemorySize64.Value"/>
-                                        <DataGridTextColumn Header="Memory&#x0a;Size" Binding="{Binding MemorySize, Converter={StaticResource UnitLongValueToStringConverter}}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" SortMemberPath="MemorySize.Value"/>
-                                        <DataGridTextColumn Header="Session&#x0a;Id" Binding="{Binding SessionId}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                        <DataGridTextColumn Header="Start&#x0a;Time" Binding="{Binding StartTime}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                        <DataGridTextColumn Header="Base&#x0a;Priority" Binding="{Binding BasePriority}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                        </DataGrid.Columns>
-                                    </DataGrid>
-                                </StackPanel>
-                            </Expander.Content>
-                        </Expander>
-                        <Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3">
-                            <Button Content="Start windows services monitor" Command="{Binding LoadWindowsServiceDynamicDataCommand}" 
-                            HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange"/>
-                        </Grid>
-                        <Grid Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="3">
-                            <Button Content="Stop windows services monitor" Command="{Binding LoadWindowsServiceDynamicDataCommand.CancelCommand}" 
-                            HorizontalAlignment="Stretch" BorderThickness="2" Foreground="OrangeRed"/>
-                        </Grid>
-                        <Expander Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="10"  HorizontalAlignment="Stretch" IsExpanded="False"
-                                  Foreground="White" Background="SlateGray" BorderThickness="2">
-                            <Expander.Header>
-                                <TextBlock Text="Windows services" FontWeight="Bold" FontSize="18"/>
-                            </Expander.Header>
-                            <Expander.Content>
-                                <StackPanel Margin="10,4,0,0">
-                                <DataGrid ItemsSource="{Binding WindowsService}" VirtualizingPanel.VirtualizationMode="Recycling"
-                                        VirtualizingPanel.IsVirtualizing="True" ScrollViewer.CanContentScroll="True" MaxHeight="500">
-                                        <DataGrid.Columns>
-                                        <DataGridTextColumn Header="Service Name" Binding="{Binding ServiceName}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                        <DataGridTextColumn Header="Display Name" Binding="{Binding DisplayName}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                        <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                        <DataGridTextColumn Header="Start Type" Binding="{Binding StartType}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                        <DataGridTextColumn Header="ServiceType" Binding="{Binding ServiceType}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                        <DataGridTextColumn Header="Can Pause&#x0a;And Continue" Binding="{Binding CanPauseAndContinue}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                        <DataGridTextColumn Header="Can Shutdown" Binding="{Binding CanShutdown}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                        <DataGridTextColumn Header="Can Stop" Binding="{Binding CanStop}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                        </DataGrid.Columns>
-                                    </DataGrid>
-                                </StackPanel>
-                            </Expander.Content>
-                        </Expander>
-                        <Grid Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3">
                             <Button Content="Start windows logs monitor" Command="{Binding LoadWindowsLogDynamicDataCommand}" 
                         HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange"/>
                         </Grid>
-                        <Grid Grid.Row="4" Grid.Column="6" Grid.ColumnSpan="3">
+                        <Grid Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="3">
                             <Button Content="Stop windows logs monitor" Command="{Binding LoadWindowsLogDynamicDataCommand.CancelCommand}" 
                     HorizontalAlignment="Stretch" BorderThickness="2" Foreground="OrangeRed"/>
                         </Grid>
-                        <Expander Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="10"  HorizontalAlignment="Stretch" IsExpanded="False"
-                                  Foreground="White" Background="DimGray" BorderThickness="2">
-                            <Expander.Header>
-                                <TextBlock Text="Windows Logs" FontWeight="ExtraBlack" FontSize="18"/>
-                            </Expander.Header>
-                            <Expander.Content>
+                        <StackPanel Margin="20,0,20,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" Orientation="Vertical">
+                            <Label FontFamily = "Verdana" Content="Windows logs" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                            <StackPanel Margin="10,0,0,0">
                                 <ItemsControl ItemsSource="{Binding WindowsLog}">
                                     <ItemsControl.ItemTemplate>
                                         <DataTemplate>
@@ -752,25 +730,25 @@
                                                 HorizontalAlignment="Stretch" IsExpanded="False"
                                                     Foreground="White" Background="SlateGray" BorderThickness="2">
                                                 <DataGrid ItemsSource="{Binding Entries}">
-                                                <DataGrid.Columns>
-                                                    <DataGridTextColumn Header="Machine Name" Binding="{Binding MachineName}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <!--<DataGridTextColumn Header="Category" Binding="{Binding Category}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>-->
-                                                    <DataGridTextColumn Header="Category" Binding="{Binding CategoryNumber}" Width="0.5*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="Entry Type" Binding="{Binding EntryType}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="Message" Binding="{Binding Message}" Width="3*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="Source" Binding="{Binding Source}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="Time" Binding="{Binding TimeGenerated}" Width="0.5*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                    <DataGridTextColumn Header="User Name" Binding="{Binding UserName}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                </DataGrid.Columns>
-                                            </DataGrid>
-                                        </Expander>
+                                                    <DataGrid.Columns>
+                                                        <DataGridTextColumn Header="Machine Name" Binding="{Binding MachineName}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                                        <!--<DataGridTextColumn Header="Category" Binding="{Binding Category}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>-->
+                                                        <DataGridTextColumn Header="Category" Binding="{Binding CategoryNumber}" Width="0.5*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                                        <DataGridTextColumn Header="Entry Type" Binding="{Binding EntryType}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                                        <DataGridTextColumn Header="Message" Binding="{Binding Message}" Width="3*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                                        <DataGridTextColumn Header="Source" Binding="{Binding Source}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                                        <DataGridTextColumn Header="Time" Binding="{Binding TimeGenerated}" Width="0.5*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                                        <DataGridTextColumn Header="User Name" Binding="{Binding UserName}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                                    </DataGrid.Columns>
+                                                </DataGrid>
+                                            </Expander>
                                         </DataTemplate>
                                     </ItemsControl.ItemTemplate>
                                 </ItemsControl>
-                            </Expander.Content>
-                        </Expander>
+                            </StackPanel>
+                        </StackPanel>
                     </Grid>
-                <!--</ScrollViewer>-->
+                </ScrollViewer>
             </TabItem>
             <TabItem Header="Hardware Static">
                 <Grid>

@@ -85,9 +85,8 @@
                         <Setter Property="HorizontalScrollBarVisibility" Value="Disabled" />
                         <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
                         <Setter Property="ScrollViewer.CanContentScroll" Value="True" />
-                        <Setter Property="MaxHeight" Value="400" />
-                        <Setter Property="MaxWidth" Value="1300" />
-                        <Setter Property="MaxColumnWidth" Value="1300" />
+                        <Setter Property="MaxHeight" Value="450" />
+                        <Setter Property="MaxWidth" Value="1600" />
                         <Setter Property="HorizontalGridLinesBrush" Value="White" />
                         <Setter Property="VerticalGridLinesBrush" Value="White" />
                         <Setter Property="GridLinesVisibility" Value="All" />

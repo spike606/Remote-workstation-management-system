@@ -49,7 +49,7 @@
             <!--<StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
             <Button Command="{Binding NewTab}" Margin="0,0,12,0">New Tab</Button>
         </StackPanel>-->
-        <dragablz:TabablzControl DockPanel.Dock="Bottom" ItemsSource="{Binding ViewModelTabs}" VirtualizingPanel.VirtualizationMode="Standard"
+        <dragablz:TabablzControl DockPanel.Dock="Bottom" ItemsSource="{Binding ViewModelTabs, IsAsync=True}" VirtualizingPanel.VirtualizationMode="Recycling"
                                  VirtualizingPanel.IsVirtualizing="True" FixedHeaderCount="100" ShowDefaultCloseButton="True">
                 <dragablz:TabablzControl.InterTabController>
                     <dragablz:InterTabController />
