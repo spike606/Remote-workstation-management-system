@@ -12,5 +12,8 @@ namespace SystemManagament.Monitor.SoftwareStatic.Model.Components.Duplicate
     {
         [DataMember]
         public string Value { get; set; }
+
+        [DataMember]
+        public string Name { get; set; }
     }
 }

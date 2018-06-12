@@ -26,6 +26,7 @@
   <xs:element name="ArrayOfGroupDuplicate" nillable="true" type="tns:ArrayOfGroupDuplicate" />
   <xs:complexType name="GroupDuplicate">
     <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>

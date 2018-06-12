@@ -2750,6 +2750,9 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ValueField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -2759,6 +2762,19 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorService {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
             }
         }
         

@@ -28,4 +28,10 @@
     <system:String x:Key="CurrentUserClaims_ValueType_ToolTip">Identifies the type information for the value. This property should be used to understand the format of the value and to provide information about how to deserialize it.</system:String>
     <system:String x:Key="CurrentUserClaims_Value">Value</system:String>
     <system:String x:Key="CurrentUserClaims_Value_ToolTip">Value of the claim.</system:String>
+
+    <system:String x:Key="Header_UserGroups">User Groups</system:String>
+    <system:String x:Key="Label_UserGroups">Current User Groups</system:String>
+    <system:String x:Key="Label_UserGroups_Description">Groups the current user belongs to.</system:String>
+    <system:String x:Key="CurrentUserGroups_Value">SID Value</system:String>
+
 </ResourceDictionary>

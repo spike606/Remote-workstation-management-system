@@ -118,7 +118,8 @@ namespace SystemManagament.Monitor.SoftwareStatic.Provider
                 {
                     groupDuplicate.Add(new GroupDuplicate()
                     {
-                        Value = group.Value
+                        Value = group.Value,
+                        Name = group.Translate(typeof(NTAccount)).Value
                     });
                 }
             }
