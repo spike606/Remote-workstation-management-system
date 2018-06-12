@@ -129,8 +129,8 @@ namespace SystemManagament.Monitor.SoftwareStatic.Provider
         private List<ClaimDuplicate> MapSystemClaims(WindowsIdentity identity)
         {
             List<ClaimDuplicate> claimDuplicate = new List<ClaimDuplicate>();
-
-            if (identity != null)
+            if (identity
+                != null)
             {
                 foreach (var claim in identity.Claims)
                 {

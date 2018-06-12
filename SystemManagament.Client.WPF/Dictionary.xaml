@@ -1,0 +1,31 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:SystemManagament.Client.WPF"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <system:String x:Key="Header_UserInfo">User Info</system:String>
+
+    <system:String x:Key="Button_LoadSoftwareStatic">Refresh software static data</system:String>
+    <system:String x:Key="Button_Cancel">Cancel</system:String>
+
+    <system:String x:Key="Label_CurrentUserInfo">Current User Info</system:String>
+    <system:String x:Key="Label_BasicUserInfo">Basic User Info</system:String>
+    <system:String x:Key="Label_Name">Name</system:String>
+    <system:String x:Key="Label_AuthenticationType">Authentication Type</system:String>
+    <system:String x:Key="Label_UserClaims">User Claims</system:String>
+    <system:String x:Key="Label_UserClaimsDescription">Claims are attributes of the subject that are useful in the context of authentication and authorization operations. A claim can be evaluated to determine access rights to data and other secured resources during the process of authorization and can also be used to make or express authentication decisions about a subject.</system:String>
+
+    <system:String x:Key="ToolTip_UserName">The Windows logon name of the user in the form DOMAIN\USERNAME.</system:String>
+    <system:String x:Key="ToolTip_AuthenticationType">The type of authentication used to identify the user.</system:String>
+
+    <system:String x:Key="CurrentUserClaims_Type">Type</system:String>
+    <system:String x:Key="CurrentUserClaims_Type_ToolTip">URI string that contains the semantic information about the claim; it tells you what the value of the claim means.</system:String>
+    <system:String x:Key="CurrentUserClaims_OriginalIssuer">OriginalIssuer</system:String>
+    <system:String x:Key="CurrentUserClaims_OriginalIssuer_ToolTip">The name of the entity that originally issued the claim. This property is designed to facilitate scenarios where a claim may pass through multiple issuers before it is presented by the client to the RP application.</system:String>
+    <system:String x:Key="CurrentUserClaims_Issuer">Issuer</system:String>
+    <system:String x:Key="CurrentUserClaims_Issuer_ToolTip">The name of the entity that issued the claim. The issuer of a claim is represented in WIF by a string that contains a name taken from a list of well-known issuers that is maintained by the issuer name registry.</system:String>
+    <system:String x:Key="CurrentUserClaims_ValueType">ValueType</system:String>
+    <system:String x:Key="CurrentUserClaims_ValueType_ToolTip">Identifies the type information for the value. This property should be used to understand the format of the value and to provide information about how to deserialize it.</system:String>
+    <system:String x:Key="CurrentUserClaims_Value">Value</system:String>
+    <system:String x:Key="CurrentUserClaims_Value_ToolTip">Value of the claim.</system:String>
+</ResourceDictionary>
