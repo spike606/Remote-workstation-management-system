@@ -206,7 +206,7 @@
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="OS Info" Foreground="Black" />
+                    <TextBlock Text="{StaticResource Header_OS}" Foreground="Black" />
                 </TabItem.Header>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -226,17 +226,17 @@
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
-                        <Button Content="Refresh software static data" Command="{Binding LoadSoftwareStaticDataCommand}" 
+                        <Button Content="{StaticResource Button_LoadSoftwareStatic}" Command="{Binding LoadSoftwareStaticDataCommand}" 
                             HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange"/>
                     </Grid>
                     <Grid Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="3">
-                        <Button Content="Cancel" Command="{Binding LoadSoftwareStaticDataCommand.CancelCommand}" 
+                        <Button Content="{StaticResource Button_Cancel}" Command="{Binding LoadSoftwareStaticDataCommand.CancelCommand}" 
                         HorizontalAlignment="Stretch" BorderThickness="2" Foreground="OrangeRed"/>
                     </Grid>
                     <StackPanel Margin="20,0,20,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" Orientation="Vertical">
-                        <Label FontFamily = "Verdana" Content="Operating System Info" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <Label FontFamily = "Verdana" Content="{StaticResource Label_OSInfo}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
                         <StackPanel Margin="10,0,0,0">
-                            <Label FontFamily = "Verdana" Content="Basic OS Info" FontSize="16" FontWeight="Bold"/>
+                            <Label FontFamily = "Verdana" Content="{StaticResource Label_BasicOSInfo}" FontSize="16" FontWeight="Bold"/>
                             <Grid Background="DimGray">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*"></RowDefinition>
@@ -251,23 +251,32 @@
                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <Label Content="Caption:" Grid.Row="0" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <Label Content="{StaticResource Label_OS_Caption}" Grid.Row="0" Grid.Column="0" FontWeight="Bold" FontSize="14"
+                                       ToolTip="{StaticResource Label_OS_Caption_ToolTip}"/>
                                 <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].Caption}" Grid.Row="0" Grid.Column="1"/>
-                                <Label Content="Organization:" Grid.Row="1" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <Label Content="{StaticResource Label_OS_Organization}" Grid.Row="1" Grid.Column="0" FontWeight="Bold" FontSize="14"
+                                       ToolTip="{StaticResource Label_OS_Organization_ToolTip}"/>
                                 <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].Organization}" Grid.Row="1" Grid.Column="1"/>
-                                <Label Content="OS Architecture:" Grid.Row="2" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <Label Content="{StaticResource Label_OS_Architecture}" Grid.Row="2" Grid.Column="0" FontWeight="Bold" FontSize="14"
+                                       ToolTip="{StaticResource Label_OS_Architecture_ToolTip}"/>
                                 <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].OSArchitecture}" Grid.Row="2" Grid.Column="1"/>
-                                <Label Content="Version:" Grid.Row="3" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <Label Content="{StaticResource Label_OS_Version}" Grid.Row="3" Grid.Column="0" FontWeight="Bold" FontSize="14"
+                                       ToolTip="{StaticResource Label_OS_Version_ToolTip}"/>
                                 <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].Version}" Grid.Row="3" Grid.Column="1"/>
-                                <Label Content="Build Number:" Grid.Row="4" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <Label Content="{StaticResource Label_OS_BuildNumber}" Grid.Row="4" Grid.Column="0" FontWeight="Bold" FontSize="14"
+                                       ToolTip="{StaticResource Label_OS_BuildNumber_ToolTip}"/>
                                 <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].BuildNumber}" Grid.Row="4" Grid.Column="1"/>
-                                <Label Content="Build Type:" Grid.Row="0" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
+                                <Label Content="{StaticResource Label_OS_BuildType}" Grid.Row="0" Grid.Column="2" FontWeight="Bold" FontSize="14"
+                                       ToolTip="{StaticResource Label_OS_BuildType_ToolTip}"/>
                                 <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].BuildType}" Grid.Row="0" Grid.Column="4"/>
-                                <Label Content="Serial Number:" Grid.Row="1" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
+                                <Label Content="{StaticResource Label_OS_SerialNumber}" Grid.Row="1" Grid.Column="2" FontWeight="Bold" FontSize="14"
+                                       ToolTip="{StaticResource Label_OS_SerialNumber_ToolTip}"/>
                                 <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].SerialNumber}" Grid.Row="1" Grid.Column="4"/>
-                                <Label Content="Service Pack Major Version:" Grid.Row="2" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
+                                <Label Content="{StaticResource Label_OS_SPMajorVersion}" Grid.Row="2" Grid.Column="2" FontWeight="Bold" FontSize="14"
+                                       ToolTip="{StaticResource Label_OS_SPMajorVersion_ToolTip}"/>
                                 <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].ServicePackMajorVersion}" Grid.Row="2" Grid.Column="4"/>
-                                <Label Content="Service Pack Minor Version:" Grid.Row="3" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
+                                <Label Content="{StaticResource Label_OS_SPMinorVersion}" Grid.Row="3" Grid.Column="2" FontWeight="Bold" FontSize="14"
+                                       ToolTip="{StaticResource Label_OS_SPMinorVersion_ToolTip}"/>
                                 <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].ServicePackMinorVersion}" Grid.Row="3" Grid.Column="4"/>
                             </Grid>
 
@@ -287,27 +296,38 @@
                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <Label Content="Current Time Zone:" Grid.Row="0" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <Label Content="{StaticResource Label_OS_CurrentTimeZone}" Grid.Row="0" Grid.Column="0" FontWeight="Bold" FontSize="14"
+                                       ToolTip="{StaticResource Label_OS_CurrentTimeZone_ToolTip}"/>
                                 <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].CurrentTimeZone, Converter={StaticResource UnitShortValueToStringConverter}}" Grid.Row="0" Grid.Column="1"/>
-                                <Label Content="Local DateTime:" Grid.Row="1" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <Label Content="{StaticResource Label_OS_LocalDateTime}" Grid.Row="1" Grid.Column="0" FontWeight="Bold" FontSize="14"
+                                       ToolTip="{StaticResource Label_OS_LocalDateTime_ToolTip}"/>
                                 <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].LocalDateTime}" Grid.Row="1" Grid.Column="1"/>
-                                <Label Content="Locale:" Grid.Row="2" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <Label Content="{StaticResource Label_OS_Locale}" Grid.Row="2" Grid.Column="0" FontWeight="Bold" FontSize="14"
+                                       ToolTip="{StaticResource Label_OS_Locale_ToolTip}"/>
                                 <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].Locale}" Grid.Row="2" Grid.Column="1"/>
-                                <Label Content="Country Code:" Grid.Row="3" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <Label Content="{StaticResource Label_OS_CountryCode}" Grid.Row="3" Grid.Column="0" FontWeight="Bold" FontSize="14"
+                                       ToolTip="{StaticResource Label_OS_CountryCode_ToolTip}"/>
                                 <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].CountryCode}" Grid.Row="3" Grid.Column="1"/>
-                                <Label Content="Install Date:" Grid.Row="4" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <Label Content="{StaticResource Label_OS_InstallDate}" Grid.Row="4" Grid.Column="0" FontWeight="Bold" FontSize="14"
+                                       ToolTip="{StaticResource Label_OS_InstallDate_ToolTip}"/>
                                 <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].InstallDate}" Grid.Row="4" Grid.Column="1"/>
-                                <Label Content="Last Boot Up Time:" Grid.Row="5" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <Label Content="{StaticResource Label_OS_LastBootUpTime}" Grid.Row="5" Grid.Column="0" FontWeight="Bold" FontSize="14"
+                                       ToolTip="{StaticResource Label_OS_LastBootUpTime_ToolTip}"/>
                                 <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].LastBootUpTime}" Grid.Row="5" Grid.Column="1"/>
-                                <Label Content="System Directory:" Grid.Row="0" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
+                                <Label Content="{StaticResource Label_OS_SystemDirectory}" Grid.Row="0" Grid.Column="2" FontWeight="Bold" FontSize="14"
+                                       ToolTip="{StaticResource Label_OS_SystemDirectory_ToolTip}"/>
                                 <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].SystemDirectory}" Grid.Row="0" Grid.Column="4"/>
-                                <Label Content="System Drive:" Grid.Row="1" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
+                                <Label Content="{StaticResource Label_OS_SystemDrive}" Grid.Row="1" Grid.Column="2" FontWeight="Bold" FontSize="14"
+                                       ToolTip="{StaticResource Label_OS_SystemDrive_ToolTip}"/>
                                 <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].SystemDrive}" Grid.Row="1" Grid.Column="4"/>
-                                <Label Content="Windows Directory:" Grid.Row="2" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
+                                <Label Content="{StaticResource Label_OS_WindowsDirectory}" Grid.Row="2" Grid.Column="2" FontWeight="Bold" FontSize="14"
+                                       ToolTip="{StaticResource Label_OS_WindowsDirectory_ToolTip}"/>
                                 <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].WindowsDirectory}" Grid.Row="2" Grid.Column="4"/>
-                                <Label Content="Max Numer Of Processes:" Grid.Row="3" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
+                                <Label Content="{StaticResource Label_OS_MaxNumerOfProcesses}" Grid.Row="3" Grid.Column="2" FontWeight="Bold" FontSize="14"
+                                       ToolTip="{StaticResource Label_OS_MaxNumerOfProcesses_ToolTip}"/>
                                 <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].MaxNumerOfProcesses}" Grid.Row="3" Grid.Column="4"/>
-                                <Label Content="Max Process Memory Size:" Grid.Row="4" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
+                                <Label Content="{StaticResource Label_OS_MaxProcessMemorySize}" Grid.Row="4" Grid.Column="2" FontWeight="Bold" FontSize="14"
+                                       ToolTip="{StaticResource Label_OS_MaxProcessMemorySize_ToolTip}"/>
                                 <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding OperatingSystem[0].MaxProcessMemorySize, Converter={StaticResource UnitULongValueToStringConverter}}" Grid.Row="4" Grid.Column="4"/>
                             </Grid>
                         </StackPanel>
@@ -316,7 +336,7 @@
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="BIOS" Foreground="Black" />
+                    <TextBlock Text="{StaticResource Header_BIOS}" Foreground="Black" />
                 </TabItem.Header>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -336,17 +356,17 @@
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
-                        <Button Content="Refresh software static data" Command="{Binding LoadSoftwareStaticDataCommand}" 
+                        <Button Content="{StaticResource Button_LoadSoftwareStatic}" Command="{Binding LoadSoftwareStaticDataCommand}" 
                             HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange"/>
                     </Grid>
                     <Grid Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="3">
-                        <Button Content="Cancel" Command="{Binding LoadSoftwareStaticDataCommand.CancelCommand}" 
+                        <Button Content="{StaticResource Button_Cancel}" Command="{Binding LoadSoftwareStaticDataCommand.CancelCommand}" 
                         HorizontalAlignment="Stretch" BorderThickness="2" Foreground="OrangeRed"/>
                     </Grid>
                     <StackPanel Margin="20,0,20,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" Orientation="Vertical">
-                        <Label FontFamily = "Verdana" Content="BIOS Info" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <Label FontFamily = "Verdana" Content="{StaticResource Label_BIOSInfo}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
                         <StackPanel Margin="10,0,0,0">
-                            <Label FontFamily = "Verdana" Content="Basic BIOS Info" FontSize="14" FontWeight="Bold"/>
+                            <Label FontFamily = "Verdana" Content="{StaticResource Label_BasicBIOSInfo}" FontSize="14" FontWeight="Bold"/>
                             <Grid Background="SlateGray">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*"></RowDefinition>
@@ -359,18 +379,23 @@
                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <Label Content="Caption:" Grid.Row="0" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <Label Content="{StaticResource Label_BIOS_Caption}" Grid.Row="0" Grid.Column="0" FontWeight="Bold" FontSize="14"
+                                       ToolTip="{StaticResource Label_BIOS_Caption_ToolTip}"/>
                                 <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].Caption}" Grid.Row="0" Grid.Column="1"/>
-                                <Label Content="Manufacturer:" Grid.Row="1" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <Label Content="{StaticResource Label_BIOS_Manufacturer}" Grid.Row="1" Grid.Column="0" FontWeight="Bold" FontSize="14"
+                                       ToolTip="{StaticResource Label_BIOS_Manufacturer_ToolTip}"/>
                                 <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].Manufacturer}" Grid.Row="1" Grid.Column="1"/>
-                                <Label Content="BuildNumber:" Grid.Row="2" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <Label Content="{StaticResource Label_BIOS_BuildNumber}" Grid.Row="2" Grid.Column="0" FontWeight="Bold" FontSize="14"
+                                       ToolTip="{StaticResource Label_BIOS_BuildNumber_ToolTip}"/>
                                 <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].BuildNumber}" Grid.Row="2" Grid.Column="1"/>
-                                <Label Content="Release Date:" Grid.Row="0" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
+                                <Label Content="{StaticResource Label_BIOS_ReleaseDate}" Grid.Row="0" Grid.Column="2" FontWeight="Bold" FontSize="14"
+                                       ToolTip="{StaticResource Label_BIOS_ReleaseDate_ToolTip}"/>
                                 <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].ReleaseDate}" Grid.Row="0" Grid.Column="3"/>
-                                <Label Content="Serial Number:" Grid.Row="1" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
+                                <Label Content="{StaticResource Label_BIOS_SerialNumber}" Grid.Row="1" Grid.Column="2" FontWeight="Bold" FontSize="14"
+                                       ToolTip="{StaticResource Label_BIOS_SerialNumber_ToolTip}"/>
                                 <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].SerialNumber}" Grid.Row="1" Grid.Column="3"/>
                             </Grid>
-                            <Label FontFamily = "Verdana" Content="Additional BIOS Info" FontSize="14" FontWeight="Bold"/>
+                            <Label FontFamily = "Verdana" Content="{StaticResource Label_AdditionalBIOSInfo}" FontSize="14" FontWeight="Bold"/>
                             <Grid Background="SlateGray">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*"></RowDefinition>
@@ -384,21 +409,29 @@
                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <Label Content="Embedded Controller Major Version:" Grid.Row="0" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <Label Content="{StaticResource Label_BIOS_EmbeddedControllerMajorVersion}" Grid.Row="0" Grid.Column="0" FontWeight="Bold" FontSize="14"
+                                       ToolTip="{StaticResource Label_BIOS_EmbeddedControllerMajorVersion_ToolTip}"/>
                                 <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].EmbeddedControllerMajorVersion}" Grid.Row="0" Grid.Column="1"/>
-                                <Label Content="Embedded Controller Minor Version:" Grid.Row="1" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <Label Content="{StaticResource Label_BIOS_EmbeddedControllerMinorVersion}" Grid.Row="1" Grid.Column="0" FontWeight="Bold" FontSize="14"
+                                       ToolTip="{StaticResource Label_BIOS_EmbeddedControllerMinorVersion_ToolTip}"/>
                                 <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].EmbeddedControllerMinorVersion}" Grid.Row="1" Grid.Column="1"/>
-                                <Label Content="SMBIOS BIOS Version:" Grid.Row="2" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <Label Content="{StaticResource Label_BIOS_SMBIOSBIOSVersion}" Grid.Row="2" Grid.Column="0" FontWeight="Bold" FontSize="14"
+                                       ToolTip="{StaticResource Label_BIOS_SMBIOSBIOSVersion_ToolTip}"/>
                                 <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].SMBIOSBIOSVersion}" Grid.Row="2" Grid.Column="1"/>
-                                <Label Content="SMBIOS Major Version:" Grid.Row="3" Grid.Column="0" FontWeight="Bold" FontSize="14"/>
+                                <Label Content="{StaticResource Label_BIOS_SMBIOSMajorVersion}" Grid.Row="3" Grid.Column="0" FontWeight="Bold" FontSize="14"
+                                       ToolTip="{StaticResource Label_BIOS_SMBIOSMajorVersion_ToolTip}"/>
                                 <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].SMBIOSMajorVersion}" Grid.Row="3" Grid.Column="1"/>
-                                <Label Content="SMBIOS Minor Version:" Grid.Row="0" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
+                                <Label Content="{StaticResource Label_BIOS_SMBIOSMinorVersion}" Grid.Row="0" Grid.Column="2" FontWeight="Bold" FontSize="14"
+                                       ToolTip="{StaticResource Label_BIOS_SMBIOSMinorVersion_ToolTip}"/>
                                 <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].SMBIOSMinorVersion}" Grid.Row="0" Grid.Column="3"/>
-                                <Label Content="SMBIOS Present:" Grid.Row="1" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
+                                <Label Content="{StaticResource Label_BIOS_SMBIOSPresent}" Grid.Row="1" Grid.Column="2" FontWeight="Bold" FontSize="14"
+                                       ToolTip="{StaticResource Label_BIOS_SMBIOSPresent_ToolTip}"/>
                                 <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].SMBIOSPresent}" Grid.Row="1" Grid.Column="3"/>
-                                <Label Content="System Bios Major Version:" Grid.Row="2" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
+                                <Label Content="{StaticResource Label_BIOS_SystemBiosMajorVersion}" Grid.Row="2" Grid.Column="2" FontWeight="Bold" FontSize="14"
+                                       ToolTip="{StaticResource Label_BIOS_SystemBiosMajorVersion_ToolTip}"/>
                                 <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].SystemBiosMajorVersion}" Grid.Row="2" Grid.Column="3"/>
-                                <Label Content="System Bios Minor Version:" Grid.Row="3" Grid.Column="2" FontWeight="Bold" FontSize="14"/>
+                                <Label Content="{StaticResource Label_BIOS_SystemBiosMinorVersion}" Grid.Row="3" Grid.Column="2" FontWeight="Bold" FontSize="14"
+                                       ToolTip="{StaticResource Label_BIOS_SystemBiosMinorVersion_ToolTip}"/>
                                 <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding Bios[0].SystemBiosMinorVersion}" Grid.Row="3" Grid.Column="3"/>
                             </Grid>
                         </StackPanel>
