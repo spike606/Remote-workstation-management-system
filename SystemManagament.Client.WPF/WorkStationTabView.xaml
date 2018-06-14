@@ -792,7 +792,7 @@
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="Windows services" Foreground="Navy" />
+                    <TextBlock Text="{StaticResource Header_WindowsService}" Foreground="Navy" />
                 </TabItem.Header>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -812,26 +812,41 @@
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
-                        <Button Content="Start windows services monitor" Command="{Binding LoadWindowsServiceDynamicDataCommand}" 
+                        <Button Content="{StaticResource Button_StartWindowsService}" Command="{Binding LoadWindowsServiceDynamicDataCommand}" 
                             HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange"/>
                     </Grid>
                     <Grid Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="3">
-                        <Button Content="Stop windows services monitor" Command="{Binding LoadWindowsServiceDynamicDataCommand.CancelCommand}" 
+                        <Button Content="{StaticResource Button_StopWindowsService}" Command="{Binding LoadWindowsServiceDynamicDataCommand.CancelCommand}" 
                             HorizontalAlignment="Stretch" BorderThickness="2" Foreground="OrangeRed"/>
                     </Grid>
                     <StackPanel Margin="20,0,20,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" Orientation="Vertical">
-                        <Label FontFamily = "Verdana" Content="Windows services" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <Label FontFamily = "Verdana" Content="{StaticResource Label_WindowsserviceInfo}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
                         <StackPanel Margin="10,0,0,0">
                             <DataGrid ItemsSource="{Binding WindowsService}" ScrollViewer.CanContentScroll="True">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Service Name" Binding="{Binding ServiceName}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                    <DataGridTextColumn Header="Display Name" Binding="{Binding DisplayName}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                    <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                    <DataGridTextColumn Header="Start Type" Binding="{Binding StartType}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                    <DataGridTextColumn Header="ServiceType" Binding="{Binding ServiceType}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                    <DataGridTextColumn Header="Can Pause&#x0a;And Continue" Binding="{Binding CanPauseAndContinue}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                    <DataGridTextColumn Header="Can Shutdown" Binding="{Binding CanShutdown}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                    <DataGridTextColumn Header="Can Stop" Binding="{Binding CanStop}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="{StaticResource WindowsService_ServiceName}" Binding="{Binding ServiceName}" Width="*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource WindowsService_ServiceName_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource WindowsService_DisplayName}" Binding="{Binding DisplayName}" Width="*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource WindowsService_DisplayName_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource WindowsService_Status}" Binding="{Binding Status}" Width="*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="{StaticResource WindowsService_StartType}" Binding="{Binding StartType}" Width="*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource WindowsService_StartType_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource WindowsService_ServiceType}" Binding="{Binding ServiceType}" Width="*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="{StaticResource WindowsService_CanPauseAndContinue}"
+                                                        Binding="{Binding CanPauseAndContinue}" Width="*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource WindowsService_CanPauseAndContinue_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource WindowsService_CanShutdown}" Binding="{Binding CanShutdown}" Width="*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource WindowsService_CanShutdown_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource WindowsService_CanStop}" Binding="{Binding CanStop}" Width="*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource WindowsService_CanStop_ToolTip}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                         </StackPanel>

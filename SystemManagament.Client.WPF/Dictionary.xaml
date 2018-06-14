@@ -194,30 +194,22 @@
     <system:String x:Key="WindowsProcess_Id_ToolTip">Unique identifier for the associated process.</system:String>
     <system:String xml:space="preserve" x:Key="WindowsProcess_UserName">User&#x0a;Name</system:String>
     <system:String x:Key="WindowsProcess_UserName_ToolTip">User name of the owner of this process.</system:String>
-    
     <system:String xml:space="preserve" x:Key="WindowsProcess_PeakPagedMemorySize">Peak&#x0a;Paged&#x0a;Memory&#x0a;Size</system:String>
     <system:String x:Key="WindowsProcess_PeakPagedMemorySize_ToolTip">Maximum amount of memory in the virtual memory paging file used by the associated process.</system:String>
-    
     <system:String xml:space="preserve" x:Key="WindowsProcess_PeakVirtualMemorySize">Peak&#x0a;Virtual&#x0a;Memory&#x0a;Size</system:String>
     <system:String x:Key="WindowsProcess_PeakVirtualMemorySize_ToolTip">Maximum amount of virtual memory used by the associated process.</system:String>
-
     <system:String xml:space="preserve" x:Key="WindowsProcess_PagedMemorySize">Paged&#x0a;Memory&#x0a;Size</system:String>
     <system:String x:Key="WindowsProcess_PagedMemorySize_ToolTip">Amount of pageable system memory allocated for the associated process.</system:String>
-
     <system:String xml:space="preserve" x:Key="WindowsProcess_NonPagedMemorySize">Nonpaged&#x0a;Memory&#x0a;Size</system:String>
     <system:String x:Key="WindowsProcess_NonPagedMemorySize_ToolTip">Amount of nonpaged system memory allocated for the associated process.</system:String>
-    
     <system:String xml:space="preserve" x:Key="WindowsProcess_VirtualMemorySize">Virtual&#x0a;Memory&#x0a;Size</system:String>
     <system:String x:Key="WindowsProcess_VirtualMemorySize_ToolTip">Amount of the virtual memory allocated for the associated process.</system:String>
-
     <system:String xml:space="preserve" x:Key="WindowsProcess_MemorySize">Memory&#x0a;Size</system:String>
     <system:String x:Key="WindowsProcess_MemorySize_ToolTip">The associated process's physical memory usage.</system:String>
     <system:String xml:space="preserve" x:Key="WindowsProcess_PeakMemorySize">Peak&#x0a;Memory&#x0a;Size</system:String>
     <system:String x:Key="WindowsProcess_PeakMemorySize_ToolTip">The maximum amount of physical memory used by the associated process.</system:String>
-
     <system:String xml:space="preserve" x:Key="WindowsProcess_TotalProcessorTime">Total&#x0a;Processor&#x0a;Time</system:String>
     <system:String x:Key="WindowsProcess_TotalProcessorTime_ToolTip">The total processor time for this process.</system:String>
-
     <system:String xml:space="preserve" x:Key="WindowsProcess_SessionId">Session&#x0a;Id</system:String>
     <system:String x:Key="WindowsProcess_SessionId_ToolTip">Terminal Services session identifier for the associated process.</system:String>
     <system:String xml:space="preserve" x:Key="WindowsProcess_StartTime">Start&#x0a;Time</system:String>
@@ -225,5 +217,23 @@
     <system:String xml:space="preserve" x:Key="WindowsProcess_BasePriority">Base&#x0a;Priority</system:String>
     <system:String x:Key="WindowsProcess_BasePriority_ToolTip">The base priority of the associated process.</system:String>
 
+    <system:String x:Key="Header_WindowsService">Windows service</system:String>
+    <system:String x:Key="Button_StartWindowsService">Start windows services monitor</system:String>
+    <system:String x:Key="Button_StopWindowsService">Stop windows services monitor</system:String>
+    <system:String x:Key="Label_WindowsserviceInfo">Windows services</system:String>
+    <system:String x:Key="WindowsService_ServiceName">Service Name</system:String>
+    <system:String x:Key="WindowsService_ServiceName_ToolTip">The name that identifies the service that this instance references.</system:String>
+    <system:String x:Key="WindowsService_DisplayName">Display Name</system:String>
+    <system:String x:Key="WindowsService_DisplayName_ToolTip">Friendly name for the service.</system:String>
+    <system:String x:Key="WindowsService_Status">Status</system:String>
+    <system:String x:Key="WindowsService_StartType">Start Type</system:String>
+    <system:String x:Key="WindowsService_StartType_ToolTip">Value that indicates how the service starts.</system:String>
+    <system:String x:Key="WindowsService_ServiceType">Service Type</system:String>
+    <system:String xml:space="preserve" x:Key="WindowsService_CanPauseAndContinue">Can Pause&#x0a;And Continue</system:String>
+    <system:String x:Key="WindowsService_CanPauseAndContinue_ToolTip">Value indicating whether the service can be paused and resumed.</system:String>
+    <system:String x:Key="WindowsService_CanShutdown">Can Shutdown</system:String>
+    <system:String x:Key="WindowsService_CanShutdown_ToolTip">Value indicating whether the service should be notified when the system is shutting down.</system:String>
+    <system:String x:Key="WindowsService_CanStop">Can Stop</system:String>
+    <system:String x:Key="WindowsService_CanStop_ToolTip">Value indicating whether the service can be stopped after it has started.</system:String>
 
 </ResourceDictionary>
