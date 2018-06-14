@@ -130,6 +130,7 @@
                             </Style>
                         </Style.Resources>
                         <Setter Property="MaxWidth" Value="500" />
+                        <Setter Property="Placement" Value="Top"/>
                     </Style>
                     <Style x:Key="WrappedColumnCellStyle" TargetType="{x:Type TextBlock}">
                         <Setter Property="TextWrapping" Value="Wrap"/>

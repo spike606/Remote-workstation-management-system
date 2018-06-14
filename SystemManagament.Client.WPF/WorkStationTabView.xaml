@@ -27,7 +27,9 @@
                                  VirtualizingPanel.IsVirtualizing="True" FixedHeaderCount="50">
             <dragablz:TabablzControl.ItemContainerStyle>
                 <Style TargetType="{x:Type dragablz:DragablzItem}" BasedOn="{StaticResource MaterialDesignDragableTabItemVerticalStyle}">
-                    <Setter Property="Width" Value="130" />
+                    <Setter Property="Width" Value="140" />
+                    <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                    <Setter Property="TextBlock.Margin" Value="5 0 0 0 "/>
                 </Style>
             </dragablz:TabablzControl.ItemContainerStyle>
             <dragablz:TabablzControl.InterTabController>
@@ -136,13 +138,13 @@
                                 <Label Content="{StaticResource Label_Name}" Grid.Row="0" Grid.Column="0" FontWeight="Bold" FontSize="14"
                                        ToolTip="{StaticResource ToolTip_UserName}"/>
                                 <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding CurrentUser[0].Name}" Grid.Row="0" Grid.Column="1"/>
-                                <Label Content="{StaticResource Label_BasicUserInfo}" Grid.Row="1" Grid.Column="0" FontWeight="Bold" FontSize="14"
+                                <Label Content="{StaticResource Label_AuthenticationType}" Grid.Row="1" Grid.Column="0" FontWeight="Bold" FontSize="14"
                                        ToolTip="{StaticResource ToolTip_AuthenticationType}"/>
                                 <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding CurrentUser[0].AuthenticationType}" Grid.Row="1" Grid.Column="1"/>
                             </Grid>
                             <Label FontFamily = "Verdana" Content="{StaticResource Label_UserClaims}" FontSize="16" FontWeight="Bold"/>
                             <TextBlock FontFamily = "Verdana" TextWrapping="WrapWithOverflow" FontSize="14" Text="{StaticResource Label_UserClaimsDescription}" Foreground="White"/>
-                            <DataGrid ItemsSource="{Binding CurrentUserClaims, IsAsync=True}" MaxHeight="400" Margin="0 10 0 0">
+                            <DataGrid ItemsSource="{Binding CurrentUserClaims, IsAsync=True}" MaxHeight="350" Margin="0 10 0 0">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="{StaticResource CurrentUserClaims_Type}" Binding="{Binding Type}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" 
                                                         ToolTipService.ToolTip="{StaticResource CurrentUserClaims_Type_ToolTip}"/>
@@ -440,7 +442,7 @@
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="Installed programs" Foreground="Black" />
+                    <TextBlock Text="{StaticResource Header_InstalledPrograms}" Foreground="Black" />
                 </TabItem.Header>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -460,22 +462,22 @@
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
-                        <Button Content="Refresh software static data" Command="{Binding LoadSoftwareStaticDataCommand}" 
+                        <Button Content="{StaticResource Button_LoadSoftwareStatic}" Command="{Binding LoadSoftwareStaticDataCommand}" 
                             HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange"/>
                     </Grid>
                     <Grid Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="3">
-                        <Button Content="Cancel" Command="{Binding LoadSoftwareStaticDataCommand.CancelCommand}" 
+                        <Button Content="{StaticResource Button_Cancel}" Command="{Binding LoadSoftwareStaticDataCommand.CancelCommand}" 
                         HorizontalAlignment="Stretch" BorderThickness="2" Foreground="OrangeRed"/>
                     </Grid>
                     <StackPanel Margin="20,0,20,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" Orientation="Vertical">
-                        <Label FontFamily = "Verdana" Content="Installed programs" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <Label FontFamily = "Verdana" Content="{StaticResource Header_InstalledPrograms}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
                         <StackPanel Margin="10,0,0,0">
                             <DataGrid ItemsSource="{Binding InstalledProgram, IsAsync=True}">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Name" Binding="{Binding Name}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                    <DataGridTextColumn Header="Version" Binding="{Binding Version}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                    <DataGridTextColumn Header="Install Date" Binding="{Binding InstallDate}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                    <DataGridTextColumn Header="Install Location" Binding="{Binding InstallLocation}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="{StaticResource InstalledProgram_InstalledPrograms_Name}" Binding="{Binding Name}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="{StaticResource InstalledProgram_InstalledPrograms_Version}" Binding="{Binding Version}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="{StaticResource InstalledProgram_InstalledPrograms_InstallDate}" Binding="{Binding InstallDate}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="{StaticResource InstalledProgram_InstalledPrograms_InstallLocation}" Binding="{Binding InstallLocation}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                         </StackPanel>
@@ -484,7 +486,7 @@
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="Startup" Foreground="Black" />
+                    <TextBlock Text="{StaticResource Header_Startup}" Foreground="Black"/>
                 </TabItem.Header>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -504,26 +506,44 @@
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
-                        <Button Content="Refresh software static data" Command="{Binding LoadSoftwareStaticDataCommand}" 
+                        <Button Content="{StaticResource Button_LoadSoftwareStatic}" Command="{Binding LoadSoftwareStaticDataCommand}" 
                             HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange"/>
                     </Grid>
                     <Grid Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="3">
-                        <Button Content="Cancel" Command="{Binding LoadSoftwareStaticDataCommand.CancelCommand}" 
+                        <Button Content="{StaticResource Button_Cancel}" Command="{Binding LoadSoftwareStaticDataCommand.CancelCommand}" 
                         HorizontalAlignment="Stretch" BorderThickness="2" Foreground="OrangeRed"/>
                     </Grid>
                     <StackPanel Margin="20,0,20,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" Orientation="Vertical">
-                        <Label FontFamily = "Verdana" Content="Startup Commands" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <Label FontFamily = "Verdana" Content="{StaticResource StartupCommand_StartupInfo}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <TextBlock FontFamily = "Verdana" TextWrapping="WrapWithOverflow" FontSize="14" Text="{StaticResource StartupCommand_StartupDescription}"
+                                   Foreground="White" Margin="10,10,0,10"/>
                         <StackPanel Margin="10,0,0,0">
                             <DataGrid ItemsSource="{Binding StartupCommand, IsAsync=True}">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                    <DataGridTextColumn Header="Command" Binding="{Binding Command}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                    <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                    <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                    <DataGridTextColumn Header="Location" Binding="{Binding Location}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                    <DataGridTextColumn Header="Setting ID" Binding="{Binding SettingID}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                    <DataGridTextColumn Header="User" Binding="{Binding User}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                    <DataGridTextColumn Header="User SID" Binding="{Binding UserSID}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="{StaticResource StartupCommand_Startup_Name}" Binding="{Binding Name}" Width="*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource StartupCommand_Startup_Name_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource StartupCommand_Startup_Command}" Binding="{Binding Command}" Width="*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource StartupCommand_Startup_Command_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource StartupCommand_Startup_Description}" Binding="{Binding Description}" Width="*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource StartupCommand_Startup_Description_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource StartupCommand_Startup_Caption}" Binding="{Binding Caption}" Width="*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource StartupCommand_Startup_Caption_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource StartupCommand_Startup_Location}" Binding="{Binding Location}" Width="*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource StartupCommand_Startup_Location_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource StartupCommand_Startup_SettingID}" Binding="{Binding SettingID}" Width="*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource StartupCommand_Startup_SettingID_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource StartupCommand_Startup_User}" Binding="{Binding User}" Width="*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource StartupCommand_Startup_User_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource StartupCommand_Startup_UserSID}" Binding="{Binding UserSID}" Width="*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource StartupCommand_Startup_UserSID_ToolTip}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                         </StackPanel>
@@ -532,7 +552,7 @@
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="Users" Foreground="Black" />
+                    <TextBlock Text="{StaticResource Header_Users}" Foreground="Black" />
                 </TabItem.Header>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -552,15 +572,15 @@
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
-                        <Button Content="Refresh software static data" Command="{Binding LoadSoftwareStaticDataCommand}" 
+                        <Button Content="{StaticResource Button_LoadSoftwareStatic}" Command="{Binding LoadSoftwareStaticDataCommand}" 
                             HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange"/>
                     </Grid>
                     <Grid Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="3">
-                        <Button Content="Cancel" Command="{Binding LoadSoftwareStaticDataCommand.CancelCommand}" 
+                        <Button Content="{StaticResource Button_Cancel}" Command="{Binding LoadSoftwareStaticDataCommand.CancelCommand}" 
                         HorizontalAlignment="Stretch" BorderThickness="2" Foreground="OrangeRed"/>
                     </Grid>
                     <StackPanel Margin="20,0,20,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" Orientation="Vertical">
-                        <Label FontFamily = "Verdana" Content="Local users" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <Label FontFamily = "Verdana" Content="{StaticResource Label_UsersInfo}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
                         <StackPanel Margin="10,0,0,0">
                             <DataGrid ItemsSource="{Binding LocalUser, IsAsync=True}">
                                 <DataGrid.ContextMenu>
@@ -569,16 +589,36 @@
                                     </ContextMenu>
                                 </DataGrid.ContextMenu>
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="0.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                    <DataGridTextColumn Header="Domain" Binding="{Binding Domain}"  Width="0.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                    <DataGridTextColumn Header="Full Name" Binding="{Binding FullName}"  Width="0.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                    <DataGridTextColumn Header="SID" Binding="{Binding SID}"  Width="0.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                    <DataGridTextColumn Header="SID Type" Binding="{Binding SIDType}"  Width="0.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                    <DataGridTextColumn Header="Caption" Binding="{Binding Caption}"  Width="0.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                    <DataGridTextColumn Header="Description" Binding="{Binding Descritption}"  Width="0.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                    <DataGridTextColumn Header="Password&#x0a;Changeable" Binding="{Binding PasswordChangeable}"  Width="0.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                    <DataGridTextColumn Header="Password&#x0a;Expires" Binding="{Binding PasswordExpires}"  Width="0.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                    <DataGridTextColumn Header="Password&#x0a;Required" Binding="{Binding PasswordRequired}"  Width="0.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="{StaticResource LocalUser_Name}" Binding="{Binding Name}" Width="0.1*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource LocalUser_Name_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource LocalUser_Domain}" Binding="{Binding Domain}"  Width="0.1*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource LocalUser_Domain_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource LocalUser_FullName}" Binding="{Binding FullName}"  Width="0.1*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource LocalUser_FullName_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource LocalUser_SID}" Binding="{Binding SID}"  Width="0.1*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource LocalUser_SID_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource LocalUser_SIDType}" Binding="{Binding SIDType}"  Width="0.1*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource LocalUser_SIDType_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource LocalUser_Caption}" Binding="{Binding Caption}"  Width="0.1*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource LocalUser_Caption_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource LocalUser_Description}" Binding="{Binding Descritption}"  Width="0.1*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource LocalUser_Description_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource LocalUser_PasswordChangeable}" Binding="{Binding PasswordChangeable}"  Width="0.1*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource LocalUser_PasswordChangeable_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource LocalUser_PasswordExpires}" Binding="{Binding PasswordExpires}"  Width="0.1*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource LocalUser_PasswordExpires_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource LocalUser_PasswordRequired}" Binding="{Binding PasswordRequired}"  Width="0.1*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource LocalUser_PasswordRequired_ToolTip}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                         </StackPanel>
@@ -587,7 +627,7 @@
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="Microsoft Updates" Foreground="Black" />
+                    <TextBlock Text="{StaticResource Header_MicrosoftUpdates}" Foreground="Black" />
                 </TabItem.Header>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -607,29 +647,53 @@
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
-                        <Button Content="Refresh software static data" Command="{Binding LoadSoftwareStaticDataCommand}" 
+                        <Button Content="{StaticResource Button_LoadSoftwareStatic}" Command="{Binding LoadSoftwareStaticDataCommand}" 
                             HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange"/>
                     </Grid>
                     <Grid Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="3">
-                        <Button Content="Cancel" Command="{Binding LoadSoftwareStaticDataCommand.CancelCommand}" 
+                        <Button Content="{StaticResource Button_Cancel}" Command="{Binding LoadSoftwareStaticDataCommand.CancelCommand}" 
                         HorizontalAlignment="Stretch" BorderThickness="2" Foreground="OrangeRed"/>
                     </Grid>
                     <StackPanel Margin="20,0,20,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" Orientation="Vertical">
-                        <Label FontFamily = "Verdana" Content="Installed Microsoft Updates" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <Label FontFamily = "Verdana" Content="{StaticResource Label_MicrosoftUpdatesInfo}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <TextBlock FontFamily = "Verdana" TextWrapping="WrapWithOverflow" FontSize="14" Text="{StaticResource Label_MicrosoftUpdatesDescription}"
+                                   Foreground="White" Margin="10,10,0,10"/>
                         <StackPanel Margin="10,0,0,0">
                             <DataGrid ItemsSource="{Binding MicrosoftWindowsUpdate, IsAsync=True}">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Name" Binding="{Binding Name}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                    <DataGridTextColumn Header="Description" Binding="{Binding Description}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                    <DataGridTextColumn Header="CS Name" Binding="{Binding CSName}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                    <DataGridTextColumn Header="Install Date" Binding="{Binding InstallDate}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                    <DataGridTextColumn Header="Installed By" Binding="{Binding InstalledBy}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                    <DataGridTextColumn Header="Installed On" Binding="{Binding InstalledOn}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                    <DataGridTextColumn Header="Service Pack&#x0a;In Effect" Binding="{Binding ServicePackInEffect}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                    <DataGridTextColumn Header="Status" Binding="{Binding Status}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                    <DataGridTextColumn Header="HotFix ID" Binding="{Binding HotFixID}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                    <DataGridTextColumn Header="Fix Comments" Binding="{Binding FixComments}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                    <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
+                                    <DataGridTextColumn Header="{StaticResource MicrosoftWindowsUpdate_Name}" Binding="{Binding Name}"  Width="*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource LocalUser_Name_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource MicrosoftWindowsUpdate_Caption}" Binding="{Binding Caption}" Width="*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource MicrosoftWindowsUpdate_Caption_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource MicrosoftWindowsUpdate_Description}" Binding="{Binding Description}"  Width="*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource MicrosoftWindowsUpdate_Description_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource MicrosoftWindowsUpdate_CSName}" Binding="{Binding CSName}"  Width="*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource MicrosoftWindowsUpdate_CSName_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource MicrosoftWindowsUpdate_InstallDate}" Binding="{Binding InstallDate}"  Width="*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource MicrosoftWindowsUpdate_InstallDate_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource MicrosoftWindowsUpdate_InstalledBy}" Binding="{Binding InstalledBy}"  Width="*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource MicrosoftWindowsUpdate_InstalledBy_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource MicrosoftWindowsUpdate_InstalledOn}" Binding="{Binding InstalledOn}"  Width="*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource MicrosoftWindowsUpdate_InstalledOn_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource MicrosoftWindowsUpdate_ServicePackInEffect}" Binding="{Binding ServicePackInEffect}"  Width="*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource MicrosoftWindowsUpdate_ServicePackInEffect_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource MicrosoftWindowsUpdate_Status}" Binding="{Binding Status}"  Width="*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource MicrosoftWindowsUpdate_Status_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource MicrosoftWindowsUpdate_HotFixID}" Binding="{Binding HotFixID}"  Width="*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource MicrosoftWindowsUpdate_HotFixID_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource MicrosoftWindowsUpdate_FixComments}" Binding="{Binding FixComments}"  Width="*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource MicrosoftWindowsUpdate_FixComments_ToolTip}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                         </StackPanel>
@@ -638,7 +702,7 @@
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="Windows process" Foreground="BlueViolet" />
+                    <TextBlock Text="Windows process" Foreground="Navy" />
                 </TabItem.Header>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -690,7 +754,7 @@
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="Windows services" Foreground="BlueViolet" />
+                    <TextBlock Text="Windows services" Foreground="Navy" />
                 </TabItem.Header>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -738,7 +802,7 @@
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="Windows logs" Foreground="BlueViolet" />
+                    <TextBlock Text="Windows logs" Foreground="Navy" />
                 </TabItem.Header>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <Grid>
@@ -798,7 +862,7 @@
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="Processor Static" Foreground="BlueViolet" />
+                    <TextBlock Text="Processor Static" Foreground="YellowGreen" />
                 </TabItem.Header>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -915,7 +979,7 @@
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="Memory Static" Foreground="BlueViolet" />
+                    <TextBlock Text="Memory Static" Foreground="YellowGreen" />
                 </TabItem.Header>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -972,7 +1036,7 @@
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="Storage" Foreground="BlueViolet" />
+                    <TextBlock Text="Storage" Foreground="YellowGreen" />
                 </TabItem.Header>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <Grid>
@@ -1297,7 +1361,7 @@
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="Base Board" Foreground="BlueViolet" />
+                    <TextBlock Text="Base Board" Foreground="YellowGreen" />
                 </TabItem.Header>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -1368,7 +1432,7 @@
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="Video Controller" Foreground="BlueViolet" />
+                    <TextBlock Text="Video Controller" Foreground="YellowGreen" />
                 </TabItem.Header>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -1424,7 +1488,7 @@
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="Network Adapter" Foreground="BlueViolet" />
+                    <TextBlock Text="Network Adapter" Foreground="YellowGreen" />
                 </TabItem.Header>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -1483,7 +1547,7 @@
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="Plug and Play" Foreground="BlueViolet" />
+                    <TextBlock Text="Plug and Play" Foreground="YellowGreen" />
                 </TabItem.Header>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -1529,7 +1593,7 @@
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="Other hardware" Foreground="BlueViolet" />
+                    <TextBlock Text="Other hardware" Foreground="YellowGreen" />
                 </TabItem.Header>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <Grid>

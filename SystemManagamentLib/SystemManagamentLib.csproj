@@ -121,6 +121,7 @@
     <Compile Include="Monitor\SoftwareDynamic\Model\Components\Duplicate\EventLogEntryTypeDuplicate.cs" />
     <Compile Include="Monitor\SoftwareStatic\Model\Components\Duplicate\ClaimDuplicate.cs" />
     <Compile Include="Monitor\SoftwareStatic\Model\Components\Duplicate\GroupDuplicate.cs" />
+    <Compile Include="Shared\CustomProperties\Enums\UserEnum.cs" />
     <Compile Include="Shared\CustomProperties\UnitIntValue.cs" />
     <Compile Include="Shared\CustomProperties\UnitLongValue.cs" />
     <Compile Include="Shared\CustomProperties\UnitShortValue.cs" />

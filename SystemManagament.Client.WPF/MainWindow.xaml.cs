@@ -30,6 +30,9 @@ namespace SystemManagament.Client.WPF
         public MainWindow()
         {
             this.InitializeComponent();
+
+            // Make tooltip always visible
+            ToolTipService.ShowDurationProperty.OverrideMetadata(typeof(DependencyObject), new FrameworkPropertyMetadata(int.MaxValue));
         }
 
         private void ScrollViewer_PreviewMouseWheel(object sender, MouseWheelEventArgs e)

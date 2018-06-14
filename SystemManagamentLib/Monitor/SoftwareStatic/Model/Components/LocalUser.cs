@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using SystemManagament.Monitor.HardwareStatic;
 using SystemManagament.Monitor.SoftwareStatic.Model.Components.Interface;
 using SystemManagament.Monitor.SoftwareStatic.Provider;
+using SystemManagament.Shared.CustomProperties.Enums;
 using SystemManagament.Shared.WMI;
 
 namespace SystemManagament.Monitor.SoftwareStatic.Model.Components
@@ -57,7 +58,7 @@ namespace SystemManagament.Monitor.SoftwareStatic.Model.Components
             localUser.PasswordExpires = managementObject[ConstString.LOCAL_USER_PASSWORD_EXPIRES].TryGetStringValue();
             localUser.PasswordRequired = managementObject[ConstString.LOCAL_USER_PASSWORD_REQUIRED].TryGetStringValue();
             localUser.SID = managementObject[ConstString.LOCAL_USER_SID].TryGetStringValue();
-            localUser.SIDType = managementObject[ConstString.LOCAL_USER_SID_TYPE].TryGetStringValue();
+            localUser.SIDType = ((SIDTypeEnum)((byte)managementObject[ConstString.LOCAL_USER_SID_TYPE])).ToString();
 
             return localUser;
         }
