@@ -49,18 +49,18 @@ namespace SystemManagament.Monitor.SoftwareDynamic.Provider
                 foreach (var process in Process.GetProcesses())
                 {
                     WindowsProcess windowsProcess = new WindowsProcess();
-                    windowsProcess.BasePriority = process.BasePriority.ToString();
-                    windowsProcess.Id = process.Id.ToString();
+                    windowsProcess.BasePriority = process.BasePriority;
+                    windowsProcess.Id = process.Id;
                     windowsProcess.Name = process.ProcessName;
                     windowsProcess.StartTime = process.StartTime;
-                    windowsProcess.TotalProcessorTime = process.TotalProcessorTime;
-                    windowsProcess.PagedMemorySize64 = new UnitLongValue() { Unit = Unit.B, Value = process.PagedMemorySize64 };
-                    windowsProcess.VirtualMemorySize64 = new UnitLongValue() { Unit = Unit.B, Value = process.VirtualMemorySize64 };
+                    windowsProcess.PagedMemorySize = new UnitLongValue() { Unit = Unit.B, Value = process.PagedMemorySize64 };
+                    windowsProcess.NonPagedMemorySize = new UnitLongValue() { Unit = Unit.B, Value = process.NonpagedSystemMemorySize64 };
+                    windowsProcess.VirtualMemorySize = new UnitLongValue() { Unit = Unit.B, Value = process.VirtualMemorySize64 };
                     windowsProcess.MemorySize = new UnitLongValue() { Unit = Unit.B, Value = process.WorkingSet64 };
-                    windowsProcess.TotalProcessorTime = process.TotalProcessorTime;
-                    windowsProcess.PeakPagedMemorySize64 = new UnitLongValue() { Unit = Unit.B, Value = process.PeakPagedMemorySize64 };
-                    windowsProcess.PeakVirtualMemorySize64 = new UnitLongValue() { Unit = Unit.B, Value = process.PeakVirtualMemorySize64 };
                     windowsProcess.PeakMemorySize = new UnitLongValue() { Unit = Unit.B, Value = process.PeakWorkingSet64 };
+                    windowsProcess.TotalProcessorTime = process.TotalProcessorTime;
+                    windowsProcess.PeakPagedMemorySize = new UnitLongValue() { Unit = Unit.B, Value = process.PeakPagedMemorySize64 };
+                    windowsProcess.PeakVirtualMemorySize = new UnitLongValue() { Unit = Unit.B, Value = process.PeakVirtualMemorySize64 };
                     windowsProcess.SessionId = process.SessionId.ToString();
 
                     var processOwner = this.GetProcessOwner(process);

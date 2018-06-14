@@ -15,10 +15,10 @@ namespace SystemManagament.Monitor.SoftwareDynamic.Model.Components
     public class WindowsProcess : ISoftwareDynamicComponent<WindowsProcess>
     {
         [DataMember]
-        public string BasePriority { get; internal set; }
+        public int BasePriority { get; internal set; }
 
         [DataMember]
-        public string Id { get; internal set; }
+        public int Id { get; internal set; }
 
         [DataMember]
         public string Name { get; internal set; }
@@ -30,25 +30,28 @@ namespace SystemManagament.Monitor.SoftwareDynamic.Model.Components
         public TimeSpan TotalProcessorTime { get; internal set; }
 
         [DataMember]
-        public UnitLongValue PeakPagedMemorySize64 { get; internal set; }
+        public UnitLongValue PeakPagedMemorySize { get; internal set; }
 
         [DataMember]
-        public UnitLongValue PeakVirtualMemorySize64 { get; internal set; }
-
-        [DataMember]
-        public UnitLongValue PeakMemorySize { get; internal set; }
+        public UnitLongValue PeakVirtualMemorySize { get; internal set; }
 
         [DataMember]
         public string SessionId { get; internal set; }
 
         [DataMember]
-        public UnitLongValue PagedMemorySize64 { get; internal set; }
+        public UnitLongValue PagedMemorySize { get; internal set; }
 
         [DataMember]
-        public UnitLongValue VirtualMemorySize64 { get; internal set; }
+        public UnitLongValue NonPagedMemorySize { get; internal set; }
+
+        [DataMember]
+        public UnitLongValue VirtualMemorySize { get; internal set; }
 
         [DataMember]
         public UnitLongValue MemorySize { get; internal set; }
+
+        [DataMember]
+        public UnitLongValue PeakMemorySize { get; internal set; }
 
         [DataMember]
         public string UserName { get; internal set; }

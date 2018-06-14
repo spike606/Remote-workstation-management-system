@@ -212,10 +212,10 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string BasePriorityField;
+        private int BasePriorityField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IdField;
+        private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private SystemManagament.Client.WPF.WorkstationMonitorService.UnitLongValue MemorySizeField;
@@ -224,16 +224,19 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorService {
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitLongValue PagedMemorySize64Field;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitLongValue NonPagedMemorySizeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitLongValue PagedMemorySizeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private SystemManagament.Client.WPF.WorkstationMonitorService.UnitLongValue PeakMemorySizeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitLongValue PeakPagedMemorySize64Field;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitLongValue PeakPagedMemorySizeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitLongValue PeakVirtualMemorySize64Field;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitLongValue PeakVirtualMemorySizeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SessionIdField;
@@ -248,7 +251,7 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorService {
         private string UserNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitLongValue VirtualMemorySize64Field;
+        private SystemManagament.Client.WPF.WorkstationMonitorService.UnitLongValue VirtualMemorySizeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -261,12 +264,12 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string BasePriority {
+        public int BasePriority {
             get {
                 return this.BasePriorityField;
             }
             set {
-                if ((object.ReferenceEquals(this.BasePriorityField, value) != true)) {
+                if ((this.BasePriorityField.Equals(value) != true)) {
                     this.BasePriorityField = value;
                     this.RaisePropertyChanged("BasePriority");
                 }
@@ -274,12 +277,12 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Id {
+        public int Id {
             get {
                 return this.IdField;
             }
             set {
-                if ((object.ReferenceEquals(this.IdField, value) != true)) {
+                if ((this.IdField.Equals(value) != true)) {
                     this.IdField = value;
                     this.RaisePropertyChanged("Id");
                 }
@@ -313,14 +316,27 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitLongValue PagedMemorySize64 {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitLongValue NonPagedMemorySize {
             get {
-                return this.PagedMemorySize64Field;
+                return this.NonPagedMemorySizeField;
             }
             set {
-                if ((this.PagedMemorySize64Field.Equals(value) != true)) {
-                    this.PagedMemorySize64Field = value;
-                    this.RaisePropertyChanged("PagedMemorySize64");
+                if ((this.NonPagedMemorySizeField.Equals(value) != true)) {
+                    this.NonPagedMemorySizeField = value;
+                    this.RaisePropertyChanged("NonPagedMemorySize");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitLongValue PagedMemorySize {
+            get {
+                return this.PagedMemorySizeField;
+            }
+            set {
+                if ((this.PagedMemorySizeField.Equals(value) != true)) {
+                    this.PagedMemorySizeField = value;
+                    this.RaisePropertyChanged("PagedMemorySize");
                 }
             }
         }
@@ -339,27 +355,27 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitLongValue PeakPagedMemorySize64 {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitLongValue PeakPagedMemorySize {
             get {
-                return this.PeakPagedMemorySize64Field;
+                return this.PeakPagedMemorySizeField;
             }
             set {
-                if ((this.PeakPagedMemorySize64Field.Equals(value) != true)) {
-                    this.PeakPagedMemorySize64Field = value;
-                    this.RaisePropertyChanged("PeakPagedMemorySize64");
+                if ((this.PeakPagedMemorySizeField.Equals(value) != true)) {
+                    this.PeakPagedMemorySizeField = value;
+                    this.RaisePropertyChanged("PeakPagedMemorySize");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitLongValue PeakVirtualMemorySize64 {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitLongValue PeakVirtualMemorySize {
             get {
-                return this.PeakVirtualMemorySize64Field;
+                return this.PeakVirtualMemorySizeField;
             }
             set {
-                if ((this.PeakVirtualMemorySize64Field.Equals(value) != true)) {
-                    this.PeakVirtualMemorySize64Field = value;
-                    this.RaisePropertyChanged("PeakVirtualMemorySize64");
+                if ((this.PeakVirtualMemorySizeField.Equals(value) != true)) {
+                    this.PeakVirtualMemorySizeField = value;
+                    this.RaisePropertyChanged("PeakVirtualMemorySize");
                 }
             }
         }
@@ -417,14 +433,14 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitLongValue VirtualMemorySize64 {
+        public SystemManagament.Client.WPF.WorkstationMonitorService.UnitLongValue VirtualMemorySize {
             get {
-                return this.VirtualMemorySize64Field;
+                return this.VirtualMemorySizeField;
             }
             set {
-                if ((this.VirtualMemorySize64Field.Equals(value) != true)) {
-                    this.VirtualMemorySize64Field = value;
-                    this.RaisePropertyChanged("VirtualMemorySize64");
+                if ((this.VirtualMemorySizeField.Equals(value) != true)) {
+                    this.VirtualMemorySizeField = value;
+                    this.RaisePropertyChanged("VirtualMemorySize");
                 }
             }
         }

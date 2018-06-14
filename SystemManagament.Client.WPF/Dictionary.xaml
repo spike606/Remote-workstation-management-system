@@ -185,4 +185,45 @@
     <system:String x:Key="MicrosoftWindowsUpdate_Caption">Caption</system:String>
     <system:String x:Key="MicrosoftWindowsUpdate_Caption_ToolTip">A short textual description.</system:String>
 
+    <system:String x:Key="Header_WindowsProcess">Windows process</system:String>
+    <system:String x:Key="Button_StartWindowsProcess">Start windows processes monitor</system:String>
+    <system:String x:Key="Button_StopWindowsProcess">Stop windows processes monitor</system:String>
+    <system:String x:Key="Label_WindowsProcessInfo">Windows processes</system:String>
+    <system:String x:Key="WindowsProcess_Name">Name</system:String>
+    <system:String x:Key="WindowsProcess_Id">Id</system:String>
+    <system:String x:Key="WindowsProcess_Id_ToolTip">Unique identifier for the associated process.</system:String>
+    <system:String xml:space="preserve" x:Key="WindowsProcess_UserName">User&#x0a;Name</system:String>
+    <system:String x:Key="WindowsProcess_UserName_ToolTip">User name of the owner of this process.</system:String>
+    
+    <system:String xml:space="preserve" x:Key="WindowsProcess_PeakPagedMemorySize">Peak&#x0a;Paged&#x0a;Memory&#x0a;Size</system:String>
+    <system:String x:Key="WindowsProcess_PeakPagedMemorySize_ToolTip">Maximum amount of memory in the virtual memory paging file used by the associated process.</system:String>
+    
+    <system:String xml:space="preserve" x:Key="WindowsProcess_PeakVirtualMemorySize">Peak&#x0a;Virtual&#x0a;Memory&#x0a;Size</system:String>
+    <system:String x:Key="WindowsProcess_PeakVirtualMemorySize_ToolTip">Maximum amount of virtual memory used by the associated process.</system:String>
+
+    <system:String xml:space="preserve" x:Key="WindowsProcess_PagedMemorySize">Paged&#x0a;Memory&#x0a;Size</system:String>
+    <system:String x:Key="WindowsProcess_PagedMemorySize_ToolTip">Amount of pageable system memory allocated for the associated process.</system:String>
+
+    <system:String xml:space="preserve" x:Key="WindowsProcess_NonPagedMemorySize">Nonpaged&#x0a;Memory&#x0a;Size</system:String>
+    <system:String x:Key="WindowsProcess_NonPagedMemorySize_ToolTip">Amount of nonpaged system memory allocated for the associated process.</system:String>
+    
+    <system:String xml:space="preserve" x:Key="WindowsProcess_VirtualMemorySize">Virtual&#x0a;Memory&#x0a;Size</system:String>
+    <system:String x:Key="WindowsProcess_VirtualMemorySize_ToolTip">Amount of the virtual memory allocated for the associated process.</system:String>
+
+    <system:String xml:space="preserve" x:Key="WindowsProcess_MemorySize">Memory&#x0a;Size</system:String>
+    <system:String x:Key="WindowsProcess_MemorySize_ToolTip">The associated process's physical memory usage.</system:String>
+    <system:String xml:space="preserve" x:Key="WindowsProcess_PeakMemorySize">Peak&#x0a;Memory&#x0a;Size</system:String>
+    <system:String x:Key="WindowsProcess_PeakMemorySize_ToolTip">The maximum amount of physical memory used by the associated process.</system:String>
+
+    <system:String xml:space="preserve" x:Key="WindowsProcess_TotalProcessorTime">Total&#x0a;Processor&#x0a;Time</system:String>
+    <system:String x:Key="WindowsProcess_TotalProcessorTime_ToolTip">The total processor time for this process.</system:String>
+
+    <system:String xml:space="preserve" x:Key="WindowsProcess_SessionId">Session&#x0a;Id</system:String>
+    <system:String x:Key="WindowsProcess_SessionId_ToolTip">Terminal Services session identifier for the associated process.</system:String>
+    <system:String xml:space="preserve" x:Key="WindowsProcess_StartTime">Start&#x0a;Time</system:String>
+    <system:String x:Key="WindowsProcess_StartTime_ToolTip">the time that the associated process was started.</system:String>
+    <system:String xml:space="preserve" x:Key="WindowsProcess_BasePriority">Base&#x0a;Priority</system:String>
+    <system:String x:Key="WindowsProcess_BasePriority_ToolTip">The base priority of the associated process.</system:String>
+
+
 </ResourceDictionary>

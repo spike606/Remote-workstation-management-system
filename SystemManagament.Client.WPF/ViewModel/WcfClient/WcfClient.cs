@@ -177,7 +177,7 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
                 var result = await client.ReadWindowsProcessDynamicDataAsync();
                 if (!cancellationToken.IsCancellationRequested)
                 {
-                    windowsProcessDynamicObservableCollection.ReplaceRange(result, new WindowsProcessComparer());
+                    windowsProcessDynamicObservableCollection.ReplaceRange(result);
                 }
 
                 return result;

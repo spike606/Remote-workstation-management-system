@@ -195,7 +195,6 @@
     <Compile Include="Comparer\StartupCommandComparer.cs" />
     <Compile Include="Comparer\VideoControllerStaticComparer.cs" />
     <Compile Include="Comparer\WindowsLogComparer.cs" />
-    <Compile Include="Comparer\WindowsProcessComparer.cs" />
     <Compile Include="Comparer\WindowsServiceComparer.cs" />
     <Compile Include="Connected Services\WorkstationMonitorService\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -203,6 +202,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Converters\NullToVisibilityConverter.cs" />
+    <Compile Include="Converters\TimeSpanConverter.cs" />
     <Compile Include="Converters\UnitIntValueToStringConverter.cs" />
     <Compile Include="Converters\UnitLongValueToStringConverter.cs" />
     <Compile Include="Converters\UnitShortValueToStringConverter.cs" />
