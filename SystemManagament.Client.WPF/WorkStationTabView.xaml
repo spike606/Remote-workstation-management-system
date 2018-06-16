@@ -930,7 +930,7 @@
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="Processor Static" Foreground="YellowGreen" />
+                    <TextBlock Text="{StaticResource Header_ProcessorStatic}" Foreground="YellowGreen" />
                 </TabItem.Header>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -950,18 +950,18 @@
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
-                        <Button Content="Refresh hardware static data" Command="{Binding LoadHardwareStaticDataCommand}" 
+                        <Button Content="{StaticResource Button_LoadHardwareStatic}" Command="{Binding LoadHardwareStaticDataCommand}" 
                             HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange"/>
                     </Grid>
                     <Grid Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="3">
-                        <Button Content="Cancel" Command="{Binding LoadHardwareStaticDataCommand.CancelCommand}" 
+                        <Button Content="{StaticResource Button_Cancel}" Command="{Binding LoadHardwareStaticDataCommand.CancelCommand}" 
                         HorizontalAlignment="Stretch" BorderThickness="2" Foreground="OrangeRed"/>
                     </Grid>
                     <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10">
                         <StackPanel Margin="20,0,20,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" Orientation="Vertical">
-                            <Label FontFamily = "Verdana" Content="Processor Info" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                            <Label FontFamily = "Verdana" Content="{StaticResource Label_ProcessorStaticInfo}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
                             <StackPanel Margin="10,0,0,0">
-                                <Label FontFamily = "Verdana" Content="Basic Processor Info" FontSize="16" FontWeight="Bold"/>
+                                <Label FontFamily = "Verdana" Content="{StaticResource Label_ProcessorStaticBasicInfo}" FontSize="16" FontWeight="Bold"/>
                                 <Grid Background="SlateGray">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="*"></RowDefinition>
@@ -991,53 +991,78 @@
                                         <ColumnDefinition Width="*"></ColumnDefinition>
                                         <ColumnDefinition Width="*"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
-                                    <Label Grid.Row="0" Grid.Column="0" FontWeight="Bold" FontSize="14" Content="Caption:" />
+                                    <Label Grid.Row="0" Grid.Column="0" FontWeight="Bold" FontSize="14" Content="{StaticResource ProcessorStatic_Caption}"
+                                        ToolTipService.ToolTip="{StaticResource ProcessorStatic_Caption_ToolTip}"/>
                                     <TextBlock Grid.Row="0" Grid.Column="1" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding ProcessorStatic[0].Caption}" />
-                                    <Label Grid.Row="1" Grid.Column="0" FontWeight="Bold" FontSize="14" Content="Name:" />
+                                    <Label Grid.Row="1" Grid.Column="0" FontWeight="Bold" FontSize="14" Content="{StaticResource ProcessorStatic_Name}"
+                                        ToolTipService.ToolTip="{StaticResource ProcessorStatic_Name_ToolTip}"/>
                                     <TextBlock Grid.Row="1" Grid.Column="1" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding ProcessorStatic[0].Name}" />
-                                    <Label Grid.Row="2" Grid.Column="0" FontWeight="Bold" FontSize="14" Content="Description:" />
+                                    <Label Grid.Row="2" Grid.Column="0" FontWeight="Bold" FontSize="14" Content="{StaticResource ProcessorStatic_Description}" />
                                     <TextBlock Grid.Row="2" Grid.Column="1" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding ProcessorStatic[0].Description}" />
-                                    <Label Grid.Row="3" Grid.Column="0" FontWeight="Bold" FontSize="14" Content="Status:" />
+                                    <Label Grid.Row="3" Grid.Column="0" FontWeight="Bold" FontSize="14" Content="{StaticResource ProcessorStatic_Status}"
+                                        ToolTipService.ToolTip="{StaticResource ProcessorStatic_Status_ToolTip}"/>
                                     <TextBlock Grid.Row="3" Grid.Column="1" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding ProcessorStatic[0].Status}" />
-                                    <Label Grid.Row="4" Grid.Column="0" FontWeight="Bold" FontSize="14" Content="Address Width:" />
+                                    <Label Grid.Row="4" Grid.Column="0" FontWeight="Bold" FontSize="14" Content="{StaticResource ProcessorStatic_AddressWidth}"
+                                        ToolTipService.ToolTip="{StaticResource ProcessorStatic_AddressWidth_ToolTip}"/>
                                     <TextBlock Grid.Row="4" Grid.Column="1" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding ProcessorStatic[0].AddressWidth, Converter={StaticResource UnitUShortValueToStringConverter}}" />
-                                    <Label Grid.Row="5" Grid.Column="0" FontWeight="Bold" FontSize="14" Content="Architecture:" />
+                                    <Label Grid.Row="5" Grid.Column="0" FontWeight="Bold" FontSize="14" Content="{StaticResource ProcessorStatic_Architecture}"
+                                        ToolTipService.ToolTip="{StaticResource ProcessorStatic_Architecture_ToolTip}"/>
                                     <TextBlock Grid.Row="5" Grid.Column="1" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding ProcessorStatic[0].Architecture}" />
-                                    <Label Grid.Row="6" Grid.Column="0" FontWeight="Bold" FontSize="14" Content="Data Width:" />
+                                    <Label Grid.Row="6" Grid.Column="0" FontWeight="Bold" FontSize="14" Content="{StaticResource ProcessorStatic_DataWidth}"
+                                        ToolTipService.ToolTip="{StaticResource ProcessorStatic_DataWidth_ToolTip}"/>
                                     <TextBlock Grid.Row="6" Grid.Column="1" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding ProcessorStatic[0].DataWidth, Converter={StaticResource UnitUShortValueToStringConverter}}" />
-                                    <Label Grid.Row="7" Grid.Column="0" FontWeight="Bold" FontSize="14" Content="BusSpeed:" />
+                                    <Label Grid.Row="7" Grid.Column="0" FontWeight="Bold" FontSize="14" Content="{StaticResource ProcessorStatic_BusSpeed}"
+                                        ToolTipService.ToolTip="{StaticResource ProcessorStatic_BusSpeed_ToolTip}"/>
                                     <TextBlock Grid.Row="7" Grid.Column="1" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding ProcessorStatic[0].BusSpeed, Converter={StaticResource UnitUIntValueToStringConverter}}" />
-                                    <Label Grid.Row="8" Grid.Column="0" FontWeight="Bold" FontSize="14" Content="Manufacturer:" />
+                                    <Label Grid.Row="8" Grid.Column="0" FontWeight="Bold" FontSize="14" Content="{StaticResource ProcessorStatic_Manufacturer}"
+                                        ToolTipService.ToolTip="{StaticResource ProcessorStatic_Manufacturer_ToolTip}"/>
                                     <TextBlock Grid.Row="8" Grid.Column="1" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding ProcessorStatic[0].Manufacturer}" />
-                                    <Label Grid.Row="0" Grid.Column="2" FontWeight="Bold" FontSize="14" Content="Max Clock Speed:" />
+                                    <Label Grid.Row="0" Grid.Column="2" FontWeight="Bold" FontSize="14" Content="{StaticResource ProcessorStatic_MaxClockSpeed}"
+                                        ToolTipService.ToolTip="{StaticResource ProcessorStatic_MaxClockSpeed_ToolTip}"/>
                                     <TextBlock Grid.Row="0" Grid.Column="3" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding ProcessorStatic[0].MaxClockSpeed, Converter={StaticResource UnitUIntValueToStringConverter}}" />
-                                    <Label Grid.Row="1" Grid.Column="2" FontWeight="Bold" FontSize="14" Content="Cores:" />
+                                    <Label Grid.Row="1" Grid.Column="2" FontWeight="Bold" FontSize="14" Content="{StaticResource ProcessorStatic_NumberOfCores}"
+                                        ToolTipService.ToolTip="{StaticResource ProcessorStatic_NumberOfCores_ToolTip}"/>
                                     <TextBlock Grid.Row="1" Grid.Column="3" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding ProcessorStatic[0].NumberOfCores}" />
-                                    <Label Grid.Row="2" Grid.Column="2" FontWeight="Bold" FontSize="14" Content="Logical Processors:" />
+                                    <Label Grid.Row="2" Grid.Column="2" FontWeight="Bold" FontSize="14" Content="{StaticResource ProcessorStatic_NumberOfLogicalProcessors}"
+                                        ToolTipService.ToolTip="{StaticResource ProcessorStatic_NumberOfLogicalProcessors_ToolTip}"/>
                                     <TextBlock Grid.Row="2" Grid.Column="3" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding ProcessorStatic[0].NumberOfLogicalProcessors}" />
-                                    <Label Grid.Row="3" Grid.Column="2" FontWeight="Bold" FontSize="14" Content="Processor ID:" />
+                                    <Label Grid.Row="3" Grid.Column="2" FontWeight="Bold" FontSize="14" Content="{StaticResource ProcessorStatic_ProcessorID}"
+                                        ToolTipService.ToolTip="{StaticResource ProcessorStatic_ProcessorID_ToolTip}"/>
                                     <TextBlock Grid.Row="3" Grid.Column="3" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding ProcessorStatic[0].ProcessorID}" />
-                                    <Label Grid.Row="4" Grid.Column="2" FontWeight="Bold" FontSize="14" Content="Serial Number:" />
+                                    <Label Grid.Row="4" Grid.Column="2" FontWeight="Bold" FontSize="14" Content="{StaticResource ProcessorStatic_SerialNumber}"
+                                        ToolTipService.ToolTip="{StaticResource ProcessorStatic_SerialNumber_ToolTip}"/>
                                     <TextBlock Grid.Row="4" Grid.Column="3" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding ProcessorStatic[0].SerialNumber}" />
-                                    <Label Grid.Row="5" Grid.Column="2" FontWeight="Bold" FontSize="14" Content="Socket Designation:" />
+                                    <Label Grid.Row="5" Grid.Column="2" FontWeight="Bold" FontSize="14" Content="{StaticResource ProcessorStatic_SocketDesignation}"
+                                        ToolTipService.ToolTip="{StaticResource ProcessorStatic_SocketDesignation_ToolTip}"/>
                                     <TextBlock Grid.Row="5" Grid.Column="3" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding ProcessorStatic[0].SocketDesignation}" />
-                                    <Label Grid.Row="6" Grid.Column="2" FontWeight="Bold" FontSize="14" Content="Stepping:" />
+                                    <Label Grid.Row="6" Grid.Column="2" FontWeight="Bold" FontSize="14" Content="{StaticResource ProcessorStatic_Stepping}"
+                                        ToolTipService.ToolTip="{StaticResource ProcessorStatic_Stepping_ToolTip}"/>
                                     <TextBlock Grid.Row="6" Grid.Column="3" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding ProcessorStatic[0].Stepping}" />
-                                    <Label Grid.Row="7" Grid.Column="2" FontWeight="Bold" FontSize="14" Content="Thread Count:" />
+                                    <Label Grid.Row="7" Grid.Column="2" FontWeight="Bold" FontSize="14" Content="{StaticResource ProcessorStatic_ThreadCount}"
+                                        ToolTipService.ToolTip="{StaticResource ProcessorStatic_ThreadCount_ToolTip}"/>
                                     <TextBlock Grid.Row="7" Grid.Column="3" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding ProcessorStatic[0].ThreadCount}" />
-                                    <Label Grid.Row="8" Grid.Column="2" FontWeight="Bold" FontSize="14" Content="Unique Id:" />
+                                    <Label Grid.Row="8" Grid.Column="2" FontWeight="Bold" FontSize="14" Content="{StaticResource ProcessorStatic_UniqueId}"
+                                        ToolTipService.ToolTip="{StaticResource ProcessorStatic_UniqueId_ToolTip}"/>
                                     <TextBlock Grid.Row="8" Grid.Column="3" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding ProcessorStatic[0].UniqueId}" />
                                 </Grid>
-                                <Label FontFamily = "Verdana" Content="Processor Cache" FontSize="16" FontWeight="Bold"/>
+                                <Label FontFamily = "Verdana" Content="{StaticResource Label_ProcessorStaticCache}" FontSize="16" FontWeight="Bold"/>
                                 <DataGrid ItemsSource="{Binding ProcessorCache}">
                                     <DataGrid.Columns>
-                                        <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                        <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                        <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                        <DataGridTextColumn Header="Speed" Binding="{Binding Speed, Converter={StaticResource UnitUIntValueToStringConverter}}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"  SortMemberPath="Speed.Value" />
-                                        <DataGridTextColumn Header="Size" Binding="{Binding Size, Converter={StaticResource UnitUIntValueToStringConverter}}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"  SortMemberPath="Size.Value"/>
-                                        <DataGridTextColumn Header="Level" Binding="{Binding Level}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
+                                        <DataGridTextColumn Header="{StaticResource ProcessorCache_Name}" Binding="{Binding Name}" Width="*"
+                                                            ElementStyle="{StaticResource WrappedColumnCellStyle}" />
+                                        <DataGridTextColumn Header="{StaticResource ProcessorCache_Description}" Binding="{Binding Description}" Width="*"
+                                                            ElementStyle="{StaticResource WrappedColumnCellStyle}" />
+                                        <DataGridTextColumn Header="{StaticResource ProcessorCache_Status}" Binding="{Binding Status}" Width="*"
+                                                            ElementStyle="{StaticResource WrappedColumnCellStyle}" />
+                                        <DataGridTextColumn Header="{StaticResource ProcessorCache_Speed}" Binding="{Binding Speed, Converter={StaticResource UnitUIntValueToStringConverter}}" Width="*"
+                                                            ElementStyle="{StaticResource WrappedColumnCellStyle}"  SortMemberPath="Speed.Value" 
+                                                            ToolTipService.ToolTip="{StaticResource ProcessorCache_Speed_ToolTip}"/>
+                                        <DataGridTextColumn Header="{StaticResource ProcessorCache_Size}" Binding="{Binding Size, Converter={StaticResource UnitUIntValueToStringConverter}}" Width="*"
+                                                            ElementStyle="{StaticResource WrappedColumnCellStyle}"  SortMemberPath="Size.Value"
+                                                            ToolTipService.ToolTip="{StaticResource ProcessorCache_Size_ToolTip}"/>
+                                        <DataGridTextColumn Header="{StaticResource ProcessorCache_Level}" Binding="{Binding Level}" Width="*"
+                                                            ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                            ToolTipService.ToolTip="{StaticResource ProcessorCache_Level_ToolTip}"/>
                                     </DataGrid.Columns>
                                 </DataGrid>
                             </StackPanel>

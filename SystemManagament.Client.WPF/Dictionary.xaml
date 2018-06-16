@@ -256,4 +256,56 @@
     <system:String x:Key="WindowsLog_UserName">User Name</system:String>
     <system:String x:Key="WindowsLog_UserName_ToolTip">The name of the user who is responsible for this event.</system:String>
 
+    <system:String x:Key="Header_ProcessorStatic">Processor Static</system:String>
+    <system:String x:Key="Button_LoadHardwareStatic">Refresh hardware static data</system:String>
+    <system:String x:Key="Label_ProcessorStaticBasicInfo">Basic Processor Info</system:String>
+    <system:String x:Key="Label_ProcessorStaticInfo">Processor Info</system:String>
+    <system:String x:Key="Label_ProcessorStaticCache">Processor Cache</system:String>
+    <system:String x:Key="ProcessorStatic_Caption">Caption:</system:String>
+    <system:String x:Key="ProcessorStatic_Caption_ToolTip">Short description of an object.</system:String>
+    <system:String x:Key="ProcessorStatic_Name">Name:</system:String>
+    <system:String x:Key="ProcessorStatic_Name_ToolTip">Label by which the object is known. This value comes from the Processor Version member of the Processor Information structure in the SMBIOS information.</system:String>
+    <system:String x:Key="ProcessorStatic_Description">Description:</system:String>
+    <system:String x:Key="ProcessorStatic_Status">Status:</system:String>
+    <system:String x:Key="ProcessorStatic_Status_ToolTip">Current status of an object.</system:String>
+    <system:String x:Key="ProcessorStatic_AddressWidth">Address Width:</system:String>
+    <system:String x:Key="ProcessorStatic_AddressWidth_ToolTip">On a 32-bit operating system, the value is 32 and on a 64-bit operating system it is 64.</system:String>
+    <system:String x:Key="ProcessorStatic_Architecture">Architecture:</system:String>
+    <system:String x:Key="ProcessorStatic_Architecture_ToolTip">Processor architecture used by the platform.</system:String>
+    <system:String x:Key="ProcessorStatic_DataWidth">Data Width:</system:String>
+    <system:String x:Key="ProcessorStatic_DataWidth_ToolTip">On a 32-bit processor, the value is 32 and on a 64-bit processor it is 64.</system:String>
+    <system:String x:Key="ProcessorStatic_BusSpeed">Bus Speed:</system:String>
+    <system:String x:Key="ProcessorStatic_BusSpeed_ToolTip">External clock frequency, in MHz. This value comes from the External Clock member of the Processor Information structure in the SMBIOS information.</system:String>
+    <system:String x:Key="ProcessorStatic_Manufacturer">Manufacturer:</system:String>
+    <system:String x:Key="ProcessorStatic_Manufacturer_ToolTip">Name of the processor manufacturer. This value comes from the Processor Manufacturer member of the Processor Information structure in the SMBIOS information.</system:String>
+    <system:String x:Key="ProcessorStatic_MaxClockSpeed">Max Clock Speed:</system:String>
+    <system:String x:Key="ProcessorStatic_MaxClockSpeed_ToolTip">Maximum speed of the processor, in MHz. This value comes from the Max Speed member of the Processor Information structure in the SMBIOS information.</system:String>
+    <system:String x:Key="ProcessorStatic_NumberOfCores">Number Of Cores:</system:String>
+    <system:String x:Key="ProcessorStatic_NumberOfCores_ToolTip">Number of cores for the current instance of the processor. A core is a physical processor on the integrated circuit. For example, in a dual-core processor this property has a value of 2. For more information, see Remarks. This value comes from the Processor Information structure in the SMBIOS version information. For SMBIOS versions 2.5 thru 2.9 the value comes from the Core Count member. For SMBIOS version 3.0+ the value comes from the Core Count 2 member.</system:String>
+    <system:String x:Key="ProcessorStatic_NumberOfLogicalProcessors">Number Of Logical Processors:</system:String>
+    <system:String x:Key="ProcessorStatic_NumberOfLogicalProcessors_ToolTip">Number of logical processors for the current instance of the processor. For processors capable of hyperthreading, this value includes only the processors which have hyperthreading enabled.</system:String>
+    <system:String x:Key="ProcessorStatic_ProcessorID">Processor ID:</system:String>
+    <system:String x:Key="ProcessorStatic_ProcessorID_ToolTip">Processor information that describes the processor features. For an x86 class CPU, the field format depends on the processor support of the CPUID instruction. If the instruction is supported, the property contains 2 (two) DWORD formatted values. The first is an offset of 08h-0Bh, which is the EAX value that a CPUID instruction returns with input EAX set to 1. The second is an offset of 0Ch-0Fh, which is the EDX value that the instruction returns. Only the first two bytes of the property are significant and contain the contents of the DX register at CPU reset—all others are set to 0 (zero), and the contents are in DWORD format. This value comes from the Processor ID member of the Processor Information structure in the SMBIOS information.</system:String>
+    <system:String x:Key="ProcessorStatic_SerialNumber">Serial Number:</system:String>
+    <system:String x:Key="ProcessorStatic_SerialNumber_ToolTip">The serial number of this processor This value is set by the manufacturer and normally not changeable. This value comes from the Serial Number member of the Processor Information structure in the SMBIOS information.</system:String>
+    <system:String x:Key="ProcessorStatic_SocketDesignation">Socket Designation:</system:String>
+    <system:String x:Key="ProcessorStatic_SocketDesignation_ToolTip">Type of chip socket used on the circuit. This value comes from the Socket Designation member of the Processor Information structure in the SMBIOS information.</system:String>
+    <system:String x:Key="ProcessorStatic_Stepping">Stepping:</system:String>
+    <system:String x:Key="ProcessorStatic_Stepping_ToolTip">Revision level of the processor in the processor family.</system:String>
+    <system:String x:Key="ProcessorStatic_ThreadCount">Thread Count:</system:String>
+    <system:String x:Key="ProcessorStatic_ThreadCount_ToolTip">The number of threads per processor socket. This value comes from the Processor Information structure in the SMBIOS version information. For SMBIOS versions 2.5 thru 2.9 the value comes from the Thread Count member. For SMBIOS version 3.0+ the value comes from the Thread Count 2 member.</system:String>
+    <system:String x:Key="ProcessorStatic_UniqueId">Unique Id:</system:String>
+    <system:String x:Key="ProcessorStatic_UniqueId_ToolTip">Globally unique identifier for the processor. This identifier may only be unique within a processor family.</system:String>
+    
+    <system:String x:Key="ProcessorCache_Caption">Caption</system:String>
+    <system:String x:Key="ProcessorCache_Name">Name</system:String>
+    <system:String x:Key="ProcessorCache_Description">Description</system:String>
+    <system:String x:Key="ProcessorCache_Status">Status</system:String>
+    <system:String x:Key="ProcessorCache_Speed">Speed</system:String>
+    <system:String x:Key="ProcessorCache_Speed_ToolTip">Speed of the cache. This value comes from the Cache Speed member of the Cache Information structure in the SMBIOS information.</system:String>
+    <system:String x:Key="ProcessorCache_Size">Max Size</system:String>
+    <system:String x:Key="ProcessorCache_Size_ToolTip">Maximum cache size installable to this particular cache memory. This value comes from the Maximum Cache Size member of the Cache Information structure in the SMBIOS information.</system:String>
+    <system:String x:Key="ProcessorCache_Level">Level</system:String>
+    <system:String x:Key="ProcessorCache_Level_ToolTip">Level of the cache. This value comes from the Cache Configuration member of the Cache Information structure in the SMBIOS information.</system:String>
+
 </ResourceDictionary>
