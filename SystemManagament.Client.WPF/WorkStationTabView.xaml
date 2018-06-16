@@ -1072,7 +1072,7 @@
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="Memory Static" Foreground="YellowGreen" />
+                    <TextBlock Text="{StaticResource Header_MemoryrStatic}" Foreground="YellowGreen" />
                 </TabItem.Header>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -1092,35 +1092,59 @@
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
-                        <Button Content="Refresh hardware static data" Command="{Binding LoadHardwareStaticDataCommand}" 
+                        <Button Content="{StaticResource Button_LoadHardwareStatic}" Command="{Binding LoadHardwareStaticDataCommand}" 
                             HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange"/>
                     </Grid>
                     <Grid Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="3">
-                        <Button Content="Cancel" Command="{Binding LoadHardwareStaticDataCommand.CancelCommand}" 
+                        <Button Content="{StaticResource Button_Cancel}" Command="{Binding LoadHardwareStaticDataCommand.CancelCommand}" 
                         HorizontalAlignment="Stretch" BorderThickness="2" Foreground="OrangeRed"/>
                     </Grid>
                     <StackPanel Margin="20,0,20,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" Orientation="Vertical">
-                        <Label FontFamily = "Verdana" Content="Memory Info" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <Label FontFamily = "Verdana" Content="{StaticResource Label_MemoryStaticInfo}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
                         <StackPanel Margin="10,0,0,0">
                             <DataGrid ItemsSource="{Binding Memory}">
                                 <DataGrid.Columns>
-                                    <!--<DataGridTextColumn Header="Caption" Binding="{Binding Caption}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />-->
-                                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                    <!--<DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />-->
-                                    <!--<DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />-->
-                                    <DataGridTextColumn Header="Bank&#x0a;Label" Binding="{Binding BankLabel}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                    <DataGridTextColumn Header="Capacity" Binding="{Binding Capacity, Converter={StaticResource UnitULongValueToStringConverter}}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" SortMemberPath="Capacity.Value"/>
-                                    <DataGridTextColumn Header="Clock&#x0a;Speed" Binding="{Binding ConfiguredClockSpeed, Converter={StaticResource UnitUIntValueToStringConverter}}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" SortMemberPath="ConfiguredClockSpeed.Value"/>
-                                    <DataGridTextColumn Header="Voltage" Binding="{Binding ConfiguredVoltage, Converter={StaticResource UnitUIntValueToStringConverter}}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" SortMemberPath="ConfiguredVoltage.Value"/>
-                                    <DataGridTextColumn Header="Data&#x0a;Width" Binding="{Binding DataWidth, Converter={StaticResource UnitUShortValueToStringConverter}}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" SortMemberPath="DataWidth.Value"/>
-                                    <DataGridTextColumn Header="Device&#x0a;Locator" Binding="{Binding DeviceLocator}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                    <DataGridTextColumn Header="Manufacturer" Binding="{Binding Manufacturer}" Width="1.2*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                    <DataGridTextColumn Header="Type" Binding="{Binding MemoryType}" Width="0.8*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                    <DataGridTextColumn Header="Part&#x0a;Number" Binding="{Binding PartNumber}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                    <DataGridTextColumn Header="Serial&#x0a;Number" Binding="{Binding SerialNumber}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                    <DataGridTextColumn Header="Max&#x0a;Voltage" Binding="{Binding MaxVoltage, Converter={StaticResource UnitUIntValueToStringConverter}}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" SortMemberPath="MaxVoltage.Value"/>
-                                    <DataGridTextColumn Header="Min&#x0a;Voltage" Binding="{Binding MinVoltage, Converter={StaticResource UnitUIntValueToStringConverter}}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" SortMemberPath="MinVoltage.Value"/>
-                                    <DataGridTextColumn Header="Total&#x0a;Width" Binding="{Binding TotalWidth, Converter={StaticResource UnitUShortValueToStringConverter}}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" SortMemberPath="TotalWidth.Value"/>
+                                    <DataGridTextColumn Header="{StaticResource Memory_Name}" Binding="{Binding Name}"
+                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
+                                    <DataGridTextColumn Header="{StaticResource Memory_BankLabel}" Binding="{Binding BankLabel}"
+                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource Memory_BankLabel_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource Memory_Capacity}" Binding="{Binding Capacity, Converter={StaticResource UnitULongValueToStringConverter}}"
+                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" SortMemberPath="Capacity.Value"
+                                                        ToolTipService.ToolTip="{StaticResource Memory_Capacity_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource Memory_ConfiguredClockSpeed}" Binding="{Binding ConfiguredClockSpeed, Converter={StaticResource UnitUIntValueToStringConverter}}"
+                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" SortMemberPath="ConfiguredClockSpeed.Value"
+                                                        ToolTipService.ToolTip="{StaticResource Memory_ConfiguredClockSpeed_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource Memory_Voltage}" Binding="{Binding ConfiguredVoltage, Converter={StaticResource UnitUIntValueToStringConverter}}"
+                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" SortMemberPath="ConfiguredVoltage.Value"
+                                                        ToolTipService.ToolTip="{StaticResource Memory_Voltage_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource Memory_DataWidth}" Binding="{Binding DataWidth, Converter={StaticResource UnitUShortValueToStringConverter}}"
+                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" SortMemberPath="DataWidth.Value"
+                                                        ToolTipService.ToolTip="{StaticResource Memory_DataWidth_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource Memory_DeviceLocator}" Binding="{Binding DeviceLocator}"
+                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource Memory_DeviceLocator_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource Memory_Manufacturer}" Binding="{Binding Manufacturer}"
+                                                        Width="1.2*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource Memory_Manufacturer_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource Memory_Type}" Binding="{Binding MemoryType}"
+                                                        Width="0.8*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource Memory_Type_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource Memory_PartNumber}" Binding="{Binding PartNumber}"
+                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource Memory_PartNumber_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource Memory_SerialNumber}" Binding="{Binding SerialNumber}"
+                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource Memory_SerialNumber_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource Memory_MaxVoltage}" Binding="{Binding MaxVoltage, Converter={StaticResource UnitUIntValueToStringConverter}}"
+                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" SortMemberPath="MaxVoltage.Value"
+                                                        ToolTipService.ToolTip="{StaticResource Memory_MaxVoltage_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource Memory_MinVoltage}" Binding="{Binding MinVoltage, Converter={StaticResource UnitUIntValueToStringConverter}}"
+                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" SortMemberPath="MinVoltage.Value"
+                                                        ToolTipService.ToolTip="{StaticResource Memory_MinVoltage_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource Memory_TotalWidth}" Binding="{Binding TotalWidth, Converter={StaticResource UnitUShortValueToStringConverter}}"
+                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" SortMemberPath="TotalWidth.Value"
+                                                        ToolTipService.ToolTip="{StaticResource Memory_TotalWidth_ToolTip}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                         </StackPanel>

@@ -308,4 +308,34 @@
     <system:String x:Key="ProcessorCache_Level">Level</system:String>
     <system:String x:Key="ProcessorCache_Level_ToolTip">Level of the cache. This value comes from the Cache Configuration member of the Cache Information structure in the SMBIOS information.</system:String>
 
+    <system:String x:Key="Header_MemoryrStatic">Memory Static</system:String>
+    <system:String x:Key="Label_MemoryStaticInfo">Memory Info</system:String>
+    <system:String x:Key="Memory_Name">Name</system:String>
+    <system:String xml:space="preserve" x:Key="Memory_BankLabel">Bank&#x0a;Label</system:String>
+    <system:String x:Key="Memory_BankLabel_ToolTip">Physically labeled bank where the memory is located. This value comes from the Bank Locator member of the Memory Device structure in the SMBIOS information.</system:String>
+    <system:String x:Key="Memory_Capacity">Capacity</system:String>
+    <system:String x:Key="Memory_Capacity_ToolTip">Total capacity of the physical memory. This value comes from the Memory Device structure in the SMBIOS version information. For SMBIOS versions 2.1 thru 2.6 the value comes from the Size member. For SMBIOS version 2.7+ the value comes from the Extended Size member.</system:String>
+    <system:String xml:space="preserve" x:Key="Memory_ConfiguredClockSpeed">Clock&#x0a;Speed</system:String>
+    <system:String x:Key="Memory_ConfiguredClockSpeed_ToolTip">The configured clock speed of the memory device or 0 if the speed is unknown. This value comes from the Configured Memory Clock Speed member of the Memory Device structure in the SMBIOS information.</system:String>
+    <system:String x:Key="Memory_Voltage">Voltage</system:String>
+    <system:String x:Key="Memory_Voltage_ToolTip">Configured voltage for this device or 0 if the voltage is unknown. This value comes from the Configured voltage member of the Memory Device structure in the SMBIOS information.</system:String>
+    <system:String xml:space="preserve" x:Key="Memory_DataWidth">Data&#x0a;Width</system:String>
+    <system:String x:Key="Memory_DataWidth_ToolTip">Data width of the physical memory. A data width of 0 (zero) and a total width of 8 (eight) indicates that the memory is used solely to provide error correction bits. This value comes from the Data Width member of the Memory Device structure in the SMBIOS information.</system:String>
+    <system:String xml:space="preserve" x:Key="Memory_DeviceLocator">Device&#x0a;Locator</system:String>
+    <system:String x:Key="Memory_DeviceLocator_ToolTip">Label of the socket or circuit board that holds the memory. This value comes from the Device Locator member of the Memory Device structure in the SMBIOS information.</system:String>
+    <system:String x:Key="Memory_Manufacturer">Manufacturer</system:String>
+    <system:String x:Key="Memory_Manufacturer_ToolTip">Name of the organization responsible for producing the physical element. This value comes from the Manufacturer member of the Memory Device structure in the SMBIOS information.</system:String>
+    <system:String x:Key="Memory_Type">Type</system:String>
+    <system:String x:Key="Memory_Type_ToolTip">Type of physical memory. This value comes from the Memory Type member of the Memory Device structure in the SMBIOS information.</system:String>
+    <system:String xml:space="preserve" x:Key="Memory_PartNumber">Part&#x0a;Number</system:String>
+    <system:String x:Key="Memory_PartNumber_ToolTip">Part number assigned by the organization responsible for producing or manufacturing the physical element. This value comes from the Part Number member of the Memory Device structure in the SMBIOS information.</system:String>
+    <system:String xml:space="preserve" x:Key="Memory_SerialNumber">Serial&#x0a;Number</system:String>
+    <system:String x:Key="Memory_SerialNumber_ToolTip">Manufacturer-allocated number to identify the physical element. This value comes from the Serial Number member of the Memory Device structure in the SMBIOS information.</system:String>
+    <system:String xml:space="preserve" x:Key="Memory_MaxVoltage">Max&#x0a;Voltage</system:String>
+    <system:String x:Key="Memory_MaxVoltage_ToolTip">The maximum operating voltage for this device or 0 if the voltage is unknown. This value comes from the Maximum voltage member of the Memory Device structure in the SMBIOS information.</system:String>
+    <system:String xml:space="preserve" x:Key="Memory_MinVoltage">Min&#x0a;Voltage</system:String>
+    <system:String x:Key="Memory_MinVoltage_ToolTip">The minimum operating voltage for this device or 0 if the voltage is unknown. This value comes from the Minimum voltage member of the Memory Device structure in the SMBIOS information.</system:String>
+    <system:String xml:space="preserve" x:Key="Memory_TotalWidth">Total&#x0a;Width</system:String>
+    <system:String x:Key="Memory_TotalWidth_ToolTip">Total width, in bits, of the physical memory, including check or error correction bits. If there are no error correction bits, the value in this property should match what is specified for the DataWidth property. This value comes from the Total Width member of the Memory Device structure in the SMBIOS information.</system:String>
+
 </ResourceDictionary>
