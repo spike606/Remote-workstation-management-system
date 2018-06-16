@@ -83,20 +83,20 @@ namespace SystemManagament.Client.WPF.Factories
         {
             return new AsyncCommand<WindowsLog[]>(async (cancellationToken) =>
             {
-                return await Task.Run(async () =>
+                //return await Task.Run(async () =>
+                //{
+                var result = await this.wcfClient.ReadWindowsLogDynamicDataAsync()
+                    .WithCancellation(cancellationToken)
+                    // Following statements will be processed in the same thread, won't use caught context (UI)
+                    .ConfigureAwait(false);
+
+                if (!cancellationToken.IsCancellationRequested)
                 {
-                    var result = await this.wcfClient.ReadWindowsLogDynamicDataAsync()
-                        .WithCancellation(cancellationToken)
-                        // Following statements will be processed in the same thread, won't use caught context (UI)
-                        .ConfigureAwait(false);
+                    windowsLog.ReplaceRange(result, new WindowsLogComparer());
+                }
 
-                    if (!cancellationToken.IsCancellationRequested)
-                    {
-                        windowsLog.ReplaceRange(result, new WindowsLogComparer());
-                    }
-
-                    return result;
-                });
+                return result;
+                //});
             });
         }
 

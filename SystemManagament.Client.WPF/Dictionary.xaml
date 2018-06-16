@@ -236,4 +236,24 @@
     <system:String x:Key="WindowsService_CanStop">Can Stop</system:String>
     <system:String x:Key="WindowsService_CanStop_ToolTip">Value indicating whether the service can be stopped after it has started.</system:String>
 
+
+    <system:String x:Key="Header_WindowsLog">Windows log</system:String>
+    <system:String x:Key="Button_LoadWindowsLog">Refresh windows logs</system:String>
+    <system:String x:Key="Label_WindowsLogInfo">Windows logs</system:String>
+    <system:String x:Key="Label_WindowsLogDescription">List of windows logs from event viewer which record information about important software or hardware events. It includes at least three logs: Application, System, and Security. Custom logs on the local computer will also appear in the list.</system:String>
+    <system:String x:Key="WindowsLog_Category">Category</system:String>
+    <system:String x:Key="WindowsLog_Category_ToolTip">The application specific category text.</system:String>
+    <system:String xml:space="preserve" x:Key="WindowsLog_CategoryNumber">Category&#x0a;nr</system:String>
+    <system:String x:Key="WindowsLog_CategoryNumber_ToolTip">The application specific category text. Each application (event source) can define its own numbered categories and the text strings to which they are mapped.</system:String>
+    <system:String x:Key="WindowsLog_EntryType">Entry Type</system:String>
+    <system:String x:Key="WindowsLog_EntryType_ToolTip">The event type that is associated with the entry in the event log. All event types have well defined common data and can optionally include event specific data. Each event is of a single type, which the application indicates when it reports the event.</system:String>
+    <system:String x:Key="WindowsLog_Message">Message</system:String>
+    <system:String x:Key="WindowsLog_Message_ToolTip">The localized message associated with this event entry.</system:String>
+    <system:String x:Key="WindowsLog_Source">Source</system:String>
+    <system:String x:Key="WindowsLog_Source_ToolTip">The name registered with the event log as the source of this event.</system:String>
+    <system:String x:Key="WindowsLog_Time">Time</system:String>
+    <system:String x:Key="WindowsLog_Time_ToolTip">The local time at which this event was generated. This might not be the same as the time when the event information was written to the event log. There is usually a lag between the time that an event is generated and the time it is logged. It is more important to know when the event was generated, unless you want to see if there is a significant lag in logging.</system:String>
+    <system:String x:Key="WindowsLog_UserName">User Name</system:String>
+    <system:String x:Key="WindowsLog_UserName_ToolTip">The name of the user who is responsible for this event.</system:String>
+
 </ResourceDictionary>

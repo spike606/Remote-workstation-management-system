@@ -115,17 +115,17 @@ namespace SystemManagament.Monitor.SoftwareDynamic.Provider
                 eventLogEntryDuplicates.Add(new EventLogEntryDuplicate()
                 {
                     Category = eventLogEntry.Category,
-                    Data = eventLogEntry.Data,
+                    //Data = eventLogEntry.Data,
                     CategoryNumber = eventLogEntry.CategoryNumber,
                     EntryType = (EventLogEntryTypeDuplicate)eventLogEntry.EntryType,
-                    Index = eventLogEntry.Index,
-                    InstanceId = eventLogEntry.InstanceId,
-                    MachineName = eventLogEntry.MachineName,
+                    //Index = eventLogEntry.Index,
+                    //InstanceId = eventLogEntry.InstanceId,
+                    //MachineName = eventLogEntry.MachineName,
                     Message = eventLogEntry.Message,
-                    ReplacementStrings = eventLogEntry.ReplacementStrings,
+                    //ReplacementStrings = eventLogEntry.ReplacementStrings,
                     Source = eventLogEntry.Source,
                     TimeGenerated = eventLogEntry.TimeGenerated,
-                    TimeWritten = eventLogEntry.TimeWritten,
+                    //TimeWritten = eventLogEntry.TimeWritten,
                     UserName = eventLogEntry.UserName,
                 });
             }

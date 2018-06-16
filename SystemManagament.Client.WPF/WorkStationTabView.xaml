@@ -855,7 +855,7 @@
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="Windows logs" Foreground="Navy" />
+                    <TextBlock Text="{StaticResource Header_WindowsLog}" Foreground="Navy" />
                 </TabItem.Header>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <Grid>
@@ -876,15 +876,17 @@
                             <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
-                            <Button Content="Start windows logs monitor" Command="{Binding LoadWindowsLogDynamicDataCommand}" 
+                            <Button Content="{StaticResource Button_LoadWindowsLog}" Command="{Binding LoadWindowsLogDynamicDataCommand}" 
                         HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange"/>
                         </Grid>
                         <Grid Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="3">
-                            <Button Content="Stop windows logs monitor" Command="{Binding LoadWindowsLogDynamicDataCommand.CancelCommand}" 
+                            <Button Content="{StaticResource Button_Cancel}" Command="{Binding LoadWindowsLogDynamicDataCommand.CancelCommand}" 
                     HorizontalAlignment="Stretch" BorderThickness="2" Foreground="OrangeRed"/>
                         </Grid>
                         <StackPanel Margin="20,0,20,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" Orientation="Vertical">
-                            <Label FontFamily = "Verdana" Content="Windows logs" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                            <Label FontFamily = "Verdana" Content="{StaticResource Label_WindowsLogInfo}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                            <TextBlock FontFamily = "Verdana" TextWrapping="WrapWithOverflow" FontSize="14" Text="{StaticResource Label_WindowsLogDescription}"
+                                   Foreground="White" Margin="10,10,0,10"/>
                             <StackPanel Margin="10,0,0,0">
                                 <ItemsControl ItemsSource="{Binding WindowsLog}">
                                     <ItemsControl.ItemTemplate>
@@ -894,14 +896,27 @@
                                                     Foreground="White" Background="SlateGray" BorderThickness="2">
                                                 <DataGrid ItemsSource="{Binding Entries}">
                                                     <DataGrid.Columns>
-                                                        <DataGridTextColumn Header="Machine Name" Binding="{Binding MachineName}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                        <!--<DataGridTextColumn Header="Category" Binding="{Binding Category}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>-->
-                                                        <DataGridTextColumn Header="Category" Binding="{Binding CategoryNumber}" Width="0.5*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                        <DataGridTextColumn Header="Entry Type" Binding="{Binding EntryType}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                        <DataGridTextColumn Header="Message" Binding="{Binding Message}" Width="3*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                        <DataGridTextColumn Header="Source" Binding="{Binding Source}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                        <DataGridTextColumn Header="Time" Binding="{Binding TimeGenerated}" Width="0.5*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                                        <DataGridTextColumn Header="User Name" Binding="{Binding UserName}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                                        <DataGridTextColumn Header="{StaticResource WindowsLog_Category}" Binding="{Binding Category}" Width="*" 
+                                                                            ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                                            ToolTipService.ToolTip="{StaticResource WindowsLog_Category_ToolTip}"/>
+                                                        <DataGridTextColumn Header="{StaticResource WindowsLog_CategoryNumber}" Binding="{Binding CategoryNumber}" Width="0.6*" 
+                                                                            ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                                            ToolTipService.ToolTip="{StaticResource WindowsLog_CategoryNumber_ToolTip}"/>
+                                                        <DataGridTextColumn Header="{StaticResource WindowsLog_EntryType}" Binding="{Binding EntryType}" Width="*" 
+                                                                            ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                                            ToolTipService.ToolTip="{StaticResource WindowsLog_EntryType_ToolTip}"/>
+                                                        <DataGridTextColumn Header="{StaticResource WindowsLog_Message}" Binding="{Binding Message}" Width="3*" 
+                                                                            ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                                            ToolTipService.ToolTip="{StaticResource WindowsLog_Message_ToolTip}"/>
+                                                        <DataGridTextColumn Header="{StaticResource WindowsLog_Source}" Binding="{Binding Source}" Width="*" 
+                                                                            ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                                            ToolTipService.ToolTip="{StaticResource WindowsLog_Source_ToolTip}"/>
+                                                        <DataGridTextColumn Header="{StaticResource WindowsLog_Time}" Binding="{Binding TimeGenerated}" Width="0.6*" 
+                                                                            ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                                            ToolTipService.ToolTip="{StaticResource WindowsLog_Time_ToolTip}"/>
+                                                        <DataGridTextColumn Header="{StaticResource WindowsLog_UserName}" Binding="{Binding UserName}" Width="*" 
+                                                                            ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                                            ToolTipService.ToolTip="{StaticResource WindowsLog_UserName_ToolTip}"/>
                                                     </DataGrid.Columns>
                                                 </DataGrid>
                                             </Expander>
