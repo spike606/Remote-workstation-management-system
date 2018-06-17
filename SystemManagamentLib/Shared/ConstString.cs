@@ -165,6 +165,7 @@ namespace SystemManagament.Monitor.HardwareStatic
         internal const string WMI_QUERY_PNP_ENTITY = "select * from Win32_PnPEntity";
         internal const string PNP_ENTITY_DEVICE_ID = "DeviceID";
         internal const string PNP_ENTITY_MANUFACTURER = "Manufacturer";
+        internal const string PNP_ERROR_CODE = "ConfigManagerErrorCode";
 
         internal const string WMI_QUERY_VOLUME = "select * from MSFT_Volume";
         internal const string VOLUME_DEDUP_MODE = "DedupMode";

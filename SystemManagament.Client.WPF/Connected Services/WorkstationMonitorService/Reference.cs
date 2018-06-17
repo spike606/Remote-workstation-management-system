@@ -4421,10 +4421,42 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorService {
     public partial class PnPEntity : SystemManagament.Client.WPF.WorkstationMonitorService.HardwareStaticComponent {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private uint ConfigManagerErrorCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ConfigManagerErrorCodeStringField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DeviceIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ManufacturerField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public uint ConfigManagerErrorCode {
+            get {
+                return this.ConfigManagerErrorCodeField;
+            }
+            set {
+                if ((this.ConfigManagerErrorCodeField.Equals(value) != true)) {
+                    this.ConfigManagerErrorCodeField = value;
+                    this.RaisePropertyChanged("ConfigManagerErrorCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ConfigManagerErrorCodeString {
+            get {
+                return this.ConfigManagerErrorCodeStringField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ConfigManagerErrorCodeStringField, value) != true)) {
+                    this.ConfigManagerErrorCodeStringField = value;
+                    this.RaisePropertyChanged("ConfigManagerErrorCodeString");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string DeviceID {

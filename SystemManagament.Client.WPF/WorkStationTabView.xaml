@@ -1072,7 +1072,7 @@
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="{StaticResource Header_MemoryrStatic}" Foreground="YellowGreen" />
+                    <TextBlock Text="{StaticResource Header_MemoryStatic}" Foreground="YellowGreen" />
                 </TabItem.Header>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -1478,7 +1478,7 @@
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="Base Board" Foreground="YellowGreen" />
+                    <TextBlock Text="{StaticResource Header_BaseBoardStatic}" Foreground="YellowGreen" />
                 </TabItem.Header>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -1498,15 +1498,15 @@
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
-                        <Button Content="Refresh hardware static data" Command="{Binding LoadHardwareStaticDataCommand}" 
+                        <Button Content="{StaticResource Button_LoadHardwareStatic}" Command="{Binding LoadHardwareStaticDataCommand}" 
                             HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange"/>
                     </Grid>
                     <Grid Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="3">
-                        <Button Content="Cancel" Command="{Binding LoadHardwareStaticDataCommand.CancelCommand}" 
+                        <Button Content="{StaticResource Button_Cancel}" Command="{Binding LoadHardwareStaticDataCommand.CancelCommand}" 
                         HorizontalAlignment="Stretch" BorderThickness="2" Foreground="OrangeRed"/>
                     </Grid>
                     <StackPanel Margin="20,0,20,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" Orientation="Vertical">
-                        <Label FontFamily = "Verdana" Content="Base Board Info" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <Label FontFamily = "Verdana" Content="{StaticResource Label_BaseBoardStaticInfo}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
                         <StackPanel Margin="10,0,0,0">
                             <Grid Background="DimGray">
                                 <Grid.RowDefinitions>
@@ -1522,25 +1522,33 @@
                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <Label Grid.Row="0" Grid.Column="0" FontWeight="Bold" FontSize="14" Content="Caption:" />
+                                <Label Grid.Row="0" Grid.Column="0" FontWeight="Bold" FontSize="14" Content="{StaticResource BaseBoard_Caption}"
+                                       ToolTipService.ToolTip="{StaticResource BaseBoard_Caption_ToolTip}"/>
                                 <TextBlock Grid.Row="0" Grid.Column="1" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding BaseBoard[0].Caption}" />
-                                <Label Grid.Row="1" Grid.Column="0" FontWeight="Bold" FontSize="14" Content="Name:" />
+                                <Label Grid.Row="1" Grid.Column="0" FontWeight="Bold" FontSize="14" Content="{StaticResource BaseBoard_Name}" />
                                 <TextBlock Grid.Row="1" Grid.Column="1" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding BaseBoard[0].Name}" />
-                                <Label Grid.Row="2" Grid.Column="0" FontWeight="Bold" FontSize="14" Content="Description:" />
+                                <Label Grid.Row="2" Grid.Column="0" FontWeight="Bold" FontSize="14" Content="{StaticResource BaseBoard_Description}" />
                                 <TextBlock Grid.Row="2" Grid.Column="1" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding BaseBoard[0].Description}" />
-                                <Label Grid.Row="3" Grid.Column="0" FontWeight="Bold" FontSize="14" Content="Status:" />
+                                <Label Grid.Row="3" Grid.Column="0" FontWeight="Bold" FontSize="14" Content="{StaticResource BaseBoard_Status}"
+                                       ToolTipService.ToolTip="{StaticResource BaseBoard_Status_ToolTip}"/>
                                 <TextBlock Grid.Row="3" Grid.Column="1" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding BaseBoard[0].Status}" />
-                                <Label Grid.Row="4" Grid.Column="0" FontWeight="Bold" FontSize="14" Content="Manufacturer:" />
+                                <Label Grid.Row="4" Grid.Column="0" FontWeight="Bold" FontSize="14" Content="{StaticResource BaseBoard_Manufacturer}"
+                                       ToolTipService.ToolTip="{StaticResource BaseBoard_Manufacturer_ToolTip}"/>
                                 <TextBlock Grid.Row="4" Grid.Column="1" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding BaseBoard[0].Manufacturer}" />
-                                <Label Grid.Row="0" Grid.Column="2" FontWeight="Bold" FontSize="14" Content="Model:" />
+                                <Label Grid.Row="0" Grid.Column="2" FontWeight="Bold" FontSize="14" Content="{StaticResource BaseBoard_Model}"
+                                       ToolTipService.ToolTip="{StaticResource BaseBoard_Model_ToolTip}"/>
                                 <TextBlock Grid.Row="0" Grid.Column="3" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding BaseBoard[0].Model}" />
-                                <Label Grid.Row="1" Grid.Column="2" FontWeight="Bold" FontSize="14" Content="Part Number:" />
+                                <Label Grid.Row="1" Grid.Column="2" FontWeight="Bold" FontSize="14" Content="{StaticResource BaseBoard_PartNumber}"
+                                       ToolTipService.ToolTip="{StaticResource BaseBoard_PartNumber_ToolTip}"/>
                                 <TextBlock Grid.Row="1" Grid.Column="3" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding BaseBoard[0].PartNumber}" />
-                                <Label Grid.Row="2" Grid.Column="2" FontWeight="Bold" FontSize="14" Content="Product:" />
+                                <Label Grid.Row="2" Grid.Column="2" FontWeight="Bold" FontSize="14" Content="{StaticResource BaseBoard_Product}"
+                                       ToolTipService.ToolTip="{StaticResource BaseBoard_Product_ToolTip}"/>
                                 <TextBlock Grid.Row="2" Grid.Column="3" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding BaseBoard[0].Product}" />
-                                <Label Grid.Row="3" Grid.Column="2" FontWeight="Bold" FontSize="14" Content="Serial Number:" />
+                                <Label Grid.Row="3" Grid.Column="2" FontWeight="Bold" FontSize="14" Content="{StaticResource BaseBoard_SerialNumber}"
+                                       ToolTipService.ToolTip="{StaticResource BaseBoard_SerialNumber_ToolTip}"/>
                                 <TextBlock Grid.Row="3" Grid.Column="3" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding BaseBoard[0].SerialNumber}" />
-                                <Label Grid.Row="4" Grid.Column="2" FontWeight="Bold" FontSize="14" Content="Version:" />
+                                <Label Grid.Row="4" Grid.Column="2" FontWeight="Bold" FontSize="14" Content="{StaticResource BaseBoard_Version}"
+                                       ToolTipService.ToolTip="{StaticResource BaseBoard_Version_ToolTip}"/>
                                 <TextBlock Grid.Row="4" Grid.Column="3" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding BaseBoard[0].Version}" />
                             </Grid>
                         </StackPanel>
@@ -1549,7 +1557,7 @@
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="Video Controller" Foreground="YellowGreen" />
+                    <TextBlock Text="{StaticResource Header_VideoController}" Foreground="YellowGreen" />
                 </TabItem.Header>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -1569,34 +1577,60 @@
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
-                        <Button Content="Refresh hardware static data" Command="{Binding LoadHardwareStaticDataCommand}" 
+                        <Button Content="{StaticResource Button_LoadHardwareStatic}" Command="{Binding LoadHardwareStaticDataCommand}" 
                             HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange"/>
                     </Grid>
                     <Grid Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="3">
-                        <Button Content="Cancel" Command="{Binding LoadHardwareStaticDataCommand.CancelCommand}" 
+                        <Button Content="{StaticResource Button_Cancel}" Command="{Binding LoadHardwareStaticDataCommand.CancelCommand}" 
                         HorizontalAlignment="Stretch" BorderThickness="2" Foreground="OrangeRed"/>
                     </Grid>
                     <StackPanel Margin="20,0,20,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" Orientation="Vertical">
-                        <Label FontFamily = "Verdana" Content="Video Controller Info" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <Label FontFamily = "Verdana" Content="{StaticResource Label_VideoControllerInfo}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
                         <StackPanel Margin="10,0,0,0">
                             <DataGrid ItemsSource="{Binding VideoController}">
                                 <DataGrid.Columns>
-                                    <!--<DataGridTextColumn Header="Caption" Binding="{Binding Caption}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />-->
-                                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                    <!--<DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />-->
-                                    <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="0.8*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                    <DataGridTextColumn Header="Adapter&#x0a;Compatibility" Binding="{Binding AdapterCompatibility}" Width="1.2*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                    <DataGridTextColumn Header="Adapter&#x0a;DAC&#x0a;Type" Binding="{Binding AdapterDACType}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                    <DataGridTextColumn Header="Adapter&#x0a;RAM" Binding="{Binding AdapterRAM, Converter={StaticResource UnitUIntValueToStringConverter}}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"  SortMemberPath="AdapterRAM.Value"/>
-                                    <DataGridTextColumn Header="Current&#x0a;Bits&#x0a;Per&#x0a;Pixel" Binding="{Binding CurrentBitsPerPixel, Converter={StaticResource UnitUIntValueToStringConverter}}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"  SortMemberPath="CurrentBitsPerPixel.Value"/>
-                                    <DataGridTextColumn Header="Current&#x0a;Horizontal&#x0a;Resolution" Binding="{Binding CurrentHorizontalResolution, Converter={StaticResource UnitUIntValueToStringConverter}}" Width="1.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}"  SortMemberPath="CurrentHorizontalResolution.Value"/>
-                                    <DataGridTextColumn Header="Current&#x0a;Refresh&#x0a;Rate" Binding="{Binding CurrentRefreshRate, Converter={StaticResource UnitUIntValueToStringConverter}}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"  SortMemberPath="CurrentRefreshRate.Value"/>
-                                    <DataGridTextColumn Header="Current&#x0a;Vertical&#x0a;Resolution" Binding="{Binding CurrentVerticalResolution, Converter={StaticResource UnitUIntValueToStringConverter}}" Width="1.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}"  SortMemberPath="CurrentVerticalResolution.Value"/>
-                                    <DataGridTextColumn Header="Current&#x0a;Number&#x0a;Of&#x0a;Colors" Binding="{Binding CurrentNumberOfColors}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                    <DataGridTextColumn Header="Device&#x0a;ID" Binding="{Binding DeviceID}" Width="0.8*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                    <DataGridTextColumn Header="Driver&#x0a;Version" Binding="{Binding DriverVersion}" Width="0.8*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                    <DataGridTextColumn Header="Video&#x0a;Mode&#x0a;Description" Binding="{Binding VideoModeDescription}" Width="1.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                    <DataGridTextColumn Header="Video&#x0a;Processor" Binding="{Binding VideoProcessor}" Width="1.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
+                                    <DataGridTextColumn Header="{StaticResource VideoController_Name}" Binding="{Binding Name}"
+                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="{StaticResource VideoController_VideoProcessor}" Binding="{Binding VideoProcessor}"
+                                                        Width="1.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource VideoController_VideoProcessor_ToolTip}"/>
+
+                                    <DataGridTextColumn Header="{StaticResource VideoController_AdapterCompatibility}" Binding="{Binding AdapterCompatibility}"
+                                                        Width="1.2*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource VideoController_AdapterCompatibility_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource VideoController_AdapterDACType}" Binding="{Binding AdapterDACType}"
+                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource VideoController_AdapterDACType_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource VideoController_AdapterRAM}" Binding="{Binding AdapterRAM, Converter={StaticResource UnitUIntValueToStringConverter}}"
+                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"  SortMemberPath="AdapterRAM.Value"
+                                                        ToolTipService.ToolTip="{StaticResource VideoController_AdapterRAM_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource VideoController_CurrentHorizontalResolution}" Binding="{Binding CurrentHorizontalResolution, Converter={StaticResource UnitUIntValueToStringConverter}}"
+                                                        Width="1.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}"  SortMemberPath="CurrentHorizontalResolution.Value"
+                                                        ToolTipService.ToolTip="{StaticResource VideoController_CurrentHorizontalResolution_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource VideoController_CurrentVerticalResolution}" Binding="{Binding CurrentVerticalResolution, Converter={StaticResource UnitUIntValueToStringConverter}}"
+                                                        Width="1.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}"  SortMemberPath="CurrentVerticalResolution.Value"
+                                                        ToolTipService.ToolTip="{StaticResource VideoController_CurrentVerticalResolution_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource VideoController_CurrentRefreshRate}" Binding="{Binding CurrentRefreshRate, Converter={StaticResource UnitUIntValueToStringConverter}}"
+                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"  SortMemberPath="CurrentRefreshRate.Value"
+                                                        ToolTipService.ToolTip="{StaticResource VideoController_CurrentRefreshRate_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource VideoController_CurrentNumberOfColors}" Binding="{Binding CurrentNumberOfColors}"
+                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource VideoController_CurrentNumberOfColors_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource VideoController_CurrentBitsPerPixel}" Binding="{Binding CurrentBitsPerPixel, Converter={StaticResource UnitUIntValueToStringConverter}}"
+                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"  SortMemberPath="CurrentBitsPerPixel.Value"
+                                                        ToolTipService.ToolTip="{StaticResource VideoController_CurrentBitsPerPixel_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource VideoController_DeviceID}" Binding="{Binding DeviceID}"
+                                                        Width="0.8*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource VideoController_DeviceID_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource VideoController_DriverVersion}" Binding="{Binding DriverVersion}"
+                                                        Width="0.8*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource VideoController_DriverVersion_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource VideoController_VideoModeDescription}" Binding="{Binding VideoModeDescription}"
+                                                        Width="1.1*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource VideoController_VideoModeDescription_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource VideoController_Status}" Binding="{Binding Status}"
+                                                        Width="0.8*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource VideoController_Status_ToolTip}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                         </StackPanel>
@@ -1605,7 +1639,7 @@
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="Network Adapter" Foreground="YellowGreen" />
+                    <TextBlock Text="{StaticResource Header_NetworkAdapter}" Foreground="YellowGreen" />
                 </TabItem.Header>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -1625,37 +1659,67 @@
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
-                        <Button Content="Refresh hardware static data" Command="{Binding LoadHardwareStaticDataCommand}" 
+                        <Button Content="{StaticResource Button_LoadHardwareStatic}" Command="{Binding LoadHardwareStaticDataCommand}" 
                             HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange"/>
                     </Grid>
                     <Grid Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="3">
-                        <Button Content="Cancel" Command="{Binding LoadHardwareStaticDataCommand.CancelCommand}" 
+                        <Button Content="{StaticResource Button_Cancel}" Command="{Binding LoadHardwareStaticDataCommand.CancelCommand}" 
                         HorizontalAlignment="Stretch" BorderThickness="2" Foreground="OrangeRed"/>
                     </Grid>
                     <StackPanel Margin="20,0,20,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" Orientation="Vertical">
-                        <Label FontFamily = "Verdana" Content="Network Adapter Info" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <Label FontFamily = "Verdana" Content="{StaticResource Label_NetworkAdapterInfo}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
                         <StackPanel Margin="10,0,0,0">
                             <DataGrid ItemsSource="{Binding NetworkAdapter}">
                                 <DataGrid.Columns>
-                                    <!--<DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />-->
-                                    <!--<DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />-->
-                                    <!--<DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />-->
-                                    <DataGridTextColumn Header="Active&#x0a;MTU" Binding="{Binding ActiveMaximumTransmissionUnit, Converter={StaticResource UnitULongValueToStringConverter}}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" SortMemberPath="ActiveMaximumTransmissionUnit.Value"/>
-                                    <DataGridTextColumn Header="Component&#x0a;ID" Binding="{Binding ComponentID}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                    <DataGridTextColumn Header="Connector&#x0a;Present" Binding="{Binding ConnectorPresent}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                    <DataGridTextColumn Header="Device&#x0a;ID" Binding="{Binding DeviceID}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                    <DataGridTextColumn Header="Device&#x0a;Name" Binding="{Binding DeviceName}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                    <DataGridTextColumn Header="Driver&#x0a;Date" Binding="{Binding DriverDate}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                    <DataGridTextColumn Header="Driver&#x0a;Description" Binding="{Binding DriverDescription}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                    <DataGridTextColumn Header="Driver&#x0a;Name" Binding="{Binding DriverName}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                    <DataGridTextColumn Header="Driver&#x0a;Provider" Binding="{Binding DriverProvider}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                    <DataGridTextColumn Header="Driver&#x0a;Version&#x0a;" Binding="{Binding DriverVersionString}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                    <DataGridTextColumn Header="Interface&#x0a;Description" Binding="{Binding InterfaceDescription}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                    <DataGridTextColumn Header="Interface&#x0a;Name" Binding="{Binding InterfaceName}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                    <DataGridTextColumn Header="Ndis&#x0a;Medium" Binding="{Binding NdisMedium}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                    <DataGridTextColumn Header="Ndis&#x0a;Physical&#x0a;Medium" Binding="{Binding NdisPhysicalMedium}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                    <DataGridTextColumn Header="Permanent&#x0a;Address" Binding="{Binding PermanentAddress}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                    <DataGridTextColumn Header="Virtual" Binding="{Binding Virtual}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
+                                    <DataGridTextColumn Header="{StaticResource NetworkAdapter_DeviceID}" Binding="{Binding DeviceID}"
+                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource NetworkAdapter_DeviceID_ToolTip}" />
+                                    <DataGridTextColumn Header="{StaticResource NetworkAdapter_DeviceName}" Binding="{Binding DeviceName}"
+                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource NetworkAdapter_DeviceName_ToolTip}" />
+                                    <DataGridTextColumn Header="{StaticResource NetworkAdapter_ComponentID}" Binding="{Binding ComponentID}"
+                                                        Width="0.9*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource NetworkAdapter_ComponentID_ToolTip}" />
+                                    <DataGridTextColumn Header="{StaticResource NetworkAdapter_ActiveMaximumTransmissionUnit}" Binding="{Binding ActiveMaximumTransmissionUnit, Converter={StaticResource UnitULongValueToStringConverter}}"
+                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" SortMemberPath="ActiveMaximumTransmissionUnit.Value"
+                                                        ToolTipService.ToolTip="{StaticResource NetworkAdapter_ActiveMaximumTransmissionUnit_ToolTip}" />
+                                    <DataGridTextColumn Header="{StaticResource NetworkAdapter_InterfaceDescription}" Binding="{Binding InterfaceDescription}"
+                                                        Width="1.15*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource NetworkAdapter_InterfaceDescription_ToolTip}" />
+                                    <DataGridTextColumn Header="{StaticResource NetworkAdapter_InterfaceName}" Binding="{Binding InterfaceName}"
+                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource NetworkAdapter_InterfaceName_ToolTip}" />
+                                    <DataGridTextColumn Header="{StaticResource NetworkAdapter_NdisMedium}" Binding="{Binding NdisMedium}"
+                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource NetworkAdapter_NdisMedium_ToolTip}" />
+                                    <DataGridTextColumn Header="{StaticResource NetworkAdapter_NdisPhysicalMedium}" Binding="{Binding NdisPhysicalMedium}"
+                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource NetworkAdapter_NdisPhysicalMedium_ToolTip}" />
+                                    <DataGridTextColumn Header="{StaticResource NetworkAdapter_PermanentAddress}" Binding="{Binding PermanentAddress}"
+                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource NetworkAdapter_PermanentAddress_ToolTip}" />
+                                    <!--<DataGridTextColumn Header="{StaticResource NetworkAdapter_ConnectorPresent}" Binding="{Binding ConnectorPresent}"
+                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource NetworkAdapter_ConnectorPresent_ToolTip}" />-->
+                                    <DataGridTextColumn Header="{StaticResource NetworkAdapter_Virtual}" Binding="{Binding Virtual}"
+                                                        Width="0.9*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource NetworkAdapter_Virtual_ToolTip}" />
+                                    <DataGridTextColumn Header="{StaticResource NetworkAdapter_DriverName}" Binding="{Binding DriverName}"
+                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource NetworkAdapter_DriverName_ToolTip}" />
+                                    <DataGridTextColumn Header="{StaticResource NetworkAdapter_DriverDescription}" Binding="{Binding DriverDescription}"
+                                                        Width="1.15*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource NetworkAdapter_DriverDescription_ToolTip}" />
+                                    <DataGridTextColumn Header="{StaticResource NetworkAdapter_DriverVersion}" Binding="{Binding DriverVersionString}"
+                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource NetworkAdapter_DriverVersion_ToolTip}" />
+                                    <DataGridTextColumn Header="{StaticResource NetworkAdapter_DriverDate}" Binding="{Binding DriverDate}"
+                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource NetworkAdapter_DriverDate_ToolTip}" />
+                                    <DataGridTextColumn Header="{StaticResource NetworkAdapter_DriverProvider}" Binding="{Binding DriverProvider}"
+                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource NetworkAdapter_DriverProvider_ToolTip}" />
+
                                 </DataGrid.Columns>
                             </DataGrid>
                         </StackPanel>
@@ -1664,7 +1728,7 @@
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="Plug and Play" Foreground="YellowGreen" />
+                    <TextBlock Text="{StaticResource Header_PnP}" Foreground="YellowGreen" />
                 </TabItem.Header>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -1684,24 +1748,43 @@
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
-                        <Button Content="Refresh hardware static data" Command="{Binding LoadHardwareStaticDataCommand}" 
+                        <Button Content="{StaticResource Button_LoadHardwareStatic}" Command="{Binding LoadHardwareStaticDataCommand}" 
                             HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange"/>
                     </Grid>
                     <Grid Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="3">
-                        <Button Content="Cancel" Command="{Binding LoadHardwareStaticDataCommand.CancelCommand}" 
+                        <Button Content="{StaticResource Button_Cancel}" Command="{Binding LoadHardwareStaticDataCommand.CancelCommand}" 
                         HorizontalAlignment="Stretch" BorderThickness="2" Foreground="OrangeRed"/>
                     </Grid>
                     <StackPanel Margin="20,0,20,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" Orientation="Vertical">
-                        <Label FontFamily = "Verdana" Content="Plug and Play Info" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <Label FontFamily = "Verdana" Content="{StaticResource Label_PnPInfo}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
                         <StackPanel Margin="10,0,0,0">
-                            <DataGrid ItemsSource="{Binding PnPEntity}">
+                            <TextBlock FontFamily = "Verdana" TextWrapping="WrapWithOverflow" FontSize="14" Text="{StaticResource Label_PnPDescription}" Foreground="White"/>
+                            <DataGrid ItemsSource="{Binding PnPEntity}" Margin="0 10 0 0">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                    <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                    <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="0.5*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                    <DataGridTextColumn Header="Device ID" Binding="{Binding DeviceID}" Width="1.5*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                    <DataGridTextColumn Header="Manufacturer" Binding="{Binding Manufacturer}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
+                                    <!--<DataGridTextColumn Header="{StaticResource PnPEntity_Caption}" Binding="{Binding Caption}"
+                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource PnPEntity_Caption_ToolTip}" />-->
+                                    <DataGridTextColumn Header="{StaticResource PnPEntity_Name}" Binding="{Binding Name}"
+                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource PnPEntity_Name_ToolTip}" />
+                                    <DataGridTextColumn Header="{StaticResource PnPEntity_Description}" Binding="{Binding Description}"
+                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource PnPEntity_Description_ToolTip}" />
+                                    <DataGridTextColumn Header="{StaticResource PnPEntity_DeviceID}" Binding="{Binding DeviceID}"
+                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource PnPEntity_DeviceID_ToolTip}" />
+                                    <DataGridTextColumn Header="{StaticResource PnPEntity_Manufacturer}" Binding="{Binding Manufacturer}"
+                                                        Width="0.75*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource PnPEntity_Manufacturer_ToolTip}" />
+                                    <DataGridTextColumn Header="{StaticResource PnPEntity_Status}" Binding="{Binding Status}"
+                                                        Width="0.5*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource PnPEntity_Status_ToolTip}" />
+                                    <DataGridTextColumn Header="{StaticResource PnPEntity_ErrorCode}" Binding="{Binding ConfigManagerErrorCode}"
+                                                        Width="0.6*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource PnPEntity_ErrorCode_ToolTip}" />
+                                    <DataGridTextColumn Header="{StaticResource PnPEntity_ErrorCodeString}" Binding="{Binding ConfigManagerErrorCodeString}"
+                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource PnPEntity_ErrorCodeString_ToolTip}" />
                                 </DataGrid.Columns>
                             </DataGrid>
                         </StackPanel>

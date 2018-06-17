@@ -5,6 +5,7 @@ using System.Management;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using SystemManagament.Monitor.HardwareStatic.Analyzer;
 using SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract;
 using SystemManagament.Monitor.HardwareStatic.Model.Components.Interface;
 using SystemManagament.Shared.WMI;
@@ -21,6 +22,12 @@ namespace SystemManagament.Monitor.HardwareStatic.Model.Components
         [DataMember]
         public string Manufacturer { get; private set; }
 
+        [DataMember]
+        public string ConfigManagerErrorCodeString { get; private set; }
+
+        [DataMember]
+        public uint ConfigManagerErrorCode { get; private set; }
+
         public List<PnPEntity> ExtractData(List<ManagementObject> managementObjectList)
         {
             List<PnPEntity> staticData = new List<PnPEntity>();
@@ -34,6 +41,25 @@ namespace SystemManagament.Monitor.HardwareStatic.Model.Components
                 pnPEntity.Manufacturer = managementObject[ConstString.PNP_ENTITY_MANUFACTURER].TryGetStringValue();
                 pnPEntity.Name = managementObject[ConstString.COMPONENT_NAME].TryGetStringValue();
                 pnPEntity.Status = managementObject[ConstString.COMPONENT_STATUS].TryGetStringValue();
+
+                if (managementObject[ConstString.PNP_ERROR_CODE] != null)
+                {
+                    pnPEntity.ConfigManagerErrorCode = (uint)managementObject[ConstString.PNP_ERROR_CODE];
+
+                    string errorCodeDescription;
+                    if (PnPConfigManagerErrorCodeDictionary.Erros.TryGetValue(pnPEntity.ConfigManagerErrorCode, out errorCodeDescription))
+                    {
+                        pnPEntity.ConfigManagerErrorCodeString = errorCodeDescription;
+                    }
+                    else
+                    {
+                        pnPEntity.ConfigManagerErrorCodeString = string.Empty;
+                    }
+                }
+                else
+                {
+                    pnPEntity.ConfigManagerErrorCodeString = string.Empty;
+                }
 
                 staticData.Add(pnPEntity);
             }

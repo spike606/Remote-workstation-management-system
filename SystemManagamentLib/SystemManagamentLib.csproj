@@ -117,6 +117,7 @@
   <ItemGroup>
     <Compile Include="Control\ControlManager.cs" />
     <Compile Include="Control\IControlManager.cs" />
+    <Compile Include="Monitor\HardwareStatic\Analyzer\PnPConfigManagerErrorCodeDictionary.cs" />
     <Compile Include="Monitor\SoftwareDynamic\Model\Components\Duplicate\EventLogEntryDuplicate.cs" />
     <Compile Include="Monitor\SoftwareDynamic\Model\Components\Duplicate\EventLogEntryTypeDuplicate.cs" />
     <Compile Include="Monitor\SoftwareStatic\Model\Components\Duplicate\ClaimDuplicate.cs" />

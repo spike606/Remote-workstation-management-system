@@ -143,6 +143,8 @@
     <xs:complexContent mixed="false">
       <xs:extension xmlns:q17="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract" base="q17:HardwareStaticComponent">
         <xs:sequence>
+          <xs:element minOccurs="0" name="ConfigManagerErrorCode" type="xs:unsignedInt" />
+          <xs:element minOccurs="0" name="ConfigManagerErrorCodeString" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="DeviceID" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Manufacturer" nillable="true" type="xs:string" />
         </xs:sequence>

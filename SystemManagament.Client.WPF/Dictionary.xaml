@@ -308,7 +308,7 @@
     <system:String x:Key="ProcessorCache_Level">Level</system:String>
     <system:String x:Key="ProcessorCache_Level_ToolTip">Level of the cache. This value comes from the Cache Configuration member of the Cache Information structure in the SMBIOS information.</system:String>
 
-    <system:String x:Key="Header_MemoryrStatic">Memory Static</system:String>
+    <system:String x:Key="Header_MemoryStatic">Memory Static</system:String>
     <system:String x:Key="Label_MemoryStaticInfo">Memory Info</system:String>
     <system:String x:Key="Memory_Name">Name</system:String>
     <system:String xml:space="preserve" x:Key="Memory_BankLabel">Bank&#x0a;Label</system:String>
@@ -337,5 +337,114 @@
     <system:String x:Key="Memory_MinVoltage_ToolTip">The minimum operating voltage for this device or 0 if the voltage is unknown. This value comes from the Minimum voltage member of the Memory Device structure in the SMBIOS information.</system:String>
     <system:String xml:space="preserve" x:Key="Memory_TotalWidth">Total&#x0a;Width</system:String>
     <system:String x:Key="Memory_TotalWidth_ToolTip">Total width, in bits, of the physical memory, including check or error correction bits. If there are no error correction bits, the value in this property should match what is specified for the DataWidth property. This value comes from the Total Width member of the Memory Device structure in the SMBIOS information.</system:String>
+
+    <system:String x:Key="Header_BaseBoardStatic">Base Board</system:String>
+    <system:String x:Key="Label_BaseBoardStaticInfo">Base Board Info</system:String>
+    <system:String x:Key="BaseBoard_Caption">Memory Info:</system:String>
+    <system:String x:Key="BaseBoard_Caption_ToolTip">Short description.</system:String>
+    <system:String x:Key="BaseBoard_Name">Name:</system:String>
+    <system:String x:Key="BaseBoard_Description">Description:</system:String>
+    <system:String x:Key="BaseBoard_Status">Status:</system:String>
+    <system:String x:Key="BaseBoard_Status_ToolTip">Current status of the object. Various operational and nonoperational statuses can be defined. Operational statuses include: "OK", "Degraded", and "Pred Fail" (an element, such as a SMART-enabled hard disk drive, may be functioning properly but predicting a failure in the near future). Nonoperational statuses include: "Error", "Starting", "Stopping", and "Service". The latter, "Service", could apply during mirror-resilvering of a disk, reload of a user permissions list, or other administrative work. Not all such work is online, yet the managed element is neither "OK" nor in one of the other states.</system:String>
+    <system:String x:Key="BaseBoard_Manufacturer">Manufacturer:</system:String>
+    <system:String x:Key="BaseBoard_Manufacturer_ToolTip">Name of the organization responsible for producing the physical element.</system:String>
+    <system:String x:Key="BaseBoard_Model">Model:</system:String>
+    <system:String x:Key="BaseBoard_Model_ToolTip">Name by which the physical element is known.</system:String>
+    <system:String x:Key="BaseBoard_PartNumber">Part Number:</system:String>
+    <system:String x:Key="BaseBoard_PartNumber_ToolTip">Part number assigned by the organization responsible for producing or manufacturing the physical element.</system:String>
+    <system:String x:Key="BaseBoard_Product">Product:</system:String>
+    <system:String x:Key="BaseBoard_Product_ToolTip">Baseboard part number defined by the manufacturer.</system:String>
+    <system:String x:Key="BaseBoard_SerialNumber">Serial Number:</system:String>
+    <system:String x:Key="BaseBoard_SerialNumber_ToolTip">Manufacturer-allocated number used to identify the physical element.</system:String>
+    <system:String x:Key="BaseBoard_Version">Version:</system:String>
+    <system:String x:Key="BaseBoard_Version_ToolTip">Version of the physical element.</system:String>
+
+    <system:String x:Key="Header_VideoController">Video Controller</system:String>
+    <system:String x:Key="Label_VideoControllerInfo">Video Controller Info</system:String>
+    <system:String x:Key="VideoController_Name">Name</system:String>
+    <system:String x:Key="VideoController_Status">Status</system:String>
+    <system:String x:Key="VideoController_Status_ToolTip">Current status of the object. Various operational and nonoperational statuses can be defined. Operational statuses include: "OK", "Degraded", and "Pred Fail" (an element, such as a SMART-enabled hard disk drive, may be functioning properly but predicting a failure in the near future). Nonoperational statuses include: "Error", "Starting", "Stopping", and "Service". The latter, "Service", could apply during mirror-resilvering of a disk, reload of a user permissions list, or other administrative work. Not all such work is online, yet the managed element is neither "OK" nor in one of the other states.</system:String>
+    <system:String xml:space="preserve" x:Key="VideoController_AdapterCompatibility">Adapter&#x0a;Compatibility</system:String>
+    <system:String x:Key="VideoController_AdapterCompatibility_ToolTip">General chipset used for this controller to compare compatibilities with the system.</system:String>
+    <system:String xml:space="preserve" x:Key="VideoController_AdapterDACType">Adapter&#x0a;DAC&#x0a;Type</system:String>
+    <system:String x:Key="VideoController_AdapterDACType_ToolTip">Name or identifier of the digital-to-analog converter (DAC) chip. The character set of this property is alphanumeric.</system:String>
+    <system:String xml:space="preserve" x:Key="VideoController_AdapterRAM">Adapter&#x0a;RAM</system:String>
+    <system:String x:Key="VideoController_AdapterRAM_ToolTip">Memory size of the video adapter.</system:String>
+    <system:String xml:space="preserve" x:Key="VideoController_CurrentBitsPerPixel">Current&#x0a;Bits&#x0a;Per&#x0a;Pixel</system:String>
+    <system:String x:Key="VideoController_CurrentBitsPerPixel_ToolTip">Number of bits used to display each pixel.</system:String>
+    <system:String xml:space="preserve" x:Key="VideoController_CurrentHorizontalResolution">Current&#x0a;Horizontal&#x0a;Resolution</system:String>
+    <system:String x:Key="VideoController_CurrentHorizontalResolution_ToolTip">Current number of horizontal pixels.</system:String>
+    <system:String xml:space="preserve" x:Key="VideoController_CurrentRefreshRate">Current&#x0a;Refresh&#x0a;Rate</system:String>
+    <system:String x:Key="VideoController_CurrentRefreshRate_ToolTip">Frequency at which the video controller refreshes the image for the monitor.</system:String>
+    <system:String xml:space="preserve" x:Key="VideoController_CurrentVerticalResolution">Current&#x0a;Vertical&#x0a;Resolution</system:String>
+    <system:String x:Key="VideoController_CurrentVerticalResolution_ToolTip">Current number of vertical pixels.</system:String>
+    <system:String xml:space="preserve" x:Key="VideoController_CurrentNumberOfColors">Current&#x0a;Number&#x0a;Of&#x0a;Colors</system:String>
+    <system:String x:Key="VideoController_CurrentNumberOfColors_ToolTip">Number of colors supported at the current resolution.</system:String>
+    <system:String xml:space="preserve" x:Key="VideoController_DeviceID">Device&#x0a;ID</system:String>
+    <system:String x:Key="VideoController_DeviceID_ToolTip">Identifier (unique to the computer system) for this video controller.</system:String>
+    <system:String xml:space="preserve" x:Key="VideoController_DriverVersion">Driver&#x0a;Version</system:String>
+    <system:String x:Key="VideoController_DriverVersion_ToolTip">Version number of the video driver.</system:String>
+    <system:String xml:space="preserve" x:Key="VideoController_VideoModeDescription">Video&#x0a;Mode&#x0a;Description</system:String>
+    <system:String x:Key="VideoController_VideoModeDescription_ToolTip">Current resolution, color, and scan mode settings of the video controller.</system:String>
+    <system:String xml:space="preserve" x:Key="VideoController_VideoProcessor">Video&#x0a;Processor</system:String>
+    <system:String x:Key="VideoController_VideoProcessor_ToolTip">Free-form string describing the video processor.</system:String>
+
+    <system:String x:Key="Header_NetworkAdapter">Network Adapter</system:String>
+    <system:String x:Key="Label_NetworkAdapterInfo">Network Adapter Info</system:String>
+    <system:String xml:space="preserve"  x:Key="NetworkAdapter_ActiveMaximumTransmissionUnit">MTU</system:String>
+    <system:String x:Key="NetworkAdapter_ActiveMaximumTransmissionUnit_ToolTip">The active or negotiated maximum transmission unit (MTU) that can be supported.</system:String>
+    <system:String xml:space="preserve"  x:Key="NetworkAdapter_ComponentID">PnP&#x0a;ID</system:String>
+    <system:String x:Key="NetworkAdapter_ComponentID_ToolTip">The PnP component ID, also known as the Hardware ID of the network adapter.</system:String>
+    <system:String xml:space="preserve"  x:Key="NetworkAdapter_ConnectorPresent">Connector&#x0a;Present</system:String>
+    <system:String x:Key="NetworkAdapter_ConnectorPresent_ToolTip">Indicates if a connector is present on the network adapter. This value is set to TRUE if this is a physical adapter or FALSE if this is not a physical adapter.</system:String>
+    <system:String xml:space="preserve"  x:Key="NetworkAdapter_DeviceID">Device&#x0a;ID</system:String>
+    <system:String x:Key="NetworkAdapter_DeviceID_ToolTip">Address or other identifying information to uniquely name the logical device.</system:String>
+    <system:String xml:space="preserve"  x:Key="NetworkAdapter_DeviceName">Device&#x0a;Name</system:String>
+    <system:String x:Key="NetworkAdapter_DeviceName_ToolTip">The name of the device object for this adapter.</system:String>
+    <system:String xml:space="preserve"  x:Key="NetworkAdapter_DriverDate">Driver&#x0a;Date</system:String>
+    <system:String x:Key="NetworkAdapter_DriverDate_ToolTip">The network adapter driver date.</system:String>
+    <system:String xml:space="preserve"  x:Key="NetworkAdapter_DriverDescription">Driver&#x0a;Description</system:String>
+    <system:String x:Key="NetworkAdapter_DriverDescription_ToolTip">The description for the network adapter driver.</system:String>
+    <system:String xml:space="preserve"  x:Key="NetworkAdapter_DriverName">Driver&#x0a;Name</system:String>
+    <system:String x:Key="NetworkAdapter_DriverName_ToolTip">The name of the network adapter driver.</system:String>
+    <system:String xml:space="preserve"  x:Key="NetworkAdapter_DriverProvider">Driver&#x0a;Provider</system:String>
+    <system:String x:Key="NetworkAdapter_DriverProvider_ToolTip">The driver provider name.</system:String>
+    <system:String xml:space="preserve"  x:Key="NetworkAdapter_DriverVersion">Driver&#x0a;Version&#x0a;</system:String>
+    <system:String x:Key="NetworkAdapter_DriverVersion_ToolTip">A string representing the network adapter driver version.</system:String>
+    <system:String xml:space="preserve"  x:Key="NetworkAdapter_InterfaceDescription">Interface&#x0a;Description</system:String>
+    <system:String x:Key="NetworkAdapter_InterfaceDescription_ToolTip">Interface Description, also known as "ifDesc" or display name is a unique name assigned to the network adapter during installation. This name cannot be changed and is persisted as long as the network adapter is not uninstalled.</system:String>
+    <system:String xml:space="preserve"  x:Key="NetworkAdapter_InterfaceName">Interface&#x0a;Name</system:String>
+    <system:String x:Key="NetworkAdapter_InterfaceName_ToolTip">The locally unique identifier for the network interface in InterfaceType_NetluidIndex format.</system:String>
+    <system:String xml:space="preserve"  x:Key="NetworkAdapter_NdisMedium">Ndis&#x0a;Medium</system:String>
+    <system:String x:Key="NetworkAdapter_NdisMedium_ToolTip">Network adapter media type.</system:String>
+    <system:String xml:space="preserve"  x:Key="NetworkAdapter_NdisPhysicalMedium">Ndis&#x0a;Physical&#x0a;Medium</system:String>
+    <system:String x:Key="NetworkAdapter_NdisPhysicalMedium_ToolTip">The types of physical media that the network adapter supports.</system:String>
+    <system:String x:Key="NetworkAdapter_PermanentAddress">Address</system:String>
+    <system:String x:Key="NetworkAdapter_PermanentAddress_ToolTip">The network address that is hardcoded into a port. This hardcoded address can be changed using a firmware upgrade or a software configuration. When this change is made, the field should be updated at the same time. PermanentAddress should be left blank if no hardcoded address exists for the network adapter.</system:String>
+    <system:String x:Key="NetworkAdapter_Virtual">Virtual</system:String>
+    <system:String x:Key="NetworkAdapter_Virtual_ToolTip">Network adapter emulates a physical network card.</system:String>
+
+    <system:String x:Key="Header_PnP">Plug and Play</system:String>
+    <system:String x:Key="Label_PnPInfo">Plug and Play Devices</system:String>
+    <system:String x:Key="Label_PnPDescription">Represents the properties of a Plug and Play devices. Plug and Play entities are shown as entries in the Device Manager located in Control Panel.</system:String>
+
+    <system:String x:Key="PnPEntity_Caption">Caption</system:String>
+    <system:String x:Key="PnPEntity_Caption_ToolTip">Short description of the object.</system:String>
+    <system:String x:Key="PnPEntity_Name">Name</system:String>
+    <system:String x:Key="PnPEntity_Name_ToolTip">Name</system:String>
+    <system:String x:Key="PnPEntity_Description">Description</system:String>
+    <system:String x:Key="PnPEntity_Description_ToolTip">Description of the object.</system:String>
+    <system:String x:Key="PnPEntity_Status">Status</system:String>
+    <system:String x:Key="PnPEntity_Status_ToolTip">Current status of the object. Various operational and nonoperational statuses can be defined. Operational statuses include: "OK", "Degraded", and "Pred Fail" (an element, such as a SMART-enabled hard disk drive, may be functioning properly but predicting a failure in the near future). Nonoperational statuses include: "Error", "Starting", "Stopping", and "Service". The latter, "Service", could apply during mirror-resilvering of a disk, reload of a user permissions list, or other administrative work. Not all such work is online, yet the managed element is neither "OK" nor in one of the other states.</system:String>
+    <system:String x:Key="PnPEntity_DeviceID">Device ID</system:String>
+    <system:String x:Key="PnPEntity_DeviceID_ToolTip">Identifier of the Plug and Play device.</system:String>
+    <system:String x:Key="PnPEntity_Manufacturer">Manufacturer</system:String>
+    <system:String x:Key="PnPEntity_Manufacturer_ToolTip">Name of the manufacturer of the Plug and Play device.</system:String>
+
+    <system:String xml:space="preserve" x:Key="PnPEntity_ErrorCode">Error&#x0a;code.</system:String>
+    <system:String x:Key="PnPEntity_ErrorCode_ToolTip">Win32 Configuration Manager error code.</system:String>
+    <system:String xml:space="preserve" x:Key="PnPEntity_ErrorCodeString">Error&#x0a;description.</system:String>
+    <system:String x:Key="PnPEntity_ErrorCodeString_ToolTip">Error code description.</system:String>
+
 
 </ResourceDictionary>
