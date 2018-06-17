@@ -25,7 +25,7 @@ namespace SystemManagament.Monitor.HardwareStatic.Model.Components
                 fan.Caption = managementObject[ConstString.COMPONENT_CAPTION].TryGetStringValue();
                 fan.Description = managementObject[ConstString.COMPONENT_DESCRIPTION].TryGetStringValue();
                 fan.Name = managementObject[ConstString.COMPONENT_NAME].TryGetStringValue();
-
+                fan.Status = managementObject[ConstString.COMPONENT_STATUS].TryGetStringValue();
                 staticData.Add(fan);
             }
 

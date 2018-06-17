@@ -236,7 +236,6 @@
     <system:String x:Key="WindowsService_CanStop">Can Stop</system:String>
     <system:String x:Key="WindowsService_CanStop_ToolTip">Value indicating whether the service can be stopped after it has started.</system:String>
 
-
     <system:String x:Key="Header_WindowsLog">Windows log</system:String>
     <system:String x:Key="Button_LoadWindowsLog">Refresh windows logs</system:String>
     <system:String x:Key="Label_WindowsLogInfo">Windows logs</system:String>
@@ -427,7 +426,6 @@
     <system:String x:Key="Header_PnP">Plug and Play</system:String>
     <system:String x:Key="Label_PnPInfo">Plug and Play Devices</system:String>
     <system:String x:Key="Label_PnPDescription">Represents the properties of a Plug and Play devices. Plug and Play entities are shown as entries in the Device Manager located in Control Panel.</system:String>
-
     <system:String x:Key="PnPEntity_Caption">Caption</system:String>
     <system:String x:Key="PnPEntity_Caption_ToolTip">Short description of the object.</system:String>
     <system:String x:Key="PnPEntity_Name">Name</system:String>
@@ -440,11 +438,74 @@
     <system:String x:Key="PnPEntity_DeviceID_ToolTip">Identifier of the Plug and Play device.</system:String>
     <system:String x:Key="PnPEntity_Manufacturer">Manufacturer</system:String>
     <system:String x:Key="PnPEntity_Manufacturer_ToolTip">Name of the manufacturer of the Plug and Play device.</system:String>
-
     <system:String xml:space="preserve" x:Key="PnPEntity_ErrorCode">Error&#x0a;code.</system:String>
     <system:String x:Key="PnPEntity_ErrorCode_ToolTip">Win32 Configuration Manager error code.</system:String>
     <system:String xml:space="preserve" x:Key="PnPEntity_ErrorCodeString">Error&#x0a;description.</system:String>
     <system:String x:Key="PnPEntity_ErrorCodeString_ToolTip">Error code description.</system:String>
+
+    <system:String x:Key="Header_OtherHardware">Other hardware</system:String>
+    <system:String x:Key="Label_OtherHardwareInfo">Other hardware Info</system:String>
+
+    <system:String x:Key="Header_CDROM">CDROM Info</system:String>
+    <system:String x:Key="CDROMDrive_Caption">Caption</system:String>
+    <system:String x:Key="CDROMDrive_Caption_ToolTip">Short description of the object.</system:String>
+    <system:String x:Key="CDROMDrive_Name">Name</system:String>
+    <system:String x:Key="CDROMDrive_Description">Description</system:String>
+    <system:String x:Key="CDROMDrive_Description_ToolTip">Description of the object.</system:String>
+    <system:String x:Key="CDROMDrive_Status">Status</system:String>
+    <system:String x:Key="CDROMDrive_Status_ToolTip">Current status of the object. Various operational and nonoperational statuses can be defined. Operational statuses include: "OK", "Degraded", and "Pred Fail" (an element, such as a SMART-enabled hard disk drive, may be functioning properly but predicting a failure in the near future). Nonoperational statuses include: "Error", "Starting", "Stopping", and "Service". The latter, "Service", could apply during mirror-resilvering of a disk, reload of a user permissions list, or other administrative work. Not all such work is online, yet the managed element is neither "OK" nor in one of the other states.</system:String>
+    <system:String x:Key="CDROMDrive_DeviceID">Device ID</system:String>
+    <system:String x:Key="CDROMDrive_DeviceID_ToolTip">Unique identifier for a CD-ROM drive.</system:String>
+    <system:String x:Key="CDROMDrive_Drive">Description</system:String>
+    <system:String x:Key="CDROMDrive_Drive_ToolTip">Drive letter of the CD-ROM drive.</system:String>
+    <system:String x:Key="CDROMDrive_MediaType">Media Type</system:String>
+    <system:String x:Key="CDROMDrive_MediaType_ToolTip">Type of media that can be used or accessed by this device. Possible values includes: Random Access ('Random Access'), Supports Writing ('Supports Writing'), Removable Media ('Removable Media')"</system:String>
+    
+    <system:String x:Key="Header_Fan">Fan Info</system:String>
+    <system:String x:Key="Fan_Caption">Caption</system:String>
+    <system:String x:Key="Fan_Caption_ToolTip">Short description of the object.</system:String>
+    <system:String x:Key="Fan_Name">Name</system:String>
+    <system:String x:Key="Fan_Description">Description</system:String>
+    <system:String x:Key="Fan_Description_ToolTip">Description of the object.</system:String>
+    <system:String x:Key="Fan_Status">Status</system:String>
+    <system:String x:Key="Fan_Status_ToolTip">Current status of the object. Various operational and nonoperational statuses can be defined. Operational statuses include: "OK", "Degraded", and "Pred Fail" (an element, such as a SMART-enabled hard disk drive, may be functioning properly but predicting a failure in the near future). Nonoperational statuses include: "Error", "Starting", "Stopping", and "Service". The latter, "Service", could apply during mirror-resilvering of a disk, reload of a user permissions list, or other administrative work. Not all such work is online, yet the managed element is neither "OK" nor in one of the other states.</system:String>
+
+    <system:String x:Key="Header_Battery">Battery Info</system:String>
+    <system:String x:Key="Battery_Caption">Caption</system:String>
+    <system:String x:Key="Battery_Caption_ToolTip">Short description of the object.</system:String>
+    <system:String x:Key="Battery_Name">Name</system:String>
+    <system:String x:Key="Battery_Description">Description</system:String>
+    <system:String x:Key="Battery_Description_ToolTip">Description of the object.</system:String>
+    <system:String x:Key="Battery_Status">Status</system:String>
+    <system:String x:Key="Battery_Status_ToolTip">Current status of the object. Various operational and nonoperational statuses can be defined. Operational statuses include: "OK", "Degraded", and "Pred Fail" (an element, such as a SMART-enabled hard disk drive, may be functioning properly but predicting a failure in the near future). Nonoperational statuses include: "Error", "Starting", "Stopping", and "Service". The latter, "Service", could apply during mirror-resilvering of a disk, reload of a user permissions list, or other administrative work. Not all such work is online, yet the managed element is neither "OK" nor in one of the other states.</system:String>
+    <system:String x:Key="Battery_BatteryStatus">Battery&#x0a;Status</system:String>
+    <system:String x:Key="Battery_BatteryStatus_ToolTip">Status of the battery.</system:String>
+    <system:String x:Key="Battery_DeviceID">Device&#x0a;ID</system:String>
+    <system:String x:Key="Battery_DeviceID_ToolTip">Identifies the battery.</system:String>
+    <system:String x:Key="Battery_DesignCapacity">Design&#x0a;Capacity</system:String>
+    <system:String x:Key="Battery_DesignCapacity_ToolTip">Design capacity of the battery.</system:String>
+    <system:String x:Key="Battery_FullChargeCapacity">Full&#x0a;Charge&#x0a;Capacity</system:String>
+    <system:String x:Key="Battery_FullChargeCapacity_ToolTip">Full charge capacity of the battery.</system:String>
+
+    <system:String x:Key="Header_Printer">Printer Info</system:String>
+    <system:String x:Key="Label_PrinterDescription">List of devices connected to a computer running on a Microsoft Windows operating system that can produce a printed image or text on paper or other medium.</system:String>
+    <system:String x:Key="Printer_Caption">Caption</system:String>
+    <system:String x:Key="Printer_Caption_ToolTip">Short description of the object.</system:String>
+    <system:String x:Key="Printer_Name">Name</system:String>
+    <system:String x:Key="Printer_Description">Description</system:String>
+    <system:String x:Key="Printer_Description_ToolTip">Description of the object.</system:String>
+    <system:String x:Key="Printer_Status">Status</system:String>
+    <system:String x:Key="Printer_Status_ToolTip">Current status of the object. Various operational and nonoperational statuses can be defined. Operational statuses include: "OK", "Degraded", and "Pred Fail" (an element, such as a SMART-enabled hard disk drive, may be functioning properly but predicting a failure in the near future). Nonoperational statuses include: "Error", "Starting", "Stopping", and "Service". The latter, "Service", could apply during mirror-resilvering of a disk, reload of a user permissions list, or other administrative work. Not all such work is online, yet the managed element is neither "OK" nor in one of the other states.</system:String>
+    <system:String xml:space="preserve" x:Key="Printer_AveragePagesPerMinute">Average&#x0a;Pages&#x0a;Per Minute</system:String>
+    <system:String x:Key="Printer_AveragePagesPerMinute_ToolTip">Printing rate, in average number of pages per minute, that a printer can produce output (0 if value is not known).</system:String>
+    <system:String x:Key="Printer_Default">Default</system:String>
+    <system:String x:Key="Printer_Default_ToolTip">If TRUE, the printer is the default printer.</system:String>
+    <system:String xml:space="preserve" x:Key="Printer_DeviceID">Device&#x0a;ID</system:String>
+    <system:String x:Key="Printer_DeviceID_ToolTip">Unique identifier of the printer on a system.</system:String>
+    <system:String xml:space="preserve" x:Key="Printer_PortName">Port&#x0a;Name</system:String>
+    <system:String x:Key="Printer_PortName_ToolTip">Port that is used to transmit data to a printer. If a printer is connected to more than one port, the names of each port are separated by commas.</system:String>
+    <system:String xml:space="preserve" x:Key="Printer_PrintProcessor">Print&#x0a;Processor</system:String>
+    <system:String x:Key="Printer_PrintProcessor_ToolTip">Name of the print spooler that handles print jobs.</system:String>
 
 
 </ResourceDictionary>

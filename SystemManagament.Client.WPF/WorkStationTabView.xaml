@@ -703,7 +703,7 @@
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="{StaticResource Header_WindowsProcess}" Foreground="Navy" />
+                    <TextBlock Text="{StaticResource Header_WindowsProcess}" Foreground="Orange" />
                 </TabItem.Header>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -792,7 +792,7 @@
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="{StaticResource Header_WindowsService}" Foreground="Navy" />
+                    <TextBlock Text="{StaticResource Header_WindowsService}" Foreground="Orange" />
                 </TabItem.Header>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -855,7 +855,7 @@
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="{StaticResource Header_WindowsLog}" Foreground="Navy" />
+                    <TextBlock Text="{StaticResource Header_WindowsLog}" Foreground="Orange" />
                 </TabItem.Header>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <Grid>
@@ -930,7 +930,7 @@
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="{StaticResource Header_ProcessorStatic}" Foreground="YellowGreen" />
+                    <TextBlock Text="{StaticResource Header_ProcessorStatic}" Foreground="Orange" />
                 </TabItem.Header>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -1793,7 +1793,7 @@
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="Other hardware" Foreground="YellowGreen" />
+                    <TextBlock Text="{StaticResource Header_OtherHardware}" Foreground="YellowGreen" />
                 </TabItem.Header>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <Grid>
@@ -1814,31 +1814,44 @@
                             <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
-                            <Button Content="Refresh hardware static data" Command="{Binding LoadHardwareStaticDataCommand}" 
+                            <Button Content="{StaticResource Button_LoadHardwareStatic}" Command="{Binding LoadHardwareStaticDataCommand}" 
                             HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange"/>
                         </Grid>
                         <Grid Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="3">
-                            <Button Content="Cancel" Command="{Binding LoadHardwareStaticDataCommand.CancelCommand}" 
+                            <Button Content="{StaticResource Button_Cancel}" Command="{Binding LoadHardwareStaticDataCommand.CancelCommand}" 
                         HorizontalAlignment="Stretch" BorderThickness="2" Foreground="OrangeRed"/>
                         </Grid>
                         <StackPanel Margin="20,0,20,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" Orientation="Vertical">
-                            <Label FontFamily = "Verdana" Content="Other hardware info" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                            <Label FontFamily = "Verdana" Content="{StaticResource Label_OtherHardwareInfo}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
                             <StackPanel Orientation="Vertical" Margin="20,0,20,0">
                                 <Expander HorizontalAlignment="Stretch" IsExpanded="False" Foreground="White" Background="SlateGray" BorderThickness="2">
                                     <Expander.Header>
-                                        <TextBlock Text="CDROM Info" FontWeight="Bold" FontSize="18"/>
+                                        <TextBlock Text="{StaticResource Header_CDROM}" FontWeight="Bold" FontSize="18"/>
                                     </Expander.Header>
                                     <Expander.Content>
                                         <StackPanel Margin="10,4,0,0">
                                             <DataGrid ItemsSource="{Binding CDROMDrive}">
                                                 <DataGrid.Columns>
-                                                    <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                                    <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                                    <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                                    <DataGridTextColumn Header="DeviceID" Binding="{Binding DeviceID}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                                    <DataGridTextColumn Header="Drive" Binding="{Binding Drive}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                                    <DataGridTextColumn Header="MediaType" Binding="{Binding MediaType}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
+                                                    <DataGridTextColumn Header="{StaticResource CDROMDrive_Caption}" Binding="{Binding Caption}"
+                                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource CDROMDrive_Caption_ToolTip}" />
+                                                    <DataGridTextColumn Header="{StaticResource CDROMDrive_Name}" Binding="{Binding Name}"
+                                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                                    <DataGridTextColumn Header="{StaticResource CDROMDrive_Description}" Binding="{Binding Description}"
+                                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource CDROMDrive_Description_ToolTip}" />
+                                                    <DataGridTextColumn Header="{StaticResource CDROMDrive_Status}" Binding="{Binding Status}"
+                                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource CDROMDrive_Status_ToolTip}" />
+                                                    <DataGridTextColumn Header="{StaticResource CDROMDrive_DeviceID}" Binding="{Binding DeviceID}"
+                                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource CDROMDrive_DeviceID_ToolTip}" />
+                                                    <DataGridTextColumn Header="{StaticResource CDROMDrive_Drive}" Binding="{Binding Drive}"
+                                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource CDROMDrive_Drive_ToolTip}" />
+                                                    <DataGridTextColumn Header="{StaticResource CDROMDrive_MediaType}" Binding="{Binding MediaType}"
+                                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource CDROMDrive_MediaType_ToolTip}" />
                                                 </DataGrid.Columns>
                                             </DataGrid>
                                         </StackPanel>
@@ -1846,16 +1859,23 @@
                                 </Expander>
                                 <Expander HorizontalAlignment="Stretch" IsExpanded="False" Foreground="White" Background="DimGray" BorderThickness="2">
                                     <Expander.Header>
-                                        <TextBlock Text="Fan Info" FontWeight="Bold" FontSize="18"/>
+                                        <TextBlock Text="{StaticResource Header_Fan}" FontWeight="Bold" FontSize="18"/>
                                     </Expander.Header>
                                     <Expander.Content>
                                         <StackPanel Margin="10,4,0,0">
                                             <DataGrid ItemsSource="{Binding Fan}">
                                                 <DataGrid.Columns>
-                                                    <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                                    <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                                    <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
+                                                    <DataGridTextColumn Header="{StaticResource Fan_Caption}" Binding="{Binding Caption}"
+                                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                                        ToolTipService.ToolTip="{StaticResource Fan_Caption_ToolTip}" />
+                                                    <DataGridTextColumn Header="{StaticResource Fan_Name}" Binding="{Binding Name}"
+                                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
+                                                    <DataGridTextColumn Header="{StaticResource Fan_Description}" Binding="{Binding Description}"
+                                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                                        ToolTipService.ToolTip="{StaticResource Fan_Description_ToolTip}" />
+                                                    <DataGridTextColumn Header="{StaticResource Fan_Status}" Binding="{Binding Status}"
+                                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                                        ToolTipService.ToolTip="{StaticResource Fan_Status_ToolTip}" />
                                                 </DataGrid.Columns>
                                             </DataGrid>
                                         </StackPanel>
@@ -1863,20 +1883,35 @@
                                 </Expander>
                                 <Expander HorizontalAlignment="Stretch" IsExpanded="False" Foreground="White" Background="SlateGray" BorderThickness="2">
                                     <Expander.Header>
-                                        <TextBlock Text="Battery Info" FontWeight="Bold" FontSize="18"/>
+                                        <TextBlock Text="{StaticResource Header_Battery}" FontWeight="Bold" FontSize="18"/>
                                     </Expander.Header>
                                     <Expander.Content>
                                         <StackPanel Margin="10,4,0,0">
                                             <DataGrid ItemsSource="{Binding Battery}">
                                                 <DataGrid.Columns>
-                                                    <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                                    <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                                    <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                                    <DataGridTextColumn Header="Battery&#x0a;Status" Binding="{Binding BatteryStatus}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                                    <DataGridTextColumn Header="Device&#x0a;ID" Binding="{Binding DeviceID}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                                    <DataGridTextColumn Header="Design&#x0a;Capacity" Binding="{Binding DesignCapacity, Converter={StaticResource UnitIntValueToStringConverter}}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"  SortMemberPath="DesignCapacity.Value"/>
-                                                    <DataGridTextColumn Header="Full&#x0a;Charge&#x0a;Capacity" Binding="{Binding FullChargeCapacity, Converter={StaticResource UnitIntValueToStringConverter}}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"  SortMemberPath="FullChargeCapacity.Value"/>
+                                                    <DataGridTextColumn Header="{StaticResource Battery_Caption}" Binding="{Binding Caption}"
+                                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                                        ToolTipService.ToolTip="{StaticResource Battery_Caption_ToolTip}" />
+                                                    <DataGridTextColumn Header="{StaticResource Battery_Name}" Binding="{Binding Name}"
+                                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
+                                                    <DataGridTextColumn Header="{StaticResource Battery_Description}" Binding="{Binding Description}"
+                                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                                        ToolTipService.ToolTip="{StaticResource Battery_Description_ToolTip}" />
+                                                    <DataGridTextColumn Header="{StaticResource Battery_Status}" Binding="{Binding Status}"
+                                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                                        ToolTipService.ToolTip="{StaticResource Battery_Status_ToolTip}" />
+                                                    <DataGridTextColumn Header="{StaticResource Battery_BatteryStatus}" Binding="{Binding BatteryStatus}"
+                                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                                        ToolTipService.ToolTip="{StaticResource Battery_BatteryStatus_ToolTip}" />
+                                                    <DataGridTextColumn Header="{StaticResource Battery_DeviceID}" Binding="{Binding DeviceID}"
+                                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                                        ToolTipService.ToolTip="{StaticResource Battery_DeviceID_ToolTip}" />
+                                                    <DataGridTextColumn Header="{StaticResource Battery_DesignCapacity}" Binding="{Binding DesignCapacity, Converter={StaticResource UnitIntValueToStringConverter}}"
+                                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"  SortMemberPath="DesignCapacity.Value"
+                                                                        ToolTipService.ToolTip="{StaticResource Battery_DesignCapacity_ToolTip}" />
+                                                    <DataGridTextColumn Header="{StaticResource Battery_FullChargeCapacity}" Binding="{Binding FullChargeCapacity, Converter={StaticResource UnitIntValueToStringConverter}}"
+                                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"  SortMemberPath="FullChargeCapacity.Value"
+                                                                        ToolTipService.ToolTip="{StaticResource Battery_FullChargeCapacity_ToolTip}" />
                                                 </DataGrid.Columns>
                                             </DataGrid>
                                         </StackPanel>
@@ -1884,21 +1919,39 @@
                                 </Expander>
                                 <Expander HorizontalAlignment="Stretch" IsExpanded="False" Foreground="White" Background="DimGray" BorderThickness="2">
                                     <Expander.Header>
-                                        <TextBlock Text="Printer Info" FontWeight="Bold" FontSize="18"/>
+                                        <TextBlock Text="{StaticResource Header_Printer}" FontWeight="Bold" FontSize="18"/>
                                     </Expander.Header>
                                     <Expander.Content>
                                         <StackPanel Margin="10,4,0,0">
-                                            <DataGrid ItemsSource="{Binding Printer}">
+                                            <TextBlock FontFamily = "Verdana" TextWrapping="WrapWithOverflow" FontSize="14" Text="{StaticResource Label_PrinterDescription}" Foreground="White"/>
+                                            <DataGrid ItemsSource="{Binding Printer}" Margin="0 10 0 0">
                                                 <DataGrid.Columns>
-                                                    <DataGridTextColumn Header="Caption" Binding="{Binding Caption}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                                    <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                                    <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                                    <DataGridTextColumn Header="Average&#x0a;Pages&#x0a;Per Minute" Binding="{Binding AveragePagesPerMinute}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                                    <DataGridTextColumn Header="Default" Binding="{Binding Default}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                                    <DataGridTextColumn Header="Device&#x0a;ID" Binding="{Binding DeviceID}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                                    <DataGridTextColumn Header="Port&#x0a;Name" Binding="{Binding PortName}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
-                                                    <DataGridTextColumn Header="Print&#x0a;Processor" Binding="{Binding PrintProcessor}" Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
+                                                    <DataGridTextColumn Header="{StaticResource Printer_Caption}" Binding="{Binding Caption}"
+                                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                                        ToolTipService.ToolTip="{StaticResource Printer_Caption_ToolTip}" />
+                                                    <DataGridTextColumn Header="{StaticResource Printer_Name}" Binding="{Binding Name}"
+                                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" />
+                                                    <DataGridTextColumn Header="{StaticResource Printer_Description}" Binding="{Binding Description}"
+                                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                                        ToolTipService.ToolTip="{StaticResource Printer_Description_ToolTip}" />
+                                                    <DataGridTextColumn Header="{StaticResource Printer_Status}" Binding="{Binding Status}"
+                                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                                        ToolTipService.ToolTip="{StaticResource Printer_Status_ToolTip}" />
+                                                    <DataGridTextColumn Header="{StaticResource Printer_AveragePagesPerMinute}" Binding="{Binding AveragePagesPerMinute}"
+                                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                                        ToolTipService.ToolTip="{StaticResource Printer_AveragePagesPerMinute_ToolTip}" />
+                                                    <DataGridTextColumn Header="{StaticResource Printer_Default}" Binding="{Binding Default}"
+                                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                                        ToolTipService.ToolTip="{StaticResource Printer_Default_ToolTip}" />
+                                                    <DataGridTextColumn Header="{StaticResource Printer_DeviceID}" Binding="{Binding DeviceID}"
+                                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                                        ToolTipService.ToolTip="{StaticResource Printer_DeviceID_ToolTip}" />
+                                                    <DataGridTextColumn Header="{StaticResource Printer_PortName}" Binding="{Binding PortName}"
+                                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                                        ToolTipService.ToolTip="{StaticResource Printer_PortName_ToolTip}" />
+                                                    <DataGridTextColumn Header="{StaticResource Printer_PrintProcessor}" Binding="{Binding PrintProcessor}"
+                                                                        Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                                        ToolTipService.ToolTip="{StaticResource Printer_PrintProcessor_ToolTip}" />
                                                 </DataGrid.Columns>
                                             </DataGrid>
                                         </StackPanel>
