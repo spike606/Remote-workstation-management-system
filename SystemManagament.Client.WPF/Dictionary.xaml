@@ -507,5 +507,29 @@
     <system:String xml:space="preserve" x:Key="Printer_PrintProcessor">Print&#x0a;Processor</system:String>
     <system:String x:Key="Printer_PrintProcessor_ToolTip">Name of the print spooler that handles print jobs.</system:String>
 
+    <system:String x:Key="Header_SMART">SMART Analyst</system:String>
+    <system:String x:Key="Label_SMART_Description">S.M.A.R.T.(Self-Monitoring, Analysis and Reporting Technology) allows to detect and report various indicators of drive reliability with the intent of anticipating imminent hardware failures.
+    Manufacturers do not necessarily agree on precise attribute definitions and measurement units. The following list of attributes is a general guide only.
+    Drives do not support all attribute codes (sometimes abbreviated as "ID", for "identifier", in tables). Some codes are specific to particular drive types (magnetic platter, flash, SSD). Drives may use different codes for the same parameter, e.g., see codes 193 and 225.</system:String>
+    <system:String x:Key="Label_SMARTPredictFailure">Predict Failure:</system:String>
+    <system:String x:Key="Label_SMARTPredictFailure_ToolTip">Failure prediction based on SMART analyst.</system:String>
+    <system:String x:Key="SMRT_AttributeId">Attribute Id</system:String>
+    <system:String x:Key="SMRT_AttributeName">Attribute Name</system:String>
+    <system:String x:Key="SMRT_AttributeName_ToolTip">Describe some particular aspect of drive condition.</system:String>
+    <system:String x:Key="SMRT_Current">Current</system:String>
+    <system:String x:Key="SMRT_Current_ToolTip">"Normalized value", commonly referred to as just "value". This is a most universal measurement, on the scale from 0 to some maximum value. Maximum values are typically 100, 200 or 253.</system:String>
+    <system:String x:Key="SMRT_Worst">Worst</system:String>
+    <system:String x:Key="SMRT_Worst_ToolTip">Worst observed value.</system:String>
+    <system:String x:Key="SMRT_Thresholdd">Threshold</system:String>
+    <system:String x:Key="SMRT_Thresholdd_ToolTip">Threshold for the normalized value for the attribute.</system:String>
+    <system:String x:Key="SMRT_Raw">Raw</system:String>
+    <system:String x:Key="SMRT_Raw_ToolTip">The value of the attribute as it is tracked by the device, before any normalization takes place. Some raw numbers provide valuable insight when properly interpreted.</system:String>
+    <system:String x:Key="SMRT_RawIdeal">Raw Ideal</system:String>
+    <system:String x:Key="SMRT_RawIdeal_ToolTip">Deterimnes ideal value.</system:String>
+    <system:String x:Key="SMRT_IsCriticalAttribute">Is Critical Attribute</system:String>
+    <system:String x:Key="SMRT_IsCriticalAttribute_ToolTip">Denotes a Critical attribute. Specific values may predict drive failure.</system:String>
+    <system:String x:Key="SMRT_Status">Status</system:String>
+    <system:String x:Key="SMRT_Status_ToolTip">Status of the attribute value based on treshold and current attribute value.</system:String>
+
 
 </ResourceDictionary>
