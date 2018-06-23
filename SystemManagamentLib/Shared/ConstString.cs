@@ -92,15 +92,15 @@ namespace SystemManagament.Monitor.HardwareStatic
         internal const string DISK_SIZE = "Size";
         internal const string DISK_UNIQUE_ID = "UniqueId";
 
-        internal const string WMI_QUERY_LOGICAL_DISK = "select * from Win32_LogicalDisk";
-        internal const string LOGICAL_DISK_BLOCK_SIZE = "BlockSize";
-        internal const string LOGICAL_DISK_DEVICE_ID = "DeviceID";
-        internal const string LOGICAL_DISK_FILE_SYSTEM = "FileSystem";
-        internal const string LOGICAL_DISK_FREE_SPACE = "FreeSpace";
-        internal const string LOGICAL_DISK_PROVIDER_NAME = "ProviderName";
-        internal const string LOGICAL_DISK_SIZE = "Size";
-        internal const string LOGICAL_DISK_VOLUME_NAME = "VolumeName";
-        internal const string LOGICAL_DISK_VOLUME_SERIAL_NUMBER = "VolumeSerialNumber";
+        //internal const string WMI_QUERY_LOGICAL_DISK = "select * from Win32_LogicalDisk";
+        //internal const string LOGICAL_DISK_BLOCK_SIZE = "BlockSize";
+        //internal const string LOGICAL_DISK_DEVICE_ID = "DeviceID";
+        //internal const string LOGICAL_DISK_FILE_SYSTEM = "FileSystem";
+        //internal const string LOGICAL_DISK_FREE_SPACE = "FreeSpace";
+        //internal const string LOGICAL_DISK_PROVIDER_NAME = "ProviderName";
+        //internal const string LOGICAL_DISK_SIZE = "Size";
+        //internal const string LOGICAL_DISK_VOLUME_NAME = "VolumeName";
+        //internal const string LOGICAL_DISK_VOLUME_SERIAL_NUMBER = "VolumeSerialNumber";
 
         internal const string WMI_QUERY_CDROM_DRIVE = "select * from Win32_CDROMDrive";
         internal const string CDROM_DRIVE_DEVICE_ID = "DeviceID";
