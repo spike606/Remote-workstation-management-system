@@ -593,15 +593,41 @@
     <system:String x:Key="Disk_SerialNumber">Serial Number:</system:String>
     <system:String x:Key="Disk_SerialNumber_ToolTip">A string representation of the disk's serial number.</system:String>
 
+    <system:String x:Key="Header_Volumes">Volumes Info</system:String>
+    <system:String x:Key="Label_Volumes_Description">List of volumes existing in specified storage.</system:String>
+    <system:String x:Key="Volume_DriveLetter">Drive Letter</system:String>
+    <system:String x:Key="Volume_DriveLetter_ToolTip">The volume drive letter.</system:String>
+    <system:String x:Key="Volume_DriveType">Drive Type</system:String>
+    <system:String x:Key="Volume_DriveType_ToolTip">The type of the volume.</system:String>
+    <system:String x:Key="Volume_FileSystem">File System</system:String>
+    <system:String x:Key="Volume_FileSystem_ToolTip">The volume's file system. One of the following: "NTFS", "ReFS", "FAT32", "CSVFS".</system:String>
+    <system:String xml:space="preserve" x:Key="Volume_FileSystemLabel">File System&#x0a;Label</system:String>
+    <system:String x:Key="Volume_FileSystemLabel_ToolTip">The volume's file system label.</system:String>
+    <system:String x:Key="Volume_Size">Size</system:String>
+    <system:String x:Key="Volume_Size_ToolTip">Total size of the volume.</system:String>
+    <system:String x:Key="Volume_SizeRemaining">Size Remaining</system:String>
+    <system:String x:Key="Volume_SizeRemaining_ToolTip">The total space that is currently free on the volume.</system:String>
+    <system:String x:Key="Volume_DedupMode">Dedup Mode</system:String>
+    <system:String x:Key="Volume_DedupMode_ToolTip">Starting in Windows 10: Indicates whether deduplication is available, disabled, or the deduplication mode of the volume: Disabled (0), GeneralPurpose (1), HyperV (2), Backup (3), NotAvailable (4).</system:String>
+    <system:String x:Key="Volume_HealthStatus">Status</system:String>
+    <system:String x:Key="Volume_HealthStatus_ToolTip">The health status of the volume: Healthy (0), Scan Needed (1), Spot Fix Needed (2), Full Repair Needed (3).</system:String>
+    <system:String x:Key="Volume_UniqueId">Unique Id</system:String>
+    <system:String x:Key="Volume_Path">Path</system:String>
+    <system:String x:Key="Volume_Path_ToolTip">The volume path.</system:String>
+
+
     <system:String x:Key="Header_Partitions">Partitions Info</system:String>
-    <system:String x:Key="Partition_PartitionNumber">Partition Number</system:String>
+    <system:String x:Key="Label_Partition_Description">List of partitions existing in specified storage.</system:String>
+    <system:String xml:space="preserve" x:Key="Partition_PartitionNumber">Partition&#x0a;Number</system:String>
     <system:String x:Key="Partition_PartitionNumber_ToolTip">The operating system's number for the partition. Ordering is based on the partition's offset, relative to other partitions. This means that the value for this property may change based off of the partition configuration in the offset range preceding this partition.</system:String>
     <system:String x:Key="Partition_DiskNumber">Disk Number</system:String>
     <system:String x:Key="Partition_DiskNumber_ToolTip">The operating system's number for the disk that contains this partition. Disk numbers may not necessarily remain the same across restarts.</system:String>
-    <system:String x:Key="Partition_DriveLetter">Drive Letter</system:String>
+    <system:String xml:space="preserve" x:Key="Partition_DriveLetter">Drive&#x0a;Letter</system:String>
     <system:String x:Key="Partition_DriveLetter_ToolTip">The currently assigned drive letter for the partition.</system:String>
     <system:String x:Key="Partition_MbrType">Mbr Type</system:String>
-    <system:String x:Key="Partition_MbrType_ToolTip">The partition's MBR type.</system:String>
+    <system:String x:Key="Partition_MbrType_ToolTip">The partition's MBR type (valid for disks with MBR partition style).</system:String>
+    <system:String x:Key="Partition_GptType">Gpt Type</system:String>
+    <system:String x:Key="Partition_GptType_ToolTip">The partition's GPT type. This property is only valid when the disk's Partition Style property is GPT and will be empty for all other partition styles.</system:String>
     <system:String x:Key="Partition_Size">Size</system:String>
     <system:String x:Key="Partition_Size_ToolTip">Total size of the partition.</system:String>
     <system:String x:Key="Partition_Active">Active</system:String>
@@ -610,5 +636,18 @@
     <system:String x:Key="Partition_Boot_ToolTip">If TRUE, the partition is the current boot partition.</system:String>
     <system:String x:Key="Partition_System">System</system:String>
     <system:String x:Key="Partition_System_ToolTip">If TRUE, this is a system partition.</system:String>
+    <system:String x:Key="Partition_Offset">Offset</system:String>
+    <system:String x:Key="Partition_Hidden">Hidden</system:String>
+    <system:String x:Key="Partition_Hidden_ToolTip">If TRUE, the partition is not detected by the mount manager. As a result, the partition does not receive a drive letter, does not receive a volume GUID path, does not host volume mount points, and is not enumerated by calls to FindFirstVolume and FindNextVolume. This ensures that applications such as Disk Defragmenter do not access the partition. The Volume Shadow Copy Service (VSS) uses this attribute on its shadow copies.</system:String>
+    <system:String x:Key="Partition_Offline">Offline</system:String>
+    <system:String x:Key="Partition_Offline_ToolTip">If TRUE, this partition is currently offline.</system:String>
+    <system:String x:Key="Partition_ReadOnly">Read Only</system:String>
+    <system:String x:Key="Partition_ReadOnly_ToolTip">If TRUE, this is a read-only partition.</system:String>
+    <system:String xml:space="preserve" x:Key="Partition_ShadowCopy">Shadow&#x0a;Copy</system:String>
+    <system:String x:Key="Partition_ShadowCopy_ToolTip">If TRUE, the partition is a shadow copy of another partition. This attribute is used by VSS. This attribute is an indication for file system filter driver-based software (such as antivirus programs) to avoid attaching to the volume. An application can use this attribute to differentiate a shadow copy partition from a production partition. For example, an application that performs a fast recovery will break a shadow copy virtual disk by clearing the read-only and hidden attributes and this attribute. This attribute is set when the shadow copy is created and cleared when the shadow copy is broken.</system:String>
+    
+    <system:String x:Key="Header_ExtendedPartitions">Extended Partitions Info</system:String>
+    <system:String x:Key="Label_ExtendedPartition_Description">Extended partition existing in specified storage. An extended partition is a special type of partition that can hold multiple logical partitions. Extended partitions can exists only when MBR partition style is used (not valid for GPT partitions).</system:String>
+    <system:String x:Key="Label_ExtendedPartitions_Description">List of partitions existing in specified storage for specified extended partiion.</system:String>
 
 </ResourceDictionary>

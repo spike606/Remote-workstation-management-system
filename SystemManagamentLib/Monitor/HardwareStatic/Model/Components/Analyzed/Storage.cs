@@ -14,7 +14,13 @@ namespace SystemManagament.Monitor.HardwareStatic.Model.Components.Analyzed
         public Disk Disk { get; set; }
 
         [DataMember]
-        public List<LogicalPartition> Partition { get; set; }
+        public List<Partition> Partition { get; set; }
+
+        [DataMember]
+        public List<Partition> ExtendedPartition { get; set; }
+
+        [DataMember]
+        public List<Volume> Volume { get; set; }
 
         [DataMember]
         public SMARTData SMARTData { get; set; }

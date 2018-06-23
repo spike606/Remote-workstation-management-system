@@ -118,6 +118,7 @@
     <Compile Include="Control\ControlManager.cs" />
     <Compile Include="Control\IControlManager.cs" />
     <Compile Include="Monitor\HardwareStatic\Analyzer\PnPConfigManagerErrorCodeDictionary.cs" />
+    <Compile Include="Monitor\HardwareStatic\Model\Components\Analyzed\Partition.cs" />
     <Compile Include="Monitor\SoftwareDynamic\Model\Components\Duplicate\EventLogEntryDuplicate.cs" />
     <Compile Include="Monitor\SoftwareDynamic\Model\Components\Duplicate\EventLogEntryTypeDuplicate.cs" />
     <Compile Include="Monitor\SoftwareStatic\Model\Components\Duplicate\ClaimDuplicate.cs" />
@@ -153,8 +154,6 @@
     <Compile Include="Monitor\HardwareStatic\Builder\HardwareStaticBuilder.cs" />
     <Compile Include="Monitor\HardwareStatic\Builder\IHardwareStaticBuilder.cs" />
     <Compile Include="Monitor\HardwareStatic\Model\Components\Abstract\HardwareStaticComponent.cs" />
-    <Compile Include="Monitor\HardwareStatic\Model\Components\Analyzed\LogicalPartition.cs" />
-    <Compile Include="Monitor\HardwareStatic\Model\Components\Analyzed\Partition.cs" />
     <Compile Include="Monitor\HardwareStatic\Model\Components\Analyzed\SMARTData.cs" />
     <Compile Include="Monitor\HardwareStatic\Model\Components\Analyzed\Storage.cs" />
     <Compile Include="Monitor\HardwareStatic\Model\Components\BaseBoard.cs" />

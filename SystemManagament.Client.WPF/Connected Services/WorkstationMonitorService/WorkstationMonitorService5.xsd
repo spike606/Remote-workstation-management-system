@@ -26,22 +26,25 @@
   <xs:complexType name="Storage">
     <xs:sequence>
       <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" minOccurs="0" name="Disk" nillable="true" type="q2:Disk" />
-      <xs:element minOccurs="0" name="Partition" nillable="true" type="tns:ArrayOfLogicalPartition" />
+      <xs:element minOccurs="0" name="ExtendedPartition" nillable="true" type="tns:ArrayOfPartition" />
+      <xs:element minOccurs="0" name="Partition" nillable="true" type="tns:ArrayOfPartition" />
       <xs:element minOccurs="0" name="SMARTData" nillable="true" type="tns:SMARTData" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components" minOccurs="0" name="Volume" nillable="true" type="q3:ArrayOfVolume" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Storage" nillable="true" type="tns:Storage" />
-  <xs:complexType name="ArrayOfLogicalPartition">
+  <xs:complexType name="ArrayOfPartition">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="LogicalPartition" nillable="true" type="tns:LogicalPartition" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Partition" nillable="true" type="tns:Partition" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfLogicalPartition" nillable="true" type="tns:ArrayOfLogicalPartition" />
-  <xs:complexType name="LogicalPartition">
+  <xs:element name="ArrayOfPartition" nillable="true" type="tns:ArrayOfPartition" />
+  <xs:complexType name="Partition">
     <xs:sequence>
       <xs:element minOccurs="0" name="DiskId" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="DiskNumber" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="DriveLetter" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GptType" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IsActive" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IsBoot" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IsHidden" nillable="true" type="xs:string" />
@@ -52,30 +55,11 @@
       <xs:element minOccurs="0" name="MbrType" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="NoDefaultDriveLetter" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ObjectIdAsPartition" nillable="true" type="xs:string" />
-      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="Offset" type="q3:UnitULongValue" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="Offset" type="q4:UnitULongValue" />
       <xs:element minOccurs="0" name="PartitionNumber" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Partitions" nillable="true" type="tns:ArrayOfLogicalPartition" />
-      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="SizeAsPartition" type="q4:UnitULongValue" />
+      <xs:element minOccurs="0" name="Partitions" nillable="true" type="tns:ArrayOfPartition" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="SizeAsPartition" type="q5:UnitULongValue" />
     </xs:sequence>
-  </xs:complexType>
-  <xs:element name="LogicalPartition" nillable="true" type="tns:LogicalPartition" />
-  <xs:complexType name="Partition">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:LogicalPartition">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="DedupMode" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="DriveType" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="FileSystem" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="FileSystemLabel" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="HealthStatus" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="ObjectIdAsVolume" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Path" nillable="true" type="xs:string" />
-          <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="SizeAsVolume" type="q5:UnitULongValue" />
-          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="SizeRemaining" type="q6:UnitULongValue" />
-          <xs:element minOccurs="0" name="UniqueId" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
   </xs:complexType>
   <xs:element name="Partition" nillable="true" type="tns:Partition" />
 </xs:schema>

@@ -9,37 +9,62 @@ using SystemManagament.Monitor.HardwareStatic.Model.CustomProperties;
 namespace SystemManagament.Monitor.HardwareStatic.Model.Components.Analyzed
 {
     [DataContract]
-    public class Partition : LogicalPartition
+    public class Partition
     {
-        // based on docs: https://msdn.microsoft.com/en-us/library/windows/desktop/hh830604(v=vs.85).aspx
+        // based on docs: https://msdn.microsoft.com/en-us/library/windows/desktop/hh830524(v=vs.85).aspx
         [DataMember]
-        public string DedupMode { get; internal set; }
+        public string DiskId { get; set; }
 
         [DataMember]
-        public string DriveType { get; internal set; }
+        public string DiskNumber { get; set; }
 
         [DataMember]
-        public string FileSystem { get; internal set; }
+        public string DriveLetter { get; set; }
 
         [DataMember]
-        public string FileSystemLabel { get; internal set; }
+        public string IsActive { get; set; }
 
         [DataMember]
-        public string HealthStatus { get; internal set; }
+        public string IsBoot { get; set; }
 
         [DataMember]
-        public string ObjectIdAsVolume { get; internal set; }
+        public string IsHidden { get; set; }
 
         [DataMember]
-        public string Path { get; internal set; }
+        public string IsOffline { get; set; }
 
         [DataMember]
-        public UnitULongValue SizeAsVolume { get; internal set; }
+        public string IsReadOnly { get; set; }
 
         [DataMember]
-        public UnitULongValue SizeRemaining { get; internal set; }
+        public string IsShadowCopy { get; set; }
 
         [DataMember]
-        public string UniqueId { get; internal set; }
+        public string IsSystem { get; set; }
+
+        // See https://en.wikipedia.org/wiki/Partition_type#PID_00h
+        [DataMember]
+        public string MbrType { get; set; }
+
+        [DataMember]
+        public string GptType { get; set; }
+
+        [DataMember]
+        public string NoDefaultDriveLetter { get; set; }
+
+        [DataMember]
+        public string ObjectIdAsPartition { get; set; }
+
+        [DataMember]
+        public UnitULongValue Offset { get; set; }
+
+        [DataMember]
+        public string PartitionNumber { get; set; }
+
+        [DataMember]
+        public UnitULongValue SizeAsPartition { get; set; }
+
+        [DataMember]
+        public List<Partition> Partitions { get; set; } = new List<Partition>();
     }
 }

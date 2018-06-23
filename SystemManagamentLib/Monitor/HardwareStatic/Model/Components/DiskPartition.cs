@@ -12,57 +12,42 @@ using SystemManagament.Shared.WMI;
 
 namespace SystemManagament.Monitor.HardwareStatic.Model.Components
 {
-    [DataContract]
     public class DiskPartition : HardwareStaticComponent, IHardwareStaticComponent<DiskPartition>
     {
         // based on docs: https://msdn.microsoft.com/en-us/library/windows/desktop/hh830524(v=vs.85).aspx
-        [DataMember]
         public string DiskId { get; set; }
 
-        [DataMember]
         public string DiskNumber { get; set; }
 
-        [DataMember]
         public string DriveLetter { get; set; }
 
-        [DataMember]
         public string IsActive { get; set; }
 
-        [DataMember]
         public string IsBoot { get; set; }
 
-        [DataMember]
         public string IsHidden { get; set; }
 
-        [DataMember]
         public string IsOffline { get; set; }
 
-        [DataMember]
         public string IsReadOnly { get; set; }
 
-        [DataMember]
         public string IsShadowCopy { get; set; }
 
-        [DataMember]
         public string IsSystem { get; set; }
 
         // See https://en.wikipedia.org/wiki/Partition_type#PID_00h
-        [DataMember]
         public string MbrType { get; set; }
 
-        [DataMember]
+        public string GptType { get; set; }
+
         public string NoDefaultDriveLetter { get; set; }
 
-        [DataMember]
         public string ObjectId { get; set; }
 
-        [DataMember]
         public UnitULongValue Offset { get; set; }
 
-        [DataMember]
         public string PartitionNumber { get; set; }
 
-        [DataMember]
         public UnitULongValue Size { get; set; }
 
         public List<DiskPartition> ExtractData(List<ManagementObject> managementObjectList)
@@ -85,6 +70,7 @@ namespace SystemManagament.Monitor.HardwareStatic.Model.Components
                 diskPartition.IsShadowCopy = managementObject[ConstString.DISK_PARTITION_IS_SHADOW_COPY].TryGetStringValue();
                 diskPartition.IsSystem = managementObject[ConstString.DISK_PARTITION_IS_SYSTEM].TryGetStringValue();
                 diskPartition.MbrType = managementObject[ConstString.DISK_PARTITION_MRB_TYPE].TryGetStringValue();
+                diskPartition.GptType = managementObject[ConstString.DISK_PARTITION_GPT_TYPE].TryGetStringValue();
                 diskPartition.Name = string.Empty;
                 diskPartition.NoDefaultDriveLetter = managementObject[ConstString.DISK_PARTITION_NO_DEFAULT_DRIVE_LETTER].TryGetStringValue();
                 diskPartition.ObjectId = managementObject[ConstString.DISK_PARTITION_OBJECT_ID].TryGetStringValue();

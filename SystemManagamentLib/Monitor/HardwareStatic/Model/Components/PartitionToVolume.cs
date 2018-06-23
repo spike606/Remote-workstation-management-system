@@ -11,13 +11,10 @@ using SystemManagament.Shared.WMI;
 
 namespace SystemManagament.Monitor.HardwareStatic.Model.Components
 {
-    [DataContract]
     public class PartitionToVolume : HardwareStaticComponent, IHardwareStaticComponent<PartitionToVolume>
     {
-        [DataMember]
         public string Partition { get; set; }
 
-        [DataMember]
         public string Volume { get; set; }
 
         public List<PartitionToVolume> ExtractData(List<ManagementObject> managementObjectList)

@@ -255,6 +255,32 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="Disk" nillable="true" type="tns:Disk" />
+  <xs:complexType name="ArrayOfVolume">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Volume" nillable="true" type="tns:Volume" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVolume" nillable="true" type="tns:ArrayOfVolume" />
+  <xs:complexType name="Volume">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q33="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract" base="q33:HardwareStaticComponent">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DedupMode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DriveLetter" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DriveType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FileSystem" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FileSystemLabel" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HealthStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ObjectId" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Path" nillable="true" type="xs:string" />
+          <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="Size" type="q34:UnitULongValue" />
+          <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="SizeRemaining" type="q35:UnitULongValue" />
+          <xs:element minOccurs="0" name="UniqueId" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Volume" nillable="true" type="tns:Volume" />
   <xs:complexType name="ArrayOfVideoController">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="VideoController" nillable="true" type="tns:VideoController" />
@@ -263,16 +289,16 @@
   <xs:element name="ArrayOfVideoController" nillable="true" type="tns:ArrayOfVideoController" />
   <xs:complexType name="VideoController">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q33="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract" base="q33:HardwareStaticComponent">
+      <xs:extension xmlns:q36="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract" base="q36:HardwareStaticComponent">
         <xs:sequence>
           <xs:element minOccurs="0" name="AdapterCompatibility" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="AdapterDACType" nillable="true" type="xs:string" />
-          <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="AdapterRAM" type="q34:UnitUIntValue" />
-          <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="CurrentBitsPerPixel" type="q35:UnitUIntValue" />
-          <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="CurrentHorizontalResolution" type="q36:UnitUIntValue" />
+          <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="AdapterRAM" type="q37:UnitUIntValue" />
+          <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="CurrentBitsPerPixel" type="q38:UnitUIntValue" />
+          <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="CurrentHorizontalResolution" type="q39:UnitUIntValue" />
           <xs:element minOccurs="0" name="CurrentNumberOfColors" nillable="true" type="xs:string" />
-          <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="CurrentRefreshRate" type="q37:UnitUIntValue" />
-          <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="CurrentVerticalResolution" type="q38:UnitUIntValue" />
+          <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="CurrentRefreshRate" type="q40:UnitUIntValue" />
+          <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="CurrentVerticalResolution" type="q41:UnitUIntValue" />
           <xs:element minOccurs="0" name="DeviceID" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="DriverVersion" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="VideoModeDescription" nillable="true" type="xs:string" />

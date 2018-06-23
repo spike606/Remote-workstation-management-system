@@ -53,7 +53,9 @@ namespace SystemManagament.Monitor.HardwareStatic.Analyzer
                 Storage storage = new Storage()
                 {
                     Disk = disk,
-                    Partition = new List<LogicalPartition>()
+                    Partition = new List<Partition>(),
+                    ExtendedPartition = new List<Partition>(),
+                    Volume = new List<Volume>()
                 };
 
                 storageData.Add(storage);
@@ -61,7 +63,7 @@ namespace SystemManagament.Monitor.HardwareStatic.Analyzer
 
             this.ExtractPartitionsForStorage(storageData, disksToPartitions, diskPartitions, partitionsToVolumes, volumes);
 
-            this.MatchLogicalPartitionsToExtendedPartitions(storageData);
+            this.MatchPartitionsToExtendedPartitions(storageData);
 
             this.MatchSmartDataForStorage(storageData, smartData);
 
@@ -203,18 +205,19 @@ namespace SystemManagament.Monitor.HardwareStatic.Analyzer
 
                         if (currentPartitionToVolume != null)
                         {
-                            this.AddPartitionToStorage(volumes, substringBeginning, currentStorage, currentPartition, currentPartitionToVolume);
+                            this.AddVolumeToStorage(currentStorage, volumes, substringBeginning, currentPartitionToVolume);
+                            this.AddPartitionToStorage(currentStorage, currentPartition, false);
                         }
                         else if (currentPartitionToVolume == null && currentPartition.MbrType == EXTENDED_PARTITION_MBR_TYPE)
                         {
-                            this.AddLogicalPartitionToStorage(currentStorage, currentPartition);
+                            this.AddPartitionToStorage(currentStorage, currentPartition, true);
                         }
                     }
                 }
             }
         }
 
-        private void AddPartitionToStorage(List<Volume> volumes, string substringBeginning, Storage currentStorage, DiskPartition currentPartition, PartitionToVolume currentPartitionToVolume)
+        private void AddVolumeToStorage(Storage currentStorage, List<Volume> volumes, string substringBeginning, PartitionToVolume currentPartitionToVolume)
         {
             string volumeAssociationLower = currentPartitionToVolume.Volume.ToLower();
             string volumeAssociationLowerSubstring = volumeAssociationLower
@@ -224,40 +227,12 @@ namespace SystemManagament.Monitor.HardwareStatic.Analyzer
             var currentVolume = volumes.First(x => preparedVolumeAssociation
                 .Contains(x.ObjectId.ToLower()));
 
-            currentStorage.Partition.Add(new Partition()
-            {
-                DedupMode = currentVolume.DedupMode,
-                DiskId = currentPartition.DiskId,
-                DiskNumber = currentPartition.DiskNumber,
-                DriveLetter = currentPartition.DriveLetter,
-                DriveType = currentVolume.DriveType,
-                FileSystem = currentVolume.FileSystem,
-                FileSystemLabel = currentVolume.FileSystemLabel,
-                HealthStatus = currentVolume.HealthStatus,
-                IsActive = currentPartition.IsActive,
-                IsBoot = currentPartition.IsBoot,
-                IsHidden = currentPartition.IsHidden,
-                IsOffline = currentPartition.IsOffline,
-                IsReadOnly = currentPartition.IsReadOnly,
-                IsShadowCopy = currentPartition.IsShadowCopy,
-                IsSystem = currentPartition.IsSystem,
-                MbrType = currentPartition.MbrType,
-                NoDefaultDriveLetter = currentPartition.NoDefaultDriveLetter,
-                ObjectIdAsPartition = currentPartition.ObjectId,
-                ObjectIdAsVolume = currentVolume.ObjectId,
-                Offset = currentPartition.Offset,
-                PartitionNumber = currentPartition.PartitionNumber,
-                Path = currentVolume.Path,
-                SizeAsPartition = currentPartition.Size,
-                SizeAsVolume = currentVolume.Size,
-                SizeRemaining = currentVolume.SizeRemaining,
-                UniqueId = currentVolume.UniqueId
-            });
+            currentStorage.Volume.Add(currentVolume);
         }
 
-        private void AddLogicalPartitionToStorage(Storage currentStorage, DiskPartition currentPartition)
+        private void AddPartitionToStorage(Storage currentStorage, DiskPartition currentPartition, bool isExtendedPartition)
         {
-            currentStorage.Partition.Add(new LogicalPartition()
+            Partition partition = new Partition()
             {
                 DiskId = currentPartition.DiskId,
                 DiskNumber = currentPartition.DiskNumber,
@@ -270,20 +245,29 @@ namespace SystemManagament.Monitor.HardwareStatic.Analyzer
                 IsShadowCopy = currentPartition.IsShadowCopy,
                 IsSystem = currentPartition.IsSystem,
                 MbrType = currentPartition.MbrType,
+                GptType = currentPartition.GptType,
                 NoDefaultDriveLetter = currentPartition.NoDefaultDriveLetter,
                 ObjectIdAsPartition = currentPartition.ObjectId,
                 Offset = currentPartition.Offset,
                 PartitionNumber = currentPartition.PartitionNumber,
                 SizeAsPartition = currentPartition.Size,
-            });
+            };
+
+            if (isExtendedPartition)
+            {
+                currentStorage.ExtendedPartition.Add(partition);
+            }
+            else
+            {
+                currentStorage.Partition.Add(partition);
+            }
         }
 
-        private void MatchLogicalPartitionsToExtendedPartitions(List<Storage> storageData)
+        private void MatchPartitionsToExtendedPartitions(List<Storage> storageData)
         {
             foreach (var storage in storageData)
             {
-                var extendedPartitionsForStorage = storage.Partition
-                    .Where(x => x.MbrType == EXTENDED_PARTITION_MBR_TYPE).ToList();
+                var extendedPartitionsForStorage = storage.ExtendedPartition.ToList();
 
                 foreach (var extendedPartition in extendedPartitionsForStorage)
                 {
@@ -311,6 +295,8 @@ namespace SystemManagament.Monitor.HardwareStatic.Analyzer
                         if (lowerRange >= lowerRangeForExtendedPartition && upperRange <= upperRangeForExtendedPartition)
                         {
                             extendedPartition.Partitions.Add(partition);
+
+                            storage.Partition.Remove(partition);
                         }
                     }
                 }

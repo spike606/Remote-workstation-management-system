@@ -193,6 +193,7 @@ namespace SystemManagament.Monitor.HardwareStatic
         internal const string DISK_PARTITION_IS_SHADOW_COPY = "IsShadowCopy";
         internal const string DISK_PARTITION_IS_SYSTEM = "IsSystem";
         internal const string DISK_PARTITION_MRB_TYPE = "MbrType";
+        internal const string DISK_PARTITION_GPT_TYPE = "GptType";
         internal const string DISK_PARTITION_NO_DEFAULT_DRIVE_LETTER = "NoDefaultDriveLetter";
         internal const string DISK_PARTITION_OBJECT_ID = "ObjectId";
         internal const string DISK_PARTITION_OFFSET = "Offset";
