@@ -650,4 +650,9 @@
     <system:String x:Key="Label_ExtendedPartition_Description">Extended partition existing in specified storage. An extended partition is a special type of partition that can hold multiple logical partitions. Extended partitions can exists only when MBR partition style is used (not valid for GPT partitions).</system:String>
     <system:String x:Key="Label_ExtendedPartitions_Description">List of partitions existing in specified storage for specified extended partiion.</system:String>
 
+    <system:String x:Key="Label_Control_Description">List of available controls for remote machines.</system:String>
+    <system:String x:Key="Control_Timeout">Timeout [seconds]:</system:String>
+    <system:String x:Key="Control_Button_TurnMachineOff">Turn machine off</system:String>
+    <system:String x:Key="Control_Button_RestartMachine">Restart machine</system:String>
+
 </ResourceDictionary>

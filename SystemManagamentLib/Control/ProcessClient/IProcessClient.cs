@@ -8,8 +8,8 @@ namespace SystemManagament.Control.ProcessClient
 {
     public interface IProcessClient
     {
-        void StartWindowsOffProcess();
+        void StartWindowsOffProcess(uint timeoutInSeconds);
 
-        void StartWindowsRestartProcess();
+        void StartWindowsRestartProcess(uint timeoutInSeconds);
     }
 }

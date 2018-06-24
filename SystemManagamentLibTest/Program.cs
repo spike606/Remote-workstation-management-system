@@ -22,13 +22,15 @@ namespace SystemMonitorLibTest
             //monitor.RestartMachine();
 
             //HardwareDynamicData hardwareDynamicData = monitor.GetHardwareDynamicData();
-            HardwareStaticData hardwareStaticData = monitor.GetHardwareStaticData();
+            //HardwareStaticData hardwareStaticData = monitor.GetHardwareStaticData();
             //SoftwareStaticData softwareStaticData = monitor.GetSoftwareStaticData();
             //SoftwareDynamicData softwareDynamicData = monitor.GetSoftwareDynamicData();
             //foreach (var item in softwareStaticData.InstalledProgram)
             //{
             //    Console.WriteLine(item.Name);
             //}
+
+            var result = monitor.TurnMachineOff(600);
 
             ////PrintProperties(data);
             Timer aTimer = new Timer();

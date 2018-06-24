@@ -12,6 +12,7 @@ using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Ioc;
 using SystemManagament.Client.WPF.Extensions;
 using SystemManagament.Client.WPF.Factories;
+using SystemManagament.Client.WPF.Validator;
 using SystemManagament.Client.WPF.ViewModel.Commands;
 using SystemManagament.Client.WPF.ViewModel.Commands.Abstract;
 using SystemManagament.Client.WPF.ViewModel.Wcf;
@@ -84,7 +85,7 @@ namespace SystemManagament.Client.WPF.ViewModel
         private void CreateNewTab()
         {
             this.ViewModelTabs.Add(
-                new WorkStationViewModel(SimpleIoc.Default.GetInstance<IWcfClient>(), SimpleIoc.Default.GetInstance<ICommandFactory>()));
+                new WorkStationViewModel(SimpleIoc.Default.GetInstance<IWcfClient>(), SimpleIoc.Default.GetInstance<ICommandFactory>(), SimpleIoc.Default.GetInstance<IUintValidator>()));
         }
 
         private void CloseApplication()

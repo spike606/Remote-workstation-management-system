@@ -9,7 +9,8 @@
         xmlns:converters="clr-namespace:SystemManagament.Client.WPF.Converters"
         xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
         d:DesignHeight="500" d:DesignWidth="700"             
-        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf">
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             xmlns:validator="clr-namespace:SystemManagament.Client.WPF.Validator">
 
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
@@ -36,59 +37,75 @@
             <dragablz:TabablzControl.InterTabController>
                 <dragablz:InterTabController />
             </dragablz:TabablzControl.InterTabController>
-                <TabItem Header="Control">
+            <TabItem Header="Control">
                     <Grid >
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
                             <RowDefinition Height="*" />
                             <RowDefinition Height="*" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
-                        <Button Content="Load process dynamic" Command="{Binding LoadWindowsProcessDynamicDataCommand}"
-                    HorizontalAlignment="Stretch" Grid.Row="2"/>
-                        <Button Command="{Binding LoadWindowsProcessDynamicDataCommand.CancelCommand}" Content="Cancel" Grid.Row="3"/>
-                        <Button Content="Load memory static" Command="{Binding LoadHardwareStaticDataCommand}"
-                    HorizontalAlignment="Stretch" Grid.Row="4" />
-                        <Button Command="{Binding LoadHardwareStaticDataCommand.CancelCommand}" Content="Cancel" Grid.Row="5"/>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
 
-                        <Button Content="Clear data" Command="{Binding ClearDataCommand}"
-                    HorizontalAlignment="Stretch" Grid.Row="6" />
+                    <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="8" FontFamily="Verdana" TextWrapping="WrapWithOverflow" FontSize="14" Text="{StaticResource Label_Control_Description}" Foreground="White"/>
 
-
-                        <Grid Visibility="{Binding LoadHardwareStaticDataCommand.Execution,
-                    Converter={StaticResource NullToVisibilityConverter}}">
-
-                            <!--Busy indicator-->
-
-                            <Label Content="Loading..."
-                        Visibility="{Binding LoadHardwareStaticDataCommand.Execution.IsNotCompleted,
-                        Converter={StaticResource BooleanToVisibilityConverter}}" Foreground="Yellow"/>
-
-                            <!--Results-->
-
-                            <Label Content="{Binding LoadHardwareStaticDataCommand.Execution.Result}"
-                        Visibility="{Binding LoadHardwareStaticDataCommand.Execution.IsSuccessfullyCompleted,
-                        Converter={StaticResource BooleanToVisibilityConverter}}" Foreground="Black"/>
-
-                            <!--Error details-->
-
-                            <Label Content="{Binding LoadHardwareStaticDataCommand.Execution.ErrorMessage}"
-                        Visibility="{Binding LoadHardwareStaticDataCommand.Execution.IsFaulted,
-                        Converter={StaticResource BooleanToVisibilityConverter}}" Foreground="Red" />
-
-                            <!--Canceled-->
-
-                            <Label Content="Canceled"
-                        Visibility="{Binding LoadHardwareStaticDataCommand.Execution.IsCanceled,
-                        Converter={StaticResource BooleanToVisibilityConverter}}" Foreground="Blue" />
-                        </Grid>
+                    <!-- Shutdown machine -->
+                    <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" >
+                        <Label FontFamily = "Verdana" Content="{StaticResource Control_Timeout}" FontSize="12" VerticalContentAlignment="Center"/>
                     </Grid>
+                    <Grid Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="1">
+                        <TextBox x:Name="TurnMachineOffTextBox" VerticalAlignment="Center" HorizontalContentAlignment="Center" Foreground="WhiteSmoke">
+                            <TextBox.Text>
+                                <Binding Path="TurnMachineOffTimeoutInSeconds.Parameter" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <validator:UintValidator></validator:UintValidator>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                    </Grid>
+                    <Grid Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="3">
+                        <Button Content="{StaticResource Control_Button_TurnMachineOff}" Command="{Binding TurnMachineOffCommand}"/>
+                    </Grid>
+                        
+                        <!-- Restart machine -->
+
+                    <Grid Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" >
+                        <Label FontFamily = "Verdana" Content="{StaticResource Control_Timeout}" FontSize="12" VerticalContentAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="1">
+                        <TextBox x:Name="RestartMachineTextBox" VerticalAlignment="Center" HorizontalContentAlignment="Center" Foreground="WhiteSmoke">
+                            <TextBox.Text>
+                                <Binding Path="RestartMachineTimeoutInSeconds.Parameter" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <validator:UintValidator></validator:UintValidator>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                    </Grid>
+                    <Grid Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="3">
+                        <Button Content="{StaticResource Control_Button_RestartMachine}" Command="{Binding RestartMachineCommand}"/>
+                    </Grid>
+                        
+                </Grid>
                 </TabItem>
             <TabItem>
                 <TabItem.Header>

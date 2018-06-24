@@ -9,6 +9,7 @@ using Microsoft.VisualStudio.Language.Intellisense;
 using SystemManagament.Client.WPF.Extensions;
 using SystemManagament.Client.WPF.ViewModel;
 using SystemManagament.Client.WPF.ViewModel.Commands.Abstract;
+using SystemManagament.Client.WPF.ViewModel.Helpers;
 using SystemManagament.Client.WPF.WorkstationMonitorService;
 
 namespace SystemManagament.Client.WPF.Factories
@@ -66,5 +67,9 @@ namespace SystemManagament.Client.WPF.Factories
             WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelMainBoardTemp,
             WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelMainBoardFan,
             WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelMainBoardVoltage);
+
+        IAsyncCommand CreateTurnMachineOffCommand(UIntParameter timeoutInSeconds);
+
+        IAsyncCommand CreateRestartMachineOffCommand(UIntParameter timeoutInSeconds);
     }
 }

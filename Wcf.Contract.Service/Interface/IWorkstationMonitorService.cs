@@ -55,10 +55,10 @@ namespace Wcf.Contract.Service.Interface
         List<WindowsProcess> ReadWindowsProcessDynamicData();
 
         [OperationContract]
-        OperationStatus TurnMachineOff();
+        OperationStatus TurnMachineOff(uint timeoutInSeconds);
 
         [OperationContract]
-        OperationStatus RestartMachine();
+        OperationStatus RestartMachine(uint timeoutInSeconds);
 
         [OperationContract]
         OperationStatus ForceLogOutUser();

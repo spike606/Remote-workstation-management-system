@@ -46,5 +46,9 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
             CancellationToken cancellationToken);
 
         Task<WindowsLog[]> ReadWindowsLogDynamicDataAsync();
+
+        Task<OperationStatus> TurnMachineOffAsync(uint timeoutInSeconds);
+
+        Task<OperationStatus> RestartMachineAsync(uint timeoutInSeconds);
     }
 }

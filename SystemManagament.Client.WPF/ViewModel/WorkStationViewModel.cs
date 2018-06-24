@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,9 @@ using LiveCharts.Wpf;
 using Microsoft.VisualStudio.Language.Intellisense;
 using SystemManagament.Client.WPF.Extensions;
 using SystemManagament.Client.WPF.Factories;
+using SystemManagament.Client.WPF.Validator;
 using SystemManagament.Client.WPF.ViewModel.Commands.Abstract;
+using SystemManagament.Client.WPF.ViewModel.Helpers;
 using SystemManagament.Client.WPF.ViewModel.Wcf;
 using SystemManagament.Client.WPF.WorkstationMonitorService;
 
@@ -19,8 +22,9 @@ namespace SystemManagament.Client.WPF.ViewModel
 {
     public class WorkStationViewModel : ViewModelBase
     {
-        private IWcfClient wcfClient;
-        private ICommandFactory commandFactory;
+        private readonly IWcfClient wcfClient;
+        private readonly ICommandFactory commandFactory;
+        private readonly IUintValidator uintValidator;
 
         private WpfObservableRangeCollection<WindowsProcess> windowsProcess = new WpfObservableRangeCollection<WindowsProcess>();
         private WpfObservableRangeCollection<WindowsService> windowsService = new WpfObservableRangeCollection<WindowsService>();
@@ -71,11 +75,14 @@ namespace SystemManagament.Client.WPF.ViewModel
         private WpfObservableRangeCollection<StartupCommand> startupCommand = new WpfObservableRangeCollection<StartupCommand>();
         private WpfObservableRangeCollection<LocalUser> localUser = new WpfObservableRangeCollection<LocalUser>();
 
-        public WorkStationViewModel(IWcfClient wcfClient, ICommandFactory commandFactory)
+        private UIntParameter turnMachineOffTimeoutInSeconds = new UIntParameter(60);
+        private UIntParameter restartMachineTimeoutInSeconds = new UIntParameter(60);
+
+        public WorkStationViewModel(IWcfClient wcfClient, ICommandFactory commandFactory, IUintValidator uintValidator)
         {
             this.wcfClient = wcfClient;
             this.commandFactory = commandFactory;
-
+            this.uintValidator = uintValidator;
             this.InitializeCommands();
         }
 
@@ -90,6 +97,14 @@ namespace SystemManagament.Client.WPF.ViewModel
         public IAsyncCommand LoadHardwareStaticDataCommand { get; private set; }
 
         public IAsyncCommand LoadSoftwareStaticDataCommand { get; private set; }
+
+        public IAsyncCommand TurnMachineOffCommand { get; private set; }
+
+        public IAsyncCommand ForceTurnMachineOffCommand { get; private set; }
+
+        public IAsyncCommand RestartMachineCommand { get; private set; }
+
+        public IAsyncCommand ForceRestartMachineCommand { get; private set; }
 
         public ICommand ClearDataCommand { get; private set; }
 
@@ -626,6 +641,38 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
+        public UIntParameter TurnMachineOffTimeoutInSeconds
+        {
+            get
+            {
+                return this.turnMachineOffTimeoutInSeconds;
+            }
+
+            set
+            {
+                if (this.uintValidator.Validate(value, CultureInfo.CurrentCulture).IsValid)
+                {
+                    this.Set(() => this.TurnMachineOffTimeoutInSeconds, ref this.turnMachineOffTimeoutInSeconds, value);
+                }
+            }
+        }
+
+        public UIntParameter RestartMachineTimeoutInSeconds
+        {
+            get
+            {
+                return this.restartMachineTimeoutInSeconds;
+            }
+
+            set
+            {
+                if (this.uintValidator.Validate(value, CultureInfo.CurrentCulture).IsValid)
+                {
+                    this.Set(() => this.RestartMachineTimeoutInSeconds, ref this.restartMachineTimeoutInSeconds, value);
+                }
+            }
+        }
+
         private void InitializeCommands()
         {
             this.ClearDataCommand = this.commandFactory.CreateClearDataCommand(this.ClearData);
@@ -675,6 +722,9 @@ namespace SystemManagament.Client.WPF.ViewModel
                 this.MicrosoftWindowsUpdate,
                 this.StartupCommand,
                 this.LocalUser);
+
+            this.TurnMachineOffCommand = this.commandFactory.CreateTurnMachineOffCommand(this.TurnMachineOffTimeoutInSeconds);
+            this.RestartMachineCommand = this.commandFactory.CreateRestartMachineOffCommand(this.RestartMachineTimeoutInSeconds);
         }
 
         private void ClearData()

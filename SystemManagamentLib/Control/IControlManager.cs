@@ -9,9 +9,9 @@ namespace SystemManagament.Control
 {
     public interface IControlManager
     {
-        OperationStatus TurnMachineOff();
+        OperationStatus TurnMachineOff(uint timeoutInSeconds);
 
-        OperationStatus RestartMachine();
+        OperationStatus RestartMachine(uint timeoutInSeconds);
 
         OperationStatus ForceLogOutUser();
     }

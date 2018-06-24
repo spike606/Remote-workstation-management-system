@@ -16,29 +16,29 @@ namespace SystemManagament.Control.ProcessClient
         private const string SHUTDOWN_TIMEOUT = "/t ";
         private const string TIMEOUT_IN_SECONDS = "120 ";
         private const string SHUTDOWN_USE_COMMENT = "/c ";
-        private const string SHUTDOWN_TURN_OFF_MESSAGE = "\"Your machine will turn off in 120 seconds, please save your work - ADMINISTRATOR\"";
-        private const string SHUTDOWN_RESTART_MESSAGE = "\"Your machine will restart in 120 seconds, please save your work - ADMINISTRATOR\"";
+        private const string SHUTDOWN_TURN_OFF_MESSAGE = "\"Your machine will turn off in {0} seconds, please save your work - ADMINISTRATOR\"";
+        private const string SHUTDOWN_RESTART_MESSAGE = "\"Your machine will restart in {0} seconds, please save your work - ADMINISTRATOR\"";
 
-        public void StartWindowsOffProcess()
+        public void StartWindowsOffProcess(uint timeoutInSeconds)
         {
             string processArgs = SHUTDOWN_TURN_OFF +
                 SHUTDOWN_RUNNING_APPS_FORCE_CLOSE +
                 SHUTDOWN_TIMEOUT +
-                TIMEOUT_IN_SECONDS +
+                timeoutInSeconds.ToString() + " " +
                 SHUTDOWN_USE_COMMENT +
-                SHUTDOWN_TURN_OFF_MESSAGE;
+                string.Format(SHUTDOWN_TURN_OFF_MESSAGE, timeoutInSeconds);
 
             this.StartShutdownProcess(processArgs);
         }
 
-        public void StartWindowsRestartProcess()
+        public void StartWindowsRestartProcess(uint timeoutInSeconds)
         {
             string processArgs = SHUTDOWN_RESTART +
                 SHUTDOWN_RUNNING_APPS_FORCE_CLOSE +
                 SHUTDOWN_TIMEOUT +
-                TIMEOUT_IN_SECONDS +
+                timeoutInSeconds.ToString() + " " +
                 SHUTDOWN_USE_COMMENT +
-                SHUTDOWN_RESTART_MESSAGE;
+                string.Format(SHUTDOWN_RESTART_MESSAGE, timeoutInSeconds);
 
             this.StartShutdownProcess(processArgs);
         }

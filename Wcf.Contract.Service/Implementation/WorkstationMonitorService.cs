@@ -91,14 +91,14 @@ namespace Wcf.Contract.Service.Implementation
             return this.SystemMonitorDataBuilder.GetWindowsProcessDynamicData();
         }
 
-        public OperationStatus TurnMachineOff()
+        public OperationStatus TurnMachineOff(uint timeoutInSeconds)
         {
-            return this.ControlManager.TurnMachineOff();
+            return this.ControlManager.TurnMachineOff(timeoutInSeconds);
         }
 
-        public OperationStatus RestartMachine()
+        public OperationStatus RestartMachine(uint timeoutInSeconds)
         {
-            return this.ControlManager.RestartMachine();
+            return this.ControlManager.RestartMachine(timeoutInSeconds);
         }
 
         public OperationStatus ForceLogOutUser()

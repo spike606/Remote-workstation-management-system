@@ -16,6 +16,7 @@ using CommonServiceLocator;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using SystemManagament.Client.WPF.Factories;
+using SystemManagament.Client.WPF.Validator;
 using SystemManagament.Client.WPF.ViewModel.Helpers;
 using SystemManagament.Client.WPF.ViewModel.Wcf;
 
@@ -49,6 +50,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             SimpleIoc.Default.Register<IWcfClient, WcfClient>();
             SimpleIoc.Default.Register<ICommandFactory, CommandFactory>();
             SimpleIoc.Default.Register<IDynamicDataHelper, DynamicDataHelper>();
+            SimpleIoc.Default.Register<IUintValidator, UintValidator>();
         }
 
         public MainViewModel Main

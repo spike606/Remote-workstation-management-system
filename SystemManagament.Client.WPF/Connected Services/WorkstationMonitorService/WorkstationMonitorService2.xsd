@@ -153,7 +153,9 @@
   </xs:element>
   <xs:element name="TurnMachineOff">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="timeoutInSeconds" type="xs:unsignedInt" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="TurnMachineOffResponse">
@@ -165,7 +167,9 @@
   </xs:element>
   <xs:element name="RestartMachine">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="timeoutInSeconds" type="xs:unsignedInt" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="RestartMachineResponse">

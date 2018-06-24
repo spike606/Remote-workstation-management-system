@@ -6679,16 +6679,16 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorService {
         System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.WindowsProcess[]> ReadWindowsProcessDynamicDataAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/TurnMachineOff", ReplyAction="http://tempuri.org/IWorkstationMonitorService/TurnMachineOffResponse")]
-        SystemManagament.Client.WPF.WorkstationMonitorService.OperationStatus TurnMachineOff();
+        SystemManagament.Client.WPF.WorkstationMonitorService.OperationStatus TurnMachineOff(uint timeoutInSeconds);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/TurnMachineOff", ReplyAction="http://tempuri.org/IWorkstationMonitorService/TurnMachineOffResponse")]
-        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.OperationStatus> TurnMachineOffAsync();
+        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.OperationStatus> TurnMachineOffAsync(uint timeoutInSeconds);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/RestartMachine", ReplyAction="http://tempuri.org/IWorkstationMonitorService/RestartMachineResponse")]
-        SystemManagament.Client.WPF.WorkstationMonitorService.OperationStatus RestartMachine();
+        SystemManagament.Client.WPF.WorkstationMonitorService.OperationStatus RestartMachine(uint timeoutInSeconds);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/RestartMachine", ReplyAction="http://tempuri.org/IWorkstationMonitorService/RestartMachineResponse")]
-        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.OperationStatus> RestartMachineAsync();
+        System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.OperationStatus> RestartMachineAsync(uint timeoutInSeconds);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorkstationMonitorService/ForceLogOutUser", ReplyAction="http://tempuri.org/IWorkstationMonitorService/ForceLogOutUserResponse")]
         SystemManagament.Client.WPF.WorkstationMonitorService.OperationStatus ForceLogOutUser();
@@ -6820,20 +6820,20 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorService {
             return base.Channel.ReadWindowsProcessDynamicDataAsync();
         }
         
-        public SystemManagament.Client.WPF.WorkstationMonitorService.OperationStatus TurnMachineOff() {
-            return base.Channel.TurnMachineOff();
+        public SystemManagament.Client.WPF.WorkstationMonitorService.OperationStatus TurnMachineOff(uint timeoutInSeconds) {
+            return base.Channel.TurnMachineOff(timeoutInSeconds);
         }
         
-        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.OperationStatus> TurnMachineOffAsync() {
-            return base.Channel.TurnMachineOffAsync();
+        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.OperationStatus> TurnMachineOffAsync(uint timeoutInSeconds) {
+            return base.Channel.TurnMachineOffAsync(timeoutInSeconds);
         }
         
-        public SystemManagament.Client.WPF.WorkstationMonitorService.OperationStatus RestartMachine() {
-            return base.Channel.RestartMachine();
+        public SystemManagament.Client.WPF.WorkstationMonitorService.OperationStatus RestartMachine(uint timeoutInSeconds) {
+            return base.Channel.RestartMachine(timeoutInSeconds);
         }
         
-        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.OperationStatus> RestartMachineAsync() {
-            return base.Channel.RestartMachineAsync();
+        public System.Threading.Tasks.Task<SystemManagament.Client.WPF.WorkstationMonitorService.OperationStatus> RestartMachineAsync(uint timeoutInSeconds) {
+            return base.Channel.RestartMachineAsync(timeoutInSeconds);
         }
         
         public SystemManagament.Client.WPF.WorkstationMonitorService.OperationStatus ForceLogOutUser() {

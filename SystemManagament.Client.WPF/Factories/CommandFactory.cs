@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading.Tasks.Dataflow;
+using System.Windows;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.CommandWpf;
 using LiveCharts.Wpf;
@@ -14,6 +15,7 @@ using SystemManagament.Client.WPF.Extensions;
 using SystemManagament.Client.WPF.ViewModel;
 using SystemManagament.Client.WPF.ViewModel.Commands;
 using SystemManagament.Client.WPF.ViewModel.Commands.Abstract;
+using SystemManagament.Client.WPF.ViewModel.Helpers;
 using SystemManagament.Client.WPF.ViewModel.Wcf;
 using SystemManagament.Client.WPF.WorkstationMonitorService;
 
@@ -83,8 +85,6 @@ namespace SystemManagament.Client.WPF.Factories
         {
             return new AsyncCommand<WindowsLog[]>(async (cancellationToken) =>
             {
-                //return await Task.Run(async () =>
-                //{
                 var result = await this.wcfClient.ReadWindowsLogDynamicDataAsync()
                     .WithCancellation(cancellationToken)
                     // Following statements will be processed in the same thread, won't use caught context (UI)
@@ -96,7 +96,6 @@ namespace SystemManagament.Client.WPF.Factories
                 }
 
                 return result;
-                //});
             });
         }
 
@@ -242,6 +241,66 @@ namespace SystemManagament.Client.WPF.Factories
         public ICommand CreateClearDataCommand(Action clearData)
         {
             return new RelayCommand(() => clearData());
+        }
+
+        public IAsyncCommand CreateTurnMachineOffCommand(UIntParameter timeoutInSeconds)
+        {
+            return new AsyncCommandParameterized<OperationStatus>(
+                async (cancellationToken, timeout) =>
+                {
+                    var result = await this.wcfClient.TurnMachineOffAsync(((UIntParameter)timeout).Parameter)
+                    .WithCancellation(cancellationToken)
+                    // Following statements will be processed in the same thread, won't use caught context (UI)
+                    .ConfigureAwait(false);
+
+                    if (!cancellationToken.IsCancellationRequested)
+                    {
+                        this.ShowMessageBox(result);
+                    }
+
+                    return result;
+                },
+                timeoutInSeconds);
+        }
+
+        public IAsyncCommand CreateRestartMachineOffCommand(UIntParameter timeoutInSeconds)
+        {
+            return new AsyncCommandParameterized<OperationStatus>(
+                async (cancellationToken, timeout) =>
+                {
+                    var result = await this.wcfClient.RestartMachineAsync(((UIntParameter)timeout).Parameter)
+                    .WithCancellation(cancellationToken)
+                    // Following statements will be processed in the same thread, won't use caught context (UI)
+                    .ConfigureAwait(false);
+
+                    if (!cancellationToken.IsCancellationRequested)
+                    {
+                        this.ShowMessageBox(result);
+                    }
+
+                    return result;
+                },
+                timeoutInSeconds);
+        }
+
+        private void ShowMessageBox(OperationStatus status)
+        {
+            if (status.IsSucceded)
+            {
+                MessageBox.Show(
+                  status.Message,
+                  "Control request result.",
+                  MessageBoxButton.OK,
+                  MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show(
+                  status.Message,
+                  "Control request result.",
+                  MessageBoxButton.OK,
+                  MessageBoxImage.Error);
+            }
         }
     }
 }

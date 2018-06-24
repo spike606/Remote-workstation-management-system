@@ -208,6 +208,22 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
             }
         }
 
+        public async Task<OperationStatus> TurnMachineOffAsync(uint timeoutInSeconds)
+        {
+            using (var client = this.GetNewWorkstationMonitorServiceClient())
+            {
+                return await client.TurnMachineOffAsync(timeoutInSeconds);
+            }
+        }
+
+        public async Task<OperationStatus> RestartMachineAsync(uint timeoutInSeconds)
+        {
+            using (var client = this.GetNewWorkstationMonitorServiceClient())
+            {
+                return await client.RestartMachineAsync(timeoutInSeconds);
+            }
+        }
+
         private WorkstationMonitorServiceClient GetNewWorkstationMonitorServiceClient()
         {
             return new WorkstationMonitorServiceClient("NetTcpBinding_IWorkstationMonitorService");
