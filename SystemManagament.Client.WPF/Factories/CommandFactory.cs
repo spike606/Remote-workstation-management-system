@@ -24,11 +24,13 @@ namespace SystemManagament.Client.WPF.Factories
     public class CommandFactory : ICommandFactory
     {
         private readonly int neverEndingCommandDelayInMiliSeconds = 300;
-        private IWcfClient wcfClient;
+        private readonly IWcfClient wcfClient;
+        private readonly IProcessClient processClient;
 
-        public CommandFactory(IWcfClient wcfClient)
+        public CommandFactory(IWcfClient wcfClient, IProcessClient processClient)
         {
             this.wcfClient = wcfClient;
+            this.processClient = processClient;
         }
 
         public IAsyncCommand CreateWindowsProcessDynamicDataCommand(WpfObservableRangeCollection<WindowsProcess> windowsProcesses)
@@ -281,6 +283,11 @@ namespace SystemManagament.Client.WPF.Factories
                     return result;
                 },
                 timeoutInSeconds);
+        }
+
+        public ICommand CreatePowershellWindowCommand()
+        {
+            return new RelayCommand<string>((remoteSessionUserName) => this.processClient.StartPowershellProcess(remoteSessionUserName));
         }
 
         private void ShowMessageBox(OperationStatus status)

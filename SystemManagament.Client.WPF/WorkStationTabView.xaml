@@ -23,6 +23,7 @@
         <converters:UnitIntValueToStringConverter x:Key="UnitIntValueToStringConverter"/>
         <converters:UnitUIntValueToStringConverter x:Key="UnitUIntValueToStringConverter"/>
         <converters:TimeSpanConverter x:Key="TimeSpanConverter"/>
+        <converters:ValidationResultToEnabledConverter x:Key="ValidationResultToEnabledConverter"/>
     </UserControl.Resources>
 
     <Grid>
@@ -85,7 +86,9 @@
                         </TextBox>
                     </Grid>
                     <Grid Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="3">
-                        <control:ConfirmButton Content="{StaticResource Control_Button_TurnMachineOff}" Command="{Binding TurnMachineOffCommand}"/>
+                        <control:ConfirmButton Content="{StaticResource Control_Button_TurnMachineOff}" Command="{Binding TurnMachineOffCommand}"
+                                               IsEnabled="{Binding ElementName=TurnMachineOffTextBox, Path=(Validation.Errors), 
+                                                Converter={StaticResource ValidationResultToEnabledConverter}}"/>
                     </Grid>
                         
                         <!-- Restart machine -->
@@ -105,7 +108,9 @@
                         </TextBox>
                     </Grid>
                     <Grid Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="3">
-                        <control:ConfirmButton Content="{StaticResource Control_Button_RestartMachine}" Command="{Binding RestartMachineCommand}"/>
+                        <control:ConfirmButton Content="{StaticResource Control_Button_RestartMachine}" Command="{Binding RestartMachineCommand}"
+                                               IsEnabled="{Binding ElementName=RestartMachineTextBox, Path=(Validation.Errors), 
+                                                Converter={StaticResource ValidationResultToEnabledConverter}}"/>
                     </Grid>
 
                     <!-- Force machine -->
@@ -114,12 +119,35 @@
                                                Background="IndianRed"/>
                     </Grid>
 
-                    <Grid Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="5">
+                    <Grid Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="5">
                         <control:ConfirmButton Content="{StaticResource Control_Button_ForceRestartMachine}" Command="{Binding ForceRestartMachineCommand}"
                                                Background="IndianRed"/>
                     </Grid>
                         
-                </Grid>
+                        <!-- Start powershell -->
+
+                    <TextBlock Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="8" FontFamily="Verdana" TextWrapping="WrapWithOverflow" 
+                               FontSize="14" Text="{StaticResource Label_Control_Powershell_Description}" Foreground="White"
+                               VerticalAlignment="Center"/>
+
+
+                    <Grid Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2" >
+                        <Label FontFamily = "Verdana" Content="{StaticResource Control_UserContext}" FontSize="12" VerticalContentAlignment="Center"/>
+                    </Grid>
+                        
+                    <Grid Grid.Row="9" Grid.Column="3" Grid.ColumnSpan="1">
+                        <TextBox VerticalAlignment="Center" HorizontalContentAlignment="Center" Foreground="WhiteSmoke">
+                            <TextBox.Text>
+                                <Binding Path="PowerShellRemoteSessionUserName" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged"/>
+                            </TextBox.Text>
+                        </TextBox>
+                    </Grid>
+                    <Grid Grid.Row="9" Grid.Column="5" Grid.ColumnSpan="3">
+                        <Button Content="{StaticResource Control_Button_ConnectPowershell}" Command="{Binding CreatePowershellWindowCommand}" CommandParameter="{Binding PowerShellRemoteSessionUserName}"
+                                                   Background="Blue"/>
+                    </Grid>
+                        
+                    </Grid>
                 </TabItem>
             <TabItem>
                 <TabItem.Header>

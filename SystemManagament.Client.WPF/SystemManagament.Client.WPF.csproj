@@ -210,6 +210,7 @@
     <Compile Include="Converters\UnitUIntValueToStringConverter.cs" />
     <Compile Include="Converters\UnitULongValueToStringConverter.cs" />
     <Compile Include="Converters\UnitUShortValueToStringConverter.cs" />
+    <Compile Include="Converters\ValidationResultToEnabledConverter.cs" />
     <Compile Include="DynamicPieChart.xaml.cs">
       <DependentUpon>DynamicPieChart.xaml</DependentUpon>
     </Compile>
@@ -232,6 +233,8 @@
     <Compile Include="ViewModel\Helpers\DynamicDataHelper.cs" />
     <Compile Include="ViewModel\Helpers\IDynamicDataHelper.cs" />
     <Compile Include="ViewModel\Helpers\UIntParameter.cs" />
+    <Compile Include="ViewModel\ProcessClient\IProcessClient.cs" />
+    <Compile Include="ViewModel\ProcessClient\ProcessClient.cs" />
     <Compile Include="ViewModel\WorkStationViewModel.cs" />
     <Compile Include="WorkStationTabView.xaml.cs">
       <DependentUpon>WorkStationTabView.xaml</DependentUpon>

@@ -78,6 +78,8 @@ namespace SystemManagament.Client.WPF.ViewModel
         private UIntParameter turnMachineOffTimeoutInSeconds = new UIntParameter(60);
         private UIntParameter restartMachineTimeoutInSeconds = new UIntParameter(60);
 
+        private string powerShellRemoteSessionUserName = "Username";
+
         public WorkStationViewModel(IWcfClient wcfClient, ICommandFactory commandFactory, IUintValidator uintValidator)
         {
             this.wcfClient = wcfClient;
@@ -105,6 +107,8 @@ namespace SystemManagament.Client.WPF.ViewModel
         public IAsyncCommand RestartMachineCommand { get; private set; }
 
         public IAsyncCommand ForceRestartMachineCommand { get; private set; }
+
+        public ICommand CreatePowershellWindowCommand { get; private set; }
 
         public ICommand ClearDataCommand { get; private set; }
 
@@ -677,6 +681,19 @@ namespace SystemManagament.Client.WPF.ViewModel
 
         public UIntParameter ForceMachineRestartTimeout { get; } = new UIntParameter(10);
 
+        public string PowerShellRemoteSessionUserName
+        {
+            get
+            {
+                return this.powerShellRemoteSessionUserName;
+            }
+
+            set
+            {
+                this.Set(() => this.PowerShellRemoteSessionUserName, ref this.powerShellRemoteSessionUserName, value);
+            }
+        }
+
         private void InitializeCommands()
         {
             this.ClearDataCommand = this.commandFactory.CreateClearDataCommand(this.ClearData);
@@ -731,6 +748,8 @@ namespace SystemManagament.Client.WPF.ViewModel
             this.RestartMachineCommand = this.commandFactory.CreateRestartMachineOffCommand(this.RestartMachineTimeoutInSeconds);
             this.ForceTurnMachineOffCommand = this.commandFactory.CreateTurnMachineOffCommand(this.ForceMachineTurnOffTimeout);
             this.ForceRestartMachineCommand = this.commandFactory.CreateRestartMachineOffCommand(this.ForceMachineRestartTimeout);
+
+            this.CreatePowershellWindowCommand = this.commandFactory.CreatePowershellWindowCommand();
         }
 
         private void ClearData()

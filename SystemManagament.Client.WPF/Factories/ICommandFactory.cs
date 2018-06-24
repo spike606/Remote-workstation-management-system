@@ -72,5 +72,6 @@ namespace SystemManagament.Client.WPF.Factories
 
         IAsyncCommand CreateRestartMachineOffCommand(UIntParameter timeoutInSeconds);
 
+        ICommand CreatePowershellWindowCommand();
     }
 }

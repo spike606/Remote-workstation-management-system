@@ -51,6 +51,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             SimpleIoc.Default.Register<ICommandFactory, CommandFactory>();
             SimpleIoc.Default.Register<IDynamicDataHelper, DynamicDataHelper>();
             SimpleIoc.Default.Register<IUintValidator, UintValidator>();
+            SimpleIoc.Default.Register<IProcessClient, ProcessClient>();
         }
 
         public MainViewModel Main
