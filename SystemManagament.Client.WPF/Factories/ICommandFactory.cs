@@ -71,5 +71,6 @@ namespace SystemManagament.Client.WPF.Factories
         IAsyncCommand CreateTurnMachineOffCommand(UIntParameter timeoutInSeconds);
 
         IAsyncCommand CreateRestartMachineOffCommand(UIntParameter timeoutInSeconds);
+
     }
 }

@@ -673,6 +673,10 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
+        public UIntParameter ForceMachineTurnOffTimeout { get; } = new UIntParameter(10);
+
+        public UIntParameter ForceMachineRestartTimeout { get; } = new UIntParameter(10);
+
         private void InitializeCommands()
         {
             this.ClearDataCommand = this.commandFactory.CreateClearDataCommand(this.ClearData);
@@ -725,6 +729,8 @@ namespace SystemManagament.Client.WPF.ViewModel
 
             this.TurnMachineOffCommand = this.commandFactory.CreateTurnMachineOffCommand(this.TurnMachineOffTimeoutInSeconds);
             this.RestartMachineCommand = this.commandFactory.CreateRestartMachineOffCommand(this.RestartMachineTimeoutInSeconds);
+            this.ForceTurnMachineOffCommand = this.commandFactory.CreateTurnMachineOffCommand(this.ForceMachineTurnOffTimeout);
+            this.ForceRestartMachineCommand = this.commandFactory.CreateRestartMachineOffCommand(this.ForceMachineRestartTimeout);
         }
 
         private void ClearData()

@@ -10,7 +10,8 @@
         xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
         d:DesignHeight="500" d:DesignWidth="700"             
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-             xmlns:validator="clr-namespace:SystemManagament.Client.WPF.Validator">
+             xmlns:validator="clr-namespace:SystemManagament.Client.WPF.Validator"
+             xmlns:control="clr-namespace:SystemManagament.Client.WPF.Control">
 
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
@@ -40,7 +41,7 @@
             <TabItem Header="Control">
                     <Grid >
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
+                            <RowDefinition Height="2*" />
                             <RowDefinition Height="*" />
                             <RowDefinition Height="*" />
                             <RowDefinition Height="*" />
@@ -64,7 +65,9 @@
                             <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="8" FontFamily="Verdana" TextWrapping="WrapWithOverflow" FontSize="14" Text="{StaticResource Label_Control_Description}" Foreground="White"/>
+                    <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="8" FontFamily="Verdana" TextWrapping="WrapWithOverflow" 
+                               FontSize="14" Text="{StaticResource Label_Control_Description}" Foreground="White"
+                               VerticalAlignment="Center"/>
 
                     <!-- Shutdown machine -->
                     <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" >
@@ -82,7 +85,7 @@
                         </TextBox>
                     </Grid>
                     <Grid Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="3">
-                        <Button Content="{StaticResource Control_Button_TurnMachineOff}" Command="{Binding TurnMachineOffCommand}"/>
+                        <control:ConfirmButton Content="{StaticResource Control_Button_TurnMachineOff}" Command="{Binding TurnMachineOffCommand}"/>
                     </Grid>
                         
                         <!-- Restart machine -->
@@ -102,7 +105,18 @@
                         </TextBox>
                     </Grid>
                     <Grid Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="3">
-                        <Button Content="{StaticResource Control_Button_RestartMachine}" Command="{Binding RestartMachineCommand}"/>
+                        <control:ConfirmButton Content="{StaticResource Control_Button_RestartMachine}" Command="{Binding RestartMachineCommand}"/>
+                    </Grid>
+
+                    <!-- Force machine -->
+                    <Grid Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="5">
+                        <control:ConfirmButton Content="{StaticResource Control_Button_ForceTurnMachineOff}" Command="{Binding ForceTurnMachineOffCommand}" 
+                                               Background="IndianRed"/>
+                    </Grid>
+
+                    <Grid Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="5">
+                        <control:ConfirmButton Content="{StaticResource Control_Button_ForceRestartMachine}" Command="{Binding ForceRestartMachineCommand}"
+                                               Background="IndianRed"/>
                     </Grid>
                         
                 </Grid>
