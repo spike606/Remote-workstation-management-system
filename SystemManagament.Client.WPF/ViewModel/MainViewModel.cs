@@ -12,6 +12,7 @@ using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Ioc;
 using SystemManagament.Client.WPF.Extensions;
 using SystemManagament.Client.WPF.Factories;
+using SystemManagament.Client.WPF.Settings;
 using SystemManagament.Client.WPF.Validator;
 using SystemManagament.Client.WPF.ViewModel.Commands;
 using SystemManagament.Client.WPF.ViewModel.Commands.Abstract;
@@ -39,12 +40,15 @@ namespace SystemManagament.Client.WPF.ViewModel
         private IWcfClient wcfClient;
         private ICommandFactory commandFactory;
 
+        public string TestSetting { get; set; }
+
         public MainViewModel(IWcfClient wcfClient, ICommandFactory commandFactory)
         {
             this.wcfClient = wcfClient;
             this.commandFactory = commandFactory;
 
             this.InitializeCommands();
+            this.LoadUserSettings();
         }
 
         public ICommand NewTab { get; private set; }
@@ -82,8 +86,20 @@ namespace SystemManagament.Client.WPF.ViewModel
             this.Exit = new RelayCommand(this.CloseApplication);
         }
 
+        private void LoadUserSettings()
+        {
+            IConfigProvider configProvider = SimpleIoc.Default.GetInstance<IConfigProvider>();
+
+            configProvider.Load();
+
+            this.TestSetting = configProvider.TestSetting;
+        }
+
         private void CreateNewTab()
         {
+            IConfigProvider configProvider = SimpleIoc.Default.GetInstance<IConfigProvider>();
+            configProvider.TestSetting = "new value " + new Random().NextDouble();
+            configProvider.Save();
             this.ViewModelTabs.Add(
                 new WorkStationViewModel(SimpleIoc.Default.GetInstance<IWcfClient>(), SimpleIoc.Default.GetInstance<ICommandFactory>(), SimpleIoc.Default.GetInstance<IUintValidator>()));
         }

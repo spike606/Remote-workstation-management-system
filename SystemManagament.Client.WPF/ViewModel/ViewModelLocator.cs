@@ -16,6 +16,7 @@ using CommonServiceLocator;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using SystemManagament.Client.WPF.Factories;
+using SystemManagament.Client.WPF.Settings;
 using SystemManagament.Client.WPF.Validator;
 using SystemManagament.Client.WPF.ViewModel.Helpers;
 using SystemManagament.Client.WPF.ViewModel.Wcf;
@@ -28,6 +29,8 @@ namespace SystemManagament.Client.WPF.ViewModel
     /// </summary>
     public class ViewModelLocator
     {
+        private static AppSettings appSettingsInstance;
+
         /// <summary>
         /// Initializes a new instance of the ViewModelLocator class.
         /// </summary>
@@ -52,6 +55,20 @@ namespace SystemManagament.Client.WPF.ViewModel
             SimpleIoc.Default.Register<IDynamicDataHelper, DynamicDataHelper>();
             SimpleIoc.Default.Register<IUintValidator, UintValidator>();
             SimpleIoc.Default.Register<IProcessClient, ProcessClient>();
+            SimpleIoc.Default.Register<IConfigProvider, ConfigProvider>();
+        }
+
+        public static AppSettings Instance
+        {
+            get
+            {
+                if (appSettingsInstance == null)
+                {
+                    appSettingsInstance = new AppSettings();
+                }
+
+                return appSettingsInstance;
+            }
         }
 
         public MainViewModel Main

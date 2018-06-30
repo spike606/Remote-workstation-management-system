@@ -224,6 +224,9 @@
     <Compile Include="DynamicLineChart.xaml.cs">
       <DependentUpon>DynamicLineChart.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Settings\AppSettings.cs" />
+    <Compile Include="Settings\ConfigProvider.cs" />
+    <Compile Include="Settings\IConfigProvider.cs" />
     <Compile Include="Validator\IUintValidator.cs" />
     <Compile Include="Validator\UintValidator.cs" />
     <Compile Include="ViewModel\Commands\AsyncCommandParameterized.cs" />
