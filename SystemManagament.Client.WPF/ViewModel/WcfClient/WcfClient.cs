@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.ServiceModel;
+using System.ServiceModel.Channels;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -26,6 +28,8 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
         {
             this.dynamicDataHelper = dynamicDataHelper;
         }
+
+        public string UriAddress { get; set; }
 
         public async Task<HardwareStaticData> ReadHardwareStaticDataAsync()
         {
@@ -226,7 +230,17 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
 
         private WorkstationMonitorServiceClient GetNewWorkstationMonitorServiceClient()
         {
-            return new WorkstationMonitorServiceClient("NetTcpBinding_IWorkstationMonitorService");
+            NetTcpBinding netTcpBinding = new NetTcpBinding();
+            netTcpBinding.CloseTimeout = new TimeSpan(0, 10, 0);
+            netTcpBinding.OpenTimeout = new TimeSpan(0, 10, 0);
+            netTcpBinding.SendTimeout = new TimeSpan(0, 10, 0);
+            netTcpBinding.MaxBufferPoolSize = 2147483647;
+            netTcpBinding.MaxBufferSize = 2147483647;
+            netTcpBinding.MaxReceivedMessageSize = 2147483647;
+
+            EndpointAddress endpointAddress = new EndpointAddress(this.UriAddress);
+
+            return new WorkstationMonitorServiceClient(netTcpBinding, endpointAddress);
         }
     }
 }

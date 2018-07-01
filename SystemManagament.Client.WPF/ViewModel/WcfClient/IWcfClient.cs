@@ -13,6 +13,8 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
 {
     public interface IWcfClient
     {
+        string UriAddress { get; set; }
+
         Task<HardwareStaticData> ReadHardwareStaticDataAsync();
 
         Task<HardwareDynamicData> ReadHardwareDynamicDataAsync(

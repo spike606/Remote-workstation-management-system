@@ -12,6 +12,7 @@ using LiveCharts.Wpf;
 using Microsoft.VisualStudio.Language.Intellisense;
 using SystemManagament.Client.WPF.Extensions;
 using SystemManagament.Client.WPF.Factories;
+using SystemManagament.Client.WPF.Settings;
 using SystemManagament.Client.WPF.Validator;
 using SystemManagament.Client.WPF.ViewModel.Commands.Abstract;
 using SystemManagament.Client.WPF.ViewModel.Helpers;
@@ -22,7 +23,6 @@ namespace SystemManagament.Client.WPF.ViewModel
 {
     public class WorkStationViewModel : ViewModelBase
     {
-        private readonly IWcfClient wcfClient;
         private readonly ICommandFactory commandFactory;
         private readonly IUintValidator uintValidator;
 
@@ -80,9 +80,8 @@ namespace SystemManagament.Client.WPF.ViewModel
 
         private string powerShellRemoteSessionUserName = "Username";
 
-        public WorkStationViewModel(IWcfClient wcfClient, ICommandFactory commandFactory, IUintValidator uintValidator)
+        public WorkStationViewModel(ICommandFactory commandFactory, IUintValidator uintValidator)
         {
-            this.wcfClient = wcfClient;
             this.commandFactory = commandFactory;
             this.uintValidator = uintValidator;
             this.InitializeCommands();
@@ -677,9 +676,11 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
-        public UIntParameter ForceMachineTurnOffTimeout { get; } = new UIntParameter(10);
+        public UIntParameter ForceMachineTurnOffTimeout { get; private set; } = new UIntParameter(10);
 
-        public UIntParameter ForceMachineRestartTimeout { get; } = new UIntParameter(10);
+        public UIntParameter ForceMachineRestartTimeout { get; private set; } = new UIntParameter(10);
+
+        public string MachineName { get; set; }
 
         public string PowerShellRemoteSessionUserName
         {
@@ -692,6 +693,13 @@ namespace SystemManagament.Client.WPF.ViewModel
             {
                 this.Set(() => this.PowerShellRemoteSessionUserName, ref this.powerShellRemoteSessionUserName, value);
             }
+        }
+
+        public void LoadSettings(WorkstationSettings workstationSettings)
+        {
+            this.ForceMachineRestartTimeout = new UIntParameter(workstationSettings.ForceMachineRestartTimeout);
+            this.ForceMachineTurnOffTimeout = new UIntParameter(workstationSettings.ForceMachineTurnOffTimeout);
+            this.commandFactory.LoadSettings(workstationSettings);
         }
 
         private void InitializeCommands()

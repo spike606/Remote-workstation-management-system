@@ -10,6 +10,8 @@ namespace SystemManagament.Client.WPF.Settings
     {
         string TestSetting { get; set; }
 
+        Dictionary<string, WorkstationSettings> WorkstationsParameters { get; set; }
+
         void Save();
 
         void Load();

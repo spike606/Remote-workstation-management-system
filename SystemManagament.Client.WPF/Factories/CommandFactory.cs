@@ -12,6 +12,7 @@ using LiveCharts.Wpf;
 using Microsoft.VisualStudio.Language.Intellisense;
 using SystemManagament.Client.WPF.Comparer;
 using SystemManagament.Client.WPF.Extensions;
+using SystemManagament.Client.WPF.Settings;
 using SystemManagament.Client.WPF.ViewModel;
 using SystemManagament.Client.WPF.ViewModel.Commands;
 using SystemManagament.Client.WPF.ViewModel.Commands.Abstract;
@@ -288,6 +289,11 @@ namespace SystemManagament.Client.WPF.Factories
         public ICommand CreatePowershellWindowCommand()
         {
             return new RelayCommand<string>((remoteSessionUserName) => this.processClient.StartPowershellProcess(remoteSessionUserName));
+        }
+
+        public void LoadSettings(WorkstationSettings workstationSettings)
+        {
+            this.wcfClient.UriAddress = workstationSettings.Uri;
         }
 
         private void ShowMessageBox(OperationStatus status)

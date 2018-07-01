@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http;
@@ -37,19 +38,15 @@ namespace SystemManagament.Client.WPF.ViewModel
     {
         private ObservableCollection<WorkStationViewModel> viewModelTabs = new ObservableCollection<WorkStationViewModel>();
 
-        private IWcfClient wcfClient;
-        private ICommandFactory commandFactory;
-
-        public string TestSetting { get; set; }
-
-        public MainViewModel(IWcfClient wcfClient, ICommandFactory commandFactory)
+        public MainViewModel()
         {
-            this.wcfClient = wcfClient;
-            this.commandFactory = commandFactory;
-
             this.InitializeCommands();
             this.LoadUserSettings();
         }
+
+        public string TestSetting { get; set; }
+
+        public Dictionary<string, WorkstationSettings> WorkstationsParameters { get; set; }
 
         public ICommand NewTab { get; private set; }
 
@@ -93,15 +90,29 @@ namespace SystemManagament.Client.WPF.ViewModel
             configProvider.Load();
 
             this.TestSetting = configProvider.TestSetting;
+            this.WorkstationsParameters = configProvider.WorkstationsParameters;
         }
 
         private void CreateNewTab()
         {
-            IConfigProvider configProvider = SimpleIoc.Default.GetInstance<IConfigProvider>();
-            configProvider.TestSetting = "new value " + new Random().NextDouble();
-            configProvider.Save();
-            this.ViewModelTabs.Add(
-                new WorkStationViewModel(SimpleIoc.Default.GetInstance<IWcfClient>(), SimpleIoc.Default.GetInstance<ICommandFactory>(), SimpleIoc.Default.GetInstance<IUintValidator>()));
+            this.WorkstationsParameters["My machine"] =
+                new WorkstationSettings()
+                {
+                    Uri = "net.tcp://localhost:8001/WorkstationMonitorService",
+                    ForceMachineRestartTimeout = 10,
+                    ForceMachineTurnOffTimeout = 10
+                };
+
+            IWorkStationViewModelFactory workStationViewModelFactory = SimpleIoc.Default.GetInstance<IWorkStationViewModelFactory>();
+
+            var workStationViewModel = workStationViewModelFactory.CreateWorkStationViewModel("My machine", new WorkstationSettings()
+            {
+                Uri = "net.tcp://localhost:8001/WorkstationMonitorService",
+                ForceMachineRestartTimeout = 10,
+                ForceMachineTurnOffTimeout = 10
+            });
+
+            this.ViewModelTabs.Add(workStationViewModel);
         }
 
         private void CloseApplication()

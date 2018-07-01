@@ -7,6 +7,7 @@ using System.Windows.Input;
 using LiveCharts.Wpf;
 using Microsoft.VisualStudio.Language.Intellisense;
 using SystemManagament.Client.WPF.Extensions;
+using SystemManagament.Client.WPF.Settings;
 using SystemManagament.Client.WPF.ViewModel;
 using SystemManagament.Client.WPF.ViewModel.Commands.Abstract;
 using SystemManagament.Client.WPF.ViewModel.Helpers;
@@ -16,6 +17,8 @@ namespace SystemManagament.Client.WPF.Factories
 {
     public interface ICommandFactory
     {
+        void LoadSettings(WorkstationSettings workstationSettings);
+
         IAsyncCommand CreateWindowsProcessDynamicDataCommand(WpfObservableRangeCollection<WindowsProcess> windowsProcess);
 
         IAsyncCommand CreateWindowsLogDynamicDataCommand(WpfObservableRangeCollection<WindowsLog> windowsLog);

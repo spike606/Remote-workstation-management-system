@@ -220,13 +220,16 @@
     <Compile Include="Factories\CommandFactory.cs" />
     <Compile Include="Factories\ICommandFactory.cs" />
     <Compile Include="Factories\ITPLFactory.cs" />
+    <Compile Include="Factories\IWorkStationViewModelFactory.cs" />
     <Compile Include="Factories\TPLFactory.cs" />
     <Compile Include="DynamicLineChart.xaml.cs">
       <DependentUpon>DynamicLineChart.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Factories\WorkStationViewModelFactory.cs" />
     <Compile Include="Settings\AppSettings.cs" />
     <Compile Include="Settings\ConfigProvider.cs" />
     <Compile Include="Settings\IConfigProvider.cs" />
+    <Compile Include="Settings\WorkstationSettings.cs" />
     <Compile Include="Validator\IUintValidator.cs" />
     <Compile Include="Validator\UintValidator.cs" />
     <Compile Include="ViewModel\Commands\AsyncCommandParameterized.cs" />

@@ -56,6 +56,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             SimpleIoc.Default.Register<IUintValidator, UintValidator>();
             SimpleIoc.Default.Register<IProcessClient, ProcessClient>();
             SimpleIoc.Default.Register<IConfigProvider, ConfigProvider>();
+            SimpleIoc.Default.Register<IWorkStationViewModelFactory, WorkStationViewModelFactory>();
         }
 
         public static AppSettings Instance

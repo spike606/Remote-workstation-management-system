@@ -24,5 +24,21 @@ namespace SystemManagament.Client.WPF.Settings
                 this["TestSetting"] = value;
             }
         }
+
+        [UserScopedSetting]
+        [SettingsSerializeAs(SettingsSerializeAs.Binary)]
+        public Dictionary<string, WorkstationSettings> WorkstationsParameters
+        {
+            get
+            {
+                return (Dictionary<string, WorkstationSettings>)this["WorkstationsParameters"];
+            }
+
+            set
+            {
+                this["WorkstationsParameters"] = value;
+            }
+        }
+
     }
 }

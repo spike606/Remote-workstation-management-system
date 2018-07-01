@@ -31,10 +31,10 @@
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5 5 5 10" >
                 <Menu HorizontalAlignment = "Left" VerticalAlignment = "Top" >
                     <MenuItem Header = "Manage">
-                        <MenuItem Header = "Connect..." HorizontalAlignment = "Left" Width = "150" Command="{Binding NewTab}"/>
-                        <MenuItem Header = "Item 2" HorizontalAlignment = "Left" Width = "150" />
-                        <Separator HorizontalAlignment = "Left" Width = "150"/>
-                        <MenuItem Header = "Exit" HorizontalAlignment = "Left" Width = "150" Command="{Binding Exit}"/>
+                    <MenuItem Header = "New machine..." HorizontalAlignment = "Left" Width = "180" Command="{Binding NewTab}"/>
+                    <MenuItem Header = "Remove machine..." HorizontalAlignment = "Left" Width = "180" />
+                    <Separator HorizontalAlignment = "Left" Width = "180"/>
+                    <MenuItem Header = "Exit" HorizontalAlignment = "Left" Width = "180" Command="{Binding Exit}"/>
                     </MenuItem>
                 </Menu>
                 <Menu HorizontalAlignment = "Left" VerticalAlignment = "Top">
@@ -49,12 +49,27 @@
             <!--<StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
             <Button Command="{Binding NewTab}" Margin="0,0,12,0">New Tab</Button>
         </StackPanel>-->
-        <dragablz:TabablzControl DockPanel.Dock="Bottom" ItemsSource="{Binding ViewModelTabs, IsAsync=True}" VirtualizingPanel.VirtualizationMode="Recycling"
+            <dragablz:TabablzControl DockPanel.Dock="Bottom" ItemsSource="{Binding ViewModelTabs, IsAsync=True}" VirtualizingPanel.VirtualizationMode="Recycling"
                                  VirtualizingPanel.IsVirtualizing="True" FixedHeaderCount="100" ShowDefaultCloseButton="True">
                 <dragablz:TabablzControl.InterTabController>
                     <dragablz:InterTabController />
                 </dragablz:TabablzControl.InterTabController>
-                <dragablz:TabablzControl.ContentTemplate>
+                <dragablz:TabablzControl.HeaderItemTemplate>
+                    <ItemContainerTemplate>
+                        <Label Width="Auto" Content="{Binding MachineName}"/>
+                    </ItemContainerTemplate>
+                </dragablz:TabablzControl.HeaderItemTemplate>
+
+            <dragablz:TabablzControl.ItemContainerStyle>
+                <Style TargetType="{x:Type dragablz:DragablzItem}" BasedOn="{StaticResource MaterialDesignDragableTabItemVerticalStyle}">
+                    <Setter Property="Height" Value="60" />
+                    <Setter Property="Width" Value="Auto" />
+                    <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                    <Setter Property="TextBlock.Margin" Value="5 0 0 0 "/>
+                </Style>
+            </dragablz:TabablzControl.ItemContainerStyle>
+
+            <dragablz:TabablzControl.ContentTemplate>
                     <DataTemplate DataType="{x:Type viewModel:WorkStationViewModel}">
                     <views:WorkStationTabView DataContext="{Binding}" VirtualizingPanel.VirtualizationMode="Standard"
                                  VirtualizingPanel.IsVirtualizing="True"></views:WorkStationTabView>
@@ -62,5 +77,6 @@
                 </dragablz:TabablzControl.ContentTemplate>
             </dragablz:TabablzControl>
         </DockPanel>
+
     <!--</ScrollViewer>-->
 </Window>
