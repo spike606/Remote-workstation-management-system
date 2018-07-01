@@ -15,16 +15,5 @@ namespace SystemManagament.Client.WPF
     /// </summary>
     public partial class App : Application
     {
-        private void Application_Startup(object sender, StartupEventArgs e)
-        {
-            //SimpleIoc.Default.Register<IConfigProvider, ConfigProvider>();
-        }
-
-        private void Application_Exit(object sender, ExitEventArgs e)
-        {
-            IConfigProvider configProvider = SimpleIoc.Default.GetInstance<IConfigProvider>();
-            configProvider.TestSetting = "new value " + new Random().NextDouble();
-            configProvider.Save();
-        }
     }
 }

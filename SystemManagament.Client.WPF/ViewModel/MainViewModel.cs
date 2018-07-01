@@ -46,7 +46,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             this.InitializeCommands();
             this.LoadUserSettings();
 
-            Messenger.Default.Register<NewMachineMessage>(this, this.CreateNewTabMessageReceived);
+            Messenger.Default.Register<NewMachineMessage>(this, this.NewMachineMessageReceivedHandler);
         }
 
         public string TestSetting { get; set; }
@@ -54,6 +54,10 @@ namespace SystemManagament.Client.WPF.ViewModel
         public Dictionary<string, WorkstationSettings> WorkstationsParameters { get; set; }
 
         public ICommand SendNewMachineMessageCommand { get; private set; }
+
+        public ICommand LoadMachinesCommand { get; private set; }
+
+        public ICommand SaveSettingsCommand { get; private set; }
 
         public ICommand Exit { get; private set; }
 
@@ -85,6 +89,8 @@ namespace SystemManagament.Client.WPF.ViewModel
         private void InitializeCommands()
         {
             this.SendNewMachineMessageCommand = new RelayCommand(this.SendNewMachineMessage);
+            this.LoadMachinesCommand = new RelayCommand(this.LoadMachines);
+            this.SaveSettingsCommand = new RelayCommand(this.SaveSettings);
             this.Exit = new RelayCommand(this.CloseApplication);
         }
 
@@ -94,8 +100,9 @@ namespace SystemManagament.Client.WPF.ViewModel
 
             configProvider.Load();
 
-            this.TestSetting = configProvider.TestSetting;
             this.WorkstationsParameters = configProvider.WorkstationsParameters;
+
+            // TODO: add global preferences and load them
         }
 
         private void SendNewMachineMessage()
@@ -103,26 +110,45 @@ namespace SystemManagament.Client.WPF.ViewModel
             Messenger.Default.Send(new NotificationMessage("ShowNewMachineWindow"));
         }
 
-        private void CreateNewTabMessageReceived(NewMachineMessage newMachineMessage)
+        private void LoadMachines()
         {
-            this.WorkstationsParameters[newMachineMessage.MachineName] =
-                new WorkstationSettings()
-                {
-                    Uri = newMachineMessage.MachineUri,
-                    ForceMachineRestartTimeout = 10,
-                    ForceMachineTurnOffTimeout = 10
-                };
+            foreach (var entry in this.WorkstationsParameters)
+            {
+                this.CreateNewTab(entry.Key, entry.Value);
+            }
+        }
 
+        private void SaveSettings()
+        {
+            IConfigProvider configProvider = SimpleIoc.Default.GetInstance<IConfigProvider>();
+            configProvider.WorkstationsParameters = this.WorkstationsParameters;
+
+            // TODO: save global preferences
+            configProvider.Save();
+        }
+
+        private void NewMachineMessageReceivedHandler(NewMachineMessage message)
+        {
+            // TODO: include global preferences when creating views
+            var workStationSettings = new WorkstationSettings()
+            {
+                Uri = message.MachineUri,
+                ForceMachineRestartTimeout = 10,
+                ForceMachineTurnOffTimeout = 10
+            };
+
+            this.WorkstationsParameters[message.MachineName] = workStationSettings;
+
+            this.CreateNewTab(message.MachineName, workStationSettings);
+        }
+
+        private void CreateNewTab(string machineName, WorkstationSettings workstationSettings)
+        {
             IWorkStationViewModelFactory workStationViewModelFactory = SimpleIoc.Default.GetInstance<IWorkStationViewModelFactory>();
 
+            // TODO: include global preferences when creating views
             var workStationViewModel = workStationViewModelFactory.CreateWorkStationViewModel(
-                newMachineMessage.MachineName,
-                new WorkstationSettings()
-                {
-                    Uri = newMachineMessage.MachineUri,
-                    ForceMachineRestartTimeout = 10,
-                    ForceMachineTurnOffTimeout = 10
-                });
+                machineName, workstationSettings);
 
             this.ViewModelTabs.Add(workStationViewModel);
         }

@@ -8,8 +8,6 @@ namespace SystemManagament.Client.WPF.Settings
 {
     public interface IConfigProvider
     {
-        string TestSetting { get; set; }
-
         Dictionary<string, WorkstationSettings> WorkstationsParameters { get; set; }
 
         void Save();

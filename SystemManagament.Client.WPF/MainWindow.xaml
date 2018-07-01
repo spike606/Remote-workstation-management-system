@@ -32,7 +32,8 @@
                 <Menu HorizontalAlignment = "Left" VerticalAlignment = "Top" >
                     <MenuItem Header = "Manage">
                     <MenuItem Header = "New machine..." HorizontalAlignment = "Left" Width = "180" Command="{Binding SendNewMachineMessageCommand}"/>
-                    <MenuItem Header = "Remove machine..." HorizontalAlignment = "Left" Width = "180" />
+                    <MenuItem Header = "Save machines" HorizontalAlignment = "Left" Width = "180" Command="{Binding SaveSettingsCommand}"/>
+                    <MenuItem Header = "Load machines" HorizontalAlignment = "Left" Width = "180" Command="{Binding LoadMachinesCommand}"/>
                     <Separator HorizontalAlignment = "Left" Width = "180"/>
                     <MenuItem Header = "Exit" HorizontalAlignment = "Left" Width = "180" Command="{Binding Exit}"/>
                     </MenuItem>
@@ -54,21 +55,27 @@
                 <dragablz:TabablzControl.InterTabController>
                     <dragablz:InterTabController />
                 </dragablz:TabablzControl.InterTabController>
+                
                 <dragablz:TabablzControl.HeaderItemTemplate>
                     <ItemContainerTemplate>
+                    <Grid>
                         <Label Width="Auto" Content="{Binding MachineName}"/>
-                    </ItemContainerTemplate>
+
+                    </Grid>
+                </ItemContainerTemplate>
+
                 </dragablz:TabablzControl.HeaderItemTemplate>
 
             <dragablz:TabablzControl.ItemContainerStyle>
                 <Style TargetType="{x:Type dragablz:DragablzItem}" BasedOn="{StaticResource MaterialDesignDragableTabItemVerticalStyle}">
-                    <Setter Property="Height" Value="60" />
+                    <Setter Property="Height" Value="Auto" />
                     <Setter Property="Width" Value="Auto" />
                     <Setter Property="HorizontalContentAlignment" Value="Left"/>
                     <Setter Property="TextBlock.Margin" Value="0 0 0 0 "/>
                 </Style>
             </dragablz:TabablzControl.ItemContainerStyle>
 
+                
             <dragablz:TabablzControl.ContentTemplate>
                     <DataTemplate DataType="{x:Type viewModel:WorkStationViewModel}">
                     <views:WorkStationTabView DataContext="{Binding}" VirtualizingPanel.VirtualizationMode="Standard"

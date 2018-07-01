@@ -86,7 +86,7 @@
                         </TextBox>
                     </Grid>
                     <Grid Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="3">
-                        <control:ConfirmButton Content="{StaticResource Control_Button_TurnMachineOff}" Command="{Binding TurnMachineOffCommand}"
+                        <control:ConfirmShutdownButton Content="{StaticResource Control_Button_TurnMachineOff}" Command="{Binding TurnMachineOffCommand}"
                                                IsEnabled="{Binding ElementName=TurnMachineOffTextBox, Path=(Validation.Errors), 
                                                 Converter={StaticResource ValidationResultToEnabledConverter}}"/>
                     </Grid>
@@ -108,19 +108,19 @@
                         </TextBox>
                     </Grid>
                     <Grid Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="3">
-                        <control:ConfirmButton Content="{StaticResource Control_Button_RestartMachine}" Command="{Binding RestartMachineCommand}"
+                        <control:ConfirmShutdownButton Content="{StaticResource Control_Button_RestartMachine}" Command="{Binding RestartMachineCommand}"
                                                IsEnabled="{Binding ElementName=RestartMachineTextBox, Path=(Validation.Errors), 
                                                 Converter={StaticResource ValidationResultToEnabledConverter}}"/>
                     </Grid>
 
                     <!-- Force machine -->
                     <Grid Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="5">
-                        <control:ConfirmButton Content="{StaticResource Control_Button_ForceTurnMachineOff}" Command="{Binding ForceTurnMachineOffCommand}" 
+                        <control:ConfirmShutdownButton Content="{StaticResource Control_Button_ForceTurnMachineOff}" Command="{Binding ForceTurnMachineOffCommand}" 
                                                Background="IndianRed"/>
                     </Grid>
 
                     <Grid Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="5">
-                        <control:ConfirmButton Content="{StaticResource Control_Button_ForceRestartMachine}" Command="{Binding ForceRestartMachineCommand}"
+                        <control:ConfirmShutdownButton Content="{StaticResource Control_Button_ForceRestartMachine}" Command="{Binding ForceRestartMachineCommand}"
                                                Background="IndianRed"/>
                     </Grid>
                         

@@ -9,15 +9,11 @@ namespace SystemManagament.Client.WPF.Settings
 {
     public class ConfigProvider : IConfigProvider
     {
-        public string TestSetting { get; set; }
-
         public Dictionary<string, WorkstationSettings> WorkstationsParameters { get; set; }
 
         public void Load()
         {
             AppSettings settings = ViewModelLocator.Instance;
-
-            this.TestSetting = settings.TestSetting;
 
             if (settings.WorkstationsParameters == null)
             {
@@ -33,7 +29,6 @@ namespace SystemManagament.Client.WPF.Settings
         {
             AppSettings settings = ViewModelLocator.Instance;
 
-            settings.TestSetting = this.TestSetting;
             settings.WorkstationsParameters = this.WorkstationsParameters;
             settings.Save();
             settings.Reload();
