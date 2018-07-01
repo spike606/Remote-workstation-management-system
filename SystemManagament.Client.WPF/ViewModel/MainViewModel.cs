@@ -11,12 +11,14 @@ using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Ioc;
+using GalaSoft.MvvmLight.Messaging;
 using SystemManagament.Client.WPF.Extensions;
 using SystemManagament.Client.WPF.Factories;
 using SystemManagament.Client.WPF.Settings;
 using SystemManagament.Client.WPF.Validator;
 using SystemManagament.Client.WPF.ViewModel.Commands;
 using SystemManagament.Client.WPF.ViewModel.Commands.Abstract;
+using SystemManagament.Client.WPF.ViewModel.Messages;
 using SystemManagament.Client.WPF.ViewModel.Wcf;
 using SystemManagament.Client.WPF.WorkstationMonitorService;
 
@@ -37,18 +39,21 @@ namespace SystemManagament.Client.WPF.ViewModel
     public class MainViewModel : ViewModelBase
     {
         private ObservableCollection<WorkStationViewModel> viewModelTabs = new ObservableCollection<WorkStationViewModel>();
+        private NewMachineViewModel newMachineViewModel = new NewMachineViewModel();
 
         public MainViewModel()
         {
             this.InitializeCommands();
             this.LoadUserSettings();
+
+            Messenger.Default.Register<NewMachineMessage>(this, this.CreateNewTabMessageReceived);
         }
 
         public string TestSetting { get; set; }
 
         public Dictionary<string, WorkstationSettings> WorkstationsParameters { get; set; }
 
-        public ICommand NewTab { get; private set; }
+        public ICommand SendNewMachineMessageCommand { get; private set; }
 
         public ICommand Exit { get; private set; }
 
@@ -79,7 +84,7 @@ namespace SystemManagament.Client.WPF.ViewModel
 
         private void InitializeCommands()
         {
-            this.NewTab = new RelayCommand(this.CreateNewTab);
+            this.SendNewMachineMessageCommand = new RelayCommand(this.SendNewMachineMessage);
             this.Exit = new RelayCommand(this.CloseApplication);
         }
 
@@ -93,24 +98,31 @@ namespace SystemManagament.Client.WPF.ViewModel
             this.WorkstationsParameters = configProvider.WorkstationsParameters;
         }
 
-        private void CreateNewTab()
+        private void SendNewMachineMessage()
         {
-            this.WorkstationsParameters["My machine"] =
+            Messenger.Default.Send(new NotificationMessage("ShowNewMachineWindow"));
+        }
+
+        private void CreateNewTabMessageReceived(NewMachineMessage newMachineMessage)
+        {
+            this.WorkstationsParameters[newMachineMessage.MachineName] =
                 new WorkstationSettings()
                 {
-                    Uri = "net.tcp://localhost:8001/WorkstationMonitorService",
+                    Uri = newMachineMessage.MachineUri,
                     ForceMachineRestartTimeout = 10,
                     ForceMachineTurnOffTimeout = 10
                 };
 
             IWorkStationViewModelFactory workStationViewModelFactory = SimpleIoc.Default.GetInstance<IWorkStationViewModelFactory>();
 
-            var workStationViewModel = workStationViewModelFactory.CreateWorkStationViewModel("My machine", new WorkstationSettings()
-            {
-                Uri = "net.tcp://localhost:8001/WorkstationMonitorService",
-                ForceMachineRestartTimeout = 10,
-                ForceMachineTurnOffTimeout = 10
-            });
+            var workStationViewModel = workStationViewModelFactory.CreateWorkStationViewModel(
+                newMachineMessage.MachineName,
+                new WorkstationSettings()
+                {
+                    Uri = newMachineMessage.MachineUri,
+                    ForceMachineRestartTimeout = 10,
+                    ForceMachineTurnOffTimeout = 10
+                });
 
             this.ViewModelTabs.Add(workStationViewModel);
         }

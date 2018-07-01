@@ -226,11 +226,16 @@
       <DependentUpon>DynamicLineChart.xaml</DependentUpon>
     </Compile>
     <Compile Include="Factories\WorkStationViewModelFactory.cs" />
+    <Compile Include="NewMachineWindow.xaml.cs">
+      <DependentUpon>NewMachineWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Settings\AppSettings.cs" />
     <Compile Include="Settings\ConfigProvider.cs" />
     <Compile Include="Settings\IConfigProvider.cs" />
     <Compile Include="Settings\WorkstationSettings.cs" />
+    <Compile Include="Validator\IStringValidator.cs" />
     <Compile Include="Validator\IUintValidator.cs" />
+    <Compile Include="Validator\StringValidator.cs" />
     <Compile Include="Validator\UintValidator.cs" />
     <Compile Include="ViewModel\Commands\AsyncCommandParameterized.cs" />
     <Compile Include="ViewModel\DynamicDataLabel.cs" />
@@ -239,6 +244,8 @@
     <Compile Include="ViewModel\Helpers\DynamicDataHelper.cs" />
     <Compile Include="ViewModel\Helpers\IDynamicDataHelper.cs" />
     <Compile Include="ViewModel\Helpers\UIntParameter.cs" />
+    <Compile Include="ViewModel\Messages\NewMachineMessage.cs" />
+    <Compile Include="ViewModel\NewMachineViewModel.cs" />
     <Compile Include="ViewModel\ProcessClient\IProcessClient.cs" />
     <Compile Include="ViewModel\ProcessClient\ProcessClient.cs" />
     <Compile Include="ViewModel\WorkStationViewModel.cs" />
@@ -263,6 +270,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="DynamicLineChart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NewMachineWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

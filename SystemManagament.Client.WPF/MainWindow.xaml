@@ -31,7 +31,7 @@
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5 5 5 10" >
                 <Menu HorizontalAlignment = "Left" VerticalAlignment = "Top" >
                     <MenuItem Header = "Manage">
-                    <MenuItem Header = "New machine..." HorizontalAlignment = "Left" Width = "180" Command="{Binding NewTab}"/>
+                    <MenuItem Header = "New machine..." HorizontalAlignment = "Left" Width = "180" Command="{Binding SendNewMachineMessageCommand}"/>
                     <MenuItem Header = "Remove machine..." HorizontalAlignment = "Left" Width = "180" />
                     <Separator HorizontalAlignment = "Left" Width = "180"/>
                     <MenuItem Header = "Exit" HorizontalAlignment = "Left" Width = "180" Command="{Binding Exit}"/>
@@ -65,7 +65,7 @@
                     <Setter Property="Height" Value="60" />
                     <Setter Property="Width" Value="Auto" />
                     <Setter Property="HorizontalContentAlignment" Value="Left"/>
-                    <Setter Property="TextBlock.Margin" Value="5 0 0 0 "/>
+                    <Setter Property="TextBlock.Margin" Value="0 0 0 0 "/>
                 </Style>
             </dragablz:TabablzControl.ItemContainerStyle>
 

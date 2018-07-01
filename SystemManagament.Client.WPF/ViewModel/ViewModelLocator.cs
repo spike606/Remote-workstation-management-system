@@ -50,13 +50,14 @@ namespace SystemManagament.Client.WPF.ViewModel
             ////}
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<WorkStationViewModel>();
-            SimpleIoc.Default.Register<IWcfClient, WcfClient>();
+            SimpleIoc.Default.Register<NewMachineViewModel>();
             SimpleIoc.Default.Register<ICommandFactory, CommandFactory>();
             SimpleIoc.Default.Register<IDynamicDataHelper, DynamicDataHelper>();
             SimpleIoc.Default.Register<IUintValidator, UintValidator>();
             SimpleIoc.Default.Register<IProcessClient, ProcessClient>();
             SimpleIoc.Default.Register<IConfigProvider, ConfigProvider>();
             SimpleIoc.Default.Register<IWorkStationViewModelFactory, WorkStationViewModelFactory>();
+            SimpleIoc.Default.Register<IWcfClient, WcfClient>();
         }
 
         public static AppSettings Instance
@@ -86,6 +87,15 @@ namespace SystemManagament.Client.WPF.ViewModel
             {
                 return ServiceLocator.Current.GetInstance<WorkStationViewModel>();
             }
+        }
+
+        public NewMachineViewModel NewMachineViewModel
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<NewMachineViewModel>();
+            }
+
         }
 
         public WcfClient WcfClient
