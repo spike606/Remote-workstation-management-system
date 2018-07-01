@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
 using LiveCharts;
 using LiveCharts.Wpf;
 using Microsoft.VisualStudio.Language.Intellisense;
@@ -16,6 +18,7 @@ using SystemManagament.Client.WPF.Settings;
 using SystemManagament.Client.WPF.Validator;
 using SystemManagament.Client.WPF.ViewModel.Commands.Abstract;
 using SystemManagament.Client.WPF.ViewModel.Helpers;
+using SystemManagament.Client.WPF.ViewModel.Messages;
 using SystemManagament.Client.WPF.ViewModel.Wcf;
 using SystemManagament.Client.WPF.WorkstationMonitorService;
 
@@ -109,7 +112,7 @@ namespace SystemManagament.Client.WPF.ViewModel
 
         public ICommand CreatePowershellWindowCommand { get; private set; }
 
-        public ICommand ClearDataCommand { get; private set; }
+        public ICommand RemoveMachineCommand { get; private set; }
 
         public WpfObservableRangeCollection<WindowsProcess> WindowsProcess
         {
@@ -695,6 +698,8 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
+        public string ViewModelIdentifier { get; set; }
+
         public void LoadSettings(WorkstationSettings workstationSettings)
         {
             this.ForceMachineRestartTimeout = new UIntParameter(workstationSettings.ForceMachineRestartTimeout);
@@ -704,7 +709,7 @@ namespace SystemManagament.Client.WPF.ViewModel
 
         private void InitializeCommands()
         {
-            this.ClearDataCommand = this.commandFactory.CreateClearDataCommand(this.ClearData);
+            this.RemoveMachineCommand = new RelayCommand(this.RemoveMachine);
             this.LoadWindowsProcessDynamicDataCommand = this.commandFactory.CreateWindowsProcessDynamicDataCommand(this.WindowsProcess);
             this.LoadWindowsServiceDynamicDataCommand = this.commandFactory.CreateWindowsServiceDynamicDataCommand(this.WindowsService);
             this.LoadWindowsLogDynamicDataCommand = this.commandFactory.CreateWindowsLogDynamicDataCommand(this.WindowsLog);
@@ -760,10 +765,33 @@ namespace SystemManagament.Client.WPF.ViewModel
             this.CreatePowershellWindowCommand = this.commandFactory.CreatePowershellWindowCommand();
         }
 
-        private void ClearData()
+        private void RemoveMachine()
         {
-            //this.windowsProcess.ClearAllItems();
-            //this.memoryItems.ClearAllItems();
+            this.CancelAllCommands();
+            this.SendRemoveMachineTabMessage();
+        }
+
+        private void CancelAllCommands()
+        {
+            this.LoadHardwareDynamicDataCommand.CancelCommand.Execute(null);
+            this.LoadWindowsProcessDynamicDataCommand.CancelCommand.Execute(null);
+            this.LoadWindowsServiceDynamicDataCommand.CancelCommand.Execute(null);
+            this.LoadWindowsLogDynamicDataCommand.CancelCommand.Execute(null);
+            this.LoadHardwareDynamicDataCommand.CancelCommand.Execute(null);
+            this.LoadHardwareStaticDataCommand.CancelCommand.Execute(null);
+            this.LoadSoftwareStaticDataCommand.CancelCommand.Execute(null);
+            this.TurnMachineOffCommand.CancelCommand.Execute(null);
+            this.RestartMachineCommand.CancelCommand.Execute(null);
+            this.ForceTurnMachineOffCommand.CancelCommand.Execute(null);
+            this.ForceRestartMachineCommand.CancelCommand.Execute(null);
+        }
+
+        private void SendRemoveMachineTabMessage()
+        {
+            Messenger.Default.Send(new RemoveMachineMessage()
+            {
+                MachineIdentifier = this.ViewModelIdentifier
+            });
         }
     }
 }

@@ -47,6 +47,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             this.LoadUserSettings();
 
             Messenger.Default.Register<NewMachineMessage>(this, this.NewMachineMessageReceivedHandler);
+            Messenger.Default.Register<RemoveMachineMessage>(this, this.RemoveMachineMessageReceivedHandler);
         }
 
         public string TestSetting { get; set; }
@@ -114,7 +115,10 @@ namespace SystemManagament.Client.WPF.ViewModel
         {
             foreach (var entry in this.WorkstationsParameters)
             {
-                this.CreateNewTab(entry.Key, entry.Value);
+                if (!this.ViewModelTabs.Any(wvm => wvm.ViewModelIdentifier == entry.Key))
+                {
+                    this.CreateNewTab(entry.Value);
+                }
             }
         }
 
@@ -132,23 +136,34 @@ namespace SystemManagament.Client.WPF.ViewModel
             // TODO: include global preferences when creating views
             var workStationSettings = new WorkstationSettings()
             {
+                MachineIdentifier = message.MachineIdentifier,
+                MachineName = message.MachineName,
                 Uri = message.MachineUri,
                 ForceMachineRestartTimeout = 10,
                 ForceMachineTurnOffTimeout = 10
             };
 
-            this.WorkstationsParameters[message.MachineName] = workStationSettings;
+            this.WorkstationsParameters[workStationSettings.MachineIdentifier] = workStationSettings;
 
-            this.CreateNewTab(message.MachineName, workStationSettings);
+            this.CreateNewTab(workStationSettings);
         }
 
-        private void CreateNewTab(string machineName, WorkstationSettings workstationSettings)
+        private void RemoveMachineMessageReceivedHandler(RemoveMachineMessage message)
+        {
+            var tabToRemove = this.ViewModelTabs.Where(wvm => wvm.ViewModelIdentifier == message.MachineIdentifier).Single();
+            this.ViewModelTabs.Remove(tabToRemove);
+
+            this.WorkstationsParameters.Remove(message.MachineIdentifier);
+
+            this.SaveSettings();
+        }
+
+        private void CreateNewTab(WorkstationSettings workstationSettings)
         {
             IWorkStationViewModelFactory workStationViewModelFactory = SimpleIoc.Default.GetInstance<IWorkStationViewModelFactory>();
 
             // TODO: include global preferences when creating views
-            var workStationViewModel = workStationViewModelFactory.CreateWorkStationViewModel(
-                machineName, workstationSettings);
+            var workStationViewModel = workStationViewModelFactory.CreateWorkStationViewModel(workstationSettings);
 
             this.ViewModelTabs.Add(workStationViewModel);
         }

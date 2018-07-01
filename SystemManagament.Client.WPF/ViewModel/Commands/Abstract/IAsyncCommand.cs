@@ -9,6 +9,8 @@ namespace SystemManagament.Client.WPF.ViewModel.Commands.Abstract
 {
     public interface IAsyncCommand : ICommand
     {
+        ICommand CancelCommand { get; }
+
         Task ExecuteAsync(object parameter);
     }
 }

@@ -201,8 +201,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Control\ConfirmButton.cs" />
     <Compile Include="Control\ConfirmMachineRemoveButton.cs" />
+    <Compile Include="Control\ConfirmShutdownButton.cs" />
     <Compile Include="Converters\NullToVisibilityConverter.cs" />
     <Compile Include="Converters\TimeSpanConverter.cs" />
     <Compile Include="Converters\UnitIntValueToStringConverter.cs" />
@@ -246,6 +246,7 @@
     <Compile Include="ViewModel\Helpers\IDynamicDataHelper.cs" />
     <Compile Include="ViewModel\Helpers\UIntParameter.cs" />
     <Compile Include="ViewModel\Messages\NewMachineMessage.cs" />
+    <Compile Include="ViewModel\Messages\RemoveMachineMessage.cs" />
     <Compile Include="ViewModel\NewMachineViewModel.cs" />
     <Compile Include="ViewModel\ProcessClient\IProcessClient.cs" />
     <Compile Include="ViewModel\ProcessClient\ProcessClient.cs" />

@@ -30,12 +30,12 @@
 
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5 5 5 10" >
                 <Menu HorizontalAlignment = "Left" VerticalAlignment = "Top" >
-                    <MenuItem Header = "Manage">
-                    <MenuItem Header = "New machine..." HorizontalAlignment = "Left" Width = "180" Command="{Binding SendNewMachineMessageCommand}"/>
-                    <MenuItem Header = "Save machines" HorizontalAlignment = "Left" Width = "180" Command="{Binding SaveSettingsCommand}"/>
-                    <MenuItem Header = "Load machines" HorizontalAlignment = "Left" Width = "180" Command="{Binding LoadMachinesCommand}"/>
+                <MenuItem Header = "{StaticResource Menu_Manage}">
+                    <MenuItem Header = "{StaticResource Menu_NewMachine}" HorizontalAlignment = "Left" Width = "200" Command="{Binding SendNewMachineMessageCommand}"/>
+                    <MenuItem Header = "{StaticResource Menu_SaveMachines}" HorizontalAlignment = "Left" Width = "200" Command="{Binding SaveSettingsCommand}"/>
+                    <MenuItem Header = "{StaticResource Menu_LoadMachines}" HorizontalAlignment = "Left" Width = "200" Command="{Binding LoadMachinesCommand}"/>
                     <Separator HorizontalAlignment = "Left" Width = "180"/>
-                    <MenuItem Header = "Exit" HorizontalAlignment = "Left" Width = "180" Command="{Binding Exit}"/>
+                    <MenuItem Header = "{StaticResource Menu_Exit}" HorizontalAlignment = "Left" Width = "200" Command="{Binding Exit}"/>
                     </MenuItem>
                 </Menu>
                 <Menu HorizontalAlignment = "Left" VerticalAlignment = "Top">

@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace SystemManagament.Client.WPF.ViewModel.Messages
 {
-    public class NewMachineMessage
+    public class RemoveMachineMessage
     {
         public string MachineIdentifier { get; set; }
-
-        public string MachineName { get; set; }
-
-        public string MachineUri { get; set; }
     }
 }

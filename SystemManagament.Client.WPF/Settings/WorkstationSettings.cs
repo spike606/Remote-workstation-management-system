@@ -11,6 +11,10 @@ namespace SystemManagament.Client.WPF.Settings
     [SettingsSerializeAs(SettingsSerializeAs.Binary)]
     public class WorkstationSettings
     {
+        public string MachineIdentifier { get; set; }
+
+        public string MachineName { get; set; }
+
         public string Uri { get; set; }
 
         public uint ForceMachineTurnOffTimeout { get; set; }

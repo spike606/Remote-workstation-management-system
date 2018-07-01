@@ -14,13 +14,13 @@ namespace SystemManagament.Client.WPF.Factories
     public class WorkStationViewModelFactory : IWorkStationViewModelFactory
     {
         public WorkStationViewModel CreateWorkStationViewModel(
-            string machineName,
             WorkstationSettings workstationSettings)
         {
             WorkStationViewModel workStationViewModel = new WorkStationViewModel(
                 SimpleIoc.Default.GetInstance<ICommandFactory>(), SimpleIoc.Default.GetInstance<IUintValidator>());
 
-            workStationViewModel.MachineName = machineName;
+            workStationViewModel.ViewModelIdentifier = workstationSettings.MachineIdentifier;
+            workStationViewModel.MachineName = workstationSettings.MachineName;
             workStationViewModel.LoadSettings(workstationSettings);
 
             return workStationViewModel;

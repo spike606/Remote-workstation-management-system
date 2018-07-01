@@ -71,6 +71,7 @@ namespace SystemManagament.Client.WPF.ViewModel
         {
             Messenger.Default.Send(new NewMachineMessage()
             {
+                MachineIdentifier = Guid.NewGuid().ToString(),
                 MachineUri = this.NewMachineUri,
                 MachineName = this.NewMachineName
             });

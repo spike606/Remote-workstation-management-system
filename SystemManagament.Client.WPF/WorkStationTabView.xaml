@@ -52,7 +52,9 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="*" />
                             <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
@@ -147,7 +149,11 @@
                                                    Background="Blue"/>
                     </Grid>
                         
+                    <Grid Grid.Row="11" Grid.Column="2" Grid.ColumnSpan="5">
+                        <control:ConfirmMachineRemoveButton Content="{StaticResource Button_RemoveMachine}" Command="{Binding RemoveMachineCommand}"
+                                                   Background="Green"/>
                     </Grid>
+                </Grid>
                 </TabItem>
             <TabItem>
                 <TabItem.Header>

@@ -138,6 +138,7 @@
                         <Setter Property="FontSize" Value="10"/>
                     </Style>
                     <Style TargetType="{x:Type control:ConfirmShutdownButton}" BasedOn="{StaticResource MaterialDesignRaisedButton}"/>
+                    <Style TargetType="{x:Type control:ConfirmMachineRemoveButton}" BasedOn="{StaticResource MaterialDesignRaisedButton}"/>
                 </ResourceDictionary>
 
                 

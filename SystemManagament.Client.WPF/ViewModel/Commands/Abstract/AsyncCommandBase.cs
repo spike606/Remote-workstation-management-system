@@ -15,6 +15,8 @@ namespace SystemManagament.Client.WPF.ViewModel.Commands.Abstract
             remove { CommandManager.RequerySuggested -= value; }
         }
 
+        public abstract ICommand CancelCommand { get; }
+
         public abstract bool CanExecute(object parameter);
 
         public abstract Task ExecuteAsync(object parameter);

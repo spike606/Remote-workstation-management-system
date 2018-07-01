@@ -660,4 +660,12 @@
     <system:String x:Key="Control_Button_ConnectPowershell">Start remote session using powershell</system:String>
     <system:String x:Key="Control_UserContext">User name:</system:String>
 
+    <system:String x:Key="Button_RemoveMachine">Remove Machine</system:String>
+
+    <system:String x:Key="Menu_Manage">Manage</system:String>
+    <system:String x:Key="Menu_NewMachine">New machine...</system:String>
+    <system:String x:Key="Menu_SaveMachines">Save machines</system:String>
+    <system:String x:Key="Menu_LoadMachines">Load saved machines</system:String>
+    <system:String x:Key="Menu_Exit">Exit</system:String>
+
 </ResourceDictionary>

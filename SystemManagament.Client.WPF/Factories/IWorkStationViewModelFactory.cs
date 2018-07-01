@@ -10,6 +10,6 @@ namespace SystemManagament.Client.WPF.Factories
 {
     public interface IWorkStationViewModelFactory
     {
-        WorkStationViewModel CreateWorkStationViewModel(string machineName, WorkstationSettings workstationSettings);
+        WorkStationViewModel CreateWorkStationViewModel(WorkstationSettings workstationSettings);
     }
 }

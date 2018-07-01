@@ -27,7 +27,7 @@ namespace SystemManagament.Client.WPF.ViewModel.Commands
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public ICommand CancelCommand
+        public override ICommand CancelCommand
         {
             get { return this.cancelCommand; }
         }
