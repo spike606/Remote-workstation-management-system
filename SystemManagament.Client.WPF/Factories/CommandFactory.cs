@@ -93,7 +93,7 @@ namespace SystemManagament.Client.WPF.Factories
                     // Following statements will be processed in the same thread, won't use caught context (UI)
                     .ConfigureAwait(false);
 
-                if (!cancellationToken.IsCancellationRequested)
+                if (result != null && !cancellationToken.IsCancellationRequested)
                 {
                     windowsLog.ReplaceRange(result, new WindowsLogComparer());
                 }
@@ -179,11 +179,11 @@ namespace SystemManagament.Client.WPF.Factories
             return new AsyncCommand<HardwareStaticData>(async (cancellationToken) =>
             {
                 var result = await this.wcfClient.ReadHardwareStaticDataAsync()
-                .WithCancellation(cancellationToken)
-                // Following statements will be processed in the same thread, won't use caught context (UI)
-                .ConfigureAwait(false);
+                    .WithCancellation(cancellationToken)
+                    // Following statements will be processed in the same thread, won't use caught context (UI)
+                    .ConfigureAwait(false);
 
-                if (!cancellationToken.IsCancellationRequested)
+                if (result != null && !cancellationToken.IsCancellationRequested)
                 {
                     processorStatic.ReplaceRange(result.Processor, new ProcessorStaticComparer());
                     processorCache.ReplaceRange(result.ProcessorCache, new ProcessorCacheStaticComparer());
@@ -223,7 +223,7 @@ namespace SystemManagament.Client.WPF.Factories
                     // Following statements will be processed in the same thread, won't use caught context (UI)
                     .ConfigureAwait(false);
 
-                    if (!cancellationToken.IsCancellationRequested)
+                    if (result != null && !cancellationToken.IsCancellationRequested)
                     {
                         currentUser.ReplaceRange(result.CurrentUser, new CurrentUserStaticComparer());
                         currentUserClaims.ReplaceRange(result.CurrentUser.First().Claims, new ClaimDuplicateComparer());
@@ -256,7 +256,7 @@ namespace SystemManagament.Client.WPF.Factories
                     // Following statements will be processed in the same thread, won't use caught context (UI)
                     .ConfigureAwait(false);
 
-                    if (!cancellationToken.IsCancellationRequested)
+                    if (result != null && !cancellationToken.IsCancellationRequested)
                     {
                         this.ShowMessageBox(result);
                     }
@@ -276,7 +276,7 @@ namespace SystemManagament.Client.WPF.Factories
                     // Following statements will be processed in the same thread, won't use caught context (UI)
                     .ConfigureAwait(false);
 
-                    if (!cancellationToken.IsCancellationRequested)
+                    if (result != null && !cancellationToken.IsCancellationRequested)
                     {
                         this.ShowMessageBox(result);
                     }
@@ -294,6 +294,7 @@ namespace SystemManagament.Client.WPF.Factories
         public void LoadSettings(WorkstationSettings workstationSettings)
         {
             this.wcfClient.UriAddress = workstationSettings.Uri;
+            this.wcfClient.MachineIdentifier = workstationSettings.MachineIdentifier;
         }
 
         private void ShowMessageBox(OperationStatus status)

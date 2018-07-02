@@ -89,6 +89,8 @@ namespace SystemManagament.Client.WPF.ViewModel
             this.commandFactory = commandFactory;
             this.uintValidator = uintValidator;
             this.InitializeCommands();
+            Messenger.Default.Register<CancelCommandMessage>(this, this.CancelCommandMessageReceivedHandler);
+
         }
 
         public IAsyncCommand LoadWindowsProcessDynamicDataCommand { get; private set; }
@@ -819,6 +821,14 @@ namespace SystemManagament.Client.WPF.ViewModel
             {
                 MachineIdentifier = this.ViewModelIdentifier
             });
+        }
+
+        private void CancelCommandMessageReceivedHandler(CancelCommandMessage message)
+        {
+            if (message.RecipientIdentifier == this.ViewModelIdentifier)
+            {
+                this.CancelAllCommands();
+            }
         }
     }
 }

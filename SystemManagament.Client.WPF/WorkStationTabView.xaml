@@ -94,7 +94,7 @@
                             <TextBox.Text>
                                 <Binding Path="MachineUri" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
                                     <Binding.ValidationRules>
-                                        <validator:StringValidator></validator:StringValidator>
+                                        <validator:UriValidator></validator:UriValidator>
                                     </Binding.ValidationRules>
                                 </Binding>
                             </TextBox.Text>

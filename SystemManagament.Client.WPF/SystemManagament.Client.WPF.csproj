@@ -236,8 +236,10 @@
     <Compile Include="Settings\WorkstationSettings.cs" />
     <Compile Include="Validator\IStringValidator.cs" />
     <Compile Include="Validator\IUintValidator.cs" />
+    <Compile Include="Validator\IUriValidator.cs" />
     <Compile Include="Validator\StringValidator.cs" />
     <Compile Include="Validator\UintValidator.cs" />
+    <Compile Include="Validator\UriValidator.cs" />
     <Compile Include="ViewModel\Commands\AsyncCommandParameterized.cs" />
     <Compile Include="ViewModel\DynamicDataLabel.cs" />
     <Compile Include="ViewModel\DynamicLineChartViewModel.cs" />
@@ -245,6 +247,8 @@
     <Compile Include="ViewModel\Helpers\DynamicDataHelper.cs" />
     <Compile Include="ViewModel\Helpers\IDynamicDataHelper.cs" />
     <Compile Include="ViewModel\Helpers\UIntParameter.cs" />
+    <Compile Include="ViewModel\Messages\CancelCommandMessage.cs" />
+    <Compile Include="ViewModel\Messages\ErrorMessage.cs" />
     <Compile Include="ViewModel\Messages\NewMachineMessage.cs" />
     <Compile Include="ViewModel\Messages\RemoveMachineMessage.cs" />
     <Compile Include="ViewModel\Messages\UpdateMachineMessage.cs" />

@@ -49,6 +49,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             Messenger.Default.Register<NewMachineMessage>(this, this.NewMachineMessageReceivedHandler);
             Messenger.Default.Register<RemoveMachineMessage>(this, this.RemoveMachineMessageReceivedHandler);
             Messenger.Default.Register<UpdateMachineMessage>(this, this.UpdateMachineMessageReceivedHandler);
+            Messenger.Default.Register<ErrorMessage>(this, this.ErrorMessageReceivedHandler);
         }
 
         public string TestSetting { get; set; }
@@ -177,9 +178,18 @@ namespace SystemManagament.Client.WPF.ViewModel
             this.SaveSettings();
         }
 
+        private void ErrorMessageReceivedHandler(ErrorMessage errorMessage)
+        {
+            MessageBox.Show(
+                errorMessage.Message,
+                "Connection Error",
+                MessageBoxButton.OK,
+                MessageBoxImage.Error);
+        }
+
         private void CreateNewTab(WorkstationSettings workstationSettings)
         {
-            IWorkStationViewModelFactory workStationViewModelFactory = SimpleIoc.Default.GetInstance<IWorkStationViewModelFactory>();
+            IWorkStationViewModelFactory workStationViewModelFactory = SimpleIoc.Default.GetInstance<IWorkStationViewModelFactory>(Guid.NewGuid().ToString());
 
             // TODO: include global preferences when creating views
             var workStationViewModel = workStationViewModelFactory.CreateWorkStationViewModel(workstationSettings);

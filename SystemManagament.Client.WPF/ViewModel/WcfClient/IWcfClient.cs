@@ -15,6 +15,8 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
     {
         string UriAddress { get; set; }
 
+        string MachineIdentifier { get; set; }
+
         Task<HardwareStaticData> ReadHardwareStaticDataAsync();
 
         Task<HardwareDynamicData> ReadHardwareDynamicDataAsync(

@@ -16,8 +16,10 @@ namespace SystemManagament.Client.WPF.Factories
         public WorkStationViewModel CreateWorkStationViewModel(
             WorkstationSettings workstationSettings)
         {
-            WorkStationViewModel workStationViewModel = new WorkStationViewModel(
-                SimpleIoc.Default.GetInstance<ICommandFactory>(), SimpleIoc.Default.GetInstance<IUintValidator>());
+            var wcfClient = SimpleIoc.Default.GetInstance<IWcfClient>(Guid.NewGuid().ToString());
+            var processClient = SimpleIoc.Default.GetInstance<IProcessClient>(Guid.NewGuid().ToString());
+            ICommandFactory commandFactory = new CommandFactory(wcfClient, processClient);
+            WorkStationViewModel workStationViewModel = new WorkStationViewModel(commandFactory, SimpleIoc.Default.GetInstance<IUintValidator>());
 
             workStationViewModel.ViewModelIdentifier = workstationSettings.MachineIdentifier;
             workStationViewModel.MachineName = workstationSettings.MachineName;
