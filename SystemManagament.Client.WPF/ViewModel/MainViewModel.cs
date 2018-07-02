@@ -48,6 +48,7 @@ namespace SystemManagament.Client.WPF.ViewModel
 
             Messenger.Default.Register<NewMachineMessage>(this, this.NewMachineMessageReceivedHandler);
             Messenger.Default.Register<RemoveMachineMessage>(this, this.RemoveMachineMessageReceivedHandler);
+            Messenger.Default.Register<UpdateMachineMessage>(this, this.UpdateMachineMessageReceivedHandler);
         }
 
         public string TestSetting { get; set; }
@@ -146,6 +147,24 @@ namespace SystemManagament.Client.WPF.ViewModel
             this.WorkstationsParameters[workStationSettings.MachineIdentifier] = workStationSettings;
 
             this.CreateNewTab(workStationSettings);
+        }
+
+        private void UpdateMachineMessageReceivedHandler(UpdateMachineMessage message)
+        {
+            // TODO: include global preferences when creating views
+            var workStationSettings = new WorkstationSettings()
+            {
+                MachineIdentifier = message.MachineIdentifier,
+                MachineName = message.MachineName,
+                Uri = message.MachineUri,
+                ForceMachineRestartTimeout = 10,
+                ForceMachineTurnOffTimeout = 10
+            };
+
+            this.WorkstationsParameters[workStationSettings.MachineIdentifier] = workStationSettings;
+
+            var tabToUpdate = this.ViewModelTabs.Where(wvm => wvm.ViewModelIdentifier == message.MachineIdentifier).Single();
+            tabToUpdate.LoadSettings(workStationSettings);
         }
 
         private void RemoveMachineMessageReceivedHandler(RemoveMachineMessage message)

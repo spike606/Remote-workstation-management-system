@@ -28,6 +28,7 @@ namespace SystemManagament.Client.WPF.ViewModel
     {
         private readonly ICommandFactory commandFactory;
         private readonly IUintValidator uintValidator;
+        private string machineName;
 
         private WpfObservableRangeCollection<WindowsProcess> windowsProcess = new WpfObservableRangeCollection<WindowsProcess>();
         private WpfObservableRangeCollection<WindowsService> windowsService = new WpfObservableRangeCollection<WindowsService>();
@@ -113,6 +114,8 @@ namespace SystemManagament.Client.WPF.ViewModel
         public ICommand CreatePowershellWindowCommand { get; private set; }
 
         public ICommand RemoveMachineCommand { get; private set; }
+
+        public ICommand UpdateMachineSettingCommand { get; private set; }
 
         public WpfObservableRangeCollection<WindowsProcess> WindowsProcess
         {
@@ -679,11 +682,24 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
+        public string MachineName
+        {
+            get
+            {
+                return this.machineName;
+            }
+
+            set
+            {
+                this.Set(() => this.MachineName, ref this.machineName, value);
+            }
+        }
+
         public UIntParameter ForceMachineTurnOffTimeout { get; private set; } = new UIntParameter(10);
 
         public UIntParameter ForceMachineRestartTimeout { get; private set; } = new UIntParameter(10);
 
-        public string MachineName { get; set; }
+        public string MachineUri { get; set; }
 
         public string PowerShellRemoteSessionUserName
         {
@@ -710,6 +726,7 @@ namespace SystemManagament.Client.WPF.ViewModel
         private void InitializeCommands()
         {
             this.RemoveMachineCommand = new RelayCommand(this.RemoveMachine);
+            this.UpdateMachineSettingCommand = new RelayCommand(this.UpdateSettings);
             this.LoadWindowsProcessDynamicDataCommand = this.commandFactory.CreateWindowsProcessDynamicDataCommand(this.WindowsProcess);
             this.LoadWindowsServiceDynamicDataCommand = this.commandFactory.CreateWindowsServiceDynamicDataCommand(this.WindowsService);
             this.LoadWindowsLogDynamicDataCommand = this.commandFactory.CreateWindowsLogDynamicDataCommand(this.WindowsLog);
@@ -763,6 +780,16 @@ namespace SystemManagament.Client.WPF.ViewModel
             this.ForceRestartMachineCommand = this.commandFactory.CreateRestartMachineOffCommand(this.ForceMachineRestartTimeout);
 
             this.CreatePowershellWindowCommand = this.commandFactory.CreatePowershellWindowCommand();
+        }
+
+        private void UpdateSettings()
+        {
+            Messenger.Default.Send(new UpdateMachineMessage()
+            {
+                MachineIdentifier = this.ViewModelIdentifier,
+                MachineUri = this.MachineUri,
+                MachineName = this.MachineName
+            });
         }
 
         private void RemoveMachine()

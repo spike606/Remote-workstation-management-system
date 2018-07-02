@@ -39,8 +39,84 @@
             <dragablz:TabablzControl.InterTabController>
                 <dragablz:InterTabController />
             </dragablz:TabablzControl.InterTabController>
-            <TabItem Header="Control">
-                    <Grid >
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="{StaticResource Header_ConnectionSettings}" Foreground="Black" />
+                </TabItem.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="1">
+                        <Label FontFamily = "Verdana" Content="Machine name:" FontSize="12" VerticalContentAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="6">
+                        <TextBox VerticalAlignment="Center" HorizontalContentAlignment="Left" Foreground="WhiteSmoke"
+                     HorizontalScrollBarVisibility="Auto">
+                            <TextBox.Text>
+                                <Binding Path="MachineName" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <validator:StringValidator></validator:StringValidator>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="1">
+                        <Label FontFamily = "Verdana" Content="Machine URI:" FontSize="12" VerticalContentAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="6">
+                        <TextBox VerticalAlignment="Center" HorizontalContentAlignment="Left" Foreground="WhiteSmoke"
+                         HorizontalScrollBarVisibility="Auto">
+                            <TextBox.Text>
+                                <Binding Path="MachineUri" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <validator:StringValidator></validator:StringValidator>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                    </Grid>
+
+                    <Grid Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="8">
+                        <Button Content="Save" Command="{Binding UpdateMachineSettingCommand}" 
+                            HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange" HorizontalContentAlignment="Center"/>
+                    </Grid>
+
+                    <Grid Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="8">
+                        <control:ConfirmMachineRemoveButton Content="{StaticResource Button_RemoveMachine}" Command="{Binding RemoveMachineCommand}"
+                                                   Background="Green"/>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="{StaticResource Header_Control}" Foreground="Black" />
+                </TabItem.Header>
+                <Grid >
                         <Grid.RowDefinitions>
                             <RowDefinition Height="2*" />
                             <RowDefinition Height="*" />
@@ -148,11 +224,7 @@
                         <Button Content="{StaticResource Control_Button_ConnectPowershell}" Command="{Binding CreatePowershellWindowCommand}" CommandParameter="{Binding PowerShellRemoteSessionUserName}"
                                                    Background="Blue"/>
                     </Grid>
-                        
-                    <Grid Grid.Row="11" Grid.Column="2" Grid.ColumnSpan="5">
-                        <control:ConfirmMachineRemoveButton Content="{StaticResource Button_RemoveMachine}" Command="{Binding RemoveMachineCommand}"
-                                                   Background="Green"/>
-                    </Grid>
+
                 </Grid>
                 </TabItem>
             <TabItem>

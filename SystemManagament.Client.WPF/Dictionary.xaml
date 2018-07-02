@@ -651,6 +651,7 @@
     <system:String x:Key="Label_ExtendedPartitions_Description">List of partitions existing in specified storage for specified extended partiion.</system:String>
 
     <system:String x:Key="Label_Control_Description">List of available controls for remote machines. You can schedule remote machine shutdown / restart in time, up to 24 hours. If emergency shutdown is required you can turn off / restart machine in 10 seconds.</system:String>
+    <system:String x:Key="Header_Control">Control</system:String>
     <system:String x:Key="Control_Timeout">Timeout [seconds]:</system:String>
     <system:String x:Key="Control_Button_TurnMachineOff">Turn machine off</system:String>
     <system:String x:Key="Control_Button_RestartMachine">Restart machine</system:String>
@@ -667,5 +668,7 @@
     <system:String x:Key="Menu_SaveMachines">Save machines</system:String>
     <system:String x:Key="Menu_LoadMachines">Load saved machines</system:String>
     <system:String x:Key="Menu_Exit">Exit</system:String>
+
+    <system:String x:Key="Header_ConnectionSettings">Connection Settings</system:String>
 
 </ResourceDictionary>

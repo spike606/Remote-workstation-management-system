@@ -21,6 +21,7 @@ namespace SystemManagament.Client.WPF.Factories
 
             workStationViewModel.ViewModelIdentifier = workstationSettings.MachineIdentifier;
             workStationViewModel.MachineName = workstationSettings.MachineName;
+            workStationViewModel.MachineUri = workstationSettings.Uri;
             workStationViewModel.LoadSettings(workstationSettings);
 
             return workStationViewModel;

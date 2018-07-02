@@ -247,6 +247,7 @@
     <Compile Include="ViewModel\Helpers\UIntParameter.cs" />
     <Compile Include="ViewModel\Messages\NewMachineMessage.cs" />
     <Compile Include="ViewModel\Messages\RemoveMachineMessage.cs" />
+    <Compile Include="ViewModel\Messages\UpdateMachineMessage.cs" />
     <Compile Include="ViewModel\NewMachineViewModel.cs" />
     <Compile Include="ViewModel\ProcessClient\IProcessClient.cs" />
     <Compile Include="ViewModel\ProcessClient\ProcessClient.cs" />
