@@ -227,6 +227,9 @@
       <DependentUpon>DynamicLineChart.xaml</DependentUpon>
     </Compile>
     <Compile Include="Factories\WorkStationViewModelFactory.cs" />
+    <Compile Include="PreferencesWindow.xaml.cs">
+      <DependentUpon>PreferencesWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NewMachineWindow.xaml.cs">
       <DependentUpon>NewMachineWindow.xaml</DependentUpon>
     </Compile>
@@ -235,9 +238,11 @@
     <Compile Include="Settings\IConfigProvider.cs" />
     <Compile Include="Settings\WorkstationSettings.cs" />
     <Compile Include="Validator\IStringValidator.cs" />
+    <Compile Include="Validator\ITimeIntervalValidator.cs" />
     <Compile Include="Validator\IUintValidator.cs" />
     <Compile Include="Validator\IUriValidator.cs" />
     <Compile Include="Validator\StringValidator.cs" />
+    <Compile Include="Validator\TimeIntervalValidator.cs" />
     <Compile Include="Validator\UintValidator.cs" />
     <Compile Include="Validator\UriValidator.cs" />
     <Compile Include="ViewModel\Commands\AsyncCommandParameterized.cs" />
@@ -251,7 +256,10 @@
     <Compile Include="ViewModel\Messages\ErrorMessage.cs" />
     <Compile Include="ViewModel\Messages\NewMachineMessage.cs" />
     <Compile Include="ViewModel\Messages\RemoveMachineMessage.cs" />
+    <Compile Include="ViewModel\Messages\ShowPreferencesWindowMessage.cs" />
     <Compile Include="ViewModel\Messages\UpdateMachineMessage.cs" />
+    <Compile Include="ViewModel\Messages\UpdatePreferencesMessage.cs" />
+    <Compile Include="ViewModel\PreferencesViewModel.cs" />
     <Compile Include="ViewModel\NewMachineViewModel.cs" />
     <Compile Include="ViewModel\ProcessClient\IProcessClient.cs" />
     <Compile Include="ViewModel\ProcessClient\ProcessClient.cs" />
@@ -279,6 +287,10 @@
     <Page Include="DynamicLineChart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PreferencesWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="NewMachineWindow.xaml">
       <SubType>Designer</SubType>

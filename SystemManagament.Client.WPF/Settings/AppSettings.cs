@@ -24,5 +24,49 @@ namespace SystemManagament.Client.WPF.Settings
             }
         }
 
+        [UserScopedSetting]
+        [SettingsSerializeAs(SettingsSerializeAs.Binary)]
+        public string DelayBetweenCalls_HardwareDynamic
+        {
+            get
+            {
+                return (string)this["DelayBetweenCalls_HardwareDynamic"];
+            }
+
+            set
+            {
+                this["DelayBetweenCalls_HardwareDynamic"] = value;
+            }
+        }
+
+        [UserScopedSetting]
+        [SettingsSerializeAs(SettingsSerializeAs.Binary)]
+        public string DelayBetweenCalls_WindowsService
+        {
+            get
+            {
+                return (string)this["DelayBetweenCalls_WindowsService"];
+            }
+
+            set
+            {
+                this["DelayBetweenCalls_WindowsService"] = value;
+            }
+        }
+
+        [UserScopedSetting]
+        [SettingsSerializeAs(SettingsSerializeAs.Binary)]
+        public string DelayBetweenCalls_WindowsProcess
+        {
+            get
+            {
+                return (string)this["DelayBetweenCalls_WindowsProcess"];
+            }
+
+            set
+            {
+                this["DelayBetweenCalls_WindowsProcess"] = value;
+            }
+        }
     }
 }

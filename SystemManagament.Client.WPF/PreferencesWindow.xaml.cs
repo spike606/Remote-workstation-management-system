@@ -16,11 +16,11 @@ using GalaSoft.MvvmLight.Messaging;
 namespace SystemManagament.Client.WPF
 {
     /// <summary>
-    /// Interaction logic for PreferencesWindow.xaml
+    /// Interaction logic for NewMachineWindow.xaml
     /// </summary>
-    public partial class PreferencesWindow : Window
+    public partial class NewMachineWindow : Window
     {
-        public PreferencesWindow()
+        public NewMachineWindow()
         {
             this.InitializeComponent();
         }

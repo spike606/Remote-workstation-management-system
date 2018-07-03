@@ -30,7 +30,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
             <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1">
-            <Label FontFamily = "Verdana" Content="Machine name:" FontSize="12" VerticalContentAlignment="Center"/>
+            <Label FontFamily = "Verdana" Content="{StaticResource Label_NewMachine_Name}" FontSize="12" VerticalContentAlignment="Center"/>
             </Grid>
         <Grid Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="4">
                 <TextBox VerticalAlignment="Center" HorizontalContentAlignment="Left" Foreground="WhiteSmoke"
@@ -45,7 +45,7 @@
                 </TextBox>
             </Grid>
         <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="1">
-                <Label FontFamily = "Verdana" Content="Machine URI:" FontSize="12" VerticalContentAlignment="Center"/>
+            <Label FontFamily = "Verdana" Content="{StaticResource Label_NewMachine_Uri}" FontSize="12" VerticalContentAlignment="Center"/>
             </Grid>
         <Grid Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4">
                 <TextBox VerticalAlignment="Center" HorizontalContentAlignment="Left" Foreground="WhiteSmoke"
@@ -61,11 +61,11 @@
             </Grid>
 
         <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
-            <Button Content="Ok" Command="{Binding SendNewMachineMessageCommand}" 
+            <Button Content="{StaticResource Button_Ok}" Command="{Binding SendNewMachineMessageCommand}" 
                             HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange"/>
         </Grid>
         <Grid Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2">
-            <Button Content="Cancel" Command="{Binding CloseWindowCommand}"
+            <Button Content="{StaticResource Button_Cancel}" Command="{Binding CloseWindowCommand}"
                     CommandParameter="{Binding ElementName=NewMachine}"
                             HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange"/>
         </Grid>

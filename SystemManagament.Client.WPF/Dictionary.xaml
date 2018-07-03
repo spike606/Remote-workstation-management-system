@@ -7,6 +7,8 @@
 
     <system:String x:Key="Button_LoadSoftwareStatic">Refresh software static data</system:String>
     <system:String x:Key="Button_Cancel">Cancel</system:String>
+    <system:String x:Key="Button_Save">Save</system:String>
+    <system:String x:Key="Button_Ok">Ok</system:String>
 
     <system:String x:Key="Label_CurrentUserInfo">Current User Info</system:String>
     <system:String x:Key="Label_BasicUserInfo">Basic User Info</system:String>
@@ -667,8 +669,17 @@
     <system:String x:Key="Menu_NewMachine">New machine...</system:String>
     <system:String x:Key="Menu_SaveMachines">Save machines</system:String>
     <system:String x:Key="Menu_LoadMachines">Load saved machines</system:String>
+    <system:String x:Key="Menu_Preferences">Preferences</system:String>
     <system:String x:Key="Menu_Exit">Exit</system:String>
 
     <system:String x:Key="Header_ConnectionSettings">Connection Settings</system:String>
+
+    <system:String x:Key="Label_Preferences_Info">Global preferences used in application. Saved changes will be used after action restart.</system:String>
+    <system:String x:Key="Label_Preferences_DynamicHardware_Info">Refresh hardware dynamic data interval [s]:</system:String>
+    <system:String x:Key="Label_Preferences_WindowsProcess_Info">Refresh windows processes data interval [s]:</system:String>
+    <system:String x:Key="Label_Preferences_WindowsService_Info">Refresh windows services data interval [s]:</system:String>
+
+    <system:String x:Key="Label_NewMachine_Uri">Machine URI:</system:String>
+    <system:String x:Key="Label_NewMachine_Name">Machine name:</system:String>
 
 </ResourceDictionary>

@@ -18,7 +18,8 @@ namespace SystemManagament.Client.WPF.Factories
         {
             var wcfClient = SimpleIoc.Default.GetInstance<IWcfClient>(Guid.NewGuid().ToString());
             var processClient = SimpleIoc.Default.GetInstance<IProcessClient>(Guid.NewGuid().ToString());
-            ICommandFactory commandFactory = new CommandFactory(wcfClient, processClient);
+            var configProvider = SimpleIoc.Default.GetInstance<IConfigProvider>();
+            ICommandFactory commandFactory = new CommandFactory(wcfClient, processClient, configProvider);
             WorkStationViewModel workStationViewModel = new WorkStationViewModel(commandFactory, SimpleIoc.Default.GetInstance<IUintValidator>());
 
             workStationViewModel.ViewModelIdentifier = workstationSettings.MachineIdentifier;

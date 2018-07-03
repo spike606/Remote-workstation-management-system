@@ -10,6 +10,6 @@ namespace SystemManagament.Client.WPF.Factories
 {
     public interface ITPLFactory
     {
-        ITargetBlock<DateTimeOffset> CreateNeverEndingTask(Func<DateTimeOffset, CancellationToken, Task> action, CancellationToken cancellationToken);
+        ITargetBlock<DateTimeOffset> CreateNeverEndingTask(Func<DateTimeOffset, CancellationToken, Task> action, CancellationToken cancellationToken, uint betweenCallsDelayInSeconds);
     }
 }

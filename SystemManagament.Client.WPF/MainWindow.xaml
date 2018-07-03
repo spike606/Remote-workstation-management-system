@@ -40,10 +40,7 @@
                 </Menu>
                 <Menu HorizontalAlignment = "Left" VerticalAlignment = "Top">
                     <MenuItem Header = "Options">
-                        <MenuItem Header = "Preferences" HorizontalAlignment = "Left" Width = "150" />
-                        <MenuItem Header = "Item 2" HorizontalAlignment="Left" Width = "150" />
-                        <Separator HorizontalAlignment = "Left" Width = "150"/>
-                        <MenuItem Header = "Item 3" HorizontalAlignment = "Left" Width = "150" />
+                    <MenuItem Header = "{StaticResource Menu_Preferences}" HorizontalAlignment = "Left" Width = "150" Command="{Binding PreferencesCommand}"/>
                     </MenuItem>
                 </Menu>
             </StackPanel>

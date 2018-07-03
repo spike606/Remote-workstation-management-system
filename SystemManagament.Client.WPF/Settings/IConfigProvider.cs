@@ -10,6 +10,12 @@ namespace SystemManagament.Client.WPF.Settings
     {
         Dictionary<string, WorkstationSettings> WorkstationsParameters { get; set; }
 
+        uint DelayBetweenCalls_HardwareDynamic { get; set; }
+
+        uint DelayBetweenCalls_WindowsProcess { get; set; }
+
+        uint DelayBetweenCalls_WindowsService { get; set; }
+
         void Save();
 
         void Load();

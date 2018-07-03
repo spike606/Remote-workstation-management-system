@@ -40,6 +40,7 @@ namespace SystemManagament.Client.WPF.ViewModel
     {
         private ObservableCollection<WorkStationViewModel> viewModelTabs = new ObservableCollection<WorkStationViewModel>();
         private NewMachineViewModel newMachineViewModel = new NewMachineViewModel();
+        private PreferencesViewModel preferencesViewModel = new PreferencesViewModel();
 
         public MainViewModel()
         {
@@ -47,6 +48,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             this.LoadUserSettings();
 
             Messenger.Default.Register<NewMachineMessage>(this, this.NewMachineMessageReceivedHandler);
+            Messenger.Default.Register<UpdatePreferencesMessage>(this, this.UpdatePreferencesMessageReceivedHandler);
             Messenger.Default.Register<RemoveMachineMessage>(this, this.RemoveMachineMessageReceivedHandler);
             Messenger.Default.Register<UpdateMachineMessage>(this, this.UpdateMachineMessageReceivedHandler);
             Messenger.Default.Register<ErrorMessage>(this, this.ErrorMessageReceivedHandler);
@@ -56,7 +58,15 @@ namespace SystemManagament.Client.WPF.ViewModel
 
         public Dictionary<string, WorkstationSettings> WorkstationsParameters { get; set; }
 
+        public uint DelayBetweenCalls_WindowsProcess { get; private set; }
+
+        public uint DelayBetweenCalls_WindowsService { get; private set; }
+
+        public uint DelayBetweenCalls_HardwareDynamic { get; private set; }
+
         public ICommand SendNewMachineMessageCommand { get; private set; }
+
+        public ICommand PreferencesCommand { get; private set; }
 
         public ICommand LoadMachinesCommand { get; private set; }
 
@@ -92,6 +102,7 @@ namespace SystemManagament.Client.WPF.ViewModel
         private void InitializeCommands()
         {
             this.SendNewMachineMessageCommand = new RelayCommand(this.SendNewMachineMessage);
+            this.PreferencesCommand = new RelayCommand(this.SendShowPreferencesWindowMessage);
             this.LoadMachinesCommand = new RelayCommand(this.LoadMachines);
             this.SaveSettingsCommand = new RelayCommand(this.SaveSettings);
             this.Exit = new RelayCommand(this.CloseApplication);
@@ -104,13 +115,27 @@ namespace SystemManagament.Client.WPF.ViewModel
             configProvider.Load();
 
             this.WorkstationsParameters = configProvider.WorkstationsParameters;
-
-            // TODO: add global preferences and load them
+            this.DelayBetweenCalls_HardwareDynamic = configProvider.DelayBetweenCalls_HardwareDynamic;
+            this.DelayBetweenCalls_WindowsProcess = configProvider.DelayBetweenCalls_WindowsProcess;
+            this.DelayBetweenCalls_WindowsService = configProvider.DelayBetweenCalls_WindowsService;
         }
 
         private void SendNewMachineMessage()
         {
             Messenger.Default.Send(new NotificationMessage("ShowNewMachineWindow"));
+        }
+
+        private void SendShowPreferencesWindowMessage()
+        {
+            Messenger.Default.Send(new ShowPreferencesWindowMessage()
+            {
+                UpdatePreferencesMessage = new UpdatePreferencesMessage()
+                {
+                    DelayBetweenCalls_HardwareDynamic = this.DelayBetweenCalls_HardwareDynamic,
+                    DelayBetweenCalls_WindowsService = this.DelayBetweenCalls_WindowsService,
+                    DelayBetweenCalls_WindowsProcess = this.DelayBetweenCalls_WindowsProcess
+                }
+            });
         }
 
         private void LoadMachines()
@@ -129,13 +154,14 @@ namespace SystemManagament.Client.WPF.ViewModel
             IConfigProvider configProvider = SimpleIoc.Default.GetInstance<IConfigProvider>();
             configProvider.WorkstationsParameters = this.WorkstationsParameters;
 
-            // TODO: save global preferences
+            configProvider.DelayBetweenCalls_HardwareDynamic = this.DelayBetweenCalls_HardwareDynamic;
+            configProvider.DelayBetweenCalls_WindowsProcess = this.DelayBetweenCalls_WindowsProcess;
+            configProvider.DelayBetweenCalls_WindowsService = this.DelayBetweenCalls_WindowsService;
             configProvider.Save();
         }
 
         private void NewMachineMessageReceivedHandler(NewMachineMessage message)
         {
-            // TODO: include global preferences when creating views
             var workStationSettings = new WorkstationSettings()
             {
                 MachineIdentifier = message.MachineIdentifier,
@@ -150,9 +176,17 @@ namespace SystemManagament.Client.WPF.ViewModel
             this.CreateNewTab(workStationSettings);
         }
 
+        private void UpdatePreferencesMessageReceivedHandler(UpdatePreferencesMessage message)
+        {
+            this.DelayBetweenCalls_HardwareDynamic = message.DelayBetweenCalls_HardwareDynamic;
+            this.DelayBetweenCalls_WindowsProcess = message.DelayBetweenCalls_WindowsProcess;
+            this.DelayBetweenCalls_WindowsService = message.DelayBetweenCalls_WindowsService;
+
+            this.SaveSettings();
+        }
+
         private void UpdateMachineMessageReceivedHandler(UpdateMachineMessage message)
         {
-            // TODO: include global preferences when creating views
             var workStationSettings = new WorkstationSettings()
             {
                 MachineIdentifier = message.MachineIdentifier,

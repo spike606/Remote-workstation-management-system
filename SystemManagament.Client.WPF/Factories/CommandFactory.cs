@@ -27,11 +27,13 @@ namespace SystemManagament.Client.WPF.Factories
         private readonly int neverEndingCommandDelayInMiliSeconds = 300;
         private readonly IWcfClient wcfClient;
         private readonly IProcessClient processClient;
+        private readonly IConfigProvider configProvider;
 
-        public CommandFactory(IWcfClient wcfClient, IProcessClient processClient)
+        public CommandFactory(IWcfClient wcfClient, IProcessClient processClient, IConfigProvider configProvider)
         {
             this.wcfClient = wcfClient;
             this.processClient = processClient;
+            this.configProvider = configProvider;
         }
 
         public IAsyncCommand CreateWindowsProcessDynamicDataCommand(WpfObservableRangeCollection<WindowsProcess> windowsProcesses)
@@ -43,7 +45,8 @@ namespace SystemManagament.Client.WPF.Factories
                     // Set the task.
                     var neverEndingTask = new TPLFactory().CreateNeverEndingTask(
                         (now, ct) => this.wcfClient.ReadWindowsProcessDynamicDataAsync(windowsProcesses, ct),
-                        cancellationToken);
+                        cancellationToken,
+                        this.configProvider.DelayBetweenCalls_WindowsProcess);
 
                     // Start the task. Post the time.
                     var result = neverEndingTask.Post(DateTimeOffset.Now);
@@ -68,7 +71,8 @@ namespace SystemManagament.Client.WPF.Factories
                     // Set the task.
                     var neverEndingTask = new TPLFactory().CreateNeverEndingTask(
                         (now, ct) => this.wcfClient.ReadWindowsServiceDynamicDataAsync(windowsService, ct),
-                        cancellationToken);
+                        cancellationToken,
+                        this.configProvider.DelayBetweenCalls_WindowsService);
 
                     // Start the task. Post the time.
                     var result = neverEndingTask.Post(DateTimeOffset.Now);
@@ -146,7 +150,8 @@ namespace SystemManagament.Client.WPF.Factories
                             dynamicChartViewModelMainBoardFan,
                             dynamicChartViewModelMainBoardVoltage,
                             ct),
-                        cancellationToken);
+                        cancellationToken,
+                        this.configProvider.DelayBetweenCalls_HardwareDynamic);
 
                     // Start the task. Post the time.
                     var result = neverEndingTask.Post(DateTimeOffset.Now);

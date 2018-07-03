@@ -11,11 +11,10 @@ namespace SystemManagament.Client.WPF.Factories
 {
     public class TPLFactory : ITPLFactory
     {
-        private readonly int betweenCallsDelayInSeconds = 2;
-
         public ITargetBlock<DateTimeOffset> CreateNeverEndingTask(
             Func<DateTimeOffset, CancellationToken, Task> action,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken,
+            uint betweenCallsDelayInSeconds)
         {
             // Validate parameters.
             if (action == null)
@@ -42,7 +41,7 @@ namespace SystemManagament.Client.WPF.Factories
                         ConfigureAwait(false);
 
                     // Wait.
-                    await Task.Delay(TimeSpan.FromSeconds(this.betweenCallsDelayInSeconds), cancellationToken).
+                    await Task.Delay(TimeSpan.FromSeconds(betweenCallsDelayInSeconds), cancellationToken).
                         // Same as above.
                         ConfigureAwait(false);
 
