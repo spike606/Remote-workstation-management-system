@@ -45,16 +45,9 @@ namespace SystemManagament.Client.WPF.ViewModel
         public MainViewModel()
         {
             this.InitializeCommands();
+            this.InitializeMessageHandlers();
             this.LoadUserSettings();
-
-            Messenger.Default.Register<NewMachineMessage>(this, this.NewMachineMessageReceivedHandler);
-            Messenger.Default.Register<UpdatePreferencesMessage>(this, this.UpdatePreferencesMessageReceivedHandler);
-            Messenger.Default.Register<RemoveMachineMessage>(this, this.RemoveMachineMessageReceivedHandler);
-            Messenger.Default.Register<UpdateMachineMessage>(this, this.UpdateMachineMessageReceivedHandler);
-            Messenger.Default.Register<ErrorMessage>(this, this.ErrorMessageReceivedHandler);
         }
-
-        public string TestSetting { get; set; }
 
         public Dictionary<string, WorkstationSettings> WorkstationsParameters { get; set; }
 
@@ -108,6 +101,15 @@ namespace SystemManagament.Client.WPF.ViewModel
             this.Exit = new RelayCommand(this.CloseApplication);
         }
 
+        private void InitializeMessageHandlers()
+        {
+            Messenger.Default.Register<NewMachineMessage>(this, this.NewMachineMessageReceivedHandler);
+            Messenger.Default.Register<RemoveMachineMessage>(this, this.RemoveMachineMessageReceivedHandler);
+            Messenger.Default.Register<UpdateMachineMessage>(this, this.UpdateMachineMessageReceivedHandler);
+            Messenger.Default.Register<UpdatePreferencesMessage>(this, this.UpdatePreferencesMessageReceivedHandler);
+            Messenger.Default.Register<ErrorMessage>(this, this.ErrorMessageReceivedHandler);
+        }
+
         private void LoadUserSettings()
         {
             IConfigProvider configProvider = SimpleIoc.Default.GetInstance<IConfigProvider>();
@@ -123,6 +125,7 @@ namespace SystemManagament.Client.WPF.ViewModel
         private void SendNewMachineMessage()
         {
             Messenger.Default.Send(new NotificationMessage("ShowNewMachineWindow"));
+
         }
 
         private void SendShowPreferencesWindowMessage()
@@ -160,6 +163,11 @@ namespace SystemManagament.Client.WPF.ViewModel
             configProvider.Save();
         }
 
+        private void CloseApplication()
+        {
+            Application.Current.Shutdown();
+        }
+
         private void NewMachineMessageReceivedHandler(NewMachineMessage message)
         {
             var workStationSettings = new WorkstationSettings()
@@ -176,11 +184,12 @@ namespace SystemManagament.Client.WPF.ViewModel
             this.CreateNewTab(workStationSettings);
         }
 
-        private void UpdatePreferencesMessageReceivedHandler(UpdatePreferencesMessage message)
+        private void RemoveMachineMessageReceivedHandler(RemoveMachineMessage message)
         {
-            this.DelayBetweenCalls_HardwareDynamic = message.DelayBetweenCalls_HardwareDynamic;
-            this.DelayBetweenCalls_WindowsProcess = message.DelayBetweenCalls_WindowsProcess;
-            this.DelayBetweenCalls_WindowsService = message.DelayBetweenCalls_WindowsService;
+            var tabToRemove = this.ViewModelTabs.Where(wvm => wvm.ViewModelIdentifier == message.MachineIdentifier).Single();
+            this.ViewModelTabs.Remove(tabToRemove);
+
+            this.WorkstationsParameters.Remove(message.MachineIdentifier);
 
             this.SaveSettings();
         }
@@ -197,17 +206,16 @@ namespace SystemManagament.Client.WPF.ViewModel
             };
 
             this.WorkstationsParameters[workStationSettings.MachineIdentifier] = workStationSettings;
-
+            this.SaveSettings();
             var tabToUpdate = this.ViewModelTabs.Where(wvm => wvm.ViewModelIdentifier == message.MachineIdentifier).Single();
             tabToUpdate.LoadSettings(workStationSettings);
         }
 
-        private void RemoveMachineMessageReceivedHandler(RemoveMachineMessage message)
+        private void UpdatePreferencesMessageReceivedHandler(UpdatePreferencesMessage message)
         {
-            var tabToRemove = this.ViewModelTabs.Where(wvm => wvm.ViewModelIdentifier == message.MachineIdentifier).Single();
-            this.ViewModelTabs.Remove(tabToRemove);
-
-            this.WorkstationsParameters.Remove(message.MachineIdentifier);
+            this.DelayBetweenCalls_HardwareDynamic = message.DelayBetweenCalls_HardwareDynamic;
+            this.DelayBetweenCalls_WindowsProcess = message.DelayBetweenCalls_WindowsProcess;
+            this.DelayBetweenCalls_WindowsService = message.DelayBetweenCalls_WindowsService;
 
             this.SaveSettings();
         }
@@ -225,15 +233,9 @@ namespace SystemManagament.Client.WPF.ViewModel
         {
             IWorkStationViewModelFactory workStationViewModelFactory = SimpleIoc.Default.GetInstance<IWorkStationViewModelFactory>(Guid.NewGuid().ToString());
 
-            // TODO: include global preferences when creating views
             var workStationViewModel = workStationViewModelFactory.CreateWorkStationViewModel(workstationSettings);
 
             this.ViewModelTabs.Add(workStationViewModel);
-        }
-
-        private void CloseApplication()
-        {
-            Application.Current.Shutdown();
         }
     }
 }

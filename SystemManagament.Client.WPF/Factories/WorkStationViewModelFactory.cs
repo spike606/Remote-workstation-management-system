@@ -22,9 +22,6 @@ namespace SystemManagament.Client.WPF.Factories
             ICommandFactory commandFactory = new CommandFactory(wcfClient, processClient, configProvider);
             WorkStationViewModel workStationViewModel = new WorkStationViewModel(commandFactory, SimpleIoc.Default.GetInstance<IUintValidator>());
 
-            workStationViewModel.ViewModelIdentifier = workstationSettings.MachineIdentifier;
-            workStationViewModel.MachineName = workstationSettings.MachineName;
-            workStationViewModel.MachineUri = workstationSettings.Uri;
             workStationViewModel.LoadSettings(workstationSettings);
 
             return workStationViewModel;

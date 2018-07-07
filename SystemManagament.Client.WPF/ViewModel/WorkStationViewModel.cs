@@ -90,7 +90,6 @@ namespace SystemManagament.Client.WPF.ViewModel
             this.uintValidator = uintValidator;
             this.InitializeCommands();
             Messenger.Default.Register<CancelCommandMessage>(this, this.CancelCommandMessageReceivedHandler);
-
         }
 
         public IAsyncCommand LoadWindowsProcessDynamicDataCommand { get; private set; }
@@ -720,6 +719,9 @@ namespace SystemManagament.Client.WPF.ViewModel
 
         public void LoadSettings(WorkstationSettings workstationSettings)
         {
+            this.ViewModelIdentifier = workstationSettings.MachineIdentifier;
+            this.MachineName = workstationSettings.MachineName;
+            this.MachineUri = workstationSettings.Uri;
             this.ForceMachineRestartTimeout = new UIntParameter(workstationSettings.ForceMachineRestartTimeout);
             this.ForceMachineTurnOffTimeout = new UIntParameter(workstationSettings.ForceMachineTurnOffTimeout);
             this.commandFactory.LoadSettings(workstationSettings);
@@ -728,7 +730,7 @@ namespace SystemManagament.Client.WPF.ViewModel
         private void InitializeCommands()
         {
             this.RemoveMachineCommand = new RelayCommand(this.RemoveMachine);
-            this.UpdateMachineSettingCommand = new RelayCommand(this.UpdateSettings);
+            this.UpdateMachineSettingCommand = new RelayCommand(this.UpdateMachineSettings);
             this.LoadWindowsProcessDynamicDataCommand = this.commandFactory.CreateWindowsProcessDynamicDataCommand(this.WindowsProcess);
             this.LoadWindowsServiceDynamicDataCommand = this.commandFactory.CreateWindowsServiceDynamicDataCommand(this.WindowsService);
             this.LoadWindowsLogDynamicDataCommand = this.commandFactory.CreateWindowsLogDynamicDataCommand(this.WindowsLog);
@@ -784,7 +786,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             this.CreatePowershellWindowCommand = this.commandFactory.CreatePowershellWindowCommand();
         }
 
-        private void UpdateSettings()
+        private void UpdateMachineSettings()
         {
             Messenger.Default.Send(new UpdateMachineMessage()
             {
