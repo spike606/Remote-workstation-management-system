@@ -438,9 +438,10 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
             netTcpBinding.CloseTimeout = new TimeSpan(0, 10, 0);
             netTcpBinding.OpenTimeout = new TimeSpan(0, 10, 0);
             netTcpBinding.SendTimeout = new TimeSpan(0, 10, 0);
-            netTcpBinding.MaxBufferPoolSize = 2147483647;
-            netTcpBinding.MaxBufferSize = 2147483647;
-            netTcpBinding.MaxReceivedMessageSize = 2147483647;
+
+            netTcpBinding.MaxBufferPoolSize = 500000000;
+            netTcpBinding.MaxBufferSize = 200000000;
+            netTcpBinding.MaxReceivedMessageSize = 200000000;
 
             EndpointAddress endpointAddress = new EndpointAddress(this.UriAddress);
 

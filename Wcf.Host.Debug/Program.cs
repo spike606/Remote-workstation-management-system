@@ -27,8 +27,9 @@ namespace Wcf.Host.Debug
 
                 var assemblyQualifiedName = typeof(IWorkstationMonitorService).AssemblyQualifiedName;
                 //var factory = new DefaultServiceHostFactory(container.Kernel);
-                var serviceHost = new DefaultServiceHostFactory()
-                    .CreateServiceHost(assemblyQualifiedName, new[] { new Uri("net.tcp://localhost:8001/WorkstationMonitorService") });
+                var serviceHost = new DefaultServiceHostFactory().CreateServiceHost(assemblyQualifiedName, new Uri[0]);
+                //var serviceHost = new DefaultServiceHostFactory()
+                //    .CreateServiceHost(assemblyQualifiedName, new[] { new Uri("net.tcp://localhost:8000/") });
                 serviceHost.Open();
 
                 Console.WriteLine("\n\nService is running.");
