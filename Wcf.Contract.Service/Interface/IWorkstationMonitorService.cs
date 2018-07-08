@@ -18,49 +18,49 @@ namespace Wcf.Contract.Service.Interface
     [ServiceContract]
     public interface IWorkstationMonitorService
     {
-        [OperationContract]
+        [OperationContract(IsOneWay = false)]
         SoftwareDynamicData ReadSoftwareDynamicData();
 
-        [OperationContract]
+        [OperationContract(IsOneWay = false)]
         SoftwareStaticData ReadSoftwareStaticData();
 
-        [OperationContract]
+        [OperationContract(IsOneWay = false)]
         HardwareDynamicData ReadHardwareDynamicData();
 
-        [OperationContract]
+        [OperationContract(IsOneWay = false)]
         HardwareStaticData ReadHardwareStaticData();
 
-        [OperationContract]
+        [OperationContract(IsOneWay = false)]
         List<ProcessorDynamic> ReadProcessorDynamicData();
 
-        [OperationContract]
+        [OperationContract(IsOneWay = false)]
         List<MemoryDynamic> ReadMemoryDynamicData();
 
-        [OperationContract]
+        [OperationContract(IsOneWay = false)]
         List<DiskDynamic> ReadDiskDynamicData();
 
-        [OperationContract]
+        [OperationContract(IsOneWay = false)]
         List<MainBoardDynamic> ReadMainBoardDynamicData();
 
-        [OperationContract]
+        [OperationContract(IsOneWay = false)]
         List<VideoControllerDynamic> ReadVideoControllerDynamicData();
 
-        [OperationContract]
+        [OperationContract(IsOneWay = false)]
         List<WindowsService> ReadWindowsServiceDynamicData();
 
-        [OperationContract]
+        [OperationContract(IsOneWay = false)]
         List<WindowsLog> ReadWindowsLogDynamicData();
 
-        [OperationContract]
+        [OperationContract(IsOneWay = false)]
         List<WindowsProcess> ReadWindowsProcessDynamicData();
 
-        [OperationContract]
+        [OperationContract(IsOneWay = false)]
         OperationStatus TurnMachineOff(uint timeoutInSeconds);
 
-        [OperationContract]
+        [OperationContract(IsOneWay = false)]
         OperationStatus RestartMachine(uint timeoutInSeconds);
 
-        [OperationContract]
+        [OperationContract(IsOneWay = false)]
         OperationStatus ForceLogOutUser();
     }
 }

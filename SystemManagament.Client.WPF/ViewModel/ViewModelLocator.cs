@@ -95,7 +95,6 @@ namespace SystemManagament.Client.WPF.ViewModel
             {
                 return ServiceLocator.Current.GetInstance<NewMachineViewModel>();
             }
-
         }
 
         public WcfClient WcfClient

@@ -49,13 +49,13 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
                 result = await client.ReadHardwareStaticDataAsync();
                 client.Close();
             }
-            catch (EndpointNotFoundException ex)
+            catch (EndpointNotFoundException)
             {
                 this.SendErrorMessageEndpointNotFound();
                 this.SendCancelCommandMessage();
                 client.Abort();
             }
-            catch (TimeoutException ex)
+            catch (TimeoutException)
             {
                 this.SendErrorMessageTimeout();
                 this.SendCancelCommandMessage();
@@ -100,13 +100,13 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
                 result = await client.ReadHardwareDynamicDataAsync();
                 client.Close();
             }
-            catch (EndpointNotFoundException ex)
+            catch (EndpointNotFoundException)
             {
                 this.SendErrorMessageEndpointNotFound();
                 this.SendCancelCommandMessage();
                 client.Abort();
             }
-            catch (TimeoutException ex)
+            catch (TimeoutException)
             {
                 this.SendErrorMessageTimeout();
                 this.SendCancelCommandMessage();
@@ -231,13 +231,13 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
                 result = await client.ReadSoftwareStaticDataAsync();
                 client.Close();
             }
-            catch (EndpointNotFoundException ex)
+            catch (EndpointNotFoundException)
             {
                 this.SendErrorMessageEndpointNotFound();
                 this.SendCancelCommandMessage();
                 client.Abort();
             }
-            catch (TimeoutException ex)
+            catch (TimeoutException)
             {
                 this.SendErrorMessageTimeout();
                 this.SendCancelCommandMessage();
@@ -266,13 +266,13 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
                 result = await client.ReadWindowsProcessDynamicDataAsync();
                 client.Close();
             }
-            catch (EndpointNotFoundException ex)
+            catch (EndpointNotFoundException)
             {
                 this.SendErrorMessageEndpointNotFound();
                 this.SendCancelCommandMessage();
                 client.Abort();
             }
-            catch (TimeoutException ex)
+            catch (TimeoutException)
             {
                 this.SendErrorMessageTimeout();
                 this.SendCancelCommandMessage();
@@ -306,13 +306,13 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
                 result = await client.ReadWindowsServiceDynamicDataAsync();
                 client.Close();
             }
-            catch (EndpointNotFoundException ex)
+            catch (EndpointNotFoundException)
             {
                 this.SendErrorMessageEndpointNotFound();
                 this.SendCancelCommandMessage();
                 client.Abort();
             }
-            catch (TimeoutException ex)
+            catch (TimeoutException)
             {
                 this.SendErrorMessageTimeout();
                 this.SendCancelCommandMessage();
@@ -344,13 +344,13 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
                 result = await client.ReadWindowsLogDynamicDataAsync();
                 client.Close();
             }
-            catch (EndpointNotFoundException ex)
+            catch (EndpointNotFoundException)
             {
                 this.SendErrorMessageEndpointNotFound();
                 this.SendCancelCommandMessage();
                 client.Abort();
             }
-            catch (TimeoutException ex)
+            catch (TimeoutException)
             {
                 this.SendErrorMessageTimeout();
                 this.SendCancelCommandMessage();
@@ -377,13 +377,13 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
                 result = await client.TurnMachineOffAsync(timeoutInSeconds);
                 client.Close();
             }
-            catch (EndpointNotFoundException ex)
+            catch (EndpointNotFoundException)
             {
                 this.SendErrorMessageEndpointNotFound();
                 this.SendCancelCommandMessage();
                 client.Abort();
             }
-            catch (TimeoutException ex)
+            catch (TimeoutException)
             {
                 this.SendErrorMessageTimeout();
                 this.SendCancelCommandMessage();
@@ -410,13 +410,13 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
                 result = await client.RestartMachineAsync(timeoutInSeconds);
                 client.Close();
             }
-            catch (EndpointNotFoundException ex)
+            catch (EndpointNotFoundException)
             {
                 this.SendErrorMessageEndpointNotFound();
                 this.SendCancelCommandMessage();
                 client.Abort();
             }
-            catch (TimeoutException ex)
+            catch (TimeoutException)
             {
                 this.SendErrorMessageTimeout();
                 this.SendCancelCommandMessage();
@@ -442,6 +442,9 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
             netTcpBinding.MaxBufferPoolSize = 500000000;
             netTcpBinding.MaxBufferSize = 200000000;
             netTcpBinding.MaxReceivedMessageSize = 200000000;
+
+            netTcpBinding.ReliableSession.Enabled = true;
+            netTcpBinding.ReliableSession.Ordered = true;
 
             EndpointAddress endpointAddress = new EndpointAddress(this.UriAddress);
 

@@ -69,7 +69,6 @@ namespace SystemManagament.Client.WPF.ViewModel
             {
                 this.Set(() => this.DelayBetweenCalls_HardwareDynamic, ref this.delayBetweenCalls_HardwareDynamic, value);
             }
-
         }
 
         private void ShowPreferencesWindowMessageReceived(ShowPreferencesWindowMessage message)

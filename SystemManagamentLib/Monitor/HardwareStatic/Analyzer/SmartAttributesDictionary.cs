@@ -8,9 +8,9 @@ using SystemManagament.Monitor.HardwareStatic.Model.CustomProperties.Enums;
 
 namespace SystemManagament.Monitor.HardwareStatic.Analyzer
 {
-    public class SmartAttributesDictionary
+    public static class SmartAttributesDictionary
     {
-        public Dictionary<int, SmartDataAttribute> Attributes { get; set; } = new Dictionary<int, SmartDataAttribute>()
+        public static Dictionary<int, SmartDataAttribute> Attributes { get; } = new Dictionary<int, SmartDataAttribute>()
         {
                 { 0x00, new SmartDataAttribute("(00)Invalid") },
                 { 0x01, new SmartDataAttribute("(01)Raw read error rate", RawIdealEnum.LOW) },

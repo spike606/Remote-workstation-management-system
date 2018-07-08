@@ -101,7 +101,6 @@ namespace SystemManagament.Monitor.HardwareStatic
         //internal const string LOGICAL_DISK_SIZE = "Size";
         //internal const string LOGICAL_DISK_VOLUME_NAME = "VolumeName";
         //internal const string LOGICAL_DISK_VOLUME_SERIAL_NUMBER = "VolumeSerialNumber";
-
         internal const string WMI_QUERY_CDROM_DRIVE = "select * from Win32_CDROMDrive";
         internal const string CDROM_DRIVE_DEVICE_ID = "DeviceID";
         internal const string CDROM_DRIVE_DRIVE = "Drive";

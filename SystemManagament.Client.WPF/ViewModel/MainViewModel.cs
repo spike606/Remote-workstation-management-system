@@ -125,7 +125,6 @@ namespace SystemManagament.Client.WPF.ViewModel
         private void SendNewMachineMessage()
         {
             Messenger.Default.Send(new NotificationMessage("ShowNewMachineWindow"));
-
         }
 
         private void SendShowPreferencesWindowMessage()

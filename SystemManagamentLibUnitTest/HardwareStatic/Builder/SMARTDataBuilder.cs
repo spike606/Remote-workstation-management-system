@@ -37,9 +37,7 @@ namespace SystemMonitorLibUnitTest.HardwareStatic.Builder
 
         public SMARTDataBuilder WithAttribute(int attributeKey, int current, int worst, int threshold, int raw, SmartDataAttributeStatusEnum status)
         {
-            SmartAttributesDictionary smartAttributesDictionary = new SmartAttributesDictionary();
-
-            var newAttribute = smartAttributesDictionary.Attributes.Where(x => x.Key == attributeKey).First();
+            var newAttribute = SmartAttributesDictionary.Attributes.Where(x => x.Key == attributeKey).First();
             this.smartData.Attributes.Add(newAttribute.Key, newAttribute.Value);
             var attribute = this.smartData.Attributes[newAttribute.Key];
             attribute.Current = current;

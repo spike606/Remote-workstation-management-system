@@ -8,9 +8,9 @@ using SystemManagament.Monitor.HardwareStatic.Model.CustomProperties.Enums;
 
 namespace SystemManagament.Monitor.HardwareStatic.Analyzer
 {
-    public class PnPConfigManagerErrorCodeDictionary
+    public static class PnPConfigManagerErrorCodeDictionary
     {
-        public static Dictionary<uint, string> Erros { get; set; } = new Dictionary<uint, string>()
+        public static Dictionary<uint, string> Erros { get; } = new Dictionary<uint, string>()
         {
                 { 0, "This device is working properly." },
                 { 1, "This device is not configured correctly." },

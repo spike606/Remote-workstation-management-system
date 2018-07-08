@@ -105,8 +105,7 @@ namespace SystemManagament.Monitor.HardwareStatic.Analyzer
                         continue;
                     }
 
-                    SmartAttributesDictionary smartAttributesDictionary = new SmartAttributesDictionary();
-                    KeyValuePair<int, SmartDataAttribute> currentAttributeFromDictionary = smartAttributesDictionary.Attributes.Where(x => x.Key == attributeId).FirstOrDefault();
+                    KeyValuePair<int, SmartDataAttribute> currentAttributeFromDictionary = SmartAttributesDictionary.Attributes.Where(x => x.Key == attributeId).FirstOrDefault();
                     if (currentAttributeFromDictionary.Equals(default(KeyValuePair<int, SmartDataAttribute>)))
                     {
                         continue;
