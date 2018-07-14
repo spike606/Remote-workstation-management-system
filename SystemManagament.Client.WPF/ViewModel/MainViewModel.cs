@@ -173,6 +173,8 @@ namespace SystemManagament.Client.WPF.ViewModel
             {
                 MachineIdentifier = message.MachineIdentifier,
                 MachineName = message.MachineName,
+                NewMachineCertificateDnsName = message.NewMachineCertificateDnsName,
+                NewMachineCertificateSubjectName = message.NewMachineCertificateSubjectName,
                 Uri = message.MachineUri,
                 ForceMachineRestartTimeout = 10,
                 ForceMachineTurnOffTimeout = 10
@@ -199,6 +201,8 @@ namespace SystemManagament.Client.WPF.ViewModel
             {
                 MachineIdentifier = message.MachineIdentifier,
                 MachineName = message.MachineName,
+                NewMachineCertificateDnsName = message.NewMachineCertificateDnsName,
+                NewMachineCertificateSubjectName = message.NewMachineCertificateSubjectName,
                 Uri = message.MachineUri,
                 ForceMachineRestartTimeout = 10,
                 ForceMachineTurnOffTimeout = 10

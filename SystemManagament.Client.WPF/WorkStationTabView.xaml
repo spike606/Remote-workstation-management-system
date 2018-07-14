@@ -70,8 +70,8 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Grid Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="1">
-                        <Label FontFamily = "Verdana" Content="Machine name:" FontSize="12" VerticalContentAlignment="Center"/>
+                    <Grid Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2">
+                        <Label FontFamily = "Verdana" Content="{StaticResource Label_NewMachine_Name}" FontSize="12" VerticalContentAlignment="Center"/>
                     </Grid>
                     <Grid Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="6">
                         <TextBox VerticalAlignment="Center" HorizontalContentAlignment="Left" Foreground="WhiteSmoke"
@@ -85,10 +85,10 @@
                             </TextBox.Text>
                         </TextBox>
                     </Grid>
-                    <Grid Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="1">
-                        <Label FontFamily = "Verdana" Content="Machine URI:" FontSize="12" VerticalContentAlignment="Center"/>
+                    <Grid Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2">
+                        <Label FontFamily = "Verdana" Content="{StaticResource Label_NewMachine_Uri}" FontSize="12" VerticalContentAlignment="Center"/>
                     </Grid>
-                    <Grid Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="6">
+                    <Grid Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="6">
                         <TextBox VerticalAlignment="Center" HorizontalContentAlignment="Left" Foreground="WhiteSmoke"
                          HorizontalScrollBarVisibility="Auto">
                             <TextBox.Text>
@@ -101,12 +101,44 @@
                         </TextBox>
                     </Grid>
 
-                    <Grid Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="8">
-                        <Button Content="Save" Command="{Binding UpdateMachineSettingCommand}" 
+                    <Grid Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2">
+                        <Label FontFamily = "Verdana" Content="{StaticResource Label_NewMachine_SubjectName}" FontSize="12" VerticalContentAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="6">
+                        <TextBox VerticalAlignment="Center" HorizontalContentAlignment="Left" Foreground="WhiteSmoke"
+                         HorizontalScrollBarVisibility="Auto">
+                            <TextBox.Text>
+                                <Binding Path="NewMachineCertificateSubjectName" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <validator:StringValidator></validator:StringValidator>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                    </Grid>
+
+                    <Grid Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2">
+                        <Label FontFamily = "Verdana" Content="{StaticResource Label_NewMachine_DnsName}" FontSize="12" VerticalContentAlignment="Center"/>
+                    </Grid>
+                    <Grid Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="6">
+                        <TextBox VerticalAlignment="Center" HorizontalContentAlignment="Left" Foreground="WhiteSmoke"
+                         HorizontalScrollBarVisibility="Auto">
+                            <TextBox.Text>
+                                <Binding Path="NewMachineCertificateDnsName" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <validator:StringValidator></validator:StringValidator>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                    </Grid>
+
+                    <Grid Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="8">
+                        <Button Content="{StaticResource Button_SaveMachineSettings}" Command="{Binding UpdateMachineSettingCommand}" 
                             HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange" HorizontalContentAlignment="Center"/>
                     </Grid>
 
-                    <Grid Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="8">
+                    <Grid Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="8">
                         <control:ConfirmMachineRemoveButton Content="{StaticResource Button_RemoveMachine}" Command="{Binding RemoveMachineCommand}"
                                                    Background="Green"/>
                     </Grid>

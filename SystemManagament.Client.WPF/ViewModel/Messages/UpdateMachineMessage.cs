@@ -13,5 +13,9 @@ namespace SystemManagament.Client.WPF.ViewModel.Messages
         public string MachineName { get; set; }
 
         public string MachineUri { get; set; }
+
+        public string NewMachineCertificateSubjectName { get; set; }
+
+        public string NewMachineCertificateDnsName { get; set; }
     }
 }

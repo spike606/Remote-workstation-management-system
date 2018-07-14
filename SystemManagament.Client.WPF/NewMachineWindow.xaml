@@ -7,16 +7,18 @@
         mc:Ignorable="d"
         x:Name="NewMachine"
         Title="New machine"
-        Height="300"
-        Width="700"
+        Height="500"
+        Width="800"
         ResizeMode="NoResize"
         ShowInTaskbar="True"
         WindowStartupLocation="CenterScreen"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         xmlns:validator="clr-namespace:SystemManagament.Client.WPF.Validator">
-    <Grid VerticalAlignment="Center" MaxWidth="800" HorizontalAlignment="Center">
+    <Grid VerticalAlignment="Center" Width="800" HorizontalAlignment="Stretch">
         <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="80"/>
             <RowDefinition Height="80"/>
             <RowDefinition Height="80"/>
             <RowDefinition Height="80"/>
@@ -28,11 +30,15 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1">
+            <Grid Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3">
             <Label FontFamily = "Verdana" Content="{StaticResource Label_NewMachine_Name}" FontSize="12" VerticalContentAlignment="Center"/>
             </Grid>
-        <Grid Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="4">
+        <Grid Grid.Column="4" Grid.Row="0" Grid.ColumnSpan="5">
                 <TextBox VerticalAlignment="Center" HorizontalContentAlignment="Left" Foreground="WhiteSmoke"
                      HorizontalScrollBarVisibility="Auto">
                     <TextBox.Text>
@@ -43,11 +49,11 @@
                     </Binding>
                     </TextBox.Text>
                 </TextBox>
-            </Grid>
-        <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="1">
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3">
             <Label FontFamily = "Verdana" Content="{StaticResource Label_NewMachine_Uri}" FontSize="12" VerticalContentAlignment="Center"/>
             </Grid>
-        <Grid Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4">
+        <Grid Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="5">
                 <TextBox VerticalAlignment="Center" HorizontalContentAlignment="Left" Foreground="WhiteSmoke"
                          HorizontalScrollBarVisibility="Auto">
                     <TextBox.Text>
@@ -58,13 +64,45 @@
                     </Binding>
                     </TextBox.Text>
                 </TextBox>
-            </Grid>
+        </Grid>
 
-        <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+        <Grid Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3">
+            <Label FontFamily = "Verdana" Content="{StaticResource Label_NewMachine_SubjectName}" FontSize="12" VerticalContentAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Column="4" Grid.Row="2" Grid.ColumnSpan="5">
+            <TextBox VerticalAlignment="Center" HorizontalContentAlignment="Left" Foreground="WhiteSmoke"
+                         HorizontalScrollBarVisibility="Auto">
+                <TextBox.Text>
+                    <Binding Path="NewMachineCertificateSubjectName" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validator:StringValidator></validator:StringValidator>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+        </Grid>
+
+        <Grid Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3">
+            <Label FontFamily = "Verdana" Content="{StaticResource Label_NewMachine_DnsName}" FontSize="12" VerticalContentAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Column="4" Grid.Row="3" Grid.ColumnSpan="5">
+            <TextBox VerticalAlignment="Center" HorizontalContentAlignment="Left" Foreground="WhiteSmoke"
+                         HorizontalScrollBarVisibility="Auto">
+                <TextBox.Text>
+                    <Binding Path="NewMachineCertificateDnsName" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <validator:StringValidator></validator:StringValidator>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+        </Grid>
+
+        <Grid Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2">
             <Button Content="{StaticResource Button_Ok}" Command="{Binding SendNewMachineMessageCommand}" 
                             HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange"/>
         </Grid>
-        <Grid Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2">
+        <Grid Grid.Row="4" Grid.Column="6" Grid.ColumnSpan="2">
             <Button Content="{StaticResource Button_Cancel}" Command="{Binding CloseWindowCommand}"
                     CommandParameter="{Binding ElementName=NewMachine}"
                             HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange"/>

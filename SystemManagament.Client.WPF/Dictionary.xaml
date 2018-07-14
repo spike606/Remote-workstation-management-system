@@ -664,7 +664,8 @@
     <system:String x:Key="Control_UserContext">User name:</system:String>
 
     <system:String x:Key="Button_RemoveMachine">Remove Machine</system:String>
-
+    <system:String x:Key="Button_SaveMachineSettings">Save machine settings</system:String>
+    
     <system:String x:Key="Menu_Manage">Manage</system:String>
     <system:String x:Key="Menu_NewMachine">New machine...</system:String>
     <system:String x:Key="Menu_SaveMachines">Save machines</system:String>
@@ -681,5 +682,7 @@
 
     <system:String x:Key="Label_NewMachine_Uri">Machine URI:</system:String>
     <system:String x:Key="Label_NewMachine_Name">Machine name:</system:String>
+    <system:String x:Key="Label_NewMachine_SubjectName">Client certificate - subject name:</system:String>
+    <system:String x:Key="Label_NewMachine_DnsName">Service certificate - dns name:</system:String>
 
 </ResourceDictionary>

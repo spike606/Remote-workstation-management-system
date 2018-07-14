@@ -17,6 +17,10 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
 
         string MachineIdentifier { get; set; }
 
+        string MachineCertificateDnsName { get; set; }
+
+        string MachineCertificateSubjectName { get; set; }
+
         Task<HardwareStaticData> ReadHardwareStaticDataAsync();
 
         Task<HardwareDynamicData> ReadHardwareDynamicDataAsync(

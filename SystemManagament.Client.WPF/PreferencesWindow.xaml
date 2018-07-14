@@ -37,13 +37,13 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" FontFamily="Verdana" TextWrapping="WrapWithOverflow" 
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="10" FontFamily="Verdana" TextWrapping="WrapWithOverflow" 
                                FontSize="12" Text="{StaticResource Label_Preferences_Info}" Foreground="White"
                                VerticalAlignment="Center"/>
         <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="5">
             <Label FontFamily = "Verdana" Content="{StaticResource Label_Preferences_DynamicHardware_Info}" FontSize="12" VerticalContentAlignment="Center"/>
         </Grid>
-        <Grid Grid.Column="6" Grid.Row="1" Grid.ColumnSpan="4">
+        <Grid Grid.Column="5" Grid.Row="1" Grid.ColumnSpan="5">
                 <TextBox VerticalAlignment="Center" HorizontalContentAlignment="Center" Foreground="WhiteSmoke"
                      HorizontalScrollBarVisibility="Auto">
                     <TextBox.Text>
@@ -58,7 +58,7 @@
         <Grid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="5">
             <Label FontFamily = "Verdana" Content="{StaticResource Label_Preferences_WindowsProcess_Info}" FontSize="12" VerticalContentAlignment="Center"/>
             </Grid>
-        <Grid Grid.Column="6" Grid.Row="2" Grid.ColumnSpan="4">
+        <Grid Grid.Column="5" Grid.Row="2" Grid.ColumnSpan="5">
             <TextBox VerticalAlignment="Center" HorizontalContentAlignment="Center" Foreground="WhiteSmoke"
                          HorizontalScrollBarVisibility="Auto">
                     <TextBox.Text>
@@ -74,7 +74,7 @@
         <Grid Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="5">
             <Label FontFamily = "Verdana" Content="{StaticResource Label_Preferences_WindowsService_Info}" FontSize="12" VerticalContentAlignment="Center"/>
         </Grid>
-        <Grid Grid.Column="6" Grid.Row="3" Grid.ColumnSpan="4">
+        <Grid Grid.Column="5" Grid.Row="3" Grid.ColumnSpan="5">
             <TextBox VerticalAlignment="Center" HorizontalContentAlignment="Center" Foreground="WhiteSmoke"
                          HorizontalScrollBarVisibility="Auto">
                 <TextBox.Text>
@@ -87,11 +87,11 @@
             </TextBox>
         </Grid>
 
-        <Grid Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4">
+        <Grid Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="5">
             <Button Content="{StaticResource Button_Save}" Command="{Binding SendSavePreferencesMessageCommand}" 
                             HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange"/>
         </Grid>
-        <Grid Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="4">
+        <Grid Grid.Row="5" Grid.Column="6" Grid.ColumnSpan="5">
             <Button Content="{StaticResource Button_Cancel}" Command="{Binding CloseWindowCommand}"
                     CommandParameter="{Binding ElementName=Preferences}"
                             HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange"/>

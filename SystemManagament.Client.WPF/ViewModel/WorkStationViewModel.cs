@@ -702,6 +702,10 @@ namespace SystemManagament.Client.WPF.ViewModel
 
         public string MachineUri { get; set; }
 
+        public string NewMachineCertificateSubjectName { get; set; }
+
+        public string NewMachineCertificateDnsName { get; set; }
+
         public string PowerShellRemoteSessionUserName
         {
             get
@@ -722,6 +726,8 @@ namespace SystemManagament.Client.WPF.ViewModel
             this.ViewModelIdentifier = workstationSettings.MachineIdentifier;
             this.MachineName = workstationSettings.MachineName;
             this.MachineUri = workstationSettings.Uri;
+            this.NewMachineCertificateDnsName = workstationSettings.NewMachineCertificateDnsName;
+            this.NewMachineCertificateSubjectName = workstationSettings.NewMachineCertificateSubjectName;
             this.ForceMachineRestartTimeout = new UIntParameter(workstationSettings.ForceMachineRestartTimeout);
             this.ForceMachineTurnOffTimeout = new UIntParameter(workstationSettings.ForceMachineTurnOffTimeout);
             this.commandFactory.LoadSettings(workstationSettings);
@@ -792,7 +798,9 @@ namespace SystemManagament.Client.WPF.ViewModel
             {
                 MachineIdentifier = this.ViewModelIdentifier,
                 MachineUri = this.MachineUri,
-                MachineName = this.MachineName
+                MachineName = this.MachineName,
+                NewMachineCertificateDnsName = this.NewMachineCertificateDnsName,
+                NewMachineCertificateSubjectName = this.NewMachineCertificateSubjectName
             });
         }
 

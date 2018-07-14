@@ -47,6 +47,10 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
 
         public string MachineIdentifier { get; set; }
 
+        public string MachineCertificateDnsName { get; set; }
+
+        public string MachineCertificateSubjectName { get; set; }
+
         public async Task<HardwareStaticData> ReadHardwareStaticDataAsync()
         {
             HardwareStaticData result = null;
@@ -460,7 +464,7 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
             netTcpBinding.Security.Transport.ClientCredentialType =
                TcpClientCredentialType.Certificate;
 
-            EndpointIdentity dnsEndpointIdentity = new DnsEndpointIdentity("test.WSMS.com");
+            EndpointIdentity dnsEndpointIdentity = new DnsEndpointIdentity(this.MachineCertificateDnsName);
 
             EndpointAddress endpointAddress = new EndpointAddress(new Uri(this.UriAddress), dnsEndpointIdentity);
 
@@ -471,7 +475,8 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
                 StoreLocation.CurrentUser,
                 StoreName.My,
                 X509FindType.FindBySubjectName,
-                "WSMS Client1");
+                this.MachineCertificateSubjectName);
+
             workstationMonitorServiceClient.ClientCredentials.ServiceCertificate
                 .Authentication.CertificateValidationMode = X509CertificateValidationMode.PeerTrust;
 

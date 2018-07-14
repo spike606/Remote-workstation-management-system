@@ -15,6 +15,10 @@ namespace SystemManagament.Client.WPF.Settings
 
         public string MachineName { get; set; }
 
+        public string NewMachineCertificateSubjectName { get; set; }
+
+        public string NewMachineCertificateDnsName { get; set; }
+
         public string Uri { get; set; }
 
         public uint ForceMachineTurnOffTimeout { get; set; }
