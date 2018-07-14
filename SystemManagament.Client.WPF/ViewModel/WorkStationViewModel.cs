@@ -733,6 +733,21 @@ namespace SystemManagament.Client.WPF.ViewModel
             this.commandFactory.LoadSettings(workstationSettings);
         }
 
+        public void CancelAllCommands()
+        {
+            this.LoadHardwareDynamicDataCommand.CancelCommand.Execute(null);
+            this.LoadWindowsProcessDynamicDataCommand.CancelCommand.Execute(null);
+            this.LoadWindowsServiceDynamicDataCommand.CancelCommand.Execute(null);
+            this.LoadWindowsLogDynamicDataCommand.CancelCommand.Execute(null);
+            this.LoadHardwareDynamicDataCommand.CancelCommand.Execute(null);
+            this.LoadHardwareStaticDataCommand.CancelCommand.Execute(null);
+            this.LoadSoftwareStaticDataCommand.CancelCommand.Execute(null);
+            this.TurnMachineOffCommand.CancelCommand.Execute(null);
+            this.RestartMachineCommand.CancelCommand.Execute(null);
+            this.ForceTurnMachineOffCommand.CancelCommand.Execute(null);
+            this.ForceRestartMachineCommand.CancelCommand.Execute(null);
+        }
+
         private void InitializeCommands()
         {
             this.RemoveMachineCommand = new RelayCommand(this.RemoveMachine);
@@ -808,21 +823,6 @@ namespace SystemManagament.Client.WPF.ViewModel
         {
             this.CancelAllCommands();
             this.SendRemoveMachineTabMessage();
-        }
-
-        private void CancelAllCommands()
-        {
-            this.LoadHardwareDynamicDataCommand.CancelCommand.Execute(null);
-            this.LoadWindowsProcessDynamicDataCommand.CancelCommand.Execute(null);
-            this.LoadWindowsServiceDynamicDataCommand.CancelCommand.Execute(null);
-            this.LoadWindowsLogDynamicDataCommand.CancelCommand.Execute(null);
-            this.LoadHardwareDynamicDataCommand.CancelCommand.Execute(null);
-            this.LoadHardwareStaticDataCommand.CancelCommand.Execute(null);
-            this.LoadSoftwareStaticDataCommand.CancelCommand.Execute(null);
-            this.TurnMachineOffCommand.CancelCommand.Execute(null);
-            this.RestartMachineCommand.CancelCommand.Execute(null);
-            this.ForceTurnMachineOffCommand.CancelCommand.Execute(null);
-            this.ForceRestartMachineCommand.CancelCommand.Execute(null);
         }
 
         private void SendRemoveMachineTabMessage()

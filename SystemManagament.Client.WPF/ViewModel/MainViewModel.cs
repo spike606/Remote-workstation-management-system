@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Net.Http;
 using System.Threading;
@@ -44,6 +45,8 @@ namespace SystemManagament.Client.WPF.ViewModel
 
         public MainViewModel()
         {
+            Application.Current.MainWindow.Closing += this.OnWindowClosing;
+
             this.InitializeCommands();
             this.InitializeMessageHandlers();
             this.LoadUserSettings();
@@ -81,6 +84,11 @@ namespace SystemManagament.Client.WPF.ViewModel
             {
                 this.Set(() => this.ViewModelTabs, ref this.viewModelTabs, value);
             }
+        }
+
+        public void OnWindowClosing(object sender, CancelEventArgs e)
+        {
+            this.CloseApplication();
         }
 
         ////if (IsInDesignMode)
@@ -164,6 +172,11 @@ namespace SystemManagament.Client.WPF.ViewModel
 
         private void CloseApplication()
         {
+            foreach (var viewModel in this.ViewModelTabs)
+            {
+                viewModel.CancelAllCommands();
+            }
+
             Application.Current.Shutdown();
         }
 
