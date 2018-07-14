@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
+using System.ServiceModel.Security;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -452,9 +455,27 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
             netTcpBinding.ReliableSession.Enabled = this.reliableSessionEnabled;
             netTcpBinding.ReliableSession.Ordered = this.reliableSessionOrdered;
 
-            EndpointAddress endpointAddress = new EndpointAddress(this.UriAddress);
+            netTcpBinding.Security.Mode = SecurityMode.Transport;
+            netTcpBinding.Security.Transport.ProtectionLevel = ProtectionLevel.EncryptAndSign;
+            netTcpBinding.Security.Transport.ClientCredentialType =
+               TcpClientCredentialType.Certificate;
 
-            return new WorkstationMonitorServiceClient(netTcpBinding, endpointAddress);
+            EndpointIdentity dnsEndpointIdentity = new DnsEndpointIdentity("test.WSMS.com");
+
+            EndpointAddress endpointAddress = new EndpointAddress(new Uri(this.UriAddress), dnsEndpointIdentity);
+
+            WorkstationMonitorServiceClient workstationMonitorServiceClient = new WorkstationMonitorServiceClient(netTcpBinding, endpointAddress);
+
+            // The client must specify a certificate trusted by the server.
+            workstationMonitorServiceClient.ClientCredentials.ClientCertificate.SetCertificate(
+                StoreLocation.CurrentUser,
+                StoreName.My,
+                X509FindType.FindBySubjectName,
+                "WSMS Client1");
+            workstationMonitorServiceClient.ClientCredentials.ServiceCertificate
+                .Authentication.CertificateValidationMode = X509CertificateValidationMode.PeerTrust;
+
+            return workstationMonitorServiceClient;
         }
 
         private void SendErrorMessageTimeout()

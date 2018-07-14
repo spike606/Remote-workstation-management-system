@@ -111,6 +111,11 @@ namespace SystemManagament.Monitor.HardwareStatic.Analyzer
                         continue;
                     }
 
+                    if (smartData.Attributes.Any(kv => kv.Key == currentAttributeFromDictionary.Key))
+                    {
+                        continue;
+                    }
+
                     smartData.Attributes.Add(currentAttributeFromDictionary.Key, currentAttributeFromDictionary.Value);
                     var currentAttribute = smartData.Attributes[currentAttributeFromDictionary.Key];
                     currentAttribute.Current = value;
@@ -306,12 +311,16 @@ namespace SystemManagament.Monitor.HardwareStatic.Analyzer
         {
             foreach (var smart in smartData)
             {
+                string instanceNamePreparedToCompare = smart.InstanceName
+                    .ToLower()
+                    .Replace('\\', '#')
+                    .Substring(0, smart.InstanceName.Length - 2);
+
                 foreach (var storage in storageData)
                 {
-                    string diskUniqueIdLower = storage.Disk.UniqueId.ToLower();
-                    string diskUniqueIdLowerSubstring = diskUniqueIdLower.Substring(0, diskUniqueIdLower.LastIndexOf(":"));
+                    string diskObjectIdPreparedToCompare = storage.Disk.ObjectId.ToLower();
 
-                    if (smart.InstanceName.ToLower().Contains(diskUniqueIdLowerSubstring))
+                    if (diskObjectIdPreparedToCompare.Contains(instanceNamePreparedToCompare))
                     {
                         storage.SMARTData = smart;
                         break;
