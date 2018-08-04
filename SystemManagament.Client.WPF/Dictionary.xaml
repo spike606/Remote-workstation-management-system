@@ -659,9 +659,8 @@
     <system:String x:Key="Control_Button_RestartMachine">Restart machine</system:String>
     <system:String x:Key="Control_Button_ForceTurnMachineOff">Turn machine off in 10 seconds</system:String>
     <system:String x:Key="Control_Button_ForceRestartMachine">Restart machine in 10 seconds</system:String>
-    <system:String x:Key="Label_Control_Powershell_Description">To execute commands remotly, connect using windows powershell. In order to connect, Powershell Remoting must be enabled on machines to which you want to make connection (this will start WinRM service which handles remote control). You must specify user in which context remote session will be started. </system:String>
+    <system:String x:Key="Label_Control_Powershell_Description">To execute commands remotly, connect using windows powershell. In order to connect, Powershell Remoting must be enabled on machines to which you want to make connection (this will start WinRM service which handles remote control). Computer name will be used in order to connect, make sure that provided computer name is correct.</system:String>
     <system:String x:Key="Control_Button_ConnectPowershell">Start remote session using powershell</system:String>
-    <system:String x:Key="Control_UserContext">User name:</system:String>
 
     <system:String x:Key="Button_RemoveMachine">Remove Machine</system:String>
     <system:String x:Key="Button_SaveMachineSettings">Save machine settings</system:String>

@@ -293,7 +293,7 @@ namespace SystemManagament.Client.WPF.Factories
 
         public ICommand CreatePowershellWindowCommand()
         {
-            return new RelayCommand<string>((remoteSessionUserName) => this.processClient.StartPowershellProcess(remoteSessionUserName));
+            return new RelayCommand<string>((computerName) => this.processClient.StartPowershellProcess(computerName));
         }
 
         public void LoadSettings(WorkstationSettings workstationSettings)

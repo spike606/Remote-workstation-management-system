@@ -9,15 +9,14 @@ namespace SystemManagament.Client.WPF.ViewModel
 {
     public class ProcessClient : IProcessClient
     {
-        private const string TestRemotePowershellConnection = "Test - WsMan COMPUTER";
-        private const string Dir = "dir";
-        private const string StartRemoteSessions = "Enter-PSSession -ComputerName {0} -Credential {1}";
+        private const string StartRemoteSessionTemplate = "Enter-PSSession -ComputerName {0} -UseSSL -Credential('RemoteMachineUser')";
 
-        public void StartPowershellProcess(string powerShellRemoteSessionUserName)
+        public void StartPowershellProcess(string powerShellRemoteSessionComputerName)
         {
             ProcessStartInfo psi = new ProcessStartInfo();
             psi.FileName = "powershell.exe";
-            psi.Arguments = "PowerShell -NoExit -Command \"" + Dir + "\"";
+            psi.Arguments = string.Format("PowerShell -NoExit -Command \"" + StartRemoteSessionTemplate + "\"", powerShellRemoteSessionComputerName);
+
             Process process = new Process();
             process.StartInfo = psi;
             process.Start();

@@ -54,13 +54,19 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
         public async Task<HardwareStaticData> ReadHardwareStaticDataAsync()
         {
             HardwareStaticData result = null;
-
-            var client = this.GetNewWorkstationMonitorServiceClient();
+            WorkstationMonitorServiceClient client = null;
 
             try
             {
+                client = this.GetNewWorkstationMonitorServiceClient();
+
                 result = await client.ReadHardwareStaticDataAsync();
                 client.Close();
+            }
+            catch (InvalidOperationException ex)
+            {
+                this.SendErrorMessage(ex.Message);
+                this.SendCancelCommandMessage();
             }
             catch (EndpointNotFoundException)
             {
@@ -105,11 +111,12 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
             CancellationToken cancellationToken)
         {
             HardwareDynamicData result = null;
-
-            var client = this.GetNewWorkstationMonitorServiceClient();
+            WorkstationMonitorServiceClient client = null;
 
             try
             {
+                client = this.GetNewWorkstationMonitorServiceClient();
+
                 result = await client.ReadHardwareDynamicDataAsync();
                 client.Close();
 
@@ -211,6 +218,11 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
                     }
                 }
             }
+            catch (InvalidOperationException ex)
+            {
+                this.SendErrorMessage(ex.Message);
+                this.SendCancelCommandMessage();
+            }
             catch (EndpointNotFoundException)
             {
                 this.SendErrorMessageEndpointNotFound();
@@ -236,13 +248,19 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
         public async Task<SoftwareStaticData> ReadSoftwareStaticDataAsync()
         {
             SoftwareStaticData result = null;
-
-            var client = this.GetNewWorkstationMonitorServiceClient();
+            WorkstationMonitorServiceClient client = null;
 
             try
             {
+                client = this.GetNewWorkstationMonitorServiceClient();
+
                 result = await client.ReadSoftwareStaticDataAsync();
                 client.Close();
+            }
+            catch (InvalidOperationException ex)
+            {
+                this.SendErrorMessage(ex.Message);
+                this.SendCancelCommandMessage();
             }
             catch (EndpointNotFoundException)
             {
@@ -271,11 +289,12 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
             CancellationToken cancellationToken)
         {
             WindowsProcess[] result = null;
-
-            var client = this.GetNewWorkstationMonitorServiceClient();
+            WorkstationMonitorServiceClient client = null;
 
             try
             {
+                client = this.GetNewWorkstationMonitorServiceClient();
+
                 result = await client.ReadWindowsProcessDynamicDataAsync();
                 client.Close();
 
@@ -283,6 +302,11 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
                 {
                     windowsProcessDynamicObservableCollection.ReplaceRange(result);
                 }
+            }
+            catch (InvalidOperationException ex)
+            {
+                this.SendErrorMessage(ex.Message);
+                this.SendCancelCommandMessage();
             }
             catch (EndpointNotFoundException)
             {
@@ -311,11 +335,12 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
             CancellationToken cancellationToken)
         {
             WindowsService[] result = null;
-
-            var client = this.GetNewWorkstationMonitorServiceClient();
+            WorkstationMonitorServiceClient client = null;
 
             try
             {
+                client = this.GetNewWorkstationMonitorServiceClient();
+
                 result = await client.ReadWindowsServiceDynamicDataAsync();
                 client.Close();
 
@@ -323,6 +348,11 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
                 {
                     windowsServiceDynamicObservableCollection.ReplaceRange(result, new WindowsServiceComparer());
                 }
+            }
+            catch (InvalidOperationException ex)
+            {
+                this.SendErrorMessage(ex.Message);
+                this.SendCancelCommandMessage();
             }
             catch (EndpointNotFoundException)
             {
@@ -349,13 +379,18 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
         public async Task<WindowsLog[]> ReadWindowsLogDynamicDataAsync()
         {
             WindowsLog[] result = null;
-
-            var client = this.GetNewWorkstationMonitorServiceClient();
+            WorkstationMonitorServiceClient client = null;
 
             try
             {
+                client = this.GetNewWorkstationMonitorServiceClient();
                 result = await client.ReadWindowsLogDynamicDataAsync();
                 client.Close();
+            }
+            catch (InvalidOperationException ex)
+            {
+                this.SendErrorMessage(ex.Message);
+                this.SendCancelCommandMessage();
             }
             catch (EndpointNotFoundException)
             {
@@ -382,13 +417,19 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
         public async Task<OperationStatus> TurnMachineOffAsync(uint timeoutInSeconds)
         {
             OperationStatus result = null;
-
-            var client = this.GetNewWorkstationMonitorServiceClient();
+            WorkstationMonitorServiceClient client = null;
 
             try
             {
+                client = this.GetNewWorkstationMonitorServiceClient();
+
                 result = await client.TurnMachineOffAsync(timeoutInSeconds);
                 client.Close();
+            }
+            catch (InvalidOperationException ex)
+            {
+                this.SendErrorMessage(ex.Message);
+                this.SendCancelCommandMessage();
             }
             catch (EndpointNotFoundException)
             {
@@ -415,13 +456,19 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
         public async Task<OperationStatus> RestartMachineAsync(uint timeoutInSeconds)
         {
             OperationStatus result = null;
-
-            var client = this.GetNewWorkstationMonitorServiceClient();
+            WorkstationMonitorServiceClient client = null;
 
             try
             {
+                client = this.GetNewWorkstationMonitorServiceClient();
+
                 result = await client.RestartMachineAsync(timeoutInSeconds);
                 client.Close();
+            }
+            catch (InvalidOperationException ex)
+            {
+                this.SendErrorMessage(ex.Message);
+                this.SendCancelCommandMessage();
             }
             catch (EndpointNotFoundException)
             {

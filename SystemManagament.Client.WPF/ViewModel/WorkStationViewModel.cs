@@ -706,19 +706,6 @@ namespace SystemManagament.Client.WPF.ViewModel
 
         public string NewMachineCertificateDnsName { get; set; }
 
-        public string PowerShellRemoteSessionUserName
-        {
-            get
-            {
-                return this.powerShellRemoteSessionUserName;
-            }
-
-            set
-            {
-                this.Set(() => this.PowerShellRemoteSessionUserName, ref this.powerShellRemoteSessionUserName, value);
-            }
-        }
-
         public string ViewModelIdentifier { get; set; }
 
         public void LoadSettings(WorkstationSettings workstationSettings)

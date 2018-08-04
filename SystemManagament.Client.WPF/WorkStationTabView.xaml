@@ -240,20 +240,8 @@
                                FontSize="14" Text="{StaticResource Label_Control_Powershell_Description}" Foreground="White"
                                VerticalAlignment="Center"/>
 
-
-                    <Grid Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2" >
-                        <Label FontFamily = "Verdana" Content="{StaticResource Control_UserContext}" FontSize="12" VerticalContentAlignment="Center"/>
-                    </Grid>
-                        
-                    <Grid Grid.Row="9" Grid.Column="3" Grid.ColumnSpan="1">
-                        <TextBox VerticalAlignment="Center" HorizontalContentAlignment="Center" Foreground="WhiteSmoke">
-                            <TextBox.Text>
-                                <Binding Path="PowerShellRemoteSessionUserName" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged"/>
-                            </TextBox.Text>
-                        </TextBox>
-                    </Grid>
-                    <Grid Grid.Row="9" Grid.Column="5" Grid.ColumnSpan="3">
-                        <Button Content="{StaticResource Control_Button_ConnectPowershell}" Command="{Binding CreatePowershellWindowCommand}" CommandParameter="{Binding PowerShellRemoteSessionUserName}"
+                    <Grid Grid.Row="10" Grid.Column="2" Grid.ColumnSpan="5">
+                        <Button Content="{StaticResource Control_Button_ConnectPowershell}" Command="{Binding CreatePowershellWindowCommand}" CommandParameter="{Binding MachineName}"
                                                    Background="Blue"/>
                     </Grid>
 
