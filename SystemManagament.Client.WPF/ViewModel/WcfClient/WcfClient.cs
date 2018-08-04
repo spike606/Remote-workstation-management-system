@@ -268,7 +268,7 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
                 this.SendCancelCommandMessage();
                 client.Abort();
             }
-            catch (TimeoutException)
+            catch (TimeoutException ex)
             {
                 this.SendErrorMessageTimeout();
                 this.SendCancelCommandMessage();
@@ -511,6 +511,8 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
             netTcpBinding.Security.Transport.ClientCredentialType =
                TcpClientCredentialType.Certificate;
 
+            // Use DnsEndpointIdentity in order to verify wcf service with certificate so client can trust him
+            // Dns name will be asserted with dns name from service certificate
             EndpointIdentity dnsEndpointIdentity = new DnsEndpointIdentity(this.MachineCertificateDnsName);
 
             EndpointAddress endpointAddress = new EndpointAddress(new Uri(this.UriAddress), dnsEndpointIdentity);
@@ -519,13 +521,13 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
 
             // The client must specify a certificate trusted by the server.
             workstationMonitorServiceClient.ClientCredentials.ClientCertificate.SetCertificate(
-                StoreLocation.CurrentUser,
+                StoreLocation.LocalMachine,
                 StoreName.My,
                 X509FindType.FindBySubjectName,
                 this.MachineCertificateSubjectName);
 
             workstationMonitorServiceClient.ClientCredentials.ServiceCertificate
-                .Authentication.CertificateValidationMode = X509CertificateValidationMode.PeerTrust;
+                .Authentication.CertificateValidationMode = X509CertificateValidationMode.PeerOrChainTrust;
 
             return workstationMonitorServiceClient;
         }
