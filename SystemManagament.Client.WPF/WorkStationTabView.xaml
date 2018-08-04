@@ -41,7 +41,7 @@
             </dragablz:TabablzControl.InterTabController>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="{StaticResource Header_ConnectionSettings}" Foreground="Black" />
+                    <TextBlock Text="{StaticResource Header_ConnectionSettings}" Foreground="DarkRed" />
                 </TabItem.Header>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -146,7 +146,7 @@
             </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="{StaticResource Header_Control}" Foreground="Black" />
+                    <TextBlock Text="{StaticResource Header_Control}" Foreground="Blue" />
                 </TabItem.Header>
                 <Grid >
                         <Grid.RowDefinitions>
