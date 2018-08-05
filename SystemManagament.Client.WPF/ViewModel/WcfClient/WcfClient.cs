@@ -522,7 +522,7 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
             // The client must specify a certificate trusted by the server.
             workstationMonitorServiceClient.ClientCredentials.ClientCertificate.SetCertificate(
                 StoreLocation.LocalMachine,
-                StoreName.My,
+                StoreName.TrustedPeople,
                 X509FindType.FindBySubjectName,
                 this.MachineCertificateSubjectName);
 

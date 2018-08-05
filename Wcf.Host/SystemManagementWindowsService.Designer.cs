@@ -1,6 +1,6 @@
 ﻿namespace WcfHost
 {
-    partial class SystemManagamentService
+    partial class SystemManagementWindowsService
     {
         /// <summary> 
         /// Required designer variable.
