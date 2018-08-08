@@ -47,7 +47,7 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
 
         public string MachineIdentifier { get; set; }
 
-        public string MachineCertificateDnsName { get; set; }
+        public string ClientCertificateSubjectName { get; set; }
 
         public string MachineCertificateSubjectName { get; set; }
 
@@ -494,14 +494,16 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
 
         private WorkstationMonitorServiceClient GetNewWorkstationMonitorServiceClient()
         {
-            NetTcpBinding netTcpBinding = new NetTcpBinding();
-            netTcpBinding.CloseTimeout = this.timeoutTimeSpan;
-            netTcpBinding.OpenTimeout = this.timeoutTimeSpan;
-            netTcpBinding.SendTimeout = this.timeoutTimeSpan;
+            NetTcpBinding netTcpBinding = new NetTcpBinding
+            {
+                CloseTimeout = this.timeoutTimeSpan,
+                OpenTimeout = this.timeoutTimeSpan,
+                SendTimeout = this.timeoutTimeSpan,
 
-            netTcpBinding.MaxBufferPoolSize = this.maxBufferPoolSize;
-            netTcpBinding.MaxBufferSize = this.maxBufferSize;
-            netTcpBinding.MaxReceivedMessageSize = this.maxReceivedMessageSize;
+                MaxBufferPoolSize = this.maxBufferPoolSize,
+                MaxBufferSize = this.maxBufferSize,
+                MaxReceivedMessageSize = this.maxReceivedMessageSize
+            };
 
             netTcpBinding.ReliableSession.Enabled = this.reliableSessionEnabled;
             netTcpBinding.ReliableSession.Ordered = this.reliableSessionOrdered;
@@ -511,25 +513,60 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
             netTcpBinding.Security.Transport.ClientCredentialType =
                TcpClientCredentialType.Certificate;
 
-            // Use DnsEndpointIdentity in order to verify wcf service with certificate so client can trust him
-            // Dns name will be asserted with dns name from service certificate
-            EndpointIdentity dnsEndpointIdentity = new DnsEndpointIdentity(this.MachineCertificateDnsName);
+            X509Certificate2 serviceCertificate = this.GetCertificate(this.MachineCertificateSubjectName);
+            X509Certificate2 clientCertificate = this.GetCertificate(this.ClientCertificateSubjectName);
 
-            EndpointAddress endpointAddress = new EndpointAddress(new Uri(this.UriAddress), dnsEndpointIdentity);
+            // TODO: Refactor in order to validate certificate existance first and not to use exceptions in this case
+            if (serviceCertificate == null)
+            {
+                throw new InvalidOperationException($"Certificate with subject name: {this.MachineCertificateSubjectName} not found.");
+            }
+
+            if (clientCertificate == null)
+            {
+                throw new InvalidOperationException($"Certificate with subject name: {this.ClientCertificateSubjectName} not found.");
+            }
+
+            EndpointAddress endpointAddress = new EndpointAddress(
+                new Uri(this.UriAddress),
+                EndpointIdentity.CreateX509CertificateIdentity(serviceCertificate));
 
             WorkstationMonitorServiceClient workstationMonitorServiceClient = new WorkstationMonitorServiceClient(netTcpBinding, endpointAddress);
 
-            // The client must specify a certificate trusted by the server.
-            workstationMonitorServiceClient.ClientCredentials.ClientCertificate.SetCertificate(
+            // Specify a default certificate for the service.
+            workstationMonitorServiceClient.ClientCredentials.ServiceCertificate.SetDefaultCertificate(
                 StoreLocation.LocalMachine,
                 StoreName.TrustedPeople,
-                X509FindType.FindBySubjectName,
+                X509FindType.FindBySubjectDistinguishedName,
                 this.MachineCertificateSubjectName);
 
             workstationMonitorServiceClient.ClientCredentials.ServiceCertificate
                 .Authentication.CertificateValidationMode = X509CertificateValidationMode.PeerOrChainTrust;
 
+            // Specify a certificate to use for authenticating the client.
+            workstationMonitorServiceClient.ClientCredentials.ClientCertificate.SetCertificate(
+                StoreLocation.LocalMachine,
+                StoreName.TrustedPeople,
+                X509FindType.FindBySubjectDistinguishedName,
+                this.ClientCertificateSubjectName);
+
             return workstationMonitorServiceClient;
+        }
+
+        private X509Certificate2 GetCertificate(string certificateSubjectName)
+        {
+            X509Store certStore = new X509Store(StoreName.My, StoreLocation.LocalMachine);
+            certStore.Open(OpenFlags.ReadOnly);
+            X509Certificate2Collection certCollection = certStore.Certificates.Find(
+                X509FindType.FindBySubjectDistinguishedName, certificateSubjectName, false);
+            certStore.Close();
+
+            if (certCollection.Count == 0)
+            {
+                return null;
+            }
+
+            return certCollection[0];
         }
 
         private void SendErrorMessageTimeout()

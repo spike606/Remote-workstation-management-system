@@ -300,7 +300,7 @@ namespace SystemManagament.Client.WPF.Factories
         {
             this.wcfClient.UriAddress = workstationSettings.Uri;
             this.wcfClient.MachineIdentifier = workstationSettings.MachineIdentifier;
-            this.wcfClient.MachineCertificateDnsName = workstationSettings.NewMachineCertificateDnsName;
+            this.wcfClient.ClientCertificateSubjectName = workstationSettings.ClientCertificateSubjectName;
             this.wcfClient.MachineCertificateSubjectName = workstationSettings.NewMachineCertificateSubjectName;
         }
 

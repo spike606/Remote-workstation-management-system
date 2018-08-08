@@ -681,7 +681,7 @@
 
     <system:String x:Key="Label_NewMachine_Uri">Machine URI:</system:String>
     <system:String x:Key="Label_NewMachine_Name">Machine name:</system:String>
-    <system:String x:Key="Label_NewMachine_SubjectName">Client certificate - subject name:</system:String>
-    <system:String x:Key="Label_NewMachine_DnsName">Service certificate - dns name:</system:String>
+    <system:String x:Key="Label_NewMachine_RemoteMachine_SubjectName">Machine certificate subject name:</system:String>
+    <system:String x:Key="Label_NewMachine_Client_SubjectName">Client certificate subject name:</system:String>
 
 </ResourceDictionary>

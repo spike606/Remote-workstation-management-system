@@ -704,7 +704,7 @@ namespace SystemManagament.Client.WPF.ViewModel
 
         public string NewMachineCertificateSubjectName { get; set; }
 
-        public string NewMachineCertificateDnsName { get; set; }
+        public string ClientCertificateSubjectName { get; set; }
 
         public string ViewModelIdentifier { get; set; }
 
@@ -713,7 +713,7 @@ namespace SystemManagament.Client.WPF.ViewModel
             this.ViewModelIdentifier = workstationSettings.MachineIdentifier;
             this.MachineName = workstationSettings.MachineName;
             this.MachineUri = workstationSettings.Uri;
-            this.NewMachineCertificateDnsName = workstationSettings.NewMachineCertificateDnsName;
+            this.ClientCertificateSubjectName = workstationSettings.ClientCertificateSubjectName;
             this.NewMachineCertificateSubjectName = workstationSettings.NewMachineCertificateSubjectName;
             this.ForceMachineRestartTimeout = new UIntParameter(workstationSettings.ForceMachineRestartTimeout);
             this.ForceMachineTurnOffTimeout = new UIntParameter(workstationSettings.ForceMachineTurnOffTimeout);
@@ -801,7 +801,7 @@ namespace SystemManagament.Client.WPF.ViewModel
                 MachineIdentifier = this.ViewModelIdentifier,
                 MachineUri = this.MachineUri,
                 MachineName = this.MachineName,
-                NewMachineCertificateDnsName = this.NewMachineCertificateDnsName,
+                ClientCertificateSubjectName = this.ClientCertificateSubjectName,
                 NewMachineCertificateSubjectName = this.NewMachineCertificateSubjectName
             });
         }

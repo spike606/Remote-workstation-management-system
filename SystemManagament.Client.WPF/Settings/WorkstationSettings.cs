@@ -17,7 +17,7 @@ namespace SystemManagament.Client.WPF.Settings
 
         public string NewMachineCertificateSubjectName { get; set; }
 
-        public string NewMachineCertificateDnsName { get; set; }
+        public string ClientCertificateSubjectName { get; set; }
 
         public string Uri { get; set; }
 

@@ -16,8 +16,8 @@ namespace SystemManagament.Client.WPF.ViewModel
     {
         private string newMachineUri = "net.tcp://localhost:8001/WorkstationMonitorService";
         private string newMachineName = "My local machine";
-        private string newMachineCertificateSubjectName = "Certificate subject name";
-        private string newMachineCertificateDnsName = "Certificate dns name";
+        private string newMachineCertificateSubjectName = "Remote machine certificate subject name";
+        private string clientCertificateSubjectName = "Client certificate subject name";
 
         private NewMachineWindow newMachineWindow;
 
@@ -71,16 +71,16 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
-        public string NewMachineCertificateDnsName
+        public string ClientCertificateSubjectName
         {
             get
             {
-                return this.newMachineCertificateDnsName;
+                return this.clientCertificateSubjectName;
             }
 
             set
             {
-                this.Set(() => this.NewMachineCertificateDnsName, ref this.newMachineCertificateDnsName, value);
+                this.Set(() => this.ClientCertificateSubjectName, ref this.clientCertificateSubjectName, value);
             }
         }
 
@@ -102,7 +102,7 @@ namespace SystemManagament.Client.WPF.ViewModel
                 MachineIdentifier = Guid.NewGuid().ToString(),
                 MachineUri = this.NewMachineUri,
                 MachineName = this.NewMachineName,
-                NewMachineCertificateDnsName = this.NewMachineCertificateDnsName,
+                ClientCertificateSubjectName = this.ClientCertificateSubjectName,
                 NewMachineCertificateSubjectName = this.NewMachineCertificateSubjectName,
             });
 

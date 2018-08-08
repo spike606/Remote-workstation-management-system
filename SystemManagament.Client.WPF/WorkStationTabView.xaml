@@ -102,7 +102,7 @@
                     </Grid>
 
                     <Grid Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2">
-                        <Label FontFamily = "Verdana" Content="{StaticResource Label_NewMachine_SubjectName}" FontSize="12" VerticalContentAlignment="Center"/>
+                        <Label FontFamily = "Verdana" Content="{StaticResource Label_NewMachine_RemoteMachine_SubjectName}" FontSize="12" VerticalContentAlignment="Center"/>
                     </Grid>
                     <Grid Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="6">
                         <TextBox VerticalAlignment="Center" HorizontalContentAlignment="Left" Foreground="WhiteSmoke"
@@ -118,13 +118,13 @@
                     </Grid>
 
                     <Grid Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2">
-                        <Label FontFamily = "Verdana" Content="{StaticResource Label_NewMachine_DnsName}" FontSize="12" VerticalContentAlignment="Center"/>
+                        <Label FontFamily = "Verdana" Content="{StaticResource Label_NewMachine_Client_SubjectName}" FontSize="12" VerticalContentAlignment="Center"/>
                     </Grid>
                     <Grid Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="6">
                         <TextBox VerticalAlignment="Center" HorizontalContentAlignment="Left" Foreground="WhiteSmoke"
                          HorizontalScrollBarVisibility="Auto">
                             <TextBox.Text>
-                                <Binding Path="NewMachineCertificateDnsName" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                <Binding Path="ClientCertificateSubjectName" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
                                     <Binding.ValidationRules>
                                         <validator:StringValidator></validator:StringValidator>
                                     </Binding.ValidationRules>

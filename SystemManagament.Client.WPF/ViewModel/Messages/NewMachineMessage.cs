@@ -16,6 +16,6 @@ namespace SystemManagament.Client.WPF.ViewModel.Messages
 
         public string NewMachineCertificateSubjectName { get; set; }
 
-        public string NewMachineCertificateDnsName { get; set; }
+        public string ClientCertificateSubjectName { get; set; }
     }
 }
