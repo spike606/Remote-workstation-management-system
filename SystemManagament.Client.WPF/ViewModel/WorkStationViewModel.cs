@@ -82,8 +82,6 @@ namespace SystemManagament.Client.WPF.ViewModel
         private UIntParameter turnMachineOffTimeoutInSeconds = new UIntParameter(60);
         private UIntParameter restartMachineTimeoutInSeconds = new UIntParameter(60);
 
-        private string powerShellRemoteSessionUserName = "Username";
-
         public WorkStationViewModel(ICommandFactory commandFactory, IUintValidator uintValidator)
         {
             this.commandFactory = commandFactory;

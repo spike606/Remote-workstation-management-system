@@ -55,7 +55,13 @@ namespace SystemManagament.Client.WPF.ViewModel.Commands
             this.cancelCommand.NotifyCommandStarting();
             this.Execution = new NotifyTaskCompletion<TResult>(this.command(this.cancelCommand.Token));
             this.RaiseCanExecuteChanged();
-            await this.Execution.TaskCompletion;
+
+            // Wait for task completion only if it was not faulted while calling
+            if (!this.Execution.IsFaulted)
+            {
+                await this.Execution.TaskCompletion;
+            }
+
             this.cancelCommand.NotifyCommandFinished();
             this.RaiseCanExecuteChanged();
         }

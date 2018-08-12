@@ -51,43 +51,9 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
 
         public string MachineCertificateSubjectName { get; set; }
 
-        public async Task<HardwareStaticData> ReadHardwareStaticDataAsync()
+        public async Task<HardwareStaticData> ReadHardwareStaticDataAsync(WorkstationMonitorServiceClient client)
         {
-            HardwareStaticData result = null;
-            WorkstationMonitorServiceClient client = null;
-
-            try
-            {
-                client = this.GetNewWorkstationMonitorServiceClient();
-
-                result = await client.ReadHardwareStaticDataAsync();
-                client.Close();
-            }
-            catch (InvalidOperationException ex)
-            {
-                this.SendErrorMessage(ex.Message);
-                this.SendCancelCommandMessage();
-            }
-            catch (EndpointNotFoundException)
-            {
-                this.SendErrorMessageEndpointNotFound();
-                this.SendCancelCommandMessage();
-                client.Abort();
-            }
-            catch (TimeoutException)
-            {
-                this.SendErrorMessageTimeout();
-                this.SendCancelCommandMessage();
-                client.Abort();
-            }
-            catch (CommunicationException ex)
-            {
-                this.SendErrorMessage(ex.Message);
-                this.SendCancelCommandMessage();
-                client.Abort();
-            }
-
-            return result;
+            return await client.ReadHardwareStaticDataAsync();
         }
 
         public async Task<HardwareDynamicData> ReadHardwareDynamicDataAsync(
@@ -115,7 +81,7 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
 
             try
             {
-                client = this.GetNewWorkstationMonitorServiceClient();
+                client = await this.GetNewWorkstationMonitorServiceClient();
 
                 result = await client.ReadHardwareDynamicDataAsync();
                 client.Close();
@@ -245,43 +211,9 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
             return result;
         }
 
-        public async Task<SoftwareStaticData> ReadSoftwareStaticDataAsync()
+        public async Task<SoftwareStaticData> ReadSoftwareStaticDataAsync(WorkstationMonitorServiceClient client)
         {
-            SoftwareStaticData result = null;
-            WorkstationMonitorServiceClient client = null;
-
-            try
-            {
-                client = this.GetNewWorkstationMonitorServiceClient();
-
-                result = await client.ReadSoftwareStaticDataAsync();
-                client.Close();
-            }
-            catch (InvalidOperationException ex)
-            {
-                this.SendErrorMessage(ex.Message);
-                this.SendCancelCommandMessage();
-            }
-            catch (EndpointNotFoundException)
-            {
-                this.SendErrorMessageEndpointNotFound();
-                this.SendCancelCommandMessage();
-                client.Abort();
-            }
-            catch (TimeoutException ex)
-            {
-                this.SendErrorMessageTimeout();
-                this.SendCancelCommandMessage();
-                client.Abort();
-            }
-            catch (CommunicationException ex)
-            {
-                this.SendErrorMessage(ex.Message);
-                this.SendCancelCommandMessage();
-                client.Abort();
-            }
-
-            return result;
+            return await client.ReadSoftwareStaticDataAsync();
         }
 
         public async Task<WindowsProcess[]> ReadWindowsProcessDynamicDataAsync(
@@ -293,7 +225,7 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
 
             try
             {
-                client = this.GetNewWorkstationMonitorServiceClient();
+                //client = await this.GetNewWorkstationMonitorServiceClient();
 
                 result = await client.ReadWindowsProcessDynamicDataAsync();
                 client.Close();
@@ -339,7 +271,7 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
 
             try
             {
-                client = this.GetNewWorkstationMonitorServiceClient();
+                //client = await this.GetNewWorkstationMonitorServiceClient();
 
                 result = await client.ReadWindowsServiceDynamicDataAsync();
                 client.Close();
@@ -376,123 +308,26 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
             return result;
         }
 
-        public async Task<WindowsLog[]> ReadWindowsLogDynamicDataAsync()
+        public async Task<WindowsLog[]> ReadWindowsLogDynamicDataAsync(WorkstationMonitorServiceClient workstationMonitorServiceClient)
         {
-            WindowsLog[] result = null;
-            WorkstationMonitorServiceClient client = null;
-
-            try
-            {
-                client = this.GetNewWorkstationMonitorServiceClient();
-                result = await client.ReadWindowsLogDynamicDataAsync();
-                client.Close();
-            }
-            catch (InvalidOperationException ex)
-            {
-                this.SendErrorMessage(ex.Message);
-                this.SendCancelCommandMessage();
-            }
-            catch (EndpointNotFoundException)
-            {
-                this.SendErrorMessageEndpointNotFound();
-                this.SendCancelCommandMessage();
-                client.Abort();
-            }
-            catch (TimeoutException)
-            {
-                this.SendErrorMessageTimeout();
-                this.SendCancelCommandMessage();
-                client.Abort();
-            }
-            catch (CommunicationException ex)
-            {
-                this.SendErrorMessage(ex.Message);
-                this.SendCancelCommandMessage();
-                client.Abort();
-            }
-
-            return result;
+            return await workstationMonitorServiceClient.ReadWindowsLogDynamicDataAsync();
         }
 
-        public async Task<OperationStatus> TurnMachineOffAsync(uint timeoutInSeconds)
+        public async Task<OperationStatus> TurnMachineOffAsync(
+            WorkstationMonitorServiceClient workstationMonitorServiceClient,
+            uint timeoutInSeconds)
         {
-            OperationStatus result = null;
-            WorkstationMonitorServiceClient client = null;
-
-            try
-            {
-                client = this.GetNewWorkstationMonitorServiceClient();
-
-                result = await client.TurnMachineOffAsync(timeoutInSeconds);
-                client.Close();
-            }
-            catch (InvalidOperationException ex)
-            {
-                this.SendErrorMessage(ex.Message);
-                this.SendCancelCommandMessage();
-            }
-            catch (EndpointNotFoundException)
-            {
-                this.SendErrorMessageEndpointNotFound();
-                this.SendCancelCommandMessage();
-                client.Abort();
-            }
-            catch (TimeoutException)
-            {
-                this.SendErrorMessageTimeout();
-                this.SendCancelCommandMessage();
-                client.Abort();
-            }
-            catch (CommunicationException ex)
-            {
-                this.SendErrorMessage(ex.Message);
-                this.SendCancelCommandMessage();
-                client.Abort();
-            }
-
-            return result;
+            return await workstationMonitorServiceClient.TurnMachineOffAsync(timeoutInSeconds);
         }
 
-        public async Task<OperationStatus> RestartMachineAsync(uint timeoutInSeconds)
+        public async Task<OperationStatus> RestartMachineAsync(
+            WorkstationMonitorServiceClient workstationMonitorServiceClient,
+            uint timeoutInSeconds)
         {
-            OperationStatus result = null;
-            WorkstationMonitorServiceClient client = null;
-
-            try
-            {
-                client = this.GetNewWorkstationMonitorServiceClient();
-
-                result = await client.RestartMachineAsync(timeoutInSeconds);
-                client.Close();
-            }
-            catch (InvalidOperationException ex)
-            {
-                this.SendErrorMessage(ex.Message);
-                this.SendCancelCommandMessage();
-            }
-            catch (EndpointNotFoundException)
-            {
-                this.SendErrorMessageEndpointNotFound();
-                this.SendCancelCommandMessage();
-                client.Abort();
-            }
-            catch (TimeoutException)
-            {
-                this.SendErrorMessageTimeout();
-                this.SendCancelCommandMessage();
-                client.Abort();
-            }
-            catch (CommunicationException ex)
-            {
-                this.SendErrorMessage(ex.Message);
-                this.SendCancelCommandMessage();
-                client.Abort();
-            }
-
-            return result;
+            return await workstationMonitorServiceClient.RestartMachineAsync(timeoutInSeconds);
         }
 
-        private WorkstationMonitorServiceClient GetNewWorkstationMonitorServiceClient()
+        public Task<WorkstationMonitorServiceClient> GetNewWorkstationMonitorServiceClient()
         {
             NetTcpBinding netTcpBinding = new NetTcpBinding
             {
@@ -513,11 +348,11 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
             netTcpBinding.Security.Transport.ClientCredentialType =
                TcpClientCredentialType.Certificate;
 
-            X509Certificate2 serviceCertificate = this.GetCertificate(this.MachineCertificateSubjectName);
+            X509Certificate2 serverCertificate = this.GetCertificate(this.MachineCertificateSubjectName);
             X509Certificate2 clientCertificate = this.GetCertificate(this.ClientCertificateSubjectName);
 
             // TODO: Refactor in order to validate certificate existance first and not to use exceptions in this case
-            if (serviceCertificate == null)
+            if (serverCertificate == null)
             {
                 throw new InvalidOperationException($"Certificate with subject name: {this.MachineCertificateSubjectName} not found.");
             }
@@ -529,7 +364,7 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
 
             EndpointAddress endpointAddress = new EndpointAddress(
                 new Uri(this.UriAddress),
-                EndpointIdentity.CreateX509CertificateIdentity(serviceCertificate));
+                EndpointIdentity.CreateX509CertificateIdentity(serverCertificate));
 
             WorkstationMonitorServiceClient workstationMonitorServiceClient = new WorkstationMonitorServiceClient(netTcpBinding, endpointAddress);
 
@@ -550,12 +385,12 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
                 X509FindType.FindBySubjectDistinguishedName,
                 this.ClientCertificateSubjectName);
 
-            return workstationMonitorServiceClient;
+            return Task.FromResult<WorkstationMonitorServiceClient>(workstationMonitorServiceClient);
         }
 
         private X509Certificate2 GetCertificate(string certificateSubjectName)
         {
-            X509Store certStore = new X509Store(StoreName.My, StoreLocation.LocalMachine);
+            X509Store certStore = new X509Store(StoreName.TrustedPeople, StoreLocation.LocalMachine);
             certStore.Open(OpenFlags.ReadOnly);
             X509Certificate2Collection certCollection = certStore.Certificates.Find(
                 X509FindType.FindBySubjectDistinguishedName, certificateSubjectName, false);

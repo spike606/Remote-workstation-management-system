@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -21,7 +22,7 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
 
         string MachineCertificateSubjectName { get; set; }
 
-        Task<HardwareStaticData> ReadHardwareStaticDataAsync();
+        Task<HardwareStaticData> ReadHardwareStaticDataAsync(WorkstationMonitorServiceClient workstationMonitorServiceClient);
 
         Task<HardwareDynamicData> ReadHardwareDynamicDataAsync(
             WpfObservableRangeCollection<HardwareDynamicData> hardwareDynamicObservableCollection,
@@ -43,7 +44,7 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
             WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelMainBoardVoltage,
             CancellationToken cancellationToken);
 
-        Task<SoftwareStaticData> ReadSoftwareStaticDataAsync();
+        Task<SoftwareStaticData> ReadSoftwareStaticDataAsync(WorkstationMonitorServiceClient workstationMonitorServiceClient);
 
         Task<WindowsProcess[]> ReadWindowsProcessDynamicDataAsync(
             WpfObservableRangeCollection<WindowsProcess> windowsProcessDynamicObservableCollection,
@@ -53,10 +54,12 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
             WpfObservableRangeCollection<WindowsService> windowsServiceDynamicObservableCollection,
             CancellationToken cancellationToken);
 
-        Task<WindowsLog[]> ReadWindowsLogDynamicDataAsync();
+        Task<WindowsLog[]> ReadWindowsLogDynamicDataAsync(WorkstationMonitorServiceClient workstationMonitorServiceClient);
 
-        Task<OperationStatus> TurnMachineOffAsync(uint timeoutInSeconds);
+        Task<OperationStatus> TurnMachineOffAsync(WorkstationMonitorServiceClient workstationMonitorServiceClient, uint timeoutInSeconds);
 
-        Task<OperationStatus> RestartMachineAsync(uint timeoutInSeconds);
+        Task<OperationStatus> RestartMachineAsync(WorkstationMonitorServiceClient workstationMonitorServiceClient, uint timeoutInSeconds);
+
+        Task<WorkstationMonitorServiceClient> GetNewWorkstationMonitorServiceClient();
     }
 }
