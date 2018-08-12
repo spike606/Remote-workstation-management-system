@@ -33,15 +33,21 @@ namespace SystemManagament.Client.WPF.Factories
         private readonly IWcfClient wcfClient;
         private readonly IProcessClient processClient;
         private readonly IConfigProvider configProvider;
-        private string connectionError = "Can't connect to remote machine.";
-        private string endpointNotFoundError = "Can't connect to remote machine. The remote endpoint could not be found. The endpoint may not be found or reachable because the remote endpoint is down, the remote endpoint is unreachable, or because the remote network is unreachable. ";
-        private string timeoutError = "Cant't connect remote machine. Timeout was reached.";
+        private readonly IMessageSender messageSender;
+        private readonly ITPLFactory tPLFactory;
 
-        public CommandFactory(IWcfClient wcfClient, IProcessClient processClient, IConfigProvider configProvider)
+        public CommandFactory(
+            IWcfClient wcfClient,
+            IProcessClient processClient,
+            IConfigProvider configProvider,
+            IMessageSender messageSender,
+            ITPLFactory tPLFactory)
         {
             this.wcfClient = wcfClient;
             this.processClient = processClient;
             this.configProvider = configProvider;
+            this.messageSender = messageSender;
+            this.tPLFactory = tPLFactory;
         }
 
         public IAsyncCommand CreateWindowsProcessDynamicDataCommand(WpfObservableRangeCollection<WindowsProcess> windowsProcesses)
@@ -50,19 +56,33 @@ namespace SystemManagament.Client.WPF.Factories
             {
                 return await Task.Run(async () =>
                 {
-                    // Set the task.
-                    var neverEndingTask = new TPLFactory().CreateNeverEndingTask(
-                        (now, ct) => this.wcfClient.ReadWindowsProcessDynamicDataAsync(windowsProcesses, ct),
-                        cancellationToken,
-                        this.configProvider.DelayBetweenCalls_WindowsProcess);
-
-                    // Start the task. Post the time.
-                    var result = neverEndingTask.Post(DateTimeOffset.Now);
-
-                    // if cancel was not requested task is still ongoing
-                    while (!cancellationToken.IsCancellationRequested)
+                    WorkstationMonitorServiceClient workstationMonitorServiceClient = null;
+                    bool result = false;
+                    try
                     {
-                        await Task.Delay(this.neverEndingCommandDelayInMiliSeconds);
+                        workstationMonitorServiceClient = await this.wcfClient.GetNewWorkstationMonitorServiceClient();
+
+                        // Set the task.
+                        var neverEndingTask = this.tPLFactory.CreateNeverEndingTaskMakingWcfCalls(
+                            (now, ct, client) => this.wcfClient.ReadWindowsProcessDynamicDataAsync(windowsProcesses, client, ct)
+                                .WithCancellation(ct),
+                            cancellationToken,
+                            this.configProvider.DelayBetweenCalls_WindowsService,
+                            this.wcfClient.MachineIdentifier,
+                            workstationMonitorServiceClient);
+
+                        // Start the task. Post the time.
+                        result = neverEndingTask.Post(DateTimeOffset.Now);
+
+                        // if cancel was not requested task is still ongoing
+                        while (!cancellationToken.IsCancellationRequested)
+                        {
+                            await Task.Delay(this.neverEndingCommandDelayInMiliSeconds);
+                        }
+                    }
+                    catch (InvalidOperationException ex)
+                    {
+                        this.messageSender.SendErrorMessage(ex.Message);
                     }
 
                     return result;
@@ -76,19 +96,33 @@ namespace SystemManagament.Client.WPF.Factories
             {
                 return await Task.Run(async () =>
                 {
-                    // Set the task.
-                    var neverEndingTask = new TPLFactory().CreateNeverEndingTask(
-                        (now, ct) => this.wcfClient.ReadWindowsServiceDynamicDataAsync(windowsService, ct),
-                        cancellationToken,
-                        this.configProvider.DelayBetweenCalls_WindowsService);
-
-                    // Start the task. Post the time.
-                    var result = neverEndingTask.Post(DateTimeOffset.Now);
-
-                    // if cancel was not requested task is still ongoing
-                    while (!cancellationToken.IsCancellationRequested)
+                    WorkstationMonitorServiceClient workstationMonitorServiceClient = null;
+                    bool result = false;
+                    try
                     {
-                        await Task.Delay(this.neverEndingCommandDelayInMiliSeconds);
+                        workstationMonitorServiceClient = await this.wcfClient.GetNewWorkstationMonitorServiceClient();
+
+                        // Set the task.
+                        var neverEndingTask = this.tPLFactory.CreateNeverEndingTaskMakingWcfCalls(
+                            (now, ct, client) => this.wcfClient.ReadWindowsServiceDynamicDataAsync(windowsService, client, ct)
+                                .WithCancellation(ct),
+                            cancellationToken,
+                            this.configProvider.DelayBetweenCalls_WindowsService,
+                            this.wcfClient.MachineIdentifier,
+                            workstationMonitorServiceClient);
+
+                        // Start the task. Post the time.
+                        result = neverEndingTask.Post(DateTimeOffset.Now);
+
+                        // if cancel was not requested task is still ongoing
+                        while (!cancellationToken.IsCancellationRequested)
+                        {
+                            await Task.Delay(this.neverEndingCommandDelayInMiliSeconds);
+                        }
+                    }
+                    catch (InvalidOperationException ex)
+                    {
+                        this.messageSender.SendErrorMessage(ex.Message);
                     }
 
                     return result;
@@ -128,31 +162,31 @@ namespace SystemManagament.Client.WPF.Factories
                 }
                 catch (InvalidOperationException ex)
                 {
-                    this.SendErrorMessage(ex.Message);
+                    this.messageSender.SendErrorMessage(ex.Message);
 
                     // Rethrow exception in order to set correct Task state (Faulted)
                     throw;
                 }
                 catch (EndpointNotFoundException)
                 {
-                    this.SendErrorMessageEndpointNotFound();
-                    this.SendCancelCommandMessage();
+                    this.messageSender.SendErrorMessageEndpointNotFound();
+                    this.messageSender.SendCancelCommandMessage(this.wcfClient.MachineIdentifier);
                     workstationMonitorServiceClient.Abort();
 
                     throw;
                 }
                 catch (TimeoutException)
                 {
-                    this.SendErrorMessageTimeout();
-                    this.SendCancelCommandMessage();
+                    this.messageSender.SendErrorMessageTimeout();
+                    this.messageSender.SendCancelCommandMessage(this.wcfClient.MachineIdentifier);
                     workstationMonitorServiceClient.Abort();
 
                     throw;
                 }
                 catch (CommunicationException ex)
                 {
-                    this.SendErrorMessage(ex.Message);
-                    this.SendCancelCommandMessage();
+                    this.messageSender.SendErrorMessage(ex.Message);
+                    this.messageSender.SendCancelCommandMessage(this.wcfClient.MachineIdentifier);
                     workstationMonitorServiceClient.Abort();
 
                     throw;
@@ -184,39 +218,53 @@ namespace SystemManagament.Client.WPF.Factories
             {
                 return await Task.Run(async () =>
                 {
-                    // Set the task.
-                    var neverEndingTask = new TPLFactory().CreateNeverEndingTask(
-                        (now, ct) => this.wcfClient.ReadHardwareDynamicDataAsync(
-                            hardwareDynamic,
-                            dynamicChartViewModelProcessorClock,
-                            dynamicChartViewModelProcessorPower,
-                            dynamicChartViewModelProcessorTemp,
-                            dynamicChartViewModelProcessorLoad,
-                            dynamicChartViewModelDiskLoad,
-                            dynamicChartViewModelDiskTemp,
-                            dynamicChartViewModelMemoryData,
-                            dynamicChartViewModelGPULoad,
-                            dynamicChartViewModelGPUTemp,
-                            dynamicChartViewModelGPUClock,
-                            dynamicChartViewModelGPUData,
-                            dynamicChartViewModelGPUVoltage,
-                            dynamicChartViewModelGPUFan,
-                            dynamicChartViewModelMainBoardTemp,
-                            dynamicChartViewModelMainBoardFan,
-                            dynamicChartViewModelMainBoardVoltage,
-                            ct),
-                        cancellationToken,
-                        this.configProvider.DelayBetweenCalls_HardwareDynamic);
-
-                    // Start the task. Post the time.
-                    var result = neverEndingTask.Post(DateTimeOffset.Now);
-
-                    // if cancel was not requested task is still ongoing
-                    while (!cancellationToken.IsCancellationRequested)
+                    WorkstationMonitorServiceClient workstationMonitorServiceClient = null;
+                    bool result = false;
+                    try
                     {
-                        await Task.Delay(this.neverEndingCommandDelayInMiliSeconds);
-                    }
+                        workstationMonitorServiceClient = await this.wcfClient.GetNewWorkstationMonitorServiceClient();
 
+                        // Set the task.
+                        var neverEndingTask = this.tPLFactory.CreateNeverEndingTaskMakingWcfCalls(
+                            (now, ct, client) => this.wcfClient.ReadHardwareDynamicDataAsync(
+                                hardwareDynamic,
+                                dynamicChartViewModelProcessorClock,
+                                dynamicChartViewModelProcessorPower,
+                                dynamicChartViewModelProcessorTemp,
+                                dynamicChartViewModelProcessorLoad,
+                                dynamicChartViewModelDiskLoad,
+                                dynamicChartViewModelDiskTemp,
+                                dynamicChartViewModelMemoryData,
+                                dynamicChartViewModelGPULoad,
+                                dynamicChartViewModelGPUTemp,
+                                dynamicChartViewModelGPUClock,
+                                dynamicChartViewModelGPUData,
+                                dynamicChartViewModelGPUVoltage,
+                                dynamicChartViewModelGPUFan,
+                                dynamicChartViewModelMainBoardTemp,
+                                dynamicChartViewModelMainBoardFan,
+                                dynamicChartViewModelMainBoardVoltage,
+                                client,
+                                ct)
+                                .WithCancellation(ct),
+                            cancellationToken,
+                            this.configProvider.DelayBetweenCalls_HardwareDynamic,
+                            this.wcfClient.MachineIdentifier,
+                            workstationMonitorServiceClient);
+
+                        // Start the task. Post the time.
+                        result = neverEndingTask.Post(DateTimeOffset.Now);
+
+                        // if cancel was not requested task is still ongoing
+                        while (!cancellationToken.IsCancellationRequested)
+                        {
+                            await Task.Delay(this.neverEndingCommandDelayInMiliSeconds);
+                        }
+                    }
+                    catch (InvalidOperationException ex)
+                    {
+                        this.messageSender.SendErrorMessage(ex.Message);
+                    }
                     return result;
                 });
             });
@@ -276,31 +324,31 @@ namespace SystemManagament.Client.WPF.Factories
                 }
                 catch (InvalidOperationException ex)
                 {
-                    this.SendErrorMessage(ex.Message);
+                    this.messageSender.SendErrorMessage(ex.Message);
 
                     // Rethrow exception in order to set correct Task state (Faulted)
                     throw;
                 }
                 catch (EndpointNotFoundException)
                 {
-                    this.SendErrorMessageEndpointNotFound();
-                    this.SendCancelCommandMessage();
+                    this.messageSender.SendErrorMessageEndpointNotFound();
+                    this.messageSender.SendCancelCommandMessage(this.wcfClient.MachineIdentifier);
                     workstationMonitorServiceClient.Abort();
 
                     throw;
                 }
                 catch (TimeoutException)
                 {
-                    this.SendErrorMessageTimeout();
-                    this.SendCancelCommandMessage();
+                    this.messageSender.SendErrorMessageTimeout();
+                    this.messageSender.SendCancelCommandMessage(this.wcfClient.MachineIdentifier);
                     workstationMonitorServiceClient.Abort();
 
                     throw;
                 }
                 catch (CommunicationException ex)
                 {
-                    this.SendErrorMessage(ex.Message);
-                    this.SendCancelCommandMessage();
+                    this.messageSender.SendErrorMessage(ex.Message);
+                    this.messageSender.SendCancelCommandMessage(this.wcfClient.MachineIdentifier);
                     workstationMonitorServiceClient.Abort();
 
                     throw;
@@ -361,31 +409,31 @@ namespace SystemManagament.Client.WPF.Factories
                     }
                     catch (InvalidOperationException ex)
                     {
-                        this.SendErrorMessage(ex.Message);
+                        this.messageSender.SendErrorMessage(ex.Message);
 
                         // Rethrow exception in order to set correct Task state (Faulted)
                         throw;
                     }
                     catch (EndpointNotFoundException)
                     {
-                        this.SendErrorMessageEndpointNotFound();
-                        this.SendCancelCommandMessage();
+                        this.messageSender.SendErrorMessageEndpointNotFound();
+                        this.messageSender.SendCancelCommandMessage(this.wcfClient.MachineIdentifier);
                         workstationMonitorServiceClient.Abort();
 
                         throw;
                     }
                     catch (TimeoutException)
                     {
-                        this.SendErrorMessageTimeout();
-                        this.SendCancelCommandMessage();
+                        this.messageSender.SendErrorMessageTimeout();
+                        this.messageSender.SendCancelCommandMessage(this.wcfClient.MachineIdentifier);
                         workstationMonitorServiceClient.Abort();
 
                         throw;
                     }
                     catch (CommunicationException ex)
                     {
-                        this.SendErrorMessage(ex.Message);
-                        this.SendCancelCommandMessage();
+                        this.messageSender.SendErrorMessage(ex.Message);
+                        this.messageSender.SendCancelCommandMessage(this.wcfClient.MachineIdentifier);
                         workstationMonitorServiceClient.Abort();
 
                         throw;
@@ -434,31 +482,31 @@ namespace SystemManagament.Client.WPF.Factories
                     }
                     catch (InvalidOperationException ex)
                     {
-                        this.SendErrorMessage(ex.Message);
+                        this.messageSender.SendErrorMessage(ex.Message);
 
                         // Rethrow exception in order to set correct Task state (Faulted)
                         throw;
                     }
                     catch (EndpointNotFoundException)
                     {
-                        this.SendErrorMessageEndpointNotFound();
-                        this.SendCancelCommandMessage();
+                        this.messageSender.SendErrorMessageEndpointNotFound();
+                        this.messageSender.SendCancelCommandMessage(this.wcfClient.MachineIdentifier);
                         workstationMonitorServiceClient.Abort();
 
                         throw;
                     }
                     catch (TimeoutException)
                     {
-                        this.SendErrorMessageTimeout();
-                        this.SendCancelCommandMessage();
+                        this.messageSender.SendErrorMessageTimeout();
+                        this.messageSender.SendCancelCommandMessage(this.wcfClient.MachineIdentifier);
                         workstationMonitorServiceClient.Abort();
 
                         throw;
                     }
                     catch (CommunicationException ex)
                     {
-                        this.SendErrorMessage(ex.Message);
-                        this.SendCancelCommandMessage();
+                        this.messageSender.SendErrorMessage(ex.Message);
+                        this.messageSender.SendCancelCommandMessage(this.wcfClient.MachineIdentifier);
                         workstationMonitorServiceClient.Abort();
 
                         throw;
@@ -502,31 +550,31 @@ namespace SystemManagament.Client.WPF.Factories
                     }
                     catch (InvalidOperationException ex)
                     {
-                        this.SendErrorMessage(ex.Message);
+                        this.messageSender.SendErrorMessage(ex.Message);
 
                         // Rethrow exception in order to set correct Task state (Faulted)
                         throw;
                     }
                     catch (EndpointNotFoundException)
                     {
-                        this.SendErrorMessageEndpointNotFound();
-                        this.SendCancelCommandMessage();
+                        this.messageSender.SendErrorMessageEndpointNotFound();
+                        this.messageSender.SendCancelCommandMessage(this.wcfClient.MachineIdentifier);
                         workstationMonitorServiceClient.Abort();
 
                         throw;
                     }
                     catch (TimeoutException)
                     {
-                        this.SendErrorMessageTimeout();
-                        this.SendCancelCommandMessage();
+                        this.messageSender.SendErrorMessageTimeout();
+                        this.messageSender.SendCancelCommandMessage(this.wcfClient.MachineIdentifier);
                         workstationMonitorServiceClient.Abort();
 
                         throw;
                     }
                     catch (CommunicationException ex)
                     {
-                        this.SendErrorMessage(ex.Message);
-                        this.SendCancelCommandMessage();
+                        this.messageSender.SendErrorMessage(ex.Message);
+                        this.messageSender.SendCancelCommandMessage(this.wcfClient.MachineIdentifier);
                         workstationMonitorServiceClient.Abort();
 
                         throw;
@@ -568,38 +616,6 @@ namespace SystemManagament.Client.WPF.Factories
                   MessageBoxButton.OK,
                   MessageBoxImage.Error);
             }
-        }
-
-        private void SendErrorMessageTimeout()
-        {
-            Messenger.Default.Send(new ErrorMessage()
-            {
-                Message = this.timeoutError
-            });
-        }
-
-        private void SendErrorMessageEndpointNotFound()
-        {
-            Messenger.Default.Send(new ErrorMessage()
-            {
-                Message = this.endpointNotFoundError
-            });
-        }
-
-        private void SendErrorMessage(string message)
-        {
-            Messenger.Default.Send(new ErrorMessage()
-            {
-                Message = this.connectionError + message
-            });
-        }
-
-        private void SendCancelCommandMessage()
-        {
-            Messenger.Default.Send(new CancelCommandMessage()
-            {
-                RecipientIdentifier = this.wcfClient.MachineIdentifier,
-            });
         }
     }
 }

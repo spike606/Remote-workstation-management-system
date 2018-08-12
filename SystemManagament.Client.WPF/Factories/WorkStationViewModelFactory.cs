@@ -7,6 +7,7 @@ using GalaSoft.MvvmLight.Ioc;
 using SystemManagament.Client.WPF.Settings;
 using SystemManagament.Client.WPF.Validator;
 using SystemManagament.Client.WPF.ViewModel;
+using SystemManagament.Client.WPF.ViewModel.Messages;
 using SystemManagament.Client.WPF.ViewModel.Wcf;
 
 namespace SystemManagament.Client.WPF.Factories
@@ -17,9 +18,11 @@ namespace SystemManagament.Client.WPF.Factories
             WorkstationSettings workstationSettings)
         {
             var wcfClient = SimpleIoc.Default.GetInstance<IWcfClient>(Guid.NewGuid().ToString());
+            var messageSender = SimpleIoc.Default.GetInstance<IMessageSender>(Guid.NewGuid().ToString());
+            var tplFactory = SimpleIoc.Default.GetInstance<ITPLFactory>(Guid.NewGuid().ToString());
             var processClient = SimpleIoc.Default.GetInstance<IProcessClient>(Guid.NewGuid().ToString());
             var configProvider = SimpleIoc.Default.GetInstance<IConfigProvider>();
-            ICommandFactory commandFactory = new CommandFactory(wcfClient, processClient, configProvider);
+            ICommandFactory commandFactory = new CommandFactory(wcfClient, processClient, configProvider, messageSender, tplFactory);
             WorkStationViewModel workStationViewModel = new WorkStationViewModel(commandFactory, SimpleIoc.Default.GetInstance<IUintValidator>());
 
             workStationViewModel.LoadSettings(workstationSettings);

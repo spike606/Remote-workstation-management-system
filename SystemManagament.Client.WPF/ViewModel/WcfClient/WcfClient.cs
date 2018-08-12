@@ -34,9 +34,6 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
         private readonly bool reliableSessionEnabled = true;
         private readonly bool reliableSessionOrdered = false;
         private IDynamicDataHelper dynamicDataHelper;
-        private string connectionError = "Can't connect to remote machine.";
-        private string endpointNotFoundError = "Can't connect to remote machine. The remote endpoint could not be found. The endpoint may not be found or reachable because the remote endpoint is down, the remote endpoint is unreachable, or because the remote network is unreachable. ";
-        private string timeoutError = "Cant't connect remote machine. Timeout was reached.";
 
         public WcfClient(IDynamicDataHelper dynamicDataHelper)
         {
@@ -74,138 +71,107 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
             WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelMainBoardTemp,
             WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelMainBoardFan,
             WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelMainBoardVoltage,
+            WorkstationMonitorServiceClient workstationMonitorServiceClient,
             CancellationToken cancellationToken)
         {
-            HardwareDynamicData result = null;
-            WorkstationMonitorServiceClient client = null;
+            HardwareDynamicData result = await workstationMonitorServiceClient.ReadHardwareDynamicDataAsync();
 
-            try
+            if (result != null && !cancellationToken.IsCancellationRequested)
             {
-                client = await this.GetNewWorkstationMonitorServiceClient();
-
-                result = await client.ReadHardwareDynamicDataAsync();
-                client.Close();
-
-                if (result != null && !cancellationToken.IsCancellationRequested)
+                foreach (var processor in result.Processor)
                 {
-                    foreach (var processor in result.Processor)
+                    foreach (var load in processor.Load)
                     {
-                        foreach (var load in processor.Load)
-                        {
-                            this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelProcessorLoad, load, processor.Name);
-                        }
-
-                        foreach (var clock in processor.Clock)
-                        {
-                            this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelProcessorClock, clock, processor.Name);
-                        }
-
-                        foreach (var power in processor.Power)
-                        {
-                            this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelProcessorPower, power, processor.Name);
-                        }
-
-                        foreach (var temperature in processor.Temperature)
-                        {
-                            this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelProcessorTemp, temperature, processor.Name);
-                        }
+                        this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelProcessorLoad, load, processor.Name);
                     }
 
-                    foreach (var disk in result.Disk)
+                    foreach (var clock in processor.Clock)
                     {
-                        foreach (var load in disk.Load)
-                        {
-                            this.dynamicDataHelper.DrawDynamicPieChartForHardwareSensor(dynamicChartViewModelDiskLoad, load, disk.Name);
-                        }
-
-                        foreach (var temperature in disk.Temperature)
-                        {
-                            this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelDiskTemp, temperature, disk.Name);
-                        }
+                        this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelProcessorClock, clock, processor.Name);
                     }
 
-                    foreach (var memory in result.Memory)
+                    foreach (var power in processor.Power)
                     {
-                        foreach (var data in memory.Data)
-                        {
-                            this.dynamicDataHelper.DrawDynamicPieChartForHardwareSensor(dynamicChartViewModelMemoryData, data, memory.Name);
-                        }
+                        this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelProcessorPower, power, processor.Name);
                     }
 
-                    foreach (var gpu in result.VideoController)
+                    foreach (var temperature in processor.Temperature)
                     {
-                        foreach (var load in gpu.Load)
-                        {
-                            this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelGPULoad, load, gpu.Name);
-                        }
-
-                        foreach (var temperature in gpu.Temperature)
-                        {
-                            this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelGPUTemp, temperature, gpu.Name);
-                        }
-
-                        foreach (var clock in gpu.Clock)
-                        {
-                            this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelGPUClock, clock, gpu.Name);
-                        }
-
-                        foreach (var data in gpu.Data)
-                        {
-                            this.dynamicDataHelper.DrawDynamicPieChartForHardwareSensor(dynamicChartViewModelGPUData, data, gpu.Name);
-                        }
-
-                        foreach (var voltage in gpu.Voltage)
-                        {
-                            this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelGPUVoltage, voltage, gpu.Name);
-                        }
-
-                        foreach (var fan in gpu.Fan)
-                        {
-                            this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelGPUFan, fan, gpu.Name);
-                        }
-                    }
-
-                    foreach (var mainBoard in result.MainBoard)
-                    {
-                        foreach (var temperature in mainBoard.Temperature)
-                        {
-                            this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelMainBoardTemp, temperature, mainBoard.Name);
-                        }
-
-                        foreach (var fan in mainBoard.Fan)
-                        {
-                            this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelMainBoardFan, fan, mainBoard.Name);
-                        }
-
-                        foreach (var voltage in mainBoard.Voltage)
-                        {
-                            this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelMainBoardVoltage, voltage, mainBoard.Name);
-                        }
+                        this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelProcessorTemp, temperature, processor.Name);
                     }
                 }
-            }
-            catch (InvalidOperationException ex)
-            {
-                this.SendErrorMessage(ex.Message);
-                this.SendCancelCommandMessage();
-            }
-            catch (EndpointNotFoundException)
-            {
-                this.SendErrorMessageEndpointNotFound();
-                this.SendCancelCommandMessage();
-                client.Abort();
-            }
-            catch (TimeoutException)
-            {
-                this.SendErrorMessageTimeout();
-                this.SendCancelCommandMessage();
-                client.Abort();
-            }
-            catch (CommunicationException ex)
-            {
-                this.SendErrorMessage(ex.Message);
-                this.SendCancelCommandMessage();
-                client.Abort();
+
+                foreach (var disk in result.Disk)
+                {
+                    foreach (var load in disk.Load)
+                    {
+                        this.dynamicDataHelper.DrawDynamicPieChartForHardwareSensor(dynamicChartViewModelDiskLoad, load, disk.Name);
+                    }
+
+                    foreach (var temperature in disk.Temperature)
+                    {
+                        this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelDiskTemp, temperature, disk.Name);
+                    }
+                }
+
+                foreach (var memory in result.Memory)
+                {
+                    foreach (var data in memory.Data)
+                    {
+                        this.dynamicDataHelper.DrawDynamicPieChartForHardwareSensor(dynamicChartViewModelMemoryData, data, memory.Name);
+                    }
+                }
+
+                foreach (var gpu in result.VideoController)
+                {
+                    foreach (var load in gpu.Load)
+                    {
+                        this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelGPULoad, load, gpu.Name);
+                    }
+
+                    foreach (var temperature in gpu.Temperature)
+                    {
+                        this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelGPUTemp, temperature, gpu.Name);
+                    }
+
+                    foreach (var clock in gpu.Clock)
+                    {
+                        this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelGPUClock, clock, gpu.Name);
+                    }
+
+                    foreach (var data in gpu.Data)
+                    {
+                        this.dynamicDataHelper.DrawDynamicPieChartForHardwareSensor(dynamicChartViewModelGPUData, data, gpu.Name);
+                    }
+
+                    foreach (var voltage in gpu.Voltage)
+                    {
+                        this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelGPUVoltage, voltage, gpu.Name);
+                    }
+
+                    foreach (var fan in gpu.Fan)
+                    {
+                        this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelGPUFan, fan, gpu.Name);
+                    }
+                }
+
+                foreach (var mainBoard in result.MainBoard)
+                {
+                    foreach (var temperature in mainBoard.Temperature)
+                    {
+                        this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelMainBoardTemp, temperature, mainBoard.Name);
+                    }
+
+                    foreach (var fan in mainBoard.Fan)
+                    {
+                        this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelMainBoardFan, fan, mainBoard.Name);
+                    }
+
+                    foreach (var voltage in mainBoard.Voltage)
+                    {
+                        this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelMainBoardVoltage, voltage, mainBoard.Name);
+                    }
+                }
             }
 
             return result;
@@ -218,45 +184,14 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
 
         public async Task<WindowsProcess[]> ReadWindowsProcessDynamicDataAsync(
             WpfObservableRangeCollection<WindowsProcess> windowsProcessDynamicObservableCollection,
+            WorkstationMonitorServiceClient workstationMonitorServiceClient,
             CancellationToken cancellationToken)
         {
-            WindowsProcess[] result = null;
-            WorkstationMonitorServiceClient client = null;
+            WindowsProcess[] result = await workstationMonitorServiceClient.ReadWindowsProcessDynamicDataAsync();
 
-            try
+            if (result != null && !cancellationToken.IsCancellationRequested)
             {
-                //client = await this.GetNewWorkstationMonitorServiceClient();
-
-                result = await client.ReadWindowsProcessDynamicDataAsync();
-                client.Close();
-
-                if (result != null && !cancellationToken.IsCancellationRequested)
-                {
-                    windowsProcessDynamicObservableCollection.ReplaceRange(result);
-                }
-            }
-            catch (InvalidOperationException ex)
-            {
-                this.SendErrorMessage(ex.Message);
-                this.SendCancelCommandMessage();
-            }
-            catch (EndpointNotFoundException)
-            {
-                this.SendErrorMessageEndpointNotFound();
-                this.SendCancelCommandMessage();
-                client.Abort();
-            }
-            catch (TimeoutException)
-            {
-                this.SendErrorMessageTimeout();
-                this.SendCancelCommandMessage();
-                client.Abort();
-            }
-            catch (CommunicationException ex)
-            {
-                this.SendErrorMessage(ex.Message);
-                this.SendCancelCommandMessage();
-                client.Abort();
+                windowsProcessDynamicObservableCollection.ReplaceRange(result);
             }
 
             return result;
@@ -264,45 +199,14 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
 
         public async Task<WindowsService[]> ReadWindowsServiceDynamicDataAsync(
             WpfObservableRangeCollection<WindowsService> windowsServiceDynamicObservableCollection,
+            WorkstationMonitorServiceClient workstationMonitorServiceClient,
             CancellationToken cancellationToken)
         {
-            WindowsService[] result = null;
-            WorkstationMonitorServiceClient client = null;
+            WindowsService[] result = await workstationMonitorServiceClient.ReadWindowsServiceDynamicDataAsync();
 
-            try
+            if (result != null && !cancellationToken.IsCancellationRequested)
             {
-                //client = await this.GetNewWorkstationMonitorServiceClient();
-
-                result = await client.ReadWindowsServiceDynamicDataAsync();
-                client.Close();
-
-                if (result != null && !cancellationToken.IsCancellationRequested)
-                {
-                    windowsServiceDynamicObservableCollection.ReplaceRange(result, new WindowsServiceComparer());
-                }
-            }
-            catch (InvalidOperationException ex)
-            {
-                this.SendErrorMessage(ex.Message);
-                this.SendCancelCommandMessage();
-            }
-            catch (EndpointNotFoundException)
-            {
-                this.SendErrorMessageEndpointNotFound();
-                this.SendCancelCommandMessage();
-                client.Abort();
-            }
-            catch (TimeoutException)
-            {
-                this.SendErrorMessageTimeout();
-                this.SendCancelCommandMessage();
-                client.Abort();
-            }
-            catch (CommunicationException ex)
-            {
-                this.SendErrorMessage(ex.Message);
-                this.SendCancelCommandMessage();
-                client.Abort();
+                windowsServiceDynamicObservableCollection.ReplaceRange(result, new WindowsServiceComparer());
             }
 
             return result;
@@ -402,38 +306,6 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
             }
 
             return certCollection[0];
-        }
-
-        private void SendErrorMessageTimeout()
-        {
-            Messenger.Default.Send(new ErrorMessage()
-            {
-                Message = this.timeoutError
-            });
-        }
-
-        private void SendErrorMessageEndpointNotFound()
-        {
-            Messenger.Default.Send(new ErrorMessage()
-            {
-                Message = this.endpointNotFoundError
-            });
-        }
-
-        private void SendErrorMessage(string message)
-        {
-            Messenger.Default.Send(new ErrorMessage()
-            {
-                Message = this.connectionError + message
-            });
-        }
-
-        private void SendCancelCommandMessage()
-        {
-            Messenger.Default.Send(new CancelCommandMessage()
-            {
-                RecipientIdentifier = this.MachineIdentifier,
-            });
         }
     }
 }

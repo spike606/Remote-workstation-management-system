@@ -19,6 +19,7 @@ using SystemManagament.Client.WPF.Factories;
 using SystemManagament.Client.WPF.Settings;
 using SystemManagament.Client.WPF.Validator;
 using SystemManagament.Client.WPF.ViewModel.Helpers;
+using SystemManagament.Client.WPF.ViewModel.Messages;
 using SystemManagament.Client.WPF.ViewModel.Wcf;
 
 namespace SystemManagament.Client.WPF.ViewModel
@@ -58,6 +59,8 @@ namespace SystemManagament.Client.WPF.ViewModel
             SimpleIoc.Default.Register<IConfigProvider, ConfigProvider>();
             SimpleIoc.Default.Register<IWorkStationViewModelFactory, WorkStationViewModelFactory>();
             SimpleIoc.Default.Register<IWcfClient, WcfClient>();
+            SimpleIoc.Default.Register<IMessageSender, MessageSender>();
+            SimpleIoc.Default.Register<ITPLFactory, TPLFactory>();
         }
 
         public static AppSettings Instance

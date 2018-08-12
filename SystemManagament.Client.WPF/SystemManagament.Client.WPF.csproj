@@ -255,6 +255,8 @@
     <Compile Include="ViewModel\Helpers\UIntParameter.cs" />
     <Compile Include="ViewModel\Messages\CancelCommandMessage.cs" />
     <Compile Include="ViewModel\Messages\ErrorMessage.cs" />
+    <Compile Include="ViewModel\Messages\IMessageSender.cs" />
+    <Compile Include="ViewModel\Messages\MessageSender.cs" />
     <Compile Include="ViewModel\Messages\NewMachineMessage.cs" />
     <Compile Include="ViewModel\Messages\RemoveMachineMessage.cs" />
     <Compile Include="ViewModel\Messages\ShowPreferencesWindowMessage.cs" />

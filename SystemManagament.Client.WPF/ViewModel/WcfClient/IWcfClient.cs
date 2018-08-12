@@ -42,16 +42,19 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
             WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelMainBoardTemp,
             WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelMainBoardFan,
             WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelMainBoardVoltage,
+            WorkstationMonitorServiceClient workstationMonitorServiceClient,
             CancellationToken cancellationToken);
 
         Task<SoftwareStaticData> ReadSoftwareStaticDataAsync(WorkstationMonitorServiceClient workstationMonitorServiceClient);
 
         Task<WindowsProcess[]> ReadWindowsProcessDynamicDataAsync(
             WpfObservableRangeCollection<WindowsProcess> windowsProcessDynamicObservableCollection,
+            WorkstationMonitorServiceClient workstationMonitorServiceClient,
             CancellationToken cancelattionToken);
 
         Task<WindowsService[]> ReadWindowsServiceDynamicDataAsync(
             WpfObservableRangeCollection<WindowsService> windowsServiceDynamicObservableCollection,
+            WorkstationMonitorServiceClient workstationMonitorServiceClient,
             CancellationToken cancellationToken);
 
         Task<WindowsLog[]> ReadWindowsLogDynamicDataAsync(WorkstationMonitorServiceClient workstationMonitorServiceClient);
