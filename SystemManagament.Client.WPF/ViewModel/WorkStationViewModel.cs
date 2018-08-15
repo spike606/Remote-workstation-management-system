@@ -70,8 +70,6 @@ namespace SystemManagament.Client.WPF.ViewModel
         private WpfObservableRangeCollection<Storage> storage = new WpfObservableRangeCollection<Storage>();
 
         private WpfObservableRangeCollection<CurrentUser> currentUser = new WpfObservableRangeCollection<CurrentUser>();
-        private WpfObservableRangeCollection<ClaimDuplicate> currentUserClaims = new WpfObservableRangeCollection<ClaimDuplicate>();
-        private WpfObservableRangeCollection<GroupDuplicate> currentUserGroups = new WpfObservableRangeCollection<GroupDuplicate>();
         private WpfObservableRangeCollection<OS> operatingSystem = new WpfObservableRangeCollection<OS>();
         private WpfObservableRangeCollection<Bios> bios = new WpfObservableRangeCollection<Bios>();
         private WpfObservableRangeCollection<InstalledProgram> installedProgram = new WpfObservableRangeCollection<InstalledProgram>();
@@ -545,32 +543,6 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
-        public WpfObservableRangeCollection<ClaimDuplicate> CurrentUserClaims
-        {
-            get
-            {
-                return this.currentUserClaims;
-            }
-
-            private set
-            {
-                this.Set(() => this.CurrentUserClaims, ref this.currentUserClaims, value);
-            }
-        }
-
-        public WpfObservableRangeCollection<GroupDuplicate> CurrentUserGroups
-        {
-            get
-            {
-                return this.currentUserGroups;
-            }
-
-            private set
-            {
-                this.Set(() => this.CurrentUserGroups, ref this.currentUserGroups, value);
-            }
-        }
-
         public WpfObservableRangeCollection<OS> OperatingSystem
         {
             get
@@ -775,8 +747,6 @@ namespace SystemManagament.Client.WPF.ViewModel
 
             this.LoadSoftwareStaticDataCommand = this.commandFactory.CreateSoftwareStaticDataCommand(
                 this.CurrentUser,
-                this.CurrentUserClaims,
-                this.CurrentUserGroups,
                 this.OperatingSystem,
                 this.Bios,
                 this.InstalledProgram,

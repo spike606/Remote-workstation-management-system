@@ -360,8 +360,6 @@ namespace SystemManagament.Client.WPF.Factories
 
         public IAsyncCommand CreateSoftwareStaticDataCommand(
                 WpfObservableRangeCollection<CurrentUser> currentUser,
-                WpfObservableRangeCollection<ClaimDuplicate> currentUserClaims,
-                WpfObservableRangeCollection<GroupDuplicate> currentUserGroups,
                 WpfObservableRangeCollection<OS> operatingSystem,
                 WpfObservableRangeCollection<Bios> bios,
                 WpfObservableRangeCollection<InstalledProgram> installedProgram,
@@ -397,8 +395,6 @@ namespace SystemManagament.Client.WPF.Factories
                         if (result != null && !cancellationToken.IsCancellationRequested)
                         {
                             currentUser.ReplaceRange(result.CurrentUser, new CurrentUserStaticComparer());
-                            currentUserClaims.ReplaceRange(result.CurrentUser.First().Claims, new ClaimDuplicateComparer());
-                            currentUserGroups.ReplaceRange(result.CurrentUser.First().Groups, new GroupDuplicateComparer());
                             operatingSystem.ReplaceRange(result.OperatingSystem, new OSComparer());
                             bios.ReplaceRange(result.Bios, new BiosComparer());
                             installedProgram.ReplaceRange(result.InstalledProgram, new InstalledProgramComparer());

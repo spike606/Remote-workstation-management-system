@@ -249,7 +249,7 @@
                 </TabItem>
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock Text="{StaticResource Header_UserInfo}" Foreground="Black" />
+                    <TextBlock Text="{StaticResource Header_UsersInfo}" Foreground="Black" />
                 </TabItem.Header>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -277,9 +277,8 @@
                         HorizontalAlignment="Stretch" BorderThickness="2" Foreground="OrangeRed"/>
                     </Grid>
                     <StackPanel Margin="20,0,20,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" Orientation="Vertical">
-                        <Label FontFamily = "Verdana" Content="{StaticResource Label_CurrentUserInfo}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
                         <StackPanel Margin="10,0,0,0">
-                            <Label FontFamily = "Verdana" Content="{StaticResource Label_BasicUserInfo}" FontSize="16" FontWeight="Bold"/>
+                            <Label FontFamily = "Verdana" Content="{StaticResource Header_UsersInfo}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
                             <Grid Background="SlateGray">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*"></RowDefinition>
@@ -293,71 +292,17 @@
                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <Label Content="{StaticResource Label_Name}" Grid.Row="0" Grid.Column="0" FontWeight="Bold" FontSize="14"
-                                       ToolTip="{StaticResource ToolTip_UserName}"/>
-                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding CurrentUser[0].Name}" Grid.Row="0" Grid.Column="1"/>
-                                <Label Content="{StaticResource Label_AuthenticationType}" Grid.Row="1" Grid.Column="0" FontWeight="Bold" FontSize="14"
-                                       ToolTip="{StaticResource ToolTip_AuthenticationType}"/>
-                                <TextBlock TextWrapping="WrapWithOverflow" VerticalAlignment="Center" Text="{Binding CurrentUser[0].AuthenticationType}" Grid.Row="1" Grid.Column="1"/>
                             </Grid>
-                            <Label FontFamily = "Verdana" Content="{StaticResource Label_UserClaims}" FontSize="16" FontWeight="Bold"/>
-                            <TextBlock FontFamily = "Verdana" TextWrapping="WrapWithOverflow" FontSize="14" Text="{StaticResource Label_UserClaimsDescription}" Foreground="White"/>
-                            <DataGrid ItemsSource="{Binding CurrentUserClaims, IsAsync=True}" MaxHeight="350" Margin="0 10 0 0">
+                            <DataGrid ItemsSource="{Binding CurrentUser, IsAsync=True}" MaxHeight="350" Margin="0 10 0 0">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="{StaticResource CurrentUserClaims_Type}" Binding="{Binding Type}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" 
-                                                        ToolTipService.ToolTip="{StaticResource CurrentUserClaims_Type_ToolTip}"/>
-                                    <DataGridTextColumn Header="{StaticResource CurrentUserClaims_OriginalIssuer}" Binding="{Binding OriginalIssuer}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
-                                                        ToolTipService.ToolTip="{StaticResource CurrentUserClaims_OriginalIssuer_ToolTip}"/>
-                                    <DataGridTextColumn Header="{StaticResource CurrentUserClaims_Issuer}" Binding="{Binding Issuer}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
-                                                        ToolTipService.ToolTip="{StaticResource CurrentUserClaims_Issuer_ToolTip}"/>
-                                    <DataGridTextColumn Header="{StaticResource CurrentUserClaims_ValueType}" Binding="{Binding ValueType}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
-                                                        ToolTipService.ToolTip="{StaticResource CurrentUserClaims_ValueType_ToolTip}"/>
-                                    <DataGridTextColumn Header="{StaticResource CurrentUserClaims_Value}" Binding="{Binding Value}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
-                                                        ToolTipService.ToolTip="{StaticResource CurrentUserClaims_Value_ToolTip}"/>
-                                </DataGrid.Columns>
-                            </DataGrid>
-                        </StackPanel>
-                    </StackPanel>
-                </Grid>
-            </TabItem>
-            <TabItem>
-                <TabItem.Header>
-                    <TextBlock Text="{StaticResource Header_UserGroups}" Foreground="Black" />
-                </TabItem.Header>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="*"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
-                        <Button Content="{StaticResource Button_LoadSoftwareStatic}" Command="{Binding LoadSoftwareStaticDataCommand}" 
-                            HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange"/>
-                    </Grid>
-                    <Grid Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="3">
-                        <Button Content="{StaticResource Button_Cancel}" Command="{Binding LoadSoftwareStaticDataCommand.CancelCommand}" 
-                        HorizontalAlignment="Stretch" BorderThickness="2" Foreground="OrangeRed"/>
-                    </Grid>
-                    <StackPanel Margin="20,0,20,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" Orientation="Vertical">
-                        <Label FontFamily = "Verdana" Content="{StaticResource Label_CurrentUserInfo}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
-                        <StackPanel Margin="10,0,0,0">
-                            <Label FontFamily = "Verdana" Content="{StaticResource Label_UserGroups}" FontSize="16" FontWeight="Bold"/>
-                            <TextBlock FontFamily = "Verdana" TextWrapping="WrapWithOverflow" FontSize="14" Text="{StaticResource Label_UserGroups_Description}" Foreground="White"/>
-                            <DataGrid ItemsSource="{Binding CurrentUserGroups, IsAsync=True}" Margin="0 10 0 0">
-                                <DataGrid.Columns>
-                                    <DataGridTextColumn Header="{StaticResource CurrentUserGroups_Value}" Binding="{Binding Value}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
-                                    <DataGridTextColumn Header="{StaticResource Label_Name}" Binding="{Binding Name}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"/>
+                                    <DataGridTextColumn Header="{StaticResource Label_Name}" Binding="{Binding Name}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}" 
+                                                        ToolTipService.ToolTip="{StaticResource ToolTip_UserName}"/>
+                                    <DataGridTextColumn Header="{StaticResource Label_Sid}" Binding="{Binding Sid}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource LocalUser_SID_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource Label_LastLogon}" Binding="{Binding LastLogonDate}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource Label_LastLogon_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource Label_LastPasswordSet}" Binding="{Binding LastPasswordSet}"  Width="*" ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource Label_LastPasswordSetToolTip}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                         </StackPanel>
@@ -777,6 +722,9 @@
                                     <DataGridTextColumn Header="{StaticResource LocalUser_PasswordRequired}" Binding="{Binding PasswordRequired}"  Width="0.1*"
                                                         ElementStyle="{StaticResource WrappedColumnCellStyle}"
                                                         ToolTipService.ToolTip="{StaticResource LocalUser_PasswordRequired_ToolTip}"/>
+                                    <DataGridTextColumn Header="{StaticResource LocalUser_Groups}" Binding="{Binding Groups}"  Width="0.1*"
+                                                        ElementStyle="{StaticResource WrappedColumnCellStyle}"
+                                                        ToolTipService.ToolTip="{StaticResource LocalUser_Groups_ToolTip}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                         </StackPanel>

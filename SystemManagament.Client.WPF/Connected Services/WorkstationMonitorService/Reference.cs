@@ -1452,16 +1452,16 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string AuthenticationTypeField;
+        private System.DateTime LastLogonDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorService.ClaimDuplicate[] ClaimsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SystemManagament.Client.WPF.WorkstationMonitorService.GroupDuplicate[] GroupsField;
+        private System.DateTime LastPasswordSetField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SidField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -1474,40 +1474,27 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string AuthenticationType {
+        public System.DateTime LastLogonDate {
             get {
-                return this.AuthenticationTypeField;
+                return this.LastLogonDateField;
             }
             set {
-                if ((object.ReferenceEquals(this.AuthenticationTypeField, value) != true)) {
-                    this.AuthenticationTypeField = value;
-                    this.RaisePropertyChanged("AuthenticationType");
+                if ((this.LastLogonDateField.Equals(value) != true)) {
+                    this.LastLogonDateField = value;
+                    this.RaisePropertyChanged("LastLogonDate");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorService.ClaimDuplicate[] Claims {
+        public System.DateTime LastPasswordSet {
             get {
-                return this.ClaimsField;
+                return this.LastPasswordSetField;
             }
             set {
-                if ((object.ReferenceEquals(this.ClaimsField, value) != true)) {
-                    this.ClaimsField = value;
-                    this.RaisePropertyChanged("Claims");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SystemManagament.Client.WPF.WorkstationMonitorService.GroupDuplicate[] Groups {
-            get {
-                return this.GroupsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.GroupsField, value) != true)) {
-                    this.GroupsField = value;
-                    this.RaisePropertyChanged("Groups");
+                if ((this.LastPasswordSetField.Equals(value) != true)) {
+                    this.LastPasswordSetField = value;
+                    this.RaisePropertyChanged("LastPasswordSet");
                 }
             }
         }
@@ -1521,6 +1508,19 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorService {
                 if ((object.ReferenceEquals(this.NameField, value) != true)) {
                     this.NameField = value;
                     this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Sid {
+            get {
+                return this.SidField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SidField, value) != true)) {
+                    this.SidField = value;
+                    this.RaisePropertyChanged("Sid");
                 }
             }
         }
@@ -1652,6 +1652,9 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorService {
         private string FullNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string GroupsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1727,6 +1730,19 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorService {
                 if ((object.ReferenceEquals(this.FullNameField, value) != true)) {
                     this.FullNameField = value;
                     this.RaisePropertyChanged("FullName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Groups {
+            get {
+                return this.GroupsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GroupsField, value) != true)) {
+                    this.GroupsField = value;
+                    this.RaisePropertyChanged("Groups");
                 }
             }
         }
@@ -2615,194 +2631,6 @@ namespace SystemManagament.Client.WPF.WorkstationMonitorService {
                 if ((object.ReferenceEquals(this.UserSIDField, value) != true)) {
                     this.UserSIDField = value;
                     this.RaisePropertyChanged("UserSID");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ClaimDuplicate", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.M" +
-        "odel.Components.Duplicate")]
-    [System.SerializableAttribute()]
-    public partial class ClaimDuplicate : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IssuerField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string OriginalIssuerField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.Generic.Dictionary<string, string> PropertiesField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ValueField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ValueTypeField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Issuer {
-            get {
-                return this.IssuerField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IssuerField, value) != true)) {
-                    this.IssuerField = value;
-                    this.RaisePropertyChanged("Issuer");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OriginalIssuer {
-            get {
-                return this.OriginalIssuerField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OriginalIssuerField, value) != true)) {
-                    this.OriginalIssuerField = value;
-                    this.RaisePropertyChanged("OriginalIssuer");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.Generic.Dictionary<string, string> Properties {
-            get {
-                return this.PropertiesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PropertiesField, value) != true)) {
-                    this.PropertiesField = value;
-                    this.RaisePropertyChanged("Properties");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Type {
-            get {
-                return this.TypeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TypeField, value) != true)) {
-                    this.TypeField = value;
-                    this.RaisePropertyChanged("Type");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Value {
-            get {
-                return this.ValueField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ValueField, value) != true)) {
-                    this.ValueField = value;
-                    this.RaisePropertyChanged("Value");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ValueType {
-            get {
-                return this.ValueTypeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ValueTypeField, value) != true)) {
-                    this.ValueTypeField = value;
-                    this.RaisePropertyChanged("ValueType");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="GroupDuplicate", Namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.M" +
-        "odel.Components.Duplicate")]
-    [System.SerializableAttribute()]
-    public partial class GroupDuplicate : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ValueField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Value {
-            get {
-                return this.ValueField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ValueField, value) != true)) {
-                    this.ValueField = value;
-                    this.RaisePropertyChanged("Value");
                 }
             }
         }

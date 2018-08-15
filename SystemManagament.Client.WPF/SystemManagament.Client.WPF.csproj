@@ -179,10 +179,8 @@
     <Compile Include="Comparer\BatteryStaticComparer.cs" />
     <Compile Include="Comparer\BiosComparer.cs" />
     <Compile Include="Comparer\CDROMDriveStaticComparer.cs" />
-    <Compile Include="Comparer\ClaimDuplicateComparer.cs" />
     <Compile Include="Comparer\CurrentUserStaticComparer.cs" />
     <Compile Include="Comparer\FanStaticComparer.cs" />
-    <Compile Include="Comparer\GroupDuplicateComparer.cs" />
     <Compile Include="Comparer\InstalledProgramComparer.cs" />
     <Compile Include="Comparer\LocalUserComparer.cs" />
     <Compile Include="Comparer\MemoryStaticComparer.cs" />
@@ -334,6 +332,16 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Connected Services\WorkstationMonitorService\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WorkstationMonitorService\service.wsdl" />
+    <None Include="Connected Services\WorkstationMonitorService\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WorkstationMonitorService\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\WorkstationMonitorService\SystemManagament.Client.WPF.WorkstationMonitorService.DiskDynamic.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -373,65 +381,52 @@
     <None Include="Connected Services\WorkstationMonitorService\SystemManagament.Client.WPF.WorkstationMonitorService.WindowsService.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService.wsdl" />
-    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService.xsd">
+    <None Include="Connected Services\WorkstationMonitorService\SystemManagament.Monitor.HardwareDynamic.Model.Components.Abstract.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService1.xsd">
+    <None Include="Connected Services\WorkstationMonitorService\SystemManagament.Monitor.HardwareDynamic.Model.Components.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService10.xsd">
+    <None Include="Connected Services\WorkstationMonitorService\SystemManagament.Monitor.HardwareDynamic.Model.CustomProperties.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService11.xsd">
+    <None Include="Connected Services\WorkstationMonitorService\SystemManagament.Monitor.HardwareDynamic.Model.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService12.xsd">
+    <None Include="Connected Services\WorkstationMonitorService\SystemManagament.Monitor.HardwareStatic.Model.Components.Abstract.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService13.xsd">
+    <None Include="Connected Services\WorkstationMonitorService\SystemManagament.Monitor.HardwareStatic.Model.Components.Analyzed.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService14.xsd">
+    <None Include="Connected Services\WorkstationMonitorService\SystemManagament.Monitor.HardwareStatic.Model.Components.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService15.xsd">
+    <None Include="Connected Services\WorkstationMonitorService\SystemManagament.Monitor.HardwareStatic.Model.CustomProperties.Enums.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService16.xsd">
+    <None Include="Connected Services\WorkstationMonitorService\SystemManagament.Monitor.HardwareStatic.Model.CustomProperties.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService17.xsd">
+    <None Include="Connected Services\WorkstationMonitorService\SystemManagament.Monitor.HardwareStatic.Model.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService18.xsd">
+    <None Include="Connected Services\WorkstationMonitorService\SystemManagament.Monitor.SoftwareDynamic.Model.Components.Duplicate.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService19.xsd">
+    <None Include="Connected Services\WorkstationMonitorService\SystemManagament.Monitor.SoftwareDynamic.Model.Components.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService2.xsd">
+    <None Include="Connected Services\WorkstationMonitorService\SystemManagament.Monitor.SoftwareDynamic.Model.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService3.xsd">
+    <None Include="Connected Services\WorkstationMonitorService\SystemManagament.Monitor.SoftwareStatic.Model.Components.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService4.xsd">
+    <None Include="Connected Services\WorkstationMonitorService\SystemManagament.Monitor.SoftwareStatic.Model.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService5.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService6.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService7.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService8.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService9.xsd">
+    <None Include="Connected Services\WorkstationMonitorService\SystemManagament.Shared.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
@@ -455,9 +450,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\WorkstationMonitorService\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\WorkstationMonitorService\WorkstationMonitorService.disco" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\WorkstationMonitorService\configuration91.svcinfo" />

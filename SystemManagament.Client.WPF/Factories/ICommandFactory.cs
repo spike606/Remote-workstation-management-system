@@ -41,8 +41,6 @@ namespace SystemManagament.Client.WPF.Factories
 
         IAsyncCommand CreateSoftwareStaticDataCommand(
             WpfObservableRangeCollection<CurrentUser> currentUser,
-            WpfObservableRangeCollection<ClaimDuplicate> currentUserClaims,
-            WpfObservableRangeCollection<GroupDuplicate> currentUserGroups,
             WpfObservableRangeCollection<OS> operatingSystem,
             WpfObservableRangeCollection<Bios> bios,
             WpfObservableRangeCollection<InstalledProgram> installedProgram,

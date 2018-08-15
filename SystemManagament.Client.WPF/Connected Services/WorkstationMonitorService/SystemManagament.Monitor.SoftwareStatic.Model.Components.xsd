@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.Model.Components" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.Model.Components" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.Model.Components.Duplicate" />
-  <xs:import schemaLocation="http://localhost:8000/WorkstationMonitorService?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" />
   <xs:complexType name="ArrayOfBios">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Bios" nillable="true" type="tns:Bios" />
@@ -38,10 +37,10 @@
   <xs:element name="ArrayOfCurrentUser" nillable="true" type="tns:ArrayOfCurrentUser" />
   <xs:complexType name="CurrentUser">
     <xs:sequence>
-      <xs:element minOccurs="0" name="AuthenticationType" nillable="true" type="xs:string" />
-      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.Model.Components.Duplicate" minOccurs="0" name="Claims" nillable="true" type="q1:ArrayOfClaimDuplicate" />
-      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.SoftwareStatic.Model.Components.Duplicate" minOccurs="0" name="Groups" nillable="true" type="q2:ArrayOfGroupDuplicate" />
+      <xs:element minOccurs="0" name="LastLogonDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LastPasswordSet" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sid" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="CurrentUser" nillable="true" type="tns:CurrentUser" />
@@ -72,6 +71,7 @@
       <xs:element minOccurs="0" name="Descritption" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Domain" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Groups" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="PasswordChangeable" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="PasswordExpires" nillable="true" type="xs:string" />
@@ -117,15 +117,15 @@
       <xs:element minOccurs="0" name="CSName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Caption" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string" />
-      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="CurrentTimeZone" type="q3:UnitShortValue" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="CurrentTimeZone" type="q1:UnitShortValue" />
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="EncryptionLevel" type="q4:UnitUIntValue" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="EncryptionLevel" type="q2:UnitUIntValue" />
       <xs:element minOccurs="0" name="InstallDate" type="xs:dateTime" />
       <xs:element minOccurs="0" name="LastBootUpTime" type="xs:dateTime" />
       <xs:element minOccurs="0" name="LocalDateTime" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Locale" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="MaxNumerOfProcesses" nillable="true" type="xs:string" />
-      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="MaxProcessMemorySize" type="q5:UnitULongValue" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SystemManagament.Monitor.HardwareStatic.Model.CustomProperties" minOccurs="0" name="MaxProcessMemorySize" type="q3:UnitULongValue" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="OSArchitecture" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Organization" nillable="true" type="xs:string" />

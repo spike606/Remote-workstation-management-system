@@ -11,8 +11,10 @@ namespace SystemManagament.Client.WPF.Comparer
     {
         public bool Equals(CurrentUser x, CurrentUser y)
         {
-            return x.AuthenticationType == y.AuthenticationType
-                && x.Name == y.Name;
+            return x.Sid == y.Sid
+                && x.Name == y.Name
+                && x.LastLogonDate == y.LastLogonDate
+                && x.LastPasswordSet == y.LastPasswordSet;
         }
 
         public int GetHashCode(CurrentUser obj)
