@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.DirectoryServices.AccountManagement;
 using System.Linq;
 using System.Security.Principal;
 using System.ServiceProcess;
@@ -19,5 +20,7 @@ namespace SystemManagament.Monitor.SoftwareStatic.Provider
         List<CurrentUser> GetCurrentUsers();
 
         List<InstalledProgram> GetInstalledPrograms();
+
+        UserPrincipal GetUserPrincipal(string username);
     }
 }

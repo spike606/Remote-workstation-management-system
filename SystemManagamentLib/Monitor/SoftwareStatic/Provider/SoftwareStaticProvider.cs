@@ -50,15 +50,7 @@ namespace SystemManagament.Monitor.SoftwareStatic.Provider
 
                 try
                 {
-                    using (var user = UserPrincipal.FindByIdentity(
-                        UserPrincipal.Current.Context,
-                        IdentityType.SamAccountName,
-                        currentUser.Name) ??
-                        UserPrincipal.FindByIdentity(
-                        UserPrincipal.Current.Context,
-                        IdentityType.UserPrincipalName,
-                        currentUser.Name
-                        ))
+                    using (var user = this.GetUserPrincipal(currentUser.Name))
                     {
                         currentUser.Sid = user.Sid.ToString();
                         currentUser.LastLogonDate = user.LastLogon ?? default(DateTime);
@@ -100,6 +92,19 @@ namespace SystemManagament.Monitor.SoftwareStatic.Provider
             }
 
             return softwareStaticDataList;
+        }
+
+        public UserPrincipal GetUserPrincipal(string username)
+        {
+            return UserPrincipal.FindByIdentity(
+                                    UserPrincipal.Current.Context,
+                                    IdentityType.SamAccountName,
+                                    username) ??
+                                    UserPrincipal.FindByIdentity(
+                                    UserPrincipal.Current.Context,
+                                    IdentityType.UserPrincipalName,
+                                    username
+                                    );
         }
 
         private void GetProgramsFromRegistryKey(List<InstalledProgram> installedPrograms, RegistryKey registryKey)
@@ -150,29 +155,6 @@ namespace SystemManagament.Monitor.SoftwareStatic.Provider
             }
 
             return groupDuplicate;
-        }
-
-        private List<ClaimDuplicate> MapSystemClaims(WindowsIdentity identity)
-        {
-            List<ClaimDuplicate> claimDuplicate = new List<ClaimDuplicate>();
-            if (identity
-                != null)
-            {
-                foreach (var claim in identity.Claims)
-                {
-                    claimDuplicate.Add(new ClaimDuplicate()
-                    {
-                        Issuer = claim.Issuer,
-                        OriginalIssuer = claim.OriginalIssuer,
-                        Properties = claim.Properties,
-                        Type = claim.Type,
-                        Value = claim.Value,
-                        ValueType = claim.ValueType,
-                    });
-                }
-            }
-
-            return claimDuplicate;
         }
     }
 }

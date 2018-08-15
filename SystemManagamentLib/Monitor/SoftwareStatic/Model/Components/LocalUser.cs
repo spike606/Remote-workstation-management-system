@@ -46,6 +46,9 @@ namespace SystemManagament.Monitor.SoftwareStatic.Model.Components
         [DataMember]
         public string SIDType { get; set; }
 
+        [DataMember]
+        public string Groups { get; set; }
+
         public LocalUser ExtractData(ManagementObject managementObject)
         {
             LocalUser localUser = new LocalUser();
@@ -70,7 +73,26 @@ namespace SystemManagament.Monitor.SoftwareStatic.Model.Components
 
         public List<LocalUser> GetStaticDataForSoftwareComponent(ISoftwareStaticProvider softwareStaticProvider)
         {
-            return softwareStaticProvider.GetSoftwareStaticDataFromWMI<LocalUser>();
+            List<LocalUser> localUsers = softwareStaticProvider.GetSoftwareStaticDataFromWMI<LocalUser>();
+
+            foreach (var localUser in localUsers)
+            {
+                using (var user = softwareStaticProvider.GetUserPrincipal(localUser.Name))
+                {
+                    var groups = user.GetAuthorizationGroups();
+
+                    StringBuilder stringBuilder = new StringBuilder();
+
+                    foreach (var group in groups)
+                    {
+                        stringBuilder.Append(group.Sid + "(" + group.Name + "); ");
+                    }
+
+                    localUser.Groups = stringBuilder.ToString();
+                }
+            }
+
+            return localUsers;
         }
     }
 }
