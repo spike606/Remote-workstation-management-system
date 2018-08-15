@@ -16,7 +16,7 @@ namespace SystemManagament.Monitor.SoftwareStatic.Provider
         List<T> GetSoftwareStaticDataFromWMI<T>()
             where T : IWMISoftwareStaticComponent<T>, new();
 
-        CurrentUser GetCurrentUser();
+        List<CurrentUser> GetCurrentUsers();
 
         List<InstalledProgram> GetInstalledPrograms();
     }

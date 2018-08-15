@@ -22,8 +22,8 @@ namespace SystemMonitorLibTest
             //monitor.RestartMachine();
 
             //HardwareDynamicData hardwareDynamicData = monitor.GetHardwareDynamicData();
-            HardwareStaticData hardwareStaticData = monitor.GetHardwareStaticData();
-            //SoftwareStaticData softwareStaticData = monitor.GetSoftwareStaticData();
+            //HardwareStaticData hardwareStaticData = monitor.GetHardwareStaticData();
+            SoftwareStaticData softwareStaticData = monitor.GetSoftwareStaticData();
             //SoftwareDynamicData softwareDynamicData = monitor.GetSoftwareDynamicData();
             //foreach (var item in softwareStaticData.InstalledProgram)
             //{

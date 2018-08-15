@@ -19,23 +19,20 @@ namespace SystemManagament.Monitor.SoftwareStatic.Model.Components
     public class CurrentUser : ISoftwareStaticComponent<CurrentUser>
     {
         [DataMember]
-        public string Name { get; internal set; }
+        public string Name { get; internal set; } = string.Empty;
 
         [DataMember]
-        public string AuthenticationType { get; internal set; }
+        public string Sid { get; internal set; } = string.Empty;
 
         [DataMember]
-        public List<ClaimDuplicate> Claims { get; internal set; }
+        public DateTime LastLogonDate { get; internal set; }
 
         [DataMember]
-        public List<GroupDuplicate> Groups { get; internal set; }
+        public DateTime LastPasswordSet { get; internal set; }
 
         public List<CurrentUser> GetStaticDataForSoftwareComponent(ISoftwareStaticProvider softwareStaticProvider)
         {
-            CurrentUser currentUser = softwareStaticProvider.GetCurrentUser();
-
-            List<CurrentUser> currentUserList = new List<CurrentUser>();
-            currentUserList.Add(currentUser);
+            List<CurrentUser> currentUserList = softwareStaticProvider.GetCurrentUsers();
 
             return currentUserList;
         }

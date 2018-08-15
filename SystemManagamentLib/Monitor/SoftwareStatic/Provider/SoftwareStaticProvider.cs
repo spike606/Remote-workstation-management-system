@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.DirectoryServices.AccountManagement;
 using System.Linq;
 using System.Management;
 using System.Security;
@@ -30,25 +32,48 @@ namespace SystemManagament.Monitor.SoftwareStatic.Provider
 
         private INLogger Logger { get; set; }
 
-        public CurrentUser GetCurrentUser()
+        public List<CurrentUser> GetCurrentUsers()
         {
-            WindowsIdentity identity = null;
-            try
+            List<CurrentUser> currentUsers = new List<CurrentUser>();
+
+            List<ManagementObject> explorerProcesses = this.WMIClient.RetriveListOfObjectsByExecutingWMIQuery(
+                ConstString.WMI_NAMESPACE_ROOT_CIMV2,
+                ConstString.WMI_QUERY_EXPLORER_PROCESS);
+
+            foreach (var explorerProcess in explorerProcesses)
             {
-                identity = WindowsIdentity.GetCurrent();
-            }
-            catch (SecurityException ex)
-            {
-                this.Logger.LogError(ex.Message, ex);
+                CurrentUser currentUser = new CurrentUser();
+
+                string[] currentUserName = new string[2];
+                explorerProcess.InvokeMethod("GetOwner", (object[])currentUserName);
+                currentUser.Name = currentUserName[1] + "\\" + currentUserName[0];
+
+                try
+                {
+                    using (var user = UserPrincipal.FindByIdentity(
+                        UserPrincipal.Current.Context,
+                        IdentityType.SamAccountName,
+                        currentUser.Name) ??
+                        UserPrincipal.FindByIdentity(
+                        UserPrincipal.Current.Context,
+                        IdentityType.UserPrincipalName,
+                        currentUser.Name
+                        ))
+                    {
+                        currentUser.Sid = user.Sid.ToString();
+                        currentUser.LastLogonDate = user.LastLogon ?? default(DateTime);
+                        currentUser.LastPasswordSet = user.LastPasswordSet ?? default(DateTime);
+                    }
+                }
+                catch (SecurityException ex)
+                {
+                    this.Logger.LogError(ex.Message, ex);
+                }
+
+                currentUsers.Add(currentUser);
             }
 
-            CurrentUser currentUser = new CurrentUser();
-            currentUser.Name = identity?.Name ?? string.Empty;
-            currentUser.AuthenticationType = identity?.AuthenticationType ?? string.Empty;
-            currentUser.Claims = this.MapSystemClaims(identity);
-            currentUser.Groups = this.MapSystemGroups(identity);
-
-            return currentUser;
+            return currentUsers;
         }
 
         public List<InstalledProgram> GetInstalledPrograms()

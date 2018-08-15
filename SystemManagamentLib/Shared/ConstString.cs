@@ -271,6 +271,8 @@ namespace SystemManagament.Monitor.HardwareStatic
         internal const string QUICK_FIX_ENGINEERING_INSTALLED_ON = "InstalledOn";
         internal const string QUICK_FIX_ENGINEERING_SERVICE_PACK_IN_EFFECT = "ServicePackInEffect";
 
+        internal const string WMI_QUERY_EXPLORER_PROCESS = "select * from Win32_Process where ExecutablePath Like '%explorer.exe%'";
+
         internal const string WMI_QUERY_LOCAL_USER = "select * from Win32_UserAccount where LocalAccount=true";
         internal const string LOCAL_USER_ACCOUNT_TYPE = "AccountType";
         internal const string LOCAL_USER_DOMAIN = "Domain";
