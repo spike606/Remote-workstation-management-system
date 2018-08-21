@@ -13,5 +13,9 @@ namespace SystemManagament.Client.WPF.ViewModel.Messages
         public uint DelayBetweenCalls_WindowsService { get; set; }
 
         public uint DelayBetweenCalls_HardwareDynamic { get; set; }
+
+        public bool DynamicHardwareLogs_Include { get; set; }
+
+        public string DynamicHardwareLogs_Path { get; set; }
     }
 }

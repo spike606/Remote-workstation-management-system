@@ -19,6 +19,8 @@ namespace SystemManagament.Client.WPF.ViewModel
         private uint delayBetweenCalls_WindowsProcess;
         private uint delayBetweenCalls_WindowsService;
         private uint delayBetweenCalls_HardwareDynamic;
+        private bool dynamicHardwareLogs_Include;
+        private string dynamicHardwareLogs_Path;
 
         public PreferencesViewModel()
         {
@@ -71,11 +73,39 @@ namespace SystemManagament.Client.WPF.ViewModel
             }
         }
 
+        public bool DynamicHardwareLogs_Include
+        {
+            get
+            {
+                return this.dynamicHardwareLogs_Include;
+            }
+
+            set
+            {
+                this.Set(() => this.DynamicHardwareLogs_Include, ref this.dynamicHardwareLogs_Include, value);
+            }
+        }
+
+        public string DynamicHardwareLogs_Path
+        {
+            get
+            {
+                return this.dynamicHardwareLogs_Path;
+            }
+
+            set
+            {
+                this.Set(() => this.DynamicHardwareLogs_Path, ref this.dynamicHardwareLogs_Path, value);
+            }
+        }
+
         private void ShowPreferencesWindowMessageReceived(ShowPreferencesWindowMessage message)
         {
             this.DelayBetweenCalls_HardwareDynamic = message.UpdatePreferencesMessage.DelayBetweenCalls_HardwareDynamic;
             this.DelayBetweenCalls_WindowsProcess = message.UpdatePreferencesMessage.DelayBetweenCalls_WindowsProcess;
             this.DelayBetweenCalls_WindowsService = message.UpdatePreferencesMessage.DelayBetweenCalls_WindowsService;
+            this.DynamicHardwareLogs_Include = message.UpdatePreferencesMessage.DynamicHardwareLogs_Include;
+            this.DynamicHardwareLogs_Path = message.UpdatePreferencesMessage.DynamicHardwareLogs_Path;
 
             this.preferencesWindow = new PreferencesWindow();
             this.preferencesWindow.DataContext = this;
@@ -90,6 +120,8 @@ namespace SystemManagament.Client.WPF.ViewModel
                 DelayBetweenCalls_WindowsProcess = this.DelayBetweenCalls_WindowsProcess,
                 DelayBetweenCalls_WindowsService = this.DelayBetweenCalls_WindowsService,
                 DelayBetweenCalls_HardwareDynamic = this.DelayBetweenCalls_HardwareDynamic,
+                DynamicHardwareLogs_Include = this.DynamicHardwareLogs_Include,
+                DynamicHardwareLogs_Path = this.DynamicHardwareLogs_Path,
             });
 
             this.preferencesWindow.Close();

@@ -664,6 +664,8 @@
     <system:String x:Key="Label_Preferences_DynamicHardware_Info">Refresh hardware dynamic data interval [s]:</system:String>
     <system:String x:Key="Label_Preferences_WindowsProcess_Info">Refresh windows processes data interval [s]:</system:String>
     <system:String x:Key="Label_Preferences_WindowsService_Info">Refresh windows services data interval [s]:</system:String>
+    <system:String x:Key="Label_Preferences_DynamicHardware_Logs">Create dynamic data logs</system:String>
+    <system:String x:Key="Label_Preferences_DynamicHardware_Logs_Path">Dynamic data logs path:</system:String>
 
     <system:String x:Key="Label_NewMachine_Uri">Machine URI:</system:String>
     <system:String x:Key="Label_NewMachine_Name">Machine name:</system:String>

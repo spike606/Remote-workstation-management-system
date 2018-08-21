@@ -16,6 +16,10 @@ namespace SystemManagament.Client.WPF.Settings
 
         uint DelayBetweenCalls_WindowsService { get; set; }
 
+        bool DynamicHardwareLogs_Include { get; set; }
+
+        string DynamicHardwareLogs_Path { get; set; }
+
         void Save();
 
         void Load();

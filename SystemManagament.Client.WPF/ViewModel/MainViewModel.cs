@@ -60,6 +60,10 @@ namespace SystemManagament.Client.WPF.ViewModel
 
         public uint DelayBetweenCalls_HardwareDynamic { get; private set; }
 
+        public bool DynamicHardwareLogs_Include { get; private set; }
+
+        public string DynamicHardwareLogs_Path { get; private set; }
+
         public ICommand SendNewMachineMessageCommand { get; private set; }
 
         public ICommand PreferencesCommand { get; private set; }
@@ -128,6 +132,8 @@ namespace SystemManagament.Client.WPF.ViewModel
             this.DelayBetweenCalls_HardwareDynamic = configProvider.DelayBetweenCalls_HardwareDynamic;
             this.DelayBetweenCalls_WindowsProcess = configProvider.DelayBetweenCalls_WindowsProcess;
             this.DelayBetweenCalls_WindowsService = configProvider.DelayBetweenCalls_WindowsService;
+            this.DynamicHardwareLogs_Include = configProvider.DynamicHardwareLogs_Include;
+            this.DynamicHardwareLogs_Path = configProvider.DynamicHardwareLogs_Path;
         }
 
         private void SendNewMachineMessage()
@@ -143,7 +149,9 @@ namespace SystemManagament.Client.WPF.ViewModel
                 {
                     DelayBetweenCalls_HardwareDynamic = this.DelayBetweenCalls_HardwareDynamic,
                     DelayBetweenCalls_WindowsService = this.DelayBetweenCalls_WindowsService,
-                    DelayBetweenCalls_WindowsProcess = this.DelayBetweenCalls_WindowsProcess
+                    DelayBetweenCalls_WindowsProcess = this.DelayBetweenCalls_WindowsProcess,
+                    DynamicHardwareLogs_Include = this.DynamicHardwareLogs_Include,
+                    DynamicHardwareLogs_Path = this.DynamicHardwareLogs_Path,
                 }
             });
         }
@@ -167,6 +175,8 @@ namespace SystemManagament.Client.WPF.ViewModel
             configProvider.DelayBetweenCalls_HardwareDynamic = this.DelayBetweenCalls_HardwareDynamic;
             configProvider.DelayBetweenCalls_WindowsProcess = this.DelayBetweenCalls_WindowsProcess;
             configProvider.DelayBetweenCalls_WindowsService = this.DelayBetweenCalls_WindowsService;
+            configProvider.DynamicHardwareLogs_Path = this.DynamicHardwareLogs_Path;
+            configProvider.DynamicHardwareLogs_Include = this.DynamicHardwareLogs_Include;
             configProvider.Save();
         }
 
@@ -232,6 +242,8 @@ namespace SystemManagament.Client.WPF.ViewModel
             this.DelayBetweenCalls_HardwareDynamic = message.DelayBetweenCalls_HardwareDynamic;
             this.DelayBetweenCalls_WindowsProcess = message.DelayBetweenCalls_WindowsProcess;
             this.DelayBetweenCalls_WindowsService = message.DelayBetweenCalls_WindowsService;
+            this.DynamicHardwareLogs_Include = message.DynamicHardwareLogs_Include;
+            this.DynamicHardwareLogs_Path = message.DynamicHardwareLogs_Path;
 
             this.SaveSettings();
         }

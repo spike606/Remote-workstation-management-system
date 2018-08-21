@@ -68,5 +68,35 @@ namespace SystemManagament.Client.WPF.Settings
                 this["DelayBetweenCalls_WindowsProcess"] = value;
             }
         }
+
+        [UserScopedSetting]
+        [SettingsSerializeAs(SettingsSerializeAs.Binary)]
+        public string DynamicHardwareLogs_Path
+        {
+            get
+            {
+                return (string)this["DynamicHardwareLogs_Path"];
+            }
+
+            set
+            {
+                this["DynamicHardwareLogs_Path"] = value;
+            }
+        }
+
+        [UserScopedSetting]
+        [SettingsSerializeAs(SettingsSerializeAs.Binary)]
+        public string DynamicHardwareLogs_Include
+        {
+            get
+            {
+                return (string)this["DynamicHardwareLogs_Include"];
+            }
+
+            set
+            {
+                this["DynamicHardwareLogs_Include"] = value;
+            }
+        }
     }
 }

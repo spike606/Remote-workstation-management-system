@@ -17,6 +17,10 @@ namespace SystemManagament.Client.WPF.Settings
 
         public uint DelayBetweenCalls_WindowsService { get; set; }
 
+        public bool DynamicHardwareLogs_Include { get; set; }
+
+        public string DynamicHardwareLogs_Path { get; set; }
+
         public void Load()
         {
             AppSettings settings = ViewModelLocator.Instance;
@@ -49,10 +53,26 @@ namespace SystemManagament.Client.WPF.Settings
                 settings.Reload();
             }
 
+            if (settings.DynamicHardwareLogs_Path == null)
+            {
+                settings.DynamicHardwareLogs_Path = string.Empty;
+                settings.Save();
+                settings.Reload();
+            }
+
+            if (settings.DynamicHardwareLogs_Include == null)
+            {
+                settings.DynamicHardwareLogs_Include = false.ToString();
+                settings.Save();
+                settings.Reload();
+            }
+
             this.WorkstationsParameters = settings.WorkstationsParameters;
             this.DelayBetweenCalls_HardwareDynamic = uint.Parse(settings.DelayBetweenCalls_HardwareDynamic);
             this.DelayBetweenCalls_WindowsProcess = uint.Parse(settings.DelayBetweenCalls_WindowsProcess);
             this.DelayBetweenCalls_WindowsService = uint.Parse(settings.DelayBetweenCalls_WindowsService);
+            this.DynamicHardwareLogs_Path = settings.DynamicHardwareLogs_Path;
+            this.DynamicHardwareLogs_Include = bool.Parse(settings.DynamicHardwareLogs_Include);
         }
 
         public void Save()
@@ -63,6 +83,8 @@ namespace SystemManagament.Client.WPF.Settings
             settings.DelayBetweenCalls_HardwareDynamic = this.DelayBetweenCalls_HardwareDynamic.ToString();
             settings.DelayBetweenCalls_WindowsProcess = this.DelayBetweenCalls_WindowsProcess.ToString();
             settings.DelayBetweenCalls_WindowsService = this.DelayBetweenCalls_WindowsService.ToString();
+            settings.DynamicHardwareLogs_Include = this.DynamicHardwareLogs_Include.ToString();
+            settings.DynamicHardwareLogs_Path = this.DynamicHardwareLogs_Path.ToString();
             settings.Save();
             settings.Reload();
         }
