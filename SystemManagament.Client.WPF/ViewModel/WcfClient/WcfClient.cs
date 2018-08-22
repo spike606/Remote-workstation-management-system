@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using System.Linq;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
@@ -71,6 +72,8 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
             WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelMainBoardTemp,
             WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelMainBoardFan,
             WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelMainBoardVoltage,
+            bool logsEnabled,
+            string logsDirectoryPath,
             WorkstationMonitorServiceClient workstationMonitorServiceClient,
             CancellationToken cancellationToken)
         {
@@ -78,103 +81,147 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
 
             if (result != null && !cancellationToken.IsCancellationRequested)
             {
+                string fileName = string.Empty;
+
                 foreach (var processor in result.Processor)
                 {
+                    fileName = this.GenerateLogFileNameForSensor(logsDirectoryPath, "CPU");
+
                     foreach (var load in processor.Load)
                     {
                         this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelProcessorLoad, load, processor.Name);
+                        this.LogSensorValueIfRequested(logsEnabled, fileName, load);
                     }
 
                     foreach (var clock in processor.Clock)
                     {
                         this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelProcessorClock, clock, processor.Name);
+                        this.LogSensorValueIfRequested(logsEnabled, fileName, clock);
                     }
 
                     foreach (var power in processor.Power)
                     {
                         this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelProcessorPower, power, processor.Name);
+                        this.LogSensorValueIfRequested(logsEnabled, fileName, power);
                     }
 
                     foreach (var temperature in processor.Temperature)
                     {
                         this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelProcessorTemp, temperature, processor.Name);
+                        this.LogSensorValueIfRequested(logsEnabled, fileName, temperature);
                     }
                 }
 
                 foreach (var disk in result.Disk)
                 {
+                    fileName = this.GenerateLogFileNameForSensor(logsDirectoryPath, "DISK");
+
                     foreach (var load in disk.Load)
                     {
                         this.dynamicDataHelper.DrawDynamicPieChartForHardwareSensor(dynamicChartViewModelDiskLoad, load, disk.Name);
+                        this.LogSensorValueIfRequested(logsEnabled, fileName, load);
                     }
 
                     foreach (var temperature in disk.Temperature)
                     {
                         this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelDiskTemp, temperature, disk.Name);
+                        this.LogSensorValueIfRequested(logsEnabled, fileName, temperature);
                     }
                 }
 
                 foreach (var memory in result.Memory)
                 {
+                    fileName = this.GenerateLogFileNameForSensor(logsDirectoryPath, "MEMORY");
+
                     foreach (var data in memory.Data)
                     {
                         this.dynamicDataHelper.DrawDynamicPieChartForHardwareSensor(dynamicChartViewModelMemoryData, data, memory.Name);
+                        this.LogSensorValueIfRequested(logsEnabled, fileName, data);
                     }
                 }
 
                 foreach (var gpu in result.VideoController)
                 {
+                    fileName = this.GenerateLogFileNameForSensor(logsDirectoryPath, "GPU");
+
                     foreach (var load in gpu.Load)
                     {
                         this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelGPULoad, load, gpu.Name);
+                        this.LogSensorValueIfRequested(logsEnabled, fileName, load);
                     }
 
                     foreach (var temperature in gpu.Temperature)
                     {
                         this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelGPUTemp, temperature, gpu.Name);
+                        this.LogSensorValueIfRequested(logsEnabled, fileName, temperature);
                     }
 
                     foreach (var clock in gpu.Clock)
                     {
                         this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelGPUClock, clock, gpu.Name);
+                        this.LogSensorValueIfRequested(logsEnabled, fileName, clock);
                     }
 
                     foreach (var data in gpu.Data)
                     {
                         this.dynamicDataHelper.DrawDynamicPieChartForHardwareSensor(dynamicChartViewModelGPUData, data, gpu.Name);
+                        this.LogSensorValueIfRequested(logsEnabled, fileName, data);
                     }
 
                     foreach (var voltage in gpu.Voltage)
                     {
                         this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelGPUVoltage, voltage, gpu.Name);
+                        this.LogSensorValueIfRequested(logsEnabled, fileName, voltage);
                     }
 
                     foreach (var fan in gpu.Fan)
                     {
                         this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelGPUFan, fan, gpu.Name);
+                        this.LogSensorValueIfRequested(logsEnabled, fileName, fan);
                     }
                 }
 
                 foreach (var mainBoard in result.MainBoard)
                 {
+                    fileName = this.GenerateLogFileNameForSensor(logsDirectoryPath, "MAINBOARD");
+
                     foreach (var temperature in mainBoard.Temperature)
                     {
                         this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelMainBoardTemp, temperature, mainBoard.Name);
+                        this.LogSensorValueIfRequested(logsEnabled, fileName, temperature);
                     }
 
                     foreach (var fan in mainBoard.Fan)
                     {
                         this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelMainBoardFan, fan, mainBoard.Name);
+                        this.LogSensorValueIfRequested(logsEnabled, fileName, fan);
                     }
 
                     foreach (var voltage in mainBoard.Voltage)
                     {
                         this.dynamicDataHelper.DrawDynamicLineChartForHardwareSensor(dynamicChartViewModelMainBoardVoltage, voltage, mainBoard.Name);
+                        this.LogSensorValueIfRequested(logsEnabled, fileName, voltage);
                     }
                 }
             }
 
             return result;
+        }
+
+        private void LogSensorValueIfRequested(bool logsEnabled, string fileName, Sensor sensor)
+        {
+            if (logsEnabled)
+            {
+                using (StreamWriter streamWriter = new StreamWriter(fileName, true))
+                {
+                    streamWriter.WriteLine(DateTime.Now.ToLongTimeString() + ";" + sensor.SensorType + ";" + sensor.SensorName + ";" + sensor.Value + ";" + sensor.Unit);
+                }
+            }
+        }
+
+        private string GenerateLogFileNameForSensor(string logsDirectoryPath, string sensorType)
+        {
+            return logsDirectoryPath + sensorType + DateTime.Now.ToString("_dd_MM_yyyy") + ".txt";
         }
 
         public async Task<SoftwareStaticData> ReadSoftwareStaticDataAsync(WorkstationMonitorServiceClient client)

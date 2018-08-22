@@ -80,10 +80,11 @@ namespace SystemManagament.Client.WPF.ViewModel
         private UIntParameter turnMachineOffTimeoutInSeconds = new UIntParameter(60);
         private UIntParameter restartMachineTimeoutInSeconds = new UIntParameter(60);
 
-        public WorkStationViewModel(ICommandFactory commandFactory, IUintValidator uintValidator)
+        public WorkStationViewModel(ICommandFactory commandFactory, IUintValidator uintValidator, WorkstationSettings workstationSettings)
         {
             this.commandFactory = commandFactory;
             this.uintValidator = uintValidator;
+            this.LoadSettings(workstationSettings);
             this.InitializeCommands();
             Messenger.Default.Register<CancelCommandMessage>(this, this.CancelCommandMessageReceivedHandler);
         }
@@ -729,7 +730,8 @@ namespace SystemManagament.Client.WPF.ViewModel
                 this.DynamicChartViewModelGPUFan,
                 this.DynamicChartViewModelMainBoardTemp,
                 this.DynamicChartViewModelMainBoardFan,
-                this.DynamicChartViewModelMainBoardVoltage);
+                this.DynamicChartViewModelMainBoardVoltage,
+                this.MachineName);
 
             this.LoadHardwareStaticDataCommand = this.commandFactory.CreateHardwareStaticDataCommand(
                 this.ProcessorStatic,

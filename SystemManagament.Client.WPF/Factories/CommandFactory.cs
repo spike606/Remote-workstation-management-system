@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.ServiceModel;
@@ -212,9 +213,11 @@ namespace SystemManagament.Client.WPF.Factories
             WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelGPUFan,
             WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelMainBoardTemp,
             WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelMainBoardFan,
-            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelMainBoardVoltage)
+            WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelMainBoardVoltage,
+            string machineName)
         {
-            return new AsyncCommand<bool>(async (cancellationToken) =>
+            return new AsyncCommandParameterized<bool>(
+                async (cancellationToken, nameOfMachine) =>
             {
                 return await Task.Run(async () =>
                 {
@@ -223,6 +226,21 @@ namespace SystemManagament.Client.WPF.Factories
                     try
                     {
                         workstationMonitorServiceClient = await this.wcfClient.GetNewWorkstationMonitorServiceClient();
+                        bool logsEnabled = false;
+                        DirectoryInfo logsDirectory = null;
+
+                        if (this.configProvider.DynamicHardwareLogs_Include)
+                        {
+                            string logsPath = this.configProvider.DynamicHardwareLogs_Path;
+                            if (!string.IsNullOrEmpty(logsPath))
+                            {
+                                string directoryName = nameOfMachine + "_Hardware_Dynamic_Logs\\";
+                                logsDirectory = Directory.CreateDirectory(logsPath + directoryName);
+                                logsEnabled = true;
+                            }
+                        }
+
+                        string logsDirectoryPath = logsDirectory?.FullName ?? string.Empty;
 
                         // Set the task.
                         var neverEndingTask = this.tPLFactory.CreateNeverEndingTaskMakingWcfCalls(
@@ -244,6 +262,8 @@ namespace SystemManagament.Client.WPF.Factories
                                 dynamicChartViewModelMainBoardTemp,
                                 dynamicChartViewModelMainBoardFan,
                                 dynamicChartViewModelMainBoardVoltage,
+                                logsEnabled,
+                                logsDirectoryPath,
                                 client,
                                 ct)
                                 .WithCancellation(ct),
@@ -261,13 +281,13 @@ namespace SystemManagament.Client.WPF.Factories
                             await Task.Delay(this.neverEndingCommandDelayInMiliSeconds);
                         }
                     }
-                    catch (InvalidOperationException ex)
+                    catch (Exception ex)
                     {
                         this.messageSender.SendErrorMessage(ex.Message);
                     }
                     return result;
                 });
-            });
+            }, machineName);
         }
 
         public IAsyncCommand CreateHardwareStaticDataCommand(

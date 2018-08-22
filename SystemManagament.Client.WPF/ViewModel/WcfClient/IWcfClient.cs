@@ -42,6 +42,8 @@ namespace SystemManagament.Client.WPF.ViewModel.Wcf
             WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelMainBoardTemp,
             WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelMainBoardFan,
             WpfObservableRangeCollection<DynamicLineChartViewModel> dynamicChartViewModelMainBoardVoltage,
+            bool logsEnabled,
+            string logsDirectoryPath,
             WorkstationMonitorServiceClient workstationMonitorServiceClient,
             CancellationToken cancellationToken);
 

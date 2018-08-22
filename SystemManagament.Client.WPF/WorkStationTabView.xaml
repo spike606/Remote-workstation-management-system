@@ -2188,7 +2188,7 @@
                             <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
-                            <Button Content="Start dynamic data" Command="{Binding LoadHardwareDynamicDataCommand}" 
+                            <Button Content="Start dynamic data" Command="{Binding LoadHardwareDynamicDataCommand}"
                         HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange">
                             </Button>
                         </Grid>
@@ -2263,7 +2263,7 @@
                             <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
-                            <Button Content="Start dynamic data" Command="{Binding LoadHardwareDynamicDataCommand}" 
+                            <Button Content="Start dynamic data" Command="{Binding LoadHardwareDynamicDataCommand}"
                         HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange">
                             </Button>
                         </Grid>
@@ -2320,7 +2320,7 @@
                             <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
-                            <Button Content="Start dynamic data" Command="{Binding LoadHardwareDynamicDataCommand}" 
+                            <Button Content="Start dynamic data" Command="{Binding LoadHardwareDynamicDataCommand}"
                         HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange">
                             </Button>
                         </Grid>
@@ -2413,7 +2413,7 @@
                             <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
-                            <Button Content="Start dynamic data" Command="{Binding LoadHardwareDynamicDataCommand}" 
+                            <Button Content="Start dynamic data" Command="{Binding LoadHardwareDynamicDataCommand}"
                         HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange">
                             </Button>
                         </Grid>
@@ -2461,9 +2461,8 @@
                             <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
-                            <Button Content="Start dynamic data" Command="{Binding LoadHardwareDynamicDataCommand}" 
-                        HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange">
-                            </Button>
+                            <Button Content="Start dynamic data" Command="{Binding LoadHardwareDynamicDataCommand}"
+                        HorizontalAlignment="Stretch" BorderThickness="2" Foreground="Orange" />
                         </Grid>
                         <Grid Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="3">
                             <Button Content="Stop dynamic data" Command="{Binding LoadHardwareDynamicDataCommand.CancelCommand}"
