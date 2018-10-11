@@ -10,7 +10,5 @@ namespace SystemManagament.Shared.WMI
     public interface IWMIClient
     {
         List<ManagementObject> RetriveListOfObjectsByExecutingWMIQuery(string wmiNamespace, string wmiQuery);
-
-        ManagementObjectCollection GetObjectsFromWMI(string wmiNamespace, string wmiQuery);
     }
 }

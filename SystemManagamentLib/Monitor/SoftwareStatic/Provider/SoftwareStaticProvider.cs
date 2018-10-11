@@ -16,21 +16,25 @@ using SystemManagament.Monitor.HardwareStatic;
 using SystemManagament.Monitor.SoftwareStatic.Model.Components;
 using SystemManagament.Monitor.SoftwareStatic.Model.Components.Duplicate;
 using SystemManagament.Shared;
+using SystemManagament.Shared.Win32API;
 using SystemManagament.Shared.WMI;
 
 namespace SystemManagament.Monitor.SoftwareStatic.Provider
 {
     public class SoftwareStaticProvider : ISoftwareStaticProvider
     {
-        public SoftwareStaticProvider(IWMIClient wmiClient, INLogger logger)
+        private readonly IWMIClient WMIClient;
+
+        private readonly INLogger Logger;
+
+        private readonly IWin32APIClient win32APIClient;
+
+        public SoftwareStaticProvider(IWMIClient wmiClient, INLogger logger, IWin32APIClient win32APIClient)
         {
             this.WMIClient = wmiClient;
             this.Logger = logger;
+            this.win32APIClient = win32APIClient;
         }
-
-        private IWMIClient WMIClient { get; set; }
-
-        private INLogger Logger { get; set; }
 
         public List<CurrentUser> GetCurrentUsers()
         {
@@ -122,8 +126,18 @@ namespace SystemManagament.Monitor.SoftwareStatic.Provider
                             if (!string.IsNullOrEmpty(applicationName) && !installedPrograms.Cast<InstalledProgram>().ToList().Any(x => x.Name == applicationName))
                             {
                                 program.Name = applicationName;
-                                string installDateAsString = subkey.GetValue(ConstString.REGISTRY_INSTALL_DATE)?.ToString() ?? string.Empty;
-                                program.InstallDate = DateTimeHelper.ConvertRegistryDateStringToCorrectDateTimeFormat(installDateAsString);
+
+                                string installDateAsString = subkey.GetValue(ConstString.REGISTRY_INSTALL_DATE)?.ToString();
+
+                                if (installDateAsString != null)
+                                {
+                                    program.InstallDate = DateTimeHelper.ConvertRegistryDateStringToCorrectDateTimeFormat(installDateAsString);
+                                }
+                                else
+                                {
+                                    program.InstallDate = this.win32APIClient.GetRegistryKeyLastModifiedDate(subkey.Handle);
+                                }
+
                                 program.InstallLocation = subkey.GetValue(ConstString.REGISTRY_INSTALL_LOCATION)?.ToString() ?? string.Empty;
                                 program.Version = subkey.GetValue(ConstString.REGISTRY_DISPLAY_VERSION)?.ToString() ?? string.Empty;
                                 installedPrograms.Add(program);

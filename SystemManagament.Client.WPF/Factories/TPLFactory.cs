@@ -28,36 +28,18 @@ namespace SystemManagament.Client.WPF.Factories
             string machineIdentifier,
             WorkstationMonitorServiceClient client)
         {
-            // Validate parameters.
-            if (action == null)
-            {
-                throw new ArgumentNullException("Action can't be null");
-            }
-
-            // Declare the block variable, it needs to be captured.
             ActionBlock<DateTimeOffset> block = null;
 
-            // Create the block, it will call itself, so
-            // declaration and assignment are separated
-            // Async so we can wait easily when the
-            // delay comes.
             block = new ActionBlock<DateTimeOffset>(
                 async now =>
                 {
                     try
                     {
-                        // Perform the action. Wait on the result.
-                        await action(now, cancellationToken, client).
-                            // Doing this here because synchronization context more than
-                            // likely *doesn't* need to be captured for the continuation
-                            // here.  As a matter of fact, that would be downright
-                            // dangerous.
-                            ConfigureAwait(false);
+                        await action(now, cancellationToken, client)
+                            .ConfigureAwait(false);
 
-                        // Wait.
-                        await Task.Delay(TimeSpan.FromSeconds(betweenCallsDelayInSeconds), cancellationToken).
-                            // Same as above.
-                            ConfigureAwait(false);
+                        await Task.Delay(TimeSpan.FromSeconds(betweenCallsDelayInSeconds), cancellationToken)
+                            .ConfigureAwait(false);
 
                         // Post the action back to the block.
                         block.Post(DateTimeOffset.Now);
