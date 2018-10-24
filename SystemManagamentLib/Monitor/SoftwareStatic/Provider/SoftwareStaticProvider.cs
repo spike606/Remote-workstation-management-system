@@ -78,7 +78,7 @@ namespace SystemManagament.Monitor.SoftwareStatic.Provider
             this.GetProgramsFromRegistryKey(installedPrograms, RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64).OpenSubKey(ConstString.REGISTRY_INSTALLED_PROGRAMS_64));
             this.GetProgramsFromRegistryKey(installedPrograms, RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry32).OpenSubKey(ConstString.REGISTRY_INSTALLED_PROGRAMS_32));
             this.GetProgramsFromRegistryKey(installedPrograms, RegistryKey.OpenBaseKey(RegistryHive.CurrentUser, RegistryView.Registry32).OpenSubKey(ConstString.REGISTRY_INSTALLED_PROGRAMS_64));
-            var sortedInstalledPrograms = installedPrograms.OrderBy(x => ((InstalledProgram)x).Name).ToList();
+            var sortedInstalledPrograms = installedPrograms.OrderBy(x => x.Name).ToList();
 
             return sortedInstalledPrograms;
         }
@@ -123,7 +123,7 @@ namespace SystemManagament.Monitor.SoftwareStatic.Provider
                         {
                             InstalledProgram program = new InstalledProgram();
                             string applicationName = subkey.GetValue(ConstString.REGISTRY_DISPLAY_NAME)?.ToString() ?? string.Empty;
-                            if (!string.IsNullOrEmpty(applicationName) && !installedPrograms.Cast<InstalledProgram>().ToList().Any(x => x.Name == applicationName))
+                            if (!string.IsNullOrEmpty(applicationName) && !installedPrograms.Any(x => x.Name == applicationName))
                             {
                                 program.Name = applicationName;
 
