@@ -23,6 +23,11 @@ namespace SystemManagament.Shared
                 }
             }
 
+            if (DateTime.TryParse(dateAsString, out DateTime dateTimeDefaultValue))
+            {
+                return dateTimeDefaultValue;
+            }
+            
             return default(DateTime);
         }
     }
